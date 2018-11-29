@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="TeachersCell" customModule="SpecialTraining" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="204" height="294"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="204" height="294"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="dNT-OM-spg">
+                        <rect key="frame" x="0.0" y="0.0" width="204" height="200"/>
+                        <color key="backgroundColor" red="0.96078431369999995" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="200" id="DhH-i2-huh"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="王老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="MFb-d5-ITC">
+                        <rect key="frame" x="10" y="210" width="52" height="21"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="高级拉丁舞老师" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kmZ-6P-wZH">
+                        <rect key="frame" x="10" y="234" width="184" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.60392156862745094" green="0.58431372549019611" blue="0.58431372549019611" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="曾获得高级老师称呼" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d3r-kP-kx3">
+                        <rect key="frame" x="10" y="254" width="184" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.60392156862745094" green="0.58431372549019611" blue="0.58431372549019611" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="擅长拉丁舞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="4p6-UF-azs">
+                        <rect key="frame" x="10" y="274" width="184" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.60392156862745094" green="0.58431372549019611" blue="0.58431372549019611" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="4p6-UF-azs" firstAttribute="top" secondItem="d3r-kP-kx3" secondAttribute="bottom" constant="3" id="3Cy-qn-Yni"/>
+                <constraint firstItem="4p6-UF-azs" firstAttribute="leading" secondItem="d3r-kP-kx3" secondAttribute="leading" id="77z-LC-8T0"/>
+                <constraint firstItem="MFb-d5-ITC" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="HE3-3n-43z"/>
+                <constraint firstItem="dNT-OM-spg" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="VuT-Te-igu"/>
+                <constraint firstAttribute="trailing" secondItem="kmZ-6P-wZH" secondAttribute="trailing" constant="10" id="XKO-tO-13U"/>
+                <constraint firstItem="dNT-OM-spg" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Zk0-1p-wHq"/>
+                <constraint firstItem="kmZ-6P-wZH" firstAttribute="leading" secondItem="MFb-d5-ITC" secondAttribute="leading" id="dXp-zy-NeU"/>
+                <constraint firstItem="d3r-kP-kx3" firstAttribute="trailing" secondItem="kmZ-6P-wZH" secondAttribute="trailing" id="j2L-QW-LUZ"/>
+                <constraint firstItem="MFb-d5-ITC" firstAttribute="top" secondItem="dNT-OM-spg" secondAttribute="bottom" constant="10" id="k6l-aR-H6V"/>
+                <constraint firstItem="d3r-kP-kx3" firstAttribute="leading" secondItem="kmZ-6P-wZH" secondAttribute="leading" id="khN-ni-SRm"/>
+                <constraint firstAttribute="trailing" secondItem="dNT-OM-spg" secondAttribute="trailing" id="pHU-uK-q8T"/>
+                <constraint firstItem="kmZ-6P-wZH" firstAttribute="top" secondItem="MFb-d5-ITC" secondAttribute="bottom" constant="3" id="q0f-pG-5Xk"/>
+                <constraint firstItem="4p6-UF-azs" firstAttribute="trailing" secondItem="d3r-kP-kx3" secondAttribute="trailing" id="zSU-E2-FrW"/>
+                <constraint firstItem="d3r-kP-kx3" firstAttribute="top" secondItem="kmZ-6P-wZH" secondAttribute="bottom" constant="3" id="zlL-U7-1kQ"/>
+            </constraints>
+            <size key="customSize" width="204" height="300"/>
+            <connections>
+                <outlet property="coverHeightCns" destination="DhH-i2-huh" id="NFR-PE-KR5"/>
+            </connections>
+            <point key="canvasLocation" x="92.799999999999997" y="162.81859070464768"/>
+        </collectionViewCell>
+    </objects>
+</document>

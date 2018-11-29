@@ -1,0 +1,103 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="CourseListCell" customModule="SpecialTraining" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="353" height="120"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="353" height="120"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="趣味英语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0mM-dF-05b">
+                        <rect key="frame" x="127" y="12" width="66" height="20"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <color key="textColor" red="0.043137254901960784" green="0.043137254901960784" blue="0.043137254901960784" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥2200-2800/90节/年" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lTQ-yD-gzF">
+                        <rect key="frame" x="127" y="90" width="219" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
+                        <color key="textColor" red="0.76470588235294112" green="0.4823529411764706" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="艺霖舞蹈·迎宾路店" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="gwq-nB-bJ3">
+                        <rect key="frame" x="149" y="37.5" width="197" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.047058823529411764" green="0.047058823529411764" blue="0.047058823529411764" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="30分钟|1.3km" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqL-gx-x8Z">
+                        <rect key="frame" x="269" y="17" width="77" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.45098039215686275" green="0.45098039215686275" blue="0.45098039215686275" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="每天跳舞一小时，健康快乐一辈子" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Nz3-dM-XfN">
+                        <rect key="frame" x="127" y="69" width="219" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.34509803921568627" green="0.34509803921568627" blue="0.34509803921568627" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="dianpu" translatesAutoresizingMaskIntoConstraints="NO" id="qDd-7D-jVk">
+                        <rect key="frame" x="127" y="37" width="17" height="17"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="17" id="BCi-XC-bs1"/>
+                            <constraint firstAttribute="width" secondItem="qDd-7D-jVk" secondAttribute="height" multiplier="1:1" id="Suu-1g-yA2"/>
+                        </constraints>
+                    </imageView>
+                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="A9C-Su-gNm">
+                        <rect key="frame" x="7" y="5" width="110" height="110"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="A9C-Su-gNm" secondAttribute="height" multiplier="1:1" id="gfw-Rh-e7P"/>
+                            <constraint firstAttribute="width" constant="110" id="qQV-5S-jJK"/>
+                        </constraints>
+                    </imageView>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="gwq-nB-bJ3" firstAttribute="trailing" secondItem="RqL-gx-x8Z" secondAttribute="trailing" id="3YD-8u-5RL"/>
+                <constraint firstItem="lTQ-yD-gzF" firstAttribute="trailing" secondItem="RqL-gx-x8Z" secondAttribute="trailing" id="4RT-RS-dy9"/>
+                <constraint firstItem="lTQ-yD-gzF" firstAttribute="top" secondItem="Nz3-dM-XfN" secondAttribute="bottom" constant="5" id="604-Mu-r3M"/>
+                <constraint firstItem="RqL-gx-x8Z" firstAttribute="bottom" secondItem="0mM-dF-05b" secondAttribute="bottom" id="68E-Nb-Vca"/>
+                <constraint firstItem="0mM-dF-05b" firstAttribute="top" secondItem="A9C-Su-gNm" secondAttribute="top" constant="7" id="8YV-B4-8wV"/>
+                <constraint firstItem="A9C-Su-gNm" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="7" id="8yw-Sa-LTv"/>
+                <constraint firstItem="0mM-dF-05b" firstAttribute="leading" secondItem="A9C-Su-gNm" secondAttribute="trailing" constant="10" id="AM5-1L-ejJ"/>
+                <constraint firstItem="gwq-nB-bJ3" firstAttribute="centerY" secondItem="qDd-7D-jVk" secondAttribute="centerY" id="AfW-ny-Y4b"/>
+                <constraint firstItem="Nz3-dM-XfN" firstAttribute="leading" secondItem="0mM-dF-05b" secondAttribute="leading" id="DMu-g6-OrV"/>
+                <constraint firstItem="qDd-7D-jVk" firstAttribute="leading" secondItem="0mM-dF-05b" secondAttribute="leading" id="KPP-cc-mZL"/>
+                <constraint firstItem="gwq-nB-bJ3" firstAttribute="leading" secondItem="qDd-7D-jVk" secondAttribute="trailing" constant="5" id="MVg-vx-B0w"/>
+                <constraint firstItem="qDd-7D-jVk" firstAttribute="top" secondItem="0mM-dF-05b" secondAttribute="bottom" constant="5" id="VwY-1S-UAy"/>
+                <constraint firstAttribute="trailing" secondItem="RqL-gx-x8Z" secondAttribute="trailing" constant="7" id="WN6-er-vd3"/>
+                <constraint firstItem="lTQ-yD-gzF" firstAttribute="leading" secondItem="0mM-dF-05b" secondAttribute="leading" id="WpQ-tY-hgp"/>
+                <constraint firstItem="Nz3-dM-XfN" firstAttribute="trailing" secondItem="RqL-gx-x8Z" secondAttribute="trailing" id="dwo-vR-eyX"/>
+                <constraint firstItem="A9C-Su-gNm" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="qt4-mQ-9ge"/>
+                <constraint firstItem="lTQ-yD-gzF" firstAttribute="bottom" secondItem="A9C-Su-gNm" secondAttribute="bottom" constant="-7" id="yK4-HA-bSI"/>
+            </constraints>
+            <size key="customSize" width="353" height="137"/>
+            <connections>
+                <outlet property="addressOutlet" destination="gwq-nB-bJ3" id="h7I-Te-rmI"/>
+                <outlet property="coverOutlet" destination="A9C-Su-gNm" id="PDY-fB-vwk"/>
+                <outlet property="desOutlet" destination="Nz3-dM-XfN" id="S9n-9I-dxZ"/>
+                <outlet property="distanceOutlet" destination="RqL-gx-x8Z" id="7hK-4Y-kdU"/>
+                <outlet property="priceOutlet" destination="lTQ-yD-gzF" id="Xu3-aC-HwX"/>
+                <outlet property="titleOutlet" destination="0mM-dF-05b" id="WTg-d1-ug5"/>
+            </connections>
+            <point key="canvasLocation" x="295.19999999999999" y="87.706146926536732"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name="dianpu" width="36" height="36"/>
+    </resources>
+</document>

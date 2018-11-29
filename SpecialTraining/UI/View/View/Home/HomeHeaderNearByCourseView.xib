@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeHeaderNearByCourseView" customModule="SpecialTraining" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="U6b-Vx-4bR" id="vig-6F-8rd"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="79"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5pg-NH-qXD">
+                    <rect key="frame" x="12" y="42" width="30" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="人气">
+                        <color key="titleColor" red="0.29019607843137252" green="0.29019607843137252" blue="0.29019607843137252" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6Hv-da-yVh">
+                    <rect key="frame" x="57" y="42" width="30" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="距离">
+                        <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5Cb-5y-q1h">
+                    <rect key="frame" x="278" y="42" width="30" height="29"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <state key="normal" title="筛选">
+                        <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TAh-ww-qo4">
+                    <rect key="frame" x="12" y="10" width="101" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="KNZ-8q-yca"/>
+                        <constraint firstAttribute="width" secondItem="TAh-ww-qo4" secondAttribute="height" multiplier="125:31" id="us1-zm-4sL"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="home_nearbycourse"/>
+                </button>
+            </subviews>
+            <constraints>
+                <constraint firstItem="5pg-NH-qXD" firstAttribute="top" secondItem="TAh-ww-qo4" secondAttribute="bottom" constant="7" id="05a-XO-Mxd"/>
+                <constraint firstItem="TAh-ww-qo4" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="12" id="8iK-9m-Ivr"/>
+                <constraint firstItem="6Hv-da-yVh" firstAttribute="leading" secondItem="5pg-NH-qXD" secondAttribute="trailing" constant="15" id="L72-Oy-Yxp"/>
+                <constraint firstItem="5Cb-5y-q1h" firstAttribute="centerY" secondItem="6Hv-da-yVh" secondAttribute="centerY" id="bPT-Wt-AP3"/>
+                <constraint firstItem="TAh-ww-qo4" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" constant="10" id="gFf-gW-yoz"/>
+                <constraint firstItem="6Hv-da-yVh" firstAttribute="centerY" secondItem="5pg-NH-qXD" secondAttribute="centerY" id="rEe-kf-eq0"/>
+                <constraint firstItem="5pg-NH-qXD" firstAttribute="leading" secondItem="TAh-ww-qo4" secondAttribute="leading" id="yZv-51-MJO"/>
+                <constraint firstAttribute="trailing" secondItem="5Cb-5y-q1h" secondAttribute="trailing" constant="12" id="ygB-7b-pkN"/>
+            </constraints>
+            <point key="canvasLocation" x="265.60000000000002" y="160.56971514242881"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="home_nearbycourse" width="250" height="62"/>
+    </resources>
+</document>

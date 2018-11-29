@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="HomeHeaderCarouselView" customModule="SpecialTraining" customModuleProvider="target">
+            <connections>
+                <outlet property="carouselView" destination="K0O-Y6-uKU" id="j7A-BG-hHQ"/>
+                <outlet property="contentView" destination="U6b-Vx-4bR" id="cfA-EH-g7T"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="233"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="K0O-Y6-uKU" customClass="CarouselView" customModule="SpecialTraining" customModuleProvider="target">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="187.5"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="width" secondItem="K0O-Y6-uKU" secondAttribute="height" multiplier="2:1" id="N7X-xm-etk"/>
+                    </constraints>
+                </view>
+                <button opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="liD-2G-ypL">
+                    <rect key="frame" x="12" y="197.5" width="101" height="25"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="25" id="BjR-hS-WKY"/>
+                        <constraint firstAttribute="width" secondItem="liD-2G-ypL" secondAttribute="height" multiplier="125:31" id="zTg-4G-66q"/>
+                    </constraints>
+                    <state key="normal" backgroundImage="home_ experience"/>
+                </button>
+            </subviews>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="K0O-Y6-uKU" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="8lW-eQ-1xq"/>
+                <constraint firstItem="K0O-Y6-uKU" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="EHF-6U-QN8"/>
+                <constraint firstItem="liD-2G-ypL" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="12" id="SMa-pA-oAO"/>
+                <constraint firstItem="liD-2G-ypL" firstAttribute="top" secondItem="K0O-Y6-uKU" secondAttribute="bottom" constant="10" id="qiv-g4-MQj"/>
+                <constraint firstAttribute="trailing" secondItem="K0O-Y6-uKU" secondAttribute="trailing" id="qth-Km-pnf"/>
+            </constraints>
+            <point key="canvasLocation" x="-96.799999999999997" y="116.49175412293854"/>
+        </collectionReusableView>
+    </objects>
+    <resources>
+        <image name="home_ experience" width="250" height="62"/>
+    </resources>
+</document>
