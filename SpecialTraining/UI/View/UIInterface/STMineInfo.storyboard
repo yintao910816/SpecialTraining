@@ -1,0 +1,63 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <scenes>
+        <!--Main Navigation Controller-->
+        <scene sceneID="nlr-Nx-nU0">
+            <objects>
+                <navigationController storyboardIdentifier="mineInfoMainNav" id="N87-ga-9Nl" customClass="MainNavigationController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xc0-RZ-Lr2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="eGX-YA-JCS" kind="relationship" relationship="rootViewController" id="M9m-jk-fFN"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="4nG-IJ-Z26" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-537" y="98"/>
+        </scene>
+        <!--Mine Info View Controller-->
+        <scene sceneID="9fh-73-ndi">
+            <objects>
+                <viewController storyboardIdentifier="mineInfoVC" id="eGX-YA-JCS" customClass="STMineInfoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="oKY-yB-4Y4"/>
+                        <viewControllerLayoutGuide type="bottom" id="5n9-s9-Ipx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="z3l-bS-GHJ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cm1-Dp-YTr" customClass="BaseTB" customModule="SpecialTraining" customModuleProvider="target">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="cm1-Dp-YTr" firstAttribute="leading" secondItem="z3l-bS-GHJ" secondAttribute="leading" id="5gU-TP-uC0"/>
+                            <constraint firstAttribute="trailing" secondItem="cm1-Dp-YTr" secondAttribute="trailing" id="6BS-w7-PC3"/>
+                            <constraint firstItem="cm1-Dp-YTr" firstAttribute="top" secondItem="oKY-yB-4Y4" secondAttribute="bottom" id="MW5-zZ-cxx"/>
+                            <constraint firstAttribute="bottom" secondItem="cm1-Dp-YTr" secondAttribute="bottom" id="V5H-zD-wIo"/>
+                        </constraints>
+                    </view>
+                    <navigationItem key="navigationItem" id="uwy-hA-YaP"/>
+                    <connections>
+                        <outlet property="tableView" destination="cm1-Dp-YTr" id="kgH-CS-7nr"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="UH8-JS-xFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="343" y="98"/>
+        </scene>
+    </scenes>
+</document>

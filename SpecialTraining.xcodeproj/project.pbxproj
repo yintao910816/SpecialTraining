@@ -256,6 +256,7 @@
 		B8FBFA7321A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA6F21A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift */; };
 		B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA7021A422B300AECB75 /* UIControl+_Rx.swift */; };
 		B8FBFA7621A426A200AECB75 /* NSDictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA7521A426A200AECB75 /* NSDictionary+Extension.swift */; };
+		C460193A21B0D883004498DB /* STMineInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C460193921B0D883004498DB /* STMineInfo.storyboard */; };
 		C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */; };
 		C47356D621AEB6A4000E24A5 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C47356D121AEB6A4000E24A5 /* libopencore-amrnb.a */; };
 		C47356D721AEB6A4000E24A5 /* amr_wav_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = C47356D321AEB6A4000E24A5 /* amr_wav_converter.c */; };
@@ -523,6 +524,7 @@
 		B8FBFA7021A422B300AECB75 /* UIControl+_Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+_Rx.swift"; sourceTree = "<group>"; };
 		B8FBFA7521A426A200AECB75 /* NSDictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extension.swift"; sourceTree = "<group>"; };
 		BA9BF6ADBFD18A54A821CAF6 /* Pods-SpecialTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.release.xcconfig"; sourceTree = "<group>"; };
+		C460193921B0D883004498DB /* STMineInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMineInfo.storyboard; sourceTree = "<group>"; };
 		C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAudioPlayer.m; sourceTree = "<group>"; };
 		C47356CF21AEB6A4000E24A5 /* DPAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAudioRecorder.h; sourceTree = "<group>"; };
 		C47356D021AEB6A4000E24A5 /* amr_wav_converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amr_wav_converter.h; sourceTree = "<group>"; };
@@ -1014,6 +1016,7 @@
 				B85F3373219EA01B00023958 /* LaunchScreen.storyboard */,
 				B85F3374219EA01B00023958 /* STMain.storyboard */,
 				B8FBFA6421A3E4D800AECB75 /* STLogin.storyboard */,
+				C460193921B0D883004498DB /* STMineInfo.storyboard */,
 			);
 			path = UIInterface;
 			sourceTree = "<group>";
@@ -1454,6 +1457,7 @@
 				B8FBFA3921A3DD9600AECB75 /* money_thumb.png in Resources */,
 				B8FBFA3821A3DD9600AECB75 /* k_thumb.png in Resources */,
 				B8FBFA2521A3DD9600AECB75 /* ok_thumb.png in Resources */,
+				C460193A21B0D883004498DB /* STMineInfo.storyboard in Resources */,
 				B8FBFA5721A3DD9600AECB75 /* good_thumb.png in Resources */,
 				B8FBFA3D21A3DD9600AECB75 /* qq_thumb.png in Resources */,
 				B8FBFA2E21A3DD9600AECB75 /* bba_thumb.png in Resources */,

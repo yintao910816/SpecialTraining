@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xR4-RU-JB4">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES" initialViewController="xR4-RU-JB4">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -917,45 +917,20 @@
                     <navigationItem key="navigationItem" id="fBp-qq-GIh"/>
                     <connections>
                         <outlet property="collectionView" destination="JC0-6d-9tJ" id="64c-vq-St5"/>
-                        <segue destination="Qi8-7X-LHv" kind="show" identifier="mineInfoSegue" id="Pvw-g6-gnP"/>
+                        <segue destination="W6e-eF-l2M" kind="show" identifier="mineInfoSegue" id="B4F-DO-Lr3"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2d-cl-AFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1209" y="1076"/>
         </scene>
-        <!--Mine Info View Controller-->
-        <scene sceneID="wT0-48-YE0">
+        <!--mineInfoVC-->
+        <scene sceneID="aUV-LI-2Qy">
             <objects>
-                <viewController id="Qi8-7X-LHv" customClass="STMineInfoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
-                    <layoutGuides>
-                        <viewControllerLayoutGuide type="top" id="5FW-Ou-WQe"/>
-                        <viewControllerLayoutGuide type="bottom" id="NAm-YA-k2H"/>
-                    </layoutGuides>
-                    <view key="view" contentMode="scaleToFill" id="qb9-5J-o0Y">
-                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MBV-uv-Hf0" customClass="BaseTB" customModule="SpecialTraining" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="64" width="375" height="554"/>
-                                <color key="backgroundColor" red="0.92549019607843142" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="deviceRGB"/>
-                            </tableView>
-                        </subviews>
-                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <constraints>
-                            <constraint firstItem="NAm-YA-k2H" firstAttribute="top" secondItem="MBV-uv-Hf0" secondAttribute="bottom" id="HC8-va-1yq"/>
-                            <constraint firstAttribute="trailing" secondItem="MBV-uv-Hf0" secondAttribute="trailing" id="UO4-ca-2IR"/>
-                            <constraint firstItem="MBV-uv-Hf0" firstAttribute="top" secondItem="5FW-Ou-WQe" secondAttribute="bottom" id="uYd-n8-nou"/>
-                            <constraint firstItem="MBV-uv-Hf0" firstAttribute="leading" secondItem="qb9-5J-o0Y" secondAttribute="leading" id="xXZ-84-pUR"/>
-                        </constraints>
-                    </view>
-                    <connections>
-                        <outlet property="tableView" destination="MBV-uv-Hf0" id="pEd-9H-gCV"/>
-                    </connections>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="f6G-ep-I0C" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <viewControllerPlaceholder storyboardName="STMineInfo" referencedIdentifier="mineInfoVC" id="W6e-eF-l2M" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rmD-ir-DCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1777" y="2064"/>
+            <point key="canvasLocation" x="2276" y="1357"/>
         </scene>
         <!--直播/点播-->
         <scene sceneID="y9m-dn-5nf">
