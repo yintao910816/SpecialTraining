@@ -18,7 +18,6 @@ pod 'Kingfisher', '~> 4.6.1'
 pod 'SwiftGifOrigin', '~> 1.6.1'
 
 pod 'Hyphenate'
-pod 'EaseUI', :git => 'https://github.com/easemob/easeui-ios-hyphenate-cocoapods.git'
 
 pod 'BaiduMapKit'
 pod 'BMKLocationKit'
