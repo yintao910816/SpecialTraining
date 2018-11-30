@@ -10,7 +10,6 @@
 #define SpecialTraining_Bridging_Header_h
 
 #import <Hyphenate/Hyphenate.h>
-#import <EaseUI/EaseUI.h>
 #import <YYKit/YYKit.h>
 
 // MD5

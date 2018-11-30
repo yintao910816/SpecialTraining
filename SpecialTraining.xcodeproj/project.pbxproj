@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		6B0754B421B0DD0C00B36740 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0754B321B0DD0C00B36740 /* libopencore-amrnb.a */; };
 		9FD4517D2967079F304C137C /* Pods_SpecialTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE818FA586C5776F2ED3A6E /* Pods_SpecialTraining.framework */; };
 		B80B6BDF219FA5FA00C33F11 /* BaseFilesOwner.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BDE219FA5FA00C33F11 /* BaseFilesOwner.swift */; };
 		B80B6BE1219FA66000C33F11 /* OrganizationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BE0219FA66000C33F11 /* OrganizationHeaderView.swift */; };
@@ -258,7 +259,6 @@
 		B8FBFA7621A426A200AECB75 /* NSDictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA7521A426A200AECB75 /* NSDictionary+Extension.swift */; };
 		C460193A21B0D883004498DB /* STMineInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C460193921B0D883004498DB /* STMineInfo.storyboard */; };
 		C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */; };
-		C47356D621AEB6A4000E24A5 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C47356D121AEB6A4000E24A5 /* libopencore-amrnb.a */; };
 		C47356D721AEB6A4000E24A5 /* amr_wav_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = C47356D321AEB6A4000E24A5 /* amr_wav_converter.c */; };
 		C47356D821AEB6A4000E24A5 /* DPAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356D421AEB6A4000E24A5 /* DPAudioRecorder.m */; };
 		C47356DB21AEB8DE000E24A5 /* JX_GCDTimerManager.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356DA21AEB8DE000E24A5 /* JX_GCDTimerManager.m */; };
@@ -271,6 +271,7 @@
 
 /* Begin PBXFileReference section */
 		5B57E04450B5AC201971F05F /* Pods-SpecialTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.debug.xcconfig"; sourceTree = "<group>"; };
+		6B0754B321B0DD0C00B36740 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		6DE818FA586C5776F2ED3A6E /* Pods_SpecialTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B80B6BDE219FA5FA00C33F11 /* BaseFilesOwner.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseFilesOwner.swift; sourceTree = "<group>"; };
 		B80B6BE0219FA66000C33F11 /* OrganizationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationHeaderView.swift; sourceTree = "<group>"; };
@@ -528,7 +529,6 @@
 		C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAudioPlayer.m; sourceTree = "<group>"; };
 		C47356CF21AEB6A4000E24A5 /* DPAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAudioRecorder.h; sourceTree = "<group>"; };
 		C47356D021AEB6A4000E24A5 /* amr_wav_converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amr_wav_converter.h; sourceTree = "<group>"; };
-		C47356D121AEB6A4000E24A5 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		C47356D221AEB6A4000E24A5 /* DPAudioPlayer.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAudioPlayer.h; sourceTree = "<group>"; };
 		C47356D321AEB6A4000E24A5 /* amr_wav_converter.c */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.c; path = amr_wav_converter.c; sourceTree = "<group>"; };
 		C47356D421AEB6A4000E24A5 /* DPAudioRecorder.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAudioRecorder.m; sourceTree = "<group>"; };
@@ -548,7 +548,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				9FD4517D2967079F304C137C /* Pods_SpecialTraining.framework in Frameworks */,
-				C47356D621AEB6A4000E24A5 /* libopencore-amrnb.a in Frameworks */,
+				6B0754B421B0DD0C00B36740 /* libopencore-amrnb.a in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1334,7 +1334,6 @@
 				C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */,
 				C47356D021AEB6A4000E24A5 /* amr_wav_converter.h */,
 				C47356D321AEB6A4000E24A5 /* amr_wav_converter.c */,
-				C47356D121AEB6A4000E24A5 /* libopencore-amrnb.a */,
 			);
 			path = "Record&Player";
 			sourceTree = "<group>";
@@ -1342,6 +1341,7 @@
 		C47356DC21AEBA6E000E24A5 /* AudioButton */ = {
 			isa = PBXGroup;
 			children = (
+				6B0754B321B0DD0C00B36740 /* libopencore-amrnb.a */,
 				C47356DD21AEBA6E000E24A5 /* chatBar_recordSelectedBg@2x.png */,
 				C47356DE21AEBA6E000E24A5 /* chatBar_recordBg@2x.png */,
 				C47356DF21AEBA6E000E24A5 /* ChatToolBarAudioButton.m */,
@@ -1533,21 +1533,16 @@
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
-				"${BUILT_PRODUCTS_DIR}/DACircularProgress/DACircularProgress.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
-				"${BUILT_PRODUCTS_DIR}/EaseUI/EaseUI.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${PODS_ROOT}/Hyphenate/iOS_Pods_IMFullSDK_V3.5.2/Hyphenate.framework",
 				"${BUILT_PRODUCTS_DIR}/Kingfisher/Kingfisher.framework",
-				"${BUILT_PRODUCTS_DIR}/MBProgressHUD/MBProgressHUD.framework",
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
-				"${BUILT_PRODUCTS_DIR}/MWPhotoBrowser/MWPhotoBrowser.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
-				"${BUILT_PRODUCTS_DIR}/SDWebImage/SDWebImage.framework",
 				"${BUILT_PRODUCTS_DIR}/SQLite.swift/SQLite.framework",
 				"${BUILT_PRODUCTS_DIR}/SnapKit/SnapKit.framework",
 				"${BUILT_PRODUCTS_DIR}/SwiftGifOrigin/SwiftGifOrigin.framework",
@@ -1556,21 +1551,16 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/DACircularProgress.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/EaseUI.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hyphenate.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Kingfisher.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MBProgressHUD.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MWPhotoBrowser.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
-				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SDWebImage.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SQLite.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SnapKit.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/SwiftGifOrigin.framework",
@@ -1586,15 +1576,11 @@
 			buildActionMask = 2147483647;
 			files = (
 			);
-			inputFileListPaths = (
-			);
 			inputPaths = (
 				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
-			outputFileListPaths = (
-			);
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
 			);
@@ -1928,6 +1914,7 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player/AudioButton",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youpeixun.SpecialTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -1957,6 +1944,7 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player/AudioButton",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youpeixun.SpecialTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
