@@ -880,7 +880,6 @@
 				B8FBFA6021A3E11600AECB75 /* KeyboardManager */,
 				B8FBFA5B21A3DE3D00AECB75 /* PlaceholderTextView */,
 				B8FBF9D021A3DD9600AECB75 /* CustomKeyBoard */,
-				B87F906521A2E2CF00DE9DC1 /* Lib */,
 				B85F337C219EA17100023958 /* Carousel */,
 				B85F3346219E94D600023958 /* TYHUD */,
 				B85F3329219E90E000023958 /* Extension */,
@@ -1174,21 +1173,6 @@
 				B81EDF6C21A5324700F9D3B0 /* ChatAudoRightView.xib */,
 			);
 			path = Message;
-			sourceTree = "<group>";
-		};
-		B87F906521A2E2CF00DE9DC1 /* Lib */ = {
-			isa = PBXGroup;
-			children = (
-				B87F906621A2E2CF00DE9DC1 /* EaseMob */,
-			);
-			path = Lib;
-			sourceTree = "<group>";
-		};
-		B87F906621A2E2CF00DE9DC1 /* EaseMob */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = EaseMob;
 			sourceTree = "<group>";
 		};
 		B8FBF9D021A3DD9600AECB75 /* CustomKeyBoard */ = {
