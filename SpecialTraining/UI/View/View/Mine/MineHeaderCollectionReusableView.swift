@@ -28,6 +28,12 @@ class MineHeaderCollectionReusableView: UICollectionReusableView {
             delegate?.gotoMineInfo()
         case 501:
             delegate?.login()
+        case 502:
+            delegate?.gotoMineCourse()
+        case 503:
+            delegate?.gotoMineAccount()
+        case 504:
+            delegate?.gotoMineRecommend()
         default:
             break
         }
@@ -72,4 +78,10 @@ protocol MineHeaderActions: class {
     func gotoMineInfo()
     
     func login()
+    
+    func gotoMineCourse()
+    
+    func gotoMineAccount()
+    
+    func gotoMineRecommend()
 }

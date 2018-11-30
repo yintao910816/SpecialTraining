@@ -8,8 +8,10 @@
 
 import UIKit
 import RxDataSources
+import RxSwift
+import RxCocoa
 
-class STMineInfoViewController: BaseViewController {
+class STMineInfoViewController: BaseViewController , VMNavigation{
 
     @IBOutlet weak var tableView: BaseTB!
     
@@ -41,6 +43,12 @@ class STMineInfoViewController: BaseViewController {
         
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
+        tableView.rx.itemSelected.asDriver().drive(onNext: { [unowned self] (indexpath) in
+            if indexpath.section == 1 {
+                self.performSegue(withIdentifier: "mineCustom", sender: nil)
+            }
+        }).disposed(by: disposeBag)
     }
 }
 

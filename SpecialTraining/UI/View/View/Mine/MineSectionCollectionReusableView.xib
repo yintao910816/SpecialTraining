@@ -1,16 +1,17 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineSectionCollectionReusableView" customModule="SpecialTraining" customModuleProvider="target">
             <connections>
+                <outlet property="addBtn" destination="Z2f-yt-zoa" id="bwu-oD-cx7"/>
                 <outlet property="contentView" destination="U6b-Vx-4bR" id="0SG-FM-dQM"/>
                 <outlet property="titleOutlet" destination="qKr-Sj-BNb" id="6Km-ZA-2yl"/>
             </connections>
@@ -21,16 +22,29 @@
             <autoresizingMask key="autoresizingMask"/>
             <subviews>
                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="收藏" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qKr-Sj-BNb">
-                    <rect key="frame" x="16" y="12.5" width="33" height="20"/>
-                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <rect key="frame" x="16" y="12.5" width="35" height="20"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="17"/>
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2f-yt-zoa">
+                    <rect key="frame" x="277" y="9" width="27" height="27"/>
+                    <state key="normal" image="bnavi_icon_location_fixed.png"/>
+                    <connections>
+                        <action selector="clickAddBtn" destination="-1" eventType="touchUpInside" id="9ej-X8-4PA"/>
+                    </connections>
+                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="qKr-Sj-BNb" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="16" id="GrG-g4-Rpq"/>
                 <constraint firstItem="qKr-Sj-BNb" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="Mnl-T2-8L6"/>
+                <constraint firstItem="Z2f-yt-zoa" firstAttribute="centerY" secondItem="qKr-Sj-BNb" secondAttribute="centerY" id="mkL-EI-Jld"/>
+                <constraint firstAttribute="trailing" secondItem="Z2f-yt-zoa" secondAttribute="trailing" constant="16" id="wVK-iw-D0r"/>
             </constraints>
+            <point key="canvasLocation" x="-648" y="40"/>
         </collectionReusableView>
     </objects>
+    <resources>
+        <image name="bnavi_icon_location_fixed.png" width="27" height="27"/>
+    </resources>
 </document>

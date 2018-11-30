@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -55,21 +55,30 @@
                                 <action selector="actions:" destination="-1" eventType="touchUpInside" id="4O9-us-oFk"/>
                             </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PL4-wS-GJA">
+                        <button opaque="NO" tag="502" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PL4-wS-GJA">
                             <rect key="frame" x="64" y="101" width="65" height="65"/>
                             <state key="normal" image="mine_course"/>
+                            <connections>
+                                <action selector="actions:" destination="-1" eventType="touchUpInside" id="LvX-6L-Ia9"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-ZK-4gL">
+                        <button opaque="NO" tag="503" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-ZK-4gL">
                             <rect key="frame" x="179" y="101" width="65" height="65"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="65" id="488-MO-duS"/>
                                 <constraint firstAttribute="width" secondItem="n9G-ZK-4gL" secondAttribute="height" multiplier="1:1" id="pYj-Le-lCc"/>
                             </constraints>
                             <state key="normal" title="Button" image="mine_account"/>
+                            <connections>
+                                <action selector="actions:" destination="-1" eventType="touchUpInside" id="Dj2-Qg-XS2"/>
+                            </connections>
                         </button>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHj-qX-kxc">
+                        <button opaque="NO" tag="504" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHj-qX-kxc">
                             <rect key="frame" x="294" y="101" width="65" height="65"/>
                             <state key="normal" title="Button" image="mine_recommend"/>
+                            <connections>
+                                <action selector="actions:" destination="-1" eventType="touchUpInside" id="RPw-hd-Z8W"/>
+                            </connections>
                         </button>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="e3N-DX-5KE">
                             <rect key="frame" x="82" y="47" width="110" height="25"/>
@@ -158,14 +167,14 @@
                 <constraint firstItem="TVI-iQ-Eke" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="12" id="qpX-I4-OB5"/>
                 <constraint firstItem="bPc-kI-LNe" firstAttribute="top" secondItem="TVI-iQ-Eke" secondAttribute="bottom" constant="15" id="xP0-9d-teP"/>
             </constraints>
-            <point key="canvasLocation" x="-7.2000000000000002" y="177.21139430284859"/>
+            <point key="canvasLocation" x="98" y="166"/>
         </collectionReusableView>
     </objects>
     <resources>
         <image name="default_user_icon" width="300" height="300"/>
         <image name="mine_account" width="240" height="240"/>
         <image name="mine_course" width="240" height="240"/>
-        <image name="mine_qingqinhao" width="36" height="36"/>
+        <image name="mine_qingqinhao" width="18" height="18"/>
         <image name="mine_recommend" width="240" height="240"/>
         <image name="mine_youpeixun" width="300" height="300"/>
         <image name="setting" width="90" height="90"/>

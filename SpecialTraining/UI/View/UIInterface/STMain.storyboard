@@ -918,11 +918,30 @@
                     <connections>
                         <outlet property="collectionView" destination="JC0-6d-9tJ" id="64c-vq-St5"/>
                         <segue destination="W6e-eF-l2M" kind="show" identifier="mineInfoSegue" id="B4F-DO-Lr3"/>
+                        <segue destination="edW-9J-GS3" kind="show" identifier="mineCourse" id="zKp-J3-Raa"/>
+                        <segue destination="BST-48-sut" kind="show" identifier="mineAccount" id="bgC-l7-EAA"/>
+                        <segue destination="mq2-Kv-4tu" kind="show" identifier="mineRecomend" id="uZ1-uK-cvd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2d-cl-AFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1209" y="1076"/>
+        </scene>
+        <!--STMineAccountViewController-->
+        <scene sceneID="XT1-kz-zRg">
+            <objects>
+                <viewControllerPlaceholder storyboardName="STMineInfo" referencedIdentifier="STMineAccountViewController" id="BST-48-sut" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="QB8-5g-rxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2367" y="1178"/>
+        </scene>
+        <!--STMineRecomendViewController-->
+        <scene sceneID="7kg-Gr-zAh">
+            <objects>
+                <viewControllerPlaceholder storyboardName="STMineInfo" referencedIdentifier="STMineRecomendViewController" id="mq2-Kv-4tu" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kt4-wq-D3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2378" y="1265"/>
         </scene>
         <!--mineInfoVC-->
         <scene sceneID="aUV-LI-2Qy">
@@ -931,6 +950,14 @@
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rmD-ir-DCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="2276" y="1357"/>
+        </scene>
+        <!--STMineCourseViewController-->
+        <scene sceneID="Nks-0E-MUY">
+            <objects>
+                <viewControllerPlaceholder storyboardName="STMineInfo" referencedIdentifier="STMineCourseViewController" id="edW-9J-GS3" sceneMemberID="viewController"/>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Dqb-lp-jab" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2360" y="1096"/>
         </scene>
         <!--直播/点播-->
         <scene sceneID="y9m-dn-5nf">
@@ -1002,7 +1029,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chengzhangxinyong" width="300" height="300"/>
+        <image name="chengzhangxinyong" width="100" height="100"/>
         <image name="dianhua" width="200" height="200"/>
         <image name="guanzhu" width="360" height="360"/>
         <image name="home_course_selected" width="150" height="150"/>
@@ -1010,9 +1037,9 @@
         <image name="home_organization_selected" width="150" height="150"/>
         <image name="home_organization_unselected" width="150" height="150"/>
         <image name="kefu" width="200" height="200"/>
-        <image name="shopping_ding" width="300" height="300"/>
-        <image name="shopping_unselected" width="120" height="120"/>
+        <image name="shopping_ding" width="100" height="100"/>
+        <image name="shopping_unselected" width="40" height="40"/>
         <image name="show_my_location" width="200" height="200"/>
-        <image name="yangguangfenshu" width="300" height="300"/>
+        <image name="yangguangfenshu" width="100" height="100"/>
     </resources>
 </document>

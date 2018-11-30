@@ -88,4 +88,16 @@ extension STMineViewController: MineHeaderActions, VMNavigation {
     func login() {
         STHelper.presentLogin()
     }
+    
+    func gotoMineCourse() {
+        performSegue(withIdentifier: "mineCourse", sender: nil)
+    }
+    
+    func gotoMineAccount() {
+        performSegue(withIdentifier: "mineAccount", sender: nil)
+    }
+    
+    func gotoMineRecommend() {
+        performSegue(withIdentifier: "mineRecomend", sender: nil)
+    }
 }
