@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -54,7 +54,7 @@
                     <nil key="highlightedColor"/>
                 </label>
                 <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1m-mV-dtE">
-                    <rect key="frame" x="72" y="38" width="80" height="45"/>
+                    <rect key="frame" x="72" y="33" width="80" height="55"/>
                 </button>
             </subviews>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -62,10 +62,10 @@
                 <constraint firstItem="KHn-k3-HJ7" firstAttribute="top" secondItem="Vz8-ex-RY8" secondAttribute="bottom" constant="6" id="75S-N7-Lvs"/>
                 <constraint firstItem="Vz8-ex-RY8" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="6" id="8i5-yc-mMx"/>
                 <constraint firstItem="KHn-k3-HJ7" firstAttribute="width" secondItem="KHn-k3-HJ7" secondAttribute="height" multiplier="1:1" id="CVa-EE-c8w"/>
-                <constraint firstItem="F1m-mV-dtE" firstAttribute="top" secondItem="GYQ-fZ-hvw" secondAttribute="top" constant="10" id="Sst-q9-YYQ"/>
+                <constraint firstItem="F1m-mV-dtE" firstAttribute="top" secondItem="GYQ-fZ-hvw" secondAttribute="top" constant="5" id="Sst-q9-YYQ"/>
                 <constraint firstItem="KHn-k3-HJ7" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="12" id="UXA-ps-iQs"/>
                 <constraint firstItem="GYQ-fZ-hvw" firstAttribute="top" secondItem="KHn-k3-HJ7" secondAttribute="top" id="gwh-mJ-pTr"/>
-                <constraint firstItem="F1m-mV-dtE" firstAttribute="bottom" secondItem="GYQ-fZ-hvw" secondAttribute="bottom" constant="-10" id="iBO-EN-Xb4"/>
+                <constraint firstItem="F1m-mV-dtE" firstAttribute="bottom" secondItem="GYQ-fZ-hvw" secondAttribute="bottom" constant="-5" id="iBO-EN-Xb4"/>
                 <constraint firstItem="GYQ-fZ-hvw" firstAttribute="leading" secondItem="KHn-k3-HJ7" secondAttribute="trailing" constant="5" id="ijW-LU-YnD"/>
                 <constraint firstItem="Vz8-ex-RY8" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="oUA-dA-pE9"/>
                 <constraint firstItem="F1m-mV-dtE" firstAttribute="leading" secondItem="GYQ-fZ-hvw" secondAttribute="leading" constant="15" id="ru9-5p-QWC"/>

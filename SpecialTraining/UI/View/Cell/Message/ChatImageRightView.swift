@@ -49,15 +49,14 @@ class ChatImageRightView: UIView {
             iconOutlet.setImage(model.iconStr, .userIcon)
             timeOutlet.text = model.messageTime
 
-            PrintLog(model.thumbnailLocalPath)
-            PrintLog(model.thumbnailRemotePath)
-
-            _ = Create(imageTask: model.thumbnailRemotePath)
-                .subscribe(onNext: { [weak self] (image, url) in
-                    self?.contentImageOutlet.setImage(image, for: .normal)
-                    }, onError: { error in
-                        PrintLog(error)
-                })
+            contentImageOutlet.setImage(model.image, for: .normal)
+            
+//            _ = Create(imageTask: model.thumbnailRemotePath)
+//                .subscribe(onNext: { [weak self] (image, url) in
+//                    self?.contentImageOutlet.setImage(image, for: .normal)
+//                    }, onError: { error in
+//                        PrintLog(error)
+//                })
             
             paopaoWidthCns.constant = model.width + 20
             paopaoHeightCns.constant = model.height + 20
