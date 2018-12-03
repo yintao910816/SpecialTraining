@@ -31,7 +31,13 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         STHelper.login(account: "666666", password: "111111")
         #endif
-            
+        
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.rootViewController = STMainTabBarController()
+        
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .white
+        
         return true
     }
 

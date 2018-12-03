@@ -278,7 +278,12 @@
 		B8FBFA7321A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA6F21A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift */; };
 		B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA7021A422B300AECB75 /* UIControl+_Rx.swift */; };
 		B8FBFA7621A426A200AECB75 /* NSDictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA7521A426A200AECB75 /* NSDictionary+Extension.swift */; };
-		C460193A21B0D883004498DB /* STMineInfo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C460193921B0D883004498DB /* STMineInfo.storyboard */; };
+		C408422021B549C900C491A8 /* STHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408421F21B549C900C491A8 /* STHome.storyboard */; };
+		C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408422121B54A0D00C491A8 /* STVideo.storyboard */; };
+		C408422421B54A1A00C491A8 /* STMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408422321B54A1A00C491A8 /* STMessage.storyboard */; };
+		C408422621B54A2F00C491A8 /* STShopping.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408422521B54A2F00C491A8 /* STShopping.storyboard */; };
+		C408422821B54C0B00C491A8 /* STMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408422721B54C0B00C491A8 /* STMainTabBarController.swift */; };
+		C460193A21B0D883004498DB /* STMine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C460193921B0D883004498DB /* STMine.storyboard */; };
 		C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */; };
 		C47356D721AEB6A4000E24A5 /* amr_wav_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = C47356D321AEB6A4000E24A5 /* amr_wav_converter.c */; };
 		C47356D821AEB6A4000E24A5 /* DPAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356D421AEB6A4000E24A5 /* DPAudioRecorder.m */; };
@@ -567,7 +572,12 @@
 		B8FBFA7021A422B300AECB75 /* UIControl+_Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+_Rx.swift"; sourceTree = "<group>"; };
 		B8FBFA7521A426A200AECB75 /* NSDictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extension.swift"; sourceTree = "<group>"; };
 		BA9BF6ADBFD18A54A821CAF6 /* Pods-SpecialTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.release.xcconfig"; sourceTree = "<group>"; };
-		C460193921B0D883004498DB /* STMineInfo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMineInfo.storyboard; sourceTree = "<group>"; };
+		C408421F21B549C900C491A8 /* STHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STHome.storyboard; sourceTree = "<group>"; };
+		C408422121B54A0D00C491A8 /* STVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STVideo.storyboard; sourceTree = "<group>"; };
+		C408422321B54A1A00C491A8 /* STMessage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMessage.storyboard; sourceTree = "<group>"; };
+		C408422521B54A2F00C491A8 /* STShopping.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STShopping.storyboard; sourceTree = "<group>"; };
+		C408422721B54C0B00C491A8 /* STMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMainTabBarController.swift; sourceTree = "<group>"; };
+		C460193921B0D883004498DB /* STMine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMine.storyboard; sourceTree = "<group>"; };
 		C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAudioPlayer.m; sourceTree = "<group>"; };
 		C47356CF21AEB6A4000E24A5 /* DPAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAudioRecorder.h; sourceTree = "<group>"; };
 		C47356D021AEB6A4000E24A5 /* amr_wav_converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amr_wav_converter.h; sourceTree = "<group>"; };
@@ -840,6 +850,7 @@
 				B85F332C219E913400023958 /* Appdelegate */,
 				B85F332E219E913500023958 /* Configuration */,
 				B87F8F8921A299AE00DE9DC1 /* SpecialTraining-Bridging-Header.h */,
+				C408422721B54C0B00C491A8 /* STMainTabBarController.swift */,
 			);
 			path = Main;
 			sourceTree = "<group>";
@@ -1106,7 +1117,11 @@
 				B85F3373219EA01B00023958 /* LaunchScreen.storyboard */,
 				B85F3374219EA01B00023958 /* STMain.storyboard */,
 				B8FBFA6421A3E4D800AECB75 /* STLogin.storyboard */,
-				C460193921B0D883004498DB /* STMineInfo.storyboard */,
+				C460193921B0D883004498DB /* STMine.storyboard */,
+				C408421F21B549C900C491A8 /* STHome.storyboard */,
+				C408422121B54A0D00C491A8 /* STVideo.storyboard */,
+				C408422321B54A1A00C491A8 /* STMessage.storyboard */,
+				C408422521B54A2F00C491A8 /* STShopping.storyboard */,
 			);
 			path = UIInterface;
 			sourceTree = "<group>";
@@ -1549,10 +1564,11 @@
 				B8FBFA4521A3DD9600AECB75 /* bz_thumb.png in Resources */,
 				B8FBFA3C21A3DD9600AECB75 /* lovea_thumb.png in Resources */,
 				B8FBFA3B21A3DD9600AECB75 /* tza_thumb.png in Resources */,
+				C408422021B549C900C491A8 /* STHome.storyboard in Resources */,
 				B8FBFA3921A3DD9600AECB75 /* money_thumb.png in Resources */,
 				B8FBFA3821A3DD9600AECB75 /* k_thumb.png in Resources */,
 				B8FBFA2521A3DD9600AECB75 /* ok_thumb.png in Resources */,
-				C460193A21B0D883004498DB /* STMineInfo.storyboard in Resources */,
+				C460193A21B0D883004498DB /* STMine.storyboard in Resources */,
 				6BEA00D921B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.xib in Resources */,
 				B8FBFA5721A3DD9600AECB75 /* good_thumb.png in Resources */,
 				B8FBFA3D21A3DD9600AECB75 /* qq_thumb.png in Resources */,
@@ -1563,6 +1579,7 @@
 				B80B6C0F219FF29900C33F11 /* VideoClassificationCell.xib in Resources */,
 				B81EDF7A21A5570200F9D3B0 /* mapapi.bundle in Resources */,
 				B80B6BFE219FEE1100C33F11 /* VideoCell.xib in Resources */,
+				C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */,
 				B85F33AE219EADB300023958 /* HomeHeaderNearByCourseView.xib in Resources */,
 				B87A94F021A8381D003E2D21 /* TeachersCell.xib in Resources */,
 				B85F33B4219EB0EC00023958 /* HomeHeaderOptimizingView.xib in Resources */,
@@ -1571,6 +1588,7 @@
 				B80B6BF3219FC30A00C33F11 /* ShoppingListCell.xib in Resources */,
 				B8FBFA4A21A3DD9600AECB75 /* crazya_thumb.png in Resources */,
 				B81E90BE21A3C57D000754E3 /* ChatLeftView.xib in Resources */,
+				C408422421B54A1A00C491A8 /* STMessage.storyboard in Resources */,
 				6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */,
 				B85F339E219EA37100023958 /* CourseDisplayCell.xib in Resources */,
 				B8FBFA2221A3DD9600AECB75 /* 88_thumb.png in Resources */,
@@ -1587,6 +1605,7 @@
 				B8FBFA5821A3DD9600AECB75 /* hearta_thumb.png in Resources */,
 				B8FBFA4621A3DD9600AECB75 /* zy_thumb.png in Resources */,
 				B8FBFA5121A3DD9600AECB75 /* mb_thumb.png in Resources */,
+				C408422621B54A2F00C491A8 /* STShopping.storyboard in Resources */,
 				B87F8F7621A2805400DE9DC1 /* StudentInfoCell.xib in Resources */,
 				B81EDF5D21A51A8900F9D3B0 /* ChatImageRightView.xib in Resources */,
 				B8FBFA2B21A3DD9600AECB75 /* heia_thumb.png in Resources */,
@@ -1861,6 +1880,7 @@
 				B85F3324219E902A00023958 /* BaseViewController.swift in Sources */,
 				B85F33E1219F1DC200023958 /* BaseTBCell.swift in Sources */,
 				6B8A611221B4DE5700C0DFCD /* MineCourseTableViewCell.swift in Sources */,
+				C408422821B54C0B00C491A8 /* STMainTabBarController.swift in Sources */,
 				6B0754B821B1160200B36740 /* STMineCourseViewController.swift in Sources */,
 				B80B6C0B219FF1CD00C33F11 /* VideoFlowLayout.swift in Sources */,
 				B8547E1C21A640CC00281554 /* SelectedCityViewModel.swift in Sources */,

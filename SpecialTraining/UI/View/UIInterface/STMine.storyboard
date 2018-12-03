@@ -9,38 +9,6 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--Main Navigation Controller-->
-        <scene sceneID="nlr-Nx-nU0">
-            <objects>
-                <navigationController storyboardIdentifier="mineInfoMainNav" id="N87-ga-9Nl" customClass="MainNavigationController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="xc0-RZ-Lr2">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="eGX-YA-JCS" kind="relationship" relationship="rootViewController" id="M9m-jk-fFN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="4nG-IJ-Z26" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-537" y="98"/>
-        </scene>
-        <!--Main Navigation Controller-->
-        <scene sceneID="8Gy-V3-Vsg">
-            <objects>
-                <navigationController id="8tF-po-exY" customClass="MainNavigationController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="gcT-VR-Ln9">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="kso-jE-tak" kind="relationship" relationship="rootViewController" id="Wtg-6a-6Ng"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="lOf-Hk-zLc" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-538" y="770"/>
-        </scene>
         <!--Mine Course View Controller-->
         <scene sceneID="a2d-9n-CYq">
             <objects>
@@ -73,23 +41,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="AWh-Uh-ZDj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="374" y="771"/>
-        </scene>
-        <!--Main Navigation Controller-->
-        <scene sceneID="dB8-BV-rCM">
-            <objects>
-                <navigationController id="x5m-4G-pev" customClass="MainNavigationController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Skm-bc-UGG">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="WHE-yX-bGx" kind="relationship" relationship="rootViewController" id="ele-1V-T2X"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="LiU-Jp-8eW" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-538" y="1432"/>
+            <point key="canvasLocation" x="-1482" y="720"/>
         </scene>
         <!--Mine Account View Controller-->
         <scene sceneID="iCf-2v-d8d">
@@ -175,7 +127,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zYK-af-haH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="373.60000000000002" y="1431.6341829085459"/>
+            <point key="canvasLocation" x="-1482" y="1549"/>
         </scene>
         <!--Mine Change View Controller-->
         <scene sceneID="Tny-N7-RfQ">
@@ -262,23 +214,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="6hk-bn-bLW" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1241" y="1432"/>
-        </scene>
-        <!--Main Navigation Controller-->
-        <scene sceneID="LvN-Mj-fIQ">
-            <objects>
-                <navigationController id="mlB-Gr-sXP" customClass="MainNavigationController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="8LD-HU-mh7">
-                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <connections>
-                        <segue destination="qhz-fW-R7d" kind="relationship" relationship="rootViewController" id="4gj-Ki-IDe"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="iUj-3L-xdI" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="-538" y="2110"/>
+            <point key="canvasLocation" x="-146" y="1549"/>
         </scene>
         <!--Mine Recomend View Controller-->
         <scene sceneID="92F-th-M8j">
@@ -297,7 +233,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="OFd-74-AIi" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="374" y="2110"/>
+            <point key="canvasLocation" x="-1482" y="2508"/>
         </scene>
         <!--Mine Info View Controller-->
         <scene sceneID="9fh-73-ndi">
@@ -332,7 +268,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UH8-JS-xFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="375" y="98"/>
+            <point key="canvasLocation" x="-1482" y="-168"/>
         </scene>
         <!--Mine Custom View Controller-->
         <scene sceneID="f63-Yh-uL8">
@@ -381,7 +317,79 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozk-GX-FeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1172" y="97.601199400299862"/>
+            <point key="canvasLocation" x="-684" y="-168"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="DHQ-Xi-Uk0">
+            <objects>
+                <navigationController storyboardIdentifier="mineRootVC" id="i7d-Hk-b3z" customClass="MainNavigationController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <tabBarItem key="tabBarItem" title="我的" id="1cR-gY-hsE"/>
+                    <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="Iin-rD-0L2">
+                        <rect key="frame" x="0.0" y="20" width="375" height="44"/>
+                        <autoresizingMask key="autoresizingMask"/>
+                    </navigationBar>
+                    <connections>
+                        <segue destination="321-tG-jlx" kind="relationship" relationship="rootViewController" id="XNL-1n-WQh"/>
+                    </connections>
+                </navigationController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="aAB-pw-LM8" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3687" y="1120"/>
+        </scene>
+        <!--我的-->
+        <scene sceneID="YL7-y2-9XW">
+            <objects>
+                <viewController id="321-tG-jlx" customClass="STMineViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="j6I-4i-Wc3"/>
+                        <viewControllerLayoutGuide type="bottom" id="Wzg-hl-UY8"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="DRH-tl-aZT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" showsVerticalScrollIndicator="NO" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="waH-Hw-X4R">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="00B-xw-2bn">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="WYz-re-aoU">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="waH-Hw-X4R" firstAttribute="leading" secondItem="DRH-tl-aZT" secondAttribute="leading" id="iJx-Pu-9ch"/>
+                            <constraint firstItem="Wzg-hl-UY8" firstAttribute="top" secondItem="waH-Hw-X4R" secondAttribute="bottom" id="phV-Ed-Zku"/>
+                            <constraint firstItem="waH-Hw-X4R" firstAttribute="top" secondItem="DRH-tl-aZT" secondAttribute="top" id="uNY-tb-XaG"/>
+                            <constraint firstAttribute="trailing" secondItem="waH-Hw-X4R" secondAttribute="trailing" id="yty-ZW-51S"/>
+                        </constraints>
+                    </view>
+                    <tabBarItem key="tabBarItem" title="我的" id="yP9-wI-KkB"/>
+                    <navigationItem key="navigationItem" id="Q4p-I1-Pq4"/>
+                    <connections>
+                        <outlet property="collectionView" destination="waH-Hw-X4R" id="B0d-5L-PCL"/>
+                        <segue destination="eGX-YA-JCS" kind="show" identifier="mineInfoSegue" id="ddG-c8-pyk"/>
+                        <segue destination="kso-jE-tak" kind="show" identifier="mineCourse" id="eLb-7L-K6A"/>
+                        <segue destination="WHE-yX-bGx" kind="show" identifier="mineAccount" id="JGy-El-JTF"/>
+                        <segue destination="qhz-fW-R7d" kind="show" identifier="mineRecomend" id="dXC-BI-xhP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="ToY-Hd-2SP" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-2694" y="1119"/>
         </scene>
     </scenes>
 </document>

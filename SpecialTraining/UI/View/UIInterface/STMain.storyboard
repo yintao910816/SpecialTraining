@@ -224,17 +224,11 @@
                                         </constraints>
                                         <state key="normal" backgroundImage="home_course_unselected"/>
                                         <state key="selected" backgroundImage="home_course_selected"/>
-                                        <connections>
-                                            <action selector="actions:" destination="OhC-8e-FIR" eventType="touchUpInside" id="rWN-Gg-IVO"/>
-                                        </connections>
                                     </button>
                                     <button opaque="NO" tag="501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Cvv-WK-ui2">
                                         <rect key="frame" x="63" y="10" width="31" height="30"/>
                                         <state key="normal" backgroundImage="home_organization_unselected"/>
                                         <state key="selected" backgroundImage="home_organization_selected"/>
-                                        <connections>
-                                            <action selector="actions:" destination="OhC-8e-FIR" eventType="touchUpInside" id="AxE-yd-H34"/>
-                                        </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -250,9 +244,6 @@
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="FxT-Cs-LSH">
                                 <rect key="frame" x="0.0" y="114" width="375" height="504"/>
-                                <connections>
-                                    <outlet property="delegate" destination="OhC-8e-FIR" id="j2O-N4-jbc"/>
-                                </connections>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -268,15 +259,10 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="nnr-iM-weg"/>
                     <navigationItem key="navigationItem" id="7tO-K5-MD3">
-                        <barButtonItem key="leftBarButtonItem" title="荆州" id="caO-CU-gLE">
-                            <connections>
-                                <segue destination="Lbi-IB-ZWk" kind="show" id="I3R-C0-SEZ"/>
-                            </connections>
-                        </barButtonItem>
+                        <barButtonItem key="leftBarButtonItem" title="荆州" id="caO-CU-gLE"/>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="YW1-LW-5qu"/>
                     </navigationItem>
                     <connections>
-                        <outlet property="scrollOutlet" destination="FxT-Cs-LSH" id="Dg2-J1-mJh"/>
                         <outlet property="topView" destination="u9z-yo-fWN" id="Yuj-SS-gdR"/>
                         <segue destination="Ya1-VH-9x8" kind="show" identifier="mapSegue" id="hCY-hi-PXP"/>
                         <segue destination="oZL-93-SYV" kind="show" identifier="organizationSegue" id="dSu-sB-UqA"/>
@@ -299,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="H3X-aW-FfW">
-                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
                                 <color key="backgroundColor" red="0.90196078431372551" green="0.90196078431372551" blue="0.90588235294117647" alpha="1" colorSpace="deviceRGB"/>
                             </tableView>
                         </subviews>
@@ -311,9 +297,6 @@
                             <constraint firstItem="H3X-aW-FfW" firstAttribute="top" secondItem="VIh-AW-1fx" secondAttribute="bottom" id="naF-EP-imK"/>
                         </constraints>
                     </view>
-                    <connections>
-                        <outlet property="tableView" destination="H3X-aW-FfW" id="TqN-Sk-u9h"/>
-                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uGp-6u-9Ho" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
@@ -488,9 +471,6 @@
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S3U-OT-EQG">
                                 <rect key="frame" x="0.0" y="200" width="375" height="387"/>
-                                <connections>
-                                    <outlet property="delegate" destination="oZL-93-SYV" id="tAQ-qQ-3Mk"/>
-                                </connections>
                             </scrollView>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="2dD-wB-bmR">
                                 <rect key="frame" x="0.0" y="587" width="375" height="80"/>
@@ -549,7 +529,6 @@
                         <outlet property="bottomHeightCns" destination="Uaw-vQ-BXy" id="yWl-4S-8um"/>
                         <outlet property="phyicalStoreOutlet" destination="2do-Jm-apa" id="oMt-2S-MAo"/>
                         <outlet property="recommentCourseOutlet" destination="EeC-z5-Hh1" id="9vD-WA-3FI"/>
-                        <outlet property="scrollOutlet" destination="S3U-OT-EQG" id="egM-BL-OBV"/>
                         <outlet property="teachersOutlet" destination="Nvb-sb-dVL" id="sP2-Lf-8rp"/>
                         <outlet property="topViewHeightCns" destination="UiZ-VB-ptJ" id="EMa-6N-WOQ"/>
                     </connections>
@@ -577,9 +556,6 @@
                                     <constraint firstAttribute="width" secondItem="oFB-Gg-UeW" secondAttribute="height" multiplier="1:1" id="i7P-Vf-Zdb"/>
                                 </constraints>
                                 <state key="normal" title="Button" image="show_my_location"/>
-                                <connections>
-                                    <action selector="actions:" destination="Ya1-VH-9x8" eventType="touchUpInside" id="cOq-H9-lCP"/>
-                                </connections>
                             </button>
                             <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="201" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="点击定位当前位置" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="z6S-2Z-k0a">
                                 <rect key="frame" x="122.5" y="633" width="130" height="22"/>
@@ -917,47 +893,11 @@
                     <navigationItem key="navigationItem" id="fBp-qq-GIh"/>
                     <connections>
                         <outlet property="collectionView" destination="JC0-6d-9tJ" id="64c-vq-St5"/>
-                        <segue destination="W6e-eF-l2M" kind="show" identifier="mineInfoSegue" id="B4F-DO-Lr3"/>
-                        <segue destination="edW-9J-GS3" kind="show" identifier="mineCourse" id="zKp-J3-Raa"/>
-                        <segue destination="BST-48-sut" kind="show" identifier="mineAccount" id="bgC-l7-EAA"/>
-                        <segue destination="mq2-Kv-4tu" kind="show" identifier="mineRecomend" id="uZ1-uK-cvd"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="R2d-cl-AFd" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1209" y="1076"/>
-        </scene>
-        <!--STMineAccountViewController-->
-        <scene sceneID="XT1-kz-zRg">
-            <objects>
-                <viewControllerPlaceholder storyboardName="STMineInfo" referencedIdentifier="STMineAccountViewController" id="BST-48-sut" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="QB8-5g-rxK" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2367" y="1178"/>
-        </scene>
-        <!--STMineRecomendViewController-->
-        <scene sceneID="7kg-Gr-zAh">
-            <objects>
-                <viewControllerPlaceholder storyboardName="STMineInfo" referencedIdentifier="STMineRecomendViewController" id="mq2-Kv-4tu" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="kt4-wq-D3M" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2378" y="1265"/>
-        </scene>
-        <!--mineInfoVC-->
-        <scene sceneID="aUV-LI-2Qy">
-            <objects>
-                <viewControllerPlaceholder storyboardName="STMineInfo" referencedIdentifier="mineInfoVC" id="W6e-eF-l2M" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="rmD-ir-DCr" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2276" y="1357"/>
-        </scene>
-        <!--STMineCourseViewController-->
-        <scene sceneID="Nks-0E-MUY">
-            <objects>
-                <viewControllerPlaceholder storyboardName="STMineInfo" referencedIdentifier="STMineCourseViewController" id="edW-9J-GS3" sceneMemberID="viewController"/>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Dqb-lp-jab" userLabel="First Responder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2360" y="1096"/>
         </scene>
         <!--直播/点播-->
         <scene sceneID="y9m-dn-5nf">
@@ -1029,7 +969,7 @@
         </scene>
     </scenes>
     <resources>
-        <image name="chengzhangxinyong" width="100" height="100"/>
+        <image name="chengzhangxinyong" width="300" height="300"/>
         <image name="dianhua" width="200" height="200"/>
         <image name="guanzhu" width="360" height="360"/>
         <image name="home_course_selected" width="150" height="150"/>
@@ -1037,9 +977,9 @@
         <image name="home_organization_selected" width="150" height="150"/>
         <image name="home_organization_unselected" width="150" height="150"/>
         <image name="kefu" width="200" height="200"/>
-        <image name="shopping_ding" width="100" height="100"/>
-        <image name="shopping_unselected" width="40" height="40"/>
+        <image name="shopping_ding" width="300" height="300"/>
+        <image name="shopping_unselected" width="120" height="120"/>
         <image name="show_my_location" width="200" height="200"/>
-        <image name="yangguangfenshu" width="100" height="100"/>
+        <image name="yangguangfenshu" width="300" height="300"/>
     </resources>
 </document>
