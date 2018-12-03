@@ -72,6 +72,6 @@ extension STMineCustomViewController: UICollectionViewDelegateFlowLayout {
 extension STMineCustomViewController: MineSectionHeaderAction {
     
     func addBtnClick() {
-        
+        PrintLog("点击了添加按钮")
     }
 }
