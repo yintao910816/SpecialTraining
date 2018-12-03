@@ -27,4 +27,6 @@
 #import "DPAudioPlayer.h"
 #import "ChatToolBarAudioButton.h"
 
+#import <AssetsLibrary/AssetsLibrary.h>
+
 #endif /* SpecialTraining_Bridging_Header_h */

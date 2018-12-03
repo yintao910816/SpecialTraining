@@ -46,20 +46,21 @@ class ChatImageLeftView: UIView {
 
     var model: ChatImageModel! {
         didSet {
+            contentImageOutlet.setImage(nil, for: .normal)
             iconOutlet.setImage(model.iconStr, .userIcon)
-
             timeOutlet.text = model.messageTime
-
-            PrintLog(model.thumbnailLocalPath)
-            PrintLog(model.thumbnailRemotePath)
             
-            _ = Create(imageTask: model.thumbnailRemotePath)
-                .subscribe(onNext: { [weak self] (image, url) in
-                    self?.contentImageOutlet.setImage(image, for: .normal)
-                    }, onError: { error in
-                        PrintLog(error)
+            if let img = model.image {
+                contentImageOutlet.setImage(img, for: .normal)
+            }else {
+                EMClient.shared()?.chatManager.downloadMessageThumbnail(model.message, progress: nil, completion: { [weak self] (msg, error) in
+                    if error == nil && msg != nil {
+                        self?.model.setImage(emsg: msg!)
+                        self?.contentImageOutlet.setImage(self?.model.image, for: .normal)
+                    }
                 })
-            
+            }
+
             paopaoWidthCns.constant = model.width + 20
             paopaoHeightCns.constant = model.height + 20
         }

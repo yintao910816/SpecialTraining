@@ -219,13 +219,15 @@ class ChatImageModel: ChatModel {
     var imageMessageBody: EMImageMessageBody!
     
     // 缩略图的本地路径
-    var thumbnailLocalPath: String = ""
-    // 缩略图的本地路径
-    var thumbnailRemotePath: String = ""
+    var thumbnailLocalPath: String?
+    // 附件的本地路径
+    var localPath: String?
     // 缩略图宽度
     var width: CGFloat = 0
     // 缩略图高度
     var height: CGFloat = 0
+    
+    var image: UIImage? = nil
 
     class func creatModel(emMes: EMMessage, conversation: EMConversation) ->ChatImageModel {
         let imageMessageBody = (emMes.body as! EMImageMessageBody)
@@ -234,13 +236,13 @@ class ChatImageModel: ChatModel {
         m.conversation = conversation
         m.message = emMes
         m.messageType = .image
-        m.thumbnailLocalPath = imageMessageBody.thumbnailLocalPath.count > 0 ? imageMessageBody.thumbnailLocalPath : imageMessageBody.localPath
-        m.thumbnailRemotePath = imageMessageBody.thumbnailRemotePath.count > 0 ? imageMessageBody.thumbnailRemotePath : imageMessageBody.remotePath
         m.messageTime = ConversationUtil.messageSendTime(timestamp: TimeInterval(emMes.timestamp))
         
         let imageSize = ConversationUtil.imageSize(actualSize: imageMessageBody.size)
         m.width = imageSize.width
         m.height = imageSize.height
+        
+        m.setImage(emsg: emMes)
         
         let ch = m.height + ChatCell.Frame.content_v_margin * 2
         if ch <= ChatCell.Frame.iconHeight {
@@ -249,6 +251,16 @@ class ChatImageModel: ChatModel {
             m.cellHeight = ChatCell.Frame.otherHeight + ChatCell.Frame.content_v_margin * 2 + m.height
         }
         return m
+    }
+    
+    func setImage(emsg: EMMessage) {
+        let imageMessageBody = (emsg.body as! EMImageMessageBody)
+        thumbnailLocalPath = imageMessageBody.thumbnailLocalPath
+        localPath = imageMessageBody.localPath
+        let imageFilePath = ((thumbnailLocalPath != nil) && (thumbnailLocalPath?.count ?? 0) > 0) ? thumbnailLocalPath! : localPath
+        if imageFilePath != nil {
+            image = UIImage.init(contentsOfFile: imageFilePath!)
+        }
     }
 }
 

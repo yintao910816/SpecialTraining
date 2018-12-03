@@ -70,6 +70,7 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
                 self?.userInfoModel = userInfo
                 self?.navTitle.value = userInfo.nickname
                 self?.datasource.value = ChatModel.setUser(userInfo: userInfo, chats: chatModels)
+
                 self?.scrollTab.onNext(true)
             }, onError: { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
@@ -188,7 +189,7 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
             hud.failureHidden("图片发送失败")
             return
         }
-        let body = EMImageMessageBody.init(data: data, displayName: "\(Date().milliStamp).jpg")
+        let body = EMImageMessageBody.init(data: data, displayName: "image")
         let amessage = EMMessage.init(conversationID: conversation.conversationId,
                                       from: userDefault.uid,
                                       to: conversation.conversationId,

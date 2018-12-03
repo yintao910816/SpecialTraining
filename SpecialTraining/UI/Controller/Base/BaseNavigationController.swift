@@ -50,12 +50,12 @@ class BaseNavigationController: UINavigationController {
         { // 非根控制器
             viewController.hidesBottomBarWhenPushed = true
 
-//            let backButton : UIButton = UIButton(type : .system)
-//            backButton.setImage(UIImage(named :"navigationButtonReturn")?.withRenderingMode(.alwaysOriginal), for: .normal)
-//            backButton.setImage(UIImage(named :"navigationButtonReturnClick")?.withRenderingMode(.alwaysOriginal), for: .highlighted)
-//            backButton.addTarget(self, action :#selector(backAction), for: .touchUpInside)
-//            backButton.sizeToFit()
-//            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:backButton)
+            let backButton : UIButton = UIButton(type : .system)
+            backButton.setImage(UIImage(named :"navigationButtonReturn")?.withRenderingMode(.alwaysOriginal), for: .normal)
+            backButton.setImage(UIImage(named :"navigationButtonReturnClick")?.withRenderingMode(.alwaysOriginal), for: .highlighted)
+            backButton.addTarget(self, action :#selector(backAction), for: .touchUpInside)
+            backButton.sizeToFit()
+            viewController.navigationItem.leftBarButtonItem = UIBarButtonItem(customView:backButton)
         }
 
         super.pushViewController(viewController, animated: animated)
