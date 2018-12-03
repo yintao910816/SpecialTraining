@@ -36,7 +36,7 @@
             <connections>
                 <outlet property="titleLbl" destination="mB8-YS-rIN" id="M6R-fo-sFy"/>
             </connections>
-            <point key="canvasLocation" x="-586" y="133"/>
+            <point key="canvasLocation" x="-273" y="125"/>
         </collectionViewCell>
     </objects>
 </document>

@@ -31,7 +31,8 @@ class STMineCustomViewController: BaseViewController {
         collectionView.collectionViewLayout = layout
         
         collectionView.register(UINib(nibName: "MineCustomCell", bundle: nil), forCellWithReuseIdentifier: "MineCustomCell")
-        collectionView.register(MineSectionCollectionReusableView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MineSectionCollectionReusableViewID")
+        collectionView.register(UINib(nibName: "MineCustomCollectionReusableHeaderView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MineCustomCollectionReusableHeaderView")
+        collectionView.register(UINib(nibName: "MineCustomCollectionReusableFooterView", bundle: nil), forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "MineCustomCollectionReusableFooterView")
     }
     
     override func rxBind() {
@@ -42,12 +43,14 @@ class STMineCustomViewController: BaseViewController {
             cell.titleLbl.text = item
             return cell
         }, configureSupplementaryView: { (ds, col, kind, indexpath) -> UICollectionReusableView in
-            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MineSectionCollectionReusableViewID", for: indexpath) as! MineSectionCollectionReusableView
-            colHeader.titleOutlet.font = UIFont.systemFont(ofSize: 15)
-            colHeader.addBtn.isHidden = false
+//            if indexpath.section == 3 {
+//                let colFooter = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter, withReuseIdentifier: "MineCustomCollectionReusableFooterView", for: indexpath) as! MineCustomCollectionReusableFooterView
+//                return colFooter
+//            }
+            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "MineCustomCollectionReusableHeaderView", for: indexpath) as! MineCustomCollectionReusableHeaderView
+            colHeader.titleString = self.viewModel.sectionTitle(indexpath)
             colHeader.delegate = nil
             colHeader.delegate = self
-            colHeader.title = self.viewModel.sectionTitle(indexpath)
             return colHeader
         }, moveItem: { (_, _, _) in
             

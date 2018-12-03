@@ -12,14 +12,6 @@ class MineSectionCollectionReusableView: UICollectionReusableView {
 
     @IBOutlet var contentView: UICollectionReusableView!
     @IBOutlet weak var titleOutlet: UILabel!
-    @IBOutlet weak var addBtn: UIButton!
-    weak var delegate: MineSectionHeaderAction?
-    
-    @IBAction func clickAddBtn() {
-      
-        delegate?.addBtnClick()
-        
-    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -41,8 +33,4 @@ class MineSectionCollectionReusableView: UICollectionReusableView {
         }
     }
     
-}
-
-protocol MineSectionHeaderAction: class {
-    func addBtnClick()
 }

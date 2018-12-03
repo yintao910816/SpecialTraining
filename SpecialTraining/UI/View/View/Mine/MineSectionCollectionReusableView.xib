@@ -11,7 +11,6 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineSectionCollectionReusableView" customModule="SpecialTraining" customModuleProvider="target">
             <connections>
-                <outlet property="addBtn" destination="Z2f-yt-zoa" id="bwu-oD-cx7"/>
                 <outlet property="contentView" destination="U6b-Vx-4bR" id="0SG-FM-dQM"/>
                 <outlet property="titleOutlet" destination="qKr-Sj-BNb" id="6Km-ZA-2yl"/>
             </connections>
@@ -27,24 +26,12 @@
                     <nil key="textColor"/>
                     <nil key="highlightedColor"/>
                 </label>
-                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Z2f-yt-zoa">
-                    <rect key="frame" x="238" y="-10.5" width="66" height="66"/>
-                    <state key="normal" image="mine_baobeihuhuan"/>
-                    <connections>
-                        <action selector="clickAddBtn" destination="-1" eventType="touchUpInside" id="9ej-X8-4PA"/>
-                    </connections>
-                </button>
             </subviews>
             <constraints>
                 <constraint firstItem="qKr-Sj-BNb" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="16" id="GrG-g4-Rpq"/>
                 <constraint firstItem="qKr-Sj-BNb" firstAttribute="centerY" secondItem="U6b-Vx-4bR" secondAttribute="centerY" id="Mnl-T2-8L6"/>
-                <constraint firstItem="Z2f-yt-zoa" firstAttribute="centerY" secondItem="qKr-Sj-BNb" secondAttribute="centerY" id="mkL-EI-Jld"/>
-                <constraint firstAttribute="trailing" secondItem="Z2f-yt-zoa" secondAttribute="trailing" constant="16" id="wVK-iw-D0r"/>
             </constraints>
             <point key="canvasLocation" x="-648" y="40"/>
         </collectionReusableView>
     </objects>
-    <resources>
-        <image name="mine_baobeihuhuan" width="66" height="66"/>
-    </resources>
 </document>
