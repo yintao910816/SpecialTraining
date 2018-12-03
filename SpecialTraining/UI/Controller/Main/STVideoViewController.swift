@@ -28,7 +28,7 @@ class STVideoViewController: BaseViewController {
     override func setupUI() {
         if #available(iOS 11, *) {
             contentCollectionView.contentInsetAdjustmentBehavior = .never
-//            menuCollectionView.contentInsetAdjustmentBehavior = .never
+            menuCollectionView.contentInsetAdjustmentBehavior = .never
         }else {
             automaticallyAdjustsScrollViewInsets = false
         }
@@ -67,6 +67,12 @@ class STVideoViewController: BaseViewController {
         menuCollectionView.rx.modelSelected(VideoClassificationModel.self)
             .asDriver()
             .drive(viewModel.classifationChangeObser)
+            .disposed(by: disposeBag)
+        
+        contentCollectionView.rx.itemSelected.asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.performSegue(withIdentifier: "demandVideoSegue", sender: nil)
+            })
             .disposed(by: disposeBag)
 
     }

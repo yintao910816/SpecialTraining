@@ -44,7 +44,7 @@ struct LayoutSize {
     static var topVirtualArea: CGFloat {
         get {
             //            return UIDevice.current.isX == true ? UIApplication.shared.statusBarFrame.height : 0
-            return UIDevice.current.isX == true ? 24 : 0
+            return UIDevice.current.isX == true ? 44 : 0
         }
     }
     
