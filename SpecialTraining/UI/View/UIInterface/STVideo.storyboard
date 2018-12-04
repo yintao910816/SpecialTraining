@@ -285,7 +285,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="lRe-ma-9xb">
-                                <rect key="frame" x="0.0" y="100" width="375" height="130"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="8ik-W9-WCi">
                                         <rect key="frame" x="15" y="20" width="25" height="25"/>
@@ -319,10 +319,13 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-mC-Gzx">
-                                        <rect key="frame" x="11" y="118" width="60" height="3"/>
-                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="AcB-mC-Gzx">
+                                        <rect key="frame" x="9.5" y="118" width="60" height="3"/>
                                         <color key="backgroundColor" red="0.83051953327952865" green="1" blue="0.42980969336588981" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                                        <constraints>
+                                            <constraint firstAttribute="height" constant="3" id="7Zi-Gg-Wao"/>
+                                            <constraint firstAttribute="width" constant="60" id="IMg-jg-LZA"/>
+                                        </constraints>
                                     </view>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oaZ-QV-AqP">
                                         <rect key="frame" x="165" y="10" width="45" height="45"/>
@@ -336,8 +339,10 @@
                                 <color key="backgroundColor" red="0.0078431372550000003" green="0.71764705880000002" blue="0.94901960780000005" alpha="1" colorSpace="deviceRGB"/>
                                 <constraints>
                                     <constraint firstItem="8ik-W9-WCi" firstAttribute="leading" secondItem="lRe-ma-9xb" secondAttribute="leading" constant="15" id="8Kx-sv-6bi"/>
+                                    <constraint firstAttribute="bottom" secondItem="AcB-mC-Gzx" secondAttribute="bottom" constant="9" id="8Lt-ZY-htk"/>
                                     <constraint firstItem="8ik-W9-WCi" firstAttribute="top" secondItem="lRe-ma-9xb" secondAttribute="top" constant="20" id="Axi-6O-HVO"/>
                                     <constraint firstAttribute="height" constant="130" id="Idf-4e-PE3"/>
+                                    <constraint firstItem="AcB-mC-Gzx" firstAttribute="centerX" secondItem="R9z-We-LHj" secondAttribute="centerX" id="RbM-0Y-eyT"/>
                                     <constraint firstItem="oaZ-QV-AqP" firstAttribute="centerY" secondItem="8ik-W9-WCi" secondAttribute="centerY" id="Sma-3d-Mr9"/>
                                     <constraint firstItem="R9z-We-LHj" firstAttribute="centerY" secondItem="aG4-Lk-AfG" secondAttribute="centerY" id="WeX-R5-8dY"/>
                                     <constraint firstItem="pCo-et-XvQ" firstAttribute="centerY" secondItem="aG4-Lk-AfG" secondAttribute="centerY" id="Xr0-pd-Cvp"/>
@@ -351,7 +356,7 @@
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIx-7t-8py">
-                                <rect key="frame" x="0.0" y="230" width="375" height="437"/>
+                                <rect key="frame" x="0.0" y="130" width="375" height="537"/>
                             </scrollView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -361,7 +366,7 @@
                             <constraint firstItem="BIx-7t-8py" firstAttribute="leading" secondItem="7i2-X3-Vt0" secondAttribute="leading" id="Gzu-uB-Fhu"/>
                             <constraint firstAttribute="trailing" secondItem="lRe-ma-9xb" secondAttribute="trailing" id="KcO-vi-yPQ"/>
                             <constraint firstAttribute="trailing" secondItem="BIx-7t-8py" secondAttribute="trailing" id="X1B-gq-5h5"/>
-                            <constraint firstItem="lRe-ma-9xb" firstAttribute="top" secondItem="7i2-X3-Vt0" secondAttribute="top" constant="100" id="Yt6-1P-6MJ"/>
+                            <constraint firstItem="lRe-ma-9xb" firstAttribute="top" secondItem="7i2-X3-Vt0" secondAttribute="top" id="Yt6-1P-6MJ"/>
                             <constraint firstItem="BIx-7t-8py" firstAttribute="top" secondItem="lRe-ma-9xb" secondAttribute="bottom" id="omN-ut-Lhp"/>
                         </constraints>
                     </view>
