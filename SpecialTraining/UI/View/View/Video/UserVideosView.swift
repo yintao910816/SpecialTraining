@@ -30,12 +30,13 @@ class UserVideosView: UICollectionView {
     }
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
-//        UserVideosCell
         super.init(frame: frame, collectionViewLayout: UserVideosView.flowLayout)
         
         backgroundColor = .white
         
         register(UINib.init(nibName: "UserVideosCell", bundle: Bundle.main), forCellWithReuseIdentifier: "UserVideosCellID")
+        
+        rxBind()
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -45,7 +46,7 @@ class UserVideosView: UICollectionView {
     private func rxBind() {
         datasource.asDriver()
             .drive(rx.items(cellIdentifier: "UserVideosCellID", cellType: UserVideosCell.self)) { (_, model, cell) in
-                
+                PrintLog("UserVideosCell")
             }
             .disposed(by: disposeBag)
         
