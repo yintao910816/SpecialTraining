@@ -46,7 +46,7 @@ class UserVideosView: UICollectionView {
     private func rxBind() {
         datasource.asDriver()
             .drive(rx.items(cellIdentifier: "UserVideosCellID", cellType: UserVideosCell.self)) { (_, model, cell) in
-                PrintLog("UserVideosCell")
+
             }
             .disposed(by: disposeBag)
         
