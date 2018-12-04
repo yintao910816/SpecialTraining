@@ -358,7 +358,7 @@
                                     <constraint firstAttribute="trailing" secondItem="pCo-et-XvQ" secondAttribute="trailing" constant="15" id="wpG-fO-QCA"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BIx-7t-8py">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" translatesAutoresizingMaskIntoConstraints="NO" id="BIx-7t-8py">
                                 <rect key="frame" x="0.0" y="130" width="375" height="537"/>
                             </scrollView>
                         </subviews>

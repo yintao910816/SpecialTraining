@@ -37,18 +37,12 @@ class STUserVideosViewController: BaseViewController {
             topSaveAreaCns.constant = 20
         }
         
+
         let frame = CGRect.init(x: 0, y: 0, width: PPScreenW, height: topViewHeightCns.constant)
         bgHeader.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
         
         collectionView = UserVideosView()
-        view.addSubview(collectionView)
-        
-        collectionView.snp.makeConstraints{
-            $0.left.equalTo(scroll)
-            $0.top.equalTo(scroll)
-            $0.bottom.equalTo(scroll)
-            $0.width.equalTo(PPScreenW)
-        }
+        scroll.addSubview(collectionView)
         
     }
     
@@ -64,7 +58,14 @@ class STUserVideosViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         
-        scroll.contentSize = .init(width: PPScreenW * 2, height: scroll.height)
+        scroll.contentSize = .init(width: scroll.width * 2, height: scroll.height)
+        
+        collectionView.snp.makeConstraints{
+            $0.left.equalTo(scroll.snp.left)
+            $0.top.equalTo(scroll.snp.top)
+            $0.height.equalTo(scroll.snp.height)
+            $0.width.equalTo(scroll.snp.width)
+        }
     }
 
 }
