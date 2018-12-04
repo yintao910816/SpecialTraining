@@ -79,58 +79,55 @@
                                     <constraint firstAttribute="height" constant="17" id="UFa-Ec-G4z"/>
                                 </constraints>
                             </imageView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="老师评语" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="rRf-6g-zTj">
-                                <rect key="frame" x="248" y="15.5" width="54" height="16"/>
+                            <button opaque="NO" tag="1002" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lrC-c1-0Cq">
+                                <rect key="frame" x="251" y="37" width="54" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="AaI-td-h94"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看作业" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ClC-eH-n1D">
-                                <rect key="frame" x="248" y="36.5" width="54" height="16"/>
+                                <state key="normal" title="查看备课">
+                                    <color key="titleColor" red="0.75294117650000003" green="0.74901960779999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="b9k-ep-Auq"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" tag="1003" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="957-lX-LYH">
+                                <rect key="frame" x="265" y="63" width="40" height="16"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="16" id="lwp-Wa-bTF"/>
+                                </constraints>
                                 <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.75294117650000003" green="0.74901960779999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="查看备课" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="83u-JY-jNo">
-                                <rect key="frame" x="248" y="56.5" width="54" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.75294117650000003" green="0.74901960779999999" blue="0.75294117650000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待排课" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qVB-uq-9dU">
-                                <rect key="frame" x="262" y="80.5" width="40" height="16"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                                <color key="textColor" red="0.75399645105504121" green="0.32072652727864703" blue="0.25141282420548644" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <nil key="highlightedColor"/>
-                            </label>
+                                <state key="normal" title="待排课">
+                                    <color key="titleColor" red="0.99607843137254903" green="0.086274509803921567" blue="0.094117647058823528" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="clickBtn:" destination="KGk-i7-Jjw" eventType="touchUpInside" id="XEK-Mv-ezq"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94509803920000002" green="0.93725490199999995" blue="0.94117647059999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="rRf-6g-zTj" secondAttribute="trailing" constant="8" id="1JK-Ww-l44"/>
-                            <constraint firstItem="rRf-6g-zTj" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="XFT-sC-g1d" secondAttribute="trailing" id="34x-Or-xaT"/>
                             <constraint firstItem="l6v-vZ-nnD" firstAttribute="leading" secondItem="qYT-lz-IbH" secondAttribute="trailing" constant="5" id="4bu-le-vQj"/>
-                            <constraint firstItem="ClC-eH-n1D" firstAttribute="trailing" secondItem="rRf-6g-zTj" secondAttribute="trailing" id="9FT-Gh-Qy0"/>
                             <constraint firstItem="ceo-fr-LOF" firstAttribute="leading" secondItem="8j5-64-lFD" secondAttribute="trailing" constant="5" id="AG1-pp-ABy"/>
-                            <constraint firstItem="rRf-6g-zTj" firstAttribute="centerY" secondItem="XFT-sC-g1d" secondAttribute="centerY" id="CaW-86-28k"/>
+                            <constraint firstAttribute="trailing" secondItem="lrC-c1-0Cq" secondAttribute="trailing" constant="5" id="HXA-sU-Wn4"/>
                             <constraint firstItem="Au8-Dv-0ii" firstAttribute="leading" secondItem="gmi-t0-3tn" secondAttribute="trailing" constant="5" id="JfI-6Y-Pdi"/>
                             <constraint firstItem="XFT-sC-g1d" firstAttribute="centerY" secondItem="l6v-vZ-nnD" secondAttribute="centerY" id="KmE-jA-MiI"/>
+                            <constraint firstItem="957-lX-LYH" firstAttribute="trailing" secondItem="lrC-c1-0Cq" secondAttribute="trailing" id="Osf-aK-YHg"/>
                             <constraint firstItem="8j5-64-lFD" firstAttribute="top" secondItem="l6v-vZ-nnD" secondAttribute="bottom" constant="5" id="PYv-NI-GoZ"/>
                             <constraint firstItem="qYT-lz-IbH" firstAttribute="leading" secondItem="j0M-yx-sUC" secondAttribute="leading" constant="8" id="QKy-Iz-HC0"/>
                             <constraint firstItem="l6v-vZ-nnD" firstAttribute="top" secondItem="qYT-lz-IbH" secondAttribute="top" id="Qn9-Sh-VGz"/>
                             <constraint firstItem="gmi-t0-3tn" firstAttribute="top" secondItem="8j5-64-lFD" secondAttribute="bottom" constant="5" id="RjE-UJ-M3r"/>
-                            <constraint firstItem="ClC-eH-n1D" firstAttribute="centerY" secondItem="ceo-fr-LOF" secondAttribute="centerY" id="T2p-ne-6lZ"/>
                             <constraint firstItem="Tmd-tp-AYC" firstAttribute="top" secondItem="gmi-t0-3tn" secondAttribute="bottom" constant="8" id="VTd-QH-30Y"/>
                             <constraint firstItem="Au8-Dv-0ii" firstAttribute="centerY" secondItem="gmi-t0-3tn" secondAttribute="centerY" id="XMJ-ee-oxE"/>
-                            <constraint firstItem="qVB-uq-9dU" firstAttribute="centerY" secondItem="Tmd-tp-AYC" secondAttribute="centerY" id="Z2m-za-WOP"/>
-                            <constraint firstItem="qVB-uq-9dU" firstAttribute="trailing" secondItem="83u-JY-jNo" secondAttribute="trailing" id="gWL-ab-F4R"/>
                             <constraint firstItem="8j5-64-lFD" firstAttribute="leading" secondItem="l6v-vZ-nnD" secondAttribute="leading" id="gvR-WB-LTv"/>
                             <constraint firstItem="XFT-sC-g1d" firstAttribute="leading" secondItem="l6v-vZ-nnD" secondAttribute="trailing" constant="5" id="hYa-Tv-PaO"/>
                             <constraint firstItem="Tmd-tp-AYC" firstAttribute="leading" secondItem="gmi-t0-3tn" secondAttribute="leading" id="k5y-Kr-yTO"/>
-                            <constraint firstItem="83u-JY-jNo" firstAttribute="trailing" secondItem="ClC-eH-n1D" secondAttribute="trailing" id="lVa-C7-Ws1"/>
-                            <constraint firstItem="83u-JY-jNo" firstAttribute="centerY" secondItem="Au8-Dv-0ii" secondAttribute="centerY" id="mg2-0s-CBm"/>
+                            <constraint firstItem="957-lX-LYH" firstAttribute="top" secondItem="lrC-c1-0Cq" secondAttribute="bottom" constant="10" id="lNy-3i-MNH"/>
                             <constraint firstItem="gmi-t0-3tn" firstAttribute="leading" secondItem="8j5-64-lFD" secondAttribute="leading" id="qEX-OE-BD8"/>
                             <constraint firstItem="qYT-lz-IbH" firstAttribute="top" secondItem="j0M-yx-sUC" secondAttribute="top" constant="15" id="rGX-ED-z2U"/>
                             <constraint firstItem="ceo-fr-LOF" firstAttribute="centerY" secondItem="8j5-64-lFD" secondAttribute="centerY" id="rdP-JU-02O"/>
+                            <constraint firstItem="lrC-c1-0Cq" firstAttribute="top" secondItem="j0M-yx-sUC" secondAttribute="top" constant="37" id="xUl-H6-nGI"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
@@ -145,7 +142,15 @@
                     <constraint firstItem="j0M-yx-sUC" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="2" id="pQk-jO-923"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-435.19999999999999" y="77.361319340329842"/>
+            <connections>
+                <outlet property="courseTeacher" destination="Au8-Dv-0ii" id="ZDK-AA-jap"/>
+                <outlet property="courseTitle" destination="XFT-sC-g1d" id="Qgb-84-SnM"/>
+                <outlet property="courseTypeTitle" destination="ceo-fr-LOF" id="oEM-g5-MUh"/>
+                <outlet property="ivCourse" destination="qYT-lz-IbH" id="rvd-Kn-gZc"/>
+                <outlet property="ivCourseType" destination="l6v-vZ-nnD" id="cG3-Pg-ApQ"/>
+                <outlet property="ivPayStatus" destination="Tmd-tp-AYC" id="VRN-RL-6ks"/>
+            </connections>
+            <point key="canvasLocation" x="-909" y="175"/>
         </tableViewCell>
     </objects>
 </document>
