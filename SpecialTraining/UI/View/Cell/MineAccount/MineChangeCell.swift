@@ -10,6 +10,13 @@ import UIKit
 
 class MineChangeCell: BaseTBCell {
 
+    @IBOutlet weak var ivHead: UIImageView!
+    @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lblReward: UILabel!
+    @IBOutlet weak var lblContent: UILabel!
+    @IBOutlet weak var lblOrderNO: UILabel!
+    @IBOutlet weak var lblOrderTime: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code

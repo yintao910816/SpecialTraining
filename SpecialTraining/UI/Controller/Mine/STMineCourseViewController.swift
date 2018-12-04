@@ -24,10 +24,24 @@ class STMineCourseViewController: BaseViewController {
     override func rxBind() {
         viewModel = MineCourseViewModel()
         
-        viewModel.datasource.asObservable().bind(to: tableView.rx.items(cellIdentifier: "MineCourseTableViewCell", cellType: MineCourseTableViewCell.self)) { (row , item , cell) in
+        viewModel.datasource.asObservable().bind(to: tableView.rx.items(cellIdentifier: "MineCourseTableViewCell", cellType: MineCourseTableViewCell.self)) { [unowned self] (row , item , cell) in
+            cell.delegate = nil
+            cell.delegate = self
             PrintLog(row)
         }.disposed(by: disposeBag)
         
     }
 
+}
+
+extension STMineCourseViewController: MineCourseActions {
+    
+    func gotoLessonPrepare() {
+        PrintLog("点击查看备课")
+    }
+    
+    func gotoWaitingLesson() {
+        PrintLog("点击待排课")
+    }
+    
 }

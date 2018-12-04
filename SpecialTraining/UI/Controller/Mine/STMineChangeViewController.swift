@@ -10,7 +10,7 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MineChangeViewController: BaseViewController {
+class STMineChangeViewController: BaseViewController {
     
     @IBOutlet weak var tableView: BaseTB!
     @IBOutlet weak var moneyLbl: UILabel!

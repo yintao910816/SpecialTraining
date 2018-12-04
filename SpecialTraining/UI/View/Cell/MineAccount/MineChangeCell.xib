@@ -22,21 +22,24 @@
                         <rect key="frame" x="2" y="5" width="316" height="73.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="hYn-TX-HEl">
-                                <rect key="frame" x="5" y="0.0" width="20" height="20"/>
+                                <rect key="frame" x="5" y="2" width="18" height="18"/>
                                 <color key="backgroundColor" red="0.75399645110000002" green="0.32072652730000001" blue="0.2514128242" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="20" id="nco-dI-rUv"/>
-                                    <constraint firstAttribute="width" constant="20" id="x3T-6T-QpC"/>
+                                    <constraint firstAttribute="height" constant="18" id="nco-dI-rUv"/>
+                                    <constraint firstAttribute="width" constant="18" id="x3T-6T-QpC"/>
                                 </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="9"/>
+                                </userDefinedRuntimeAttributes>
                             </imageView>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" verticalHuggingPriority="251" text="WEY售后服务顾问续保专员" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aaF-gF-goU">
-                                <rect key="frame" x="25" y="1.5" width="173.5" height="17"/>
+                                <rect key="frame" x="23" y="2.5" width="173.5" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="奖励￥8.94元" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8Rd-ir-S93">
-                                <rect key="frame" x="224" y="1.5" width="87" height="17"/>
+                                <rect key="frame" x="224" y="2.5" width="87" height="17"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <nil key="highlightedColor"/>
@@ -81,7 +84,7 @@
                             <constraint firstItem="8Rd-ir-S93" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="aaF-gF-goU" secondAttribute="trailing" id="D2u-Ao-LlD"/>
                             <constraint firstItem="dN1-Ny-Y3z" firstAttribute="centerY" secondItem="HEr-hc-X93" secondAttribute="centerY" id="DHl-sM-bSd"/>
                             <constraint firstAttribute="trailing" secondItem="8Rd-ir-S93" secondAttribute="trailing" constant="5" id="Dhy-Ds-hgS"/>
-                            <constraint firstItem="hYn-TX-HEl" firstAttribute="top" secondItem="4xA-gU-ZdY" secondAttribute="top" id="EAT-hM-Cq1"/>
+                            <constraint firstItem="hYn-TX-HEl" firstAttribute="top" secondItem="4xA-gU-ZdY" secondAttribute="top" constant="2" id="EAT-hM-Cq1"/>
                             <constraint firstItem="Pmt-lJ-uCh" firstAttribute="top" secondItem="hYn-TX-HEl" secondAttribute="bottom" constant="2" id="Jui-Ia-ccc"/>
                             <constraint firstItem="dN1-Ny-Y3z" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="HEr-hc-X93" secondAttribute="trailing" id="TOD-tE-aoL"/>
                             <constraint firstItem="aaF-gF-goU" firstAttribute="leading" secondItem="hYn-TX-HEl" secondAttribute="trailing" id="dh9-GN-9As"/>
@@ -106,7 +109,15 @@
                     <constraint firstItem="4xA-gU-ZdY" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="2" id="mZH-FI-sOW"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="-238.40000000000001" y="68.365817091454275"/>
+            <connections>
+                <outlet property="ivHead" destination="hYn-TX-HEl" id="d3E-mn-EWz"/>
+                <outlet property="lblContent" destination="aJc-zr-4jU" id="qIL-Ry-nyI"/>
+                <outlet property="lblOrderNO" destination="HEr-hc-X93" id="6RO-gQ-2bk"/>
+                <outlet property="lblOrderTime" destination="dN1-Ny-Y3z" id="S3l-JZ-zPf"/>
+                <outlet property="lblReward" destination="8Rd-ir-S93" id="eTx-Ey-cgQ"/>
+                <outlet property="lblTitle" destination="aaF-gF-goU" id="cPD-Iq-uhV"/>
+            </connections>
+            <point key="canvasLocation" x="-515" y="99"/>
         </tableViewCell>
     </objects>
 </document>

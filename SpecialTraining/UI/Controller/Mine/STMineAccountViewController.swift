@@ -33,6 +33,7 @@ class STMineAccountViewController: BaseViewController {
             performSegue(withIdentifier: "changeSegue", sender: nil)
         case 1002:
             PrintLog("点击了银行卡")
+            performSegue(withIdentifier: "bankSegue", sender: nil)
         default:
             break
         }

@@ -37,6 +37,8 @@ class BaseViewController: UIViewController {
             UIApplication.shared.isStatusBarHidden = false
         }
         navigationController?.setNavigationBarHidden(false, animated: animated)
+        let imageView = findHarilineImageViewUnder(view: (self.navigationController?.navigationBar)!)
+        imageView.isHidden = true
     }
 
     override func viewWillDisappear(_ animated: Bool) {
@@ -51,6 +53,20 @@ class BaseViewController: UIViewController {
             toDeinit()
             view.toDeinit()
         }
+    }
+    
+    func findHarilineImageViewUnder(view: UIView) -> UIImageView {
+        if view.isKind(of: UIImageView.self) && view.bounds.height <= 1.0{
+            return view as! UIImageView
+        } else {
+            for subview in view.subviews {
+                let imageView = self.findHarilineImageViewUnder(view: subview)
+                
+                return imageView
+                
+            }
+        }
+        return UIImageView()
     }
 
     deinit {
