@@ -38,3 +38,7 @@ class VideoClassificationModel: HJModel {
         return m
     }
 }
+
+class UserVideosModel: HJModel {
+    
+}

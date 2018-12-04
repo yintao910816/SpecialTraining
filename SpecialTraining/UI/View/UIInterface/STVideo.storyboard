@@ -294,6 +294,9 @@
                                             <constraint firstAttribute="width" constant="25" id="egK-G8-Pg3"/>
                                         </constraints>
                                         <state key="normal" backgroundImage="big_nav_back"/>
+                                        <connections>
+                                            <action selector="actions:" destination="IkI-Ly-MWf" eventType="touchUpInside" id="Y9V-4f-6aI"/>
+                                        </connections>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aG4-Lk-AfG">
                                         <rect key="frame" x="164" y="88" width="47" height="30"/>
