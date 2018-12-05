@@ -305,6 +305,7 @@
 		C47356E321AEBA6E000E24A5 /* ChatToolBarAudioButton.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356DF21AEBA6E000E24A5 /* ChatToolBarAudioButton.m */; };
 		C486959E21AFC83600249C47 /* myself_voice.gif in Resources */ = {isa = PBXBuildFile; fileRef = C486959C21AFC83600249C47 /* myself_voice.gif */; };
 		C486959F21AFC83600249C47 /* other_voice.gif in Resources */ = {isa = PBXBuildFile; fileRef = C486959D21AFC83600249C47 /* other_voice.gif */; };
+		C498BA7321B79AB100A29385 /* API接口.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C498BA7221B79AB100A29385 /* API接口.rtf */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -616,6 +617,7 @@
 		C47356E021AEBA6E000E24A5 /* ChatToolBarAudioButton.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ChatToolBarAudioButton.h; sourceTree = "<group>"; };
 		C486959C21AFC83600249C47 /* myself_voice.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = myself_voice.gif; sourceTree = "<group>"; };
 		C486959D21AFC83600249C47 /* other_voice.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = other_voice.gif; sourceTree = "<group>"; };
+		C498BA7221B79AB100A29385 /* API接口.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "API接口.rtf"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -848,6 +850,7 @@
 		B85F32F7219E769800023958 /* SpecialTraining */ = {
 			isa = PBXGroup;
 			children = (
+				C498BA7221B79AB100A29385 /* API接口.rtf */,
 				C486959B21AFC83600249C47 /* Source */,
 				B81EDF7921A5570200F9D3B0 /* mapapi.bundle */,
 				B8FBFA5E21A3E03A00AECB75 /* Resources.bundle */,
@@ -1598,6 +1601,7 @@
 				B8FBFA2C21A3DD9600AECB75 /* z2_thumb.png in Resources */,
 				B8FBFA3521A3DD9600AECB75 /* sada_thumb.png in Resources */,
 				B87F8F8521A2933D00DE9DC1 /* MessageListCell.xib in Resources */,
+				C498BA7321B79AB100A29385 /* API接口.rtf in Resources */,
 				B85F33A2219EA3AD00023958 /* CourseListCell.xib in Resources */,
 				C47356E221AEBA6E000E24A5 /* chatBar_recordBg@2x.png in Resources */,
 				B85F3375219EA01B00023958 /* LaunchScreen.storyboard in Resources */,
