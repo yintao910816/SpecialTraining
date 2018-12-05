@@ -21,6 +21,10 @@ class STVideoViewController: BaseViewController {
     
     var viewModel: VideoViewModel!
     
+    @IBAction func actions(_ sender: UIButton) {
+    
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }

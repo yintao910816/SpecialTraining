@@ -8,92 +8,105 @@
 
 import Foundation
 import Photos
+import RxSwift
 
 class ImagePickerManager: NSObject {
-    
-    weak var delegate: ImagePickerDelegate?
-    
+
+    weak var pickerDelegate: ImagePickerDelegate?
+
     private var presentViewController: UIViewController!
     private var pickImageController: UIImagePickerController!
-    
+
+    private let disposeBag = DisposeBag()
+
+    public let openPickerSignal = PublishSubject<(MediaType, Bool)>()
+
+    deinit {
+        PrintLog("释放了 \(self)")
+    }
+
     init(viewController: UIViewController) {
         super.init()
         presentViewController = viewController
-        
+
         pickImageController = UIImagePickerController.init()
-        self.pickImageController.delegate=self
+        pickImageController.delegate = self
+
+        openPickerSignal.subscribe(onNext: { [unowned self] data in
+            switch data.0 {
+            case .photoLibrary:
+                self.openPhotoLibrary(allowsEditing: data.1)
+            case .camera:
+                self.openCamera(allowsEditing: data.1)
+            case .savedPhotosAlbum:
+                break
+            }
+        })
+        .disposed(by: disposeBag)
     }
-    
-    func openPhotoLibrary() {
+
+    private func openPhotoLibrary(allowsEditing: Bool) {
         if UIImagePickerController.isSourceTypeAvailable(.photoLibrary) {
             //获取相册权限
-            PHPhotoLibrary.requestAuthorization({ [unowned self] (status) in
-                switch status {
-                case .notDetermined:
-                    NoticesCenter.alert(message: "请前往设置中心授权相册权限")
-                    break
-                case .restricted://此应用程序没有被授权访问的照片数据
-                    break
-                case .denied://用户已经明确否认了这一照片数据的应用程序访问
-                    NoticesCenter.alert(message: "请前往设置中心授权相册权限")
-                    break
-                case .authorized://已经有权限
-                    //跳转到相机或者相册
-                    self.pickImageController.allowsEditing = false
-                    self.pickImageController.sourceType = .photoLibrary;
-                    //弹出相册页面或相机
-                    self.presentViewController.present(self.pickImageController, animated: true, completion: nil)
-                    break
-                }
-            })
-
+            let status = PHPhotoLibrary.authorizationStatus()
+            switch status {
+            case .notDetermined:
+                PHPhotoLibrary.requestAuthorization({ [weak self] _ in self?.openPhotoLibrary(allowsEditing: allowsEditing) })
+            case .restricted:
+                //此应用程序没有被授权访问的照片数据
+                NoticesCenter.alert(message: "请前往设置中心授权相册权限")
+            case .denied:
+                //用户已经明确否认了这一照片数据的应用程序访问
+                NoticesCenter.alert(message: "请前往设置中心授权相册权限")
+            case .authorized:
+                //已经有权限
+                pickImageController.allowsEditing = allowsEditing
+                pickImageController.sourceType = .photoLibrary;
+                presentViewController.present(pickImageController, animated: true, completion: nil)
+            }
+        }else {
+            NoticesCenter.alert(message: "此设备不支持相册")
         }
     }
+
+    private func openCamera(allowsEditing: Bool) {
+        if UIImagePickerController.isSourceTypeAvailable(.camera) {
+            //获取相机权限
+            let status = AVCaptureDevice.authorizationStatus(for: .metadata)
+            switch status {
+            case .notDetermined:
+                // 第一次触发
+                AVCaptureDevice.requestAccess(for: .metadata) { [weak self] _ in self?.openCamera(allowsEditing: allowsEditing) }
+            case .restricted:
+                //此应用程序没有被授权访问的照片数据
+                NoticesCenter.alert(message: "此应用程序没有被授权访问的照片数据")
+            case .denied:
+                //用户已经明确否认了这一照片数据的应用程序访问
+                NoticesCenter.alert(message: "请前往设置中心授权相册权限")
+                break
+            case .authorized://已经有权限
+                //跳转到相机或者相册
+                pickImageController.allowsEditing = allowsEditing
+                pickImageController.sourceType = .camera
+                //弹出相册页面或相机
+                presentViewController.present(pickImageController, animated: true, completion: nil)
+            }
+        }else {
+            NoticesCenter.alert(message: "此设备不支持摄像")
+        }
+    }
+
 }
 
 extension ImagePickerManager: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        if let image:UIImage=info[UIImagePickerController.InfoKey.originalImage] as? UIImage {
-            delegate?.imagePickerController(pickImageController, didFinishPickingImage: image)
-        }
-        
-//        ALAssetsLibrary *library = [[ALAssetsLibrary alloc]init];
-//
-//        [library assetForURL:url resultBlock:^(ALAsset *asset){
-//
-//
-//        //获取图片
-//        UIImage *image = info[UIImagePickerControllerOriginalImage];
-//        //获取照片名称
-//        NSString *fileName = asset.defaultRepresentation.filename;
-//        //获取照片元数据  ,包含一些RGB什么的
-//        NSString *fileName = asset.defaultRepresentation.metadata;
-//
-//        //获取照片大小比例等等... defaultRepresentation的属性中可以查看
-//        ....
-//
-//        //开始上传 (此方法无视 , 这是项目中需要的方法)
-//        [JYCenterAddUploadManager executeUpLoadFileWithFile:image fileParent:@"root" fileName:fileName fileType:JYUpLoadFileTypeImage response:^(JYDownLoadTaskModel *taskModel) {
-//
-//        }];
-//
-//        }failureBlock:^(NSError *error){
-//
-//        [NSObject alertShowWithSingleTipWithtarget:self title:@"获取相册失败" makeSureClick:nil];
-//
-//        }];
-        
 
-//        let library = ALAssetsLibrary.init()
-//        PrintLog(info[UIImagePickerController.InfoKey.mediaURL])
-//        PrintLog((info[UIImagePickerController.InfoKey.mediaURL] as! URL).absoluteString)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+
+//        if  info[UIImagePickerController.InfoKey.mediaType] as? AVMediaType  {
 //
-//        library.asset(for: info[UIImagePickerController.InfoKey.mediaURL] as! URL, resultBlock: { asset in
-//
-//        }) { error in
-//            
 //        }
+        pickerDelegate?.imagePickerController(picker, didFinishPickingImage: info[UIImagePickerController.InfoKey.originalImage] as? UIImage,
+                                              editedImage: info[UIImagePickerController.InfoKey.editedImage] as? UIImage)
         
         picker.dismiss(animated: true, completion: nil)
     }
@@ -101,6 +114,15 @@ extension ImagePickerManager: UIImagePickerControllerDelegate, UINavigationContr
 
 protocol ImagePickerDelegate: class {
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage)
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage?, editedImage: UIImage?)
     
+}
+
+public enum MediaType: Int {
+   
+    case photoLibrary = 0
+    
+    case camera
+    
+    case savedPhotosAlbum
 }
