@@ -40,6 +40,13 @@ class PlaceholderTextView: UITextView, UITextViewDelegate {
         placeholderLabel.font = self.font
         placeholderLabel.textColor = placeholderColor
         addSubview(placeholderLabel)
+        
+//        placeholderLabel.snp.makeConstraints { make in
+//            make.left.equalTo(self).offset(5)
+//            make.right.equalTo(self).offset(-5)
+//            make.top.equalTo(self).offset(5)
+//            make.bottom.equalTo(self).offset(-5)
+//        }
     }
     
     private var placeholderLabel: UILabel = {
@@ -78,6 +85,7 @@ class PlaceholderTextView: UITextView, UITextViewDelegate {
     override var font: UIFont? {
         didSet {
             placeholderLabel.font = font
+            super.font = font
         }
     }
 
@@ -109,13 +117,8 @@ class PlaceholderTextView: UITextView, UITextViewDelegate {
     
     override func layoutSubviews() {
         super.layoutSubviews()
-        
-        placeholderLabel.snp.makeConstraints { make in
-            make.left.equalTo(self).offset(5)
-            make.right.equalTo(self).offset(-5)
-            make.top.equalTo(self).offset(5)
-            make.bottom.equalTo(self).offset(-5)
-        }
+
+        placeholderLabel.snp.makeConstraints { $0.edges.equalTo(UIEdgeInsets.init(top: 5, left: 5, bottom: -5, right: -5)) }
     }
 }
 

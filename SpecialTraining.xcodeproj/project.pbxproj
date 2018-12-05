@@ -306,6 +306,8 @@
 		C486959E21AFC83600249C47 /* myself_voice.gif in Resources */ = {isa = PBXBuildFile; fileRef = C486959C21AFC83600249C47 /* myself_voice.gif */; };
 		C486959F21AFC83600249C47 /* other_voice.gif in Resources */ = {isa = PBXBuildFile; fileRef = C486959D21AFC83600249C47 /* other_voice.gif */; };
 		C498BA7321B79AB100A29385 /* API接口.rtf in Resources */ = {isa = PBXBuildFile; fileRef = C498BA7221B79AB100A29385 /* API接口.rtf */; };
+		C498BA7521B7A54100A29385 /* STPublishVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C498BA7421B7A54100A29385 /* STPublishVideoViewController.swift */; };
+		C498BA7921B7B56500A29385 /* ImagePickerManager+Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = C498BA7821B7B56400A29385 /* ImagePickerManager+Rx.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -618,6 +620,8 @@
 		C486959C21AFC83600249C47 /* myself_voice.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = myself_voice.gif; sourceTree = "<group>"; };
 		C486959D21AFC83600249C47 /* other_voice.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = other_voice.gif; sourceTree = "<group>"; };
 		C498BA7221B79AB100A29385 /* API接口.rtf */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.rtf; path = "API接口.rtf"; sourceTree = "<group>"; };
+		C498BA7421B7A54100A29385 /* STPublishVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPublishVideoViewController.swift; sourceTree = "<group>"; };
+		C498BA7821B7B56400A29385 /* ImagePickerManager+Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "ImagePickerManager+Rx.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1462,6 +1466,7 @@
 		B8FBFA6C21A422B300AECB75 /* Rx */ = {
 			isa = PBXGroup;
 			children = (
+				C498BA7821B7B56400A29385 /* ImagePickerManager+Rx.swift */,
 				B8FBFA6D21A422B300AECB75 /* UIView+_Rx.swift */,
 				B8FBFA6E21A422B300AECB75 /* ObservableType+Extension.swift */,
 				B8FBFA6F21A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift */,
@@ -1475,6 +1480,7 @@
 			children = (
 				C408422A21B559A500C491A8 /* STVideoDemandViewController.swift */,
 				C408422C21B562DD00C491A8 /* STUserVideosViewController.swift */,
+				C498BA7421B7A54100A29385 /* STPublishVideoViewController.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -1822,6 +1828,7 @@
 				B85F33D0219EBAB100023958 /* HandyJSON+MapModel.swift in Sources */,
 				B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */,
 				B85F3380219EA17100023958 /* CarouselDatasource.swift in Sources */,
+				C498BA7921B7B56500A29385 /* ImagePickerManager+Rx.swift in Sources */,
 				B80B6C09219FF0D900C33F11 /* String+Extends.swift in Sources */,
 				B87F8F6D21A241EA00DE9DC1 /* MineInfo.swift in Sources */,
 				B81EDF5521A4FECA00F9D3B0 /* ConversationUtils.swift in Sources */,
@@ -1843,6 +1850,7 @@
 				B81EDF5721A50CFD00F9D3B0 /* ChatImageLeftView.swift in Sources */,
 				B8FBFA7321A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift in Sources */,
 				C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */,
+				C498BA7521B7A54100A29385 /* STPublishVideoViewController.swift in Sources */,
 				B8547E2521A6437300281554 /* CityCell.swift in Sources */,
 				B85F3351219E94D600023958 /* HUDIndicatorView.swift in Sources */,
 				B85F3333219E926800023958 /* Debug.swift in Sources */,

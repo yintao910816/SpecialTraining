@@ -40,7 +40,7 @@ class STChatRoomViewController: BaseViewController {
     
     override func setupUI() {
         photoManager = ImagePickerManager.init(viewController: self)
-        photoManager.delegate = self
+        photoManager.pickerDelegate = self
         
         inputOutlet.delegate    = self
 
@@ -97,7 +97,7 @@ extension STChatRoomViewController: UITableViewDelegate {
 extension STChatRoomViewController: CommentTextViewDelegate {
     
     func mediaSelected(idx: Int) {
-        photoManager.openPhotoLibrary()
+        photoManager.openPickerSignal.onNext((MediaType.photoLibrary, false))
     }
     
     func tv_textViewShouldBeginEditing(_ textView: CommentTextView) -> Bool {
@@ -119,9 +119,10 @@ extension STChatRoomViewController: CommentTextViewDelegate {
 }
 
 extension STChatRoomViewController: ImagePickerDelegate {
-    
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage) {
-        viewModel.sendImage.onNext(image)
+   
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage?, editedImage: UIImage?) {
+        if let i = image {
+            viewModel.sendImage.onNext(i)
+        }
     }
-    
 }
