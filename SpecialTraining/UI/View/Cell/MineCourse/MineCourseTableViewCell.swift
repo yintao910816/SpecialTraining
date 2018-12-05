@@ -21,7 +21,7 @@ class MineCourseTableViewCell: BaseTBCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        
+        self.selectionStyle = .none
     }
 
     @IBAction func clickBtn(_ sender: UIButton) {
