@@ -9,7 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
-        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineBankFooterFilesOwner" customModule="SpecialTraining" customModuleProvider="target"/>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineBankFooterFilesOwner" customModule="SpecialTraining" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="jlr-Rb-dXW"/>
+            </connections>
+        </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
             <rect key="frame" x="0.0" y="0.0" width="375" height="60"/>
@@ -53,7 +57,7 @@
                         <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
                     </userDefinedRuntimeAttributes>
                     <connections>
-                        <outletCollection property="gestureRecognizers" destination="fhu-Sm-lKi" appends="YES" id="IBK-mv-jT4"/>
+                        <outletCollection property="gestureRecognizers" destination="FuQ-RM-Zc9" appends="YES" id="AY2-4w-hoT"/>
                     </connections>
                 </view>
             </subviews>
@@ -65,8 +69,13 @@
                 <constraint firstItem="fYq-KN-0je" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="Wfs-7q-UOY"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-1154" y="-243"/>
+            <point key="canvasLocation" x="-2017" y="-237"/>
         </view>
-        <tapGestureRecognizer id="fhu-Sm-lKi"/>
+        <tapGestureRecognizer id="FuQ-RM-Zc9">
+            <connections>
+                <action selector="tap:" destination="-1" id="pem-JJ-Q9M"/>
+                <outlet property="delegate" destination="-1" id="GKS-jb-Cg0"/>
+            </connections>
+        </tapGestureRecognizer>
     </objects>
 </document>

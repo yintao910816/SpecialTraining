@@ -13,12 +13,16 @@ class STMineBankViewController: BaseViewController {
 
     @IBOutlet weak var tableView: BaseTB!
     var viewModel: MineBankViewModel!
+    var footerView: MineBankFooterFilesOwner!
     
     override func setupUI() {
         title = "银行卡"
         
         tableView.rowHeight = 110
         tableView.register(UINib(nibName: "MineBankCell", bundle: nil), forCellReuseIdentifier: "MineBankCell")
+        footerView = MineBankFooterFilesOwner()
+        footerView.delegate = self
+        tableView.tableFooterView = footerView.contentView
     }
     
     override func rxBind() {
@@ -30,4 +34,12 @@ class STMineBankViewController: BaseViewController {
         }.disposed(by: disposeBag)
     }
 
+}
+
+extension STMineBankViewController: MineBankAction {
+    
+    func addBankCard() {
+        PrintLog("添加银行卡")
+    }
+    
 }

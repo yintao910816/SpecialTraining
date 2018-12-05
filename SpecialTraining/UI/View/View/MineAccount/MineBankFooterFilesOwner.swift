@@ -10,4 +10,20 @@ import UIKit
 
 class MineBankFooterFilesOwner: BaseFilesOwner {
 
+    @IBOutlet var contentView: UIView!
+    weak var delegate: MineBankAction?
+    
+    @IBAction func tap(_ sender: UITapGestureRecognizer) {
+        delegate?.addBankCard()
+    }
+    
+    override init() {
+        super.init()
+        contentView = (Bundle.main.loadNibNamed("MineBankFooterView", owner: self, options: nil)?.first as! UIView)
+        contentView.layoutIfNeeded()
+    }
+}
+
+protocol MineBankAction: class {
+    func addBankCard()
 }

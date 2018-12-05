@@ -60,6 +60,10 @@ class STMineCustomViewController: BaseViewController {
         
         viewModel.datasource.asDriver().drive(collectionView.rx.items(dataSource: datasource)).disposed(by: disposeBag)
         
+        collectionView.rx.itemSelected.asDriver().drive(onNext: { (index) in
+            PrintLog(index)
+        }).disposed(by: disposeBag)
+        
         collectionView.rx.setDelegate(self).disposed(by: disposeBag)
     }
 
