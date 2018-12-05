@@ -68,6 +68,15 @@ class STMineViewController: BaseViewController {
         
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
+        collectionView.rx.modelSelected(MineModel.self)
+            .asDriver()
+            .drive(onNext: { [unowned self] model in
+                if let segue = model.segueIdentifier {
+                    self.performSegue(withIdentifier: segue, sender: nil)
+                }
+            })
+            .disposed(by: disposeBag)
     }
 }
 

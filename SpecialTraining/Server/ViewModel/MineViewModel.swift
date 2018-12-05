@@ -29,9 +29,13 @@ class MineViewModel: BaseViewModel {
                                                                 MineModel.creatModel(title: "视屏", imageString: "mine_shoucangshiping"),
                                                                 MineModel.creatModel(title: "音频", imageString: "mine_shucangyinping")]),
                             SectionModel.init(model: 2, items: [MineModel.creatModel(title: "成为机构", imageString: "mine_jigoukaidian"),
-                                                                MineModel.creatModel(title: "宝贝互换", imageString: "mine_baobeihuhuan"),
+                                                                MineModel.creatModel(title: "宝贝互换",
+                                                                                     imageString: "mine_baobeihuhuan",
+                                                                                     segueIdentifier: "treasureExchangeSegue"),
                                                                 MineModel.creatModel(title: "商品买卖", imageString: "mine_wodeshangpingmaimai")]),
-                            SectionModel.init(model: 3, items: [MineModel.creatModel(title: "备课", imageString: "mine_laoshibeike"),
+                            SectionModel.init(model: 3, items: [MineModel.creatModel(title: "备课",
+                                                                                     imageString: "mine_laoshibeike",
+                                                                                     segueIdentifier: "teacherPrepareSegue"),
                                                                 MineModel.creatModel(title: "排课表", imageString: "mine_laoshikechengbiao")]),
                             SectionModel.init(model: 4, items: [MineModel.creatModel(title: "投诉", imageString: "mine_tousuliuyan")])]
     }
