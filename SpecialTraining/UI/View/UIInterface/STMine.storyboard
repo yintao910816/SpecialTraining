@@ -257,7 +257,7 @@
         <scene sceneID="E1J-KB-eh1">
             <objects>
                 <tableViewController title="宝贝互换" id="Nnd-zK-wcx" customClass="STTreasureExchangeViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
-                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uab-aM-Sm3">
+                    <tableView key="view" clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="static" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" id="Uab-aM-Sm3">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -422,7 +422,7 @@
                                         <rect key="frame" x="0.0" y="375" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="hYU-is-Mrt" id="zBe-eZ-Xhf">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="价格" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="pgc-t2-YpU">
@@ -432,7 +432,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bKs-5a-D66">
-                                                    <rect key="frame" x="0.0" y="43.5" width="341" height="1"/>
+                                                    <rect key="frame" x="0.0" y="44" width="375" height="1"/>
                                                     <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="ZhQ-yY-N1V"/>
@@ -441,7 +441,7 @@
                                             </subviews>
                                             <constraints>
                                                 <constraint firstItem="bKs-5a-D66" firstAttribute="leading" secondItem="zBe-eZ-Xhf" secondAttribute="leading" id="7C8-2K-mJj"/>
-                                                <constraint firstAttribute="trailing" secondItem="bKs-5a-D66" secondAttribute="trailing" id="81V-vM-ens"/>
+                                                <constraint firstAttribute="trailing" secondItem="bKs-5a-D66" secondAttribute="trailing" constant="-34" id="81V-vM-ens"/>
                                                 <constraint firstItem="pgc-t2-YpU" firstAttribute="centerY" secondItem="zBe-eZ-Xhf" secondAttribute="centerY" id="CdY-sD-6TQ"/>
                                                 <constraint firstItem="pgc-t2-YpU" firstAttribute="leading" secondItem="zBe-eZ-Xhf" secondAttribute="leading" constant="15" id="TP7-g1-if9"/>
                                                 <constraint firstAttribute="bottom" secondItem="bKs-5a-D66" secondAttribute="bottom" id="yKJ-wO-XMv"/>
@@ -452,7 +452,7 @@
                                         <rect key="frame" x="0.0" y="420" width="375" height="45"/>
                                         <autoresizingMask key="autoresizingMask"/>
                                         <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" preservesSuperviewLayoutMargins="YES" insetsLayoutMarginsFromSafeArea="NO" tableViewCell="u9u-F6-73T" id="rQ7-LI-vQD">
-                                            <rect key="frame" x="0.0" y="0.0" width="341" height="44.5"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="341" height="45"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="分类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bki-Nj-sk4">
@@ -462,7 +462,7 @@
                                                     <nil key="highlightedColor"/>
                                                 </label>
                                                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DFn-N7-0LL">
-                                                    <rect key="frame" x="0.0" y="43.5" width="341" height="1"/>
+                                                    <rect key="frame" x="0.0" y="44" width="375" height="1"/>
                                                     <color key="backgroundColor" red="0.94901960780000005" green="0.94901960780000005" blue="0.94901960780000005" alpha="1" colorSpace="deviceRGB"/>
                                                     <constraints>
                                                         <constraint firstAttribute="height" constant="1" id="L0j-kU-k3J"/>
@@ -470,10 +470,10 @@
                                                 </view>
                                             </subviews>
                                             <constraints>
+                                                <constraint firstAttribute="trailing" secondItem="DFn-N7-0LL" secondAttribute="trailing" constant="-34" id="HWy-Gk-1b2"/>
                                                 <constraint firstItem="bki-Nj-sk4" firstAttribute="centerY" secondItem="rQ7-LI-vQD" secondAttribute="centerY" id="KNG-yi-fRl"/>
                                                 <constraint firstItem="bki-Nj-sk4" firstAttribute="leading" secondItem="rQ7-LI-vQD" secondAttribute="leading" constant="15" id="a00-eB-Shy"/>
                                                 <constraint firstAttribute="bottom" secondItem="DFn-N7-0LL" secondAttribute="bottom" id="hUn-A5-qZz"/>
-                                                <constraint firstAttribute="trailing" secondItem="DFn-N7-0LL" secondAttribute="trailing" id="kyk-FH-wB3"/>
                                                 <constraint firstItem="DFn-N7-0LL" firstAttribute="leading" secondItem="rQ7-LI-vQD" secondAttribute="leading" id="oBX-f0-YHC"/>
                                             </constraints>
                                         </tableViewCellContentView>
