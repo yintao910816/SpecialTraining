@@ -13,6 +13,8 @@ class MessageHeaderFilesOwner: BaseFilesOwner {
     @IBOutlet var contentView: UIView!
     
     @IBOutlet weak var topCns: NSLayoutConstraint!
+    @IBOutlet weak var bgViewHeightCns: NSLayoutConstraint!
+    
     override init() {
         super.init()
         contentView = (Bundle.main.loadNibNamed("MessageHeaderView", owner: self, options: nil)?.first as! UIView)
@@ -23,6 +25,7 @@ class MessageHeaderFilesOwner: BaseFilesOwner {
             contentView.frame = rect
             
             topCns.constant += LayoutSize.topVirtualArea
+            bgViewHeightCns.constant += LayoutSize.topVirtualArea
         }
     }
 }

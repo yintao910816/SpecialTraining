@@ -15,6 +15,8 @@ class ChatAudoLeftView: UIView {
     @IBOutlet weak var audoOutlet: UIImageView!
     @IBOutlet weak var audoDurationOutlet: UILabel!
     
+    @IBOutlet weak var bgAudioOutlet: UIImageView!
+    
     @IBOutlet weak var iconOutlet: UIButton!
 
     override init(frame: CGRect) {
@@ -62,7 +64,7 @@ extension ChatAudoLeftView {
         guard let point = touches.first?.location(in: self) else {
             return
         }
-        if audoOutlet.frame.contains(point) {
+        if bgAudioOutlet.frame.contains(point) {
             if model.isPlaying == false {
                 audoOutlet.loadGif(name: "other_voice")
                 NotificationCenter.default.post(name: NotificationName.AudioPlayState.AudioPlayStart, object: self.model)
