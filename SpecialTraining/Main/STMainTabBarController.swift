@@ -40,7 +40,7 @@ class STMainTabBarController: UITabBarController {
         let image = UIImage(named: imageName)?.withRenderingMode(.alwaysOriginal)
         let selectImage = UIImage(named: selectImageName)?.withRenderingMode(.alwaysOriginal)
         
-        nav.viewControllers.first?.navigationItem.title = title
+        nav.viewControllers.first?.tabBarItem.title = title
         nav.viewControllers.first?.tabBarItem = UITabBarItem (title: title , image:image ,selectedImage : selectImage)
     }
 
