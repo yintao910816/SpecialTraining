@@ -17,6 +17,8 @@ class ChatAudoRightView: UIView {
     
     @IBOutlet weak var iconOutlet: UIButton!
 
+    @IBOutlet weak var bgAudioOutlet: UIImageView!
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         setupUI()
@@ -63,7 +65,7 @@ extension ChatAudoRightView {
             return
         }
         
-        if audoOutlet.frame.contains(point) {
+        if bgAudioOutlet.frame.contains(point) {
             if model.isPlaying == false {
                 audoOutlet.loadGif(name: "myself_voice")
                 NotificationCenter.default.post(name: NotificationName.AudioPlayState.AudioPlayStart, object: self.model)
