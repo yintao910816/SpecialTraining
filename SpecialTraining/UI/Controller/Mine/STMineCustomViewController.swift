@@ -11,6 +11,7 @@ import RxDataSources
 
 class STMineCustomViewController: BaseViewController {
     
+    @IBOutlet weak var topLayout: NSLayoutConstraint!
     @IBOutlet weak var collectionView: UICollectionView!
     var viewModel:MineCustomViewModel!
     
@@ -22,6 +23,8 @@ class STMineCustomViewController: BaseViewController {
         }else {
             automaticallyAdjustsScrollViewInsets = false
         }
+        
+        topLayout.constant += (LayoutSize.topVirtualArea + 20)
         
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = .init(top: 10, left: 15, bottom: 10, right: 15)

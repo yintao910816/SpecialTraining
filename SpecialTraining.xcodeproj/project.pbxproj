@@ -15,6 +15,11 @@
 		6B0754C221B1257100B36740 /* MineCustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0754C121B1257100B36740 /* MineCustomViewModel.swift */; };
 		6B593CA021B12E9700D764E6 /* MineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */; };
 		6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */; };
+		6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */; };
+		6B80F14B21B9074D004142D2 /* MineOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14A21B9074D004142D2 /* MineOrderViewModel.swift */; };
+		6B80F14D21B9077A004142D2 /* MineOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14C21B9077A004142D2 /* MineOrderModel.swift */; };
+		6B80F15121B9161F004142D2 /* MineOrderMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14F21B9161F004142D2 /* MineOrderMenuCell.swift */; };
+		6B80F15221B9161F004142D2 /* MineOrderMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B80F15021B9161F004142D2 /* MineOrderMenuCell.xib */; };
 		6B859EF021B66507009FB70A /* STMineBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B859EEF21B66507009FB70A /* STMineBankViewController.swift */; };
 		6B859EF321B66851009FB70A /* MineBankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B859EF121B66851009FB70A /* MineBankCell.swift */; };
 		6B859EF421B66851009FB70A /* MineBankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B859EF221B66851009FB70A /* MineBankCell.xib */; };
@@ -320,6 +325,11 @@
 		6B0754C121B1257100B36740 /* MineCustomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomViewModel.swift; sourceTree = "<group>"; };
 		6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomCell.swift; sourceTree = "<group>"; };
 		6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCustomCell.xib; sourceTree = "<group>"; };
+		6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineOrderViewController.swift; sourceTree = "<group>"; };
+		6B80F14A21B9074D004142D2 /* MineOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderViewModel.swift; sourceTree = "<group>"; };
+		6B80F14C21B9077A004142D2 /* MineOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderModel.swift; sourceTree = "<group>"; };
+		6B80F14F21B9161F004142D2 /* MineOrderMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderMenuCell.swift; sourceTree = "<group>"; };
+		6B80F15021B9161F004142D2 /* MineOrderMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineOrderMenuCell.xib; sourceTree = "<group>"; };
 		6B859EEF21B66507009FB70A /* STMineBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineBankViewController.swift; sourceTree = "<group>"; };
 		6B859EF121B66851009FB70A /* MineBankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineBankCell.swift; sourceTree = "<group>"; };
 		6B859EF221B66851009FB70A /* MineBankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineBankCell.xib; sourceTree = "<group>"; };
@@ -654,6 +664,15 @@
 			name = Frameworks;
 			sourceTree = "<group>";
 		};
+		6B80F14E21B915F3004142D2 /* MineOrder */ = {
+			isa = PBXGroup;
+			children = (
+				6B80F14F21B9161F004142D2 /* MineOrderMenuCell.swift */,
+				6B80F15021B9161F004142D2 /* MineOrderMenuCell.xib */,
+			);
+			path = MineOrder;
+			sourceTree = "<group>";
+		};
 		6B859EF921B67652009FB70A /* MineAccount */ = {
 			isa = PBXGroup;
 			children = (
@@ -935,6 +954,7 @@
 				B8547E2021A6433C00281554 /* MineCell.xib */,
 				B8547E2321A6437300281554 /* CityCell.swift */,
 				B8547E2421A6437300281554 /* CityCell.xib */,
+				6B80F14E21B915F3004142D2 /* MineOrder */,
 				6BEA00DF21B4D55200343EE8 /* MineCustom */,
 				B87F8F8121A2932E00DE9DC1 /* Message */,
 				B87F8F6E21A2445900DE9DC1 /* MineInfo */,
@@ -1115,6 +1135,7 @@
 				6B8A611621B4E19900C0DFCD /* MineCourseModel.swift */,
 				6B8A612321B537A600C0DFCD /* MineChangeModel.swift */,
 				6B859EF721B6753B009FB70A /* MineBankModel.swift */,
+				6B80F14C21B9077A004142D2 /* MineOrderModel.swift */,
 				B8547E1D21A640E000281554 /* City.swift */,
 			);
 			path = Model;
@@ -1134,6 +1155,7 @@
 				6B8A611821B51CFE00C0DFCD /* MineAccountViewModel.swift */,
 				6B8A612121B5366200C0DFCD /* MineChangeViewModel.swift */,
 				6B859EF521B67416009FB70A /* MineBankViewModel.swift */,
+				6B80F14A21B9074D004142D2 /* MineOrderViewModel.swift */,
 				B87F8F8621A294E800DE9DC1 /* MessageViewModel.swift */,
 				B81E909921A39A80000754E3 /* ChatRoomViewModel.swift */,
 				B8FBFA6A21A3E82000AECB75 /* UserViewModel.swift */,
@@ -1275,6 +1297,7 @@
 				6B8A611A21B5282D00C0DFCD /* STMineChangeViewController.swift */,
 				6B859EEF21B66507009FB70A /* STMineBankViewController.swift */,
 				6B0754BB21B1166500B36740 /* STMineRecomendViewController.swift */,
+				6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1607,6 +1630,7 @@
 				B8FBFA2C21A3DD9600AECB75 /* z2_thumb.png in Resources */,
 				B8FBFA3521A3DD9600AECB75 /* sada_thumb.png in Resources */,
 				B87F8F8521A2933D00DE9DC1 /* MessageListCell.xib in Resources */,
+				6B80F15221B9161F004142D2 /* MineOrderMenuCell.xib in Resources */,
 				C498BA7321B79AB100A29385 /* API接口.rtf in Resources */,
 				B85F33A2219EA3AD00023958 /* CourseListCell.xib in Resources */,
 				C47356E221AEBA6E000E24A5 /* chatBar_recordBg@2x.png in Resources */,
@@ -1714,7 +1738,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -1751,7 +1775,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */ = {
@@ -1760,7 +1784,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1769,7 +1793,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */ = {
@@ -1842,6 +1866,7 @@
 				B85F332F219E913500023958 /* STAppDelegate.swift in Sources */,
 				B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */,
 				B81E90B721A3B2CE000754E3 /* UserDefaults+Cache.swift in Sources */,
+				6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */,
 				B87F8F8421A2933D00DE9DC1 /* MessageListCell.swift in Sources */,
 				C408422B21B559A500C491A8 /* STVideoDemandViewController.swift in Sources */,
 				B81EDF7C21A579DC00F9D3B0 /* UINavigationController+BarButtonItem.swift in Sources */,
@@ -1858,8 +1883,10 @@
 				B85F3368219E96A700023958 /* STMineViewController.swift in Sources */,
 				B81EDF7021A53B4C00F9D3B0 /* STAppDelegate+BMK.swift in Sources */,
 				B8FBFA1F21A3DD9600AECB75 /* NSAttributedString+Extension.swift in Sources */,
+				6B80F14D21B9077A004142D2 /* MineOrderModel.swift in Sources */,
 				B85F33CC219EBAB100023958 /* CRAPI.swift in Sources */,
 				6B859EF821B6753B009FB70A /* MineBankModel.swift in Sources */,
+				6B80F14B21B9074D004142D2 /* MineOrderViewModel.swift in Sources */,
 				C47356D821AEB6A4000E24A5 /* DPAudioRecorder.m in Sources */,
 				6B859EFD21B6771D009FB70A /* MineBankFooterFilesOwner.swift in Sources */,
 				B87F8F6B21A241AC00DE9DC1 /* MineInfoViewModel.swift in Sources */,
@@ -1870,6 +1897,7 @@
 				B85F3362219E964500023958 /* STVideoViewController.swift in Sources */,
 				B85F3345219E94B200023958 /* NoticesCenter.swift in Sources */,
 				B80B6BF7219FC38300C33F11 /* ShoppingCartViewModel.swift in Sources */,
+				6B80F15121B9161F004142D2 /* MineOrderMenuCell.swift in Sources */,
 				B81E909A21A39A80000754E3 /* ChatRoomViewModel.swift in Sources */,
 				B87F8F7521A2805400DE9DC1 /* StudentInfoCell.swift in Sources */,
 				6BEA00D821B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.swift in Sources */,
