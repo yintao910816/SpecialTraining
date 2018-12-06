@@ -50,7 +50,7 @@
                     <fontDescription key="fontDescription" type="system" pointSize="16"/>
                     <inset key="titleEdgeInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
                     <inset key="imageEdgeInsets" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" backgroundImage="home_ experience">
+                    <state key="normal" backgroundImage="home_nearby_organization">
                         <color key="titleColor" red="0.17254901960784313" green="0.17254901959999999" blue="0.17254901960784313" alpha="1" colorSpace="deviceRGB"/>
                     </state>
                 </button>
@@ -72,6 +72,6 @@
         </view>
     </objects>
     <resources>
-        <image name="home_ experience" width="250" height="62"/>
+        <image name="home_nearby_organization" width="250" height="62"/>
     </resources>
 </document>
