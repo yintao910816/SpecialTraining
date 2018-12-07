@@ -11,6 +11,7 @@
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageHeaderFilesOwner" customModule="SpecialTraining" customModuleProvider="target">
             <connections>
+                <outlet property="bgViewHeightCns" destination="PY0-n0-qTt" id="vHX-7g-RtX"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Xjj-PB-QTr"/>
                 <outlet property="topCns" destination="Xqu-q5-qH7" id="1Ga-ek-SLq"/>
             </connections>

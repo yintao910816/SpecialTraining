@@ -93,14 +93,18 @@
                     </view>
                     <tabBarItem key="tabBarItem" title="" id="ohx-fR-FTM"/>
                     <navigationItem key="navigationItem" id="GJX-z5-VaN">
-                        <barButtonItem key="leftBarButtonItem" title="荆州" id="WaE-pz-1jk"/>
+                        <barButtonItem key="leftBarButtonItem" title="荆州" id="WaE-pz-1jk">
+                            <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <connections>
+                                <segue destination="8Ny-5P-S4U" kind="show" id="mV0-De-ps8"/>
+                            </connections>
+                        </barButtonItem>
                         <barButtonItem key="rightBarButtonItem" title="Item" id="ghc-Wl-Z7M"/>
                     </navigationItem>
                     <connections>
                         <outlet property="scrollOutlet" destination="0XH-hF-Ogt" id="RQa-kc-ohY"/>
                         <outlet property="topView" destination="exK-Ky-BMs" id="2bq-bg-Kuy"/>
                         <segue destination="vnb-9R-D3W" kind="show" identifier="organizationSegue" id="TrE-bq-O0l"/>
-                        <segue destination="8Ny-5P-S4U" kind="show" id="F8Z-08-fxc"/>
                         <segue destination="G6L-Hh-YVD" kind="show" identifier="mapSegue" id="Sv0-t4-f5S"/>
                     </connections>
                 </viewController>
@@ -347,10 +351,10 @@
             </objects>
             <point key="canvasLocation" x="2353" y="-2912"/>
         </scene>
-        <!--Selected City View Controller-->
+        <!--选择城市-->
         <scene sceneID="QRh-hW-Bsr">
             <objects>
-                <viewController id="8Ny-5P-S4U" customClass="STSelectedCityViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="选择城市" id="8Ny-5P-S4U" customClass="STSelectedCityViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="54z-aO-WS8"/>
                         <viewControllerLayoutGuide type="bottom" id="cWQ-Sp-uwd"/>
