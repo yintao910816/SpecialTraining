@@ -33,6 +33,10 @@ class HomeRecommendCollectionView: UICollectionView {
     }
     
     private func setupUI() {
+        if #available(iOS 11, *) {
+            contentInsetAdjustmentBehavior = .never
+        }
+
         showsVerticalScrollIndicator = false
         backgroundColor = .white
 

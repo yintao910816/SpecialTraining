@@ -96,7 +96,6 @@
                         <barButtonItem key="leftBarButtonItem" title="荆州" id="WaE-pz-1jk">
                             <color key="tintColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <connections>
-                                <segue destination="8Ny-5P-S4U" kind="show" id="mV0-De-ps8"/>
                                 <segue destination="8Ny-5P-S4U" kind="show" id="W7E-sd-tFY"/>
                             </connections>
                         </barButtonItem>

@@ -58,7 +58,11 @@ class MineHeaderCollectionReusableView: UICollectionReusableView {
         layer.insertSublayer(shadowLayer, at: 0)
         
         cornerLayer.frame = shadowView.bounds
-        shadowLayer.frame = .init(x: shadowView.x, y: shadowView.y + 10, width: shadowView.width, height: shadowView.height - 10)
+//        shadowLayer.frame = .init(x: shadowView.x, y: shadowView.y + 10, width: shadowView.width, height: shadowView.height - 10)
+        shadowLayer.frame = .init(x: shadowView.frame.origin.x,
+                                  y: shadowView.frame.origin.y + 10,
+                                  width: shadowView.width,
+                                  height: shadowView.height - 10)
     }
     
     required init?(coder aDecoder: NSCoder) {

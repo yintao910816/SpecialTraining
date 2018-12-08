@@ -20,4 +20,16 @@ extension UIViewController: ControllerServer {
     func setupUI() { }
     
     func rxBind() { }
+    
+    func fixTabBar() {
+        if UIDevice.current.isX == true {
+            if var frame = tabBarController?.tabBar.frame {
+                if frame.size.height != 83 {
+                    frame.size.height = 83
+                    frame.origin.y    = PPScreenH - 83
+                    tabBarController?.tabBar.frame = frame
+                }
+            }
+        }
+    }
 }
