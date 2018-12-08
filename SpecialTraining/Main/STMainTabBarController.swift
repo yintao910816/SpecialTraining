@@ -43,6 +43,5 @@ class STMainTabBarController: UITabBarController {
         nav.viewControllers.first?.tabBarItem.title = title
         nav.viewControllers.first?.tabBarItem = UITabBarItem (title: title , image:image ,selectedImage : selectImage)
     }
-
     
 }
