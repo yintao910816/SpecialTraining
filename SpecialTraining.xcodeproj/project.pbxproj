@@ -97,6 +97,15 @@
 		B8350AB621A1112D0020A6A6 /* MineSectionCollectionReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8350AB421A1112D0020A6A6 /* MineSectionCollectionReusableView.xib */; };
 		B8350AB821A111E20020A6A6 /* MineViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8350AB721A111E20020A6A6 /* MineViewModel.swift */; };
 		B8350ABA21A112150020A6A6 /* Mine.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8350AB921A112150020A6A6 /* Mine.swift */; };
+		B83BA1F621BC0F0C00496AFE /* AVCaptureSessionManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA1F521BC0F0C00496AFE /* AVCaptureSessionManager.swift */; };
+		B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA1F721BC16B600496AFE /* STVideoRecordingViewController.swift */; };
+		B83BA1FC21BC182900496AFE /* PressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA1FB21BC182900496AFE /* PressButton.swift */; };
+		B83BA20121BC1EB300496AFE /* fileOutputViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA1FE21BC1EB300496AFE /* fileOutputViewController.swift */; };
+		B83BA20221BC1EB300496AFE /* CaptureSessionCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA1FF21BC1EB300496AFE /* CaptureSessionCoordinator.swift */; };
+		B83BA20321BC1EB300496AFE /* fileOutputCoordinator.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA20021BC1EB300496AFE /* fileOutputCoordinator.swift */; };
+		B83BA20821BC1EDE00496AFE /* YYGcategory.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA20521BC1EDE00496AFE /* YYGcategory.swift */; };
+		B83BA20F21BC241900496AFE /* YfileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA20E21BC241900496AFE /* YfileManager.swift */; };
+		B83BA21121BC2AEC00496AFE /* STVideoCoverChoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA21021BC2AEC00496AFE /* STVideoCoverChoseViewController.swift */; };
 		B844477B21B81DF100808F5A /* STTreasureExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844477A21B81DF100808F5A /* STTreasureExchangeViewController.swift */; };
 		B844477D21B825AE00808F5A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844477C21B825AE00808F5A /* BaseTableViewController.swift */; };
 		B844477F21B829D200808F5A /* STTeacherPrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844477E21B829D200808F5A /* STTeacherPrepareViewController.swift */; };
@@ -407,6 +416,15 @@
 		B8350AB421A1112D0020A6A6 /* MineSectionCollectionReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineSectionCollectionReusableView.xib; sourceTree = "<group>"; };
 		B8350AB721A111E20020A6A6 /* MineViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineViewModel.swift; sourceTree = "<group>"; };
 		B8350AB921A112150020A6A6 /* Mine.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Mine.swift; sourceTree = "<group>"; };
+		B83BA1F521BC0F0C00496AFE /* AVCaptureSessionManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AVCaptureSessionManager.swift; sourceTree = "<group>"; };
+		B83BA1F721BC16B600496AFE /* STVideoRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoRecordingViewController.swift; sourceTree = "<group>"; };
+		B83BA1FB21BC182900496AFE /* PressButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressButton.swift; sourceTree = "<group>"; };
+		B83BA1FE21BC1EB300496AFE /* fileOutputViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fileOutputViewController.swift; sourceTree = "<group>"; };
+		B83BA1FF21BC1EB300496AFE /* CaptureSessionCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CaptureSessionCoordinator.swift; sourceTree = "<group>"; };
+		B83BA20021BC1EB300496AFE /* fileOutputCoordinator.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = fileOutputCoordinator.swift; sourceTree = "<group>"; };
+		B83BA20521BC1EDE00496AFE /* YYGcategory.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YYGcategory.swift; sourceTree = "<group>"; };
+		B83BA20E21BC241900496AFE /* YfileManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = YfileManager.swift; sourceTree = "<group>"; };
+		B83BA21021BC2AEC00496AFE /* STVideoCoverChoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoCoverChoseViewController.swift; sourceTree = "<group>"; };
 		B844477A21B81DF100808F5A /* STTreasureExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTreasureExchangeViewController.swift; sourceTree = "<group>"; };
 		B844477C21B825AE00808F5A /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		B844477E21B829D200808F5A /* STTeacherPrepareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTeacherPrepareViewController.swift; sourceTree = "<group>"; };
@@ -827,7 +845,9 @@
 		B82F45BE21A98D71009DC25C /* ImagePicker */ = {
 			isa = PBXGroup;
 			children = (
+				B83BA1FB21BC182900496AFE /* PressButton.swift */,
 				B82F45BF21A98D83009DC25C /* ImagePickerManager.swift */,
+				B83BA1F521BC0F0C00496AFE /* AVCaptureSessionManager.swift */,
 			);
 			path = ImagePicker;
 			sourceTree = "<group>";
@@ -841,6 +861,34 @@
 				B8350AB421A1112D0020A6A6 /* MineSectionCollectionReusableView.xib */,
 			);
 			path = Mine;
+			sourceTree = "<group>";
+		};
+		B83BA1FD21BC1EB300496AFE /* VideoRecord */ = {
+			isa = PBXGroup;
+			children = (
+				B83BA20D21BC241900496AFE /* FileManager */,
+				B83BA20421BC1EDE00496AFE /* Category */,
+				B83BA1FE21BC1EB300496AFE /* fileOutputViewController.swift */,
+				B83BA1FF21BC1EB300496AFE /* CaptureSessionCoordinator.swift */,
+				B83BA20021BC1EB300496AFE /* fileOutputCoordinator.swift */,
+			);
+			path = VideoRecord;
+			sourceTree = "<group>";
+		};
+		B83BA20421BC1EDE00496AFE /* Category */ = {
+			isa = PBXGroup;
+			children = (
+				B83BA20521BC1EDE00496AFE /* YYGcategory.swift */,
+			);
+			path = Category;
+			sourceTree = "<group>";
+		};
+		B83BA20D21BC241900496AFE /* FileManager */ = {
+			isa = PBXGroup;
+			children = (
+				B83BA20E21BC241900496AFE /* YfileManager.swift */,
+			);
+			path = FileManager;
 			sourceTree = "<group>";
 		};
 		B85F32EC219E769800023958 = {
@@ -1020,6 +1068,7 @@
 		B85F3328219E90E000023958 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B83BA1FD21BC1EB300496AFE /* VideoRecord */,
 				B85F3332219E926800023958 /* Debug.swift */,
 				B85F3359219E955400023958 /* Frame.swift */,
 				B82F45BE21A98D71009DC25C /* ImagePicker */,
@@ -1496,6 +1545,8 @@
 				C408422A21B559A500C491A8 /* STVideoDemandViewController.swift */,
 				C408422C21B562DD00C491A8 /* STUserVideosViewController.swift */,
 				C498BA7421B7A54100A29385 /* STPublishVideoViewController.swift */,
+				B83BA1F721BC16B600496AFE /* STVideoRecordingViewController.swift */,
+				B83BA21021BC2AEC00496AFE /* STVideoCoverChoseViewController.swift */,
 			);
 			path = Video;
 			sourceTree = "<group>";
@@ -1729,7 +1780,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -1766,7 +1817,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */ = {
@@ -1775,7 +1826,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1784,7 +1835,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */ = {
@@ -1847,8 +1898,10 @@
 				C498BA7921B7B56500A29385 /* ImagePickerManager+Rx.swift in Sources */,
 				B80B6C09219FF0D900C33F11 /* String+Extends.swift in Sources */,
 				B87F8F6D21A241EA00DE9DC1 /* MineInfo.swift in Sources */,
+				B83BA20821BC1EDE00496AFE /* YYGcategory.swift in Sources */,
 				B81EDF5521A4FECA00F9D3B0 /* ConversationUtils.swift in Sources */,
 				B85F3327219E902A00023958 /* BaseNavigationController.swift in Sources */,
+				B83BA1FC21BC182900496AFE /* PressButton.swift in Sources */,
 				B80B6BE1219FA66000C33F11 /* OrganizationHeaderView.swift in Sources */,
 				B85F3371219E9DDC00023958 /* BaseCourse.swift in Sources */,
 				B87F8F8B21A29B8000DE9DC1 /* STAppDelegate+EaseMob.swift in Sources */,
@@ -1856,16 +1909,19 @@
 				B8FBFA6221A3E11600AECB75 /* KeyboardManager.swift in Sources */,
 				B85F33DF219F1D0300023958 /* BaseTB.swift in Sources */,
 				B85F332F219E913500023958 /* STAppDelegate.swift in Sources */,
+				B83BA1F621BC0F0C00496AFE /* AVCaptureSessionManager.swift in Sources */,
 				B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */,
 				B81E90B721A3B2CE000754E3 /* UserDefaults+Cache.swift in Sources */,
 				B87F8F8421A2933D00DE9DC1 /* MessageListCell.swift in Sources */,
 				C408422B21B559A500C491A8 /* STVideoDemandViewController.swift in Sources */,
 				B81EDF7C21A579DC00F9D3B0 /* UINavigationController+BarButtonItem.swift in Sources */,
+				B83BA20F21BC241900496AFE /* YfileManager.swift in Sources */,
 				B85F33D4219EBB9B00023958 /* HomeViewModel.swift in Sources */,
 				B8547E2121A6433C00281554 /* MineCell.swift in Sources */,
 				B81EDF5721A50CFD00F9D3B0 /* ChatImageLeftView.swift in Sources */,
 				B8FBFA7321A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift in Sources */,
 				C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */,
+				B83BA21121BC2AEC00496AFE /* STVideoCoverChoseViewController.swift in Sources */,
 				C498BA7521B7A54100A29385 /* STPublishVideoViewController.swift in Sources */,
 				B8547E2521A6437300281554 /* CityCell.swift in Sources */,
 				B85F3351219E94D600023958 /* HUDIndicatorView.swift in Sources */,
@@ -1879,6 +1935,7 @@
 				C47356D821AEB6A4000E24A5 /* DPAudioRecorder.m in Sources */,
 				6B859EFD21B6771D009FB70A /* MineBankFooterFilesOwner.swift in Sources */,
 				B87F8F6B21A241AC00DE9DC1 /* MineInfoViewModel.swift in Sources */,
+				B83BA20321BC1EB300496AFE /* fileOutputCoordinator.swift in Sources */,
 				B87A94DC21A82073003E2D21 /* ActivityBrefTableView.swift in Sources */,
 				B85F333C219E940D00023958 /* UIKit+Extension.swift in Sources */,
 				B8FBFA5A21A3DD9600AECB75 /* CommentTextView.swift in Sources */,
@@ -1940,6 +1997,7 @@
 				B85F3357219E94D600023958 /* TYHUD.swift in Sources */,
 				C47356E321AEBA6E000E24A5 /* ChatToolBarAudioButton.m in Sources */,
 				B85F3337219E92A600023958 /* EmptyDataView.swift in Sources */,
+				B83BA20221BC1EB300496AFE /* CaptureSessionCoordinator.swift in Sources */,
 				B8350AAA21A0FDE70020A6A6 /* UIImage+Extension.swift in Sources */,
 				B844477F21B829D200808F5A /* STTeacherPrepareViewController.swift in Sources */,
 				6B593CA021B12E9700D764E6 /* MineCustomCell.swift in Sources */,
@@ -1954,6 +2012,7 @@
 				B85F337B219EA0E700023958 /* HomeOrganizationTableView.swift in Sources */,
 				B87A94EF21A8381D003E2D21 /* TeachersCell.swift in Sources */,
 				B85F336F219E9D9E00023958 /* HandyModel.swift in Sources */,
+				B83BA20121BC1EB300496AFE /* fileOutputViewController.swift in Sources */,
 				B85F33CF219EBAB100023958 /* APIServer.swift in Sources */,
 				B81E909421A396B7000754E3 /* STChatRoomViewController.swift in Sources */,
 				B85F337F219EA17100023958 /* CarouselView.swift in Sources */,
@@ -2005,6 +2064,7 @@
 				B87F8F6921A2414900DE9DC1 /* STMineInfoViewController.swift in Sources */,
 				B85F33DD219F179400023958 /* Organization.swift in Sources */,
 				B85F33CE219EBAB100023958 /* Response+ModelMapper.swift in Sources */,
+				B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
