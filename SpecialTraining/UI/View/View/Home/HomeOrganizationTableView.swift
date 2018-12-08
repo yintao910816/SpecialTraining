@@ -32,6 +32,10 @@ class HomeOrganizationTableView: BaseTB {
     }
     
     private func setupUI() {
+        if #available(iOS 11, *) {
+            contentInsetAdjustmentBehavior = .never
+        }
+
         showsVerticalScrollIndicator = false
         
         tableHeader = OrganizationHeaderView.init()

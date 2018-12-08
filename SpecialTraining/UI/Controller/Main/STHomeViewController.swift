@@ -67,6 +67,14 @@ class STHomeViewController: BaseViewController {
             $0.height.equalTo(scrollOutlet.snp.height)
             $0.width.equalTo(PPScreenW)
         }
+        
+        if #available(iOS 11, *) {
+            scrollOutlet.contentInsetAdjustmentBehavior = .never
+            organizationColView.contentInsetAdjustmentBehavior = .never
+            recomendColView.contentInsetAdjustmentBehavior = .never
+        }else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
     }
     
     override func rxBind() {
