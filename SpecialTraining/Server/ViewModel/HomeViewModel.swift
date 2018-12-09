@@ -20,10 +20,8 @@ class HomeViewModel: BaseViewModel {
     override init() {
         super.init()
         
-        DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1) {
-            self.tabviewDatasource.value = [OrganizationModel(), OrganizationModel(), OrganizationModel(), OrganizationModel()]
-        }
-        
+        self.tabviewDatasource.value = [OrganizationModel(), OrganizationModel(), OrganizationModel(), OrganizationModel()]
+
         NotificationCenter.default.rx.notification(NotificationName.BMK.RefreshHomeLocation, object: nil)
             .subscribe(onNext: { no in
                 BMKGeoCodeSearchHelper.share.startReverseGeoCode(coordinate: no.object as! CLLocationCoordinate2D)

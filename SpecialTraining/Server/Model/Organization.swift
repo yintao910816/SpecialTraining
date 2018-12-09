@@ -57,3 +57,39 @@ class TeachersModel: HJModel {
     }
     
 }
+
+// 发布视屏，机构选择
+class ChoseOrganizationModel: HJModel {
+    
+    var name: String = ""
+    var isSelected: Bool = false
+    
+    class func testCreatModels() ->[ChoseOrganizationModel] {
+        var models = [ChoseOrganizationModel]()
+        let names = ["荆州艺霖舞蹈迎宾路店", "荆州艺霖舞蹈绿地店", "荆州艺霖舞蹈恒大店"]
+        for name in names {
+            let m = ChoseOrganizationModel()
+            m.name = name
+            models.append(m)
+        }
+        return models
+    }
+}
+
+// 发布视屏，分类选择
+class ChoseClassificationModel: HJModel {
+    
+    var name: String = ""
+    var isSelected: Bool = false
+    
+    class func testCreatModels() ->[ChoseClassificationModel] {
+        var models = [ChoseClassificationModel]()
+        let names = ["音乐", "舞蹈", "创意", "手工", "戏曲", "语言", "考级", "会计", "英语", "武术", "播音", "教师"]
+        for name in names {
+            let m = ChoseClassificationModel()
+            m.name = name
+            models.append(m)
+        }
+        return models
+    }
+}

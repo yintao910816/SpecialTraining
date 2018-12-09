@@ -16,9 +16,27 @@ class STPublishVideoViewController: BaseViewController {
     @IBOutlet weak var meidaChoseOutlet: UIButton!
     @IBOutlet weak var saveOutlet: UIButton!
     
+    private var coverImage: UIImage!
+    
     private var managerPicker: ImagePickerManager!
     
     @IBAction func actions(_ sender: UIButton) {
+        switch sender.tag {
+        case 100:
+            // 保存
+            navigationController?.dismiss(animated: true, completion: nil)
+        case 101:
+            // 发布
+            navigationController?.dismiss(animated: true, completion: nil)
+        case 102:
+            // 选择分类
+            break
+        case 103:
+            // 选择机构
+            break
+        default:
+            break
+        }
     }
     
     @IBAction func dismiss(_ sender: UIBarButtonItem) {
@@ -26,6 +44,8 @@ class STPublishVideoViewController: BaseViewController {
     }
     
     override func setupUI() {
+        meidaChoseOutlet.setImage(coverImage, for: .normal)
+        
         inputTextOutlet.placeholder = "写标题并使用合适的话题，能让更多人看到"
         inputTextOutlet.font = UIFont.systemFont(ofSize: 14)
         
@@ -42,6 +62,10 @@ class STPublishVideoViewController: BaseViewController {
                 })
             })
             .disposed(by: disposeBag)
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        coverImage = parameters?["image"] as! UIImage
     }
 }
 
