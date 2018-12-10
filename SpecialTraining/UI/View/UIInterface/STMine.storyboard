@@ -253,6 +253,85 @@
             </objects>
             <point key="canvasLocation" x="-367" y="1707"/>
         </scene>
+        <!--Mine Collection View Controller-->
+        <scene sceneID="661-WH-BZ9">
+            <objects>
+                <viewController id="lIU-ZM-Q7S" customClass="STMineCollectionViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="HAZ-fb-wlt"/>
+                        <viewControllerLayoutGuide type="bottom" id="Myu-XN-bPu"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="2yu-nY-Op2">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" borderStyle="roundedRect" placeholder="🔍搜索" textAlignment="center" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="MYq-eq-F2B">
+                                <rect key="frame" x="5" y="84" width="365" height="30"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="15"/>
+                                </userDefinedRuntimeAttributes>
+                                <connections>
+                                    <outlet property="delegate" destination="lIU-ZM-Q7S" id="2sy-RI-rFp"/>
+                                </connections>
+                            </textField>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5MY-R7-ei8">
+                                <rect key="frame" x="5" y="129" width="365" height="110"/>
+                                <subviews>
+                                    <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Ebt-Lr-hhF">
+                                        <rect key="frame" x="5" y="5" width="355" height="100"/>
+                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="JHG-2j-KkA">
+                                            <size key="itemSize" width="50" height="50"/>
+                                            <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                            <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                            <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                        </collectionViewFlowLayout>
+                                    </collectionView>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstItem="Ebt-Lr-hhF" firstAttribute="leading" secondItem="5MY-R7-ei8" secondAttribute="leading" constant="5" id="8Vu-jE-gDD"/>
+                                    <constraint firstAttribute="bottom" secondItem="Ebt-Lr-hhF" secondAttribute="bottom" constant="5" id="FFz-ai-5et"/>
+                                    <constraint firstAttribute="height" constant="110" id="LxV-Bf-pcs"/>
+                                    <constraint firstItem="Ebt-Lr-hhF" firstAttribute="top" secondItem="5MY-R7-ei8" secondAttribute="top" constant="5" id="VO4-t5-KNp"/>
+                                    <constraint firstAttribute="trailing" secondItem="Ebt-Lr-hhF" secondAttribute="trailing" constant="5" id="eex-ky-qhf"/>
+                                </constraints>
+                                <userDefinedRuntimeAttributes>
+                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
+                                </userDefinedRuntimeAttributes>
+                            </view>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MM1-17-iLL" customClass="BaseTB" customModule="SpecialTraining" customModuleProvider="target">
+                                <rect key="frame" x="5" y="244" width="365" height="423"/>
+                                <color key="backgroundColor" red="0.94509803920000002" green="0.94509803920000002" blue="0.94509803920000002" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.94509803921568625" green="0.94509803921568625" blue="0.94509803921568625" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="MM1-17-iLL" secondAttribute="trailing" constant="5" id="0aL-Ge-6EG"/>
+                            <constraint firstItem="5MY-R7-ei8" firstAttribute="leading" secondItem="2yu-nY-Op2" secondAttribute="leading" constant="5" id="1xQ-TL-4os"/>
+                            <constraint firstItem="Myu-XN-bPu" firstAttribute="top" secondItem="MM1-17-iLL" secondAttribute="bottom" id="BhZ-gC-0i8"/>
+                            <constraint firstItem="MYq-eq-F2B" firstAttribute="leading" secondItem="2yu-nY-Op2" secondAttribute="leading" constant="5" id="Fzn-wR-2f6"/>
+                            <constraint firstItem="MM1-17-iLL" firstAttribute="top" secondItem="5MY-R7-ei8" secondAttribute="bottom" constant="5" id="GsD-5V-p1I"/>
+                            <constraint firstItem="MYq-eq-F2B" firstAttribute="top" secondItem="HAZ-fb-wlt" secondAttribute="bottom" constant="20" id="HB8-5d-Qo0"/>
+                            <constraint firstItem="5MY-R7-ei8" firstAttribute="top" secondItem="MYq-eq-F2B" secondAttribute="bottom" constant="15" id="WZT-hq-eVP"/>
+                            <constraint firstItem="MM1-17-iLL" firstAttribute="leading" secondItem="2yu-nY-Op2" secondAttribute="leading" constant="5" id="bgu-as-v17"/>
+                            <constraint firstAttribute="trailing" secondItem="5MY-R7-ei8" secondAttribute="trailing" constant="5" id="nyz-vK-eBt"/>
+                            <constraint firstAttribute="trailing" secondItem="MYq-eq-F2B" secondAttribute="trailing" constant="5" id="on6-zq-LzM"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="collectionView" destination="Ebt-Lr-hhF" id="N4i-m6-kwC"/>
+                        <outlet property="searchTextField" destination="MYq-eq-F2B" id="ejS-8v-Qye"/>
+                        <outlet property="tableView" destination="MM1-17-iLL" id="DXO-fo-hqk"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="yJz-ME-BS9" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5319" y="2507"/>
+        </scene>
         <!--Mine Order View Controller-->
         <scene sceneID="T1z-mU-Ho7">
             <objects>
@@ -265,7 +344,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvS-qg-AXh" customClass="BaseTB" customModule="SpecialTraining" customModuleProvider="target">
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvS-qg-AXh" customClass="BaseTB" customModule="SpecialTraining" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="144" width="375" height="523"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
@@ -1293,6 +1372,7 @@
                         <segue destination="Uy5-HH-mvF" kind="show" identifier="teacherPrepareSegue" id="HT8-0h-cXE"/>
                         <segue destination="81g-Au-StY" kind="show" identifier="myOrderSegue" id="VMb-xQ-GJa"/>
                         <segue destination="a1A-L9-lfI" kind="show" identifier="tobeOrganizationSegue" id="yro-Tp-fgY"/>
+                        <segue destination="lIU-ZM-Q7S" kind="show" identifier="collectionSegue" id="gCY-bQ-xZB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ToY-Hd-2SP" userLabel="First Responder" sceneMemberID="firstResponder"/>
