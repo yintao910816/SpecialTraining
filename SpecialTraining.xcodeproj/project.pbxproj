@@ -1432,14 +1432,11 @@
 				6B859EEF21B66507009FB70A /* STMineBankViewController.swift */,
 				6B0754BB21B1166500B36740 /* STMineRecomendViewController.swift */,
 				6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */,
-
 				B844477A21B81DF100808F5A /* STTreasureExchangeViewController.swift */,
 				B844477E21B829D200808F5A /* STTeacherPrepareViewController.swift */,
 				B810F48A21B97859005918B9 /* STOpenAccountViewController.swift */,
 				B810F48C21B97C4E005918B9 /* STUpdateFileViewController.swift */,
-
 				6BF7B94521BA633600BE1E4A /* STMineCollectionViewController.swift */,
-
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1889,7 +1886,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -1926,7 +1923,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */ = {
@@ -1935,7 +1932,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1944,7 +1941,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */ = {
@@ -2086,11 +2083,8 @@
 				B85F33D2219EBB4200023958 /* BaseModel.swift in Sources */,
 				B87A94E421A826F2003E2D21 /* OrganizationViewModel.swift in Sources */,
 				6B8A611521B4E10C00C0DFCD /* MineCourseViewModel.swift in Sources */,
-
 				B844477B21B81DF100808F5A /* STTreasureExchangeViewController.swift in Sources */,
-
 				6BF7B93621BA1BEB00BE1E4A /* STOpenAccountViewController.swift in Sources */,
-
 				B85F33D6219EC05500023958 /* Home.swift in Sources */,
 				6B8A612421B537A600C0DFCD /* MineChangeModel.swift in Sources */,
 				6B8A612221B5366200C0DFCD /* MineChangeViewModel.swift in Sources */,
