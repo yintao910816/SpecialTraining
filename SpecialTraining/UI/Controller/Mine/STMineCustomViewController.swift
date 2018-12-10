@@ -24,7 +24,7 @@ class STMineCustomViewController: BaseViewController {
             automaticallyAdjustsScrollViewInsets = false
         }
         
-        topLayout.constant += (LayoutSize.topVirtualArea + 20)
+        topLayout.constant += 20
         
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = .init(top: 10, left: 15, bottom: 10, right: 15)

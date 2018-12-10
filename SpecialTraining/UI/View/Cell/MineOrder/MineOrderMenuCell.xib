@@ -35,7 +35,7 @@
             <connections>
                 <outlet property="lblTitle" destination="tSg-D8-UIS" id="nEW-9S-IFU"/>
             </connections>
-            <point key="canvasLocation" x="-14.4" y="118.74062968515743"/>
+            <point key="canvasLocation" x="-50" y="161"/>
         </collectionViewCell>
     </objects>
 </document>
