@@ -45,12 +45,8 @@ extension UserDefaults{
 
     var lat: CLLocationDegrees {
         get{
-            #if DEBUG
-            return 112.21791
-            #else
             let lat = double(forKey: kUserLat)
             return lat == 0 ? 112.21791 : lat
-            #endif
         }
         set{
             set(newValue, forKey: kUserLat)
@@ -60,12 +56,8 @@ extension UserDefaults{
     
     var lng: CLLocationDegrees {
         get{
-            #if DEBUG
-            return 30.356023
-            #else
             let lng = double(forKey: kUserLng)
             return lng == 0 ? 30.356023 : lng
-            #endif
         }
         set{
             set(newValue, forKey: kUserLng)

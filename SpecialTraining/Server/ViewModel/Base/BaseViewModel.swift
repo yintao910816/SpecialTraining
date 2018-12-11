@@ -24,7 +24,7 @@ class BaseViewModel: NSObject {
     // 监听网络请求是否成功 (状态，错误提示信息)
     public var requestSuccess = Variable((true, ""))
     // 重新加载数据
-    public var reloadSubject = PublishSubject<Bool>()
+    public var reloadSubject = PublishSubject<Void>()
     // 返回上一个界面
     public let popSubject = PublishSubject<Bool>()
 

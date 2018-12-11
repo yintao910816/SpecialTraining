@@ -23,6 +23,12 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        window = UIWindow.init(frame: UIScreen.main.bounds)
+        window?.rootViewController = STMainTabBarController()
+        
+        window?.makeKeyAndVisible()
+        window?.backgroundColor = .white
+
         // 环信
         easemobConfig(application: application, launchOptions: launchOptions)
         // 百度
@@ -31,12 +37,6 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         #if DEBUG
         STHelper.login(account: "666666", password: "111111")
         #endif
-        
-        window = UIWindow.init(frame: UIScreen.main.bounds)
-        window?.rootViewController = STMainTabBarController()
-        
-        window?.makeKeyAndVisible()
-        window?.backgroundColor = .white
         
         return true
     }

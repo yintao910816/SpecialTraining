@@ -102,7 +102,7 @@ extension HomeRecommendCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
         switch section {
         case 0:
-            let carouselHeader = HomeHeaderCarouselView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: 1000))
+            let carouselHeader = HomeHeaderCarouselView.init(frame: .init(x: 0, y: 0, width: 2*PPScreenW, height: 200))
             return .init(width: PPScreenW, height: carouselHeader.actualHeight)
         case 1:
             return .init(width: PPScreenW, height: 79)

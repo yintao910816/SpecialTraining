@@ -14,8 +14,21 @@ class NoticesCenter { /**HUD*/
     
     init() { }
     
-    public func noticeLoading(_ text: String? = nil, _ inView: UIView = NSObject().visibleViewController!.view) {
-        noticeView.showLoading(onView: inView, forText: text)
+    public func noticeLoading(_ text: String? = nil, _ inView: UIView? = nil) {
+        var hudView: UIView!
+        if inView != nil {
+            hudView = inView!
+        }else {
+            if let v = NSObject().visibleViewController?.view {
+                hudView = v
+            }else if let v = UIApplication.shared.keyWindow {
+                hudView = v
+            }else {
+                return
+            }
+        }
+        
+        noticeView.showLoading(onView: hudView, forText: text)
     }
     
     public func loadingInWindow(_ text: String? = nil) {

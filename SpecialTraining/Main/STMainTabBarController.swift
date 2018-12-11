@@ -23,7 +23,7 @@ class STMainTabBarController: UITabBarController {
         let selectedImages = ["", "video_selected", "chat_selected", "shoppingcar_selected", "mine_selected"]
         let unselectedImages = ["", "video_unselected", "chat_unselected", "shoppingcar_unselected", "mine_unselected"]
 
-        let titles = ["优培训", "直播/点播", "消息", "购物车", "我的"]
+        let titles = ["", "直播/点播", "消息", "购物车", "我的"]
         
         var instantiateCtrls = [MainNavigationController]()
 
@@ -32,6 +32,13 @@ class STMainTabBarController: UITabBarController {
             setTabBarItem(nav: &rootNav, title: titles[idx], imageName: unselectedImages[idx], selectImageName: selectedImages[idx])
             instantiateCtrls.append(rootNav)
         }
+        
+        let firstButton = UIButton.init(type: .custom)
+        firstButton.setImage(UIImage.init(named: "demandView_bg"), for: .normal)
+        firstButton.imageView?.contentMode = .scaleAspectFill
+        firstButton.frame = .init(x: 0, y: 0, width: PPScreenW / 5.0, height: 49)
+        tabBar.addSubview(firstButton)
+        tabBar.bringSubviewToFront(firstButton)
         
         viewControllers = instantiateCtrls
     }
