@@ -35,10 +35,10 @@ class STVideoRecordingViewController: fileOutputViewController {
             // 下一步
             performSegue(withIdentifier: "publishSegue", sender: nil)
         case 104:
-            // 翻转
+            // 上传
             break
         case 105:
-            // 上传
+            // 翻转
             break
         default:
             break
