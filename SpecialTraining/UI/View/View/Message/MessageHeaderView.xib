@@ -36,13 +36,30 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="SR4-ph-V7J">
+                            <rect key="frame" x="281" y="15.5" width="46" height="30"/>
+                            <state key="normal" title="联系人">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="4av-C5-eks">
+                            <rect key="frame" x="337" y="14" width="30" height="33"/>
+                            <fontDescription key="fontDescription" style="UICTFontTextStyleBody"/>
+                            <state key="normal" title="＋">
+                                <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </state>
+                        </button>
                     </subviews>
                     <color key="backgroundColor" red="0.23529411759999999" green="0.73725490199999999" blue="0.94117647059999998" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstItem="BHZ-28-P7T" firstAttribute="leading" secondItem="uSq-KU-0lh" secondAttribute="leading" id="0ae-70-ffN"/>
+                        <constraint firstItem="4av-C5-eks" firstAttribute="leading" secondItem="SR4-ph-V7J" secondAttribute="trailing" constant="10" id="6zq-Tp-tgb"/>
+                        <constraint firstAttribute="trailing" secondItem="4av-C5-eks" secondAttribute="trailing" constant="8" id="CyC-rs-DsT"/>
                         <constraint firstItem="BHZ-28-P7T" firstAttribute="top" secondItem="uSq-KU-0lh" secondAttribute="bottom" constant="15" id="Oyj-tz-wKc"/>
                         <constraint firstAttribute="height" constant="220" id="PY0-n0-qTt"/>
                         <constraint firstItem="uSq-KU-0lh" firstAttribute="top" secondItem="CM1-QT-OgB" secondAttribute="top" constant="20" id="Xqu-q5-qH7"/>
+                        <constraint firstItem="4av-C5-eks" firstAttribute="centerY" secondItem="uSq-KU-0lh" secondAttribute="centerY" id="cOA-4J-n6X"/>
+                        <constraint firstItem="SR4-ph-V7J" firstAttribute="centerY" secondItem="4av-C5-eks" secondAttribute="centerY" id="erD-mV-QM7"/>
                         <constraint firstItem="uSq-KU-0lh" firstAttribute="leading" secondItem="CM1-QT-OgB" secondAttribute="leading" constant="12" id="zpX-ur-nh9"/>
                     </constraints>
                 </view>
@@ -64,7 +81,7 @@
                 <constraint firstItem="Rab-Lm-w6Y" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="jk3-AO-NZu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-121" y="59"/>
+            <point key="canvasLocation" x="-190" y="163"/>
         </view>
     </objects>
 </document>

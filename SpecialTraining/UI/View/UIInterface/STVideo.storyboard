@@ -124,14 +124,14 @@
                                     </button>
                                     <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mGa-qB-qT6">
                                         <rect key="frame" x="20" y="10" width="31" height="30"/>
-                                        <state key="normal" title="翻转"/>
+                                        <state key="normal" title="上传"/>
                                         <connections>
                                             <action selector="actions:" destination="tIt-Rv-2Qs" eventType="touchUpInside" id="kfv-qK-ABg"/>
                                         </connections>
                                     </button>
                                     <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emZ-vf-t4C">
                                         <rect key="frame" x="324" y="10" width="31" height="30"/>
-                                        <state key="normal" title="上传"/>
+                                        <state key="normal" title="翻转"/>
                                         <connections>
                                             <action selector="actions:" destination="tIt-Rv-2Qs" eventType="touchUpInside" id="Gyi-8v-zMn"/>
                                         </connections>
@@ -922,6 +922,6 @@
         <image name="navigationButtonReturn" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="KpB-So-eUZ"/>
+        <segue reference="HCU-pq-qHM"/>
     </inferredMetricsTieBreakers>
 </document>
