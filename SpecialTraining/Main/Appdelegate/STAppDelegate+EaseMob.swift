@@ -29,12 +29,15 @@ extension STAppDelegate {
         options?.isAutoTransferMessageAttachments = true
         options?.isAutoDownloadThumbnail = true
 
-        EMClient.shared()?.initializeSDK(with: options!)
+        DispatchQueue.global().async {
+            EMClient.shared()?.initializeSDK(with: options!)
+        }
     }
 
     //MARK:
     //MARK: login changed
     @objc func loginStateChage(no: Notification) {
+        PrintLog("当前线程 \(Thread.current)")
         if let success = no.object as? Bool, success == true {
             PrintLog("环信登录成功")
         }else {

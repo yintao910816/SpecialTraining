@@ -38,6 +38,8 @@ extension Notification.Name {
         public static let RefreshHomeLocation = Notification.Name(rawValue: "org.bmk.notification.name.refreshHomeLocation")
         // 启动app获取完经纬度加载首页数据
         public static let LoadHomeData = Notification.Name(rawValue: "org.bmk.notification.name.loadHomeData")
+        // 百度API启动失败
+        public static let BMKSetupFail = Notification.Name(rawValue: "org.bmk.notification.name.BMKSetupFail")
     }
     
 }

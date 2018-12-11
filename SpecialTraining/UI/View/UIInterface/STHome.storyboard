@@ -9,11 +9,11 @@
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
-        <!--优培训-->
+        <!--Main Navigation Controller-->
         <scene sceneID="vKP-Qf-0Vv">
             <objects>
                 <navigationController storyboardIdentifier="homeRootVC" id="ozA-F2-dJp" customClass="MainNavigationController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
-                    <tabBarItem key="tabBarItem" title="优培训" id="SwB-P1-Ukj"/>
+                    <tabBarItem key="tabBarItem" title="" id="SwB-P1-Ukj"/>
                     <navigationBar key="navigationBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="3de-gi-nEn">
                         <rect key="frame" x="0.0" y="20" width="375" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>

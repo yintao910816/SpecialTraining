@@ -11,6 +11,10 @@ import Foundation
 extension STAppDelegate: BMKGeneralDelegate {
     
     func baiduMapConfig(application: UIApplication, launchOptions: [UIApplication.LaunchOptionsKey: Any]?) {
+        starBMK()
+    }
+    
+    func starBMK() {
         BMKLocationAuth.sharedInstance()?.checkPermision(withKey: bmkAK, authDelegate: nil)
         
         // 要使用百度地图，请先启动BaiduMapManager
@@ -29,27 +33,29 @@ extension STAppDelegate: BMKGeneralDelegate {
         // 如果要关注网络及授权验证事件，请设定generalDelegate参数
         let ret = mapManager.start(bmkAK, generalDelegate: self)
         if ret == false {
-            NSLog("manager start failed!")
+            PrintLog("manager start failed!")
         }
     }
         
     //MARK: - BMKGeneralDelegate
     func onGetNetworkState(_ iError: Int32) {
         if (0 == iError) {
-            NSLog("联网成功");
+            PrintLog("百度联网成功")
         }
         else{
-            NSLog("联网失败，错误代码：Error\(iError)");
+            NotificationCenter.default.post(name: NotificationName.BMK.BMKSetupFail, object: nil)
+            PrintLog("百度联网失败，错误代码：Error\(iError)")
         }
     }
     
     func onGetPermissionState(_ iError: Int32) {
         if (0 == iError) {
-            NSLog("授权成功");
+            PrintLog("百度授权成功")
             BMKLocationHelper.share.userLocation()
         }
         else{
-            NSLog("授权失败，错误代码：Error\(iError)");
+            NotificationCenter.default.post(name: NotificationName.BMK.BMKSetupFail, object: nil)
+            PrintLog("百度授权失败，错误代码：Error\(iError)")
         }
     }
 

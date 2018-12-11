@@ -25,7 +25,7 @@ class HomeHeaderCarouselView: UICollectionReusableView {
         
         layoutIfNeeded()
         
-        PrintLog("222 -- \(contentView.viewWithTag(2000)!.frame.maxY)")
+        PrintLog("222 -- \(contentView.viewWithTag(2000)!.frame)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -34,7 +34,7 @@ class HomeHeaderCarouselView: UICollectionReusableView {
     
     var actualHeight: CGFloat {
         get {
-            PrintLog("111 -- \(contentView.viewWithTag(2000)!.frame.maxY)")
+            PrintLog("111 -- \(contentView.viewWithTag(2000)!.frame)")
 
             return contentView.viewWithTag(2000)!.frame.maxY + 10
         }
@@ -43,6 +43,6 @@ class HomeHeaderCarouselView: UICollectionReusableView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
-        PrintLog("333 -- \(contentView.viewWithTag(2000)!.frame.maxY)")
+        PrintLog("333 -- \(contentView.viewWithTag(2000)!.frame)")
     }
 }

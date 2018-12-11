@@ -39,12 +39,18 @@ class HomeViewModel: BaseViewModel {
                 self.loadDatas()
             })
             .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.BMK.BMKSetupFail, object: nil)
+            .subscribe(onNext: { [unowned self] no in
+                self.loadDatas()
+            })
+            .disposed(by: disposeBag)
+
     }
     
     // 加载所有数据
     private func loadDatas() {
         Observable.combineLatest(nearByCourse(), activityCourse())
-            ._doNext(forNotice: hud)
             .subscribe(onNext: { [unowned self] (nearByDatas, activityDatas) in
                 let experienceCourseModels: [HomeCellSize] = activityDatas
                 let nearByCourseModels: [HomeCellSize] = nearByDatas

@@ -22,7 +22,7 @@ class HomeOrganizationTableView: BaseTB {
     var cellSelected = PublishSubject<OrganizationModel>()
     
     override init(frame: CGRect, style: UITableView.Style) {
-        super.init(frame: frame, style: .plain)
+        super.init(frame: frame, style: .grouped)
         
         setupUI()
         rxBind()
@@ -36,10 +36,13 @@ class HomeOrganizationTableView: BaseTB {
             contentInsetAdjustmentBehavior = .never
         }
 
+        backgroundColor = .white
+        
         showsVerticalScrollIndicator = false
         
         tableHeader = OrganizationHeaderView.init()
-        tableHeaderView = tableHeader.contentView
+        tableHeaderView = UIView.init(frame: .init(x: 0, y: 0, width: 0, height: 0.01))
+        tableFooterView = UIView.init(frame: .init(x: 0, y: 0, width: 0, height: 0.01))
 
         rowHeight = organizationCellHeight
         
@@ -50,7 +53,7 @@ class HomeOrganizationTableView: BaseTB {
         
         datasource.asDriver()
             .drive(rx.items(cellIdentifier: "OrganizationCellID", cellType: OrganizationCell.self)) { [unowned self] row, model, cell in
-                print("fasdfas")
+
             }
             .disposed(by: disposeBag)
         
@@ -58,16 +61,24 @@ class HomeOrganizationTableView: BaseTB {
             .bind(to: cellSelected)
             .disposed(by: disposeBag)
 
+        rx.setDelegate(self)
+            .disposed(by: disposeBag)
     }
     
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        var rect = tableHeader.contentView.frame
-        rect.size.width = width
-        tableHeader.contentView.frame = rect
-        
-        tableHeader.contentView.height = tableHeader.actualHeight
-    }
+}
 
+extension HomeOrganizationTableView: UITableViewDelegate {
+    
+    func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
+        return tableHeader.contentView
+    }
+    
+    func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {
+        return tableHeader.actualHeight
+    }
+    
+    func tableView(_ tableView: UITableView, heightForFooterInSection section: Int) -> CGFloat {
+        return 0.01
+    }
+    
 }
