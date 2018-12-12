@@ -329,6 +329,8 @@
 		C408422821B54C0B00C491A8 /* STMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408422721B54C0B00C491A8 /* STMainTabBarController.swift */; };
 		C408422B21B559A500C491A8 /* STVideoDemandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408422A21B559A500C491A8 /* STVideoDemandViewController.swift */; };
 		C408422D21B562DD00C491A8 /* STUserVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408422C21B562DD00C491A8 /* STUserVideosViewController.swift */; };
+		C43339B221C0FBD900CAF850 /* STMyScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43339B121C0FBD900CAF850 /* STMyScoreViewController.swift */; };
+		C43339B421C0FC1B00CAF850 /* STCreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43339B321C0FC1B00CAF850 /* STCreditViewController.swift */; };
 		C45AAE5221B6A13500692D7D /* UserVideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AAE5121B6A13500692D7D /* UserVideosView.swift */; };
 		C45AAE5521B6A15200692D7D /* UserVideosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AAE5321B6A15200692D7D /* UserVideosCell.swift */; };
 		C45AAE5621B6A15200692D7D /* UserVideosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45AAE5421B6A15200692D7D /* UserVideosCell.xib */; };
@@ -676,6 +678,8 @@
 		C408422721B54C0B00C491A8 /* STMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMainTabBarController.swift; sourceTree = "<group>"; };
 		C408422A21B559A500C491A8 /* STVideoDemandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoDemandViewController.swift; sourceTree = "<group>"; };
 		C408422C21B562DD00C491A8 /* STUserVideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STUserVideosViewController.swift; sourceTree = "<group>"; };
+		C43339B121C0FBD900CAF850 /* STMyScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyScoreViewController.swift; sourceTree = "<group>"; };
+		C43339B321C0FC1B00CAF850 /* STCreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCreditViewController.swift; sourceTree = "<group>"; };
 		C45AAE5121B6A13500692D7D /* UserVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideosView.swift; sourceTree = "<group>"; };
 		C45AAE5321B6A15200692D7D /* UserVideosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideosCell.swift; sourceTree = "<group>"; };
 		C45AAE5421B6A15200692D7D /* UserVideosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserVideosCell.xib; sourceTree = "<group>"; };
@@ -1036,6 +1040,7 @@
 		B85F330F219E792D00023958 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				C43339B021C0FBC700CAF850 /* ShoppingCar */,
 				C408422921B5591B00C491A8 /* Video */,
 				B87A94D121A81F45003E2D21 /* Organization */,
 				B81EDF7421A54D7100F9D3B0 /* Home */,
@@ -1639,6 +1644,15 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		C43339B021C0FBC700CAF850 /* ShoppingCar */ = {
+			isa = PBXGroup;
+			children = (
+				C43339B121C0FBD900CAF850 /* STMyScoreViewController.swift */,
+				C43339B321C0FC1B00CAF850 /* STCreditViewController.swift */,
+			);
+			path = ShoppingCar;
+			sourceTree = "<group>";
+		};
 		C45AAE5021B6A12300692D7D /* Video */ = {
 			isa = PBXGroup;
 			children = (
@@ -1874,7 +1888,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -1911,7 +1925,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */ = {
@@ -1920,7 +1934,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1929,7 +1943,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */ = {
@@ -2070,6 +2084,7 @@
 				B85F33AD219EADB300023958 /* HomeHeaderNearByCourseView.swift in Sources */,
 				B85F33D2219EBB4200023958 /* BaseModel.swift in Sources */,
 				B87A94E421A826F2003E2D21 /* OrganizationViewModel.swift in Sources */,
+				C43339B221C0FBD900CAF850 /* STMyScoreViewController.swift in Sources */,
 				6B8A611521B4E10C00C0DFCD /* MineCourseViewModel.swift in Sources */,
 				B844477B21B81DF100808F5A /* STTreasureExchangeViewController.swift in Sources */,
 				B85F33D6219EC05500023958 /* Home.swift in Sources */,
@@ -2174,6 +2189,7 @@
 				B803C3DA21BD7D19004C97DB /* ChoseClassificationCell.swift in Sources */,
 				B87F8F6921A2414900DE9DC1 /* STMineInfoViewController.swift in Sources */,
 				B85F33DD219F179400023958 /* Organization.swift in Sources */,
+				C43339B421C0FC1B00CAF850 /* STCreditViewController.swift in Sources */,
 				B803C3D421BD7A4E004C97DB /* ChoseOrganizationCell.swift in Sources */,
 				B85F33CE219EBAB100023958 /* Response+ModelMapper.swift in Sources */,
 				B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */,
