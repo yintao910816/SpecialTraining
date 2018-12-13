@@ -282,7 +282,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ofv-wc-IAX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="234"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="234"/>
                                 <subviews>
                                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demandView_bg" translatesAutoresizingMaskIntoConstraints="NO" id="JIe-V8-MaP">
                                         <rect key="frame" x="0.0" y="0.0" width="375" height="214"/>
@@ -313,8 +313,22 @@
                                     </label>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="DUt-17-Qwb">
                                         <rect key="frame" x="15" y="174" width="345" height="60"/>
+                                        <subviews>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Wm7-wv-a7C">
+                                                <rect key="frame" x="50" y="15" width="62" height="30"/>
+                                                <state key="normal" title="积分规则"/>
+                                            </button>
+                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="End-cY-GtE">
+                                                <rect key="frame" x="233" y="15" width="62" height="30"/>
+                                                <state key="normal" title="积分兑换"/>
+                                            </button>
+                                        </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <constraints>
+                                            <constraint firstItem="Wm7-wv-a7C" firstAttribute="leading" secondItem="DUt-17-Qwb" secondAttribute="leading" constant="50" id="1nn-Pd-bHY"/>
+                                            <constraint firstItem="End-cY-GtE" firstAttribute="centerY" secondItem="DUt-17-Qwb" secondAttribute="centerY" id="FM2-vP-sbg"/>
+                                            <constraint firstItem="Wm7-wv-a7C" firstAttribute="centerY" secondItem="DUt-17-Qwb" secondAttribute="centerY" id="MVb-6d-q7p"/>
+                                            <constraint firstAttribute="trailing" secondItem="End-cY-GtE" secondAttribute="trailing" constant="50" id="Q21-YG-z4n"/>
                                             <constraint firstAttribute="height" constant="60" id="ex7-sm-wJP"/>
                                         </constraints>
                                     </view>
@@ -339,8 +353,8 @@
                                     <constraint firstItem="acL-p1-Uda" firstAttribute="centerX" secondItem="JIe-V8-MaP" secondAttribute="centerX" id="osW-m6-m7T"/>
                                 </constraints>
                             </view>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rpl-Ff-MpG">
-                                <rect key="frame" x="0.0" y="298" width="375" height="369"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="rpl-Ff-MpG">
+                                <rect key="frame" x="0.0" y="234" width="375" height="433"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </tableView>
                         </subviews>
@@ -348,7 +362,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="ofv-wc-IAX" secondAttribute="trailing" id="Bls-RT-oQ5"/>
                             <constraint firstItem="ofv-wc-IAX" firstAttribute="leading" secondItem="tdh-cc-UkP" secondAttribute="leading" id="DmW-5I-tJJ"/>
-                            <constraint firstItem="ofv-wc-IAX" firstAttribute="top" secondItem="tdh-cc-UkP" secondAttribute="top" constant="64" id="Hk5-4L-D24"/>
+                            <constraint firstItem="ofv-wc-IAX" firstAttribute="top" secondItem="tdh-cc-UkP" secondAttribute="top" id="Hk5-4L-D24"/>
                             <constraint firstAttribute="trailing" secondItem="rpl-Ff-MpG" secondAttribute="trailing" id="Kdo-8p-ln5"/>
                             <constraint firstItem="rpl-Ff-MpG" firstAttribute="top" secondItem="ofv-wc-IAX" secondAttribute="bottom" id="Knf-WM-kRM"/>
                             <constraint firstItem="rpl-Ff-MpG" firstAttribute="leading" secondItem="tdh-cc-UkP" secondAttribute="leading" id="vBP-up-a73"/>
