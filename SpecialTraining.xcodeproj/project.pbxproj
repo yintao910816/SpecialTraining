@@ -13,6 +13,8 @@
 		6B0754BC21B1166500B36740 /* STMineRecomendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0754BB21B1166500B36740 /* STMineRecomendViewController.swift */; };
 		6B0754C221B1257100B36740 /* MineCustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0754C121B1257100B36740 /* MineCustomViewModel.swift */; };
 		6B0965F321BE5D0100538933 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0965F221BE5D0100538933 /* libopencore-amrnb.a */; };
+		6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */; };
+		6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */; };
 		6B593CA021B12E9700D764E6 /* MineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */; };
 		6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */; };
 		6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */; };
@@ -362,6 +364,8 @@
 		6B0754BB21B1166500B36740 /* STMineRecomendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineRecomendViewController.swift; sourceTree = "<group>"; };
 		6B0754C121B1257100B36740 /* MineCustomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomViewModel.swift; sourceTree = "<group>"; };
 		6B0965F221BE5D0100538933 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
+		6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineHeadIVViewController.swift; sourceTree = "<group>"; };
+		6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineQRCodeViewController.swift; sourceTree = "<group>"; };
 		6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomCell.swift; sourceTree = "<group>"; };
 		6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCustomCell.xib; sourceTree = "<group>"; };
 		6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineOrderViewController.swift; sourceTree = "<group>"; };
@@ -1438,6 +1442,8 @@
 				B810F48A21B97859005918B9 /* STOpenAccountViewController.swift */,
 				B810F48C21B97C4E005918B9 /* STUpdateFileViewController.swift */,
 				6BF7B94521BA633600BE1E4A /* STMineCollectionViewController.swift */,
+				6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */,
+				6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -2015,6 +2021,7 @@
 				6B859EF321B66851009FB70A /* MineBankCell.swift in Sources */,
 				B87A94DE21A82099003E2D21 /* TeachersCollectionVIew.swift in Sources */,
 				B85F3355219E94D600023958 /* BackgroundView.swift in Sources */,
+				6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */,
 				B85F3354219E94D600023958 /* TYIndicatorBaseView.swift in Sources */,
 				B85F33D0219EBAB100023958 /* HandyJSON+MapModel.swift in Sources */,
 				B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */,
@@ -2154,6 +2161,7 @@
 				B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */,
 				B85F33CF219EBAB100023958 /* APIServer.swift in Sources */,
 				B81E909421A396B7000754E3 /* STChatRoomViewController.swift in Sources */,
+				6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */,
 				B85F337F219EA17100023958 /* CarouselView.swift in Sources */,
 				B87F8F8F21A29DCF00DE9DC1 /* AppNotifications.swift in Sources */,
 				B85F33C1219EB94100023958 /* BaseViewModel.swift in Sources */,

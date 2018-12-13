@@ -47,7 +47,7 @@ DEPENDENCIES:
   - YYKit
 
 SPEC REPOS:
-  https://github.com/cocoapods/specs.git:
+  https://github.com/CocoaPods/Specs.git:
     - Alamofire
     - BaiduMapKit
     - BMKLocationKit
@@ -87,4 +87,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 07444de1dccc2fddd9d1cb7cb80366776c5ede4c
 
-COCOAPODS: 1.5.3
+COCOAPODS: 1.5.0

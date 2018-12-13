@@ -30,7 +30,7 @@ class MineInfoModel: MineInfoModelAdapt {
 class StudentInfoModel: HJModel, MineInfoModelAdapt {
     
     var height: CGFloat {
-        return 80
+        return 165
     }
 }
 

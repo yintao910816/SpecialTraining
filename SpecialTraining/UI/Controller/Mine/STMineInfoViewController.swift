@@ -34,6 +34,8 @@ class STMineInfoViewController: BaseViewController , VMNavigation{
                 return cell
             }
             let cell = tb.dequeueReusableCell(withIdentifier: "StudentInfoCellID") as! StudentInfoCell
+            cell.delegate = nil
+            cell.delegate = self
             return cell
         })
         
@@ -47,6 +49,12 @@ class STMineInfoViewController: BaseViewController , VMNavigation{
         tableView.rx.itemSelected.asDriver().drive(onNext: { [unowned self] (indexpath) in
             if indexpath.section == 1 {
                 self.performSegue(withIdentifier: "mineCustom", sender: nil)
+            }else if indexpath.section == 0 {
+                if indexpath.row == 0 {
+                    self.performSegue(withIdentifier: "mineHeadIVSegue", sender: nil)
+                }else if indexpath.row == 3 {
+                    self.performSegue(withIdentifier: "mineQRCodeSegue", sender: nil)
+                }
             }
         }).disposed(by: disposeBag)
     }
@@ -92,4 +100,15 @@ extension STMineInfoViewController: UITableViewDelegate {
             return 0
         }
     }
+}
+
+extension STMineInfoViewController: StudentInfoAction {
+    func changeInfo() {
+        PrintLog("修改学员信息")
+    }
+    
+    func addInfo() {
+        PrintLog("添加学员信息")
+    }
+    
 }

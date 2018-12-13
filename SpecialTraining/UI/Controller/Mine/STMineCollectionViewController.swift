@@ -52,8 +52,6 @@ class STMineCollectionViewController: BaseViewController {
             cell.model = item
             }.disposed(by: disposeBag)
         
-//        collectionView.rx.setDelegate(self)
-    
         collectionView.rx.modelSelected(MineCollectionHeaderModel.self)
         .asDriver()
         .drive(viewModel.colSubject)
