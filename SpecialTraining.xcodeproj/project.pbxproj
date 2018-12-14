@@ -1916,7 +1916,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -1953,7 +1953,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */ = {
@@ -1962,7 +1962,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1971,7 +1971,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */ = {

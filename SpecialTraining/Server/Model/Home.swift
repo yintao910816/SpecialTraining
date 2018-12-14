@@ -50,6 +50,20 @@ class NearByCourseModel: BaseCourseModel {
     var shop_id: String = ""
     var shop_name: String = ""
     var dis: String = ""
+    
+    class func testDatas() ->[NearByCourseModel] {
+        var datas = [NearByCourseModel]()
+        for _ in 0..<5 {
+            let m = NearByCourseModel()
+            m.title = "测试测试"
+            m.shop_name = "测试测试"
+            m.dis = "测试测试"
+            m.content = "测试测试"
+            m.about_price = "测试测试"
+            datas.append(m)
+        }
+        return datas
+    }
 }
 
 extension NearByCourseModel {
