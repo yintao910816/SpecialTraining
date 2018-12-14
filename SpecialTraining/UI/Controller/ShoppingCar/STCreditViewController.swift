@@ -10,6 +10,10 @@ import UIKit
 
 class STCreditViewController: BaseViewController {
     
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+
     override func setupUI() {
         
     }
