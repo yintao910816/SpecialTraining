@@ -39,42 +39,87 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="exK-Ky-BMs">
-                                <rect key="frame" x="0.0" y="64" width="375" height="50"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
                                 <subviews>
-                                    <button opaque="NO" tag="500" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nak-HH-Vpf">
-                                        <rect key="frame" x="12" y="10" width="31" height="30"/>
+                                    <button opaque="NO" clipsSubviews="YES" tag="500" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nak-HH-Vpf">
+                                        <rect key="frame" x="12" y="7.5" width="70" height="25"/>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="31" id="fzR-gZ-bdF"/>
-                                            <constraint firstAttribute="height" constant="30" id="ims-9a-jqo"/>
+                                            <constraint firstAttribute="height" constant="25" id="ims-9a-jqo"/>
+                                            <constraint firstAttribute="width" constant="70" id="ulu-W3-ft4"/>
                                         </constraints>
-                                        <state key="normal" backgroundImage="home_course_unselected"/>
-                                        <state key="selected" backgroundImage="home_course_selected"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="附近课程">
+                                            <color key="titleColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <real key="value" value="12.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
                                             <action selector="actions:" destination="rCC-6w-DCI" eventType="touchUpInside" id="hYc-K3-vPq"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="b8W-4r-b8f">
-                                        <rect key="frame" x="63" y="10" width="31" height="30"/>
-                                        <state key="normal" backgroundImage="home_organization_unselected"/>
-                                        <state key="selected" backgroundImage="home_organization_selected"/>
+                                    <button opaque="NO" clipsSubviews="YES" tag="501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vEt-Sy-waJ">
+                                        <rect key="frame" x="92" y="7.5" width="70" height="25"/>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="体验专区">
+                                            <color key="titleColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <real key="value" value="12.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
                                         <connections>
-                                            <action selector="actions:" destination="rCC-6w-DCI" eventType="touchUpInside" id="3bP-ve-bfi"/>
+                                            <action selector="actions:" destination="rCC-6w-DCI" eventType="touchUpInside" id="m2F-oJ-SrC"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" clipsSubviews="YES" tag="501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="HHf-TK-Ckj">
+                                        <rect key="frame" x="172" y="7.5" width="70" height="25"/>
+                                        <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="deviceRGB"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <state key="normal" title="推荐机构">
+                                            <color key="titleColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <userDefinedRuntimeAttributes>
+                                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                                <real key="value" value="12.5"/>
+                                            </userDefinedRuntimeAttribute>
+                                        </userDefinedRuntimeAttributes>
+                                        <connections>
+                                            <action selector="actions:" destination="rCC-6w-DCI" eventType="touchUpInside" id="qWn-xW-O8x"/>
                                         </connections>
                                     </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
-                                    <constraint firstItem="b8W-4r-b8f" firstAttribute="centerY" secondItem="nak-HH-Vpf" secondAttribute="centerY" id="2ZY-HO-uyk"/>
-                                    <constraint firstAttribute="height" constant="50" id="LXM-QR-Mn7"/>
+                                    <constraint firstItem="vEt-Sy-waJ" firstAttribute="height" secondItem="nak-HH-Vpf" secondAttribute="height" id="3ng-Rp-zqz"/>
+                                    <constraint firstItem="vEt-Sy-waJ" firstAttribute="centerY" secondItem="nak-HH-Vpf" secondAttribute="centerY" id="AJY-Ma-8FM"/>
+                                    <constraint firstItem="HHf-TK-Ckj" firstAttribute="leading" secondItem="vEt-Sy-waJ" secondAttribute="trailing" constant="10" id="Gd3-pR-2f6"/>
+                                    <constraint firstAttribute="height" constant="40" id="LXM-QR-Mn7"/>
                                     <constraint firstItem="nak-HH-Vpf" firstAttribute="centerY" secondItem="exK-Ky-BMs" secondAttribute="centerY" id="Wgo-t0-ofv"/>
-                                    <constraint firstItem="b8W-4r-b8f" firstAttribute="height" secondItem="nak-HH-Vpf" secondAttribute="height" id="kis-zE-gfX"/>
+                                    <constraint firstItem="vEt-Sy-waJ" firstAttribute="width" secondItem="nak-HH-Vpf" secondAttribute="width" id="Wkg-81-Cg9"/>
+                                    <constraint firstItem="HHf-TK-Ckj" firstAttribute="centerY" secondItem="vEt-Sy-waJ" secondAttribute="centerY" id="Y0Y-mo-Z4U"/>
+                                    <constraint firstItem="HHf-TK-Ckj" firstAttribute="width" secondItem="vEt-Sy-waJ" secondAttribute="width" id="p31-RP-Yzd"/>
                                     <constraint firstItem="nak-HH-Vpf" firstAttribute="leading" secondItem="exK-Ky-BMs" secondAttribute="leading" constant="12" id="pBL-pi-NcL"/>
-                                    <constraint firstItem="b8W-4r-b8f" firstAttribute="leading" secondItem="nak-HH-Vpf" secondAttribute="trailing" constant="20" id="pmw-xg-XaS"/>
-                                    <constraint firstItem="b8W-4r-b8f" firstAttribute="width" secondItem="nak-HH-Vpf" secondAttribute="width" id="r9w-0M-riu"/>
+                                    <constraint firstItem="HHf-TK-Ckj" firstAttribute="height" secondItem="vEt-Sy-waJ" secondAttribute="height" id="qq8-z3-Ucq"/>
+                                    <constraint firstItem="vEt-Sy-waJ" firstAttribute="leading" secondItem="nak-HH-Vpf" secondAttribute="trailing" constant="10" id="zX2-N3-hvn"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-hF-Ogt">
-                                <rect key="frame" x="0.0" y="114" width="375" height="553"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                                 <connections>
                                     <outlet property="delegate" destination="rCC-6w-DCI" id="sBC-ee-M02"/>
                                 </connections>
@@ -102,6 +147,9 @@
                         <barButtonItem key="rightBarButtonItem" title="Item" id="ghc-Wl-Z7M"/>
                     </navigationItem>
                     <connections>
+                        <outlet property="expericeOutlet" destination="vEt-Sy-waJ" id="gpA-vl-izS"/>
+                        <outlet property="nearByCourseOutlet" destination="nak-HH-Vpf" id="QKT-1X-fhT"/>
+                        <outlet property="recommnedOrganizationOutlet" destination="HHf-TK-Ckj" id="d0g-Ur-ydd"/>
                         <outlet property="scrollOutlet" destination="0XH-hF-Ogt" id="RQa-kc-ohY"/>
                         <outlet property="topView" destination="exK-Ky-BMs" id="2bq-bg-Kuy"/>
                         <segue destination="vnb-9R-D3W" kind="show" identifier="organizationSegue" id="TrE-bq-O0l"/>
@@ -441,10 +489,6 @@
     <resources>
         <image name="dianhua" width="200" height="200"/>
         <image name="guanzhu" width="360" height="360"/>
-        <image name="home_course_selected" width="150" height="150"/>
-        <image name="home_course_unselected" width="150" height="150"/>
-        <image name="home_organization_selected" width="150" height="150"/>
-        <image name="home_organization_unselected" width="150" height="150"/>
         <image name="kefu" width="200" height="200"/>
         <image name="show_my_location" width="200" height="200"/>
     </resources>

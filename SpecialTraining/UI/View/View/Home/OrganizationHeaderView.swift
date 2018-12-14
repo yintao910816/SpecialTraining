@@ -24,7 +24,7 @@ class OrganizationHeaderView: BaseFilesOwner {
     
     var actualHeight: CGFloat {
         get {
-            return contentView.viewWithTag(2000)!.frame.maxY + 10
+            return contentView.viewWithTag(2000)!.frame.maxY
         }
     }
 }

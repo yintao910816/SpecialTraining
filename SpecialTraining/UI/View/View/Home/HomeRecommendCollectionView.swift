@@ -40,8 +40,8 @@ class HomeRecommendCollectionView: UICollectionView {
         showsVerticalScrollIndicator = false
         backgroundColor = .white
 
-//        register(HomeHeaderCarouselView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID)
-        register(HomeHeaderNearByCourseView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerNearByCourseID)
+        register(HomeHeaderCarouselView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID)
+//        register(HomeHeaderNearByCourseView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerNearByCourseID)
 //        register(HomeHeaderOptimizingView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerOptimizingID)
         
 //        register(UINib.init(nibName: "CourseDisplayCell", bundle: Bundle.main), forCellWithReuseIdentifier: courseDisplayCellID)
@@ -75,8 +75,8 @@ class HomeRecommendCollectionView: UICollectionView {
         }, configureSupplementaryView: { [unowned self] (_, col, kind, indexPath) -> UICollectionReusableView in
 //            // 轮播图部分头部
 //            if indexPath.section == 0 {
-//                let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID, for: indexPath) as! HomeHeaderCarouselView
-//                return colHeader
+                let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID, for: indexPath) as! HomeHeaderCarouselView
+                return colHeader
 //            }
 //            // 附近课程头部
 //            if indexPath.section == 1 {
@@ -87,8 +87,8 @@ class HomeRecommendCollectionView: UICollectionView {
 //            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerOptimizingID, for: indexPath) as! HomeHeaderOptimizingView
 //            return colHeader
 
-            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerNearByCourseID, for: indexPath) as! HomeHeaderNearByCourseView
-            return colHeader
+//            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerNearByCourseID, for: indexPath) as! HomeHeaderNearByCourseView
+//            return colHeader
 
             }, moveItem: { _,_,_  in
                 
@@ -108,8 +108,8 @@ extension HomeRecommendCollectionView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
 //        switch section {
 //        case 0:
-//            let carouselHeader = HomeHeaderCarouselView.init(frame: .init(x: 0, y: 0, width: 2*PPScreenW, height: 200))
-//            return .init(width: PPScreenW, height: carouselHeader.actualHeight)
+            let carouselHeader = HomeHeaderCarouselView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: 200))
+            return .init(width: PPScreenW, height: carouselHeader.actualHeight)
 //        case 1:
 //            return .init(width: PPScreenW, height: 79)
 //        case 2:
@@ -117,7 +117,7 @@ extension HomeRecommendCollectionView: UICollectionViewDelegateFlowLayout {
 //        default:
 //            return .init(width: 0, height: 0)
 //        }
-        return .init(width: PPScreenW, height: 79)
+//        return .init(width: PPScreenW, height: 79)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {

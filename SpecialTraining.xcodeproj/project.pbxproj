@@ -357,6 +357,8 @@
 		C4CBC46921C1FA0400AEDB86 /* MyScoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CBC46721C1FA0400AEDB86 /* MyScoreCell.swift */; };
 		C4CBC46A21C1FA0400AEDB86 /* MyScoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CBC46821C1FA0400AEDB86 /* MyScoreCell.xib */; };
 		C4CBC46C21C1FB2300AEDB86 /* MyScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */; };
+		C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */; };
+		C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -720,6 +722,8 @@
 		C4CBC46721C1FA0400AEDB86 /* MyScoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScoreCell.swift; sourceTree = "<group>"; };
 		C4CBC46821C1FA0400AEDB86 /* MyScoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyScoreCell.xib; sourceTree = "<group>"; };
 		C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScoreViewModel.swift; sourceTree = "<group>"; };
+		C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderExperienceView.swift; sourceTree = "<group>"; };
+		C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderExperienceView.xib; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -1350,6 +1354,8 @@
 				B85F33B2219EB0EC00023958 /* HomeHeaderOptimizingView.xib */,
 				B80B6BE0219FA66000C33F11 /* OrganizationHeaderView.swift */,
 				B8547E2721A6772300281554 /* OrganizationHeaderView.xib */,
+				C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */,
+				C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -1836,6 +1842,7 @@
 				B8FBFA3221A3DD9600AECB75 /* angrya_thumb.png in Resources */,
 				C486959F21AFC83600249C47 /* other_voice.gif in Resources */,
 				B80B6C0F219FF29900C33F11 /* VideoClassificationCell.xib in Resources */,
+				C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */,
 				B81EDF7A21A5570200F9D3B0 /* mapapi.bundle in Resources */,
 				B80B6BFE219FEE1100C33F11 /* VideoCell.xib in Resources */,
 				C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */,
@@ -1916,7 +1923,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -1953,7 +1960,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */ = {
@@ -1962,7 +1969,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1971,7 +1978,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */ = {
@@ -2186,6 +2193,7 @@
 				B88F8CA421C1647D0064C1CF /* STResetPassTwoViewController.swift in Sources */,
 				B80B6BDF219FA5FA00C33F11 /* BaseFilesOwner.swift in Sources */,
 				B85F339D219EA37100023958 /* CourseDisplayCell.swift in Sources */,
+				C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */,
 				B81EDF7321A53C1300F9D3B0 /* BMKMapHelper.swift in Sources */,
 				B8FBFA5D21A3DE3D00AECB75 /* PlaceholderTextView.swift in Sources */,
 				B85F33A1219EA3AD00023958 /* CourseListCell.swift in Sources */,

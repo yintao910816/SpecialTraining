@@ -17,7 +17,7 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="267"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="231"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="PqA-V8-93J" customClass="CarouselView" customModule="SpecialTraining" customModuleProvider="target">
@@ -27,51 +27,45 @@
                         <constraint firstAttribute="width" secondItem="PqA-V8-93J" secondAttribute="height" multiplier="2:1" id="0Tb-QM-9vW"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n8C-7F-asV">
-                    <rect key="frame" x="15" y="228" width="30" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="人气">
-                        <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="deviceRGB"/>
-                    </state>
-                </button>
-                <button opaque="NO" tag="2000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Y9U-8V-La5">
-                    <rect key="frame" x="60" y="228" width="30" height="29"/>
-                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                    <state key="normal" title="距离">
-                        <color key="titleColor" red="0.2901960784" green="0.2901960784" blue="0.2901960784" alpha="1" colorSpace="deviceRGB"/>
-                    </state>
-                </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6ZX-PX-BOS">
-                    <rect key="frame" x="15" y="197" width="101" height="25"/>
+                <view tag="2000" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="U8J-Kq-0De">
+                    <rect key="frame" x="0.0" y="195.5" width="375" height="35"/>
+                    <subviews>
+                        <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ENl-O5-Lv8">
+                            <rect key="frame" x="10" y="9" width="4" height="17"/>
+                            <color key="backgroundColor" red="1" green="0.43186994880000001" blue="0.42489785140000003" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="4" id="WzI-B4-4JL"/>
+                            </constraints>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="附近课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aTf-0e-rSv">
+                            <rect key="frame" x="21" y="9" width="58" height="17"/>
+                            <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
-                        <constraint firstAttribute="width" secondItem="6ZX-PX-BOS" secondAttribute="height" multiplier="125:31" id="M0d-8y-Naz"/>
-                        <constraint firstAttribute="height" constant="25" id="qjx-SY-7to"/>
+                        <constraint firstItem="aTf-0e-rSv" firstAttribute="leading" secondItem="ENl-O5-Lv8" secondAttribute="trailing" constant="7" id="AsQ-od-pBi"/>
+                        <constraint firstItem="aTf-0e-rSv" firstAttribute="centerY" secondItem="ENl-O5-Lv8" secondAttribute="centerY" id="BKX-vw-DvV"/>
+                        <constraint firstAttribute="bottom" secondItem="ENl-O5-Lv8" secondAttribute="bottom" constant="9" id="FkT-7L-QS7"/>
+                        <constraint firstItem="ENl-O5-Lv8" firstAttribute="top" secondItem="U8J-Kq-0De" secondAttribute="top" constant="9" id="MvQ-0G-Ma5"/>
+                        <constraint firstItem="ENl-O5-Lv8" firstAttribute="leading" secondItem="U8J-Kq-0De" secondAttribute="leading" constant="10" id="hCC-1e-7t5"/>
+                        <constraint firstAttribute="height" constant="35" id="xaD-sR-J0t"/>
                     </constraints>
-                    <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                    <inset key="titleEdgeInsets" minX="-35" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <inset key="imageEdgeInsets" minX="60" minY="0.0" maxX="0.0" maxY="0.0"/>
-                    <state key="normal" backgroundImage="home_nearby_organization">
-                        <color key="titleColor" red="0.17254901960784313" green="0.17254901959999999" blue="0.17254901960784313" alpha="1" colorSpace="deviceRGB"/>
-                    </state>
-                </button>
+                </view>
             </subviews>
-            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
-                <constraint firstItem="6ZX-PX-BOS" firstAttribute="top" secondItem="PqA-V8-93J" secondAttribute="bottom" constant="9.5" id="1p0-bd-Dhm"/>
                 <constraint firstItem="PqA-V8-93J" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="2IX-ND-CKK"/>
-                <constraint firstItem="Y9U-8V-La5" firstAttribute="leading" secondItem="n8C-7F-asV" secondAttribute="trailing" constant="15" id="GNy-UI-NnH"/>
-                <constraint firstItem="n8C-7F-asV" firstAttribute="leading" secondItem="6ZX-PX-BOS" secondAttribute="leading" id="Qrb-Ad-LKU"/>
-                <constraint firstItem="n8C-7F-asV" firstAttribute="top" secondItem="6ZX-PX-BOS" secondAttribute="bottom" constant="6" id="W8V-ln-kK7"/>
-                <constraint firstItem="Y9U-8V-La5" firstAttribute="centerY" secondItem="n8C-7F-asV" secondAttribute="centerY" id="Ypl-bo-dmK"/>
+                <constraint firstAttribute="trailing" secondItem="U8J-Kq-0De" secondAttribute="trailing" id="Eup-Aa-Rb5"/>
+                <constraint firstItem="U8J-Kq-0De" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="HVB-is-UGI"/>
                 <constraint firstAttribute="trailing" secondItem="PqA-V8-93J" secondAttribute="trailing" id="jhD-o7-VzH"/>
+                <constraint firstItem="U8J-Kq-0De" firstAttribute="top" secondItem="PqA-V8-93J" secondAttribute="bottom" constant="8" id="rtk-IT-U3r"/>
                 <constraint firstItem="PqA-V8-93J" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="wcm-2m-UHH"/>
-                <constraint firstItem="6ZX-PX-BOS" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="xke-8R-H7m"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="-1" y="90"/>
+            <point key="canvasLocation" x="-2.3999999999999999" y="73.313343328335833"/>
         </view>
     </objects>
-    <resources>
-        <image name="home_nearby_organization" width="250" height="62"/>
-    </resources>
 </document>
