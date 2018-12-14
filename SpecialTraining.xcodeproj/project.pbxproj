@@ -214,6 +214,11 @@
 		B85F33DF219F1D0300023958 /* BaseTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33DE219F1D0300023958 /* BaseTB.swift */; };
 		B85F33E1219F1DC200023958 /* BaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33E0219F1DC200023958 /* BaseTBCell.swift */; };
 		B86D68B521C3F5D3001A0B75 /* HomeExpericeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */; };
+		B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */; };
+		B86D68BB21C40630001A0B75 /* SplendidnessContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68BA21C40630001A0B75 /* SplendidnessContentTableView.swift */; };
+		B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */; };
+		B86D68BF21C406BC001A0B75 /* SplendidnessContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */; };
+		B86D68C121C40897001A0B75 /* CourseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */; };
 		B87A94D321A81F46003E2D21 /* STOrganizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */; };
 		B87A94D821A81FE1003E2D21 /* PhysicalStoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D721A81FE1003E2D21 /* PhysicalStoreTableView.swift */; };
 		B87A94DA21A82052003E2D21 /* RecommendCourseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */; };
@@ -573,6 +578,11 @@
 		B85F33DE219F1D0300023958 /* BaseTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTB.swift; sourceTree = "<group>"; };
 		B85F33E0219F1DC200023958 /* BaseTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTBCell.swift; sourceTree = "<group>"; };
 		B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExpericeCollectionView.swift; sourceTree = "<group>"; };
+		B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCourseDetailViewController.swift; sourceTree = "<group>"; };
+		B86D68BA21C40630001A0B75 /* SplendidnessContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplendidnessContentTableView.swift; sourceTree = "<group>"; };
+		B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplendidnessContentCell.swift; sourceTree = "<group>"; };
+		B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplendidnessContentCell.xib; sourceTree = "<group>"; };
+		B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewModel.swift; sourceTree = "<group>"; };
 		B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STOrganizationViewController.swift; sourceTree = "<group>"; };
 		B87A94D721A81FE1003E2D21 /* PhysicalStoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalStoreTableView.swift; sourceTree = "<group>"; };
 		B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCourseTableView.swift; sourceTree = "<group>"; };
@@ -1066,6 +1076,7 @@
 		B85F330F219E792D00023958 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B86D68B621C40333001A0B75 /* Course */,
 				C43339B021C0FBC700CAF850 /* ShoppingCar */,
 				C408422921B5591B00C491A8 /* Video */,
 				B87A94D121A81F45003E2D21 /* Organization */,
@@ -1125,6 +1136,7 @@
 		B85F3314219E796100023958 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B86D68B921C405FE001A0B75 /* Course */,
 				6BF7B94721BA65C200BE1E4A /* MineCollection */,
 				C45AAE5021B6A12300692D7D /* Video */,
 				6B859EF921B67652009FB70A /* MineAccount */,
@@ -1316,6 +1328,7 @@
 				B803C3D021BD775C004C97DB /* PublishChoseOrganizationViewModel.swift */,
 				B803C3D621BD7CA0004C97DB /* ChoseClassificationViewModel.swift */,
 				C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */,
+				B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1381,6 +1394,8 @@
 				B85F33A0219EA3AD00023958 /* CourseListCell.xib */,
 				B85F33A3219EA3FE00023958 /* CourseDisplayMinuteCell.swift */,
 				B85F33A4219EA3FE00023958 /* CourseDisplayMinuteCell.xib */,
+				B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */,
+				B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -1423,6 +1438,22 @@
 				B87A94EE21A8381D003E2D21 /* TeachersCell.xib */,
 			);
 			path = Organization;
+			sourceTree = "<group>";
+		};
+		B86D68B621C40333001A0B75 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */,
+			);
+			path = Course;
+			sourceTree = "<group>";
+		};
+		B86D68B921C405FE001A0B75 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				B86D68BA21C40630001A0B75 /* SplendidnessContentTableView.swift */,
+			);
+			path = Course;
 			sourceTree = "<group>";
 		};
 		B87A94D121A81F45003E2D21 /* Organization */ = {
@@ -1870,6 +1901,7 @@
 				6B859EFF21B67731009FB70A /* MineBankFooterView.xib in Resources */,
 				B8547E2821A6772300281554 /* OrganizationHeaderView.xib in Resources */,
 				B8FBF9CF21A3CB6100AECB75 /* ChatRightView.xib in Resources */,
+				B86D68BF21C406BC001A0B75 /* SplendidnessContentCell.xib in Resources */,
 				B8FBFA3321A3DD9600AECB75 /* zhh_thumb.png in Resources */,
 				B8FBFA4821A3DD9600AECB75 /* tootha_thumb.png in Resources */,
 				B87F8F7221A2446E00DE9DC1 /* MineInfoCell.xib in Resources */,
@@ -2051,6 +2083,7 @@
 				B87F8F6D21A241EA00DE9DC1 /* MineInfo.swift in Sources */,
 				B83BA20821BC1EDE00496AFE /* YYGcategory.swift in Sources */,
 				B81EDF5521A4FECA00F9D3B0 /* ConversationUtils.swift in Sources */,
+				B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */,
 				B85F3327219E902A00023958 /* BaseNavigationController.swift in Sources */,
 				B83BA1FC21BC182900496AFE /* PressButton.swift in Sources */,
 				B80B6BE1219FA66000C33F11 /* OrganizationHeaderView.swift in Sources */,
@@ -2074,6 +2107,7 @@
 				B81EDF5721A50CFD00F9D3B0 /* ChatImageLeftView.swift in Sources */,
 				B8FBFA7321A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift in Sources */,
 				C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */,
+				B86D68C121C40897001A0B75 /* CourseDetailViewModel.swift in Sources */,
 				B83BA21121BC2AEC00496AFE /* STVideoCoverChoseViewController.swift in Sources */,
 				C498BA7521B7A54100A29385 /* STPublishVideoViewController.swift in Sources */,
 				B8547E2521A6437300281554 /* CityCell.swift in Sources */,
@@ -2181,6 +2215,7 @@
 				B85F336F219E9D9E00023958 /* HandyModel.swift in Sources */,
 				B83BA20121BC1EB300496AFE /* fileOutputViewController.swift in Sources */,
 				B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */,
+				B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */,
 				B85F33CF219EBAB100023958 /* APIServer.swift in Sources */,
 				B81E909421A396B7000754E3 /* STChatRoomViewController.swift in Sources */,
 				6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */,
@@ -2241,6 +2276,7 @@
 				B803C3D421BD7A4E004C97DB /* ChoseOrganizationCell.swift in Sources */,
 				B85F33CE219EBAB100023958 /* Response+ModelMapper.swift in Sources */,
 				B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */,
+				B86D68BB21C40630001A0B75 /* SplendidnessContentTableView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

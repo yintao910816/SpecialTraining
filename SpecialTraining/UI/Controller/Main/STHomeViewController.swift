@@ -147,6 +147,18 @@ class STHomeViewController: BaseViewController {
                 self.performSegue(withIdentifier: "organizationSegue", sender: nil)
             })
             .disposed(by: disposeBag)
+        
+        recomendColView.rx.modelSelected(NearByCourseModel.self)
+            .subscribe(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "courseDetailSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
+        
+        expericeColView.rx.modelSelected(NearByCourseModel.self)
+            .subscribe(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "courseDetailSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

@@ -28,7 +28,7 @@ class CourseListCell: UICollectionViewCell {
     
     var model: NearByCourseModel! {
         didSet {
-            coverOutlet.setImage(model.pic)
+//            coverOutlet.setImage(model.pic)
             titleOutlet.text = model.title
             addressOutlet.text = model.shop_name
             distanceOutlet.text = model.dis
