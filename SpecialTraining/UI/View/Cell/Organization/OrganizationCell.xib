@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14313.18" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14283.14"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -70,9 +70,9 @@
                             <constraint firstAttribute="width" constant="15" id="hsl-Rl-YFz"/>
                         </constraints>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="C6y-hw-8pc">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demandView_bg" translatesAutoresizingMaskIntoConstraints="NO" id="C6y-hw-8pc">
                         <rect key="frame" x="5" y="5" width="145" height="145"/>
-                        <color key="backgroundColor" red="0.76470588240000004" green="0.4823529412" blue="0.1529411765" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="145" id="87E-5Z-6W4"/>
                             <constraint firstAttribute="width" secondItem="C6y-hw-8pc" secondAttribute="height" multiplier="1:1" id="Xav-DH-yLI"/>
@@ -154,6 +154,7 @@
         </tableViewCell>
     </objects>
     <resources>
+        <image name="demandView_bg" width="640" height="960"/>
         <image name="dianpu" width="36" height="36"/>
         <image name="jigou_unselected" width="150" height="150"/>
     </resources>

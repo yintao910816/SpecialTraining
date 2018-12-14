@@ -14,14 +14,17 @@ class HomeViewModel: BaseViewModel {
    
     let colDatasource = Variable([SectionModel<Int, HomeCellSize>]())
     let tabviewDatasource = Variable([OrganizationModel]())
+    let colExpericeDatasource = Variable([SectionModel<Int, HomeCellSize>]())
     
     let navigationItemTitle = Variable((false, "荆州市"))
     
     override init() {
         super.init()
         
-        self.tabviewDatasource.value = [OrganizationModel(), OrganizationModel(), OrganizationModel(), OrganizationModel()]
+        tabviewDatasource.value = [OrganizationModel(), OrganizationModel(), OrganizationModel(), OrganizationModel()]
 
+        colExpericeDatasource.value = [SectionModel.init(model: 1, items: ExperienceCourseModel.test())]
+        
         NotificationCenter.default.rx.notification(NotificationName.BMK.RefreshHomeLocation, object: nil)
             .subscribe(onNext: { no in
                 BMKGeoCodeSearchHelper.share.startReverseGeoCode(coordinate: no.object as! CLLocationCoordinate2D)

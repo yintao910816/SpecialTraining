@@ -13,10 +13,13 @@ let courseDisplayMinuteCellID = "CourseDisplayMinuteCellID"
 let courseDisplayMinuteCellBottomHeight: CGFloat = 52.0
 
 class CourseDisplayMinuteCell: UICollectionViewCell {
-
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    @IBAction func actions(_ sender: UIButton) {
+        
+    }
 }

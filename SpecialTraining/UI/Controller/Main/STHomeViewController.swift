@@ -20,6 +20,7 @@ class STHomeViewController: BaseViewController {
 
     private var recomendColView: HomeRecommendCollectionView!
     private var organizationColView: HomeOrganizationTableView!
+    private var expericeColView: HomeExpericeCollectionView!
     
     private let viewModel = HomeViewModel()
 
@@ -29,7 +30,7 @@ class STHomeViewController: BaseViewController {
         }else if sender == expericeOutlet {
             set(button: expericeOutlet, offsetX: scrollOutlet.width)
         }else if sender == recommnedOrganizationOutlet {
-            set(button: recommnedOrganizationOutlet, offsetX: scrollOutlet.width * 3)
+            set(button: recommnedOrganizationOutlet, offsetX: scrollOutlet.width * 2)
         }
     }
     
@@ -72,7 +73,6 @@ class STHomeViewController: BaseViewController {
         }
     }
 
-    
     override func setupUI() {
         set(button: nearByCourseOutlet, offsetX: 0)
 
@@ -86,12 +86,21 @@ class STHomeViewController: BaseViewController {
 
         recomendColView = HomeRecommendCollectionView()
         organizationColView = HomeOrganizationTableView()
+        expericeColView = HomeExpericeCollectionView()
         
         scrollOutlet.addSubview(recomendColView)
         scrollOutlet.addSubview(organizationColView)
-        
+        scrollOutlet.addSubview(expericeColView)
+
         recomendColView.snp.makeConstraints{
             $0.left.equalTo(scrollOutlet.snp.left)
+            $0.top.equalTo(scrollOutlet.snp.top)
+            $0.height.equalTo(scrollOutlet.snp.height)
+            $0.width.equalTo(PPScreenW)
+        }
+        
+        expericeColView.snp.makeConstraints{
+            $0.left.equalTo(scrollOutlet.snp.left).offset(PPScreenW)
             $0.top.equalTo(scrollOutlet.snp.top)
             $0.height.equalTo(scrollOutlet.snp.height)
             $0.width.equalTo(PPScreenW)
@@ -128,7 +137,11 @@ class STHomeViewController: BaseViewController {
                 self.navigationItem.leftBarButtonItem?.title = title
             })
             .disposed(by: disposeBag)
-        
+       
+        viewModel.colExpericeDatasource.asDriver()
+            .drive(expericeColView.datasource)
+            .disposed(by: disposeBag)
+
         organizationColView.cellSelected
             .subscribe(onNext: { [unowned self] model in
                 self.performSegue(withIdentifier: "organizationSegue", sender: nil)

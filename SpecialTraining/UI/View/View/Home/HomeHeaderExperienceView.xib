@@ -37,7 +37,7 @@
                                 <constraint firstAttribute="width" constant="4" id="4XP-ws-7KA"/>
                             </constraints>
                         </view>
-                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验课程" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQr-Sb-vTJ">
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="体验专区" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="mQr-Sb-vTJ">
                             <rect key="frame" x="21" y="9" width="58" height="17"/>
                             <fontDescription key="fontDescription" type="boldSystem" pointSize="14"/>
                             <nil key="textColor"/>

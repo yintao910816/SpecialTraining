@@ -213,6 +213,7 @@
 		B85F33DD219F179400023958 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33DC219F179400023958 /* Organization.swift */; };
 		B85F33DF219F1D0300023958 /* BaseTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33DE219F1D0300023958 /* BaseTB.swift */; };
 		B85F33E1219F1DC200023958 /* BaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33E0219F1DC200023958 /* BaseTBCell.swift */; };
+		B86D68B521C3F5D3001A0B75 /* HomeExpericeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */; };
 		B87A94D321A81F46003E2D21 /* STOrganizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */; };
 		B87A94D821A81FE1003E2D21 /* PhysicalStoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D721A81FE1003E2D21 /* PhysicalStoreTableView.swift */; };
 		B87A94DA21A82052003E2D21 /* RecommendCourseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */; };
@@ -571,6 +572,7 @@
 		B85F33DC219F179400023958 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		B85F33DE219F1D0300023958 /* BaseTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTB.swift; sourceTree = "<group>"; };
 		B85F33E0219F1DC200023958 /* BaseTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTBCell.swift; sourceTree = "<group>"; };
+		B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExpericeCollectionView.swift; sourceTree = "<group>"; };
 		B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STOrganizationViewController.swift; sourceTree = "<group>"; };
 		B87A94D721A81FE1003E2D21 /* PhysicalStoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalStoreTableView.swift; sourceTree = "<group>"; };
 		B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCourseTableView.swift; sourceTree = "<group>"; };
@@ -1344,6 +1346,7 @@
 		B85F3377219EA06F00023958 /* Home */ = {
 			isa = PBXGroup;
 			children = (
+				B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */,
 				B85F3378219EA0B600023958 /* HomeRecommendCollectionView.swift */,
 				B85F337A219EA0E700023958 /* HomeOrganizationTableView.swift */,
 				B85F33A7219EAB8900023958 /* HomeHeaderCarouselView.swift */,
@@ -1923,7 +1926,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -1960,7 +1963,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */ = {
@@ -1969,7 +1972,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -1978,7 +1981,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */ = {
@@ -2086,6 +2089,7 @@
 				6B859EF821B6753B009FB70A /* MineBankModel.swift in Sources */,
 				6B80F14B21B9074D004142D2 /* MineOrderViewModel.swift in Sources */,
 				C47356D821AEB6A4000E24A5 /* DPAudioRecorder.m in Sources */,
+				B86D68B521C3F5D3001A0B75 /* HomeExpericeCollectionView.swift in Sources */,
 				6B859EFD21B6771D009FB70A /* MineBankFooterFilesOwner.swift in Sources */,
 				B87F8F6B21A241AC00DE9DC1 /* MineInfoViewModel.swift in Sources */,
 				B83BA20321BC1EB300496AFE /* fileOutputCoordinator.swift in Sources */,

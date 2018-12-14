@@ -11,7 +11,15 @@ import UIKit
 //MARK:
 //MARK: 体验专区
 class ExperienceCourseModel: NearByCourseModel {
-    
+ 
+    class func test() ->[ExperienceCourseModel] {
+        var datas = [ExperienceCourseModel]()
+        for _ in 0..<5 {
+            datas.append(ExperienceCourseModel())
+        }
+        return datas
+    }
+
 }
 
 extension ExperienceCourseModel {
@@ -19,8 +27,20 @@ extension ExperienceCourseModel {
     override var size: CGSize {
         get {
             let width: CGFloat = (PPScreenW - sectionInset.left - sectionInset.right - minimumInteritemSpacing) / 2.0
-            let height: CGFloat = width * 3 / 4
+            let height: CGFloat = (width * 3 / 4) + 37
             return .init(width:  width, height: height)
+        }
+    }
+    
+    override var minimumLineSpacing: CGFloat {
+        get {
+            return 5
+        }
+    }
+    
+    override var minimumInteritemSpacing: CGFloat {
+        get {
+            return 7
         }
     }
 
