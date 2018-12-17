@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <tableViewCell contentMode="scaleToFill" selectionStyle="default" indentationWidth="10" rowHeight="99" id="KGk-i7-Jjw" customClass="CourseTimeCell" customModule="SpecialTraining" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="80"/>
+            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+            <tableViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" tableViewCell="KGk-i7-Jjw" id="H2p-sc-9uM">
+                <rect key="frame" x="0.0" y="0.0" width="320" height="79.5"/>
+                <autoresizingMask key="autoresizingMask"/>
+                <subviews>
+                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PRF-9X-ncd">
+                        <rect key="frame" x="15" y="15" width="50" height="50"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="PRF-9X-ncd" secondAttribute="height" multiplier="1:1" id="e4R-2x-J1j"/>
+                            <constraint firstAttribute="width" constant="50" id="jIA-OW-b1a"/>
+                        </constraints>
+                        <state key="normal" image="demandView_bg"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="25"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="10.17 10:00 - 11:00" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="nCj-gk-nyB">
+                        <rect key="frame" x="121" y="31.5" width="121" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.1843137255" green="0.6705882353" blue="0.83529411760000005" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="初级一班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5hg-zn-LPZ">
+                        <rect key="frame" x="252" y="31.5" width="58" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.1843137255" green="0.6705882353" blue="0.83529411760000005" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="胡佳" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="cNP-bD-AsM">
+                        <rect key="frame" x="82" y="31.5" width="29" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.18431372549019609" green="0.6705882352941176" blue="0.83529411764705885" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+                <constraints>
+                    <constraint firstItem="PRF-9X-ncd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7LB-ak-xXU"/>
+                    <constraint firstItem="cNP-bD-AsM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PRF-9X-ncd" secondAttribute="trailing" priority="750" constant="10" id="7wP-g5-Ohy"/>
+                    <constraint firstItem="nCj-gk-nyB" firstAttribute="leading" secondItem="cNP-bD-AsM" secondAttribute="trailing" constant="10" id="SJF-gb-LnA"/>
+                    <constraint firstItem="nCj-gk-nyB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jDe-QV-0g0"/>
+                    <constraint firstAttribute="trailing" secondItem="5hg-zn-LPZ" secondAttribute="trailing" constant="10" id="pPg-Y2-NJn"/>
+                    <constraint firstItem="5hg-zn-LPZ" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="t2s-bc-lFW"/>
+                    <constraint firstItem="cNP-bD-AsM" firstAttribute="centerY" secondItem="nCj-gk-nyB" secondAttribute="centerY" id="vnO-0b-xDo"/>
+                    <constraint firstItem="PRF-9X-ncd" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="xGS-tf-0BB"/>
+                    <constraint firstItem="5hg-zn-LPZ" firstAttribute="leading" secondItem="nCj-gk-nyB" secondAttribute="trailing" constant="10" id="z6J-zF-RGq"/>
+                </constraints>
+            </tableViewCellContentView>
+            <point key="canvasLocation" x="137.59999999999999" y="178.56071964017991"/>
+        </tableViewCell>
+    </objects>
+    <resources>
+        <image name="demandView_bg" width="640" height="960"/>
+    </resources>
+</document>

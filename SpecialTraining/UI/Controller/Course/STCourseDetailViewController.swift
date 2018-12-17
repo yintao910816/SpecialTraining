@@ -15,6 +15,9 @@ class STCourseDetailViewController: BaseViewController {
     private var viewModel: CourseDetailViewModel!
     
     private var splendidnessContentTB: SplendidnessContentTableView!
+    private var courseTimeTB: CourseTimeTableView!
+    private var courseAudioTB: CourseAudioTableView!
+    private var courseSchoolTB: CourseSchoolTableView!
     
     @IBOutlet weak var scrollOutlet: UIScrollView!
     
@@ -84,9 +87,15 @@ class STCourseDetailViewController: BaseViewController {
         scrollOutlet.contentSize = .init(width: 4*PPScreenW, height: scrollOutlet.height)
         
         splendidnessContentTB = SplendidnessContentTableView()
-        
+        courseTimeTB = CourseTimeTableView()
+        courseAudioTB = CourseAudioTableView()
+        courseSchoolTB = CourseSchoolTableView()
+
         scrollOutlet.addSubview(splendidnessContentTB)
-        
+        scrollOutlet.addSubview(courseTimeTB)
+        scrollOutlet.addSubview(courseAudioTB)
+        scrollOutlet.addSubview(courseSchoolTB)
+
         splendidnessContentTB.snp.makeConstraints{
             $0.left.equalTo(scrollOutlet.snp.left)
             $0.top.equalTo(scrollOutlet.snp.top)
@@ -94,19 +103,26 @@ class STCourseDetailViewController: BaseViewController {
             $0.width.equalTo(PPScreenW)
         }
         
-//        expericeColView.snp.makeConstraints{
-//            $0.left.equalTo(scrollOutlet.snp.left).offset(PPScreenW)
-//            $0.top.equalTo(scrollOutlet.snp.top)
-//            $0.height.equalTo(scrollOutlet.snp.height)
-//            $0.width.equalTo(PPScreenW)
-//        }
-//
-//        organizationColView.snp.makeConstraints{
-//            $0.left.equalTo(scrollOutlet.snp.left).offset(2*PPScreenW)
-//            $0.top.equalTo(scrollOutlet.snp.top)
-//            $0.height.equalTo(scrollOutlet.snp.height)
-//            $0.width.equalTo(PPScreenW)
-//        }
+        courseTimeTB.snp.makeConstraints{
+            $0.left.equalTo(scrollOutlet.snp.left).offset(PPScreenW)
+            $0.top.equalTo(scrollOutlet.snp.top)
+            $0.height.equalTo(scrollOutlet.snp.height)
+            $0.width.equalTo(PPScreenW)
+        }
+
+        courseAudioTB.snp.makeConstraints{
+            $0.left.equalTo(scrollOutlet.snp.left).offset(2*PPScreenW)
+            $0.top.equalTo(scrollOutlet.snp.top)
+            $0.height.equalTo(scrollOutlet.snp.height)
+            $0.width.equalTo(PPScreenW)
+        }
+        
+        courseSchoolTB.snp.makeConstraints{
+            $0.left.equalTo(scrollOutlet.snp.left).offset(3*PPScreenW)
+            $0.top.equalTo(scrollOutlet.snp.top)
+            $0.height.equalTo(scrollOutlet.snp.height)
+            $0.width.equalTo(PPScreenW)
+        }
         
 //        if #available(iOS 11, *) {
 //            scrollOutlet.contentInsetAdjustmentBehavior = .never
@@ -124,6 +140,21 @@ class STCourseDetailViewController: BaseViewController {
         viewModel.splendidnessContentSource
             .asDriver()
             .drive(splendidnessContentTB.datasource)
+            .disposed(by: disposeBag)
+        
+        viewModel.courseTimeSource
+            .asDriver()
+            .drive(courseTimeTB.datasource)
+            .disposed(by: disposeBag)
+
+        viewModel.splendidnessContentSource
+            .asDriver()
+            .drive(courseAudioTB.datasource)
+            .disposed(by: disposeBag)
+
+        viewModel.splendidnessContentSource
+            .asDriver()
+            .drive(courseSchoolTB.datasource)
             .disposed(by: disposeBag)
         
     }
