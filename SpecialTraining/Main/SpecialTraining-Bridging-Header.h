@@ -22,6 +22,9 @@
 #import <BaiduMapAPI_Utils/BMKUtilsComponent.h> //引入计算工具所有的头文件
 #import <BaiduMapAPI_Map/BMKMapView.h>
 #import <BMKLocationKit/BMKLocationComponent.h>
+#import "WXApi.h"
+#import "WXApiObject.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 #import "DPAudioRecorder.h"
 #import "DPAudioPlayer.h"

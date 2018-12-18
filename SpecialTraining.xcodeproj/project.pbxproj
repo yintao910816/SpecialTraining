@@ -15,6 +15,11 @@
 		6B0965F321BE5D0100538933 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0965F221BE5D0100538933 /* libopencore-amrnb.a */; };
 		6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */; };
 		6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */; };
+		6B2B00CC21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00CB21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift */; };
+		6B2B00D021C8FB86006C28E8 /* SendMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00CF21C8FB86006C28E8 /* SendMessageViewModel.swift */; };
+		6B2B00D221C927B9006C28E8 /* SetNewPwdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00D121C927B9006C28E8 /* SetNewPwdViewModel.swift */; };
+		6B2B00D421C92A20006C28E8 /* BindPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00D321C92A20006C28E8 /* BindPhoneViewModel.swift */; };
+		6B2B00D621C932A6006C28E8 /* ResetPasOneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00D521C932A6006C28E8 /* ResetPasOneViewModel.swift */; };
 		6B593CA021B12E9700D764E6 /* MineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */; };
 		6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */; };
 		6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */; };
@@ -51,7 +56,7 @@
 		6BF7B95321BA693700BE1E4A /* MineHeaderCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BF7B95121BA693700BE1E4A /* MineHeaderCollectionCell.xib */; };
 		6BF7B95721BA6B5900BE1E4A /* MineCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7B95621BA6B5900BE1E4A /* MineCollectionViewModel.swift */; };
 		6BF7B95B21BA6C2C00BE1E4A /* MineCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7B95A21BA6C2C00BE1E4A /* MineCollectionModel.swift */; };
-		9FD4517D2967079F304C137C /* Pods_SpecialTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 6DE818FA586C5776F2ED3A6E /* Pods_SpecialTraining.framework */; };
+		6CC8BE990D6C3D393A87FCCA /* Pods_SpecialTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93924B95E5B1D79A3B195E67 /* Pods_SpecialTraining.framework */; };
 		B803C3CA21BD6876004C97DB /* VideoCoverChoseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803C3C821BD6876004C97DB /* VideoCoverChoseCell.swift */; };
 		B803C3CB21BD6876004C97DB /* VideoCoverChoseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B803C3C921BD6876004C97DB /* VideoCoverChoseCell.xib */; };
 		B803C3CD21BD760B004C97DB /* STPublishChoseClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803C3CC21BD760B004C97DB /* STPublishChoseClassificationViewController.swift */; };
@@ -368,7 +373,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		5B57E04450B5AC201971F05F /* Pods-SpecialTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.debug.xcconfig"; sourceTree = "<group>"; };
+		4D646A9D7E2943E5A3700475 /* Pods-SpecialTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.debug.xcconfig"; sourceTree = "<group>"; };
 		6B0754B521B0E9F700B36740 /* STMineCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineCustomViewController.swift; sourceTree = "<group>"; };
 		6B0754B721B1160200B36740 /* STMineCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineCourseViewController.swift; sourceTree = "<group>"; };
 		6B0754B921B1165200B36740 /* STMineAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineAccountViewController.swift; sourceTree = "<group>"; };
@@ -377,6 +382,11 @@
 		6B0965F221BE5D0100538933 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineHeadIVViewController.swift; sourceTree = "<group>"; };
 		6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineQRCodeViewController.swift; sourceTree = "<group>"; };
+		6B2B00CB21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STAppdelegate+WXAuth.swift"; sourceTree = "<group>"; };
+		6B2B00CF21C8FB86006C28E8 /* SendMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageViewModel.swift; sourceTree = "<group>"; };
+		6B2B00D121C927B9006C28E8 /* SetNewPwdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewPwdViewModel.swift; sourceTree = "<group>"; };
+		6B2B00D321C92A20006C28E8 /* BindPhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindPhoneViewModel.swift; sourceTree = "<group>"; };
+		6B2B00D521C932A6006C28E8 /* ResetPasOneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasOneViewModel.swift; sourceTree = "<group>"; };
 		6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomCell.swift; sourceTree = "<group>"; };
 		6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCustomCell.xib; sourceTree = "<group>"; };
 		6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineOrderViewController.swift; sourceTree = "<group>"; };
@@ -413,7 +423,7 @@
 		6BF7B95121BA693700BE1E4A /* MineHeaderCollectionCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineHeaderCollectionCell.xib; sourceTree = "<group>"; };
 		6BF7B95621BA6B5900BE1E4A /* MineCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCollectionViewModel.swift; sourceTree = "<group>"; };
 		6BF7B95A21BA6C2C00BE1E4A /* MineCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCollectionModel.swift; sourceTree = "<group>"; };
-		6DE818FA586C5776F2ED3A6E /* Pods_SpecialTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		93924B95E5B1D79A3B195E67 /* Pods_SpecialTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B803C3C821BD6876004C97DB /* VideoCoverChoseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoverChoseCell.swift; sourceTree = "<group>"; };
 		B803C3C921BD6876004C97DB /* VideoCoverChoseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCoverChoseCell.xib; sourceTree = "<group>"; };
 		B803C3CC21BD760B004C97DB /* STPublishChoseClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPublishChoseClassificationViewController.swift; sourceTree = "<group>"; };
@@ -699,7 +709,6 @@
 		B8FBFA6F21A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SharedSequenceConvertibleType+Extension.swift"; sourceTree = "<group>"; };
 		B8FBFA7021A422B300AECB75 /* UIControl+_Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+_Rx.swift"; sourceTree = "<group>"; };
 		B8FBFA7521A426A200AECB75 /* NSDictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extension.swift"; sourceTree = "<group>"; };
-		BA9BF6ADBFD18A54A821CAF6 /* Pods-SpecialTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.release.xcconfig"; sourceTree = "<group>"; };
 		C408421F21B549C900C491A8 /* STHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STHome.storyboard; sourceTree = "<group>"; };
 		C408422121B54A0D00C491A8 /* STVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STVideo.storyboard; sourceTree = "<group>"; };
 		C408422321B54A1A00C491A8 /* STMessage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMessage.storyboard; sourceTree = "<group>"; };
@@ -736,6 +745,7 @@
 		C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScoreViewModel.swift; sourceTree = "<group>"; };
 		C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderExperienceView.swift; sourceTree = "<group>"; };
 		C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderExperienceView.xib; sourceTree = "<group>"; };
+		DC2A64F50D02AB7A1136AEBB /* Pods-SpecialTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -743,31 +753,14 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				9FD4517D2967079F304C137C /* Pods_SpecialTraining.framework in Frameworks */,
 				6B0965F321BE5D0100538933 /* libopencore-amrnb.a in Frameworks */,
+				6CC8BE990D6C3D393A87FCCA /* Pods_SpecialTraining.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
-		0B28452AD4133D5C8FD08310 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				5B57E04450B5AC201971F05F /* Pods-SpecialTraining.debug.xcconfig */,
-				BA9BF6ADBFD18A54A821CAF6 /* Pods-SpecialTraining.release.xcconfig */,
-			);
-			name = Pods;
-			sourceTree = "<group>";
-		};
-		117623F1C6E7B2924A4CD422 /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				6DE818FA586C5776F2ED3A6E /* Pods_SpecialTraining.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
 		6B80F14E21B915F3004142D2 /* MineOrder */ = {
 			isa = PBXGroup;
 			children = (
@@ -835,6 +828,23 @@
 				6BF7B95121BA693700BE1E4A /* MineHeaderCollectionCell.xib */,
 			);
 			path = MineCollection;
+			sourceTree = "<group>";
+		};
+		81A1CF69D2A6322DC3A7459A /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				93924B95E5B1D79A3B195E67 /* Pods_SpecialTraining.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		ADC2661DBCDFD77032A96427 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				4D646A9D7E2943E5A3700475 /* Pods-SpecialTraining.debug.xcconfig */,
+				DC2A64F50D02AB7A1136AEBB /* Pods-SpecialTraining.release.xcconfig */,
+			);
+			name = Pods;
 			sourceTree = "<group>";
 		};
 		B80B6BEB219FBE8E00C33F11 /* ShoppingCart */ = {
@@ -1010,8 +1020,8 @@
 			children = (
 				B85F32F7219E769800023958 /* SpecialTraining */,
 				B85F32F6219E769800023958 /* Products */,
-				0B28452AD4133D5C8FD08310 /* Pods */,
-				117623F1C6E7B2924A4CD422 /* Frameworks */,
+				ADC2661DBCDFD77032A96427 /* Pods */,
+				81A1CF69D2A6322DC3A7459A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1229,6 +1239,7 @@
 				B85F332D219E913400023958 /* STAppDelegate.swift */,
 				B87F8F8A21A29B8000DE9DC1 /* STAppDelegate+EaseMob.swift */,
 				B81EDF6F21A53B4C00F9D3B0 /* STAppDelegate+BMK.swift */,
+				6B2B00CB21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift */,
 			);
 			path = Appdelegate;
 			sourceTree = "<group>";
@@ -1329,6 +1340,10 @@
 				B803C3D621BD7CA0004C97DB /* ChoseClassificationViewModel.swift */,
 				C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */,
 				B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */,
+				6B2B00D521C932A6006C28E8 /* ResetPasOneViewModel.swift */,
+				6B2B00CF21C8FB86006C28E8 /* SendMessageViewModel.swift */,
+				6B2B00D121C927B9006C28E8 /* SetNewPwdViewModel.swift */,
+				6B2B00D321C92A20006C28E8 /* BindPhoneViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1772,12 +1787,12 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = B85F3307219E769900023958 /* Build configuration list for PBXNativeTarget "SpecialTraining" */;
 			buildPhases = (
-				C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */,
+				A9DDF968FEE987EB60868C01 /* [CP] Check Pods Manifest.lock */,
 				B85F32F1219E769800023958 /* Sources */,
 				B85F32F2219E769800023958 /* Frameworks */,
 				B85F32F3219E769800023958 /* Resources */,
-				0C698EA1475B5D24D703C63A /* [CP] Embed Pods Frameworks */,
-				103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */,
+				C71F9A5526476D3D928466B5 /* [CP] Embed Pods Frameworks */,
+				3D44C117CDC2A4B76E6415B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -1952,7 +1967,43 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		0C698EA1475B5D24D703C63A /* [CP] Embed Pods Frameworks */ = {
+		3D44C117CDC2A4B76E6415B5 /* [CP] Copy Pods Resources */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
+			);
+			name = "[CP] Copy Pods Resources";
+			outputPaths = (
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		A9DDF968FEE987EB60868C01 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SpecialTraining-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		C71F9A5526476D3D928466B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -1998,42 +2049,6 @@
 			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
-		103F7BC29DE8F20EDE65BF97 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
-				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C69C7A4950F3C6E2D4E7438E /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SpecialTraining-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
 /* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
@@ -2075,6 +2090,7 @@
 				B85F3355219E94D600023958 /* BackgroundView.swift in Sources */,
 				6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */,
 				B85F3354219E94D600023958 /* TYIndicatorBaseView.swift in Sources */,
+				6B2B00D221C927B9006C28E8 /* SetNewPwdViewModel.swift in Sources */,
 				B85F33D0219EBAB100023958 /* HandyJSON+MapModel.swift in Sources */,
 				B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */,
 				B85F3380219EA17100023958 /* CarouselDatasource.swift in Sources */,
@@ -2092,8 +2108,10 @@
 				B85F3366219E968E00023958 /* STShoppingCartViewController.swift in Sources */,
 				B8FBFA6221A3E11600AECB75 /* KeyboardManager.swift in Sources */,
 				B85F33DF219F1D0300023958 /* BaseTB.swift in Sources */,
+				6B2B00D621C932A6006C28E8 /* ResetPasOneViewModel.swift in Sources */,
 				B85F332F219E913500023958 /* STAppDelegate.swift in Sources */,
 				B83BA1F621BC0F0C00496AFE /* AVCaptureSessionManager.swift in Sources */,
+				6B2B00D421C92A20006C28E8 /* BindPhoneViewModel.swift in Sources */,
 				B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */,
 				B81E90B721A3B2CE000754E3 /* UserDefaults+Cache.swift in Sources */,
 				6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */,
@@ -2217,6 +2235,7 @@
 				B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */,
 				B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */,
 				B85F33CF219EBAB100023958 /* APIServer.swift in Sources */,
+				6B2B00D021C8FB86006C28E8 /* SendMessageViewModel.swift in Sources */,
 				B81E909421A396B7000754E3 /* STChatRoomViewController.swift in Sources */,
 				6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */,
 				B85F337F219EA17100023958 /* CarouselView.swift in Sources */,
@@ -2247,6 +2266,7 @@
 				C4CBC46921C1FA0400AEDB86 /* MyScoreCell.swift in Sources */,
 				B81EDF6D21A5324700F9D3B0 /* ChatAudoRightView.swift in Sources */,
 				B85F3326219E902A00023958 /* STTabBarController.swift in Sources */,
+				6B2B00CC21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift in Sources */,
 				B8FBFA2121A3DD9600AECB75 /* EmojTextAttachment.swift in Sources */,
 				B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */,
 				B80B6BFD219FEE1100C33F11 /* VideoCell.swift in Sources */,
@@ -2401,7 +2421,7 @@
 		};
 		B85F3308219E769900023958 /* Debug */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = 5B57E04450B5AC201971F05F /* Pods-SpecialTraining.debug.xcconfig */;
+			baseConfigurationReference = 4D646A9D7E2943E5A3700475 /* Pods-SpecialTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2410,7 +2430,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SpecialTraining/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
@@ -2429,7 +2452,7 @@
 		};
 		B85F3309219E769900023958 /* Release */ = {
 			isa = XCBuildConfiguration;
-			baseConfigurationReference = BA9BF6ADBFD18A54A821CAF6 /* Pods-SpecialTraining.release.xcconfig */;
+			baseConfigurationReference = DC2A64F50D02AB7A1136AEBB /* Pods-SpecialTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2438,7 +2461,10 @@
 				ENABLE_BITCODE = NO;
 				INFOPLIST_FILE = SpecialTraining/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
-				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
+				LD_RUNPATH_SEARCH_PATHS = (
+					"$(inherited)",
+					"@executable_path/Frameworks",
+				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",

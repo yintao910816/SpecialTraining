@@ -14,8 +14,10 @@ class STResetPassTwoViewController: BaseViewController {
     @IBOutlet weak var authorOutlet: UIButton!
     @IBOutlet weak var codeOutlet: UITextField!
     
+    private var viewModel: SendMessageViewModel!
+    
     @IBAction func actions(_ sender: UIButton) {
-    performSegue(withIdentifier: "setNewPassSegue", sender: nil)
+        performSegue(withIdentifier: "setNewPassSegue", sender: nil)
     }
     
     override func setupUI() {
@@ -31,6 +33,11 @@ class STResetPassTwoViewController: BaseViewController {
     
     override func rxBind() {
         
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        let phone = parameters!["phone"] as! String
+        viewModel = SendMessageViewModel.init(tap: authorOutlet.rx.tap.asDriver(), authCode: codeOutlet.rx.text.orEmpty.asDriver(), next: verifyOutlet.rx.tap.asDriver(), phone: phone)
     }
     
 }
