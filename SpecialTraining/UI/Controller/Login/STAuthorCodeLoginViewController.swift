@@ -18,6 +18,8 @@ class STAuthorCodeLoginViewController: BaseViewController {
     @IBOutlet weak var wchatOutlet: UIButton!
     
     @IBOutlet weak var authorOutlet: UIButton!
+    
+    private var viewModel: LoginViewModel!
 
     @IBOutlet weak var topBgHeightCns: NSLayoutConstraint!
     

@@ -42,4 +42,8 @@ extension Notification.Name {
         public static let BMKSetupFail = Notification.Name(rawValue: "org.bmk.notification.name.BMKSetupFail")
     }
     
+    public struct WX {
+        public static let WXLoginSuccess = Notification.Name(rawValue: "org.wx.notification.name.WXLoginSuccess")
+    }
+    
 }

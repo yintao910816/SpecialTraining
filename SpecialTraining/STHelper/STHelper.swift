@@ -70,7 +70,7 @@ extension STHelper {
     
     // 平台用户登录
     class func login(account: String, password: String) {
-        _ = STProvider.request(.login(username: account, password: password))
+        _ = STProvider.request(.login(mobile: account, code: "", pswd: password))
             .map(model: UserInfoModel.self)
             .subscribe(onSuccess: { userInfo in
                 STHelper.share.saveLoginUser(user: userInfo)
@@ -88,5 +88,23 @@ extension STHelper {
         let gradientLayer = CAGradientLayer.gradient(colors: THEME_GRADIENT_COLORS, locations: THEME_GRADIENT_LOCATIONS)
         gradientLayer.frame = frame
         return gradientLayer
+    }
+}
+
+extension STHelper {
+    //发起微信登陆授权请求
+    class func sendWXAuth() {
+        let urlstr = "weixin://"
+        if UIApplication.shared.canOpenURL(URL(string: urlstr)!) {
+            let req = SendAuthReq()
+            req.scope = "snsapi_userinfo"
+            WXApi.send(req)
+        } else {
+            if #available(iOS 10.0, *) {
+                UIApplication.shared.open(URL(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!, options: [:], completionHandler: nil)
+            } else {
+                UIApplication.shared.openURL(URL(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!)
+            }
+        }
     }
 }
