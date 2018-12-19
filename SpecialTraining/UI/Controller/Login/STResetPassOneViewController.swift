@@ -11,6 +11,9 @@ import UIKit
 class STResetPassOneViewController: BaseViewController {
 
     @IBOutlet weak var nextOutlet: UIButton!
+    @IBOutlet weak var phoneTF: UITextField!
+    
+    private var viewModel: ResetPasOneViewModel!
     
     override func setupUI() {
         
@@ -21,11 +24,7 @@ class STResetPassOneViewController: BaseViewController {
     
     override func rxBind() {
         
-        nextOutlet.rx.tap.asDriver()
-            .drive(onNext: { [unowned self] in
-                self.performSegue(withIdentifier: "resetSecondSegue", sender: nil)
-            })
-            .disposed(by: disposeBag)
+        viewModel = ResetPasOneViewModel(phone: phoneTF.rx.text.orEmpty.asDriver(), next: nextOutlet.rx.tap.asDriver())
 
     }
 

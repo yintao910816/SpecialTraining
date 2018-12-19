@@ -13,13 +13,23 @@ class STSetNewPassViewController: BaseViewController {
     @IBOutlet weak var okOutlet: UIButton!
     @IBOutlet weak var passOutlet: UITextField!
     
+    private var phone: String?
+    private var code: String?
+    
+    private var viewModel: SetNewPwdViewModel!
+    
     override func setupUI() {
         let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
         okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
     
     override func rxBind() {
-        
+        viewModel = SetNewPwdViewModel(tap: okOutlet.rx.tap.asDriver(), pwd: passOutlet.rx.text.orEmpty.asDriver(), code: code ?? "", phone: phone ?? "")
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        phone = parameters!["phone"] as? String
+        code = parameters!["code"] as? String
     }
     
 }

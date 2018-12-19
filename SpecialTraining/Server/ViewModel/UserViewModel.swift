@@ -10,11 +10,22 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoginViewModel: BaseViewModel {
+class LoginViewModel: BaseViewModel,VMNavigation {
     
     init(input:(account: Driver<String>, passwd: Driver<String>),
          tap: Driver<Void>) {
         super.init()
+        
+        NotificationCenter.default.rx.notification(NotificationName.WX.WXLoginSuccess)
+            .subscribe(onNext: { [unowned self] (notification) in
+                let code = notification.object as! String
+                STProvider.request(.thirdPartyLogin(code:code))
+                    .subscribe(onSuccess: { [weak self] (_) in
+                        LoginViewModel.sbPush("STLogin", "bindPhone",bundle: Bundle.main, parameters: ["op_openid":""])
+                        }, onError: { [weak self] (error) in
+                            self?.hud.failureHidden(self?.errorMessage(error))
+                    })
+            }).disposed(by: disposeBag)
         
         let signal = Driver.combineLatest(input.account, input.passwd) { ($0, $1) }
         tap.withLatestFrom(signal)
@@ -34,13 +45,13 @@ class LoginViewModel: BaseViewModel {
     }
     
     func loginRequest(account: String, password: String) {
-        STProvider.request(.login(username: account, password: password))
+        STProvider.request(.login(mobile: account, code: "", pswd: password))
             .map(model: UserInfoModel.self)
             .subscribe(onSuccess: { [weak self] userInfo in
                 STHelper.share.saveLoginUser(user: userInfo)
                 
                 STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
-
+                
                 self?.hud.successHidden("登录成功", {
                     self?.popSubject.onNext(true)
                 })
@@ -91,5 +102,5 @@ class RegisterViewModel: BaseViewModel {
             }
             .disposed(by: disposeBag)
     }
-
+    
 }

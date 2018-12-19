@@ -23,6 +23,10 @@
 #import <BaiduMapAPI_Map/BMKMapView.h>
 #import <BMKLocationKit/BMKLocationComponent.h>
 
+#import "WXApi.h"
+#import "WXApiObject.h"
+#import <CommonCrypto/CommonCrypto.h>
+
 #import "DPAudioRecorder.h"
 #import "DPAudioPlayer.h"
 #import "ChatToolBarAudioButton.h"

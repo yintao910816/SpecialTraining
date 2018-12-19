@@ -287,6 +287,7 @@
                     </view>
                     <connections>
                         <outlet property="nextOutlet" destination="FlA-r0-y7i" id="bi3-u0-Xgc"/>
+                        <outlet property="phoneTF" destination="YQ9-Bz-h4X" id="hk7-Yg-uuT"/>
                         <segue destination="j7G-LE-uXW" kind="show" identifier="resetSecondSegue" id="ELF-JC-Mq7"/>
                     </connections>
                 </viewController>
@@ -297,7 +298,7 @@
         <!--找回登录密码-->
         <scene sceneID="nn3-Av-uO3">
             <objects>
-                <viewController title="找回登录密码" id="j7G-LE-uXW" customClass="STResetPassTwoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="resettwo" title="找回登录密码" id="j7G-LE-uXW" customClass="STResetPassTwoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pvW-OQ-g67"/>
                         <viewControllerLayoutGuide type="bottom" id="saH-5D-927"/>
@@ -450,9 +451,6 @@
                                         <integer key="value" value="8"/>
                                     </userDefinedRuntimeAttribute>
                                 </userDefinedRuntimeAttributes>
-                                <connections>
-                                    <action selector="actions:" destination="j7G-LE-uXW" eventType="touchUpInside" id="BYR-po-gsF"/>
-                                </connections>
                             </button>
                         </subviews>
                         <color key="backgroundColor" red="0.94901960784313721" green="0.94901960784313721" blue="0.94901960784313721" alpha="1" colorSpace="deviceRGB"/>
@@ -482,7 +480,7 @@
         <!--设置新密码-->
         <scene sceneID="vtT-TO-kQf">
             <objects>
-                <viewController title="设置新密码" id="edS-ln-Ta6" customClass="STSetNewPassViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="setnewPwd" title="设置新密码" id="edS-ln-Ta6" customClass="STSetNewPassViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qE6-Gd-csL"/>
                         <viewControllerLayoutGuide type="bottom" id="j37-x2-wWz"/>
@@ -764,7 +762,7 @@
         <!--绑定手机号-->
         <scene sceneID="WX9-kG-ls3">
             <objects>
-                <viewController title="绑定手机号" id="teo-46-1jq" customClass="STBindPhoneViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="bindPhone" title="绑定手机号" id="teo-46-1jq" customClass="STBindPhoneViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kyQ-lu-hva"/>
                         <viewControllerLayoutGuide type="bottom" id="VNI-2Y-SRG"/>

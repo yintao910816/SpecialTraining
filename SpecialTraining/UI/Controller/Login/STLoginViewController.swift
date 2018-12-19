@@ -37,17 +37,18 @@ class STLoginViewController: BaseViewController {
         
         wchatOutlet.rx.tap.asDriver()
             .drive(onNext: { [unowned self] in
-                self.performSegue(withIdentifier: "bindPhoneSegue", sender: nil)
+                STHelper .sendWXAuth()
             })
             .disposed(by: disposeBag)
-//        viewModel = LoginViewModel.init(input: (account: accountOutlet.rx.text.orEmpty.asDriver(),
-//                                                passwd: passwordOutlet.rx.text.orEmpty.asDriver()),
-//                                        tap: loginOutlet.rx.tap.asDriver())
-//        
-//        viewModel.popSubject
-//            .subscribe(onNext: { [weak self] _ in
-//                self?.navigationController?.dismiss(animated: true, completion: nil)
-//            })
-//            .disposed(by: disposeBag)
+        
+        viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
+                                                passwd: passOutlet.rx.text.orEmpty.asDriver()),
+                                        tap: loginOutlet.rx.tap.asDriver())
+        
+        viewModel.popSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
 }

@@ -9,7 +9,7 @@
 import Foundation
 
 class AppSetup {
-
+    
     static let instance = AppSetup()
     
     var requestParam: [String : Any] = [:]
@@ -35,12 +35,12 @@ class AppSetup {
      切换用户重新设置请求相关参数
      */
     public func resetParam() {
-//        requestParam = [
-//            "uid":"" ,
-////            "token":userDefault.token,
-////            "channel_id":channelId
-//        ]
-
+        //        requestParam = [
+        //            "uid":"" ,
+        ////            "token":userDefault.token,
+        ////            "channel_id":channelId
+        //        ]
+        
         PrintLog("默认请求参数已改变：\(requestParam)")
     }
 }
@@ -49,15 +49,15 @@ import Moya
 
 struct APIAssistance {
     
-    private static let base     = "http://api.youpeixunjiaoyu.com/v1/"
-    private static let dev_base = "http://192.168.0.198/v1/"
-
+    private static let base     = "http://ai.youpeixunjiaoyu.com"
+    private static let dev_base = "http://alpha.youpeixunjiaoyu.com"
+    
     static public func baseURL(API: API) ->URL{
-//        #if DEBUG
-//        return URL(string: dev_base)!
-//        #else
-        return URL(string: base)!
-//        #endif
+        //        #if DEBUG
+        //        return URL(string: dev_base)!
+        //        #else
+        return URL(string: dev_base)!
+        //        #endif
     }
     
     /**
@@ -65,7 +65,7 @@ struct APIAssistance {
      */
     static public func mothed(API: API) ->Moya.Method{
         switch API {
-        case .register(_, _, _), .login(_, _):
+        case .register(_, _, _), .login(_, _, _):
             return .post
         default:
             return .get
