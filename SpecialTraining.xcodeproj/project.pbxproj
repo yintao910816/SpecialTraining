@@ -16,11 +16,6 @@
 		6B0965F321BE5D0100538933 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B0965F221BE5D0100538933 /* libopencore-amrnb.a */; };
 		6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */; };
 		6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */; };
-		6B2B00CC21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00CB21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift */; };
-		6B2B00D021C8FB86006C28E8 /* SendMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00CF21C8FB86006C28E8 /* SendMessageViewModel.swift */; };
-		6B2B00D221C927B9006C28E8 /* SetNewPwdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00D121C927B9006C28E8 /* SetNewPwdViewModel.swift */; };
-		6B2B00D421C92A20006C28E8 /* BindPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00D321C92A20006C28E8 /* BindPhoneViewModel.swift */; };
-		6B2B00D621C932A6006C28E8 /* ResetPasOneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B2B00D521C932A6006C28E8 /* ResetPasOneViewModel.swift */; };
 		6B593CA021B12E9700D764E6 /* MineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */; };
 		6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */; };
 		6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */; };
@@ -57,7 +52,6 @@
 		6BF7B95321BA693700BE1E4A /* MineHeaderCollectionCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6BF7B95121BA693700BE1E4A /* MineHeaderCollectionCell.xib */; };
 		6BF7B95721BA6B5900BE1E4A /* MineCollectionViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7B95621BA6B5900BE1E4A /* MineCollectionViewModel.swift */; };
 		6BF7B95B21BA6C2C00BE1E4A /* MineCollectionModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BF7B95A21BA6C2C00BE1E4A /* MineCollectionModel.swift */; };
-		6CC8BE990D6C3D393A87FCCA /* Pods_SpecialTraining.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 93924B95E5B1D79A3B195E67 /* Pods_SpecialTraining.framework */; };
 		B803C3CA21BD6876004C97DB /* VideoCoverChoseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803C3C821BD6876004C97DB /* VideoCoverChoseCell.swift */; };
 		B803C3CB21BD6876004C97DB /* VideoCoverChoseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B803C3C921BD6876004C97DB /* VideoCoverChoseCell.xib */; };
 		B803C3CD21BD760B004C97DB /* STPublishChoseClassificationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B803C3CC21BD760B004C97DB /* STPublishChoseClassificationViewController.swift */; };
@@ -383,7 +377,6 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
-		4D646A9D7E2943E5A3700475 /* Pods-SpecialTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.debug.xcconfig"; sourceTree = "<group>"; };
 		6B0754B521B0E9F700B36740 /* STMineCustomViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineCustomViewController.swift; sourceTree = "<group>"; };
 		6B0754B721B1160200B36740 /* STMineCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineCourseViewController.swift; sourceTree = "<group>"; };
 		6B0754B921B1165200B36740 /* STMineAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineAccountViewController.swift; sourceTree = "<group>"; };
@@ -392,11 +385,6 @@
 		6B0965F221BE5D0100538933 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineHeadIVViewController.swift; sourceTree = "<group>"; };
 		6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineQRCodeViewController.swift; sourceTree = "<group>"; };
-		6B2B00CB21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STAppdelegate+WXAuth.swift"; sourceTree = "<group>"; };
-		6B2B00CF21C8FB86006C28E8 /* SendMessageViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SendMessageViewModel.swift; sourceTree = "<group>"; };
-		6B2B00D121C927B9006C28E8 /* SetNewPwdViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SetNewPwdViewModel.swift; sourceTree = "<group>"; };
-		6B2B00D321C92A20006C28E8 /* BindPhoneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindPhoneViewModel.swift; sourceTree = "<group>"; };
-		6B2B00D521C932A6006C28E8 /* ResetPasOneViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ResetPasOneViewModel.swift; sourceTree = "<group>"; };
 		6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomCell.swift; sourceTree = "<group>"; };
 		6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCustomCell.xib; sourceTree = "<group>"; };
 		6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineOrderViewController.swift; sourceTree = "<group>"; };
@@ -434,7 +422,6 @@
 		6BF7B95621BA6B5900BE1E4A /* MineCollectionViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCollectionViewModel.swift; sourceTree = "<group>"; };
 		6BF7B95A21BA6C2C00BE1E4A /* MineCollectionModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCollectionModel.swift; sourceTree = "<group>"; };
 		B7260986B928F5ED1FF7EB39 /* Pods-SpecialTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.release.xcconfig"; sourceTree = "<group>"; };
-		93924B95E5B1D79A3B195E67 /* Pods_SpecialTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		B803C3C821BD6876004C97DB /* VideoCoverChoseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoverChoseCell.swift; sourceTree = "<group>"; };
 		B803C3C921BD6876004C97DB /* VideoCoverChoseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VideoCoverChoseCell.xib; sourceTree = "<group>"; };
 		B803C3CC21BD760B004C97DB /* STPublishChoseClassificationViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPublishChoseClassificationViewController.swift; sourceTree = "<group>"; };
@@ -767,7 +754,6 @@
 		C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderExperienceView.xib; sourceTree = "<group>"; };
 		CC1B4562EEFCF6801EEBF281 /* Pods_SpecialTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F58B317D84214AFDC7E7C4 /* Pods-SpecialTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.debug.xcconfig"; sourceTree = "<group>"; };
-		DC2A64F50D02AB7A1136AEBB /* Pods-SpecialTraining.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.release.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -777,7 +763,6 @@
 			files = (
 				6B0965F321BE5D0100538933 /* libopencore-amrnb.a in Frameworks */,
 				00A5E988AF1B1A92952C1483 /* Pods_SpecialTraining.framework in Frameworks */,
-				6CC8BE990D6C3D393A87FCCA /* Pods_SpecialTraining.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -860,23 +845,6 @@
 				6BF7B95121BA693700BE1E4A /* MineHeaderCollectionCell.xib */,
 			);
 			path = MineCollection;
-			sourceTree = "<group>";
-		};
-		81A1CF69D2A6322DC3A7459A /* Frameworks */ = {
-			isa = PBXGroup;
-			children = (
-				93924B95E5B1D79A3B195E67 /* Pods_SpecialTraining.framework */,
-			);
-			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		ADC2661DBCDFD77032A96427 /* Pods */ = {
-			isa = PBXGroup;
-			children = (
-				4D646A9D7E2943E5A3700475 /* Pods-SpecialTraining.debug.xcconfig */,
-				DC2A64F50D02AB7A1136AEBB /* Pods-SpecialTraining.release.xcconfig */,
-			);
-			name = Pods;
 			sourceTree = "<group>";
 		};
 		B80B6BEB219FBE8E00C33F11 /* ShoppingCart */ = {
@@ -1054,8 +1022,6 @@
 				B85F32F6219E769800023958 /* Products */,
 				4C03A074AAC2F094E3865159 /* Pods */,
 				F4143A095DCE177E7D4E40F5 /* Frameworks */,
-				ADC2661DBCDFD77032A96427 /* Pods */,
-				81A1CF69D2A6322DC3A7459A /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -1273,7 +1239,6 @@
 				B85F332D219E913400023958 /* STAppDelegate.swift */,
 				B87F8F8A21A29B8000DE9DC1 /* STAppDelegate+EaseMob.swift */,
 				B81EDF6F21A53B4C00F9D3B0 /* STAppDelegate+BMK.swift */,
-				6B2B00CB21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift */,
 			);
 			path = Appdelegate;
 			sourceTree = "<group>";
@@ -1374,10 +1339,6 @@
 				B803C3D621BD7CA0004C97DB /* ChoseClassificationViewModel.swift */,
 				C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */,
 				B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */,
-				6B2B00D521C932A6006C28E8 /* ResetPasOneViewModel.swift */,
-				6B2B00CF21C8FB86006C28E8 /* SendMessageViewModel.swift */,
-				6B2B00D121C927B9006C28E8 /* SetNewPwdViewModel.swift */,
-				6B2B00D321C92A20006C28E8 /* BindPhoneViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1844,12 +1805,6 @@
 				B85F32F3219E769800023958 /* Resources */,
 				05F8925E4EA0E9F619139A76 /* [CP] Embed Pods Frameworks */,
 				976D5F770C186096B755E798 /* [CP] Copy Pods Resources */,
-				A9DDF968FEE987EB60868C01 /* [CP] Check Pods Manifest.lock */,
-				B85F32F1219E769800023958 /* Sources */,
-				B85F32F2219E769800023958 /* Frameworks */,
-				B85F32F3219E769800023958 /* Resources */,
-				C71F9A5526476D3D928466B5 /* [CP] Embed Pods Frameworks */,
-				3D44C117CDC2A4B76E6415B5 /* [CP] Copy Pods Resources */,
 			);
 			buildRules = (
 			);
@@ -2028,43 +1983,6 @@
 
 /* Begin PBXShellScriptBuildPhase section */
 		05F8925E4EA0E9F619139A76 /* [CP] Embed Pods Frameworks */ = {
-		3D44C117CDC2A4B76E6415B5 /* [CP] Copy Pods Resources */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
-				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
-			);
-			name = "[CP] Copy Pods Resources";
-			outputPaths = (
-				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
-			showEnvVarsInLog = 0;
-		};
-		A9DDF968FEE987EB60868C01 /* [CP] Check Pods Manifest.lock */ = {
-			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 2147483647;
-			files = (
-			);
-			inputPaths = (
-				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
-				"${PODS_ROOT}/Manifest.lock",
-			);
-			name = "[CP] Check Pods Manifest.lock";
-			outputPaths = (
-				"$(DERIVED_FILE_DIR)/Pods-SpecialTraining-checkManifestLockResult.txt",
-			);
-			runOnlyForDeploymentPostprocessing = 0;
-			shellPath = /bin/sh;
-			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
-			showEnvVarsInLog = 0;
-		};
-		C71F9A5526476D3D928466B5 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
@@ -2200,7 +2118,6 @@
 				B85F3355219E94D600023958 /* BackgroundView.swift in Sources */,
 				6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */,
 				B85F3354219E94D600023958 /* TYIndicatorBaseView.swift in Sources */,
-				6B2B00D221C927B9006C28E8 /* SetNewPwdViewModel.swift in Sources */,
 				B85F33D0219EBAB100023958 /* HandyJSON+MapModel.swift in Sources */,
 				B87800BE21C7E7F800EDCE72 /* CourseSchoolTableView.swift in Sources */,
 				B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */,
@@ -2219,10 +2136,8 @@
 				B85F3366219E968E00023958 /* STShoppingCartViewController.swift in Sources */,
 				B8FBFA6221A3E11600AECB75 /* KeyboardManager.swift in Sources */,
 				B85F33DF219F1D0300023958 /* BaseTB.swift in Sources */,
-				6B2B00D621C932A6006C28E8 /* ResetPasOneViewModel.swift in Sources */,
 				B85F332F219E913500023958 /* STAppDelegate.swift in Sources */,
 				B83BA1F621BC0F0C00496AFE /* AVCaptureSessionManager.swift in Sources */,
-				6B2B00D421C92A20006C28E8 /* BindPhoneViewModel.swift in Sources */,
 				B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */,
 				B81E90B721A3B2CE000754E3 /* UserDefaults+Cache.swift in Sources */,
 				6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */,
@@ -2347,7 +2262,6 @@
 				B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */,
 				B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */,
 				B85F33CF219EBAB100023958 /* APIServer.swift in Sources */,
-				6B2B00D021C8FB86006C28E8 /* SendMessageViewModel.swift in Sources */,
 				B81E909421A396B7000754E3 /* STChatRoomViewController.swift in Sources */,
 				6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */,
 				B85F337F219EA17100023958 /* CarouselView.swift in Sources */,
@@ -2380,7 +2294,6 @@
 				B81EDF6D21A5324700F9D3B0 /* ChatAudoRightView.swift in Sources */,
 				B85F3326219E902A00023958 /* STTabBarController.swift in Sources */,
 				B87800B521C7E40100EDCE72 /* CourseSchoolCell.swift in Sources */,
-				6B2B00CC21C8E77E006C28E8 /* STAppdelegate+WXAuth.swift in Sources */,
 				B8FBFA2121A3DD9600AECB75 /* EmojTextAttachment.swift in Sources */,
 				B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */,
 				B80B6BFD219FEE1100C33F11 /* VideoCell.swift in Sources */,
@@ -2537,7 +2450,6 @@
 		B85F3308219E769900023958 /* Debug */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = E3F58B317D84214AFDC7E7C4 /* Pods-SpecialTraining.debug.xcconfig */;
-			baseConfigurationReference = 4D646A9D7E2943E5A3700475 /* Pods-SpecialTraining.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
@@ -2569,7 +2481,6 @@
 		B85F3309219E769900023958 /* Release */ = {
 			isa = XCBuildConfiguration;
 			baseConfigurationReference = B7260986B928F5ED1FF7EB39 /* Pods-SpecialTraining.release.xcconfig */;
-			baseConfigurationReference = DC2A64F50D02AB7A1136AEBB /* Pods-SpecialTraining.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";

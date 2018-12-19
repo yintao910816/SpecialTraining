@@ -26,7 +26,6 @@ PODS:
     - SQLite.swift/standard (= 0.11.5)
   - SQLite.swift/standard (0.11.5)
   - SwiftGifOrigin (1.6.1)
-  - WechatOpenSDK (1.8.3)
   - YYKit (1.0.9):
     - YYKit/no-arc (= 1.0.9)
   - YYKit/no-arc (1.0.9)
@@ -45,11 +44,10 @@ DEPENDENCIES:
   - SnapKit (~> 4.0.0)
   - SQLite.swift (~> 0.11.4)
   - SwiftGifOrigin (~> 1.6.1)
-  - WechatOpenSDK (~> 1.8.3)
   - YYKit
 
 SPEC REPOS:
-  https://github.com/CocoaPods/Specs.git:
+  https://github.com/cocoapods/specs.git:
     - Alamofire
     - BaiduMapKit
     - BMKLocationKit
@@ -66,7 +64,6 @@ SPEC REPOS:
     - SnapKit
     - SQLite.swift
     - SwiftGifOrigin
-    - WechatOpenSDK
     - YYKit
 
 SPEC CHECKSUMS:
@@ -86,6 +83,8 @@ SPEC CHECKSUMS:
   SnapKit: 0de968a9fec17499afa29683b05d0c775b6d1c29
   SQLite.swift: 6e5356850bb1791459f8c16d6ee9195b28714a2e
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
-  WechatOpenSDK: 3117412f8aafde4758cac1e8d20b93c67cafcfef
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
+PODFILE CHECKSUM: 07444de1dccc2fddd9d1cb7cb80366776c5ede4c
+
+COCOAPODS: 1.5.3

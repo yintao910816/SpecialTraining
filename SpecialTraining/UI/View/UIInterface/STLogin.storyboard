@@ -97,14 +97,14 @@
                                             <constraint firstAttribute="height" constant="1" id="9Sc-nx-pjT"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJv-p2-flh">
-                                        <rect key="frame" x="10" y="77" width="35" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJv-p2-flh">
+                                        <rect key="frame" x="10" y="77" width="51" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ou-t6-hD8">
-                                        <rect key="frame" x="47" y="77.5" width="223" height="17"/>
+                                        <rect key="frame" x="63" y="77.5" width="207" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -287,7 +287,6 @@
                     </view>
                     <connections>
                         <outlet property="nextOutlet" destination="FlA-r0-y7i" id="bi3-u0-Xgc"/>
-                        <outlet property="phoneTF" destination="YQ9-Bz-h4X" id="nic-B7-khq"/>
                         <segue destination="j7G-LE-uXW" kind="show" identifier="resetSecondSegue" id="ELF-JC-Mq7"/>
                     </connections>
                 </viewController>
@@ -298,7 +297,7 @@
         <!--找回登录密码-->
         <scene sceneID="nn3-Av-uO3">
             <objects>
-                <viewController storyboardIdentifier="resettwo" title="找回登录密码" id="j7G-LE-uXW" customClass="STResetPassTwoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="找回登录密码" id="j7G-LE-uXW" customClass="STResetPassTwoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pvW-OQ-g67"/>
                         <viewControllerLayoutGuide type="bottom" id="saH-5D-927"/>
@@ -483,7 +482,7 @@
         <!--设置新密码-->
         <scene sceneID="vtT-TO-kQf">
             <objects>
-                <viewController storyboardIdentifier="setnewPwd" title="设置新密码" id="edS-ln-Ta6" customClass="STSetNewPassViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="设置新密码" id="edS-ln-Ta6" customClass="STSetNewPassViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="qE6-Gd-csL"/>
                         <viewControllerLayoutGuide type="bottom" id="j37-x2-wWz"/>
@@ -765,7 +764,7 @@
         <!--绑定手机号-->
         <scene sceneID="WX9-kG-ls3">
             <objects>
-                <viewController storyboardIdentifier="bindPhone" title="绑定手机号" id="teo-46-1jq" customClass="STBindPhoneViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="绑定手机号" id="teo-46-1jq" customClass="STBindPhoneViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kyQ-lu-hva"/>
                         <viewControllerLayoutGuide type="bottom" id="VNI-2Y-SRG"/>
@@ -879,7 +878,7 @@
         <image name="demandView_bg" width="640" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="pMi-ad-svV"/>
-        <segue reference="FZj-eD-X5j"/>
+        <segue reference="NlD-pP-f5Q"/>
+        <segue reference="zbI-kN-5a6"/>
     </inferredMetricsTieBreakers>
 </document>

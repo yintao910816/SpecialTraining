@@ -49,8 +49,8 @@ import Moya
 
 struct APIAssistance {
     
-    private static let base     = "http://ai.youpeixunjiaoyu.com/"
-    private static let dev_base = "http://alpha.youpeixunjiaoyu.com/"
+    private static let base     = "http://api.youpeixunjiaoyu.com/v1/"
+    private static let dev_base = "http://192.168.0.198/v1/"
 
     static public func baseURL(API: API) ->URL{
 //        #if DEBUG
@@ -65,7 +65,7 @@ struct APIAssistance {
      */
     static public func mothed(API: API) ->Moya.Method{
         switch API {
-        case .register(_, _, _), .login(_, _, _):
+        case .register(_, _, _), .login(_, _):
             return .post
         default:
             return .get

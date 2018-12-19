@@ -10,22 +10,11 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class LoginViewModel: BaseViewModel,VMNavigation {
+class LoginViewModel: BaseViewModel {
     
     init(input:(account: Driver<String>, passwd: Driver<String>),
          tap: Driver<Void>) {
         super.init()
-        
-        NotificationCenter.default.rx.notification(NotificationName.WX.WXLoginSuccess)
-            .subscribe(onNext: { [unowned self] (notification) in
-            let code = notification.object as! String
-                STProvider.request(.thirdPartyLogin(code:code))
-                    .subscribe(onSuccess: { [weak self] (_) in
-                        LoginViewModel.sbPush("STLogin", "bindPhone",bundle: Bundle.main, parameters: ["op_openid":""])
-                    }, onError: { [weak self] (error) in
-                        self?.hud.failureHidden(self?.errorMessage(error))
-                    })
-        }).disposed(by: disposeBag)
         
         let signal = Driver.combineLatest(input.account, input.passwd) { ($0, $1) }
         tap.withLatestFrom(signal)
@@ -45,7 +34,7 @@ class LoginViewModel: BaseViewModel,VMNavigation {
     }
     
     func loginRequest(account: String, password: String) {
-        STProvider.request(.login(mobile: account, code: "", pswd: password))
+        STProvider.request(.login(username: account, password: password))
             .map(model: UserInfoModel.self)
             .subscribe(onSuccess: { [weak self] userInfo in
                 STHelper.share.saveLoginUser(user: userInfo)
