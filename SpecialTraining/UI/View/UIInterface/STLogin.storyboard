@@ -97,14 +97,14 @@
                                             <constraint firstAttribute="height" constant="1" id="9Sc-nx-pjT"/>
                                         </constraints>
                                     </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="验证码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJv-p2-flh">
-                                        <rect key="frame" x="10" y="77" width="51" height="18"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="密码:" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RJv-p2-flh">
+                                        <rect key="frame" x="10" y="77" width="35" height="18"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入密码" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="3ou-t6-hD8">
-                                        <rect key="frame" x="63" y="77.5" width="207" height="17"/>
+                                        <rect key="frame" x="47" y="77.5" width="223" height="17"/>
                                         <nil key="textColor"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <textInputTraits key="textInputTraits"/>
@@ -469,6 +469,7 @@
                     <connections>
                         <outlet property="authorOutlet" destination="uub-Oi-Ave" id="c4Z-eL-BFd"/>
                         <outlet property="codeOutlet" destination="1s5-5w-3Te" id="v8X-n5-cM8"/>
+                        <outlet property="phoneLbl" destination="2jI-7o-7Di" id="H2E-IG-8Ky"/>
                         <outlet property="verifyOutlet" destination="xKf-AE-ipJ" id="QK5-Nq-O5n"/>
                         <segue destination="edS-ln-Ta6" kind="show" identifier="setNewPassSegue" id="pxq-Ne-jML"/>
                     </connections>
@@ -876,7 +877,7 @@
         <image name="demandView_bg" width="640" height="960"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="NlD-pP-f5Q"/>
-        <segue reference="zbI-kN-5a6"/>
+        <segue reference="pMi-ad-svV"/>
+        <segue reference="FZj-eD-X5j"/>
     </inferredMetricsTieBreakers>
 </document>

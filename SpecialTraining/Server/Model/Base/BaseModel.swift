@@ -13,27 +13,14 @@ import HandyJSON
 // MARK: 所有请求数据
 class ResponseModel: HJModel{
  
-    var message: String = ""
-    var success: Bool = true
-    var code: Int = 200
-        
-    override func mapping(mapper: HelpingMapper) {
-        mapper <<<
-            [message       <-- "Message",
-             success       <-- "Success"]
-    }
+    var errno: Int = 0
+    var errmsg: String = ""
     
 }
 
 class DataModel<T>: ResponseModel {
-    var total: NSInteger? = 0
-    var data: T?
     
-    override func mapping(mapper: HelpingMapper) {
-        super.mapping(mapper: mapper)
-
-        mapper.specify(property: &total, name: "Total")
-    }
+    var data: T?
 
 }
 

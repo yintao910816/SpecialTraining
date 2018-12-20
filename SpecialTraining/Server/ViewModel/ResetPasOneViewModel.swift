@@ -18,13 +18,12 @@ class ResetPasOneViewModel: BaseViewModel,VMNavigation {
         
         next.withLatestFrom(phone)
             .filter { [unowned self] (phone) -> Bool in
-                if phone.count > 0 {
-                    return true
+                if ValidateNum.phoneNum(phone).isRight == false {
+                    self.hud.failureHidden("请输入正确的手机号")
+                    return false
                 }
-                self.hud.failureHidden("请输入正确的手机号")
-                return false
+                return true
         }.asDriver()
-        ._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] (phone) in
                 ResetPasOneViewModel.sbPush("STLogin", "resettwo", bundle: Bundle.main, parameters: ["phone":phone])
             }).disposed(by: disposeBag)

@@ -10,6 +10,7 @@ import UIKit
 
 class STResetPassTwoViewController: BaseViewController {
     
+    @IBOutlet weak var phoneLbl: UILabel!
     @IBOutlet weak var verifyOutlet: UIButton!
     @IBOutlet weak var authorOutlet: UIButton!
     @IBOutlet weak var codeOutlet: UITextField!
@@ -30,6 +31,7 @@ class STResetPassTwoViewController: BaseViewController {
     
     override func rxBind() {
         viewModel = SendMessageViewModel.init(tap: authorOutlet.rx.tap.asDriver(), authCode: codeOutlet.rx.text.orEmpty.asDriver(), next: verifyOutlet.rx.tap.asDriver(), phone: phone ?? "")
+        phoneLbl.text = phone?.replacePhone()
     }
     
     override func prepare(parameters: [String : Any]?) {

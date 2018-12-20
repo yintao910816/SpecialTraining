@@ -21,10 +21,10 @@ public extension Response {
             throw MapperError.json(message: "json解析失败")
         }
         
-        if serverModel.success == true {
+        if serverModel.errno == 0 {
             return serverModel
         }else {
-            throw MapperError.server(message: serverModel.message)
+            throw MapperError.server(message: serverModel.errmsg)
         }
     }
     
@@ -37,10 +37,10 @@ public extension Response {
             throw MapperError.json(message: "json解析失败")
         }
         
-        if serverModel.success == true, let model = serverModel.data {
+        if serverModel.errno == 0, let model = serverModel.data {
             return model
         }else {
-            throw MapperError.server(message: serverModel.message)
+            throw MapperError.server(message: serverModel.errmsg)
         }
     }
     
@@ -53,10 +53,10 @@ public extension Response {
             throw MapperError.json(message: "json解析失败")
         }
         
-        if serverModel.success == true, let models = serverModel.data {
+        if serverModel.errno == 0, let models = serverModel.data {
             return models
         }else {
-            throw MapperError.server(message: serverModel.message)
+            throw MapperError.server(message: serverModel.errmsg)
         }
     }
     
@@ -69,10 +69,10 @@ public extension Response {
             throw MapperError.json(message: "json解析失败")
         }
         
-        if serverModel.success == true {
+        if serverModel.errno == 0 {
             return serverModel
         }else {
-            throw MapperError.server(message: serverModel.message)
+            throw MapperError.server(message: serverModel.errmsg)
         }
     }
     
@@ -85,10 +85,10 @@ public extension Response {
             throw MapperError.json(message: "json解析失败")
         }
 
-        if serverModel.success == true {
+        if serverModel.errno == 0 {
             return serverModel
         }else {
-            throw MapperError.server(message: serverModel.message)
+            throw MapperError.server(message: serverModel.errmsg)
         }
     }
     

@@ -16,11 +16,11 @@ class SetNewPwdViewModel: BaseViewModel {
         super.init()
         
         tap.withLatestFrom(pwd).filter { [unowned self] (pwd) -> Bool in
-            if pwd.count > 0 {
-                return true
+            if ValidateNum.password(pwd).isRight == false {
+                self.hud.failureHidden("请输入正确的密码")
+                return false
             }
-            self.hud.failureHidden("密码格式错误")
-            return false
+            return true
         }.asDriver()
         ._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] (pwd) in
@@ -30,11 +30,12 @@ class SetNewPwdViewModel: BaseViewModel {
     
     func setnewPwdRequest(mobile: String, code: String, pswd: String) {
         STProvider.request(.setPassword(mobile: mobile, code: code, pswd: pswd))
+            .map(model: ResponseModel.self)
             .subscribe(onSuccess: { [weak self] (_) in
-                
+                self?.hud.successHidden("密码设置成功")
             }) { [weak self] (error) in
-                
-        }
+                self?.hud.failureHidden(self?.errorMessage(error))
+        }.disposed(by: disposeBag)
     }
     
 }

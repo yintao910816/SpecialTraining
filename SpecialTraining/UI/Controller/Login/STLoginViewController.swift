@@ -43,7 +43,8 @@ class STLoginViewController: BaseViewController {
         
         viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
                                                 passwd: passOutlet.rx.text.orEmpty.asDriver()),
-                                        tap: loginOutlet.rx.tap.asDriver())
+                                        tap: loginOutlet.rx.tap.asDriver(),
+                                        loginType: "1")
         
         viewModel.popSubject
             .subscribe(onNext: { [weak self] _ in

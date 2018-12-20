@@ -17,20 +17,21 @@ class BindPhoneViewModel: BaseViewModel {
         
         sendAuth.withLatestFrom(phone)
             .filter { [unowned self] (phone) -> Bool in
-                if phone.count > 0 {
-                    return true
+                if ValidateNum.phoneNum(phone).isRight == false {
+                    self.hud.failureHidden("请输入正确的手机号")
+                    return false
                 }
-                self.hud.failureHidden("手机号码格式错误")
-                return false
+                return true
         }.asDriver()
         ._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] (phone) in
                 STProvider.request(.sendCode(mobile: phone))
+                    .map(model: ResponseModel.self)
                     .subscribe(onSuccess: { [weak self] (_) in
-                        
+                        self?.hud.successHidden("验证码发送成功")
                         }, onError: { [weak self] (error) in
                             self?.hud.failureHidden(self?.errorMessage(error))
-                    })
+                    }).disposed(by: self.disposeBag)
             }).disposed(by: disposeBag)
         
         let signal = Driver.combineLatest(phone, code){ ($0, $1) }
@@ -50,11 +51,12 @@ class BindPhoneViewModel: BaseViewModel {
     
     func bindPhoneRequest(mobile: String, code: String, op_openid: String) {
         STProvider.request(.bindPhone(mobile: mobile, code: code, op_openid: op_openid))
-            .subscribe(onSuccess: { (_) in
-                
-            }) { (error) in
-                
-        }
+            .map(model: LoginModel.self)
+            .subscribe(onSuccess: { [weak self] (_) in
+                self?.hud.successHidden("手机号绑定成功")
+                }, onError: { [weak self] (error) in
+                    self?.hud.failureHidden(self?.errorMessage(error))
+            }).disposed(by: self.disposeBag)
     }
     
 }

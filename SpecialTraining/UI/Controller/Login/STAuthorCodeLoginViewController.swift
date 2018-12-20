@@ -21,6 +21,8 @@ class STAuthorCodeLoginViewController: BaseViewController {
 
     @IBOutlet weak var topBgHeightCns: NSLayoutConstraint!
     
+    private var viewModel: LoginViewModel!
+    
     @IBAction func actions(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
@@ -40,7 +42,22 @@ class STAuthorCodeLoginViewController: BaseViewController {
     override func rxBind() {
         wchatOutlet.rx.tap.asDriver()
             .drive(onNext: { [unowned self] in
-                self.performSegue(withIdentifier: "bindPhoneTwoSegue", sender: nil)
+                STHelper .sendWXAuth()
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
+                                                passwd: codeOutlet.rx.text.orEmpty.asDriver()),
+                                        tap: loginOutlet.rx.tap.asDriver(),
+                                        loginType: "2")
+        
+        authorOutlet.rx.tap.subscribe(onNext: { [unowned self] _ in
+            self.viewModel.sendCodeSubject.onNext(true)
+        }).disposed(by: disposeBag)
+        
+        viewModel.popSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
     }
