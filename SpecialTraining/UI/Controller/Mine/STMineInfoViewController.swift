@@ -105,6 +105,7 @@ extension STMineInfoViewController: UITableViewDelegate {
 extension STMineInfoViewController: StudentInfoAction {
     func changeInfo() {
         PrintLog("修改学员信息")
+        self.performSegue(withIdentifier: "changeInfoSegue", sender: nil)
     }
     
     func addInfo() {

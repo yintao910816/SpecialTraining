@@ -28,6 +28,7 @@ class STMineAccountViewController: BaseViewController {
         switch tag {
         case 1000:
             PrintLog("点击了收付款")
+            performSegue(withIdentifier: "withdrawAccountSegue", sender: nil)
         case 1001:
             PrintLog("点击了零钱")
             performSegue(withIdentifier: "changeSegue", sender: nil)
