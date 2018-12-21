@@ -15,7 +15,7 @@ class STBindPhoneViewController: BaseViewController {
     @IBOutlet weak var okOutlet: UIButton!
     @IBOutlet weak var authorOutlet: UIButton!
     
-    private var op_openid: String?
+    private var openid: String!
     
     private var viewModel: BindPhoneViewModel!
     
@@ -39,15 +39,21 @@ class STBindPhoneViewController: BaseViewController {
                 }
             }).disposed(by: disposeBag)
         
-        viewModel = BindPhoneViewModel(phone: phoneOutlet.rx.text.orEmpty.asDriver(), code: codeOutlet.rx.text.orEmpty.asDriver(), sendAuth: authorOutlet.rx.tap.asDriver(), next: okOutlet.rx.tap.asDriver(), op_openid: op_openid ?? "")
+        viewModel = BindPhoneViewModel.init(input: (phoneOutlet.rx.text.orEmpty.asDriver(), code: codeOutlet.rx.text.orEmpty.asDriver(), openid: openid),
+                                            tap: (sendAuth: authorOutlet.rx.tap.asDriver(), next: okOutlet.rx.tap.asDriver()))
         
         viewModel.sendCodeSubject.subscribe(onNext: { [unowned self] (success) in
             success == true ? self.timer.timerStar() : self.timer.timerPause()
         }).disposed(by: disposeBag)
+        
+        viewModel.popSubject.subscribe(onNext: { [weak self] _ in
+            self?.navigationController?.dismiss(animated: true, completion: nil)
+        })
+            .disposed(by: disposeBag)
     }
     
     override func prepare(parameters: [String : Any]?) {
-        op_openid = parameters!["op_openid"] as? String
+        openid = (parameters!["openid"] as! String)
     }
     
 }

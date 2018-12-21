@@ -1,0 +1,38 @@
+//
+//  STAppdelegate+WXAuth.swift
+//  SpecialTraining
+//
+//  Created by xujun on 2018/12/18.
+//  Copyright © 2018 youpeixun. All rights reserved.
+//
+
+import Foundation
+
+extension STAppDelegate {
+    
+    func setupShareSDK() {
+        setup()
+    }
+    
+    private func setup() {
+        
+        ShareSDK.registerActivePlatforms([SSDKPlatformType.typeWechat.rawValue],
+                                         onImport: { platform in
+                                            switch platform {
+                                            case .typeWechat:
+                                                ShareSDKConnector.connectWeChat(WXApi.classForCoder())
+                                            default:
+                                                break
+                                            }
+        }) { (platform, appInfo) in
+            switch platform {
+            case .typeWechat:
+                appInfo?.ssdkSetupWeChat(byAppId: "wxcb1e987d2389e80d",
+                                         appSecret: "")
+            default:
+                break
+            }
+        }
+    }
+
+}

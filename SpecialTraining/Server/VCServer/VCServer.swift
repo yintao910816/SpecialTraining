@@ -40,6 +40,10 @@ extension VMNavigation {
         ctrler.prepare(parameters: parameters)
         NSObject().visibleViewController?.navigationController?.pushViewController(ctrler, animated: true)
     }
+    
+//    static func seguePush(segueID: String, parameters: [String: Any]? = nil, title: String? = nil) {
+//
+//    }
 }
 
 @objc protocol VCServer {

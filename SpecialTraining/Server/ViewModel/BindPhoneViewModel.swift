@@ -12,12 +12,16 @@ import RxCocoa
 
 class BindPhoneViewModel: BaseViewModel {
     
+    private var openid: String = ""
+    
     var sendCodeSubject = PublishSubject<Bool>()
     
-    init(phone: Driver<String>, code: Driver<String>, sendAuth: Driver<Void>, next: Driver<Void>, op_openid: String) {
+    init(input: (phone: Driver<String>, code: Driver<String>, openid: String),
+         tap: (sendAuth: Driver<Void>, next: Driver<Void>)) {
         super.init()
+        self.openid = input.openid
         //发送验证码
-        sendAuth.withLatestFrom(phone)
+        tap.sendAuth.withLatestFrom(input.phone)
             .filter { [unowned self] (phone) -> Bool in
                 if ValidateNum.phoneNum(phone).isRight == false {
                     self.hud.failureHidden("请输入正确的手机号")
@@ -31,8 +35,8 @@ class BindPhoneViewModel: BaseViewModel {
                 self.sendAuthCode(phone: phone)
             }).disposed(by: disposeBag)
         //下一步
-        let signal = Driver.combineLatest(phone, code){ ($0, $1) }
-        next.withLatestFrom(signal)
+        let signal = Driver.combineLatest(input.phone, input.code){ ($0, $1) }
+        tap.next.withLatestFrom(signal)
             .filter { [unowned self] (phone, code) -> Bool in
                 if code.count > 0 && phone.count > 0 {
                     return true
@@ -41,8 +45,8 @@ class BindPhoneViewModel: BaseViewModel {
                 return false
         }.asDriver()
         ._doNext(forNotice: hud)
-            .drive(onNext: { (phone, code) in
-                self.bindPhoneRequest(mobile: phone, code: code, op_openid: op_openid)
+            .drive(onNext: { [unowned self] (phone, code) in
+                self.bindPhoneRequest(mobile: phone, code: code, op_openid: self.openid)
             }).disposed(by: disposeBag)
     }
     //绑定手机号
@@ -61,10 +65,11 @@ class BindPhoneViewModel: BaseViewModel {
     //发送验证码
     func sendAuthCode(phone: String) {
         STProvider.request(.sendCode(mobile: phone))
-            .map(model: ResponseModel.self)
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] (_) in
                 self?.hud.successHidden("验证码发送成功")
                 }, onError: { [weak self] (error) in
+                    PrintLog(error)
                     self?.hud.failureHidden(error.localizedDescription)
                     self?.sendCodeSubject.onNext(false)
             }).disposed(by: disposeBag)

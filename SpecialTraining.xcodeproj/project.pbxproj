@@ -51,7 +51,7 @@
 		6B8A612021B52FBA00C0DFCD /* MineChangeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B8A611E21B52FBA00C0DFCD /* MineChangeCell.xib */; };
 		6B8A612221B5366200C0DFCD /* MineChangeViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A612121B5366200C0DFCD /* MineChangeViewModel.swift */; };
 		6B8A612421B537A600C0DFCD /* MineChangeModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B8A612321B537A600C0DFCD /* MineChangeModel.swift */; };
-		6BAE0AD621CA2BCA0065BAD2 /* STAppdelegate+WXAuth.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0AD521CA2BC90065BAD2 /* STAppdelegate+WXAuth.swift */; };
+		6BAE0AD621CA2BCA0065BAD2 /* STAppdelegate+ShareSDK.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0AD521CA2BC90065BAD2 /* STAppdelegate+ShareSDK.swift */; };
 		6BAE0AD821CA2CC10065BAD2 /* ResetPasOneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0AD721CA2CC00065BAD2 /* ResetPasOneViewModel.swift */; };
 		6BAE0ADA21CA2CCA0065BAD2 /* SendMessageViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0AD921CA2CCA0065BAD2 /* SendMessageViewModel.swift */; };
 		6BAE0ADC21CA2CD80065BAD2 /* SetNewPwdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0ADB21CA2CD80065BAD2 /* SetNewPwdViewModel.swift */; };
@@ -132,6 +132,17 @@
 		B81EDF7621A54D8500F9D3B0 /* STMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EDF7521A54D8500F9D3B0 /* STMapViewController.swift */; };
 		B81EDF7A21A5570200F9D3B0 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B81EDF7921A5570200F9D3B0 /* mapapi.bundle */; };
 		B81EDF7C21A579DC00F9D3B0 /* UINavigationController+BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EDF7B21A579DB00F9D3B0 /* UINavigationController+BarButtonItem.swift */; };
+		B82CEECB21CD34A8000DE904 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEBC21CD34A8000DE904 /* README.txt */; };
+		B82CEECC21CD34A8000DE904 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEBE21CD34A8000DE904 /* libWeChatSDK.a */; };
+		B82CEECD21CD34A8000DE904 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC021CD34A8000DE904 /* ShareSDKConnector.framework */; };
+		B82CEECE21CD34A8000DE904 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEC121CD34A8000DE904 /* ShareSDK.bundle */; };
+		B82CEECF21CD34A8000DE904 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEC321CD34A8000DE904 /* ShareSDKUI.bundle */; };
+		B82CEED021CD34A8000DE904 /* ShareSDKExtension.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC421CD34A8000DE904 /* ShareSDKExtension.framework */; };
+		B82CEED121CD34A8000DE904 /* ShareSDKUI.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC521CD34A8000DE904 /* ShareSDKUI.framework */; };
+		B82CEED221CD34A8000DE904 /* WechatConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC721CD34A8000DE904 /* WechatConnector.framework */; };
+		B82CEED321CD34A8000DE904 /* ShareSDK.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC821CD34A8000DE904 /* ShareSDK.framework */; };
+		B82CEED421CD34A8000DE904 /* MOBFoundation.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEECA21CD34A8000DE904 /* MOBFoundation.framework */; };
+		B82CEED621CD3552000DE904 /* UserAccountServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CEED521CD3552000DE904 /* UserAccountServer.swift */; };
 		B82F45BD21A97B70009DC25C /* MedieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F45BC21A97B70009DC25C /* MedieView.swift */; };
 		B82F45C021A98D83009DC25C /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F45BF21A98D83009DC25C /* ImagePickerManager.swift */; };
 		B82F45C221A99640009DC25C /* Date+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F45C121A99640009DC25C /* Date+Extension.swift */; };
@@ -440,7 +451,7 @@
 		6B8A611E21B52FBA00C0DFCD /* MineChangeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineChangeCell.xib; sourceTree = "<group>"; };
 		6B8A612121B5366200C0DFCD /* MineChangeViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineChangeViewModel.swift; sourceTree = "<group>"; };
 		6B8A612321B537A600C0DFCD /* MineChangeModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineChangeModel.swift; sourceTree = "<group>"; };
-		6BAE0AD521CA2BC90065BAD2 /* STAppdelegate+WXAuth.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "STAppdelegate+WXAuth.swift"; sourceTree = "<group>"; };
+		6BAE0AD521CA2BC90065BAD2 /* STAppdelegate+ShareSDK.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "STAppdelegate+ShareSDK.swift"; sourceTree = "<group>"; };
 		6BAE0AD721CA2CC00065BAD2 /* ResetPasOneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ResetPasOneViewModel.swift; sourceTree = "<group>"; };
 		6BAE0AD921CA2CCA0065BAD2 /* SendMessageViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SendMessageViewModel.swift; sourceTree = "<group>"; };
 		6BAE0ADB21CA2CD80065BAD2 /* SetNewPwdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNewPwdViewModel.swift; sourceTree = "<group>"; };
@@ -522,6 +533,20 @@
 		B81EDF7521A54D8500F9D3B0 /* STMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMapViewController.swift; sourceTree = "<group>"; };
 		B81EDF7921A5570200F9D3B0 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		B81EDF7B21A579DB00F9D3B0 /* UINavigationController+BarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+BarButtonItem.swift"; sourceTree = "<group>"; };
+		B82CEEBA21CD34A8000DE904 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
+		B82CEEBB21CD34A8000DE904 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
+		B82CEEBC21CD34A8000DE904 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
+		B82CEEBD21CD34A8000DE904 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
+		B82CEEBE21CD34A8000DE904 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		B82CEEC021CD34A8000DE904 /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
+		B82CEEC121CD34A8000DE904 /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
+		B82CEEC321CD34A8000DE904 /* ShareSDKUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKUI.bundle; sourceTree = "<group>"; };
+		B82CEEC421CD34A8000DE904 /* ShareSDKExtension.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKExtension.framework; sourceTree = "<group>"; };
+		B82CEEC521CD34A8000DE904 /* ShareSDKUI.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKUI.framework; sourceTree = "<group>"; };
+		B82CEEC721CD34A8000DE904 /* WechatConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = WechatConnector.framework; sourceTree = "<group>"; };
+		B82CEEC821CD34A8000DE904 /* ShareSDK.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDK.framework; sourceTree = "<group>"; };
+		B82CEECA21CD34A8000DE904 /* MOBFoundation.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = MOBFoundation.framework; sourceTree = "<group>"; };
+		B82CEED521CD3552000DE904 /* UserAccountServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountServer.swift; sourceTree = "<group>"; };
 		B82F45BC21A97B70009DC25C /* MedieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedieView.swift; sourceTree = "<group>"; };
 		B82F45BF21A98D83009DC25C /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
 		B82F45C121A99640009DC25C /* Date+Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Date+Extension.swift"; sourceTree = "<group>"; };
@@ -802,7 +827,14 @@
 			buildActionMask = 2147483647;
 			files = (
 				00A5E988AF1B1A92952C1483 /* Pods_SpecialTraining.framework in Frameworks */,
+				B82CEED221CD34A8000DE904 /* WechatConnector.framework in Frameworks */,
+				B82CEED121CD34A8000DE904 /* ShareSDKUI.framework in Frameworks */,
+				B82CEED321CD34A8000DE904 /* ShareSDK.framework in Frameworks */,
 				6BAE0AE021CA2FDC0065BAD2 /* libopencore-amrnb.a in Frameworks */,
+				B82CEED021CD34A8000DE904 /* ShareSDKExtension.framework in Frameworks */,
+				B82CEED421CD34A8000DE904 /* MOBFoundation.framework in Frameworks */,
+				B82CEECC21CD34A8000DE904 /* libWeChatSDK.a in Frameworks */,
+				B82CEECD21CD34A8000DE904 /* ShareSDKConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -1002,6 +1034,98 @@
 				B8547E1921A63F4300281554 /* STSelectedCityViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B82CEEB421CD34A8000DE904 /* Lib */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEB521CD34A8000DE904 /* ShareSDK */,
+			);
+			path = Lib;
+			sourceTree = "<group>";
+		};
+		B82CEEB521CD34A8000DE904 /* ShareSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEB621CD34A8000DE904 /* ShareSDK */,
+				B82CEEC921CD34A8000DE904 /* Required */,
+			);
+			path = ShareSDK;
+			sourceTree = "<group>";
+		};
+		B82CEEB621CD34A8000DE904 /* ShareSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEB721CD34A8000DE904 /* Support */,
+				B82CEEC821CD34A8000DE904 /* ShareSDK.framework */,
+			);
+			path = ShareSDK;
+			sourceTree = "<group>";
+		};
+		B82CEEB721CD34A8000DE904 /* Support */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEB821CD34A8000DE904 /* PlatformSDK */,
+				B82CEEBF21CD34A8000DE904 /* Required */,
+				B82CEEC221CD34A8000DE904 /* Optional */,
+				B82CEEC621CD34A8000DE904 /* PlatformConnector */,
+			);
+			path = Support;
+			sourceTree = "<group>";
+		};
+		B82CEEB821CD34A8000DE904 /* PlatformSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEB921CD34A8000DE904 /* WeChatSDK */,
+			);
+			path = PlatformSDK;
+			sourceTree = "<group>";
+		};
+		B82CEEB921CD34A8000DE904 /* WeChatSDK */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEBA21CD34A8000DE904 /* WXApi.h */,
+				B82CEEBB21CD34A8000DE904 /* WXApiObject.h */,
+				B82CEEBC21CD34A8000DE904 /* README.txt */,
+				B82CEEBD21CD34A8000DE904 /* WechatAuthSDK.h */,
+				B82CEEBE21CD34A8000DE904 /* libWeChatSDK.a */,
+			);
+			path = WeChatSDK;
+			sourceTree = "<group>";
+		};
+		B82CEEBF21CD34A8000DE904 /* Required */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEC021CD34A8000DE904 /* ShareSDKConnector.framework */,
+				B82CEEC121CD34A8000DE904 /* ShareSDK.bundle */,
+			);
+			path = Required;
+			sourceTree = "<group>";
+		};
+		B82CEEC221CD34A8000DE904 /* Optional */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEC321CD34A8000DE904 /* ShareSDKUI.bundle */,
+				B82CEEC421CD34A8000DE904 /* ShareSDKExtension.framework */,
+				B82CEEC521CD34A8000DE904 /* ShareSDKUI.framework */,
+			);
+			path = Optional;
+			sourceTree = "<group>";
+		};
+		B82CEEC621CD34A8000DE904 /* PlatformConnector */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEEC721CD34A8000DE904 /* WechatConnector.framework */,
+			);
+			path = PlatformConnector;
+			sourceTree = "<group>";
+		};
+		B82CEEC921CD34A8000DE904 /* Required */ = {
+			isa = PBXGroup;
+			children = (
+				B82CEECA21CD34A8000DE904 /* MOBFoundation.framework */,
+			);
+			path = Required;
 			sourceTree = "<group>";
 		};
 		B82F45BB21A97AE9009DC25C /* MedieView */ = {
@@ -1244,6 +1368,7 @@
 		B85F3328219E90E000023958 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B82CEEB421CD34A8000DE904 /* Lib */,
 				B83BA1FD21BC1EB300496AFE /* VideoRecord */,
 				B85F3332219E926800023958 /* Debug.swift */,
 				6BAE0AE821CB906B0065BAD2 /* Validate.swift */,
@@ -1287,7 +1412,7 @@
 				B85F332D219E913400023958 /* STAppDelegate.swift */,
 				B87F8F8A21A29B8000DE9DC1 /* STAppDelegate+EaseMob.swift */,
 				B81EDF6F21A53B4C00F9D3B0 /* STAppDelegate+BMK.swift */,
-				6BAE0AD521CA2BC90065BAD2 /* STAppdelegate+WXAuth.swift */,
+				6BAE0AD521CA2BC90065BAD2 /* STAppdelegate+ShareSDK.swift */,
 			);
 			path = Appdelegate;
 			sourceTree = "<group>";
@@ -1313,6 +1438,7 @@
 		B85F3341219E94B200023958 /* STHelper */ = {
 			isa = PBXGroup;
 			children = (
+				B82CEED521CD3552000DE904 /* UserAccountServer.swift */,
 				B81EDF7121A53C0300F9D3B0 /* BMKMap */,
 				B81EDF5E21A522B100F9D3B0 /* ImageUtls */,
 				B81E909B21A3A3F2000754E3 /* EaseMob */,
@@ -1925,6 +2051,7 @@
 				B8FBFA6521A3E4D800AECB75 /* STLogin.storyboard in Resources */,
 				B87800B621C7E40100EDCE72 /* CourseSchoolCell.xib in Resources */,
 				B8547E2221A6433C00281554 /* MineCell.xib in Resources */,
+				B82CEECE21CD34A8000DE904 /* ShareSDK.bundle in Resources */,
 				B80B6BEF219FBF3100C33F11 /* ShoppingNameCell.xib in Resources */,
 				B8FBFA4221A3DD9600AECB75 /* gza_thumb.png in Resources */,
 				B8FBFA2C21A3DD9600AECB75 /* z2_thumb.png in Resources */,
@@ -1946,6 +2073,7 @@
 				B87A94E821A82D9B003E2D21 /* ActivityBrefCell.xib in Resources */,
 				B8FBFA4B21A3DD9600AECB75 /* smilea_thumb.png in Resources */,
 				B8350AB621A1112D0020A6A6 /* MineSectionCollectionReusableView.xib in Resources */,
+				B82CEECF21CD34A8000DE904 /* ShareSDKUI.bundle in Resources */,
 				B8FBFA4C21A3DD9600AECB75 /* unheart_thumb.png in Resources */,
 				B8FBFA4521A3DD9600AECB75 /* bz_thumb.png in Resources */,
 				B8FBFA3C21A3DD9600AECB75 /* lovea_thumb.png in Resources */,
@@ -1994,6 +2122,7 @@
 				B86D68BF21C406BC001A0B75 /* SplendidnessContentCell.xib in Resources */,
 				B87800BA21C7E51500EDCE72 /* CourseAudioCell.xib in Resources */,
 				B8FBFA3321A3DD9600AECB75 /* zhh_thumb.png in Resources */,
+				B82CEECB21CD34A8000DE904 /* README.txt in Resources */,
 				B8FBFA4821A3DD9600AECB75 /* tootha_thumb.png in Resources */,
 				B87F8F7221A2446E00DE9DC1 /* MineInfoCell.xib in Resources */,
 				B8FBFA2621A3DD9600AECB75 /* no_thumb.png in Resources */,
@@ -2279,6 +2408,7 @@
 				C47356DB21AEB8DE000E24A5 /* JX_GCDTimerManager.m in Sources */,
 				B8FBFA1A21A3DD9600AECB75 /* EmojTextView.swift in Sources */,
 				B81E909721A39868000754E3 /* ChatCell.swift in Sources */,
+				B82CEED621CD3552000DE904 /* UserAccountServer.swift in Sources */,
 				B85F33CB219EBAB100023958 /* APIAdapt.swift in Sources */,
 				B85F3360219E961000023958 /* STHomeViewController.swift in Sources */,
 				6B280D6621CCEC8600C5DEED /* AddAccountCell.swift in Sources */,
@@ -2347,7 +2477,7 @@
 				B85F33A1219EA3AD00023958 /* CourseListCell.swift in Sources */,
 				B80B6BEA219FBD5200C33F11 /* UIView+Layer.swift in Sources */,
 				B87800B121C7E23100EDCE72 /* CourseTimeCell.swift in Sources */,
-				6BAE0AD621CA2BCA0065BAD2 /* STAppdelegate+WXAuth.swift in Sources */,
+				6BAE0AD621CA2BCA0065BAD2 /* STAppdelegate+ShareSDK.swift in Sources */,
 				B85F3324219E902A00023958 /* BaseViewController.swift in Sources */,
 				B85F33E1219F1DC200023958 /* BaseTBCell.swift in Sources */,
 				6B8A611221B4DE5700C0DFCD /* MineCourseTableViewCell.swift in Sources */,
@@ -2522,7 +2652,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4N3WPB94NM;
+				DEVELOPMENT_TEAM = VF5FF4J6Z3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2531,6 +2661,11 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/Required",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/Required",
 				);
 				INFOPLIST_FILE = SpecialTraining/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2545,6 +2680,7 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player/AudioButton",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youpeixun.SpecialTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
@@ -2562,7 +2698,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
 				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = 4N3WPB94NM;
+				DEVELOPMENT_TEAM = VF5FF4J6Z3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -2571,6 +2707,11 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformConnector",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/Required",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/Required",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/Optional",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/PlatformConnector",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/Required",
 				);
 				INFOPLIST_FILE = SpecialTraining/Info.plist;
 				IPHONEOS_DEPLOYMENT_TARGET = 8.0;
@@ -2585,6 +2726,7 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player/AudioButton",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
+					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.youpeixun.SpecialTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
