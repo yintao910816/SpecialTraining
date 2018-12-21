@@ -10,24 +10,28 @@ import Foundation
 
 extension STAppDelegate: WXApiDelegate {
     
-    func registerWX() {
-        WXApi.registerApp("wxcb1e987d2389e80d")
+    func setupShareSDK() {
+        setup()
     }
     
-    func application(_ application: UIApplication, handleOpen url: URL) -> Bool {
-        WXApi.handleOpen(url, delegate: self)
-        return true
-    }
-    
-    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        WXApi.handleOpen(url, delegate: self)
-        return true
-    }
-    
-    func onResp(_ resp: BaseResp!) {
-        if resp.errCode == 0 && resp.type == 0 {
-            let response = resp as! SendAuthResp
-            NotificationCenter.default.post(name: NotificationName.WX.WXLoginSuccess, object: response.code)
+    private func setup() {
+        
+        ShareSDK.registerActivePlatforms([SSDKPlatformType.typeWechat.rawValue],
+                                         onImport: { platform in
+                                            switch platform {
+                                            case .typeWechat:
+                                                ShareSDKConnector.connectWeChat(WXApi.classForCoder())
+                                            default:
+                                                break
+                                            }
+        }) { (platform, appInfo) in
+            switch platform {
+            case .typeWechat:
+                appInfo?.ssdkSetupWeChat(byAppId: "wxcb1e987d2389e80d",
+                                         appSecret: "79d8d1710b07f0e96e6f40ee58f5d9fe")
+            default:
+                break
+            }
         }
     }
     

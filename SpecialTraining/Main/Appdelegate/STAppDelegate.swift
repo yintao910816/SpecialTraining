@@ -34,7 +34,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         // 百度
         baiduMapConfig(application: application, launchOptions: launchOptions)
         //微信授权
-        registerWX()
+        setupShareSDK()
 
         #if DEBUG
         STHelper.login(account: "666666", password: "111111")

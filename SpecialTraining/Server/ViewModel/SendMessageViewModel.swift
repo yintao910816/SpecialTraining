@@ -12,20 +12,17 @@ import RxCocoa
 
 class SendMessageViewModel: BaseViewModel,VMNavigation {
     
+    var sendCodeSubject = PublishSubject<Bool>()
+    
     init(tap: Driver<Void>, authCode: Driver<String>, next: Driver<Void>, phone: String) {
         super.init()
-        
+        //发送验证码
         tap._doNext(forNotice: hud)
-            .drive(onNext: {
-            STProvider.request(.sendCode(mobile: phone))
-                .map(model: ResponseModel.self)
-                .subscribe(onSuccess: { [weak self] (_) in
-                    self?.hud.successHidden("验证码发送成功")
-                }, onError: { [weak self] (error) in
-                    self?.hud.failureHidden(self?.errorMessage(error))
-                }).disposed(by: self.disposeBag)
+            .drive(onNext: { [unowned self] _ in
+                self.sendCodeSubject.onNext(true)
+                self.sendAuthCode(phone: phone)
         }).disposed(by: disposeBag)
-        
+        //下一步
         next.withLatestFrom(authCode)
             .filter { [unowned self] (code) -> Bool in
                 if code.count > 0 && code.count < 7 {
@@ -37,6 +34,18 @@ class SendMessageViewModel: BaseViewModel,VMNavigation {
         .asDriver()
             .drive(onNext: { (code) in
                 SendMessageViewModel.sbPush("STLogin", "setnewPwd", bundle: Bundle.main, parameters: ["phone":phone,"code":code])
+            }).disposed(by: disposeBag)
+    }
+    
+    //发送验证码
+    func sendAuthCode(phone: String) {
+        STProvider.request(.sendCode(mobile: phone))
+            .map(model: ResponseModel.self)
+            .subscribe(onSuccess: { [weak self] (_) in
+                self?.hud.successHidden("验证码发送成功")
+                }, onError: { [weak self] (error) in
+                    self?.hud.failureHidden(error.localizedDescription)
+                    self?.sendCodeSubject.onNext(false)
             }).disposed(by: disposeBag)
     }
     

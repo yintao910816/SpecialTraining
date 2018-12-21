@@ -16,6 +16,7 @@ class STLoginViewController: BaseViewController {
     @IBOutlet weak var phoneOutlet: UITextField!
     @IBOutlet weak var passOutlet: UITextField!
     @IBOutlet weak var wchatOutlet: UIButton!
+    @IBOutlet weak var securityBtn: UIButton!
     
     @IBOutlet weak var topBgHeightCns: NSLayoutConstraint!
     
@@ -35,16 +36,19 @@ class STLoginViewController: BaseViewController {
     
     override func rxBind() {
         
-        wchatOutlet.rx.tap.asDriver()
-            .drive(onNext: { [unowned self] in
-                STHelper .sendWXAuth()
-            })
-            .disposed(by: disposeBag)
-        
         viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
                                                 passwd: passOutlet.rx.text.orEmpty.asDriver()),
-                                        tap: loginOutlet.rx.tap.asDriver(),
+                                        tap: (loginTap: loginOutlet.rx.tap.asDriver(),
+                                              sendCodeTap: securityBtn.rx.tap.asDriver(),
+                                              wechatTap: wchatOutlet.rx.tap.asDriver()),
                                         loginType: "1")
+        viewModel.security.asDriver().drive(onNext: { [unowned self] (isSecurity) in
+            self.passOutlet.isSecureTextEntry = isSecurity
+        }).disposed(by: disposeBag)
+        
+        viewModel.sendCodeSubject.subscribe(onNext: { (isSecurity) in
+            
+        }).disposed(by: disposeBag)
         
         viewModel.popSubject
             .subscribe(onNext: { [weak self] _ in

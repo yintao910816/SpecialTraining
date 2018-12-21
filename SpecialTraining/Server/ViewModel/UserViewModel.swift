@@ -16,43 +16,47 @@ class LoginViewModel: BaseViewModel,VMNavigation {
     
     var loginType: String!
     
+    var security = Variable(true)
+    
     init(input:(account: Driver<String>, passwd: Driver<String>),
-         tap: Driver<Void>, loginType: String) {
+         tap: (loginTap: Driver<Void>, sendCodeTap: Driver<Void>, wechatTap: Driver<Void>), loginType: String) {
         super.init()
         self.loginType = loginType
+        
         //微信授权登录
-        NotificationCenter.default.rx.notification(NotificationName.WX.WXLoginSuccess)
-            .subscribe(onNext: { [unowned self] (notification) in
-                let code = notification.object as! String
-                STProvider.request(.thirdPartyLogin(code:code))
-                    .map(model: WXLoginModel.self)
-                    .subscribe(onSuccess: { [weak self] (model) in
-                        LoginViewModel.sbPush("STLogin", "bindPhone",bundle: Bundle.main, parameters: ["op_openid":model.op_openid])
-                        }, onError: { [weak self] (error) in
-                            self?.hud.failureHidden(self?.errorMessage(error))
-                    }).disposed(by: self.disposeBag)
+        tap.wechatTap.asObservable()
+            ._doNext(forNotice: hud, forHint: "正在授权...")
+            .flatMap{ STHelper.authorizeWchat() }
+            .subscribe(onNext: { [weak self] in
+                self?.wxLogin(user: $0)
+                }, onError: { [weak self] error in
+                    self?.hud.failureHidden(self?.errorMessage(error))
+            })
+            .disposed(by: disposeBag)
+        
+        if self.loginType == "1" {//change security
+            tap.sendCodeTap.drive(onNext: { [unowned self] (_) in
+                self.security.value = !self.security.value
             }).disposed(by: disposeBag)
-        //验证码发送
-        sendCodeSubject.withLatestFrom(input.account)
-            .filter { [unowned self] (phone) -> Bool in
-                if ValidateNum.phoneNum(phone).isRight == false {
-                    self.hud.failureHidden("请输入正确的手机号")
-                    return false
-                }
-                return true
-        }._doNext(forNotice: hud)
-            .subscribe(onNext: { (phone) in
-                STProvider.request(.sendCode(mobile: phone))
-                    .map(model: ResponseModel.self)
-                    .subscribe(onSuccess: { [weak self] (_) in
-                        self?.hud.successHidden("验证码发送成功")
-                        }, onError: { [weak self] (error) in
-                            self?.hud.failureHidden(self?.errorMessage(error))
-                    }).disposed(by: self.disposeBag)
-            }).disposed(by: disposeBag)
+        } else if self.loginType == "2" {//验证码发送
+            tap.sendCodeTap.withLatestFrom(input.account)
+                .filter { [unowned self] (phone) -> Bool in
+                    if ValidateNum.phoneNum(phone).isRight == false {
+                        self.hud.failureHidden("请输入正确的手机号")
+                        return false
+                    }
+                    return true
+                }.asDriver()
+                ._doNext(forNotice: hud)
+                .drive(onNext: { [unowned self] (phone) in
+                    self.sendCodeSubject.onNext(true)
+                    self.sendAuthCode(phone: phone)
+                }).disposed(by: disposeBag)
+        }
+        
         //登录
         let signal = Driver.combineLatest(input.account, input.passwd) { ($0, $1) }
-        tap.withLatestFrom(signal)
+        tap.loginTap.withLatestFrom(signal)
             .filter { [unowned self] (account, pass) -> Bool in
                 if account.count > 0 && pass.count > 0 {
                     return true
@@ -71,7 +75,7 @@ class LoginViewModel: BaseViewModel,VMNavigation {
             })
             .disposed(by: disposeBag)
     }
-    
+    //登录
     func loginRequest(account: String,code: String, password: String) {
         STProvider.request(.login(mobile: account, code: code, pswd: password))
             .map(model: LoginModel.self)
@@ -88,47 +92,26 @@ class LoginViewModel: BaseViewModel,VMNavigation {
             }
             .disposed(by: disposeBag)
     }
-}
-
-class RegisterViewModel: BaseViewModel {
-    
-    init(input:(account: Driver<String>, passwd: Driver<String>, nickName: Driver<String>),
-         tap: Driver<Void>) {
-        super.init()
-        
-        let signal = Driver.combineLatest(input.account, input.passwd, input.nickName) { ($0, $1, $2) }
-        tap.withLatestFrom(signal)
-            .filter { [unowned self] (account, pass, nickName) -> Bool in
-                if account.count > 0 && pass.count > 0 && nickName.count > 0 {
-                    return true
-                }
-                self.hud.failureHidden("请输入完整信息")
-                return false
-            }
-            .asDriver()
-            ._doNext(forNotice: hud)
-            .drive(onNext: { [unowned self] (account, pass, nickName) in
-                self.register(account: account, password: pass, nickName: nickName)
-            })
-            .disposed(by: disposeBag)
-        
+    //微信登录
+    func wxLogin(user: SSDKUser) {
+        STProvider.request(.thirdPartyLogin(code:user.uid))
+            .map(model: WXLoginModel.self)
+            .subscribe(onSuccess: { [weak self] (model) in
+                LoginViewModel.sbPush("STLogin", "bindPhone",bundle: Bundle.main, parameters: ["op_openid":model.op_openid])
+                }, onError: { [weak self] (error) in
+                    self?.hud.failureHidden(self?.errorMessage(error))
+            }).disposed(by: disposeBag)
     }
     
-    private func register(account: String, password: String, nickName: String) {
-        STProvider.request(.register(username: account, password: password, nickname: nickName))
-            .map(model: UserInfoModel.self)
-            .subscribe(onSuccess: { [weak self] userInfo in
-                STHelper.share.saveLoginUser(user: userInfo)
-                
-                STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
-                
-                self?.hud.successHidden("注册成功", {
-                    self?.popSubject.onNext(true)
-                })
-            }) { [weak self] error in
-                self?.hud.failureHidden(self?.errorMessage(error))
-            }
-            .disposed(by: disposeBag)
+    //发送验证码
+    func sendAuthCode(phone: String) {
+        STProvider.request(.sendCode(mobile: phone))
+            .map(model: ResponseModel.self)
+            .subscribe(onSuccess: { [weak self] (_) in
+                self?.hud.successHidden("验证码发送成功")
+                }, onError: { [weak self] (error) in
+                    self?.hud.failureHidden(error.localizedDescription)
+                    self?.sendCodeSubject.onNext(false)
+            }).disposed(by: disposeBag)
     }
-    
 }

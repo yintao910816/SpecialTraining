@@ -23,6 +23,8 @@ class STAuthorCodeLoginViewController: BaseViewController {
     
     private var viewModel: LoginViewModel!
     
+    private let timer = CountdownTimer.init()
+    
     @IBAction func actions(_ sender: UIButton) {
         navigationController?.popViewController(animated: true)
     }
@@ -40,19 +42,27 @@ class STAuthorCodeLoginViewController: BaseViewController {
     }
     
     override func rxBind() {
-        wchatOutlet.rx.tap.asDriver()
-            .drive(onNext: { [unowned self] in
-                STHelper .sendWXAuth()
-            })
-            .disposed(by: disposeBag)
+        
+        timer.showText.asDriver().skip(1)
+            .drive(onNext: { [unowned self] (second) in
+                if second == 0 {
+                    self.authorOutlet.isUserInteractionEnabled = true
+                    self.authorOutlet.setTitle("获取验证码", for: .normal)
+                } else {
+                    self.authorOutlet.isUserInteractionEnabled = false
+                    self.authorOutlet.setTitle("\(second)s", for: .normal)
+                }
+            }).disposed(by: disposeBag)
         
         viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
                                                 passwd: codeOutlet.rx.text.orEmpty.asDriver()),
-                                        tap: loginOutlet.rx.tap.asDriver(),
+                                        tap: (loginTap: loginOutlet.rx.tap.asDriver(),
+                                              sendCodeTap: authorOutlet.rx.tap.asDriver(),
+                                              wechatTap: wchatOutlet.rx.tap.asDriver()),
                                         loginType: "2")
         
-        authorOutlet.rx.tap.subscribe(onNext: { [unowned self] _ in
-            self.viewModel.sendCodeSubject.onNext(true)
+        viewModel.sendCodeSubject.subscribe(onNext: { [unowned self] (success) in
+            success == true ? self.timer.timerStar() : self.timer.timerPause()
         }).disposed(by: disposeBag)
         
         viewModel.popSubject

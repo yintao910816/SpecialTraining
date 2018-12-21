@@ -212,6 +212,7 @@
                         <outlet property="loginOutlet" destination="dLi-04-T1x" id="xKU-eW-Cxc"/>
                         <outlet property="passOutlet" destination="3ou-t6-hD8" id="Ynz-gz-6Ed"/>
                         <outlet property="phoneOutlet" destination="3BA-EF-Gxi" id="Tch-mS-9qU"/>
+                        <outlet property="securityBtn" destination="yEd-a4-7Tc" id="oWc-Sq-rK9"/>
                         <outlet property="topBgHeightCns" destination="OB5-X2-aOq" id="0VG-bu-Dyy"/>
                         <outlet property="wchatOutlet" destination="skk-dM-Vfx" id="sb2-Rd-QMM"/>
                         <segue destination="teo-46-1jq" kind="show" identifier="bindPhoneSegue" id="pMi-ad-svV"/>

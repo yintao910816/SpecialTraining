@@ -18,6 +18,8 @@ class STResetPassTwoViewController: BaseViewController {
     
     private var viewModel: SendMessageViewModel!
     
+    private let timer = CountdownTimer.init()
+    
     override func setupUI() {
         
         authorOutlet.layer.cornerRadius = 2
@@ -30,8 +32,24 @@ class STResetPassTwoViewController: BaseViewController {
     }
     
     override func rxBind() {
+        
+        timer.showText.asDriver().skip(1)
+            .drive(onNext: { [unowned self] (second) in
+                if second == 0 {
+                    self.authorOutlet.isUserInteractionEnabled = true
+                    self.authorOutlet.setTitle("获取验证码", for: .normal)
+                } else {
+                    self.authorOutlet.isUserInteractionEnabled = false
+                    self.authorOutlet.setTitle("\(second)s", for: .normal)
+                }
+            }).disposed(by: disposeBag)
+        
         viewModel = SendMessageViewModel.init(tap: authorOutlet.rx.tap.asDriver(), authCode: codeOutlet.rx.text.orEmpty.asDriver(), next: verifyOutlet.rx.tap.asDriver(), phone: phone ?? "")
         phoneLbl.text = phone?.replacePhone()
+        
+        viewModel.sendCodeSubject.subscribe(onNext: { [unowned self] (success) in
+            success == true ? self.timer.timerStar() : self.timer.timerPause()
+        }).disposed(by: disposeBag)
     }
     
     override func prepare(parameters: [String : Any]?) {

@@ -93,18 +93,29 @@ extension STHelper {
 
 extension STHelper {
     //发起微信登陆授权请求
-    class func sendWXAuth() {
-        let urlstr = "weixin://"
-        if UIApplication.shared.canOpenURL(URL(string: urlstr)!) {
-            let req = SendAuthReq()
-            req.scope = "snsapi_userinfo"
-            WXApi.send(req)
-        } else {
-            if #available(iOS 10.0, *) {
-                UIApplication.shared.open(URL(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!, options: [:], completionHandler: nil)
-            } else {
-                UIApplication.shared.openURL(URL(string: "http://weixin.qq.com/r/qUQVDfDEVK0rrbRu9xG7")!)
-            }
-        }
+    public class func authorizeWchat() ->Observable<SSDKUser> { return authorize(.typeWechat) }
+    
+    private class func authorize(_ platform: SSDKPlatformType) ->Observable<SSDKUser> {
+        return Observable<SSDKUser>.create({ obser -> Disposable in
+            ShareSDK.authorize(platform,
+                               settings: nil,
+                               onStateChanged: { (state, user, error) in
+                                
+                                if state == .success {
+                                    obser.onNext(user!)
+                                    obser.onCompleted()
+                                }else if state == .cancel {
+                                    let _error = MapperError.server(message: "您取消了授权!")
+                                    obser.onError(_error)
+                                    obser.onCompleted()
+                                }else {
+                                    PrintLog(error?.localizedDescription)
+                                    let _error = MapperError.server(message: error?.localizedDescription)
+                                    obser.onError(_error)
+                                    obser.onCompleted()
+                                }
+            })
+            return Disposables.create()
+        })
     }
 }
