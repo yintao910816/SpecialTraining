@@ -24,7 +24,7 @@ class ResetPasOneViewModel: BaseViewModel,VMNavigation {
                 }
                 return true
         }.asDriver()
-            .drive(onNext: { [unowned self] (phone) in
+            .drive(onNext: { (phone) in
                 ResetPasOneViewModel.sbPush("STLogin", "resettwo", bundle: Bundle.main, parameters: ["phone":phone])
             }).disposed(by: disposeBag)
         

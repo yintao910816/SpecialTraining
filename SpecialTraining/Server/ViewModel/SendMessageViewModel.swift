@@ -40,11 +40,12 @@ class SendMessageViewModel: BaseViewModel,VMNavigation {
     //发送验证码
     func sendAuthCode(phone: String) {
         STProvider.request(.sendCode(mobile: phone))
-            .map(model: ResponseModel.self)
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] (_) in
                 self?.hud.successHidden("验证码发送成功")
                 }, onError: { [weak self] (error) in
-                    self?.hud.failureHidden(error.localizedDescription)
+                    PrintLog(error)
+                    self?.hud.failureHidden(self?.errorMessage(error))
                     self?.sendCodeSubject.onNext(false)
             }).disposed(by: disposeBag)
     }

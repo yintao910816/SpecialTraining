@@ -15,7 +15,7 @@ class STBindPhoneViewController: BaseViewController {
     @IBOutlet weak var okOutlet: UIButton!
     @IBOutlet weak var authorOutlet: UIButton!
     
-    private var openid: String!
+    private var openid: String = ""
     
     private var viewModel: BindPhoneViewModel!
     
