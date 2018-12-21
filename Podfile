@@ -21,6 +21,7 @@ pod 'Hyphenate'
 
 pod 'BaiduMapKit'
 pod 'BMKLocationKit'
+pod 'WechatOpenSDK', '~> 1.8.3'
 
 pod 'YYKit'
 

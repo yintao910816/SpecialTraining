@@ -24,15 +24,23 @@ class LoginViewModel: BaseViewModel,VMNavigation {
         self.loginType = loginType
         
         //微信授权登录
-        tap.wechatTap.asObservable()
-            ._doNext(forNotice: hud, forHint: "正在授权...")
-            .flatMap{ STHelper.authorizeWchat() }
-            .subscribe(onNext: { [weak self] in
-                self?.wxLogin(user: $0)
-                }, onError: { [weak self] error in
-                    self?.hud.failureHidden(self?.errorMessage(error))
-            })
-            .disposed(by: disposeBag)
+        tap.wechatTap.drive(onNext: {
+            if WXApi.isWXAppInstalled() {
+                let req = SendAuthReq.init()
+                req.scope = "snsapi_userinfo"
+                req.state = "com12312312"
+                WXApi.send(req)
+            } else {
+                self.hud.failureHidden("请先安装微信")
+            }
+        }).disposed(by: disposeBag)
+        
+        //微信授权回调通知
+        NotificationCenter.default.rx.notification(NotificationName.WX.WXAuthLogin)
+            .subscribe(onNext: { [unowned self] (notification) in
+                let code: String = notification.userInfo!["str"] as! String
+                self.wxLogin(code: code)
+            }).disposed(by: disposeBag)
         
         if self.loginType == "1" {//change security
             tap.sendCodeTap.drive(onNext: { [unowned self] (_) in
@@ -92,12 +100,20 @@ class LoginViewModel: BaseViewModel,VMNavigation {
             }
             .disposed(by: disposeBag)
     }
+    
     //微信登录
-    func wxLogin(user: SSDKUser) {
-        STProvider.request(.thirdPartyLogin(code:user.uid))
+    func wxLogin(code: String) {
+        STProvider.request(.thirdPartyLogin(code: code))
             .map(model: WXLoginModel.self)
-            .subscribe(onSuccess: { [weak self] (model) in
-                LoginViewModel.sbPush("STLogin", "bindPhone",bundle: Bundle.main, parameters: ["op_openid":model.op_openid])
+            .subscribe(onSuccess: { [weak self] (loginModel) in
+                if loginModel.is_bind_mobile == 0 {
+                    LoginViewModel.sbPush("STLogin", "bindPhone",bundle: Bundle.main, parameters: ["op_openid":loginModel.op_openid])
+                } else {
+                    self?.hud.successHidden("登录成功", {
+                        self?.popSubject.onNext(true)
+                    })
+                }
+                
                 }, onError: { [weak self] (error) in
                     self?.hud.failureHidden(self?.errorMessage(error))
             }).disposed(by: disposeBag)

@@ -90,32 +90,3 @@ extension STHelper {
         return gradientLayer
     }
 }
-
-extension STHelper {
-    //发起微信登陆授权请求
-    public class func authorizeWchat() ->Observable<SSDKUser> { return authorize(.typeWechat) }
-    
-    private class func authorize(_ platform: SSDKPlatformType) ->Observable<SSDKUser> {
-        return Observable<SSDKUser>.create({ obser -> Disposable in
-            ShareSDK.authorize(platform,
-                               settings: nil,
-                               onStateChanged: { (state, user, error) in
-                                
-                                if state == .success {
-                                    obser.onNext(user!)
-                                    obser.onCompleted()
-                                }else if state == .cancel {
-                                    let _error = MapperError.server(message: "您取消了授权!")
-                                    obser.onError(_error)
-                                    obser.onCompleted()
-                                }else {
-                                    PrintLog(error?.localizedDescription)
-                                    let _error = MapperError.server(message: error?.localizedDescription)
-                                    obser.onError(_error)
-                                    obser.onCompleted()
-                                }
-            })
-            return Disposables.create()
-        })
-    }
-}

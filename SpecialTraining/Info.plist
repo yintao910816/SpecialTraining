@@ -36,6 +36,8 @@
 	<key>LSApplicationQueriesSchemes</key>
 	<array>
 		<string>baidumap</string>
+		<string>wechat</string>
+		<string>weixin</string>
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>

@@ -24,9 +24,8 @@
 #import <BMKLocationKit/BMKLocationComponent.h>
 
 #import "WXApi.h"
-#import <ShareSDK/ShareSDK.h>
-#import <ShareSDKConnector/ShareSDKConnector.h>
-#import <ShareSDKExtension/ShareSDK+Extension.h>
+#import "WXApiObject.h"
+#import <CommonCrypto/CommonCrypto.h>
 
 #import "DPAudioRecorder.h"
 #import "DPAudioPlayer.h"

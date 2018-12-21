@@ -42,4 +42,9 @@ extension Notification.Name {
         public static let BMKSetupFail = Notification.Name(rawValue: "org.bmk.notification.name.BMKSetupFail")
     }
     
+    public struct WX {
+        //微信授权登录
+        public static let WXAuthLogin = Notification.Name(rawValue: "org.bmk.notification.name.WXAuthLogin")
+    }
+    
 }
