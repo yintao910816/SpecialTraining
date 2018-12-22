@@ -14,8 +14,10 @@ class HomeExpericeCollectionView: UICollectionView {
 
     private let disposeBag = DisposeBag()
     
-    public let datasource = Variable([SectionModel<Int, HomeCellSize>]())
+    public let datasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
     
+    private var carouseDatas = [AdvertListModel]()
+
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
         
@@ -48,6 +50,7 @@ class HomeExpericeCollectionView: UICollectionView {
             return cell
         }, configureSupplementaryView: { [unowned self] (_, col, kind, indexPath) -> UICollectionReusableView in
             let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeHeaderExperienceViewID", for: indexPath) as! HomeHeaderExperienceView
+            colHeader.setData(source: self.carouseDatas)
             return colHeader
             }, moveItem: { _,_,_  in
                 
@@ -56,6 +59,11 @@ class HomeExpericeCollectionView: UICollectionView {
         }
         
         datasource.asDriver()
+            .map ({ [weak self] data -> [SectionModel<Int, HomeCellSize>] in
+                self?.carouseDatas = data.1
+                
+                return data.0
+            })
             .drive(rx.items(dataSource: datasourceSignal))
             .disposed(by: disposeBag)
     }
@@ -70,19 +78,19 @@ extension HomeExpericeCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return datasource.value[section].items[1].minimumLineSpacing ?? 0
+        return datasource.value.0[section].items[1].minimumLineSpacing ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return datasource.value[section].items[1].minimumInteritemSpacing ?? 0
+        return datasource.value.0[section].items[1].minimumInteritemSpacing ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return datasource.value[section].items[1].sectionInset ?? .zero
+        return datasource.value.0[section].items[1].sectionInset ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return datasource.value[indexPath.section].items[indexPath.row].size ?? .zero
+        return datasource.value.0[indexPath.section].items[indexPath.row].size ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

@@ -19,7 +19,7 @@ class CourseDisplayCell: UICollectionViewCell {
 
     }
     
-    var model: ExperienceCourseModel! {
+    var model: ExperienceCourseItemModel! {
         didSet {
             coverOutlet.setImage(model.pic)
         }

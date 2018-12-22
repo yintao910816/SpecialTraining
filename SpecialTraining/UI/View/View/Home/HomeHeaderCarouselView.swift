@@ -32,6 +32,10 @@ class HomeHeaderCarouselView: UICollectionReusableView {
         super.init(coder: aDecoder)
     }
     
+    public func setData<T: CarouselSource>(source: [T]) {
+        carouselView.setData(source: source)
+    }
+    
     var actualHeight: CGFloat {
         get {
             PrintLog("111 -- \(contentView.viewWithTag(2000)!.frame)")

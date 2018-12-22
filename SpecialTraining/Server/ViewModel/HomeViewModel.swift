@@ -12,18 +12,14 @@ import RxDataSources
 
 class HomeViewModel: BaseViewModel {
    
-    let colDatasource = Variable([SectionModel<Int, HomeCellSize>]())
-    let tabviewDatasource = Variable([OrganizationModel]())
-    let colExpericeDatasource = Variable([SectionModel<Int, HomeCellSize>]())
+    let nearByCourseSourse = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
+    let expericeDatasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
+    let nearByOrgnazitionSource  = Variable(([NearByOrganizationItemModel](), [AdvertListModel]()))
     
     let navigationItemTitle = Variable((false, "荆州市"))
     
     override init() {
         super.init()
-        
-        tabviewDatasource.value = [OrganizationModel(), OrganizationModel(), OrganizationModel(), OrganizationModel()]
-
-        colExpericeDatasource.value = [SectionModel.init(model: 1, items: ExperienceCourseModel.test())]
         
         NotificationCenter.default.rx.notification(NotificationName.BMK.RefreshHomeLocation, object: nil)
             .subscribe(onNext: { no in
@@ -77,26 +73,37 @@ class HomeViewModel: BaseViewModel {
 //                               SectionModel.init(model: 1, items: NearByCourseModel.testDatas()),
 //                               SectionModel.init(model: 2, items: [OptimizationCourseModel(), OptimizationCourseModel(), OptimizationCourseModel()])]
 
-        colDatasource.value = [SectionModel.init(model: 1, items: NearByCourseModel.testDatas())]
-
+        Observable.zip(nearByCourse(), activityCourse(), nearByOrganization(), resultSelector:  { ($0, $1, $2) })
+            .subscribe(onNext: { [unowned self] (nearByCourseModel, experienceCourseModel, nearByOrganizationModel) in
+                //
+                self.nearByCourseSourse.value = ([SectionModel.init(model: 0, items: nearByCourseModel.nearCourseList)], nearByCourseModel.advertList)
+                //
+                self.expericeDatasource.value = ([SectionModel.init(model: 0, items: experienceCourseModel.courseList)], experienceCourseModel.advertList)
+                //
+                self.nearByOrgnazitionSource.value = (nearByOrganizationModel.agnList, nearByOrganizationModel.advertList)
+            })
+            .disposed(by: disposeBag)
     }
     
-    private func nearByCourse() ->Observable<[NearByCourseModel]> {
+    private func nearByCourse() ->Observable<NearByCourseModel> {
         return STProvider.request(.nearCourse(lat: userDefault.lat, lng: userDefault.lng, offset: 0))
-            .map(models: NearByCourseModel.self)
+            .map(model: NearByCourseModel.self)
             .asObservable()
+            .catchErrorJustReturn(NearByCourseModel())
     }
     
-    private func activityCourse() ->Observable<[ExperienceCourseModel]> {
+    private func activityCourse() ->Observable<ExperienceCourseModel> {
         return STProvider.request(.activityCourse(offset: 0))
-            .map(models: ExperienceCourseModel.self)
+            .map(model: ExperienceCourseModel.self)
             .asObservable()
+            .catchErrorJustReturn(ExperienceCourseModel())
     }
     
     private func nearByOrganization() ->Observable<NearByOrganizationModel> {
         return STProvider.request(.agency(lat: userDefault.lat, lng: userDefault.lng, offset: 0))
             .map(model: NearByOrganizationModel.self)
             .asObservable()
+            .catchErrorJustReturn(NearByOrganizationModel())
     }
     
 }

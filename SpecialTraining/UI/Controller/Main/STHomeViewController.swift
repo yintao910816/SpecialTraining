@@ -123,25 +123,25 @@ class STHomeViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel.colDatasource.asDriver()
-            .drive(recomendColView.datasource)
-            .disposed(by: disposeBag)
-        
-        viewModel.tabviewDatasource.asDriver()
-            .drive(organizationColView.datasource)
-            .disposed(by: disposeBag)
-        
         viewModel.navigationItemTitle.asDriver()
             .drive(onNext: { [unowned self] (ret, title) in
                 PrintLog(title)
                 self.navigationItem.leftBarButtonItem?.title = title
             })
             .disposed(by: disposeBag)
-       
-        viewModel.colExpericeDatasource.asDriver()
+
+        viewModel.nearByCourseSourse.asDriver()
+            .drive(recomendColView.datasource)
+            .disposed(by: disposeBag)
+        
+        viewModel.expericeDatasource.asDriver()
             .drive(expericeColView.datasource)
             .disposed(by: disposeBag)
 
+        viewModel.nearByOrgnazitionSource.asDriver()
+            .drive(organizationColView.datasource)
+            .disposed(by: disposeBag)
+        
         organizationColView.cellSelected
             .subscribe(onNext: { [unowned self] model in
                 self.performSegue(withIdentifier: "organizationSegue", sender: nil)

@@ -83,3 +83,15 @@ protocol CarouselSource {
      */
     var name: String? { get }
 }
+
+extension CarouselSource {
+    
+    var name: String? {
+        return nil
+    }
+    
+    var url: String? {
+        return nil
+    }
+
+}

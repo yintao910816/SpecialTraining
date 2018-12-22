@@ -19,7 +19,9 @@ class HomeRecommendCollectionView: UICollectionView {
     
     private let disposeBag = DisposeBag()
     
-    public let datasource = Variable([SectionModel<Int, HomeCellSize>]())
+    public let datasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
+    
+    private var carouseDatas = [AdvertListModel]()
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
@@ -54,42 +56,43 @@ class HomeRecommendCollectionView: UICollectionView {
             .disposed(by: disposeBag)
 
         let datasourceSignal = RxCollectionViewSectionedReloadDataSource<SectionModel<Int, HomeCellSize>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
-//            // 体验专区
-//            if indexPath.section == 0 {
-//                let cell = col.dequeueReusableCell(withReuseIdentifier: courseDisplayCellID, for: indexPath) as! CourseDisplayCell
-//                cell.model = (model as! ExperienceCourseModel)
-//                return cell
-//            }
-//            // 附近课程
-//            if indexPath.section == 1 {
-//                let cell = col.dequeueReusableCell(withReuseIdentifier: courseListCellID, for: indexPath) as! CourseListCell
-//                cell.model = (model as! NearByCourseModel)
-//                return cell
-//            }
-//            // 为你优选
-//            let cell = col.dequeueReusableCell(withReuseIdentifier: courseDisplayMinuteCellID, for: indexPath)
-//            return cell
+            //            // 体验专区
+            //            if indexPath.section == 0 {
+            //                let cell = col.dequeueReusableCell(withReuseIdentifier: courseDisplayCellID, for: indexPath) as! CourseDisplayCell
+            //                cell.model = (model as! ExperienceCourseModel)
+            //                return cell
+            //            }
+            //            // 附近课程
+            //            if indexPath.section == 1 {
+            //                let cell = col.dequeueReusableCell(withReuseIdentifier: courseListCellID, for: indexPath) as! CourseListCell
+            //                cell.model = (model as! NearByCourseModel)
+            //                return cell
+            //            }
+            //            // 为你优选
+            //            let cell = col.dequeueReusableCell(withReuseIdentifier: courseDisplayMinuteCellID, for: indexPath)
+            //            return cell
             let cell = col.dequeueReusableCell(withReuseIdentifier: courseListCellID, for: indexPath) as! CourseListCell
-            cell.model = (model as! NearByCourseModel)
+            cell.model = (model as! NearByCourseItemModel)
             return cell
         }, configureSupplementaryView: { [unowned self] (_, col, kind, indexPath) -> UICollectionReusableView in
-//            // 轮播图部分头部
-//            if indexPath.section == 0 {
-                let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID, for: indexPath) as! HomeHeaderCarouselView
-                return colHeader
-//            }
-//            // 附近课程头部
-//            if indexPath.section == 1 {
-//                let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerNearByCourseID, for: indexPath) as! HomeHeaderNearByCourseView
-//                return colHeader
-//            }
-//            // 为你优选头部
-//            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerOptimizingID, for: indexPath) as! HomeHeaderOptimizingView
-//            return colHeader
-
-//            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerNearByCourseID, for: indexPath) as! HomeHeaderNearByCourseView
-//            return colHeader
-
+            //            // 轮播图部分头部
+            //            if indexPath.section == 0 {
+            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID, for: indexPath) as! HomeHeaderCarouselView
+            colHeader.setData(source: self.carouseDatas)
+            return colHeader
+            //            }
+            //            // 附近课程头部
+            //            if indexPath.section == 1 {
+            //                let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerNearByCourseID, for: indexPath) as! HomeHeaderNearByCourseView
+            //                return colHeader
+            //            }
+            //            // 为你优选头部
+            //            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerOptimizingID, for: indexPath) as! HomeHeaderOptimizingView
+            //            return colHeader
+            
+            //            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerNearByCourseID, for: indexPath) as! HomeHeaderNearByCourseView
+            //            return colHeader
+            
             }, moveItem: { _,_,_  in
                 
         }) { _,_  -> Bool in
@@ -97,6 +100,11 @@ class HomeRecommendCollectionView: UICollectionView {
         }
         
         datasource.asDriver()
+            .map({ [weak self] data -> [SectionModel<Int, HomeCellSize>] in
+                self?.carouseDatas = data.1
+                
+                return data.0
+            })
             .drive(rx.items(dataSource: datasourceSignal))
             .disposed(by: disposeBag)
     }
@@ -121,19 +129,19 @@ extension HomeRecommendCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return datasource.value[section].items[1].minimumLineSpacing ?? 0
+        return datasource.value.0[section].items[1].minimumLineSpacing ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return datasource.value[section].items[1].minimumInteritemSpacing ?? 0
+        return datasource.value.0[section].items[1].minimumInteritemSpacing ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return datasource.value[section].items[1].sectionInset ?? .zero
+        return datasource.value.0[section].items[1].sectionInset ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-        return datasource.value[indexPath.section].items[indexPath.row].size ?? .zero
+        return datasource.value.0[indexPath.section].items[indexPath.row].size ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

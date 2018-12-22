@@ -22,6 +22,10 @@ class OrganizationHeaderView: BaseFilesOwner {
         contentView.layoutIfNeeded()
     }
     
+    public func setData<T: CarouselSource>(source: [T]) {
+        carouselOutlet.setData(source: source)
+    }
+
     var actualHeight: CGFloat {
         get {
             return contentView.viewWithTag(2000)!.frame.maxY

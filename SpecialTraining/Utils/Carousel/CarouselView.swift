@@ -77,9 +77,9 @@ class CarouselView: UIView {
     }
     
     private func setCarouselImage() {
-//        lastImageView.setImage(dataControl.itemModel(.last)?.url, .bookOriginal)
-//        currentImageView.setImage(dataControl.itemModel(.current)?.url, .bookOriginal)
-//        nextImageView.setImage(dataControl.itemModel(.next)?.url, .bookOriginal)
+        lastImageView.setImage(dataControl.itemModel(.last)?.url)
+        currentImageView.setImage(dataControl.itemModel(.current)?.url)
+        nextImageView.setImage(dataControl.itemModel(.next)?.url)
     
         scroll.setContentOffset(CGPoint.init(x: width, y: 0), animated: false)
     }

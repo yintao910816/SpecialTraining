@@ -15,8 +15,10 @@ class HomeOrganizationTableView: BaseTB {
 
     private let disposeBag = DisposeBag()
 
-    let datasource = Variable([OrganizationModel]())
+    let datasource = Variable(([NearByOrganizationItemModel](), [AdvertListModel]()))
     
+    private var carouseDatas = [AdvertListModel]()
+
     var tableHeader: OrganizationHeaderView!
     
     var cellSelected = PublishSubject<OrganizationModel>()
@@ -52,6 +54,11 @@ class HomeOrganizationTableView: BaseTB {
     private func rxBind() {
         
         datasource.asDriver()
+            .map(({ [weak self] data -> [NearByOrganizationItemModel] in
+                self?.carouseDatas = data.1
+                self?.tableHeader.setData(source: data.1)
+                return data.0
+            }))
             .drive(rx.items(cellIdentifier: "OrganizationCellID", cellType: OrganizationCell.self)) { [unowned self] row, model, cell in
 
             }

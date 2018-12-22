@@ -10,25 +10,22 @@ import UIKit
 
 //MARK:
 //MARK: 体验专区
-class ExperienceCourseModel: BaseCourseModel {
- 
-    var course_id: String = ""
-    var pic: String = ""
-    var about_price: String = ""
+class ExperienceCourseModel: HJModel {
     
     var advertList = [AdvertListModel]()
     
-    class func test() ->[ExperienceCourseModel] {
-        var datas = [ExperienceCourseModel]()
-        for _ in 0..<5 {
-            datas.append(ExperienceCourseModel())
-        }
-        return datas
-    }
+    var courseList = [ExperienceCourseItemModel]()
+}
+
+class ExperienceCourseItemModel: BaseCourseModel {
+    
+    var course_id: String = ""
+    var pic: String = ""
+    var about_price: String = ""
 
 }
 
-extension ExperienceCourseModel {
+extension ExperienceCourseItemModel {
     
     var size: CGSize {
         get {
@@ -87,7 +84,12 @@ class ShopModel: HJModel {
 //MARK: 附近课程
 class NearByCourseModel: BaseCourseModel {
     var advertList = [AdvertListModel]()
+    
+    var nearCourseList = [NearByCourseItemModel]()
+}
 
+class NearByCourseItemModel: BaseCourseModel {
+    
     var shop_id: String = ""
     var course_id: String = ""
     var agn_id: String = ""
@@ -103,23 +105,9 @@ class NearByCourseModel: BaseCourseModel {
     var createtime: String = ""
     var shop_name: String = ""
     var dis: String = ""
-    
-    class func testDatas() ->[NearByCourseModel] {
-        var datas = [NearByCourseModel]()
-        for _ in 0..<5 {
-            let m = NearByCourseModel()
-            m.title = "测试测试"
-            m.shop_name = "测试测试"
-            m.dis = "测试测试"
-            m.content = "测试测试"
-            m.about_price = "测试测试"
-            datas.append(m)
-        }
-        return datas
-    }
 }
 
-extension NearByCourseModel {
+extension NearByCourseItemModel {
     
     var size: CGSize {
         get {
@@ -137,20 +125,10 @@ class AdvertListModel: HJModel {
     var createtime: String = ""
 }
 
-//MARK:
-//MARK: 为你优选
-class OptimizationCourseModel: BaseCourseModel {
+extension AdvertListModel: CarouselSource {
     
-}
-
-extension OptimizationCourseModel {
-    
-    var size: CGSize {
-        get {
-            let width: CGFloat = (PPScreenW - sectionInset.left - sectionInset.right - minimumInteritemSpacing) / 2.0
-            let height: CGFloat = width + courseDisplayMinuteCellBottomHeight
-            return .init(width:  width, height: height)
-        }
+    var url: String? {
+        return adv_url
     }
 }
 
