@@ -74,6 +74,10 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
+	<key>MOBAppKey</key>
+	<string>296a8c21b4cfe</string>
+	<key>MOBAppSecret</key>
+	<string>cb96ac9fc87e03e1e47145261b98fc67</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

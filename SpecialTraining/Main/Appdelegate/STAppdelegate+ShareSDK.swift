@@ -15,7 +15,7 @@ extension STAppDelegate {
     }
     
     private func setup() {
-        
+                
         ShareSDK.registerActivePlatforms([SSDKPlatformType.typeWechat.rawValue],
                                          onImport: { platform in
                                             switch platform {

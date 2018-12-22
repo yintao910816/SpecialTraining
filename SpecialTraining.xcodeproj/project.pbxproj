@@ -405,6 +405,7 @@
 		C4CBC46C21C1FB2300AEDB86 /* MyScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */; };
 		C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */; };
 		C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */; };
+		C4FFD3D021CDD4F200F724B9 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4FFD3CF21CDD4F200F724B9 /* libWeChatSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -817,6 +818,7 @@
 		C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScoreViewModel.swift; sourceTree = "<group>"; };
 		C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderExperienceView.swift; sourceTree = "<group>"; };
 		C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderExperienceView.xib; sourceTree = "<group>"; };
+		C4FFD3CF21CDD4F200F724B9 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		CC1B4562EEFCF6801EEBF281 /* Pods_SpecialTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F58B317D84214AFDC7E7C4 /* Pods-SpecialTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -830,6 +832,7 @@
 				B82CEED221CD34A8000DE904 /* WechatConnector.framework in Frameworks */,
 				B82CEED121CD34A8000DE904 /* ShareSDKUI.framework in Frameworks */,
 				B82CEED321CD34A8000DE904 /* ShareSDK.framework in Frameworks */,
+				C4FFD3D021CDD4F200F724B9 /* libWeChatSDK.a in Frameworks */,
 				6BAE0AE021CA2FDC0065BAD2 /* libopencore-amrnb.a in Frameworks */,
 				B82CEED021CD34A8000DE904 /* ShareSDKExtension.framework in Frameworks */,
 				B82CEED421CD34A8000DE904 /* MOBFoundation.framework in Frameworks */,
@@ -1084,6 +1087,7 @@
 		B82CEEB921CD34A8000DE904 /* WeChatSDK */ = {
 			isa = PBXGroup;
 			children = (
+				C4FFD3CF21CDD4F200F724B9 /* libWeChatSDK.a */,
 				B82CEEBA21CD34A8000DE904 /* WXApi.h */,
 				B82CEEBB21CD34A8000DE904 /* WXApiObject.h */,
 				B82CEEBC21CD34A8000DE904 /* README.txt */,
@@ -2180,7 +2184,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -2217,7 +2221,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		976D5F770C186096B755E798 /* [CP] Copy Pods Resources */ = {
@@ -2226,7 +2230,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2235,7 +2239,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CDB2B142D8F319DCD07449D4 /* [CP] Check Pods Manifest.lock */ = {
