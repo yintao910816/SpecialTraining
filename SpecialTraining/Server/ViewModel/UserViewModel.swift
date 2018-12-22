@@ -26,7 +26,7 @@ class LoginViewModel: BaseViewModel,VMNavigation {
         //微信授权登录
         tap.wechatTap.asObservable().flatMap { UserAccountServer.authorizeWchat() }
             .subscribe(onNext: { user in
-                LoginViewModel.sbPush("STLogin", "bindPhoneSegue", parameters: ["openid": user.uid])
+                LoginViewModel.sbPush("STLogin", "bindPhone", parameters: ["openid": user.uid])
             }, onError: { error in
 
             })
