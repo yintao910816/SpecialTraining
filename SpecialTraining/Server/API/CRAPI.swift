@@ -37,6 +37,16 @@ enum API{
     case activityCourse(offset: Int)
     // 附近机构
     case agency(lat: CLLocationDegrees, lng: CLLocationDegrees, offset: Int)
+    
+    // 实体店 http://api.youpeixunjiaoyu.com/v1/agency/agnShops?agn_id=1
+    case agnShops(agn_id: String)
+    // 开设课程 http://api.youpeixunjiaoyu.com/v1/agency/agnCourse?agn_id=1
+    case agnCourse(agn_id: String)
+    // 推荐活动 http://api.youpeixunjiaoyu.com/v1/agency/agnActivity?agn_id=1
+    case agnActivity(agn_id: String)
+    // 老师风采 http://api.youpeixunjiaoyu.com/v1/agency/agnTeachers?agn_id=1
+    case agnTeachers(agn_id: String)
+    
 }
 
 //MARK:
@@ -48,27 +58,36 @@ extension API: TargetType{
         case .register(_, _, _):
             return "member/registerImUser"
         case .login(_, _, _):
-            return "/server/auth/login.php"
+            return "server/auth/login.php"
         case .getUserInfo(_):
             return "member/read"
         case .setPassword(_, _, _):
-            return "/server/auth/set_pswd.php"
+            return "server/auth/set_pswd.php"
         case .sendCode(_):
-            return "/server/sms/send_sms.php"
+            return "server/sms/send_sms.php"
         case .refreshToken(_):
-            return "/server/auth/reflesh_auth.php"
+            return "server/auth/reflesh_auth.php"
         case .thirdPartyLogin(_):
-            return "/server/third_party_login/wx.php"
+            return "server/third_party_login/wx.php"
         case .bindWX(_, _):
-            return "/server/third_party_login/bind_wx.php"
+            return "server/third_party_login/bind_wx.php"
         case .bindPhone(_, _, _):
-            return "/server/third_party_login/bind_mobile.php"
+            return "server/third_party_login/bind_mobile.php"
         case .nearCourse(_, _, _):
             return "v1/index/nearCourse"
         case .activityCourse(_):
             return "v1/index/activityCourse"
         case .agency(_, _, _):
             return "v1/agency"
+            
+        case .agnShops(_):
+            return "v1/agency/agnShops"
+        case .agnCourse(_):
+            return "v1/agency/agnCourse"
+        case .agnActivity(_):
+            return "v1/agency/agnActivity"
+        case .agnTeachers(_):
+            return "v1/agency/agnTeachers"
         }
     }
     
@@ -137,6 +156,16 @@ extension API {
             params["lat"] = 112.21791
             params["lng"] = 30.356023
             params["offset"] = offset
+            
+        case .agnShops(let agn_id):
+            params["agn_id"] = agn_id
+        case .agnCourse(let agn_id):
+            params["agn_id"] = agn_id
+        case .agnActivity(let agn_id):
+            params["agn_id"] = agn_id
+        case .agnTeachers(let agn_id):
+            params["agn_id"] = agn_id
+
         }
         return params
     }

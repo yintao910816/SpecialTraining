@@ -49,8 +49,8 @@ import Moya
 
 struct APIAssistance {
     
-    private static let base     = "http://ai.youpeixunjiaoyu.com"
-    private static let dev_base = "http://alpha.youpeixunjiaoyu.com"
+    private static let base     = "http://ai.youpeixunjiaoyu.com/"
+    private static let dev_base = "http://alpha.youpeixunjiaoyu.com/"
     
     static public func baseURL(API: API) ->URL{
         //        #if DEBUG

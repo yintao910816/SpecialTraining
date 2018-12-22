@@ -16,6 +16,14 @@ class OrganizationModel: HJModel {
 //MARK: 实体店
 class PhysicalStoreModel: HJModel {
     
+    var agn_id: String = ""
+    var agn_name: String = ""
+    var logo: String = ""
+    var introduce: String = ""
+    var label: String = ""
+
+    var shops = [ShopModel]()
+
     static var cellHeight: CGFloat = 184.0
 }
 
@@ -23,14 +31,32 @@ class PhysicalStoreModel: HJModel {
 //MARK: 活动介绍
 class ActivityBrefModel: HJModel {
     
+    var adv_id: String = ""
+    var adv_title: String = ""
+    var adv_image: String = ""
+    var adv_url: String = ""
+    var createtime: String = ""
+    
     static var cellHeight: CGFloat = 261.0
-
 }
 
 //MARK:
 //MARK: 推荐课程
 class RecommendCourseModel: HJModel {
     
+    var course_id: String = ""
+    var agn_id: String = ""
+    var title: String = ""
+    var pic: String = ""
+    var about_priceZ: String = ""
+    var introduce: String = ""
+    var content: String = ""
+    var type_id: String = ""
+    var type_name: String = ""
+    var flag: String = ""
+    var createtime: String = ""
+    var status: Int = 0
+
     static var cellHeight: CGFloat = 330.0
 
 }
@@ -38,6 +64,11 @@ class RecommendCourseModel: HJModel {
 //MARK:
 //MARK: 老师风采
 class TeachersModel: HJModel {
+        
+    var teacher_id: String = ""
+    var teacher_name: String = ""
+    var pic: String = ""
+    var introduce: String = ""
     
     // 图片显示尺寸
     var imgWidth: CGFloat = (PPScreenW - 30) / 2.0
