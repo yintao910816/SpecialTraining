@@ -62,6 +62,10 @@
                 <constraint firstItem="4gW-oP-YIl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="w7I-VK-P8Y"/>
             </constraints>
             <size key="customSize" width="272" height="225"/>
+            <connections>
+                <outlet property="coverOutlet" destination="4gW-oP-YIl" id="Qcl-tH-1Q8"/>
+                <outlet property="priceOutlet" destination="Ver-JD-uY3" id="fox-TH-5kl"/>
+            </connections>
             <point key="canvasLocation" x="118" y="410"/>
         </collectionViewCell>
     </objects>

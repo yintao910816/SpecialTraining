@@ -89,27 +89,27 @@
                         <nil key="textColor"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg2-ir-Ocq">
+                    <button hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="500" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mg2-ir-Ocq">
                         <rect key="frame" x="108" y="92" width="78.5" height="76.5"/>
-                        <color key="backgroundColor" red="0.96078431369999995" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
-                    <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFp-Be-Cet">
+                    <button hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="501" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="uFp-Be-Cet">
                         <rect key="frame" x="193.5" y="92" width="78" height="76.5"/>
-                        <color key="backgroundColor" red="0.96078431369999995" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="4"/>
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </button>
-                    <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7u-fg-Cla">
+                    <button hidden="YES" opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" tag="502" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="u7u-fg-Cla">
                         <rect key="frame" x="278.5" y="92" width="78.5" height="76.5"/>
-                        <color key="backgroundColor" red="0.96078431369999995" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <userDefinedRuntimeAttributes>
                             <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
                                 <integer key="value" value="4"/>
@@ -155,6 +155,12 @@
                     <constraint firstItem="Ts0-Zi-5jU" firstAttribute="leading" secondItem="u7u-fg-Cla" secondAttribute="trailing" constant="10" id="z7I-X2-mnc"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="coverOutlet" destination="lrH-74-gaI" id="gqN-97-yvj"/>
+                <outlet property="introduceOutlet" destination="fYA-i4-TJk" id="nto-1W-4Ng"/>
+                <outlet property="labelOutlet" destination="k5F-I1-Yo7" id="Seb-F0-BRZ"/>
+                <outlet property="nameOutlet" destination="U5a-Kw-7Yr" id="s2b-9v-W0B"/>
+            </connections>
             <point key="canvasLocation" x="235.19999999999999" y="207.79610194902551"/>
         </tableViewCell>
     </objects>

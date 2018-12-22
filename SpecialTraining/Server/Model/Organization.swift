@@ -48,7 +48,7 @@ class RecommendCourseModel: HJModel {
     var agn_id: String = ""
     var title: String = ""
     var pic: String = ""
-    var about_priceZ: String = ""
+    var about_price: String = ""
     var introduce: String = ""
     var content: String = ""
     var type_id: String = ""
@@ -72,11 +72,11 @@ class TeachersModel: HJModel {
     
     // 图片显示尺寸
     var imgWidth: CGFloat = (PPScreenW - 30) / 2.0
-    var imgHeight: CGFloat = 0
+    var imgHeight: CGFloat = ((PPScreenW - 30) / 2.0) * 4 / 3
     
     // cell 尺寸
     var width: CGFloat = (PPScreenW - 30) / 2.0
-    var height: CGFloat = 0
+    var height: CGFloat = (((PPScreenW - 30) / 2.0) * 4 / 3) + TeachersCell.withoutImageHeight
     
     class func creatModel(imgW: CGFloat, imgH: CGFloat) ->TeachersModel {
         let m = TeachersModel()

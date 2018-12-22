@@ -25,6 +25,8 @@ class STOrganizationViewController: BaseViewController {
     private var teacherCol: TeachersCollectionVIew!
     
     private var viewModel: OrganizationViewModel!
+    
+    private var agnId: String = ""
 
     // 被选中的按钮
     private var selectedIdx: Int = 0
@@ -94,23 +96,23 @@ class STOrganizationViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = OrganizationViewModel.init()
+        viewModel = OrganizationViewModel.init(agnId: agnId)
         
         viewModel.physicalStoreDatasource.asDriver()
             .drive(physicalStoreTB.rx.items(cellIdentifier: "PhysicalStoreCellID", cellType: PhysicalStoreCell.self)) { (_, model, cell) in
-                
+                cell.model = model
             }
             .disposed(by: disposeBag)
         
         viewModel.activityBrefDatasource.asDriver()
             .drive(activityBrefTB.rx.items(cellIdentifier: "ActivityBrefCellID", cellType: ActivityBrefCell.self)) { (_, model, cell) in
-                
+                cell.model = model
             }
             .disposed(by: disposeBag)
         
         viewModel.recommendCourseDatasource.asDriver()
             .drive(recommendCourseTB.rx.items(cellIdentifier: "RecommendCourseCellID", cellType: RecommendCourseCell.self)) { (_, model, cell) in
-                
+                cell.model = model
             }
             .disposed(by: disposeBag)
         
@@ -127,6 +129,10 @@ class STOrganizationViewController: BaseViewController {
         recommendCourseTB.frame = .init(x: scrollOutlet.width, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
         activityBrefTB.frame = .init(x: scrollOutlet.width * 2, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
         teacherCol.frame = .init(x: scrollOutlet.width * 3, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        agnId = (parameters!["agn_id"] as! String)
     }
 }
 

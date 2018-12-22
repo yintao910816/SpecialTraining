@@ -12,6 +12,10 @@ class TeachersCell: UICollectionViewCell {
 
     static let withoutImageHeight: CGFloat = 94
     
+    @IBOutlet weak var coverOutlet: UIImageView!
+    @IBOutlet weak var nameOutlet: UILabel!
+    @IBOutlet weak var introduceOutlet: UILabel!
+    
     @IBOutlet weak var coverHeightCns: NSLayoutConstraint!
     
     override func awakeFromNib() {
@@ -21,6 +25,10 @@ class TeachersCell: UICollectionViewCell {
     
     var model: TeachersModel! {
         didSet {
+            coverOutlet.setImage(model.pic)
+            nameOutlet.text = model.teacher_name
+            introduceOutlet.text = model.introduce
+            
             coverHeightCns.constant = model.imgHeight
         }
     }

@@ -10,6 +10,9 @@ import UIKit
 
 class ActivityBrefCell: UITableViewCell {
 
+    @IBOutlet weak var coverOutlet: UIImageView!
+    @IBOutlet weak var titleOutlet: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
@@ -21,4 +24,10 @@ class ActivityBrefCell: UITableViewCell {
         // Configure the view for the selected state
     }
     
+    var model: ActivityBrefModel! {
+        didSet {
+            coverOutlet.setImage(model.adv_url)
+            titleOutlet.text = model.adv_title
+        }
+    }
 }

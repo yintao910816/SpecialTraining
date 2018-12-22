@@ -21,7 +21,7 @@ class HomeOrganizationTableView: BaseTB {
 
     var tableHeader: OrganizationHeaderView!
     
-    var cellSelected = PublishSubject<OrganizationModel>()
+    var cellSelected = PublishSubject<NearByOrganizationItemModel>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .grouped)
@@ -64,7 +64,7 @@ class HomeOrganizationTableView: BaseTB {
             }
             .disposed(by: disposeBag)
         
-        rx.modelSelected(OrganizationModel.self)
+        rx.modelSelected(NearByOrganizationItemModel.self)
             .bind(to: cellSelected)
             .disposed(by: disposeBag)
 

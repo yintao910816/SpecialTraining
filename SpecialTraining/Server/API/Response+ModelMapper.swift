@@ -52,7 +52,7 @@ public extension Response {
         guard let serverModel = JSONDeserializer<DataModel<[T]>>.deserializeFrom(dict: jsonDictionary) else {
             throw MapperError.json(message: "json解析失败")
         }
-        
+    
         if serverModel.errno == 0, let models = serverModel.data {
             return models
         }else {

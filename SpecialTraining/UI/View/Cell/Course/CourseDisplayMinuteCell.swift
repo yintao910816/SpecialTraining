@@ -14,11 +14,21 @@ let courseDisplayMinuteCellBottomHeight: CGFloat = 52.0
 
 class CourseDisplayMinuteCell: UICollectionViewCell {
     
+    @IBOutlet weak var coverOutlet: UIImageView!
+    @IBOutlet weak var priceOutlet: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    var model: ExperienceCourseItemModel! {
+        didSet {
+            coverOutlet.setImage(model.pic)
+            priceOutlet.text = model.about_price
+        }
+    }
+    
     @IBAction func actions(_ sender: UIButton) {
         
     }

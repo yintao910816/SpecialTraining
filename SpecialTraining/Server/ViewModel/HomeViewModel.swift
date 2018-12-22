@@ -49,30 +49,8 @@ class HomeViewModel: BaseViewModel {
     
     // 加载所有数据
     private func loadDatas() {
-//        Observable.combineLatest(nearByCourse(), activityCourse())
-//            .subscribe(onNext: { [unowned self] (nearByDatas, activityDatas) in
-//                let experienceCourseModels: [HomeCellSize] = activityDatas
-//                let nearByCourseModels: [HomeCellSize] = nearByDatas
-//                let optimizationCourseModels: [HomeCellSize] = [OptimizationCourseModel(),
-//                                                                OptimizationCourseModel()]
-//
-//                let configData = [SectionModel.init(model: 0, items: experienceCourseModels),
-//                                  SectionModel.init(model: 0, items: nearByCourseModels),
-//                                  SectionModel.init(model: 0, items: optimizationCourseModels)]
-//                self.colDatasource.value = configData
-//
-//                self.hud.noticeHidden()
-//                }, onError: { [unowned self] error in
-//                    self.hud.failureHidden(self.errorMessage(error))
-//            })
-
-//        colDatasource.value = [SectionModel.init(model: 0, items: [ExperienceCourseModel(),
-//                                                                   ExperienceCourseModel(),
-//                                                                   ExperienceCourseModel(),
-//                                                                   ExperienceCourseModel()]),
-//                               SectionModel.init(model: 1, items: NearByCourseModel.testDatas()),
-//                               SectionModel.init(model: 2, items: [OptimizationCourseModel(), OptimizationCourseModel(), OptimizationCourseModel()])]
-
+        hud.noticeLoading()
+        
         Observable.zip(nearByCourse(), activityCourse(), nearByOrganization(), resultSelector:  { ($0, $1, $2) })
             .subscribe(onNext: { [unowned self] (nearByCourseModel, experienceCourseModel, nearByOrganizationModel) in
                 //
@@ -81,6 +59,8 @@ class HomeViewModel: BaseViewModel {
                 self.expericeDatasource.value = ([SectionModel.init(model: 0, items: experienceCourseModel.courseList)], experienceCourseModel.advertList)
                 //
                 self.nearByOrgnazitionSource.value = (nearByOrganizationModel.agnList, nearByOrganizationModel.advertList)
+                
+                self.hud.noticeHidden()
             })
             .disposed(by: disposeBag)
     }

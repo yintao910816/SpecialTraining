@@ -144,17 +144,17 @@ class STHomeViewController: BaseViewController {
         
         organizationColView.cellSelected
             .subscribe(onNext: { [unowned self] model in
-                self.performSegue(withIdentifier: "organizationSegue", sender: nil)
+                self.performSegue(withIdentifier: "organizationSegue", sender: model.agn_id)
             })
             .disposed(by: disposeBag)
         
-        recomendColView.rx.modelSelected(NearByCourseModel.self)
+        recomendColView.rx.modelSelected(NearByCourseItemModel.self)
             .subscribe(onNext: { [unowned self] model in
                 self.performSegue(withIdentifier: "courseDetailSegue", sender: nil)
             })
             .disposed(by: disposeBag)
         
-        expericeColView.rx.modelSelected(NearByCourseModel.self)
+        expericeColView.rx.modelSelected(ExperienceCourseItemModel.self)
             .subscribe(onNext: { [unowned self] model in
                 self.performSegue(withIdentifier: "courseDetailSegue", sender: nil)
             })
@@ -163,7 +163,8 @@ class STHomeViewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "organizationSegue" {
-//            let ctrl = segue.destination as! STOrganizationViewController
+            let ctrl = segue.destination as! STOrganizationViewController
+            ctrl.prepare(parameters: ["agn_id": sender as! String])
         }
     }
     
