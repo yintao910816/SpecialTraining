@@ -81,17 +81,22 @@ class HomeViewModel: BaseViewModel {
 
     }
     
-    // 附近课程
     private func nearByCourse() ->Observable<[NearByCourseModel]> {
-        return STProvider.request(.nearCourse(lat: userDefault.lat, lng: userDefault.lng))
+        return STProvider.request(.nearCourse(lat: userDefault.lat, lng: userDefault.lng, offset: 0))
             .map(models: NearByCourseModel.self)
             .asObservable()
     }
     
-    // 体验专区
     private func activityCourse() ->Observable<[ExperienceCourseModel]> {
-        return STProvider.request(.activityCourse())
+        return STProvider.request(.activityCourse(offset: 0))
             .map(models: ExperienceCourseModel.self)
             .asObservable()
     }
+    
+    private func nearByOrganization() ->Observable<NearByOrganizationModel> {
+        return STProvider.request(.agency(lat: userDefault.lat, lng: userDefault.lng, offset: 0))
+            .map(model: NearByOrganizationModel.self)
+            .asObservable()
+    }
+    
 }

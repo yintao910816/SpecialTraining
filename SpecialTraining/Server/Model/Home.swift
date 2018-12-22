@@ -10,8 +10,14 @@ import UIKit
 
 //MARK:
 //MARK: 体验专区
-class ExperienceCourseModel: NearByCourseModel {
+class ExperienceCourseModel: BaseCourseModel {
  
+    var course_id: String = ""
+    var pic: String = ""
+    var about_price: String = ""
+    
+    var advertList = [AdvertListModel]()
+    
     class func test() ->[ExperienceCourseModel] {
         var datas = [ExperienceCourseModel]()
         for _ in 0..<5 {
@@ -24,7 +30,7 @@ class ExperienceCourseModel: NearByCourseModel {
 
 extension ExperienceCourseModel {
     
-    override var size: CGSize {
+    var size: CGSize {
         get {
             let width: CGFloat = (PPScreenW - sectionInset.left - sectionInset.right - minimumInteritemSpacing) / 2.0
             let height: CGFloat = (width * 3 / 4) + 37
@@ -47,8 +53,42 @@ extension ExperienceCourseModel {
 }
 
 //MARK:
+//MARK: 附近机构
+class NearByOrganizationModel: HJModel {
+    
+    var advertList = [AdvertListModel]()
+    
+    var agnList = [NearByOrganizationItemModel]()
+}
+
+class NearByOrganizationItemModel: HJModel {
+
+    var agn_id: String = ""
+    var agn_name: String = ""
+    var logo: String = ""
+    var introduce: String = ""
+    var label: String = ""
+    
+    var shops = [ShopModel]()
+}
+
+class ShopModel: HJModel {
+    
+    var shop_id: String = ""
+    var shop_name: String = ""
+    var logo: String = ""
+    var lat: String = ""
+    var lng: String = ""
+    var dis: String = ""
+    
+}
+
+//MARK:
 //MARK: 附近课程
 class NearByCourseModel: BaseCourseModel {
+    var advertList = [AdvertListModel]()
+
+    var shop_id: String = ""
     var course_id: String = ""
     var agn_id: String = ""
     var title: String = ""
@@ -58,16 +98,9 @@ class NearByCourseModel: BaseCourseModel {
     var content: String = ""
     var type_id: String = ""
     var type_name: String = ""
-    var status: Int = 0
-    var remark: String = ""
-    var sort: Int = 0
     var flag: String = ""
-    var is_activity: String = ""
-    var sales: Int = 100
+    var status: Int = 0
     var createtime: String = ""
-    var updatetime: String = ""
-    
-    var shop_id: String = ""
     var shop_name: String = ""
     var dis: String = ""
     
@@ -95,6 +128,15 @@ extension NearByCourseModel {
     }
 }
 
+class AdvertListModel: HJModel {
+
+    var adv_id: Int = 0
+    var adv_title: String = ""
+    var adv_image: String = ""
+    var adv_url: String = ""
+    var createtime: String = ""
+}
+
 //MARK:
 //MARK: 为你优选
 class OptimizationCourseModel: BaseCourseModel {
@@ -111,3 +153,4 @@ extension OptimizationCourseModel {
         }
     }
 }
+

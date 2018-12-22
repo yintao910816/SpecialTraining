@@ -32,9 +32,11 @@ enum API{
     case bindPhone(mobile: String, code: String, op_openid: String)
     
     // 附近课程
-    case nearCourse(lat: CLLocationDegrees, lng: CLLocationDegrees)
+    case nearCourse(lat: CLLocationDegrees, lng: CLLocationDegrees, offset: Int)
     // 体验专区
-    case activityCourse()
+    case activityCourse(offset: Int)
+    // 附近机构
+    case agency(lat: CLLocationDegrees, lng: CLLocationDegrees, offset: Int)
 }
 
 //MARK:
@@ -61,10 +63,12 @@ extension API: TargetType{
             return "/server/third_party_login/bind_wx.php"
         case .bindPhone(_, _, _):
             return "/server/third_party_login/bind_mobile.php"
-        case .nearCourse(_, _):
-            return "index/nearCourse"
-        case .activityCourse():
-            return "index/activityCourse"
+        case .nearCourse(_, _, _):
+            return "v1/index/nearCourse"
+        case .activityCourse(_):
+            return "v1/index/activityCourse"
+        case .agency(_, _, _):
+            return "v1/agency"
         }
     }
     
@@ -121,11 +125,18 @@ extension API {
             params["mobile"] = mobile
             params["code"] = code
             params["op_openid"] = op_openid
-        case .nearCourse(let lat, let lng):
-            params["lat"] = lat
-            params["lng"] = lng
-        default:
-            break
+        case .nearCourse(let lat, let lng, let offset):
+//            params["lat"] = lat
+//            params["lng"] = lng
+            params["lat"] = 112.21791
+            params["lng"] = 30.356023
+            params["offset"] = offset
+        case .activityCourse(let offset):
+            params["offset"] = offset
+        case .agency(let lat, let lng, let offset):
+            params["lat"] = 112.21791
+            params["lng"] = 30.356023
+            params["offset"] = offset
         }
         return params
     }
