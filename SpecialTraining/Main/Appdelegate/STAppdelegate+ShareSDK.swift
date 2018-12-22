@@ -28,7 +28,7 @@ extension STAppDelegate {
             switch platform {
             case .typeWechat:
                 appInfo?.ssdkSetupWeChat(byAppId: "wxcb1e987d2389e80d",
-                                         appSecret: "")
+                                         appSecret: "79d8d1710b07f0e96e6f40ee58f5d9fe")
             default:
                 break
             }

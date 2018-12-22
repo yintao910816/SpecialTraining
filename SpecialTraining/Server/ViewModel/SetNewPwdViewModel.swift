@@ -30,7 +30,7 @@ class SetNewPwdViewModel: BaseViewModel {
     
     func setnewPwdRequest(mobile: String, code: String, pswd: String) {
         STProvider.request(.setPassword(mobile: mobile, code: code, pswd: pswd))
-            .map(model: ResponseModel.self)
+            .mapResponse()
             .subscribe(onSuccess: { [weak self] (_) in
                 self?.hud.successHidden("密码设置成功")
             }) { [weak self] (error) in

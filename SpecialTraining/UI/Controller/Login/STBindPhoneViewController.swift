@@ -22,6 +22,8 @@ class STBindPhoneViewController: BaseViewController {
     private let timer = CountdownTimer.init()
     
     override func setupUI() {
+        navigationItem.title = "绑定手机号"
+        
         let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
         okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }

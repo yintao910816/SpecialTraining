@@ -24,21 +24,16 @@ class LoginViewModel: BaseViewModel,VMNavigation {
         self.loginType = loginType
         
         //微信授权登录
-        tap.wechatTap.asObservable().flatMap { UserAccountServer.authorizeWchat() }
-            .subscribe(onNext: { user in
+        tap.wechatTap.asObservable()
+            ._doNext(forNotice: hud)
+            .flatMap { UserAccountServer.authorizeWchat() }
+            .subscribe(onNext: { [weak self] user in
+                self?.hud.noticeHidden()
                 LoginViewModel.sbPush("STLogin", "bindPhone", parameters: ["openid": user.uid])
-            }, onError: { error in
-
+                }, onError: { [weak self] error in
+                    self?.hud.failureHidden(self?.errorMessage(error))
             })
-        .disposed(by: disposeBag)
-
-//        tap.wechatTap.asObservable()
-//            .subscribe(onNext: { user in
-//                LoginViewModel.sbPush("STLogin", "bindPhone", parameters: ["openid": "111"])
-//            }, onError: { error in
-//                
-//            })
-//            .disposed(by: disposeBag)
+            .disposed(by: disposeBag)
 
         if self.loginType == "1" {//change security
             tap.sendCodeTap.drive(onNext: { [unowned self] (_) in
