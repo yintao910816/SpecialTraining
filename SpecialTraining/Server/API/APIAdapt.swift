@@ -49,15 +49,18 @@ import Moya
 
 struct APIAssistance {
     
-    private static let base     = "http://api.youpeixunjiaoyu.com/"
-    private static let dev_base = "http://api.alpha.youpeixunjiaoyu.com/"
+    private static let userBase = "http://alpha.youpeixunjiaoyu.com/"
+    private static let base   = "http://api.youpeixunjiaoyu.com/"
     
     static public func baseURL(API: API) ->URL{
-        //        #if DEBUG
-        //        return URL(string: dev_base)!
-        //        #else
-        return URL(string: base)!
-        //        #endif
+        switch API {
+        case .bindPhone(_, _, _),
+             .sendCode(_),
+             .login(_, _, _):
+            return URL(string: userBase)!
+        default:
+            return URL(string: base)!
+        }
     }
     
     /**
