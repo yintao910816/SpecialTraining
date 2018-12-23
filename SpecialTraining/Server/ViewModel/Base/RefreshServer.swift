@@ -156,48 +156,19 @@ extension RefreshVM {
      */
     public final func updateRefresh(_ refresh: Bool,
                                     _ models: [T]?,
-                                    _ totle: Int?,
-                                    pageSize psize: Int? = 10,
-                                    _ addData: Bool = true) {
-        self.pageModel.pageSize = psize!
+                                    _ totle: Int?) {
         self.pageModel.totle = totle ?? 0
         if refresh {  // 下拉刷新处理
             let retData = models ?? [T]()
             isEmptyContentObser.value = retData.count == 0
-            refreshStatus.value = (self.pageModel.hasNext) == true ? .DropDownSuccess : .DropDownSuccessAndNoMoreData
-            if addData == true { datasource.value = retData }
+            refreshStatus.value = .DropDownSuccess
+            datasource.value = retData
         } else { // 上拉刷新处理
-            refreshStatus.value = (self.pageModel.hasNext) == true ? .PullSuccessHasMoreData : .PullSuccessNoMoreData
-            if addData == true { datasource.value.append(contentsOf: (models ?? [T]())) }
+            refreshStatus.value = pageModel.hasNext ? .PullSuccessHasMoreData : .PullSuccessNoMoreData
+            datasource.value.append(contentsOf: (models ?? [T]()))
         }
     }
     
-    /**
-     刷新方法，发射刷新信号 - 用于列表数据(有多个table)
-     */
-    public final func updateRefresh(_ refresh: Bool,
-                                    _ models: [T]?,
-                                    _ totle: Int?,
-                                    dataContainer: [T]? = nil,
-                                    pageSize psize: Int? = 10,
-                                    pageModel: PageModel) ->[T] {
-
-        pageModel.pageSize = psize!
-        pageModel.totle = totle ?? 0
-        if refresh {  // 下拉刷新处理
-            let retData = models ?? [T]()
-            isEmptyContentObser.value = retData.count == 0
-            refreshStatus.value = (pageModel.hasNext) == true ? .DropDownSuccess : .DropDownSuccessAndNoMoreData
-            return retData
-        } else { // 上拉刷新处理
-            refreshStatus.value = (pageModel.hasNext) == true ? .PullSuccessHasMoreData : .PullSuccessNoMoreData
-
-            var retDatas = dataContainer == nil ? [T]() : dataContainer!
-            retDatas.append(contentsOf: models ?? [T]())
-            return retDatas
-        }
-    }
-
     /**
      刷新方法，发射刷新信号 - 用于单个模型的刷新
      */
@@ -208,27 +179,18 @@ extension RefreshVM {
     /**
      网络请求失败和出错都会统一调用这个方法
      */
-    public final func revertCurrentPageAndRefreshStatus(pageModel: PageModel? = nil) {
+    public final func revertCurrentPageAndRefreshStatus() {
         // 修改刷新view的状态
         refreshStatus.value = .InvalidData
         // 还原请求页
-        if let currentPageModel = pageModel {
-            currentPageModel.currentPage = currentPageModel.currentPage > 1 ? currentPageModel.currentPage - 1 : 1
-        }else {
-            self.pageModel.currentPage = self.pageModel.currentPage > 1 ? self.pageModel.currentPage - 1 : 1
-        }
+        pageModel.offset = datasource.value.count
     }
     
     /**
      * 重写 requestData 时，必须调用
-     * 多个列表时，pageModel 传当前列表的 PageModel
-     */
-    public final func setupPage(refresh: Bool, pageModel: PageModel? = nil) {
-        if let currentModel = pageModel {
-            currentModel.setupCurrentPage(refresh: refresh)
-        }else {
-            self.pageModel.setupCurrentPage(refresh: refresh)
-        }
+     */    
+    public final func setOffset(refresh: Bool) {
+        pageModel.setOffset(offset: refresh == true ? 0 : datasource.value.count)
     }
 
 }

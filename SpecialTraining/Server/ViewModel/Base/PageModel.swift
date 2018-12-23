@@ -19,17 +19,18 @@ class PageModel: NSObject {
     // 总共数据条数
     lazy var totle        = 1
     
+    var offset: Int = 0
+    
     public var hasNext: Bool {
         get {
-            totlePage = (totle / pageSize) + (totle % pageSize == 0 ? 0 : 1)
-            return currentPage < totlePage
+            return offset < totle
         }
     }
     
     /**
      发起请求钱调用
      */
-    public func setupCurrentPage(refresh: Bool = true) {
-        currentPage = refresh ? 1 : currentPage + 1
+    public func setOffset(offset: Int) {
+        self.offset = offset
     }
 }

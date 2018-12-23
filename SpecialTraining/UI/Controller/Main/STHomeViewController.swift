@@ -130,15 +130,19 @@ class STHomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-        viewModel.nearByCourseSourse.asDriver()
+        recomendColView.prepare(viewModel.nearByCourseViewModel, NearByCourseItemModel.self, showFooter: true)
+        viewModel.nearByCourseViewModel.nearByCourseSourse.asDriver()
             .drive(recomendColView.datasource)
             .disposed(by: disposeBag)
         
-        viewModel.expericeDatasource.asDriver()
+        
+        expericeColView.prepare(viewModel.expericeCourseViewModel, ExperienceCourseItemModel.self, showFooter: true)
+        viewModel.expericeCourseViewModel.experienceCourseSourse.asDriver()
             .drive(expericeColView.datasource)
             .disposed(by: disposeBag)
 
-        viewModel.nearByOrgnazitionSource.asDriver()
+        organizationColView.prepare(viewModel.nearByOrgnazitionViewModel, NearByOrganizationItemModel.self, showFooter: true)
+        viewModel.nearByOrgnazitionViewModel.nearByOrgnazitionSourse.asDriver()
             .drive(organizationColView.datasource)
             .disposed(by: disposeBag)
         

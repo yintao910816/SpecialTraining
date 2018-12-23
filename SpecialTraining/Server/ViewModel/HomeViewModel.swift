@@ -12,9 +12,9 @@ import RxDataSources
 
 class HomeViewModel: BaseViewModel {
    
-    let nearByCourseSourse = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
-    let expericeDatasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
-    let nearByOrgnazitionSource  = Variable(([NearByOrganizationItemModel](), [AdvertListModel]()))
+    let nearByCourseViewModel       = HomeNearByCourseViewModel()
+    let expericeCourseViewModel     = HomeExperienceCourseViewModel()
+    let nearByOrgnazitionViewModel  = HomenNearByOrgnazitionViewModel()
     
     let navigationItemTitle = Variable((false, "荆州市"))
     
@@ -51,39 +51,142 @@ class HomeViewModel: BaseViewModel {
     private func loadDatas() {
         hud.noticeLoading()
         
-        Observable.zip(nearByCourse(), activityCourse(), nearByOrganization(), resultSelector:  { ($0, $1, $2) })
+        Observable.zip(nearByCourseViewModel.nearByCourse(),
+                       expericeCourseViewModel.activityCourse(),
+                       nearByOrgnazitionViewModel.nearByOrganization(), resultSelector:  { ($0, $1, $2) })
             .subscribe(onNext: { [unowned self] (nearByCourseModel, experienceCourseModel, nearByOrganizationModel) in
                 //
-                self.nearByCourseSourse.value = ([SectionModel.init(model: 0, items: nearByCourseModel.nearCourseList)], nearByCourseModel.advertList)
+                self.nearByCourseViewModel.dealData(data: nearByCourseModel)
                 //
-                self.expericeDatasource.value = ([SectionModel.init(model: 0, items: experienceCourseModel.courseList)], experienceCourseModel.advertList)
+                self.expericeCourseViewModel.dealData(data: experienceCourseModel)
                 //
-                self.nearByOrgnazitionSource.value = (nearByOrganizationModel.agnList, nearByOrganizationModel.advertList)
+                self.nearByOrgnazitionViewModel.dealData(data: nearByOrganizationModel)
                 
                 self.hud.noticeHidden()
             })
             .disposed(by: disposeBag)
     }
     
-    private func nearByCourse() ->Observable<NearByCourseModel> {
-        return STProvider.request(.nearCourse(lat: userDefault.lat, lng: userDefault.lng, offset: 0))
+}
+
+
+class HomeNearByCourseViewModel: RefreshVM<NearByCourseItemModel> {
+    
+    let nearByCourseSourse = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
+
+    override init() {
+        super.init()
+        
+    }
+    
+    override func requestData(_ refresh: Bool) {
+        setOffset(refresh: refresh)
+
+        nearByCourse(offset: pageModel.offset)
+            .subscribe(onNext: { [unowned self] data in
+                self.updateRefresh(refresh, data.nearCourseList, data.total)
+                
+                let tempData = ([SectionModel.init(model: 0, items: self.datasource.value as [HomeCellSize])], data.advertList)
+                
+                self.nearByCourseSourse.value = tempData
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func nearByCourse(offset: Int = 0) ->Observable<NearByCourseModel> {
+        return STProvider.request(.nearCourse(lat: userDefault.lat, lng: userDefault.lng, offset: offset))
             .map(model: NearByCourseModel.self)
             .asObservable()
             .catchErrorJustReturn(NearByCourseModel())
     }
     
-    private func activityCourse() ->Observable<ExperienceCourseModel> {
-        return STProvider.request(.activityCourse(offset: 0))
+    func dealData(data: NearByCourseModel) {
+        updateRefresh(true, data.nearCourseList, data.total)
+        
+        let tempData = ([SectionModel.init(model: 0, items: datasource.value as [HomeCellSize])], data.advertList)
+        
+        nearByCourseSourse.value = tempData
+    }
+
+}
+
+class HomeExperienceCourseViewModel: RefreshVM<ExperienceCourseItemModel> {
+    
+    let experienceCourseSourse = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
+    
+    override init() {
+        super.init()
+        
+    }
+    
+    override func requestData(_ refresh: Bool) {
+        setOffset(refresh: refresh)
+        
+        activityCourse(offset: pageModel.offset)
+            .subscribe(onNext: { [unowned self] data in
+                self.updateRefresh(refresh, data.courseList, data.total)
+                
+                let tempData = ([SectionModel.init(model: 0, items: self.datasource.value as [HomeCellSize])], data.advertList)
+                
+                self.experienceCourseSourse.value = tempData
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func activityCourse(offset: Int = 0) ->Observable<ExperienceCourseModel> {
+        return STProvider.request(.activityCourse(offset: offset))
             .map(model: ExperienceCourseModel.self)
             .asObservable()
             .catchErrorJustReturn(ExperienceCourseModel())
     }
+
+    func dealData(data: ExperienceCourseModel) {
+        updateRefresh(true, data.courseList, data.total)
+        
+        let tempData = ([SectionModel.init(model: 0, items: datasource.value as [HomeCellSize])], data.advertList)
+        
+        experienceCourseSourse.value = tempData
+    }
     
-    private func nearByOrganization() ->Observable<NearByOrganizationModel> {
-        return STProvider.request(.agency(lat: userDefault.lat, lng: userDefault.lng, offset: 0))
+}
+
+
+class HomenNearByOrgnazitionViewModel: RefreshVM<NearByOrganizationItemModel> {
+    
+    let nearByOrgnazitionSourse = Variable(([NearByOrganizationItemModel](), [AdvertListModel]()))
+    
+    override init() {
+        super.init()
+        
+    }
+    
+    override func requestData(_ refresh: Bool) {
+        setOffset(refresh: refresh)
+        
+        nearByOrganization(offset: pageModel.offset)
+            .subscribe(onNext: { [unowned self] data in
+                self.updateRefresh(refresh, data.agnList, data.total)
+                
+                let tempData = (self.datasource.value, data.advertList)
+                
+                self.nearByOrgnazitionSourse.value = tempData
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    func nearByOrganization(offset: Int = 0) ->Observable<NearByOrganizationModel> {
+        return STProvider.request(.agency(lat: userDefault.lat, lng: userDefault.lng, offset: offset))
             .map(model: NearByOrganizationModel.self)
             .asObservable()
             .catchErrorJustReturn(NearByOrganizationModel())
     }
-    
+
+    func dealData(data: NearByOrganizationModel) {
+        updateRefresh(true, data.agnList, data.total)
+        
+        let tempData = (datasource.value, data.advertList)
+        
+        nearByOrgnazitionSourse.value = tempData
+    }
+
 }
