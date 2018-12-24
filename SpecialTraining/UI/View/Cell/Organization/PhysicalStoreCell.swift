@@ -28,11 +28,14 @@ class PhysicalStoreCell: UITableViewCell {
             introduceOutlet.text = model.introduce
             
             for idx in 0..<3 {
-                if idx >= model.shops.count { break }
                 let btn = viewWithTag(500 + idx) as! UIButton
-                btn.imageView?.contentMode = .scaleAspectFill
-                btn.backgroundColor = UIColor.orange
-                btn.setImage(model.shops[idx].logo)
+                if idx >= model.shops.count {
+                    btn.isHidden = true
+                }else {
+                    btn.isHidden = false
+                    btn.imageView?.contentMode = .scaleAspectFill
+                    btn.setImage(model.shops[idx].logo)
+                }
             }
         }
     }

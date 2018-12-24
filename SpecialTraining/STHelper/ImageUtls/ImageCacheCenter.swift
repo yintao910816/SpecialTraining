@@ -13,7 +13,7 @@ class ImageCacheCenter { /** 图片缓存信息 */
     
     public static let shared = ImageCacheCenter()
     
-    private let imageHost = "http://res.xiaoshuo520.com"
+    private let imageHost = ""
     
     /// 获取图片地址
     ///
