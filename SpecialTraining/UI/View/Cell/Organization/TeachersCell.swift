@@ -10,7 +10,7 @@ import UIKit
 
 class TeachersCell: UICollectionViewCell {
 
-    static let withoutImageHeight: CGFloat = 94
+    static let withoutImageHeight: CGFloat = 55
     
     @IBOutlet weak var coverOutlet: UIImageView!
     @IBOutlet weak var nameOutlet: UILabel!

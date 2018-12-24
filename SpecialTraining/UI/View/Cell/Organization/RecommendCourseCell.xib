@@ -43,7 +43,7 @@
                             <constraint firstAttribute="width" constant="70" id="DCT-TB-Zty"/>
                             <constraint firstAttribute="height" constant="20" id="ojO-3j-k8z"/>
                         </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <fontDescription key="fontDescription" name="HelveticaNeue" family="Helvetica Neue" pointSize="13"/>
                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                         <userDefinedRuntimeAttributes>
@@ -64,38 +64,6 @@
                         <color key="textColor" red="0.76470588235294112" green="0.41568627450980389" blue="0.086274509803921567" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="少儿拉丁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="9gi-Nf-DVZ">
-                        <rect key="frame" x="112" y="233" width="70" height="20"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.0" blue="0.027450980390000001" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="width" constant="70" id="6MG-kl-p51"/>
-                            <constraint firstAttribute="height" constant="20" id="ZBz-3N-hXh"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </label>
-                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="少儿拉丁" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="sfZ-ld-CQr">
-                        <rect key="frame" x="189" y="233" width="70" height="20"/>
-                        <color key="backgroundColor" red="0.93333333330000001" green="0.0" blue="0.027450980390000001" alpha="1" colorSpace="deviceRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="20" id="AX3-tN-73E"/>
-                            <constraint firstAttribute="width" constant="70" id="Ara-ci-ysa"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        <nil key="highlightedColor"/>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="10"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                    </label>
                 </subviews>
                 <constraints>
                     <constraint firstItem="plH-eI-AZk" firstAttribute="top" secondItem="BRC-Bp-IvV" secondAttribute="bottom" constant="12" id="2KF-Tg-Yg1"/>
@@ -105,13 +73,9 @@
                     <constraint firstAttribute="trailing" secondItem="1Zl-Xe-WY2" secondAttribute="trailing" constant="25" id="JL9-QY-wLA"/>
                     <constraint firstItem="bUi-ut-hqI" firstAttribute="trailing" secondItem="1Zl-Xe-WY2" secondAttribute="trailing" id="PHJ-nP-ylW"/>
                     <constraint firstItem="plH-eI-AZk" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="35" id="Tff-k8-uUc"/>
-                    <constraint firstItem="sfZ-ld-CQr" firstAttribute="leading" secondItem="9gi-Nf-DVZ" secondAttribute="trailing" constant="7" id="Umg-JW-GYa"/>
                     <constraint firstItem="1Zl-Xe-WY2" firstAttribute="top" secondItem="mp0-fm-Rm5" secondAttribute="bottom" constant="12" id="XGn-b0-2f3"/>
-                    <constraint firstItem="sfZ-ld-CQr" firstAttribute="centerY" secondItem="9gi-Nf-DVZ" secondAttribute="centerY" id="aKX-UP-nXF"/>
-                    <constraint firstItem="9gi-Nf-DVZ" firstAttribute="centerY" secondItem="mp0-fm-Rm5" secondAttribute="centerY" id="eVK-mX-NjD"/>
                     <constraint firstItem="bUi-ut-hqI" firstAttribute="top" secondItem="1Zl-Xe-WY2" secondAttribute="bottom" constant="10" id="j39-fK-iHX"/>
                     <constraint firstItem="bUi-ut-hqI" firstAttribute="leading" secondItem="1Zl-Xe-WY2" secondAttribute="leading" id="p8M-nq-rym"/>
-                    <constraint firstItem="9gi-Nf-DVZ" firstAttribute="leading" secondItem="mp0-fm-Rm5" secondAttribute="trailing" constant="7" id="pNs-7B-mxP"/>
                     <constraint firstItem="mp0-fm-Rm5" firstAttribute="leading" secondItem="plH-eI-AZk" secondAttribute="leading" id="xeO-UA-0WX"/>
                     <constraint firstItem="BRC-Bp-IvV" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="10" id="zIK-zw-ra2"/>
                     <constraint firstItem="1Zl-Xe-WY2" firstAttribute="leading" secondItem="mp0-fm-Rm5" secondAttribute="leading" id="zaR-e5-fMG"/>
@@ -120,6 +84,8 @@
             <connections>
                 <outlet property="contentOutlet" destination="1Zl-Xe-WY2" id="EJt-SA-2GF"/>
                 <outlet property="coverOutlet" destination="BRC-Bp-IvV" id="kh1-h6-WiN"/>
+                <outlet property="introduceOutlet" destination="mp0-fm-Rm5" id="CXk-PI-5gE"/>
+                <outlet property="introduceWidthCns" destination="DCT-TB-Zty" id="chQ-Xg-Gek"/>
                 <outlet property="priceOutlet" destination="bUi-ut-hqI" id="6BH-rK-Ux4"/>
                 <outlet property="titleOutlet" destination="plH-eI-AZk" id="HPT-Of-Uzu"/>
             </connections>

@@ -37,7 +37,7 @@ class ActivityBrefModel: HJModel {
     var adv_url: String = ""
     var createtime: String = ""
     
-    static var cellHeight: CGFloat = 261.0
+    static var cellHeight: CGFloat = 231.0
 }
 
 //MARK:
