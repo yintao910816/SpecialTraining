@@ -19,21 +19,33 @@
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待付款" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="tSg-D8-UIS">
-                        <rect key="frame" x="0.0" y="17" width="102" height="16"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <rect key="frame" x="0.0" y="16.5" width="102" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="待付款" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0Vf-rw-wE8">
+                        <rect key="frame" x="29.5" y="38.5" width="43" height="1"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="1" id="U9E-kG-PPP"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
             </view>
             <constraints>
+                <constraint firstItem="0Vf-rw-wE8" firstAttribute="top" secondItem="tSg-D8-UIS" secondAttribute="bottom" constant="5" id="4PA-6v-Tw1"/>
                 <constraint firstItem="tSg-D8-UIS" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="RCk-a8-cVc"/>
                 <constraint firstItem="tSg-D8-UIS" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="aUW-YK-XhL"/>
                 <constraint firstItem="tSg-D8-UIS" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="kor-dR-Mx3"/>
+                <constraint firstItem="0Vf-rw-wE8" firstAttribute="centerX" secondItem="tSg-D8-UIS" secondAttribute="centerX" id="vu8-LF-59e"/>
             </constraints>
             <size key="customSize" width="102" height="50"/>
             <connections>
                 <outlet property="lblTitle" destination="tSg-D8-UIS" id="nEW-9S-IFU"/>
+                <outlet property="lineLbl" destination="0Vf-rw-wE8" id="Izy-dP-lfV"/>
             </connections>
             <point key="canvasLocation" x="-50" y="161"/>
         </collectionViewCell>

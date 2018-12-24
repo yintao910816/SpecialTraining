@@ -17,12 +17,10 @@ class MineCollectionViewModel: BaseViewModel {
     let colDatasource = Variable([MineCollectionHeaderModel]())
     let colSubject = PublishSubject<MineCollectionHeaderModel>()
     
-    init(keyword: Driver<String>) {
+    override init() {
         super.init()
         
-        keyword.drive(onNext: { [unowned self] (searchKey) in
-            self.filterResult(searchKey: searchKey)
-        }).disposed(by: disposeBag)
+        tableDatasource.value = [MineCollectionModel(),MineCollectionModel(),MineCollectionModel(),MineCollectionModel(),MineCollectionModel()]
         
         colDatasource.value = [MineCollectionHeaderModel.createModel(title: "图片与视频"),
                                MineCollectionHeaderModel.createModel(title: "链接"),
@@ -40,20 +38,6 @@ class MineCollectionViewModel: BaseViewModel {
                 return d
             })
         }).disposed(by: disposeBag)
-    }
-    
-    private func filterResult(searchKey: String) {
-        if searchKey.isEmpty {
-            tableDatasource.value = [MineCollectionModel(),MineCollectionModel(),MineCollectionModel(),MineCollectionModel(),MineCollectionModel()]
-        } else {
-            tableDatasource.value.removeAll()
-            
-            for model in tableDatasource.value {
-                if model.title.contains(searchKey) {
-                    tableDatasource.value.append(model)
-                }
-            }
-        }
     }
 }
 

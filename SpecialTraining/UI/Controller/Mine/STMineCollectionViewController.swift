@@ -12,7 +12,6 @@ import RxCocoa
 
 class STMineCollectionViewController: BaseViewController {
 
-    @IBOutlet weak var searchTextField: UITextField!
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var tableView: BaseTB!
     var viewModel: MineCollectionViewModel!
@@ -37,7 +36,7 @@ class STMineCollectionViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = MineCollectionViewModel(keyword: searchTextField.rx.text.orEmpty.asDriver())
+        viewModel = MineCollectionViewModel()
         
         viewModel.tableDatasource.asObservable().bind(to: tableView.rx.items(cellIdentifier: "MineCollectionCell", cellType: MineCollectionCell.self)) {
             (row, item, cell) in

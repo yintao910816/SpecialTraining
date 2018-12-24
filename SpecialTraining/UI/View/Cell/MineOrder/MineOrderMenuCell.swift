@@ -11,9 +11,10 @@ import UIKit
 class MineOrderMenuCell: UICollectionViewCell {
 
     @IBOutlet weak var lblTitle: UILabel!
+    @IBOutlet weak var lineLbl: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        lineLbl.backgroundColor = ST_MAIN_COLOR
     }
     
     var model: MineOrderMenuModel! {
@@ -21,10 +22,10 @@ class MineOrderMenuCell: UICollectionViewCell {
             lblTitle.text = model.title
             if model.isSelected == true {
                 lblTitle.textColor = ST_MAIN_COLOR
-                lblTitle.font = UIFont.systemFont(ofSize: 15)
+                lineLbl.isHidden = false
             }else {
                 lblTitle.textColor = RGB(111, 111, 111)
-                lblTitle.font = UIFont.systemFont(ofSize: 13)
+                lineLbl.isHidden = true
             }
         }
     }

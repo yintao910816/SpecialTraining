@@ -43,13 +43,6 @@
                             <constraint firstItem="FFr-MA-NUH" firstAttribute="centerY" secondItem="ziB-6c-0NP" secondAttribute="centerY" id="o0B-OA-ebt"/>
                             <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="hJo-u5-qjt" secondAttribute="trailing" id="tA1-Bu-cQX"/>
                         </constraints>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                <color key="value" red="0.88201898339999996" green="0.87811899189999998" blue="0.90421932940000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
                     </view>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PkP-rL-9eb">
                         <rect key="frame" x="165" y="15.5" width="135" height="29"/>
@@ -73,7 +66,10 @@
                     <constraint firstItem="PkP-rL-9eb" firstAttribute="centerY" secondItem="ziB-6c-0NP" secondAttribute="centerY" id="gjs-bN-BHL"/>
                 </constraints>
             </tableViewCellContentView>
-            <point key="canvasLocation" x="6" y="49"/>
+            <connections>
+                <outlet property="containerView" destination="ziB-6c-0NP" id="EUK-3A-Dz4"/>
+            </connections>
+            <point key="canvasLocation" x="190" y="51"/>
         </tableViewCell>
     </objects>
 </document>

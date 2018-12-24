@@ -20,9 +20,9 @@ class MineOrderViewModel: RefreshVM<MineOrderModel> {
         super.init()
         
         statusSource.value = [MineOrderMenuModel.createModel(title: "待付款", isSelected: true),
-                              MineOrderMenuModel.createModel(title: "待排课/发货"),
-                              MineOrderMenuModel.createModel(title: "待排课/收货"),
-                              MineOrderMenuModel.createModel(title: "待评价")]
+                              MineOrderMenuModel.createModel(title: "待排课"),
+                              MineOrderMenuModel.createModel(title: "待上课"),
+                              MineOrderMenuModel.createModel(title: "待退款")]
         
         self.datasource.value = [MineOrderModel(),MineOrderModel(),MineOrderModel(),MineOrderModel(),MineOrderModel()]
         

@@ -36,7 +36,8 @@ class STMineOrderViewController: BaseViewController {
         layout.itemSize = .init(width: PPScreenW/4.0, height: 60)
         menuCollectionView.collectionViewLayout = layout
         
-        tableView.register(UITableViewCell.self, forCellReuseIdentifier: "cellid")
+        tableView.rowHeight = 120
+        tableView.register(UINib(nibName: "MineCourseTableViewCell", bundle: nil), forCellReuseIdentifier: "MineCourseTableViewCell")
         menuCollectionView.register(UINib(nibName: "MineOrderMenuCell", bundle: Bundle.main), forCellWithReuseIdentifier: "MineOrderMenuCell")
     }
     
@@ -49,10 +50,11 @@ class STMineOrderViewController: BaseViewController {
             cell.model = item
         }.disposed(by: disposeBag)
         
-        viewModel.datasource.asObservable().bind(to: tableView.rx.items(cellIdentifier: "cellid", cellType: UITableViewCell.self)){
-            (row, item, cell) in
-            cell.textLabel?.text = String(row)
-        }.disposed(by: disposeBag)
+        viewModel.datasource.asObservable().bind(to: tableView.rx.items(cellIdentifier: "MineCourseTableViewCell", cellType: MineCourseTableViewCell.self)) { [unowned self] (row , item , cell) in
+            cell.delegate = nil
+            cell.delegate = self
+            PrintLog(row)
+            }.disposed(by: disposeBag)
         
         menuCollectionView.rx.modelSelected(MineOrderMenuModel.self)
             .asDriver()
@@ -60,4 +62,16 @@ class STMineOrderViewController: BaseViewController {
             .disposed(by: disposeBag)
         
     }
+}
+
+extension STMineOrderViewController: MineCourseActions {
+    
+    func gotoLessonPrepare() {
+        PrintLog("点击查看备课")
+    }
+    
+    func gotoWaitingLesson() {
+        PrintLog("点击待排课")
+    }
+    
 }

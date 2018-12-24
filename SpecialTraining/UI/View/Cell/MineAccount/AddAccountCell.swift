@@ -10,9 +10,12 @@ import UIKit
 
 class AddAccountCell: BaseTBCell {
 
+    @IBOutlet weak var containerView: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        containerView.layer.cornerRadius = 5
+        containerView.layer.borderWidth = 1
+        containerView.layer.borderColor = ST_MAIN_BG_SILVER_COLOR.cgColor
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

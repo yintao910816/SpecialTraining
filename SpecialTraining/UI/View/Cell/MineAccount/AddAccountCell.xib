@@ -18,7 +18,7 @@
                 <rect key="frame" x="0.0" y="0.0" width="320" height="59.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gng-MF-Xnj">
+                    <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="gng-MF-Xnj">
                         <rect key="frame" x="20" y="15" width="280" height="29.5"/>
                         <subviews>
                             <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="F27-mc-Pr2">
@@ -45,8 +45,6 @@
                             <constraint firstAttribute="trailing" secondItem="Ian-xK-L5j" secondAttribute="trailing" constant="30" id="moA-Le-Gjz"/>
                         </constraints>
                         <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                             <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
                                 <color key="value" red="0.88201898339999996" green="0.87811899189999998" blue="0.90421932940000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                             </userDefinedRuntimeAttribute>
@@ -60,6 +58,9 @@
                     <constraint firstItem="gng-MF-Xnj" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="20" id="xO6-sW-C8T"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="containerView" destination="gng-MF-Xnj" id="Vos-ZP-PPh"/>
+            </connections>
             <point key="canvasLocation" x="132.80000000000001" y="151.12443778110946"/>
         </tableViewCell>
     </objects>

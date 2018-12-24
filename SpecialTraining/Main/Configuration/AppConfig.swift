@@ -14,6 +14,8 @@ public func RGB(_ r : CGFloat, _ g : CGFloat, _ b : CGFloat, _ a : CGFloat = 1) 
 
 // 分割线颜色
 let SEP_LINE_COLOR = RGB(246, 246, 246)
+// 灰色背景色
+let ST_MAIN_BG_SILVER_COLOR = RGB(241, 239, 240)
 
 let ST_MAIN_COLOR = RGB(2, 183, 240)
 // 渐变色
