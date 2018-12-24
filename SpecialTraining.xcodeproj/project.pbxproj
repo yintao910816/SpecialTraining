@@ -29,6 +29,7 @@
 		6B280D7321CCF48500C5DEED /* MineAddAccountModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B280D7221CCF48500C5DEED /* MineAddAccountModel.swift */; };
 		6B593CA021B12E9700D764E6 /* MineCustomCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */; };
 		6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */; };
+		6B7C27A621D06F3F00CE14B9 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6B7C27A521D06F3F00CE14B9 /* libWeChatSDK.a */; };
 		6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */; };
 		6B80F14B21B9074D004142D2 /* MineOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14A21B9074D004142D2 /* MineOrderViewModel.swift */; };
 		6B80F14D21B9077A004142D2 /* MineOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14C21B9077A004142D2 /* MineOrderModel.swift */; };
@@ -133,7 +134,6 @@
 		B81EDF7A21A5570200F9D3B0 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B81EDF7921A5570200F9D3B0 /* mapapi.bundle */; };
 		B81EDF7C21A579DC00F9D3B0 /* UINavigationController+BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EDF7B21A579DB00F9D3B0 /* UINavigationController+BarButtonItem.swift */; };
 		B82CEECB21CD34A8000DE904 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEBC21CD34A8000DE904 /* README.txt */; };
-		B82CEECC21CD34A8000DE904 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEBE21CD34A8000DE904 /* libWeChatSDK.a */; };
 		B82CEECD21CD34A8000DE904 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC021CD34A8000DE904 /* ShareSDKConnector.framework */; };
 		B82CEECE21CD34A8000DE904 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEC121CD34A8000DE904 /* ShareSDK.bundle */; };
 		B82CEECF21CD34A8000DE904 /* ShareSDKUI.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEC321CD34A8000DE904 /* ShareSDKUI.bundle */; };
@@ -405,7 +405,6 @@
 		C4CBC46C21C1FB2300AEDB86 /* MyScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */; };
 		C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */; };
 		C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */; };
-		C4FFD3D021CDD4F200F724B9 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4FFD3CF21CDD4F200F724B9 /* libWeChatSDK.a */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -430,6 +429,7 @@
 		6B280D7221CCF48500C5DEED /* MineAddAccountModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineAddAccountModel.swift; sourceTree = "<group>"; };
 		6B593C9E21B12E9700D764E6 /* MineCustomCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomCell.swift; sourceTree = "<group>"; };
 		6B593C9F21B12E9700D764E6 /* MineCustomCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineCustomCell.xib; sourceTree = "<group>"; };
+		6B7C27A521D06F3F00CE14B9 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineOrderViewController.swift; sourceTree = "<group>"; };
 		6B80F14A21B9074D004142D2 /* MineOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderViewModel.swift; sourceTree = "<group>"; };
 		6B80F14C21B9077A004142D2 /* MineOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderModel.swift; sourceTree = "<group>"; };
@@ -538,7 +538,6 @@
 		B82CEEBB21CD34A8000DE904 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		B82CEEBC21CD34A8000DE904 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
 		B82CEEBD21CD34A8000DE904 /* WechatAuthSDK.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WechatAuthSDK.h; sourceTree = "<group>"; };
-		B82CEEBE21CD34A8000DE904 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		B82CEEC021CD34A8000DE904 /* ShareSDKConnector.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; path = ShareSDKConnector.framework; sourceTree = "<group>"; };
 		B82CEEC121CD34A8000DE904 /* ShareSDK.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDK.bundle; sourceTree = "<group>"; };
 		B82CEEC321CD34A8000DE904 /* ShareSDKUI.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = ShareSDKUI.bundle; sourceTree = "<group>"; };
@@ -818,7 +817,6 @@
 		C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScoreViewModel.swift; sourceTree = "<group>"; };
 		C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderExperienceView.swift; sourceTree = "<group>"; };
 		C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderExperienceView.xib; sourceTree = "<group>"; };
-		C4FFD3CF21CDD4F200F724B9 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
 		CC1B4562EEFCF6801EEBF281 /* Pods_SpecialTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F58B317D84214AFDC7E7C4 /* Pods-SpecialTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -830,13 +828,12 @@
 			files = (
 				00A5E988AF1B1A92952C1483 /* Pods_SpecialTraining.framework in Frameworks */,
 				B82CEED221CD34A8000DE904 /* WechatConnector.framework in Frameworks */,
+				6B7C27A621D06F3F00CE14B9 /* libWeChatSDK.a in Frameworks */,
 				B82CEED121CD34A8000DE904 /* ShareSDKUI.framework in Frameworks */,
 				B82CEED321CD34A8000DE904 /* ShareSDK.framework in Frameworks */,
-				C4FFD3D021CDD4F200F724B9 /* libWeChatSDK.a in Frameworks */,
 				6BAE0AE021CA2FDC0065BAD2 /* libopencore-amrnb.a in Frameworks */,
 				B82CEED021CD34A8000DE904 /* ShareSDKExtension.framework in Frameworks */,
 				B82CEED421CD34A8000DE904 /* MOBFoundation.framework in Frameworks */,
-				B82CEECC21CD34A8000DE904 /* libWeChatSDK.a in Frameworks */,
 				B82CEECD21CD34A8000DE904 /* ShareSDKConnector.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -1087,12 +1084,11 @@
 		B82CEEB921CD34A8000DE904 /* WeChatSDK */ = {
 			isa = PBXGroup;
 			children = (
-				C4FFD3CF21CDD4F200F724B9 /* libWeChatSDK.a */,
 				B82CEEBA21CD34A8000DE904 /* WXApi.h */,
 				B82CEEBB21CD34A8000DE904 /* WXApiObject.h */,
 				B82CEEBC21CD34A8000DE904 /* README.txt */,
 				B82CEEBD21CD34A8000DE904 /* WechatAuthSDK.h */,
-				B82CEEBE21CD34A8000DE904 /* libWeChatSDK.a */,
+				6B7C27A521D06F3F00CE14B9 /* libWeChatSDK.a */,
 			);
 			path = WeChatSDK;
 			sourceTree = "<group>";
@@ -2184,7 +2180,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -2221,7 +2217,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		976D5F770C186096B755E798 /* [CP] Copy Pods Resources */ = {
@@ -2230,7 +2226,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2239,7 +2235,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CDB2B142D8F319DCD07449D4 /* [CP] Check Pods Manifest.lock */ = {
@@ -2679,8 +2675,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
-					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player/AudioButton",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
@@ -2725,8 +2719,6 @@
 				);
 				LIBRARY_SEARCH_PATHS = (
 					"$(inherited)",
-					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrwb",
-					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/EaseUI/EMUIKit/3rdparty/DeviceHelper/VoiceConvert/opencore-amrnb",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/CustomKeyBoard/Record&Player/AudioButton",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
