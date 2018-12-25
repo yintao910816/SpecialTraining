@@ -101,6 +101,9 @@ class STOrganizationViewController: BaseViewController {
         viewModel.physicalStoreDatasource.asDriver()
             .drive(physicalStoreTB.rx.items(cellIdentifier: "PhysicalStoreCellID", cellType: PhysicalStoreCell.self)) { (_, model, cell) in
                 cell.model = model
+                cell.tapShop = { [unowned self] shopId in
+                    self.performSegue(withIdentifier: "shopInfoSegue", sender: shopId)
+                }
             }
             .disposed(by: disposeBag)
         
@@ -133,6 +136,12 @@ class STOrganizationViewController: BaseViewController {
     
     override func prepare(parameters: [String : Any]?) {
         agnId = (parameters!["agn_id"] as! String)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "shopInfoSegue" {
+            segue.destination.prepare(parameters: ["shopId": sender as! String])
+        }
     }
 }
 

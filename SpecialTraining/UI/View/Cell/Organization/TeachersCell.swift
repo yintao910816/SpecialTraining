@@ -29,7 +29,7 @@ class TeachersCell: UICollectionViewCell {
             nameOutlet.text = model.teacher_name
             introduceOutlet.text = model.introduce
             
-            coverHeightCns.constant = model.imgHeight
+            coverHeightCns.constant = model.imgShowHeight
         }
     }
 

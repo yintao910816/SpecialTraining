@@ -70,23 +70,22 @@ class TeachersModel: HJModel {
     var pic: String = ""
     var introduce: String = ""
     
-    // 图片显示尺寸
-    var imgWidth: CGFloat = (PPScreenW - 30) / 2.0
-    var imgHeight: CGFloat = ((PPScreenW - 30) / 2.0) * 4 / 3
+    var pic_width: String = "0"
+    var pic_high: String  = "0"
     
-    // cell 尺寸
-    var width: CGFloat = (PPScreenW - 30) / 2.0
-    var height: CGFloat = (((PPScreenW - 30) / 2.0) * 4 / 3) + TeachersCell.withoutImageHeight
+    lazy var imgShowHeight: CGFloat = {
+        let scale: Double = Double(self.pic_high)! / Double(self.pic_width)!
+        return cellWidth * CGFloat(scale)
+    }()
     
-    class func creatModel(imgW: CGFloat, imgH: CGFloat) ->TeachersModel {
-        let m = TeachersModel()
-        // 计算图片显示高度
-        m.imgHeight = imgH * m.imgWidth / imgW
-        // 计算cell高度
-        m.height = m.imgHeight + TeachersCell.withoutImageHeight
-        return m
-    }
+    lazy var cellWidth: CGFloat = {
+        let w = (PPScreenW - 30) / 2.0
+        return w
+    }()
     
+    lazy var cellHeight: CGFloat = {
+        return imgShowHeight + TeachersCell.withoutImageHeight
+    }()
 }
 
 // 发布视屏，机构选择

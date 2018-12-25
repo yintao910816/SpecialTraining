@@ -295,6 +295,7 @@
 		B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88F8CA521C169F20064C1CF /* STAuthorCodeLoginViewController.swift */; };
 		B88F8CA821C16C3E0064C1CF /* STSetNewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88F8CA721C16C3E0064C1CF /* STSetNewPassViewController.swift */; };
 		B88F8CAA21C16E0B0064C1CF /* STBindPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88F8CA921C16E0B0064C1CF /* STBindPhoneViewController.swift */; };
+		B8A4661921D27B9A0022146C /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A4661821D27B9A0022146C /* ShopViewModel.swift */; };
 		B8FBF9CF21A3CB6100AECB75 /* ChatRightView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8FBF9CE21A3CB6100AECB75 /* ChatRightView.xib */; };
 		B8FBFA1821A3DD9600AECB75 /* EmojView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBF9D221A3DD9600AECB75 /* EmojView.swift */; };
 		B8FBFA1921A3DD9600AECB75 /* EmjoToolBar.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBF9D321A3DD9600AECB75 /* EmjoToolBar.swift */; };
@@ -703,6 +704,7 @@
 		B88F8CA521C169F20064C1CF /* STAuthorCodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAuthorCodeLoginViewController.swift; sourceTree = "<group>"; };
 		B88F8CA721C16C3E0064C1CF /* STSetNewPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSetNewPassViewController.swift; sourceTree = "<group>"; };
 		B88F8CA921C16E0B0064C1CF /* STBindPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBindPhoneViewController.swift; sourceTree = "<group>"; };
+		B8A4661821D27B9A0022146C /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		B8FBF9CE21A3CB6100AECB75 /* ChatRightView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChatRightView.xib; sourceTree = "<group>"; };
 		B8FBF9D221A3DD9600AECB75 /* EmojView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmojView.swift; sourceTree = "<group>"; };
 		B8FBF9D321A3DD9600AECB75 /* EmjoToolBar.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EmjoToolBar.swift; sourceTree = "<group>"; };
@@ -1318,6 +1320,7 @@
 		B85F3314219E796100023958 /* View */ = {
 			isa = PBXGroup;
 			children = (
+				B8A4661721D278590022146C /* Shop */,
 				B86D68B921C405FE001A0B75 /* Course */,
 				6BF7B94721BA65C200BE1E4A /* MineCollection */,
 				C45AAE5021B6A12300692D7D /* Video */,
@@ -1514,6 +1517,7 @@
 				B8FBFA6A21A3E82000AECB75 /* UserViewModel.swift */,
 				B8547E1B21A640CC00281554 /* SelectedCityViewModel.swift */,
 				B87A94E321A826F2003E2D21 /* OrganizationViewModel.swift */,
+				B8A4661821D27B9A0022146C /* ShopViewModel.swift */,
 				C45AAE5721B6A21E00692D7D /* UserVideosViewModel.swift */,
 				B852F13821BD6738002A5887 /* VideoCoverChoseViewModel.swift */,
 				B803C3D021BD775C004C97DB /* PublishChoseOrganizationViewModel.swift */,
@@ -1754,6 +1758,13 @@
 				B81EDF6C21A5324700F9D3B0 /* ChatAudoRightView.xib */,
 			);
 			path = Message;
+			sourceTree = "<group>";
+		};
+		B8A4661721D278590022146C /* Shop */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Shop;
 			sourceTree = "<group>";
 		};
 		B8FBF9D021A3DD9600AECB75 /* CustomKeyBoard */ = {
@@ -2183,7 +2194,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
@@ -2220,7 +2231,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		976D5F770C186096B755E798 /* [CP] Copy Pods Resources */ = {
@@ -2229,7 +2240,7 @@
 			files = (
 			);
 			inputPaths = (
-				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
+				"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
@@ -2238,7 +2249,7 @@
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
-			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
+			shellScript = "\"${SRCROOT}/Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh\"\n";
 			showEnvVarsInLog = 0;
 		};
 		CDB2B142D8F319DCD07449D4 /* [CP] Check Pods Manifest.lock */ = {
@@ -2430,6 +2441,7 @@
 				B87A94D821A81FE1003E2D21 /* PhysicalStoreTableView.swift in Sources */,
 				B80B6BF2219FC30A00C33F11 /* ShoppingListCell.swift in Sources */,
 				B844477D21B825AE00808F5A /* BaseTableViewController.swift in Sources */,
+				B8A4661921D27B9A0022146C /* ShopViewModel.swift in Sources */,
 				B85F3357219E94D600023958 /* TYHUD.swift in Sources */,
 				C47356E321AEBA6E000E24A5 /* ChatToolBarAudioButton.m in Sources */,
 				B85F3337219E92A600023958 /* EmptyDataView.swift in Sources */,

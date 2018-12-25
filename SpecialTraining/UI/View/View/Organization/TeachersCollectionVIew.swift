@@ -55,6 +55,6 @@ extension TeachersCollectionVIew: FlowLayoutDelegate {
  
     func itemContent(layout: BaseFlowLayout, indexPath: IndexPath) -> CGSize {
         let model = datasource.value[indexPath.row]
-        return .init(width: model.width, height: model.height)
+        return .init(width: model.cellWidth, height: model.cellHeight)
     }
 }

@@ -47,6 +47,13 @@ enum API{
     // 老师风采 http://api.youpeixunjiaoyu.com/v1/agency/agnTeachers?agn_id=1
     case agnTeachers(agn_id: String)
     
+    // 店铺 - 开设课程
+    case shopCourse(shop_id: String)
+    // 店铺 - 推荐活动
+    case shopActivity(shop_id: String)
+    // 店铺 - 老师风采
+    case shopTeachers(shop_id: String)
+    
 }
 
 //MARK:
@@ -87,6 +94,13 @@ extension API: TargetType{
         case .agnActivity(_):
             return "v1/agency/agnActivity"
         case .agnTeachers(_):
+            return "v1/agency/agnTeachers"
+            
+        case .shopCourse(_):
+            return "v1/shop/shopCourse"
+        case .shopActivity(_):
+            return "v1/shop/shopActivity"
+        case .shopTeachers(_):
             return "v1/agency/agnTeachers"
         }
     }
@@ -166,6 +180,12 @@ extension API {
         case .agnTeachers(let agn_id):
             params["agn_id"] = agn_id
 
+        case .shopCourse(let shop_id):
+            params["shop_id"] = shop_id
+        case .shopActivity(let shop_id):
+            params["shop_id"] = shop_id
+        case .shopTeachers(let shop_id):
+            params["agn_id"] = shop_id
         }
         return params
     }

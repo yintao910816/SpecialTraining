@@ -15,6 +15,14 @@ class PhysicalStoreCell: UITableViewCell {
     @IBOutlet weak var labelOutlet: UILabel!
     @IBOutlet weak var introduceOutlet: UILabel!
     
+    var tapShop: ((String) ->Void)?
+    
+    @IBAction func actions(_ sender: UIButton) {
+        if sender.tag - 500 < model.shops.count {
+            tapShop?(model.shops[sender.tag - 500].shop_id)
+        }
+    }
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
