@@ -374,6 +374,7 @@
 		B8FBFA7321A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA6F21A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift */; };
 		B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA7021A422B300AECB75 /* UIControl+_Rx.swift */; };
 		B8FBFA7621A426A200AECB75 /* NSDictionary+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8FBFA7521A426A200AECB75 /* NSDictionary+Extension.swift */; };
+		C406108321D1FEEA00C28EBB /* STShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406108221D1FEEA00C28EBB /* STShopViewController.swift */; };
 		C408422021B549C900C491A8 /* STHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408421F21B549C900C491A8 /* STHome.storyboard */; };
 		C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408422121B54A0D00C491A8 /* STVideo.storyboard */; };
 		C408422421B54A1A00C491A8 /* STMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408422321B54A1A00C491A8 /* STMessage.storyboard */; };
@@ -781,6 +782,7 @@
 		B8FBFA6F21A422B300AECB75 /* SharedSequenceConvertibleType+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "SharedSequenceConvertibleType+Extension.swift"; sourceTree = "<group>"; };
 		B8FBFA7021A422B300AECB75 /* UIControl+_Rx.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIControl+_Rx.swift"; sourceTree = "<group>"; };
 		B8FBFA7521A426A200AECB75 /* NSDictionary+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "NSDictionary+Extension.swift"; sourceTree = "<group>"; };
+		C406108221D1FEEA00C28EBB /* STShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STShopViewController.swift; sourceTree = "<group>"; };
 		C408421F21B549C900C491A8 /* STHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STHome.storyboard; sourceTree = "<group>"; };
 		C408422121B54A0D00C491A8 /* STVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STVideo.storyboard; sourceTree = "<group>"; };
 		C408422321B54A1A00C491A8 /* STMessage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMessage.storyboard; sourceTree = "<group>"; };
@@ -1662,6 +1664,7 @@
 			isa = PBXGroup;
 			children = (
 				B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */,
+				C406108221D1FEEA00C28EBB /* STShopViewController.swift */,
 			);
 			path = Organization;
 			sourceTree = "<group>";
@@ -2325,6 +2328,7 @@
 				B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */,
 				B81E90B721A3B2CE000754E3 /* UserDefaults+Cache.swift in Sources */,
 				6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */,
+				C406108321D1FEEA00C28EBB /* STShopViewController.swift in Sources */,
 				B87F8F8421A2933D00DE9DC1 /* MessageListCell.swift in Sources */,
 				C408422B21B559A500C491A8 /* STVideoDemandViewController.swift in Sources */,
 				B81EDF7C21A579DC00F9D3B0 /* UINavigationController+BarButtonItem.swift in Sources */,
