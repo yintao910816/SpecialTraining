@@ -13,6 +13,8 @@
             <connections>
                 <outlet property="bgViewHeightCns" destination="PY0-n0-qTt" id="vHX-7g-RtX"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Xjj-PB-QTr"/>
+                <outlet property="cornerView" destination="Rab-Lm-w6Y" id="9oB-At-0EL"/>
+                <outlet property="shadowView" destination="nhv-Dt-h68" id="wvG-wr-PED"/>
                 <outlet property="topCns" destination="Xqu-q5-qH7" id="1Ga-ek-SLq"/>
             </connections>
         </placeholder>
@@ -63,17 +65,32 @@
                         <constraint firstItem="uSq-KU-0lh" firstAttribute="leading" secondItem="CM1-QT-OgB" secondAttribute="leading" constant="12" id="zpX-ur-nh9"/>
                     </constraints>
                 </view>
-                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rab-Lm-w6Y">
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nhv-Dt-h68">
+                    <rect key="frame" x="10" y="115" width="355" height="125"/>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="125" id="pFm-eg-VPt"/>
+                    </constraints>
+                </view>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Rab-Lm-w6Y">
                     <rect key="frame" x="10" y="115" width="355" height="125"/>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="125" id="fBu-Mh-0QR"/>
                     </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
                 </view>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
+                <constraint firstItem="nhv-Dt-h68" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="10" id="0Vv-6l-DdE"/>
                 <constraint firstItem="CM1-QT-OgB" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="629-8j-eHi"/>
+                <constraint firstAttribute="trailing" secondItem="nhv-Dt-h68" secondAttribute="trailing" constant="10" id="6bB-EB-qYJ"/>
+                <constraint firstItem="nhv-Dt-h68" firstAttribute="bottom" secondItem="CM1-QT-OgB" secondAttribute="bottom" constant="20" id="Fk1-fI-b0E"/>
                 <constraint firstAttribute="trailing" secondItem="CM1-QT-OgB" secondAttribute="trailing" id="JVo-8R-xGo"/>
                 <constraint firstItem="CM1-QT-OgB" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="Qmp-qj-YHc"/>
                 <constraint firstItem="Rab-Lm-w6Y" firstAttribute="bottom" secondItem="CM1-QT-OgB" secondAttribute="bottom" constant="20" id="hgJ-oa-MlB"/>

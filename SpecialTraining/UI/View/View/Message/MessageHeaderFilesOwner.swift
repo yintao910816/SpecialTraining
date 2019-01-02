@@ -11,6 +11,8 @@ import UIKit
 class MessageHeaderFilesOwner: BaseFilesOwner {
     
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var cornerView: UIView!
     
     @IBOutlet weak var topCns: NSLayoutConstraint!
     @IBOutlet weak var bgViewHeightCns: NSLayoutConstraint!
@@ -27,5 +29,7 @@ class MessageHeaderFilesOwner: BaseFilesOwner {
             topCns.constant += LayoutSize.topVirtualArea
             bgViewHeightCns.constant += LayoutSize.topVirtualArea
         }
+        
+        shadowView.set(cornerAndShaow: cornerView)
     }
 }

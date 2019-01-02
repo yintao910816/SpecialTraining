@@ -11,7 +11,8 @@ import UIKit
 class STLoginViewController: BaseViewController {
 
     @IBOutlet weak var contentBgView: UIView!
-
+    @IBOutlet weak var cornerView: UIView!
+    
     @IBOutlet weak var loginOutlet: UIButton!
     @IBOutlet weak var phoneOutlet: UITextField!
     @IBOutlet weak var passOutlet: UITextField!
@@ -32,6 +33,7 @@ class STLoginViewController: BaseViewController {
         let frame = CGRect.init(x: 0, y: 0, width: loginOutlet.width, height: loginOutlet.height)
         loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
 
+        cornerView.set(cornerAndShaow: contentBgView)
     }
     
     override func rxBind() {

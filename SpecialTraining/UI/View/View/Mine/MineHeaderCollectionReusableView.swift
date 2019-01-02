@@ -13,13 +13,12 @@ class MineHeaderCollectionReusableView: UICollectionReusableView {
 
     @IBOutlet var contentView: UICollectionReusableView!
     @IBOutlet weak var bgColorView: UIView!
-    @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var iconTopCns: NSLayoutConstraint!
     @IBOutlet weak var bgColorHeightCns: NSLayoutConstraint!
     
-    private var shadowLayer: CALayer!
-    private var cornerLayer: CAShapeLayer!
-    
+    @IBOutlet weak var shadowView: UIView!
+    @IBOutlet weak var cornerView: UIView!
+
     weak var delegate: MineHeaderActions?
 
     @IBAction func actions(_ sender: UIButton) {
@@ -53,16 +52,7 @@ class MineHeaderCollectionReusableView: UICollectionReusableView {
         
         bgColorView.layer.insertSublayer(STHelper.themeColorLayer(frame: .init(x: 0, y: 0, width: frame.width, height: bgColorHeightCns.constant)), at: 0)
         
-        cornerLayer = shadowView.creat(cornerRadius: 5, borderCorners: [.topLeft, .topRight])
-        shadowLayer = setShadowAndRadius()
-        layer.insertSublayer(shadowLayer, at: 0)
-        
-        cornerLayer.frame = shadowView.bounds
-//        shadowLayer.frame = .init(x: shadowView.x, y: shadowView.y + 10, width: shadowView.width, height: shadowView.height - 10)
-        shadowLayer.frame = .init(x: shadowView.frame.origin.x,
-                                  y: shadowView.frame.origin.y + 10,
-                                  width: shadowView.width,
-                                  height: shadowView.height - 10)
+        shadowView.set(cornerAndShaow: cornerView)
     }
     
     required init?(coder aDecoder: NSCoder) {

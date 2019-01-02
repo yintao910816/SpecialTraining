@@ -117,5 +117,30 @@ public struct UIRectSide : OptionSet {
         self.rawValue = rawValue
         
     }
+}
+
+extension UIView {
+  
+    /**
+     * 设置阴影加圆角
+     * cornerView 要在view中设置好圆角
+     * 这里只设置阴影
+     */
+    func set(cornerAndShaow cornerView: UIView) {
+        backgroundColor = .clear
+        layer.shadowColor = UIColor.black.cgColor
+        layer.shadowOpacity = 0.2
+        layer.shadowRadius = 5
+        
+        let path = UIBezierPath.init()
+        path.move(to: .init(x: -5, y: -5))
+        
+        path.addLine(to: .init(x: cornerView.frame.size.width + 5, y: -5))
+        path.addLine(to: .init(x: cornerView.frame.size.width + 5, y: cornerView.frame.size.height + 5))
+        path.addLine(to: .init(x: -5, y: cornerView.frame.size.height + 5))
+        path.addLine(to: .init(x: -5, y: -5))
+        
+        layer.shadowPath = path.cgPath
+    }
     
 }
