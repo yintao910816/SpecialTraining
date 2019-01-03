@@ -15,6 +15,7 @@
 		6B0754C221B1257100B36740 /* MineCustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0754C121B1257100B36740 /* MineCustomViewModel.swift */; };
 		6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */; };
 		6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */; };
+		6B27E44421D71C520019BE17 /* STMineWithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B27E44321D71C520019BE17 /* STMineWithdrawViewController.swift */; };
 		6B280D3921CC775E00C5DEED /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B280D3821CC775E00C5DEED /* Timer.swift */; };
 		6B280D5F21CCDC3600C5DEED /* STMineChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B280D5E21CCDC3600C5DEED /* STMineChangeInfoViewController.swift */; };
 		6B280D6121CCE08000C5DEED /* STMineWithdrawAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B280D6021CCE08000C5DEED /* STMineWithdrawAccountViewController.swift */; };
@@ -417,6 +418,7 @@
 		6B0754C121B1257100B36740 /* MineCustomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomViewModel.swift; sourceTree = "<group>"; };
 		6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineHeadIVViewController.swift; sourceTree = "<group>"; };
 		6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineQRCodeViewController.swift; sourceTree = "<group>"; };
+		6B27E44321D71C520019BE17 /* STMineWithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineWithdrawViewController.swift; sourceTree = "<group>"; };
 		6B280D3821CC775E00C5DEED /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		6B280D5E21CCDC3600C5DEED /* STMineChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineChangeInfoViewController.swift; sourceTree = "<group>"; };
 		6B280D6021CCE08000C5DEED /* STMineWithdrawAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineWithdrawAccountViewController.swift; sourceTree = "<group>"; };
@@ -1695,6 +1697,7 @@
 				6B280D6221CCEBB800C5DEED /* STMineAddAccountViewController.swift */,
 				6B280D5E21CCDC3600C5DEED /* STMineChangeInfoViewController.swift */,
 				6B8A611A21B5282D00C0DFCD /* STMineChangeViewController.swift */,
+				6B27E44321D71C520019BE17 /* STMineWithdrawViewController.swift */,
 				6B859EEF21B66507009FB70A /* STMineBankViewController.swift */,
 				6B0754BB21B1166500B36740 /* STMineRecomendViewController.swift */,
 				6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */,
@@ -2536,6 +2539,7 @@
 				C43339B421C0FC1B00CAF850 /* STCreditViewController.swift in Sources */,
 				6B280D7321CCF48500C5DEED /* MineAddAccountModel.swift in Sources */,
 				B803C3D421BD7A4E004C97DB /* ChoseOrganizationCell.swift in Sources */,
+				6B27E44421D71C520019BE17 /* STMineWithdrawViewController.swift in Sources */,
 				B85F33CE219EBAB100023958 /* Response+ModelMapper.swift in Sources */,
 				B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */,
 				B86D68BB21C40630001A0B75 /* SplendidnessContentTableView.swift in Sources */,
