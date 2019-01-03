@@ -298,10 +298,10 @@
             </objects>
             <point key="canvasLocation" x="-367" y="1058"/>
         </scene>
-        <!--View Controller-->
+        <!--Mine Withdraw View Controller-->
         <scene sceneID="DBT-U6-Yps">
             <objects>
-                <viewController id="X8c-z0-uAU" sceneMemberID="viewController">
+                <viewController id="X8c-z0-uAU" customClass="STMineWithdrawViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="pfR-5l-iHS"/>
                         <viewControllerLayoutGuide type="bottom" id="OEh-xS-o6S"/>
