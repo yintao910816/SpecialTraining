@@ -203,7 +203,9 @@ class STCourseDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         selectedClassView.choseSubject
-            .bind(to: viewModel.choseSubject)
+            .subscribe(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "verifyOrderOutlet", sender: model)
+            })
             .disposed(by: disposeBag)
     }
     
@@ -215,6 +217,14 @@ class STCourseDetailViewController: BaseViewController {
     
     override func prepare(parameters: [String : Any]?) {
         courseId = parameters!["course_id"] as! String
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "verifyOrderOutlet" {
+            // 确认订单
+            let ctrol = segue.destination
+            ctrol.prepare(parameters: ["model": sender!, "shop_id": viewModel.shopId])
+        }
     }
 }
 

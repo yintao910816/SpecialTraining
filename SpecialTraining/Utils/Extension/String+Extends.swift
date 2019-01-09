@@ -198,12 +198,15 @@ extension String {
     
     /// 同一lable种现实不同颜色字体
     ///
-    public func attributed(_ rangs: [NSRange], _ colors: [UIColor], _ fonts: [UIFont]) ->NSAttributedString {
+    public func attributed(_ rangs: [NSRange], color colors: [UIColor] = [], font fonts: [UIFont] = []) ->NSAttributedString {
         let muString = NSMutableAttributedString.init(string: self)
-        for idx in 0 ..< rangs.count {
+        for idx in 0 ..< colors.count {
             muString.addAttribute(NSAttributedString.Key.foregroundColor, value: colors[idx], range: rangs[idx])
+        }
+        for idx in 0 ..< fonts.count {
             muString.addAttribute(NSAttributedString.Key.font, value: fonts[idx], range: rangs[idx])
         }
+
         return muString
     }
 }

@@ -20,7 +20,13 @@ class STFinishPayViewController: BaseViewController {
     }
     
     override func setupUI() {
+        if UIDevice.current.isX == true {
+            topCns.constant = topCns.constant + 44
+            bgHeightCns.constant = bgHeightCns.constant + 44
+        }
         
+        let frame = CGRect.init(x: 0, y: 0, width: headerBgView.width, height: bgHeightCns.constant)
+        headerBgView.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
     
     override func rxBind() {

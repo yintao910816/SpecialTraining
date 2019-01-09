@@ -679,7 +679,7 @@
                         <outlet property="priceOutlet" destination="cec-Oh-oe3" id="dXW-ZC-yN2"/>
                         <outlet property="scrollOutlet" destination="Ixp-zL-35R" id="3G4-2d-fcj"/>
                         <outlet property="titleOutlet" destination="S4g-4W-bmX" id="kYp-XS-XFv"/>
-                        <segue destination="DAP-4o-dbH" kind="show" id="dny-lw-43c"/>
+                        <segue destination="DAP-4o-dbH" kind="show" identifier="verifyOrderOutlet" id="dny-lw-43c"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pY-Vc-9wT" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -697,10 +697,50 @@
                     <view key="view" contentMode="scaleToFill" id="toJ-z3-9qR">
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZnG-xv-6sB">
+                                <rect key="frame" x="0.0" y="617" width="375" height="50"/>
+                                <subviews>
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="oFf-Lm-8mW">
+                                        <rect key="frame" x="275" y="0.0" width="100" height="50"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="s39-gC-ro4"/>
+                                        </constraints>
+                                        <state key="normal" title="提交订单">
+                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actions:" destination="DAP-4o-dbH" eventType="touchUpInside" id="WUK-nW-fRx"/>
+                                        </connections>
+                                    </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计金额" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="OZ8-W2-PNL">
+                                        <rect key="frame" x="202" y="16.5" width="58" height="17"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                </subviews>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="trailing" secondItem="oFf-Lm-8mW" secondAttribute="trailing" id="2vH-Nq-vTd"/>
+                                    <constraint firstItem="oFf-Lm-8mW" firstAttribute="leading" secondItem="OZ8-W2-PNL" secondAttribute="trailing" constant="15" id="7sE-UV-7Vh"/>
+                                    <constraint firstAttribute="height" constant="50" id="JJQ-Z7-JBX"/>
+                                    <constraint firstAttribute="bottom" secondItem="oFf-Lm-8mW" secondAttribute="bottom" id="Omf-T3-FY8"/>
+                                    <constraint firstItem="oFf-Lm-8mW" firstAttribute="top" secondItem="ZnG-xv-6sB" secondAttribute="top" id="Tcf-hy-H5x"/>
+                                    <constraint firstItem="OZ8-W2-PNL" firstAttribute="centerY" secondItem="oFf-Lm-8mW" secondAttribute="centerY" id="pDv-XH-IEm"/>
+                                </constraints>
+                            </view>
+                        </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ZnG-xv-6sB" firstAttribute="leading" secondItem="toJ-z3-9qR" secondAttribute="leading" id="6hI-a2-sw1"/>
+                            <constraint firstAttribute="trailing" secondItem="ZnG-xv-6sB" secondAttribute="trailing" id="kzg-77-RT5"/>
+                            <constraint firstItem="1Te-X2-qo5" firstAttribute="top" secondItem="ZnG-xv-6sB" secondAttribute="bottom" id="pFN-lw-QmX"/>
+                        </constraints>
                     </view>
                     <connections>
-                        <segue destination="W2T-Vt-lyA" kind="show" id="I9T-Gf-dDc"/>
+                        <outlet property="okOutlet" destination="oFf-Lm-8mW" id="REc-sb-TzX"/>
+                        <segue destination="W2T-Vt-lyA" kind="show" identifier="gotoPaySegue" id="I9T-Gf-dDc"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="4Hl-54-enr" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -725,7 +765,7 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="80" id="6bw-G8-YGg"/>
                                 </constraints>
-                                <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="19"/>
                                 <color key="textColor" red="0.8901960784313725" green="0.52549019607843139" blue="0.40000000000000002" alpha="1" colorSpace="deviceRGB"/>
                                 <nil key="highlightedColor"/>
                             </label>
@@ -738,7 +778,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ZXj-C4-27b">
                                 <rect key="frame" x="0.0" y="199" width="375" height="45"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDv-ik-ENP">
+                                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jDv-ik-ENP">
                                         <rect key="frame" x="330" y="7.5" width="30" height="30"/>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.42745098040000001" blue="0.24313725489999999" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
@@ -780,7 +820,7 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="BCj-PM-etK">
                                 <rect key="frame" x="0.0" y="244" width="375" height="45"/>
                                 <subviews>
-                                    <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANr-4U-SbN">
+                                    <button hidden="YES" opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ANr-4U-SbN">
                                         <rect key="frame" x="330" y="7.5" width="30" height="30"/>
                                         <color key="backgroundColor" red="0.92549019610000005" green="0.42745098040000001" blue="0.24313725489999999" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
@@ -847,17 +887,21 @@
                         <outlet property="wchatChoseOutlet" destination="jDv-ik-ENP" id="Jy2-SQ-3hd"/>
                         <outlet property="wchatPayTapGes" destination="gft-7q-s9K" id="a2A-wK-g2q"/>
                         <outlet property="zfbChoseOutlet" destination="ANr-4U-SbN" id="bRj-ue-AD2"/>
-                        <outlet property="zfbPayTapGes" destination="GSr-Jz-Kpg" id="mXH-oe-qL9"/>
+                        <outlet property="zfbPayTapGes" destination="GSr-Jz-Kpg" id="b8P-82-VMh"/>
                         <segue destination="YO9-LC-JRK" kind="show" id="Q8k-Yw-Mpw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RK8-bF-gJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
                 <tapGestureRecognizer id="gft-7q-s9K">
                     <connections>
-                        <action selector="tapAction:" destination="W2T-Vt-lyA" id="rYE-iU-P0s"/>
+                        <action selector="tapAction:" destination="W2T-Vt-lyA" id="t85-Xi-au0"/>
                     </connections>
                 </tapGestureRecognizer>
-                <tapGestureRecognizer id="GSr-Jz-Kpg"/>
+                <tapGestureRecognizer id="GSr-Jz-Kpg">
+                    <connections>
+                        <action selector="tapAction:" destination="W2T-Vt-lyA" id="a4x-Pe-Wud"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1933.5999999999999" y="-313.49325337331339"/>
         </scene>

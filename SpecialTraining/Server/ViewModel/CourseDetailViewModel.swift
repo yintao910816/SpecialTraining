@@ -27,8 +27,6 @@ class CourseDetailViewModel: BaseViewModel {
     // 获取班级
     let selecteClassSource = Variable([CourseClassModel]())
     
-    let choseSubject = PublishSubject<CourseClassModel>()
-
     init(courseId: String) {
         super.init()
         
@@ -82,6 +80,12 @@ class CourseDetailViewModel: BaseViewModel {
                     PrintLog(self?.errorMessage(error))
             })
             .disposed(by: disposeBag)
+    }
+    
+    var shopId: String {
+        get {
+            return relateShopSource.value.first?.shop_id ?? "1"
+        }
     }
     
     // 精彩内容

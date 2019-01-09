@@ -42,7 +42,7 @@ DEPENDENCIES:
   - RxDataSources (~> 3.1.0)
   - RxSwift (~> 4.3.0)
   - SnapKit (~> 4.0.0)
-  - SQLite.swift (~> 0.11.4)
+  - SQLite.swift (~> 0.11.5)
   - SwiftGifOrigin (~> 1.6.1)
   - YYKit
 
@@ -85,6 +85,6 @@ SPEC CHECKSUMS:
   SwiftGifOrigin: d6679d3ebe9df2e049a84bc52582635107b581f6
   YYKit: 7cda43304a8dc3696c449041e2cb3107b4e236e7
 
-PODFILE CHECKSUM: 07444de1dccc2fddd9d1cb7cb80366776c5ede4c
+PODFILE CHECKSUM: 246c5c93a62f3744ecb9ec45476b066de60ba5cc
 
 COCOAPODS: 1.5.3

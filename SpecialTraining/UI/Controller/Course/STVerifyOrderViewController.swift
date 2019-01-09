@@ -8,23 +8,30 @@
 
 import UIKit
 
-class STVerifyOrderViewController: UIViewController {
+class STVerifyOrderViewController: BaseViewController {
 
-    override func viewDidLoad() {
-        super.viewDidLoad()
-
-        // Do any additional setup after loading the view.
+    @IBOutlet weak var okOutlet: UIButton!
+    
+    private var parameters: [String : Any]!
+    
+    @IBAction func actions(_ sender: UIButton) {
+        performSegue(withIdentifier: "gotoPaySegue", sender: nil)
     }
     
-
-    /*
-    // MARK: - Navigation
-
-    // In a storyboard-based application, you will often want to do a little preparation before navigation
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        // Get the new view controller using segue.destination.
-        // Pass the selected object to the new view controller.
+    override func setupUI() {
+        let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
+        okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
-    */
-
+    
+    override func prepare(parameters: [String : Any]?) {
+        self.parameters = parameters!
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "gotoPaySegue" {
+            let ctrol = segue.destination
+            ctrol.prepare(parameters: parameters)
+        }
+    }
+    
 }

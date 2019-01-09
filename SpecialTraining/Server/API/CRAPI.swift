@@ -68,6 +68,8 @@ enum API{
     case course(id: String)
     /// 获取班级
     case selectClass(course_id: String)
+    /// 提交订单
+    case submitOrder(params: [String: Any])
     
     //MARK:
     //MARK: 购物车
@@ -133,6 +135,9 @@ extension API: TargetType{
             return "v1/course/read"
         case .selectClass(_):
             return "v1/course/selectClass"
+        
+        case .submitOrder(_):
+            return "v1/order/submitOrder"
         }
     }
     
@@ -229,6 +234,9 @@ extension API {
             params["id"] = id
         case .selectClass(let course_id):
             params["course_id"] = course_id
+            
+        case .submitOrder(let subParams):
+            params = subParams
         }
         
         return params

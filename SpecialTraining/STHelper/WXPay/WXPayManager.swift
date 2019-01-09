@@ -6,4 +6,13 @@
 //  Copyright © 2019 youpeixun. All rights reserved.
 //
 
+enum PayType {
+    case wchatPay
+    case alipay
+}
+
 import Foundation
+
+class WXPayManager {
+    
+}

@@ -74,7 +74,9 @@ struct APIAssistance {
      */
     static public func mothed(API: API) ->Moya.Method{
         switch API {
-        case .register(_, _, _), .login(_, _, _):
+        case .register(_, _, _),
+             .login(_, _, _),
+             .submitOrder(_):
             return .post
         default:
             return .get
