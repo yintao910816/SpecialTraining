@@ -26,6 +26,8 @@ class CourseDetailViewModel: BaseViewModel {
     let bannerSource = PublishSubject<CourseDetailBannerModel>()
     // 获取班级
     let selecteClassSource = Variable([CourseClassModel]())
+    
+    let choseSubject = PublishSubject<CourseClassModel>()
 
     init(courseId: String) {
         super.init()
@@ -74,6 +76,7 @@ class CourseDetailViewModel: BaseViewModel {
         
         requestClassData()
             .subscribe(onNext: { [weak self] datas in
+                datas.first?.isSelected = true
                 self?.selecteClassSource.value = datas
                 }, onError: { [weak self] error in
                     PrintLog(self?.errorMessage(error))

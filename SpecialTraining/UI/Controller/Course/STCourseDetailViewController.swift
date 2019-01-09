@@ -34,6 +34,8 @@ class STCourseDetailViewController: BaseViewController {
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var priceOutlet: UILabel!
     
+    private var isGotopay: Bool = false
+    
     @IBAction func actions(_ sender: UIButton) {
 
         if sender == conentOutlet {
@@ -45,8 +47,32 @@ class STCourseDetailViewController: BaseViewController {
         }else if sender == courseSchoolOutlet {
             set(button: courseSchoolOutlet, offsetX: scrollOutlet.width * 3)
         }
-
     }
+    
+    @IBAction func bottomAction(_ sender: UIButton) {
+        switch sender.tag {
+        case 5000:
+            // 店铺
+            break
+        case 5001:
+            // 客服
+            break
+        case 5002:
+            // 电话
+            break
+        case 5003:
+            // 加入购物车
+            selectedClassView.animotion(animotion: true)
+            isGotopay = false
+        case 5004:
+            // 立即购买
+            selectedClassView.animotion(animotion: true)
+            isGotopay = true
+        default:
+            break
+        }
+    }
+    
     
     private func set(button: UIButton, offsetX: CGFloat) {
         let btns = [conentOutlet, courseTimeOutlet, courseAudioOutlet, courseSchoolOutlet]
@@ -174,6 +200,10 @@ class STCourseDetailViewController: BaseViewController {
         
         viewModel.selecteClassSource.asDriver()
             .drive(selectedClassView.dataSource)
+            .disposed(by: disposeBag)
+        
+        selectedClassView.choseSubject
+            .bind(to: viewModel.choseSubject)
             .disposed(by: disposeBag)
     }
     

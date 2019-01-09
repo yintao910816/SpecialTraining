@@ -144,6 +144,12 @@
 		B82722F921E5FC0000147397 /* CourseClassSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82722F821E5FC0000147397 /* CourseClassSelectView.xib */; };
 		B82722FC21E6016500147397 /* CourseClassSelectedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722FA21E6016500147397 /* CourseClassSelectedCell.swift */; };
 		B82722FD21E6016500147397 /* CourseClassSelectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82722FB21E6016500147397 /* CourseClassSelectedCell.xib */; };
+		B82722FF21E6315500147397 /* STVerifyOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722FE21E6315500147397 /* STVerifyOrderViewController.swift */; };
+		B827230121E6316300147397 /* STPayOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827230021E6316300147397 /* STPayOrderViewController.swift */; };
+		B827230321E6317000147397 /* STFinishPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827230221E6317000147397 /* STFinishPayViewController.swift */; };
+		B827230521E6336E00147397 /* VerifyOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827230421E6336E00147397 /* VerifyOrderViewModel.swift */; };
+		B827230721E6338100147397 /* PayOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827230621E6338100147397 /* PayOrderViewModel.swift */; };
+		B827230B21E633A700147397 /* FinishPayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827230A21E633A700147397 /* FinishPayViewModel.swift */; };
 		B82CEECB21CD34A8000DE904 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEBC21CD34A8000DE904 /* README.txt */; };
 		B82CEECD21CD34A8000DE904 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC021CD34A8000DE904 /* ShareSDKConnector.framework */; };
 		B82CEECE21CD34A8000DE904 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEC121CD34A8000DE904 /* ShareSDK.bundle */; };
@@ -558,6 +564,12 @@
 		B82722F821E5FC0000147397 /* CourseClassSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseClassSelectView.xib; sourceTree = "<group>"; };
 		B82722FA21E6016500147397 /* CourseClassSelectedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseClassSelectedCell.swift; sourceTree = "<group>"; };
 		B82722FB21E6016500147397 /* CourseClassSelectedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseClassSelectedCell.xib; sourceTree = "<group>"; };
+		B82722FE21E6315500147397 /* STVerifyOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVerifyOrderViewController.swift; sourceTree = "<group>"; };
+		B827230021E6316300147397 /* STPayOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPayOrderViewController.swift; sourceTree = "<group>"; };
+		B827230221E6317000147397 /* STFinishPayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STFinishPayViewController.swift; sourceTree = "<group>"; };
+		B827230421E6336E00147397 /* VerifyOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOrderViewModel.swift; sourceTree = "<group>"; };
+		B827230621E6338100147397 /* PayOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayOrderViewModel.swift; sourceTree = "<group>"; };
+		B827230A21E633A700147397 /* FinishPayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishPayViewModel.swift; sourceTree = "<group>"; };
 		B82CEEBA21CD34A8000DE904 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		B82CEEBB21CD34A8000DE904 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		B82CEEBC21CD34A8000DE904 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -1564,6 +1576,9 @@
 				6BAE0AD921CA2CCA0065BAD2 /* SendMessageViewModel.swift */,
 				6BAE0ADB21CA2CD80065BAD2 /* SetNewPwdViewModel.swift */,
 				6BAE0ADD21CA2CE50065BAD2 /* BindPhoneViewModel.swift */,
+				B827230421E6336E00147397 /* VerifyOrderViewModel.swift */,
+				B827230621E6338100147397 /* PayOrderViewModel.swift */,
+				B827230A21E633A700147397 /* FinishPayViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1687,6 +1702,9 @@
 			isa = PBXGroup;
 			children = (
 				B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */,
+				B82722FE21E6315500147397 /* STVerifyOrderViewController.swift */,
+				B827230021E6316300147397 /* STPayOrderViewController.swift */,
+				B827230221E6317000147397 /* STFinishPayViewController.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -2326,6 +2344,7 @@
 				B85F331F219E8F4B00023958 /* STTabBarItem.swift in Sources */,
 				B810F48B21B97859005918B9 /* STOpenAccountViewController.swift in Sources */,
 				B85F33CD219EBAB100023958 /* Single+ModelMapper.swift in Sources */,
+				B827230121E6316300147397 /* STPayOrderViewController.swift in Sources */,
 				B803C3D121BD775C004C97DB /* PublishChoseOrganizationViewModel.swift in Sources */,
 				B82722EB21E5CBE500147397 /* ShopingCarTitleReusableView.swift in Sources */,
 				B85F33C3219EB94100023958 /* RefreshServer.swift in Sources */,
@@ -2462,6 +2481,7 @@
 				C4CBC46C21C1FB2300AEDB86 /* MyScoreViewModel.swift in Sources */,
 				6B8A612221B5366200C0DFCD /* MineChangeViewModel.swift in Sources */,
 				C408422D21B562DD00C491A8 /* STUserVideosViewController.swift in Sources */,
+				B827230521E6336E00147397 /* VerifyOrderViewModel.swift in Sources */,
 				B80B6C11219FF4DF00C33F11 /* Video.swift in Sources */,
 				6BAE0AD821CA2CC10065BAD2 /* ResetPasOneViewModel.swift in Sources */,
 				B81E90BC21A3C559000754E3 /* ChatRightView.swift in Sources */,
@@ -2486,6 +2506,7 @@
 				B87A94DA21A82052003E2D21 /* RecommendCourseTableView.swift in Sources */,
 				B81EDF5321A4FEBE00F9D3B0 /* Conversation.swift in Sources */,
 				B8FBFA1C21A3DD9600AECB75 /* EmojiInputProtocol.swift in Sources */,
+				B827230321E6317000147397 /* STFinishPayViewController.swift in Sources */,
 				B87A94D821A81FE1003E2D21 /* PhysicalStoreTableView.swift in Sources */,
 				B844477D21B825AE00808F5A /* BaseTableViewController.swift in Sources */,
 				B8A4661921D27B9A0022146C /* ShopViewModel.swift in Sources */,
@@ -2508,6 +2529,7 @@
 				B81EDF7621A54D8500F9D3B0 /* STMapViewController.swift in Sources */,
 				B88F8CA221C164100064C1CF /* STResetPassOneViewController.swift in Sources */,
 				6BF7B93821BA1BF500BE1E4A /* BaseTableViewController.swift in Sources */,
+				B827230B21E633A700147397 /* FinishPayViewModel.swift in Sources */,
 				B80B6C0E219FF29900C33F11 /* VideoClassificationCell.swift in Sources */,
 				B85F3356219E94D600023958 /* HUD.swift in Sources */,
 				B85F337B219EA0E700023958 /* HomeOrganizationTableView.swift in Sources */,
@@ -2575,6 +2597,7 @@
 				B8FBFA1921A3DD9600AECB75 /* EmjoToolBar.swift in Sources */,
 				6B8A611F21B52FBA00C0DFCD /* MineChangeCell.swift in Sources */,
 				B8350ABA21A112150020A6A6 /* Mine.swift in Sources */,
+				B82722FF21E6315500147397 /* STVerifyOrderViewController.swift in Sources */,
 				6B280D6A21CCEEDA00C5DEED /* SendCodeCell.swift in Sources */,
 				B87800BC21C7E7EA00EDCE72 /* CourseAudioTableView.swift in Sources */,
 				6B859EF621B67416009FB70A /* MineBankViewModel.swift in Sources */,
@@ -2588,6 +2611,7 @@
 				6B280D7321CCF48500C5DEED /* MineAddAccountModel.swift in Sources */,
 				B803C3D421BD7A4E004C97DB /* ChoseOrganizationCell.swift in Sources */,
 				6B27E44421D71C520019BE17 /* STMineWithdrawViewController.swift in Sources */,
+				B827230721E6338100147397 /* PayOrderViewModel.swift in Sources */,
 				B85F33CE219EBAB100023958 /* Response+ModelMapper.swift in Sources */,
 				B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */,
 				B86D68BB21C40630001A0B75 /* SplendidnessContentTableView.swift in Sources */,

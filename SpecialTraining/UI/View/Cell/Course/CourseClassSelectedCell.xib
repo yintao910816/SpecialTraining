@@ -18,20 +18,23 @@
                 <rect key="frame" x="0.0" y="0.0" width="139" height="28"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mss-Ip-Isx">
-                        <rect key="frame" x="10" y="0.0" width="119" height="28"/>
+                    <label opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Mss-Ip-Isx">
+                        <rect key="frame" x="5" y="0.0" width="129" height="28"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.27058823529411763" green="0.27058823529411763" blue="0.27058823529411763" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="14"/>
+                        </userDefinedRuntimeAttributes>
                     </label>
                 </subviews>
             </view>
             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
-                <constraint firstItem="Mss-Ip-Isx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="6sE-6w-5Hl"/>
+                <constraint firstItem="Mss-Ip-Isx" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="6sE-6w-5Hl"/>
                 <constraint firstItem="Mss-Ip-Isx" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="PX5-b3-PuK"/>
                 <constraint firstAttribute="bottom" secondItem="Mss-Ip-Isx" secondAttribute="bottom" id="mcd-HW-Mgj"/>
-                <constraint firstAttribute="trailing" secondItem="Mss-Ip-Isx" secondAttribute="trailing" constant="10" id="rOI-dF-jjy"/>
+                <constraint firstAttribute="trailing" secondItem="Mss-Ip-Isx" secondAttribute="trailing" constant="5" id="rOI-dF-jjy"/>
             </constraints>
             <size key="customSize" width="139" height="50"/>
             <userDefinedRuntimeAttributes>
