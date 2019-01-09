@@ -66,6 +66,8 @@ enum API{
     case courseVideoOrAudio(course_id: String, type: String)
     /// 详情顶部内容
     case course(id: String)
+    /// 获取班级
+    case selectClass(course_id: String)
     
     //MARK:
     //MARK: 购物车
@@ -129,7 +131,8 @@ extension API: TargetType{
             return "v1/course/courseVideoOrAudio"
         case .course(_):
             return "v1/course/read"
-
+        case .selectClass(_):
+            return "v1/course/selectClass"
         }
     }
     
@@ -224,6 +227,8 @@ extension API {
             params["type"] = type
         case .course(let id):
             params["id"] = id
+        case .selectClass(let course_id):
+            params["course_id"] = course_id
         }
         
         return params

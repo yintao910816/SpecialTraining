@@ -80,3 +80,14 @@ class RelateShopModel: HJModel {
         mapper.specify(property: &descriptionText, name: "description")
     }
 }
+
+/// 获取班级
+class CourseClassModel: HJModel {
+    var class_id: String = ""
+    var class_name: String = ""
+    var price: String = ""
+    var class_image: String = ""
+    var teacher_name: String = ""
+    
+    var isSelected: Bool = false
+}

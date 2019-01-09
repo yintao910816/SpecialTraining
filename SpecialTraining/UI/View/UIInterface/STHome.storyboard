@@ -655,11 +655,14 @@
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="bannerOutlet" destination="E0S-4m-j2m" id="jnE-7U-EAy"/>
                         <outlet property="conentOutlet" destination="lz2-RQ-wFA" id="ggo-Fh-KeL"/>
                         <outlet property="courseAudioOutlet" destination="1ml-9Y-z9g" id="zmV-h9-gYg"/>
                         <outlet property="courseSchoolOutlet" destination="EA8-hF-fDY" id="982-o2-IyH"/>
                         <outlet property="courseTimeOutlet" destination="hJK-uB-o3T" id="6sQ-EA-m1w"/>
+                        <outlet property="priceOutlet" destination="cec-Oh-oe3" id="dXW-ZC-yN2"/>
                         <outlet property="scrollOutlet" destination="Ixp-zL-35R" id="3G4-2d-fcj"/>
+                        <outlet property="titleOutlet" destination="S4g-4W-bmX" id="kYp-XS-XFv"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="5pY-Vc-9wT" userLabel="First Responder" sceneMemberID="firstResponder"/>

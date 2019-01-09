@@ -140,6 +140,10 @@
 		B82722F121E5DA6D00147397 /* WXPayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722F021E5DA6D00147397 /* WXPayManager.swift */; };
 		B82722F321E5E42300147397 /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722F221E5E42300147397 /* CourseDetail.swift */; };
 		B82722F521E5F24E00147397 /* STEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722F421E5F24E00147397 /* STEnum.swift */; };
+		B82722F721E5FBDB00147397 /* CourseClassSelectView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722F621E5FBDB00147397 /* CourseClassSelectView.swift */; };
+		B82722F921E5FC0000147397 /* CourseClassSelectView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82722F821E5FC0000147397 /* CourseClassSelectView.xib */; };
+		B82722FC21E6016500147397 /* CourseClassSelectedCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722FA21E6016500147397 /* CourseClassSelectedCell.swift */; };
+		B82722FD21E6016500147397 /* CourseClassSelectedCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82722FB21E6016500147397 /* CourseClassSelectedCell.xib */; };
 		B82CEECB21CD34A8000DE904 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEBC21CD34A8000DE904 /* README.txt */; };
 		B82CEECD21CD34A8000DE904 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC021CD34A8000DE904 /* ShareSDKConnector.framework */; };
 		B82CEECE21CD34A8000DE904 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEC121CD34A8000DE904 /* ShareSDK.bundle */; };
@@ -550,6 +554,10 @@
 		B82722F021E5DA6D00147397 /* WXPayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXPayManager.swift; sourceTree = "<group>"; };
 		B82722F221E5E42300147397 /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
 		B82722F421E5F24E00147397 /* STEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEnum.swift; sourceTree = "<group>"; };
+		B82722F621E5FBDB00147397 /* CourseClassSelectView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseClassSelectView.swift; sourceTree = "<group>"; };
+		B82722F821E5FC0000147397 /* CourseClassSelectView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseClassSelectView.xib; sourceTree = "<group>"; };
+		B82722FA21E6016500147397 /* CourseClassSelectedCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseClassSelectedCell.swift; sourceTree = "<group>"; };
+		B82722FB21E6016500147397 /* CourseClassSelectedCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseClassSelectedCell.xib; sourceTree = "<group>"; };
 		B82CEEBA21CD34A8000DE904 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		B82CEEBB21CD34A8000DE904 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		B82CEEBC21CD34A8000DE904 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -1629,6 +1637,8 @@
 				B87800B421C7E40100EDCE72 /* CourseSchoolCell.xib */,
 				B87800B721C7E51500EDCE72 /* CourseAudioCell.swift */,
 				B87800B821C7E51500EDCE72 /* CourseAudioCell.xib */,
+				B82722FA21E6016500147397 /* CourseClassSelectedCell.swift */,
+				B82722FB21E6016500147397 /* CourseClassSelectedCell.xib */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -1688,6 +1698,8 @@
 				B87800AD21C7E1EB00EDCE72 /* CourseTimeTableView.swift */,
 				B87800BB21C7E7EA00EDCE72 /* CourseAudioTableView.swift */,
 				B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */,
+				B82722F621E5FBDB00147397 /* CourseClassSelectView.swift */,
+				B82722F821E5FC0000147397 /* CourseClassSelectView.xib */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -2106,6 +2118,7 @@
 				B85F33A2219EA3AD00023958 /* CourseListCell.xib in Resources */,
 				C47356E221AEBA6E000E24A5 /* chatBar_recordBg@2x.png in Resources */,
 				C4CBC46A21C1FA0400AEDB86 /* MyScoreCell.xib in Resources */,
+				B82722FD21E6016500147397 /* CourseClassSelectedCell.xib in Resources */,
 				B85F3375219EA01B00023958 /* LaunchScreen.storyboard in Resources */,
 				B85F33A6219EA3FE00023958 /* CourseDisplayMinuteCell.xib in Resources */,
 				B82722EC21E5CBE500147397 /* ShopingCarTitleReusableView.xib in Resources */,
@@ -2152,6 +2165,7 @@
 				B81E90BE21A3C57D000754E3 /* ChatLeftView.xib in Resources */,
 				C408422421B54A1A00C491A8 /* STMessage.storyboard in Resources */,
 				6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */,
+				B82722F921E5FC0000147397 /* CourseClassSelectView.xib in Resources */,
 				B85F339E219EA37100023958 /* CourseDisplayCell.xib in Resources */,
 				B8FBFA2221A3DD9600AECB75 /* 88_thumb.png in Resources */,
 				B8FBFA5621A3DD9600AECB75 /* t_thumb.png in Resources */,
@@ -2351,6 +2365,7 @@
 				B85F33D0219EBAB100023958 /* HandyJSON+MapModel.swift in Sources */,
 				B87800BE21C7E7F800EDCE72 /* CourseSchoolTableView.swift in Sources */,
 				B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */,
+				B82722FC21E6016500147397 /* CourseClassSelectedCell.swift in Sources */,
 				B85F3380219EA17100023958 /* CarouselDatasource.swift in Sources */,
 				C498BA7921B7B56500A29385 /* ImagePickerManager+Rx.swift in Sources */,
 				B80B6C09219FF0D900C33F11 /* String+Extends.swift in Sources */,
@@ -2499,6 +2514,7 @@
 				B87A94EF21A8381D003E2D21 /* TeachersCell.swift in Sources */,
 				B852F13921BD6738002A5887 /* VideoCoverChoseViewModel.swift in Sources */,
 				B803C3CF21BD7651004C97DB /* STPublishChoseOrganizationViewController.swift in Sources */,
+				B82722F721E5FBDB00147397 /* CourseClassSelectView.swift in Sources */,
 				B85F336F219E9D9E00023958 /* HandyModel.swift in Sources */,
 				B83BA20121BC1EB300496AFE /* fileOutputViewController.swift in Sources */,
 				B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */,

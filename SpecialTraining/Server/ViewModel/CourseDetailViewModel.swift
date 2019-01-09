@@ -22,6 +22,10 @@ class CourseDetailViewModel: BaseViewModel {
     let classTimeSource = Variable([SectionModel<String, ClassTimeItemModel>]())
     // 相关校区
     let relateShopSource = Variable([RelateShopModel]())
+    // banner 部分
+    let bannerSource = PublishSubject<CourseDetailBannerModel>()
+    // 获取班级
+    let selecteClassSource = Variable([CourseClassModel]())
 
     init(courseId: String) {
         super.init()
@@ -59,6 +63,22 @@ class CourseDetailViewModel: BaseViewModel {
                     PrintLog(self?.errorMessage(error))
             })
             .disposed(by: disposeBag)
+        
+        requestBannerData()
+            .subscribe(onNext: { [weak self] data in
+                self?.bannerSource.onNext(data)
+                }, onError: { [weak self] error in
+                    PrintLog(self?.errorMessage(error))
+            })
+            .disposed(by: disposeBag)
+        
+        requestClassData()
+            .subscribe(onNext: { [weak self] datas in
+                self?.selecteClassSource.value = datas
+                }, onError: { [weak self] error in
+                    PrintLog(self?.errorMessage(error))
+            })
+            .disposed(by: disposeBag)
     }
     
     // 精彩内容
@@ -88,6 +108,20 @@ class CourseDetailViewModel: BaseViewModel {
             .map(models: RelateShopModel.self)
             .asObservable()
     }
+    
+    // banner部分
+    private func requestBannerData() ->Observable<CourseDetailBannerModel> {
+        return STProvider.request(.course(id: courseId))
+            .map(model: CourseDetailBannerModel.self)
+            .asObservable()
+    }
+    // 获取班级
+    private func requestClassData() ->Observable<[CourseClassModel]> {
+        return STProvider.request(.selectClass(course_id: courseId))
+            .map(models: CourseClassModel.self)
+            .asObservable()
+    }
+    
     
     private func dealClassTimeData(data: ClassTimeModel) {
 

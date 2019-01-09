@@ -19,6 +19,8 @@ class STCourseDetailViewController: BaseViewController {
     private var courseAudioTB: CourseAudioTableView!
     private var courseSchoolTB: CourseSchoolTableView!
     
+    private var selectedClassView: CourseClassSelectView!
+    
     private var courseId: String = ""
     
     @IBOutlet weak var scrollOutlet: UIScrollView!
@@ -27,6 +29,10 @@ class STCourseDetailViewController: BaseViewController {
     @IBOutlet weak var courseTimeOutlet: UIButton!
     @IBOutlet weak var courseAudioOutlet: UIButton!
     @IBOutlet weak var courseSchoolOutlet: UIButton!
+    
+    @IBOutlet weak var bannerOutlet: UIImageView!
+    @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var priceOutlet: UILabel!
     
     @IBAction func actions(_ sender: UIButton) {
 
@@ -83,6 +89,9 @@ class STCourseDetailViewController: BaseViewController {
 
     override func setupUI() {
         navigationItem.title = "课程详情"
+        
+        selectedClassView = CourseClassSelectView.init(controller: self)
+        
         
         set(button: conentOutlet, offsetX: 0)
         
@@ -158,6 +167,20 @@ class STCourseDetailViewController: BaseViewController {
             .asDriver()
             .drive(courseSchoolTB.datasource)
             .disposed(by: disposeBag)
+        
+        viewModel.bannerSource
+            .subscribe(onNext: { [weak self] in self?.setBanner(data: $0) })
+            .disposed(by: disposeBag)
+        
+        viewModel.selecteClassSource.asDriver()
+            .drive(selectedClassView.dataSource)
+            .disposed(by: disposeBag)
+    }
+    
+    private func setBanner(data: CourseDetailBannerModel) {
+        bannerOutlet.setImage(data.top_pic)
+        priceOutlet.text = "￥\(data.about_price)"
+        titleOutlet.text = data.title
     }
     
     override func prepare(parameters: [String : Any]?) {
