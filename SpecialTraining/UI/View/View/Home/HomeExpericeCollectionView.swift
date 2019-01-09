@@ -78,15 +78,15 @@ extension HomeExpericeCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-        return datasource.value.0[section].items[1].minimumLineSpacing ?? 0
+        return datasource.value.0[section].items.first?.minimumLineSpacing ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-        return datasource.value.0[section].items[1].minimumInteritemSpacing ?? 0
+        return datasource.value.0[section].items.first?.minimumInteritemSpacing ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return datasource.value.0[section].items[1].sectionInset ?? .zero
+        return datasource.value.0[section].items.first?.sectionInset ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

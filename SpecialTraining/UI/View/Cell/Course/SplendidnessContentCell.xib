@@ -68,6 +68,9 @@
                     <constraint firstItem="bVW-Qz-sbR" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="5" id="osX-sR-qKe"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="titleOutlet" destination="qaI-JK-giP" id="AWt-hn-ifJ"/>
+            </connections>
             <point key="canvasLocation" x="84.799999999999997" y="195.6521739130435"/>
         </tableViewCell>
     </objects>

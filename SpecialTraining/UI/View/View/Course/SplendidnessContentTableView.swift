@@ -15,7 +15,7 @@ class SplendidnessContentTableView: BaseTB {
 
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable([String]())
+    let datasource = Variable([CourseDetailMediaModel]())
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .grouped)
@@ -40,8 +40,8 @@ class SplendidnessContentTableView: BaseTB {
     private func rxBind() {
         
         datasource.asDriver()
-            .drive(rx.items(cellIdentifier: "SplendidnessContentCellID", cellType: SplendidnessContentCell.self)) { [unowned self] row, model, cell in
-                
+            .drive(rx.items(cellIdentifier: "SplendidnessContentCellID", cellType: SplendidnessContentCell.self)) { (row, model, cell) in
+                cell.model = model
             }
             .disposed(by: disposeBag)
         

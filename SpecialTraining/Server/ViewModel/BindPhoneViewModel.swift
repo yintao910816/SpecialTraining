@@ -55,7 +55,7 @@ class BindPhoneViewModel: BaseViewModel {
             .map(model: LoginModel.self)
             .subscribe(onSuccess: { [weak self] (_) in
                 self?.hud.successHidden("手机号绑定成功", {
-                    self?.popSubject.onNext(true)
+                    self?.popSubject.onNext(Void())
                 })
                 }, onError: { [weak self] (error) in
                     self?.hud.failureHidden(self?.errorMessage(error))

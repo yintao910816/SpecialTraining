@@ -33,6 +33,7 @@ class SetNewPwdViewModel: BaseViewModel {
             .mapResponse()
             .subscribe(onSuccess: { [weak self] (_) in
                 self?.hud.successHidden("密码设置成功")
+                self?.popSubject.onNext(Void())
             }) { [weak self] (error) in
                 self?.hud.failureHidden(self?.errorMessage(error))
         }.disposed(by: disposeBag)

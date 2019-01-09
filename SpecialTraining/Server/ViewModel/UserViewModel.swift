@@ -86,7 +86,7 @@ class LoginViewModel: BaseViewModel,VMNavigation {
 //                STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
                 
                 self?.hud.successHidden("登录成功", {
-                    self?.popSubject.onNext(true)
+                    self?.popSubject.onNext(Void())
                 })
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))

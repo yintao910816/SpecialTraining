@@ -12,18 +12,30 @@ import RxDataSources
 
 class ShoppingCartViewModel: BaseViewModel {
     
-    let datasource = Variable([SectionModel<Int ,ShopingModelAdapt>]())
+    let datasource = Variable([SectionModel<Int ,ShoppingListModel>]())
     
     override init() {
         super.init()
         
-        let section: SectionModel<Int ,ShopingModelAdapt> = SectionModel.init(model: 0,
-                                                                              items: [ShopingNameModel(),
-                                                                                      ShoppingListModel(),
-                                                                                      ShoppingListModel(),
-                                                                                      ShopingNameModel(),
-                                                                                      ShoppingListModel()])
-        datasource.value = [section]
+        let section = [SectionModel.init(model: 0,
+                                         items: [ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel.init(isLastRow: true)]),
+                       SectionModel.init(model: 1,
+                                         items: [ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel.init(isLastRow: true)]),
+                       SectionModel.init(model: 2,
+                                         items: [ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel(),
+                                                 ShoppingListModel.init(isLastRow: true)])]
+        datasource.value = section
     }
     
     func cellHeight(indexPath: IndexPath) -> CGFloat {

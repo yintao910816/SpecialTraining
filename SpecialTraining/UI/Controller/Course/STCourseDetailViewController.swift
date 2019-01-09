@@ -19,6 +19,8 @@ class STCourseDetailViewController: BaseViewController {
     private var courseAudioTB: CourseAudioTableView!
     private var courseSchoolTB: CourseSchoolTableView!
     
+    private var courseId: String = ""
+    
     @IBOutlet weak var scrollOutlet: UIScrollView!
     
     @IBOutlet weak var conentOutlet: UIButton!
@@ -135,14 +137,14 @@ class STCourseDetailViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = CourseDetailViewModel()
+        viewModel = CourseDetailViewModel.init(courseId: courseId)
         
         viewModel.splendidnessContentSource
             .asDriver()
             .drive(splendidnessContentTB.datasource)
             .disposed(by: disposeBag)
         
-        viewModel.courseTimeSource
+        viewModel.classTimeSource
             .asDriver()
             .drive(courseTimeTB.datasource)
             .disposed(by: disposeBag)
@@ -152,11 +154,14 @@ class STCourseDetailViewController: BaseViewController {
             .drive(courseAudioTB.datasource)
             .disposed(by: disposeBag)
 
-        viewModel.splendidnessContentSource
+        viewModel.relateShopSource
             .asDriver()
             .drive(courseSchoolTB.datasource)
             .disposed(by: disposeBag)
-        
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        courseId = parameters!["course_id"] as! String
     }
 }
 

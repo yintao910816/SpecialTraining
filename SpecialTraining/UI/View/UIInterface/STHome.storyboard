@@ -568,21 +568,21 @@
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCo-3x-X3h">
                                 <rect key="frame" x="0.0" y="617" width="375" height="50"/>
                                 <subviews>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-ny-j96">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mh6-ny-j96">
                                         <rect key="frame" x="15" y="10" width="31" height="30"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="30" id="XIc-2m-RIH"/>
                                             <constraint firstAttribute="width" constant="31" id="wHb-E2-Z5f"/>
                                         </constraints>
-                                        <state key="normal" title="店铺"/>
+                                        <state key="normal" image="dianpu"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myc-BF-YDb">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="myc-BF-YDb">
                                         <rect key="frame" x="70" y="10" width="31" height="30"/>
-                                        <state key="normal" title="客服"/>
+                                        <state key="normal" image="kefu"/>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aED-Z4-rZv">
+                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aED-Z4-rZv">
                                         <rect key="frame" x="124" y="10" width="31" height="30"/>
-                                        <state key="normal" title="电话"/>
+                                        <state key="normal" title="电话" image="dianhua"/>
                                     </button>
                                     <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="nLi-Pw-OTL">
                                         <rect key="frame" x="187.5" y="0.0" width="187.5" height="50"/>
@@ -921,6 +921,7 @@
     <resources>
         <image name="demandView_bg" width="640" height="960"/>
         <image name="dianhua" width="200" height="200"/>
+        <image name="dianpu" width="36" height="36"/>
         <image name="guanzhu" width="360" height="360"/>
         <image name="kefu" width="200" height="200"/>
         <image name="show_my_location" width="200" height="200"/>

@@ -53,6 +53,7 @@
                 <constraints>
                     <constraint firstItem="PRF-9X-ncd" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="7LB-ak-xXU"/>
                     <constraint firstItem="cNP-bD-AsM" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="PRF-9X-ncd" secondAttribute="trailing" priority="750" constant="10" id="7wP-g5-Ohy"/>
+                    <constraint firstItem="cNP-bD-AsM" firstAttribute="leading" relation="lessThanOrEqual" secondItem="PRF-9X-ncd" secondAttribute="trailing" priority="700" constant="50" id="RGm-mr-6ew"/>
                     <constraint firstItem="nCj-gk-nyB" firstAttribute="leading" secondItem="cNP-bD-AsM" secondAttribute="trailing" constant="10" id="SJF-gb-LnA"/>
                     <constraint firstItem="nCj-gk-nyB" firstAttribute="centerY" secondItem="H2p-sc-9uM" secondAttribute="centerY" id="jDe-QV-0g0"/>
                     <constraint firstAttribute="trailing" secondItem="5hg-zn-LPZ" secondAttribute="trailing" constant="10" id="pPg-Y2-NJn"/>
@@ -62,6 +63,12 @@
                     <constraint firstItem="5hg-zn-LPZ" firstAttribute="leading" secondItem="nCj-gk-nyB" secondAttribute="trailing" constant="10" id="z6J-zF-RGq"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="classLevelOutlet" destination="5hg-zn-LPZ" id="Af0-Vm-l3S"/>
+                <outlet property="iconOutlet" destination="PRF-9X-ncd" id="wji-He-h5M"/>
+                <outlet property="nameOutlet" destination="cNP-bD-AsM" id="xFB-YH-sXG"/>
+                <outlet property="stuTimeOutlet" destination="nCj-gk-nyB" id="8VQ-ss-yVa"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="178.56071964017991"/>
         </tableViewCell>
     </objects>

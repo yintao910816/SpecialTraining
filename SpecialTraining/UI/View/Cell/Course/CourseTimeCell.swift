@@ -12,15 +12,27 @@ import UIKit
 
 class CourseTimeCell: BaseTBCell {
 
+    @IBOutlet weak var iconOutlet: UIButton!
+    @IBOutlet weak var nameOutlet: UILabel!
+    @IBOutlet weak var stuTimeOutlet: UILabel!
+    @IBOutlet weak var classLevelOutlet: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var model: ClassTimeItemModel! {
+        didSet {
+            iconOutlet.setImage(model.teacher_pic)
+            nameOutlet.text = model.teacher_name
+            stuTimeOutlet.text = model.stuTime
+            
+            if let level = ClassLevel(rawValue: model.class_level) {
+                classLevelOutlet.text = level.levelText
+            }else {
+                classLevelOutlet.text = nil
+            }
+        }
     }
-    
 }

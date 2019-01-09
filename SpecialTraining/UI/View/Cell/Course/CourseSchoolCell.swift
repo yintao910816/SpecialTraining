@@ -12,15 +12,20 @@ import UIKit
 
 class CourseSchoolCell: BaseTBCell {
 
+    @IBOutlet weak var shopNameOutlet: UILabel!
+    @IBOutlet weak var addressOutlet: UILabel!
+    @IBOutlet weak var workTimeOutlet: UILabel!
+
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var model: RelateShopModel! {
+        didSet {
+            shopNameOutlet.text = model.shop_name
+            addressOutlet.text = model.dis + "  " + model.address
+            workTimeOutlet.text = model.work_time
+        }
     }
-    
 }

@@ -154,7 +154,7 @@ class STHomeViewController: BaseViewController {
         
         recomendColView.rx.modelSelected(NearByCourseItemModel.self)
             .subscribe(onNext: { [unowned self] model in
-                self.performSegue(withIdentifier: "courseDetailSegue", sender: nil)
+                self.performSegue(withIdentifier: "courseDetailSegue", sender: model.course_id)
             })
             .disposed(by: disposeBag)
         
@@ -169,6 +169,9 @@ class STHomeViewController: BaseViewController {
         if segue.identifier == "organizationSegue" {
             let ctrl = segue.destination as! STOrganizationViewController
             ctrl.prepare(parameters: ["agn_id": sender as! String])
+        }else if segue.identifier == "courseDetailSegue" {
+            let ctrl = segue.destination as! STCourseDetailViewController
+            ctrl.prepare(parameters: ["course_id": sender as! String])
         }
     }
     

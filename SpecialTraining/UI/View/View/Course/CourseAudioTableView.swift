@@ -13,7 +13,7 @@ class CourseAudioTableView: BaseTB {
     
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable([String]())
+    let datasource = Variable([CourseDetailMediaModel]())
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -38,11 +38,10 @@ class CourseAudioTableView: BaseTB {
     private func rxBind() {
         
         datasource.asDriver()
-            .drive(rx.items(cellIdentifier: "CourseAudioCellID", cellType: CourseAudioCell.self)) { [unowned self] row, model, cell in
-                
+            .drive(rx.items(cellIdentifier: "CourseAudioCellID", cellType: CourseAudioCell.self)) { (row, model, cell) in
+                cell.model = model
             }
             .disposed(by: disposeBag)
-        
     }
     
 }

@@ -25,6 +25,12 @@ class STSetNewPassViewController: BaseViewController {
     
     override func rxBind() {
         viewModel = SetNewPwdViewModel(tap: okOutlet.rx.tap.asDriver(), pwd: passOutlet.rx.text.orEmpty.asDriver(), code: code ?? "", phone: phone ?? "")
+        
+        viewModel.popSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.navigationController?.dismiss(animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
     override func prepare(parameters: [String : Any]?) {

@@ -14,12 +14,11 @@ import RxDataSources
 class STShoppingCartViewController: BaseViewController {
 
     @IBOutlet weak var bgColorView: UIView!
-    @IBOutlet weak var headerContentView: UIView!
     @IBOutlet weak var titleTopCns: NSLayoutConstraint!
     @IBOutlet weak var bgColorHeightCNs: NSLayoutConstraint!
     @IBOutlet weak var jiesuanOutlet: UIButton!
     
-    @IBOutlet weak var tableView: BaseTB!
+    @IBOutlet weak var collectionView: UICollectionView!
     
     private var viewModel: ShoppingCartViewModel!
     
@@ -28,7 +27,6 @@ class STShoppingCartViewController: BaseViewController {
     }
     
     override func setupUI() {
-        headerContentView.set(cornerRadius: 8, borderCorners: [.topLeft, .topRight])
         
         if UIDevice.current.isX == true {
             titleTopCns.constant = titleTopCns.constant + 44
@@ -41,35 +39,60 @@ class STShoppingCartViewController: BaseViewController {
         frame = .init(x: 0, y: 0, width: 85, height: 45)
         jiesuanOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
         
-        tableView.register(UINib.init(nibName: "ShoppingNameCell", bundle: Bundle.main), forCellReuseIdentifier: "ShoppingNameCellID")
-        tableView.register(UINib.init(nibName: "ShoppingListCell", bundle: Bundle.main), forCellReuseIdentifier: "ShoppingListCellID")
+        collectionView.register(UINib.init(nibName: "ShoppingCarCell", bundle: Bundle.main),
+                                forCellWithReuseIdentifier: "ShoppingCarCellID")
+        collectionView.register(ShopingCarTitleReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: "ShopingCarTitleReusableViewID")
+        
     }
     
     override func rxBind() {
         viewModel = ShoppingCartViewModel()
 
-        let datasource = RxTableViewSectionedReloadDataSource<SectionModel<Int, ShopingModelAdapt>>.init(configureCell: { (_, tb, indexPath, model) -> UITableViewCell in
-            if model.isShopping == true {
-                let cell = tb.dequeueReusableCell(withIdentifier: "ShoppingListCellID") as! ShoppingListCell
-                return cell
-            }
-            let cell = tb.dequeueReusableCell(withIdentifier: "ShoppingNameCellID") as! ShoppingNameCell
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<Int, ShoppingListModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
+            let cell = col.dequeueReusableCell(withReuseIdentifier: "ShoppingCarCellID", for: indexPath) as! ShoppingCarCell
+            cell.model = model
             return cell
-        })
-
+        }, configureSupplementaryView: { (_, col, identifier, indexPath) -> UICollectionReusableView in
+            if identifier == UICollectionView.elementKindSectionHeader {
+                let header = col.dequeueReusableSupplementaryView(ofKind:  UICollectionView.elementKindSectionHeader,
+                                                                  withReuseIdentifier: "ShopingCarTitleReusableViewID",
+                                                                  for: indexPath)
+                return header
+            }
+            return UICollectionReusableView()
+        }, moveItem: { (_, _, _) in
+            
+        }) { (_, indexPath) -> Bool in
+            return false
+        }
+        
         viewModel.datasource.asDriver()
-            .drive(tableView.rx.items(dataSource: datasource))
+            .drive(collectionView.rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
-     
-        tableView.rx.setDelegate(self)
+        
+        collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
-    
 }
 
-extension STShoppingCartViewController: UITableViewDelegate {
+extension STShoppingCartViewController: UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.cellHeight(indexPath: indexPath)
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
+        return .init(width: collectionView.width, height: 111)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
+        return .init(top: 0, left: 0, bottom: 10, right: 0)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
+        return 0
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: collectionView.width, height: 60)
     }
 }
+

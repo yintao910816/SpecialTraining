@@ -13,7 +13,7 @@ class CourseSchoolTableView: BaseTB {
     
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable([String]())
+    let datasource = Variable([RelateShopModel]())
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -38,8 +38,8 @@ class CourseSchoolTableView: BaseTB {
     private func rxBind() {
         
         datasource.asDriver()
-            .drive(rx.items(cellIdentifier: "CourseSchoolCellID", cellType: CourseSchoolCell.self)) { [unowned self] row, model, cell in
-                
+            .drive(rx.items(cellIdentifier: "CourseSchoolCellID", cellType: CourseSchoolCell.self)) { (row, model, cell) in
+                cell.model = model
             }
             .disposed(by: disposeBag)
         

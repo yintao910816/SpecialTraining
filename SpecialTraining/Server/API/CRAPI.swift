@@ -54,6 +54,24 @@ enum API{
     // 店铺 - 老师风采
     case shopTeachers(shop_id: String)
     
+    //MARK:
+    //MARK: 购物车
+
+    /// 课程详情
+    /// 相关校区
+    case relateShop(course_id: String)
+    /// 上课时间
+    case classTime(course_id: String)
+    /// 精彩内容/上课音频 --- type: A:上课音频 V:精彩内容
+    case courseVideoOrAudio(course_id: String, type: String)
+    /// 详情顶部内容
+    case course(id: String)
+    
+    //MARK:
+    //MARK: 购物车
+    
+    /// 提交
+//    case selectClass()
 }
 
 //MARK:
@@ -102,6 +120,16 @@ extension API: TargetType{
             return "v1/shop/shopActivity"
         case .shopTeachers(_):
             return "v1/agency/agnTeachers"
+            
+        case .relateShop(_):
+            return "v1/course/relateShop"
+        case .classTime(_):
+            return "v1/course/classTime"
+        case .courseVideoOrAudio(_, _):
+            return "v1/course/courseVideoOrAudio"
+        case .course(_):
+            return "v1/course/read"
+
         }
     }
     
@@ -159,16 +187,14 @@ extension API {
             params["code"] = code
             params["op_openid"] = op_openid
         case .nearCourse(let lat, let lng, let offset):
-//            params["lat"] = lat
-//            params["lng"] = lng
-            params["lat"] = 112.21791
-            params["lng"] = 30.356023
+            params["lat"] = userDefault.lat
+            params["lng"] = userDefault.lng
             params["offset"] = offset
         case .activityCourse(let offset):
             params["offset"] = offset
         case .agency(let lat, let lng, let offset):
-            params["lat"] = 112.21791
-            params["lng"] = 30.356023
+            params["lat"] = userDefault.lat
+            params["lng"] = userDefault.lng
             params["offset"] = offset
             
         case .agnShops(let agn_id):
@@ -186,7 +212,20 @@ extension API {
             params["shop_id"] = shop_id
         case .shopTeachers(let shop_id):
             params["agn_id"] = shop_id
+            
+        case .relateShop(let course_id):
+            params["course_id"] = course_id
+            params["lat"] = userDefault.lat
+            params["lng"] = userDefault.lng
+        case .classTime(let course_id):
+            params["course_id"] = course_id
+        case .courseVideoOrAudio(let course_id, let type):
+            params["course_id"] = course_id
+            params["type"] = type
+        case .course(let id):
+            params["id"] = id
         }
+        
         return params
     }
 }

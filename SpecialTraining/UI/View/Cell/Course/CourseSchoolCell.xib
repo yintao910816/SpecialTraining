@@ -56,6 +56,11 @@
                     <constraint firstAttribute="trailing" secondItem="h4a-H5-8lZ" secondAttribute="trailing" constant="12" id="mdL-gc-zj5"/>
                 </constraints>
             </tableViewCellContentView>
+            <connections>
+                <outlet property="addressOutlet" destination="h4a-H5-8lZ" id="LSV-h3-Wlg"/>
+                <outlet property="shopNameOutlet" destination="95O-Ef-mDu" id="0XC-UE-JjD"/>
+                <outlet property="workTimeOutlet" destination="VOh-Wx-X5h" id="AFG-16-EN2"/>
+            </connections>
             <point key="canvasLocation" x="137.59999999999999" y="99.400299850074973"/>
         </tableViewCell>
     </objects>

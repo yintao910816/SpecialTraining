@@ -90,8 +90,6 @@
 		B80B6BEA219FBD5200C33F11 /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BE9219FBD5200C33F11 /* UIView+Layer.swift */; };
 		B80B6BEE219FBF3100C33F11 /* ShoppingNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BEC219FBF3100C33F11 /* ShoppingNameCell.swift */; };
 		B80B6BEF219FBF3100C33F11 /* ShoppingNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B80B6BED219FBF3100C33F11 /* ShoppingNameCell.xib */; };
-		B80B6BF2219FC30A00C33F11 /* ShoppingListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BF0219FC30A00C33F11 /* ShoppingListCell.swift */; };
-		B80B6BF3219FC30A00C33F11 /* ShoppingListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B80B6BF1219FC30A00C33F11 /* ShoppingListCell.xib */; };
 		B80B6BF5219FC31E00C33F11 /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BF4219FC31E00C33F11 /* Shopping.swift */; };
 		B80B6BF7219FC38300C33F11 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BF6219FC38300C33F11 /* ShoppingCartViewModel.swift */; };
 		B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BF8219FE71800C33F11 /* STHelper.swift */; };
@@ -134,6 +132,14 @@
 		B81EDF7621A54D8500F9D3B0 /* STMapViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EDF7521A54D8500F9D3B0 /* STMapViewController.swift */; };
 		B81EDF7A21A5570200F9D3B0 /* mapapi.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B81EDF7921A5570200F9D3B0 /* mapapi.bundle */; };
 		B81EDF7C21A579DC00F9D3B0 /* UINavigationController+BarButtonItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81EDF7B21A579DB00F9D3B0 /* UINavigationController+BarButtonItem.swift */; };
+		B82722E721E5C10F00147397 /* ShoppingCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722E521E5C10F00147397 /* ShoppingCarCell.swift */; };
+		B82722E821E5C10F00147397 /* ShoppingCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82722E621E5C10F00147397 /* ShoppingCarCell.xib */; };
+		B82722EB21E5CBE500147397 /* ShopingCarTitleReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722E921E5CBE500147397 /* ShopingCarTitleReusableView.swift */; };
+		B82722EC21E5CBE500147397 /* ShopingCarTitleReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82722EA21E5CBE500147397 /* ShopingCarTitleReusableView.xib */; };
+		B82722EF21E5DA6100147397 /* WXApiObject.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722EE21E5DA6100147397 /* WXApiObject.swift */; };
+		B82722F121E5DA6D00147397 /* WXPayManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722F021E5DA6D00147397 /* WXPayManager.swift */; };
+		B82722F321E5E42300147397 /* CourseDetail.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722F221E5E42300147397 /* CourseDetail.swift */; };
+		B82722F521E5F24E00147397 /* STEnum.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722F421E5F24E00147397 /* STEnum.swift */; };
 		B82CEECB21CD34A8000DE904 /* README.txt in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEBC21CD34A8000DE904 /* README.txt */; };
 		B82CEECD21CD34A8000DE904 /* ShareSDKConnector.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B82CEEC021CD34A8000DE904 /* ShareSDKConnector.framework */; };
 		B82CEECE21CD34A8000DE904 /* ShareSDK.bundle in Resources */ = {isa = PBXBuildFile; fileRef = B82CEEC121CD34A8000DE904 /* ShareSDK.bundle */; };
@@ -494,8 +500,6 @@
 		B80B6BE9219FBD5200C33F11 /* UIView+Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layer.swift"; sourceTree = "<group>"; };
 		B80B6BEC219FBF3100C33F11 /* ShoppingNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingNameCell.swift; sourceTree = "<group>"; };
 		B80B6BED219FBF3100C33F11 /* ShoppingNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingNameCell.xib; sourceTree = "<group>"; };
-		B80B6BF0219FC30A00C33F11 /* ShoppingListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingListCell.swift; sourceTree = "<group>"; };
-		B80B6BF1219FC30A00C33F11 /* ShoppingListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingListCell.xib; sourceTree = "<group>"; };
 		B80B6BF4219FC31E00C33F11 /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
 		B80B6BF6219FC38300C33F11 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewModel.swift; sourceTree = "<group>"; };
 		B80B6BF8219FE71800C33F11 /* STHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STHelper.swift; sourceTree = "<group>"; };
@@ -538,6 +542,14 @@
 		B81EDF7521A54D8500F9D3B0 /* STMapViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMapViewController.swift; sourceTree = "<group>"; };
 		B81EDF7921A5570200F9D3B0 /* mapapi.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = mapapi.bundle; sourceTree = "<group>"; };
 		B81EDF7B21A579DB00F9D3B0 /* UINavigationController+BarButtonItem.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UINavigationController+BarButtonItem.swift"; sourceTree = "<group>"; };
+		B82722E521E5C10F00147397 /* ShoppingCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCarCell.swift; sourceTree = "<group>"; };
+		B82722E621E5C10F00147397 /* ShoppingCarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCarCell.xib; sourceTree = "<group>"; };
+		B82722E921E5CBE500147397 /* ShopingCarTitleReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingCarTitleReusableView.swift; sourceTree = "<group>"; };
+		B82722EA21E5CBE500147397 /* ShopingCarTitleReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShopingCarTitleReusableView.xib; sourceTree = "<group>"; };
+		B82722EE21E5DA6100147397 /* WXApiObject.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXApiObject.swift; sourceTree = "<group>"; };
+		B82722F021E5DA6D00147397 /* WXPayManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXPayManager.swift; sourceTree = "<group>"; };
+		B82722F221E5E42300147397 /* CourseDetail.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetail.swift; sourceTree = "<group>"; };
+		B82722F421E5F24E00147397 /* STEnum.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEnum.swift; sourceTree = "<group>"; };
 		B82CEEBA21CD34A8000DE904 /* WXApi.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApi.h; sourceTree = "<group>"; };
 		B82CEEBB21CD34A8000DE904 /* WXApiObject.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = WXApiObject.h; sourceTree = "<group>"; };
 		B82CEEBC21CD34A8000DE904 /* README.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = README.txt; sourceTree = "<group>"; };
@@ -936,10 +948,12 @@
 			children = (
 				B80B6BEC219FBF3100C33F11 /* ShoppingNameCell.swift */,
 				B80B6BED219FBF3100C33F11 /* ShoppingNameCell.xib */,
-				B80B6BF0219FC30A00C33F11 /* ShoppingListCell.swift */,
-				B80B6BF1219FC30A00C33F11 /* ShoppingListCell.xib */,
 				C4CBC46721C1FA0400AEDB86 /* MyScoreCell.swift */,
 				C4CBC46821C1FA0400AEDB86 /* MyScoreCell.xib */,
+				B82722E521E5C10F00147397 /* ShoppingCarCell.swift */,
+				B82722E621E5C10F00147397 /* ShoppingCarCell.xib */,
+				B82722E921E5CBE500147397 /* ShopingCarTitleReusableView.swift */,
+				B82722EA21E5CBE500147397 /* ShopingCarTitleReusableView.xib */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -1040,6 +1054,15 @@
 				B8547E1921A63F4300281554 /* STSelectedCityViewController.swift */,
 			);
 			path = Home;
+			sourceTree = "<group>";
+		};
+		B82722ED21E5DA5000147397 /* WXPay */ = {
+			isa = PBXGroup;
+			children = (
+				B82722EE21E5DA6100147397 /* WXApiObject.swift */,
+				B82722F021E5DA6D00147397 /* WXPayManager.swift */,
+			);
+			path = WXPay;
 			sourceTree = "<group>";
 		};
 		B82CEEB421CD34A8000DE904 /* Lib */ = {
@@ -1445,6 +1468,7 @@
 		B85F3341219E94B200023958 /* STHelper */ = {
 			isa = PBXGroup;
 			children = (
+				B82722ED21E5DA5000147397 /* WXPay */,
 				B82CEED521CD3552000DE904 /* UserAccountServer.swift */,
 				B81EDF7121A53C0300F9D3B0 /* BMKMap */,
 				B81EDF5E21A522B100F9D3B0 /* ImageUtls */,
@@ -1453,6 +1477,7 @@
 				B85F3342219E94B200023958 /* HttpLoadingUI.swift */,
 				B85F3343219E94B200023958 /* NoticesCenter.swift */,
 				B80B6BF8219FE71800C33F11 /* STHelper.swift */,
+				B82722F421E5F24E00147397 /* STEnum.swift */,
 			);
 			path = STHelper;
 			sourceTree = "<group>";
@@ -1493,6 +1518,7 @@
 				B8547E1D21A640E000281554 /* City.swift */,
 				6BAE0AE121CB3E700065BAD2 /* LoginModel.swift */,
 				6BAE0AEA21CB9B470065BAD2 /* WXLoginModel.swift */,
+				B82722F221E5E42300147397 /* CourseDetail.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2066,6 +2092,7 @@
 				C486959E21AFC83600249C47 /* myself_voice.gif in Resources */,
 				B8FBFA3E21A3DD9600AECB75 /* sleepya_thumb.png in Resources */,
 				B8FBFA6521A3E4D800AECB75 /* STLogin.storyboard in Resources */,
+				B82722E821E5C10F00147397 /* ShoppingCarCell.xib in Resources */,
 				B87800B621C7E40100EDCE72 /* CourseSchoolCell.xib in Resources */,
 				B8547E2221A6433C00281554 /* MineCell.xib in Resources */,
 				B82CEECE21CD34A8000DE904 /* ShareSDK.bundle in Resources */,
@@ -2081,6 +2108,7 @@
 				C4CBC46A21C1FA0400AEDB86 /* MyScoreCell.xib in Resources */,
 				B85F3375219EA01B00023958 /* LaunchScreen.storyboard in Resources */,
 				B85F33A6219EA3FE00023958 /* CourseDisplayMinuteCell.xib in Resources */,
+				B82722EC21E5CBE500147397 /* ShopingCarTitleReusableView.xib in Resources */,
 				B8FBFA2A21A3DD9600AECB75 /* cza_thumb.png in Resources */,
 				B87A94E221A820F4003E2D21 /* PhysicalStoreCell.xib in Resources */,
 				B8FBFA2321A3DD9600AECB75 /* shamea_thumb.png in Resources */,
@@ -2120,7 +2148,6 @@
 				B85F33B4219EB0EC00023958 /* HomeHeaderOptimizingView.xib in Resources */,
 				B8FBFA5521A3DD9600AECB75 /* hatea_thumb.png in Resources */,
 				B8FBFA4F21A3DD9600AECB75 /* sb_thumb.png in Resources */,
-				B80B6BF3219FC30A00C33F11 /* ShoppingListCell.xib in Resources */,
 				B8FBFA4A21A3DD9600AECB75 /* crazya_thumb.png in Resources */,
 				B81E90BE21A3C57D000754E3 /* ChatLeftView.xib in Resources */,
 				C408422421B54A1A00C491A8 /* STMessage.storyboard in Resources */,
@@ -2286,6 +2313,7 @@
 				B810F48B21B97859005918B9 /* STOpenAccountViewController.swift in Sources */,
 				B85F33CD219EBAB100023958 /* Single+ModelMapper.swift in Sources */,
 				B803C3D121BD775C004C97DB /* PublishChoseOrganizationViewModel.swift in Sources */,
+				B82722EB21E5CBE500147397 /* ShopingCarTitleReusableView.swift in Sources */,
 				B85F33C3219EB94100023958 /* RefreshServer.swift in Sources */,
 				6B0754BC21B1166500B36740 /* STMineRecomendViewController.swift in Sources */,
 				6BAE0AEB21CB9B470065BAD2 /* WXLoginModel.swift in Sources */,
@@ -2306,6 +2334,7 @@
 				B81EDF6521A522B100F9D3B0 /* ImageRx.swift in Sources */,
 				B87800AE21C7E1EB00EDCE72 /* CourseTimeTableView.swift in Sources */,
 				6BF7B94621BA633600BE1E4A /* STMineCollectionViewController.swift in Sources */,
+				B82722F521E5F24E00147397 /* STEnum.swift in Sources */,
 				B85F33A9219EAB8900023958 /* HomeHeaderCarouselView.swift in Sources */,
 				B81EDF6821A52F4700F9D3B0 /* ChatAudoLeftView.swift in Sources */,
 				C45AAE5221B6A13500692D7D /* UserVideosView.swift in Sources */,
@@ -2339,6 +2368,7 @@
 				B85F33DF219F1D0300023958 /* BaseTB.swift in Sources */,
 				B85F332F219E913500023958 /* STAppDelegate.swift in Sources */,
 				B83BA1F621BC0F0C00496AFE /* AVCaptureSessionManager.swift in Sources */,
+				B82722F321E5E42300147397 /* CourseDetail.swift in Sources */,
 				B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */,
 				B81E90B721A3B2CE000754E3 /* UserDefaults+Cache.swift in Sources */,
 				6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */,
@@ -2442,7 +2472,6 @@
 				B81EDF5321A4FEBE00F9D3B0 /* Conversation.swift in Sources */,
 				B8FBFA1C21A3DD9600AECB75 /* EmojiInputProtocol.swift in Sources */,
 				B87A94D821A81FE1003E2D21 /* PhysicalStoreTableView.swift in Sources */,
-				B80B6BF2219FC30A00C33F11 /* ShoppingListCell.swift in Sources */,
 				B844477D21B825AE00808F5A /* BaseTableViewController.swift in Sources */,
 				B8A4661921D27B9A0022146C /* ShopViewModel.swift in Sources */,
 				B85F3357219E94D600023958 /* TYHUD.swift in Sources */,
@@ -2452,6 +2481,7 @@
 				B8350AAA21A0FDE70020A6A6 /* UIImage+Extension.swift in Sources */,
 				B844477F21B829D200808F5A /* STTeacherPrepareViewController.swift in Sources */,
 				6B593CA021B12E9700D764E6 /* MineCustomCell.swift in Sources */,
+				B82722EF21E5DA6100147397 /* WXApiObject.swift in Sources */,
 				B85F3340219E944600023958 /* FileManager+Extension.swift in Sources */,
 				B88F8CA821C16C3E0064C1CF /* STSetNewPassViewController.swift in Sources */,
 				6B280D6121CCE08000C5DEED /* STMineWithdrawAccountViewController.swift in Sources */,
@@ -2478,6 +2508,7 @@
 				6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */,
 				B85F337F219EA17100023958 /* CarouselView.swift in Sources */,
 				6BAE0ADA21CA2CCA0065BAD2 /* SendMessageViewModel.swift in Sources */,
+				B82722E721E5C10F00147397 /* ShoppingCarCell.swift in Sources */,
 				B87F8F8F21A29DCF00DE9DC1 /* AppNotifications.swift in Sources */,
 				B85F33C1219EB94100023958 /* BaseViewModel.swift in Sources */,
 				B85F33B0219EB07700023958 /* UIView+XIB.swift in Sources */,
@@ -2509,6 +2540,7 @@
 				B85F3326219E902A00023958 /* STTabBarController.swift in Sources */,
 				6BAE0AE921CB906B0065BAD2 /* Validate.swift in Sources */,
 				B87800B521C7E40100EDCE72 /* CourseSchoolCell.swift in Sources */,
+				B82722F121E5DA6D00147397 /* WXPayManager.swift in Sources */,
 				B8FBFA2121A3DD9600AECB75 /* EmojTextAttachment.swift in Sources */,
 				B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */,
 				B80B6BFD219FEE1100C33F11 /* VideoCell.swift in Sources */,

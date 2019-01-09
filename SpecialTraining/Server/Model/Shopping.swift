@@ -25,6 +25,14 @@ class ShopingNameModel: HJModel, ShopingModelAdapt {
 
 class ShoppingListModel: HJModel, ShopingModelAdapt {
     
+    var isLastRow: Bool = false
+    
+    convenience init(isLastRow: Bool) {
+        self.init()
+        
+        self.isLastRow = isLastRow
+    }
+    
     var height: CGFloat {
         get {
             return 110.0

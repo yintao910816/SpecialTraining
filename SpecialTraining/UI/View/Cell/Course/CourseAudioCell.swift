@@ -15,15 +15,16 @@ import UIKit
 
 class CourseAudioCell: BaseTBCell {
 
+    @IBOutlet weak var titleOutlet: UILabel!
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var model: CourseDetailMediaModel! {
+        didSet {
+            titleOutlet.text = model.res_title
+        }
     }
-    
+
 }

@@ -12,11 +12,9 @@ import RxDataSources
 
 class CourseTimeTableView: BaseTB {
     
-    private let titles = ["    初级（适合人群，有无基础）", "    高级（适合人群，有无基础）"]
-    
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable([SectionModel<Int, String>]())
+    let datasource = Variable([SectionModel<String, ClassTimeItemModel>]())
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: .grouped)
@@ -40,8 +38,9 @@ class CourseTimeTableView: BaseTB {
     
     private func rxBind() {
         
-        let dataSignal = RxTableViewSectionedReloadDataSource<SectionModel<Int, String>>.init(configureCell: { (_, tb, indexPath, model) -> UITableViewCell in
+        let dataSignal = RxTableViewSectionedReloadDataSource<SectionModel<String, ClassTimeItemModel>>.init(configureCell: { (_, tb, indexPath, model) -> UITableViewCell in
             let cell = tb.dequeueReusableCell(withIdentifier: "CourseTimeCellID") as! CourseTimeCell
+            cell.model = model
             return cell
         })
 
@@ -60,7 +59,7 @@ extension CourseTimeTableView: UITableViewDelegate {
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
         let title = UILabel.init()
         title.backgroundColor = RGB(242, 242, 242, 242)
-        let text = titles[section]
+        let text = datasource.value[section].model
         title.attributedText = text.attributed(NSRange.init(location: 6, length: text.count - 6),
                                                RGB(47, 171, 213), UIFont.systemFont(ofSize: 13))
         title.font = UIFont.systemFont(ofSize: 15)
