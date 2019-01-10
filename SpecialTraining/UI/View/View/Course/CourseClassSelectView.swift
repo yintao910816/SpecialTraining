@@ -57,8 +57,8 @@ class CourseClassSelectView: BaseFilesOwner {
         layout.minimumLineSpacing = 25
         layout.minimumInteritemSpacing = 5
         layout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
-        let w =  (contentView.width - layout.minimumInteritemSpacing * 2 - layout.sectionInset.left - layout.sectionInset.right) / 3.0
-        layout.itemSize = .init(width:w, height: 28)
+        let w =  (contentView.width - layout.minimumInteritemSpacing * 2 - layout.sectionInset.left - layout.sectionInset.right)
+        layout.itemSize = .init(width:w / 3.0, height: 28)
         
         collectView.collectionViewLayout = layout
         

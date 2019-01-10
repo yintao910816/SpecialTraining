@@ -8,7 +8,7 @@
 
 import Foundation
 
-class PayReq {
+class PayReq: BaseReq {
     /** 商家向财付通申请的商家id */
     var partnerId: String = ""
     /** 预支付订单 */
@@ -21,6 +21,17 @@ class PayReq {
     var package: String = "Sign=WXPay"
     /** 商家根据微信开放平台文档对数据做的签名 */
     var sign: String = ""
+    
+    init(model: WchatPayModel) {
+        super.init()
+        
+        partnerId = model.partnerId
+        prepayId = model.prepayId
+        nonceStr = model.nonceStr
+        timeStamp = model.timeStamp
+        package = model.package
+        sign    = model.sign
+    }
 }
 
 /**

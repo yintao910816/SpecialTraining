@@ -70,6 +70,8 @@ enum API{
     case selectClass(course_id: String)
     /// 提交订单
     case submitOrder(params: [String: Any])
+    /// 微信支付统一下单 api.youpeixunjiaoyu.com/v1/pay/wxPay?order_number=DL2437140294456282&real_amount=3560
+    case wxPay(order_number: String, real_amount: String)
     
     //MARK:
     //MARK: 购物车
@@ -138,16 +140,25 @@ extension API: TargetType{
         
         case .submitOrder(_):
             return "v1/order/submitOrder"
+        case .wxPay(_, _):
+            return "v1/pay/wxPay"
         }
     }
     
     var baseURL: URL{ return APIAssistance.baseURL(API: self) }
     
     var task: Task {
-        if let _parameters = parameters {
-            return .requestParameters(parameters: _parameters, encoding: URLEncoding.default)
+        switch self {
+        case .submitOrder(let params):
+            let jsonData = try? JSONSerialization.data(withJSONObject: params, options: [])
+            PrintLog("提交订单参数：\(try! JSONSerialization.jsonObject(with: jsonData!, options: []))")
+            return .requestData(jsonData ?? Data())
+        default:
+            if let _parameters = parameters {
+                return .requestParameters(parameters: _parameters, encoding: URLEncoding.default)
+            }
+            return .requestPlain
         }
-        return .requestPlain
     }
     
     var method: Moya.Method { return APIAssistance.mothed(API: self) }
@@ -235,8 +246,12 @@ extension API {
         case .selectClass(let course_id):
             params["course_id"] = course_id
             
-        case .submitOrder(let subParams):
-            params = subParams
+        case .wxPay(let order_number, let real_amount):
+            params["order_number"] = order_number
+            params["real_amount"]  = real_amount
+
+        default:
+            break
         }
         
         return params

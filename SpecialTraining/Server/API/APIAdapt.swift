@@ -76,7 +76,8 @@ struct APIAssistance {
         switch API {
         case .register(_, _, _),
              .login(_, _, _),
-             .submitOrder(_):
+             .submitOrder(_),
+             .wxPay(_, _):
             return .post
         default:
             return .get

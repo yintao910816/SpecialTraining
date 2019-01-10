@@ -15,6 +15,8 @@ class PayOrderViewModel: BaseViewModel {
     private var shopId: String!
     private var payType: PayType = .wchatPay
     
+    private let wxPayManager = WXPayManager()
+    
     init(input: (model: CourseClassModel, shopId: String, payType: PayType),
          tap: Driver<Void>) {
         super.init()
@@ -37,36 +39,33 @@ class PayOrderViewModel: BaseViewModel {
     }
     
     private func submitOrder() {
+//        wxPayManager.startWchatPay(model: model, shopId: shopId)
         
-        STProvider.request(.submitOrder(params: configParams()))
-            .map(model: OrderModel.self)
-            .subscribe(onSuccess: { orderModel in
-                self.hud.noticeHidden()
-                print(orderModel)
-            }) { [weak self] error in
-                self?.hud.failureHidden(self?.errorMessage(error))
+        STProvider.request(.submitOrder(params: configParams())).map(model: OrderModel.self)
+            .asObservable().concatMap{ orderModel in
+                STProvider.request(.wxPay(order_number: orderModel.order_number, real_amount: orderModel.real_amount))
+                    .map(model: WchatPayModel.self)
             }
+            .subscribe(onNext: { [weak self] model in
+                self?.hud.noticeHidden()
+
+
+            }, onError: { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+            })
             .disposed(by: disposeBag)
-        
     }
     
     private func configParams() ->[String: Any] {
+        let classInfo: [String: Any] = ["shop_id": shopId!,
+                         "class_id": "\(model.class_id)",
+            //                                                    "class_num": "\(model.total)",
+                         "class_num": "1",
+                         "total_money": model.price]
         let params: [String : Any] = ["member_id": userDefault.uid,
                                       "order_total_money": model.price,
-                                      "classInfo": ["shop_id": shopId!,
-                                                    "class_id": "\(model.class_id)",
-                                                    "class_num": "\(model.total)",
-                                                    "total_money": model.price]]
-//        let p: NSDictionary = ["member_id": userDefault.uid,
-//                               "order_total_money": model.price,
-//                               "classInfo": ["shop_id": shopId!,
-//                                             "class_id": "\(model.class_id)"],
-//                               "class_num": "\(model.total)",
-//            "total_money": model.price]
-
+                                      "classInfo": [classInfo]]
         
-        
-        PrintLog(params)
         return params
     }
 }
