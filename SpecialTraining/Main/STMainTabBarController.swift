@@ -34,9 +34,11 @@ class STMainTabBarController: UITabBarController {
         }
         
         let firstButton = UIButton.init(type: .custom)
-        firstButton.setImage(UIImage.init(named: "demandView_bg"), for: .normal)
+        firstButton.setImage(UIImage.init(named: "home_tab_icon"), for: .normal)
         firstButton.imageView?.contentMode = .scaleAspectFill
-        firstButton.frame = .init(x: 0, y: 0, width: PPScreenW / 5.0, height: 49)
+        
+        let x = ((PPScreenW / CGFloat(rootCtrlIds.count)) - 45)/2.0
+        firstButton.frame = .init(x: x, y: 2, width: 45, height: 45)
         tabBar.addSubview(firstButton)
         tabBar.bringSubviewToFront(firstButton)
         

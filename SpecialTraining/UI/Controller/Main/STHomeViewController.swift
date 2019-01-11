@@ -14,10 +14,12 @@ class STHomeViewController: BaseViewController {
     @IBOutlet weak var scrollOutlet: UIScrollView!
     @IBOutlet weak var topView: UIView!
     
+    @IBOutlet weak var topNavHeightCns: NSLayoutConstraint!
     @IBOutlet weak var nearByCourseOutlet: UIButton!
     @IBOutlet weak var expericeOutlet: UIButton!
     @IBOutlet weak var recommnedOrganizationOutlet: UIButton!
-
+    @IBOutlet weak var mapOutlet: UIButton!
+    
     private var recomendColView: HomeRecommendCollectionView!
     private var organizationColView: HomeOrganizationTableView!
     private var expericeColView: HomeExpericeCollectionView!
@@ -32,6 +34,10 @@ class STHomeViewController: BaseViewController {
         }else if sender == recommnedOrganizationOutlet {
             set(button: recommnedOrganizationOutlet, offsetX: scrollOutlet.width * 2)
         }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     private func set(button: UIButton, offsetX: CGFloat) {
@@ -74,10 +80,20 @@ class STHomeViewController: BaseViewController {
     }
 
     override func setupUI() {
+        if UIDevice.current.isX {
+            topNavHeightCns.constant += 24
+        }
+        
         set(button: nearByCourseOutlet, offsetX: 0)
 
-        addBarItem(normal: "nav_map_icon", right: true).asDriver()
-            .drive(onNext: { [unowned self] in
+//        addBarItem(normal: "nav_map_icon", right: true).asDriver()
+//            .drive(onNext: { [unowned self] in
+//                self.performSegue(withIdentifier: "mapSegue", sender: nil)
+//            })
+//            .disposed(by: disposeBag)
+        
+        mapOutlet.rx.tap.asDriver()
+            .drive(onNext: { [unowned self] _ in
                 self.performSegue(withIdentifier: "mapSegue", sender: nil)
             })
             .disposed(by: disposeBag)

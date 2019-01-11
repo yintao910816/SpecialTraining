@@ -27,6 +27,8 @@ class ShoppingCarCell: UICollectionViewCell {
             // 选择
             sender.isSelected = !sender.isSelected
             model.isSelected = !model.isSelected
+            
+            delegate?.selecte(model: model)
         case 201:
             // 删除
             delegate?.delShop(model: model)
@@ -76,4 +78,6 @@ class ShoppingCarCell: UICollectionViewCell {
 protocol ShoppingCarCellActions: class {
     
     func delShop(model: CourseClassModel)
+    
+    func selecte(model: CourseClassModel)
 }

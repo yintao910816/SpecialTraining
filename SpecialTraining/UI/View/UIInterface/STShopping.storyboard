@@ -47,8 +47,8 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="共有2件商品" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfn-NY-Hfm">
-                                        <rect key="frame" x="25" y="53" width="91" height="19.5"/>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="购物车空空如也" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yfn-NY-Hfm">
+                                        <rect key="frame" x="25" y="53" width="114.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -171,6 +171,7 @@
                         <outlet property="jiesuanOutlet" destination="qla-Fj-1Nx" id="KbJ-UT-C6t"/>
                         <outlet property="priceOutlet" destination="bjb-x5-1j6" id="jxm-44-9rE"/>
                         <outlet property="titleTopCns" destination="U8h-nb-KDh" id="RfH-iW-HF1"/>
+                        <outlet property="totleShopCountOutlet" destination="yfn-NY-Hfm" id="t6n-RR-0UE"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlf-Sp-BXw" userLabel="First Responder" sceneMemberID="firstResponder"/>

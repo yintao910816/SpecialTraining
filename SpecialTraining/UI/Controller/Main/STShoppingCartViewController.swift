@@ -17,6 +17,7 @@ class STShoppingCartViewController: BaseViewController {
     @IBOutlet weak var titleTopCns: NSLayoutConstraint!
     @IBOutlet weak var bgColorHeightCNs: NSLayoutConstraint!
     @IBOutlet weak var jiesuanOutlet: UIButton!
+    @IBOutlet weak var totleShopCountOutlet: UILabel!
     
     @IBOutlet weak var priceOutlet: UILabel!
     @IBOutlet weak var allChoseOutlet: UIButton!
@@ -53,6 +54,14 @@ class STShoppingCartViewController: BaseViewController {
     
     override func rxBind() {
         viewModel = ShoppingCartViewModel.init(tap: jiesuanOutlet.rx.tap.asDriver())
+
+        viewModel.totlePriceObser.asDriver()
+            .drive(priceOutlet.rx.text)
+            .disposed(by: disposeBag)
+        
+        viewModel.totlePriceObser.asDriver()
+            .drive(priceOutlet.rx.text)
+            .disposed(by: disposeBag)
 
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<SectionCourseClassModel, CourseClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "ShoppingCarCellID", for: indexPath) as! ShoppingCarCell
@@ -114,6 +123,9 @@ extension STShoppingCartViewController: ShoppingCarCellActions {
         viewModel.delShopingSubject.onNext(model)
     }
     
+    func selecte(model: CourseClassModel) {
+        
+    }
 }
 
 extension STShoppingCartViewController: ShopingCarTitleActions {
