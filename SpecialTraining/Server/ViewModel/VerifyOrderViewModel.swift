@@ -14,8 +14,12 @@ class VerifyOrderViewModel: BaseViewModel {
     
     let datasource = Variable([SectionModel<CourseClassModel, CourseClassModel>]())
     
+    private var orderModels: [CourseClassModel]!
+    
     init(models: [CourseClassModel]) {
         super.init()
+        
+        orderModels = models
         
         var tempDatas = [SectionModel<CourseClassModel, CourseClassModel>]()
         
@@ -29,8 +33,23 @@ class VerifyOrderViewModel: BaseViewModel {
                 tempDatas.append(SectionModel.init(model: model, items: tempModels))
             }
         }
-//        tempDatas.last?.items.last?.isLasstRow = true
         datasource.value = tempDatas
 
+    }
+    
+    var totlePrice: NSAttributedString {
+        get {
+            var price: Double = 0
+            for model in orderModels {
+                price += (Double(model.price) ?? 0)
+            }
+            
+            let priceText = "合计金额：￥\(price)"
+            
+            return priceText.attributed(NSRange.init(location: 5,
+                                                     length: priceText.count - 5),
+                                        RGB(236, 108, 54),
+                                        nil)
+        }
     }
 }

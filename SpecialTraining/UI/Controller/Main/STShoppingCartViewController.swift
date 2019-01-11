@@ -18,6 +18,10 @@ class STShoppingCartViewController: BaseViewController {
     @IBOutlet weak var bgColorHeightCNs: NSLayoutConstraint!
     @IBOutlet weak var jiesuanOutlet: UIButton!
     
+    @IBOutlet weak var priceOutlet: UILabel!
+    @IBOutlet weak var allChoseOutlet: UIButton!
+    @IBOutlet weak var allChoseZRemindOutlet: UILabel!
+    
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var viewModel: ShoppingCartViewModel!

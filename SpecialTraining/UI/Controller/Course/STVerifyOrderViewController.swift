@@ -13,6 +13,7 @@ import RxSwift
 class STVerifyOrderViewController: BaseViewController {
 
     @IBOutlet weak var okOutlet: UIButton!
+    @IBOutlet weak var totlePriceOutlet: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
     // 需要购买的商品
@@ -37,6 +38,8 @@ class STVerifyOrderViewController: BaseViewController {
     
     override func rxBind() {
         viewModel = VerifyOrderViewModel.init(models: models)
+        
+        totlePriceOutlet.attributedText = viewModel.totlePrice
         
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<CourseClassModel, CourseClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "ShoppingVerifyCellID", for: indexPath) as! ShoppingVerifyCell

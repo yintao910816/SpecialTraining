@@ -89,7 +89,7 @@
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥90" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bjb-x5-1j6">
                                         <rect key="frame" x="241" y="14" width="32" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="textColor" red="0.96078431369999995" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        <color key="textColor" red="0.92549019607843142" green="0.42352941176470588" blue="0.21176470588235294" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="qla-Fj-1Nx">
@@ -99,7 +99,7 @@
                                             <constraint firstAttribute="width" constant="85" id="7eY-4H-2oC"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="结算(0)">
+                                        <state key="normal" title="结算">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
                                         <userDefinedRuntimeAttributes>
@@ -163,10 +163,13 @@
                     <tabBarItem key="tabBarItem" title="" id="r8K-27-xcr"/>
                     <navigationItem key="navigationItem" id="8H0-RP-cYL"/>
                     <connections>
+                        <outlet property="allChoseOutlet" destination="vLu-mV-PN1" id="ufa-mB-ehf"/>
+                        <outlet property="allChoseZRemindOutlet" destination="6Oc-sd-E4Y" id="w0g-Hc-Vfh"/>
                         <outlet property="bgColorHeightCNs" destination="lmp-ge-eu1" id="Vmf-bf-YXx"/>
                         <outlet property="bgColorView" destination="fya-po-Rsd" id="UgH-yy-7Oo"/>
                         <outlet property="collectionView" destination="cTl-p7-x6v" id="8Nf-gc-EKe"/>
                         <outlet property="jiesuanOutlet" destination="qla-Fj-1Nx" id="KbJ-UT-C6t"/>
+                        <outlet property="priceOutlet" destination="bjb-x5-1j6" id="jxm-44-9rE"/>
                         <outlet property="titleTopCns" destination="U8h-nb-KDh" id="RfH-iW-HF1"/>
                     </connections>
                 </viewController>

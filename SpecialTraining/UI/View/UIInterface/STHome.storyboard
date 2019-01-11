@@ -765,6 +765,7 @@
                     <connections>
                         <outlet property="collectionView" destination="Adv-HZ-Qqy" id="hrG-Eh-Luf"/>
                         <outlet property="okOutlet" destination="oFf-Lm-8mW" id="REc-sb-TzX"/>
+                        <outlet property="totlePriceOutlet" destination="OZ8-W2-PNL" id="fvc-rl-Fa9"/>
                         <segue destination="W2T-Vt-lyA" kind="show" identifier="gotoPaySegue" id="I9T-Gf-dDc"/>
                     </connections>
                 </viewController>
