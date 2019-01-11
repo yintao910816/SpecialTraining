@@ -140,6 +140,8 @@ class CourseClassModel: HJModel {
     var class_level: String = ""
     var createtime: String = ""
     var teacher_level: String = ""
+    /// 商品总数
+    var count: Int = 1
     
     var isSelected: Bool = false
     var isLasstRow: Bool = false

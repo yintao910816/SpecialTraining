@@ -12,12 +12,18 @@ import RxDataSources
 
 class ShoppingCartViewModel: BaseViewModel {
     
+    let delShopingSubject = PublishSubject<CourseClassModel>()
+    
     let datasource = Variable([SectionModel<String ,CourseClassModel>]())
     
     override init() {
         super.init()
         
         prepareData()
+        
+        delShopingSubject
+            .subscribe(onNext: { [unowned self] model in self.dealDel(model: model) })
+            .disposed(by: disposeBag)
     }
     
 //    func cellHeight(indexPath: IndexPath) -> CGFloat {
@@ -44,5 +50,18 @@ class ShoppingCartViewModel: BaseViewModel {
             }
             .bind(to: datasource)
             .disposed(by: disposeBag)
+    }
+    
+    private func dealDel(model: CourseClassModel) {
+        var idx = 0
+        var tempData = [SectionModel<String ,CourseClassModel>]()
+        for  i in 0..<section.items.count {
+            for j in 0..<section.items.count {
+                if section.items[j].class_id == model.class_id {
+                    
+                    break
+                }
+            }
+        }
     }
 }

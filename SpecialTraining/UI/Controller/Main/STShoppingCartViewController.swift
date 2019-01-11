@@ -102,3 +102,10 @@ extension STShoppingCartViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
+extension STShoppingCartViewController: ShoppingCarCellActions {
+    
+    func delShop(model: CourseClassModel) {
+        
+    }
+    
+}

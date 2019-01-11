@@ -19,6 +19,8 @@ class ShoppingCarCell: UICollectionViewCell {
     @IBOutlet weak var decreaseOutlet: UIButton!
     @IBOutlet weak var addOutlet: UIButton!
     
+    weak var delegate: ShoppingCarCellActions?
+    
     @IBAction func actions(_ sender: UIButton) {
         switch sender.tag {
         case 200:
@@ -27,16 +29,25 @@ class ShoppingCarCell: UICollectionViewCell {
             model.isSelected = !model.isSelected
         case 201:
             // 删除
-            break
+            delegate?.delShop(model: model)
         case 202:
             // -
-            break
+            setCount(isAdd: false)
         case 203:
             // +
-            break
+            setCount(isAdd: true)
         default:
             break
         }
+    }
+    
+    private func setCount(isAdd: Bool) {
+        if isAdd == true {
+            model.count += 1
+        }else {
+            model.count = model.count == 1 ? 1 : model.count - 1
+        }
+        countOutlet.text = "\(model.count)"
     }
     
     override func awakeFromNib() {
@@ -51,6 +62,7 @@ class ShoppingCarCell: UICollectionViewCell {
             titleOutlet.text = model.class_name
             desOutlet.text = model.label
             priceOutlet.text = model.price
+            countOutlet.text = "\(model.count)"
             if model.isLasstRow == true {
                 set(cornerRadius: 6, borderCorners: [.bottomLeft, .bottomRight])
             }else {
@@ -60,7 +72,7 @@ class ShoppingCarCell: UICollectionViewCell {
     }
 }
 
-protocol CellActions {
+protocol ShoppingCarCellActions: class {
     
-    func delShop(model: CourseClassModel) 
+    func delShop(model: CourseClassModel)
 }
