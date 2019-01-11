@@ -88,8 +88,6 @@
 		B80B6BE1219FA66000C33F11 /* OrganizationHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BE0219FA66000C33F11 /* OrganizationHeaderView.swift */; };
 		B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BE7219FB00800C33F11 /* CAGradientLayer+Gradient.swift */; };
 		B80B6BEA219FBD5200C33F11 /* UIView+Layer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BE9219FBD5200C33F11 /* UIView+Layer.swift */; };
-		B80B6BEE219FBF3100C33F11 /* ShoppingNameCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BEC219FBF3100C33F11 /* ShoppingNameCell.swift */; };
-		B80B6BEF219FBF3100C33F11 /* ShoppingNameCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B80B6BED219FBF3100C33F11 /* ShoppingNameCell.xib */; };
 		B80B6BF5219FC31E00C33F11 /* Shopping.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BF4219FC31E00C33F11 /* Shopping.swift */; };
 		B80B6BF7219FC38300C33F11 /* ShoppingCartViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BF6219FC38300C33F11 /* ShoppingCartViewModel.swift */; };
 		B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6BF8219FE71800C33F11 /* STHelper.swift */; };
@@ -431,6 +429,10 @@
 		C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */; };
 		C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */; };
 		C4E50ABA21E72AFF00DFDCB1 /* libWeChatSDK.a in Frameworks */ = {isa = PBXBuildFile; fileRef = C4E50AB921E72AFF00DFDCB1 /* libWeChatSDK.a */; };
+		C4F9AB0D21E864B500140A93 /* ShoppingVerifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9AB0B21E864B500140A93 /* ShoppingVerifyCell.swift */; };
+		C4F9AB0E21E864B500140A93 /* ShoppingVerifyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F9AB0C21E864B500140A93 /* ShoppingVerifyCell.xib */; };
+		C4F9AB1121E8653C00140A93 /* ShoppingVerifyReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9AB0F21E8653C00140A93 /* ShoppingVerifyReusableView.swift */; };
+		C4F9AB1221E8653C00140A93 /* ShoppingVerifyReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F9AB1021E8653C00140A93 /* ShoppingVerifyReusableView.xib */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -515,8 +517,6 @@
 		B80B6BE0219FA66000C33F11 /* OrganizationHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationHeaderView.swift; sourceTree = "<group>"; };
 		B80B6BE7219FB00800C33F11 /* CAGradientLayer+Gradient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "CAGradientLayer+Gradient.swift"; sourceTree = "<group>"; };
 		B80B6BE9219FBD5200C33F11 /* UIView+Layer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+Layer.swift"; sourceTree = "<group>"; };
-		B80B6BEC219FBF3100C33F11 /* ShoppingNameCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingNameCell.swift; sourceTree = "<group>"; };
-		B80B6BED219FBF3100C33F11 /* ShoppingNameCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingNameCell.xib; sourceTree = "<group>"; };
 		B80B6BF4219FC31E00C33F11 /* Shopping.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shopping.swift; sourceTree = "<group>"; };
 		B80B6BF6219FC38300C33F11 /* ShoppingCartViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCartViewModel.swift; sourceTree = "<group>"; };
 		B80B6BF8219FE71800C33F11 /* STHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STHelper.swift; sourceTree = "<group>"; };
@@ -869,6 +869,10 @@
 		C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderExperienceView.swift; sourceTree = "<group>"; };
 		C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderExperienceView.xib; sourceTree = "<group>"; };
 		C4E50AB921E72AFF00DFDCB1 /* libWeChatSDK.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = libWeChatSDK.a; sourceTree = "<group>"; };
+		C4F9AB0B21E864B500140A93 /* ShoppingVerifyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVerifyCell.swift; sourceTree = "<group>"; };
+		C4F9AB0C21E864B500140A93 /* ShoppingVerifyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingVerifyCell.xib; sourceTree = "<group>"; };
+		C4F9AB0F21E8653C00140A93 /* ShoppingVerifyReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVerifyReusableView.swift; sourceTree = "<group>"; };
+		C4F9AB1021E8653C00140A93 /* ShoppingVerifyReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingVerifyReusableView.xib; sourceTree = "<group>"; };
 		CC1B4562EEFCF6801EEBF281 /* Pods_SpecialTraining.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SpecialTraining.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E3F58B317D84214AFDC7E7C4 /* Pods-SpecialTraining.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SpecialTraining.debug.xcconfig"; path = "Pods/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -981,14 +985,16 @@
 		B80B6BEB219FBE8E00C33F11 /* ShoppingCart */ = {
 			isa = PBXGroup;
 			children = (
-				B80B6BEC219FBF3100C33F11 /* ShoppingNameCell.swift */,
-				B80B6BED219FBF3100C33F11 /* ShoppingNameCell.xib */,
 				C4CBC46721C1FA0400AEDB86 /* MyScoreCell.swift */,
 				C4CBC46821C1FA0400AEDB86 /* MyScoreCell.xib */,
 				B82722E521E5C10F00147397 /* ShoppingCarCell.swift */,
 				B82722E621E5C10F00147397 /* ShoppingCarCell.xib */,
 				B82722E921E5CBE500147397 /* ShopingCarTitleReusableView.swift */,
 				B82722EA21E5CBE500147397 /* ShopingCarTitleReusableView.xib */,
+				C4F9AB0B21E864B500140A93 /* ShoppingVerifyCell.swift */,
+				C4F9AB0C21E864B500140A93 /* ShoppingVerifyCell.xib */,
+				C4F9AB0F21E8653C00140A93 /* ShoppingVerifyReusableView.swift */,
+				C4F9AB1021E8653C00140A93 /* ShoppingVerifyReusableView.xib */,
 			);
 			path = ShoppingCart;
 			sourceTree = "<group>";
@@ -2164,7 +2170,6 @@
 				B87800B621C7E40100EDCE72 /* CourseSchoolCell.xib in Resources */,
 				B8547E2221A6433C00281554 /* MineCell.xib in Resources */,
 				B82CEECE21CD34A8000DE904 /* ShareSDK.bundle in Resources */,
-				B80B6BEF219FBF3100C33F11 /* ShoppingNameCell.xib in Resources */,
 				B8FBFA4221A3DD9600AECB75 /* gza_thumb.png in Resources */,
 				B8FBFA2C21A3DD9600AECB75 /* z2_thumb.png in Resources */,
 				B8FBFA3521A3DD9600AECB75 /* sada_thumb.png in Resources */,
@@ -2259,6 +2264,7 @@
 				B8FBFA5921A3DD9600AECB75 /* EmojiSoruce.plist in Resources */,
 				B81EDF6E21A5324700F9D3B0 /* ChatAudoRightView.xib in Resources */,
 				C47356E121AEBA6E000E24A5 /* chatBar_recordSelectedBg@2x.png in Resources */,
+				C4F9AB0E21E864B500140A93 /* ShoppingVerifyCell.xib in Resources */,
 				6BF7B94F21BA66C200BE1E4A /* MineCollectionCell.xib in Resources */,
 				B8FBFA3721A3DD9600AECB75 /* bs2_thumb.png in Resources */,
 				B8FBFA4121A3DD9600AECB75 /* x_thumb.png in Resources */,
@@ -2274,6 +2280,7 @@
 				B8FBFA4421A3DD9600AECB75 /* sad_thumb.png in Resources */,
 				B8FBFA5F21A3E03B00AECB75 /* Resources.bundle in Resources */,
 				B81EDF5921A50D1400F9D3B0 /* ChatImageLeftView.xib in Resources */,
+				C4F9AB1221E8653C00140A93 /* ShoppingVerifyReusableView.xib in Resources */,
 				C45AAE5621B6A15200692D7D /* UserVideosCell.xib in Resources */,
 				6B280D6F21CCEEF700C5DEED /* ConfirmBtnCell.xib in Resources */,
 				B8FBFA4921A3DD9600AECB75 /* cool_thumb.png in Resources */,
@@ -2409,6 +2416,7 @@
 				B85F33A9219EAB8900023958 /* HomeHeaderCarouselView.swift in Sources */,
 				B81EDF6821A52F4700F9D3B0 /* ChatAudoLeftView.swift in Sources */,
 				C45AAE5221B6A13500692D7D /* UserVideosView.swift in Sources */,
+				C4F9AB1121E8653C00140A93 /* ShoppingVerifyReusableView.swift in Sources */,
 				6B280D5F21CCDC3600C5DEED /* STMineChangeInfoViewController.swift in Sources */,
 				B88F8CAA21C16E0B0064C1CF /* STBindPhoneViewController.swift in Sources */,
 				B8FBFA7621A426A200AECB75 /* NSDictionary+Extension.swift in Sources */,
@@ -2416,6 +2424,7 @@
 				B8FBFA1B21A3DD9600AECB75 /* EmojViewFlowLayout.swift in Sources */,
 				6B859EF321B66851009FB70A /* MineBankCell.swift in Sources */,
 				B87A94DE21A82099003E2D21 /* TeachersCollectionVIew.swift in Sources */,
+				C4F9AB0D21E864B500140A93 /* ShoppingVerifyCell.swift in Sources */,
 				B85F3355219E94D600023958 /* BackgroundView.swift in Sources */,
 				6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */,
 				B85F3354219E94D600023958 /* TYIndicatorBaseView.swift in Sources */,
@@ -2626,7 +2635,6 @@
 				B8FBFA2121A3DD9600AECB75 /* EmojTextAttachment.swift in Sources */,
 				B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */,
 				B80B6BFD219FEE1100C33F11 /* VideoCell.swift in Sources */,
-				B80B6BEE219FBF3100C33F11 /* ShoppingNameCell.swift in Sources */,
 				C45AAE5521B6A15200692D7D /* UserVideosCell.swift in Sources */,
 				B82F45BD21A97B70009DC25C /* MedieView.swift in Sources */,
 				B81E909F21A3A474000754E3 /* EaseMobHelper.swift in Sources */,

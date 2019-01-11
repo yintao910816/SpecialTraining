@@ -34,7 +34,11 @@ class WXPayManager {
                     .map(model: WchatPayModel.self)
             }
             .subscribe(onNext: { payModel in
-                WXApi.send(PayReq.init(model: payModel))
+                if WXApi.send(PayReq.init(model: payModel)) == true {
+                    PrintLog("掉起微信支付成功")
+                }else {
+                    PrintLog("掉起微信支付失败")
+                }
             }, onError: { error in
                 PrintLog("支付出错：\(error)")
             })

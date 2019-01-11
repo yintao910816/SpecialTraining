@@ -11,6 +11,10 @@ import Foundation
 extension STAppDelegate {
     
     func setupShareSDK() {
+        if WXApi.registerApp("wxcb1e987d2389e80d") == true {
+            PrintLog("微信注册成功")
+        }
+        
         setup()
     }
     
