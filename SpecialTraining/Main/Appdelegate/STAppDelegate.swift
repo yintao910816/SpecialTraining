@@ -29,6 +29,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
 
+        DbManager.dbSetup()
         // 环信
         easemobConfig(application: application, launchOptions: launchOptions)
         // 百度
@@ -36,9 +37,9 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         //shareSDK
         setupShareSDK()
         
-        #if DEBUG
-        STHelper.login(account: "666666", password: "111111")
-        #endif
+//        #if DEBUG
+//        STHelper.login(account: "666666", password: "111111")
+//        #endif
         
         return true
     }

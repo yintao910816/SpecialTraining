@@ -10,9 +10,22 @@ import UIKit
 
 class ShoppingVerifyReusableView: UICollectionReusableView {
 
-    override func awakeFromNib() {
-        super.awakeFromNib()
-        // Initialization code
+    @IBOutlet var contentView: UICollectionReusableView!
+    
+    @IBOutlet weak var dianpuOutlet: UILabel!
+    @IBOutlet weak var addressOutlet: UILabel!
+    
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        backgroundColor = .clear
+        
+        contentView = (Bundle.main.loadNibNamed("ShoppingVerifyReusableView", owner: self, options: nil)?.first as! UICollectionReusableView)
+        contentView.correctWidth(withWidth: width)
+        addSubview(contentView)
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
 }

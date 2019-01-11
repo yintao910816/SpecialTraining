@@ -39,7 +39,7 @@ extension DBQueue {
                                   _ tbName: String,
                                   limit alimit: Int? = nil,
                                   _ type: T.Type,
-                                  complement: @escaping ((Table?) ->Void)){
+                                  complement: @escaping ((Table?) ->())){
         queue.async {
             let table = type.dbSelect(filier, order: aorder, tbName, limit: alimit, type)
             DispatchQueue.main.async {

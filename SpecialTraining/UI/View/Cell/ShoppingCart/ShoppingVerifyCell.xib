@@ -12,12 +12,79 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ShoppingVerifyCell" customModule="SpecialTraining" customModuleProvider="target">
-            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
             <autoresizingMask key="autoresizingMask"/>
             <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
-                <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                <rect key="frame" x="0.0" y="0.0" width="375" height="143"/>
                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demandView_bg" translatesAutoresizingMaskIntoConstraints="NO" id="NHS-Nx-38L">
+                        <rect key="frame" x="5" y="15" width="90" height="90"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="90" id="a1S-GC-aXJ"/>
+                            <constraint firstAttribute="width" secondItem="NHS-Nx-38L" secondAttribute="height" multiplier="1:1" id="djY-d7-083"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国舞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LfP-4W-9Au">
+                        <rect key="frame" x="107" y="20" width="43" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="￥99" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1fc-Mh-t9s">
+                        <rect key="frame" x="107" y="88" width="32" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.92549019610000005" green="0.42352941179999998" blue="0.21176470589999999" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国精品舞蹈班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uD-9k-geH">
+                        <rect key="frame" x="107" y="45" width="218" height="30"/>
+                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="30" id="PDD-tD-std"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <color key="textColor" red="0.5450980392" green="0.5450980392" blue="0.5450980392" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="此商品性质不支持7天退货" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="SI7-NZ-Vmb">
+                        <rect key="frame" x="107" y="113" width="263" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="SI7-NZ-Vmb" firstAttribute="top" secondItem="1fc-Mh-t9s" secondAttribute="bottom" constant="8" id="33Q-CI-4wy"/>
+                <constraint firstItem="NHS-Nx-38L" firstAttribute="width" secondItem="NHS-Nx-38L" secondAttribute="height" multiplier="1:1" id="7DX-ho-1j0"/>
+                <constraint firstAttribute="trailing" secondItem="SI7-NZ-Vmb" secondAttribute="trailing" constant="5" id="7U9-Ey-WzJ"/>
+                <constraint firstItem="LfP-4W-9Au" firstAttribute="top" secondItem="NHS-Nx-38L" secondAttribute="top" constant="5" id="7rc-T9-YOL"/>
+                <constraint firstItem="LfP-4W-9Au" firstAttribute="leading" secondItem="5uD-9k-geH" secondAttribute="leading" id="8mk-jJ-5yK"/>
+                <constraint firstItem="5uD-9k-geH" firstAttribute="centerY" secondItem="NHS-Nx-38L" secondAttribute="centerY" id="EnX-nk-umT"/>
+                <constraint firstItem="1fc-Mh-t9s" firstAttribute="bottom" secondItem="NHS-Nx-38L" secondAttribute="bottom" id="IpU-Bi-N0s"/>
+                <constraint firstItem="SI7-NZ-Vmb" firstAttribute="leading" secondItem="1fc-Mh-t9s" secondAttribute="leading" id="Qet-NC-z3d"/>
+                <constraint firstItem="1fc-Mh-t9s" firstAttribute="leading" secondItem="NHS-Nx-38L" secondAttribute="trailing" constant="12" id="QgE-i9-Ztq"/>
+                <constraint firstItem="NHS-Nx-38L" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="15" id="Te6-R2-ooH"/>
+                <constraint firstItem="NHS-Nx-38L" firstAttribute="width" secondItem="NHS-Nx-38L" secondAttribute="height" multiplier="1:1" id="aHI-Vo-ZmG"/>
+                <constraint firstAttribute="trailing" secondItem="5uD-9k-geH" secondAttribute="trailing" priority="750" constant="50" id="dmd-Sb-x18"/>
+                <constraint firstItem="NHS-Nx-38L" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="5" id="eos-QG-HYE"/>
+                <constraint firstItem="5uD-9k-geH" firstAttribute="leading" secondItem="NHS-Nx-38L" secondAttribute="trailing" constant="12" id="mKH-BE-8ZZ"/>
+            </constraints>
+            <size key="customSize" width="375" height="147"/>
+            <connections>
+                <outlet property="calssOutlet" destination="5uD-9k-geH" id="dqJ-RN-7QO"/>
+                <outlet property="coverOutlet" destination="NHS-Nx-38L" id="R1S-6t-Blm"/>
+                <outlet property="desOutlet" destination="SI7-NZ-Vmb" id="liG-2g-rpU"/>
+                <outlet property="priceOutlet" destination="1fc-Mh-t9s" id="wav-1j-5Mo"/>
+                <outlet property="titleOutlet" destination="LfP-4W-9Au" id="j3q-d1-TTP"/>
+            </connections>
+            <point key="canvasLocation" x="-121" y="272"/>
         </collectionViewCell>
     </objects>
+    <resources>
+        <image name="demandView_bg" width="640" height="960"/>
+    </resources>
 </document>

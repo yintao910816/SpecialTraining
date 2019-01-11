@@ -50,15 +50,17 @@ class STShoppingCartViewController: BaseViewController {
     override func rxBind() {
         viewModel = ShoppingCartViewModel()
 
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<Int, ShoppingListModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, CourseClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "ShoppingCarCellID", for: indexPath) as! ShoppingCarCell
             cell.model = model
             return cell
-        }, configureSupplementaryView: { (_, col, identifier, indexPath) -> UICollectionReusableView in
+        }, configureSupplementaryView: { [unowned self] (_, col, identifier, indexPath) -> UICollectionReusableView in
             if identifier == UICollectionView.elementKindSectionHeader {
                 let header = col.dequeueReusableSupplementaryView(ofKind:  UICollectionView.elementKindSectionHeader,
                                                                   withReuseIdentifier: "ShopingCarTitleReusableViewID",
-                                                                  for: indexPath)
+                                                                  for: indexPath) as! ShopingCarTitleReusableView
+                let sectionModel = self.viewModel.datasource.value[indexPath.section]
+                header.set(shopName: sectionModel.items.first?.shop_name, shopId: sectionModel.model)
                 return header
             }
             return UICollectionReusableView()

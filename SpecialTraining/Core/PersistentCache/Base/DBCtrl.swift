@@ -26,9 +26,9 @@ class DbManager {
             let db = try Connection(dbFullPath)
             
             // 创建用户表
-            var table = Table(userTB)
+            var table = Table(courseOrderTB)
             try db.run(table.create { t in
-//                UserInfoModel.dbBind(t)
+                CourseClassModel.dbBind(t)
             })
 
             
@@ -44,20 +44,20 @@ class DbManager {
         switch db.userVersion {
         case 0:
             // 数据库版本为0，说明首次安装，直接设置数据库为最新版本
-            db.userVersion = 2
+//            db.userVersion = 2
             break
         case 1:
-            let users = Table(userTB)
-            do {
-                let ret = try db.run(users.addColumn(Expression<Bool>("isSign"), defaultValue: false))
-                PrintLog(ret)
-                db.userVersion = 2
-            }catch {
-                PrintLog("向表 userTB 插入 row：isSign失败")
-            }
+//            let users = Table(userTB)
+//            do {
+//                let ret = try db.run(users.addColumn(Expression<Bool>("isSign"), defaultValue: false))
+//                PrintLog(ret)
+//                db.userVersion = 2
+//            }catch {
+//                PrintLog("向表 userTB 插入 row：isSign失败")
+//            }
             break
         case 2:
-            PrintLog("已是最新数据库")
+//            PrintLog("已是最新数据库")
             break
         default:
             break

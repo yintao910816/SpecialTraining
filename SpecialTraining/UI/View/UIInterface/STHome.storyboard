@@ -730,15 +730,40 @@
                                     <constraint firstItem="OZ8-W2-PNL" firstAttribute="centerY" secondItem="oFf-Lm-8mW" secondAttribute="centerY" id="pDv-XH-IEm"/>
                                 </constraints>
                             </view>
+                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="Adv-HZ-Qqy">
+                                <rect key="frame" x="0.0" y="64" width="375" height="553"/>
+                                <color key="backgroundColor" cocoaTouchSystemColor="groupTableViewBackgroundColor"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="lp6-bu-f63">
+                                    <size key="itemSize" width="50" height="50"/>
+                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
+                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
+                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                </collectionViewFlowLayout>
+                                <cells>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="r4W-1b-Zmc">
+                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
+                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                                            <autoresizingMask key="autoresizingMask"/>
+                                        </view>
+                                    </collectionViewCell>
+                                </cells>
+                            </collectionView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstItem="ZnG-xv-6sB" firstAttribute="leading" secondItem="toJ-z3-9qR" secondAttribute="leading" id="6hI-a2-sw1"/>
+                            <constraint firstItem="Adv-HZ-Qqy" firstAttribute="leading" secondItem="toJ-z3-9qR" secondAttribute="leading" id="Kg5-YX-7E0"/>
+                            <constraint firstAttribute="trailing" secondItem="Adv-HZ-Qqy" secondAttribute="trailing" id="UX1-hW-lR7"/>
+                            <constraint firstItem="Adv-HZ-Qqy" firstAttribute="top" secondItem="GDR-lj-vVr" secondAttribute="bottom" id="c1m-6l-ADl"/>
+                            <constraint firstItem="ZnG-xv-6sB" firstAttribute="top" secondItem="Adv-HZ-Qqy" secondAttribute="bottom" id="gCX-a8-Ny2"/>
                             <constraint firstAttribute="trailing" secondItem="ZnG-xv-6sB" secondAttribute="trailing" id="kzg-77-RT5"/>
                             <constraint firstItem="1Te-X2-qo5" firstAttribute="top" secondItem="ZnG-xv-6sB" secondAttribute="bottom" id="pFN-lw-QmX"/>
                         </constraints>
                     </view>
                     <connections>
+                        <outlet property="collectionView" destination="Adv-HZ-Qqy" id="hrG-Eh-Luf"/>
                         <outlet property="okOutlet" destination="oFf-Lm-8mW" id="REc-sb-TzX"/>
                         <segue destination="W2T-Vt-lyA" kind="show" identifier="gotoPaySegue" id="I9T-Gf-dDc"/>
                     </connections>

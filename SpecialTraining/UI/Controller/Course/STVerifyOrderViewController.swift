@@ -12,6 +12,7 @@ class STVerifyOrderViewController: BaseViewController {
 
     @IBOutlet weak var okOutlet: UIButton!
     
+    @IBOutlet weak var collectionView: UICollectionView!
     private var parameters: [String : Any]!
     
     @IBAction func actions(_ sender: UIButton) {

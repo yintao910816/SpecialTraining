@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="ShopingCarTitleReusableView" customModule="SpecialTraining" customModuleProvider="target">
             <connections>
                 <outlet property="contentView" destination="U6b-Vx-4bR" id="4BJ-AL-3Tx"/>
+                <outlet property="shpoNameOutlet" destination="I2i-2p-RaF" id="rMh-Iy-LXl"/>
             </connections>
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>

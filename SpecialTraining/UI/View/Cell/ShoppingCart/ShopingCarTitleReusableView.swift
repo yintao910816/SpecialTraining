@@ -11,6 +11,9 @@ import UIKit
 class ShopingCarTitleReusableView: UICollectionReusableView {
 
     @IBOutlet var contentView: UICollectionReusableView!
+    @IBOutlet weak var shpoNameOutlet: UILabel!
+    
+    private var shopId: String = ""
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -20,6 +23,11 @@ class ShopingCarTitleReusableView: UICollectionReusableView {
         contentView = (Bundle.main.loadNibNamed("ShopingCarTitleReusableView", owner: self, options: nil)?.first as! UICollectionReusableView)
         contentView.correctWidth(withWidth: width)
         addSubview(contentView)
+    }
+
+    func set(shopName: String?, shopId: String) {
+        shpoNameOutlet.text = shopName
+        self.shopId = shopId
     }
     
     required init?(coder aDecoder: NSCoder) {

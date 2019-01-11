@@ -204,6 +204,7 @@ class STCourseDetailViewController: BaseViewController {
         
         selectedClassView.choseSubject
             .subscribe(onNext: { [unowned self] model in
+                CourseClassModel.inster(classInfo: [model])
                 self.performSegue(withIdentifier: "verifyOrderOutlet", sender: model)
             })
             .disposed(by: disposeBag)

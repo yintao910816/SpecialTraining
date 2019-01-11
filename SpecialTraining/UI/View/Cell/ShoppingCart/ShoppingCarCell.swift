@@ -16,9 +16,9 @@ class ShoppingCarCell: UICollectionViewCell {
         clipsToBounds = true
     }
 
-    var model: ShoppingListModel! {
+    var model: CourseClassModel! {
         didSet {
-            if model.isLastRow == true {
+            if model.isLasstRow == true {
                 set(cornerRadius: 6, borderCorners: [.bottomLeft, .bottomRight])
             }else {
                 layer.mask = nil

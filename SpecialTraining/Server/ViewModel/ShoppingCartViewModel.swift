@@ -12,34 +12,37 @@ import RxDataSources
 
 class ShoppingCartViewModel: BaseViewModel {
     
-    let datasource = Variable([SectionModel<Int ,ShoppingListModel>]())
+    let datasource = Variable([SectionModel<String ,CourseClassModel>]())
     
     override init() {
         super.init()
         
-        let section = [SectionModel.init(model: 0,
-                                         items: [ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel.init(isLastRow: true)]),
-                       SectionModel.init(model: 1,
-                                         items: [ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel.init(isLastRow: true)]),
-                       SectionModel.init(model: 2,
-                                         items: [ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel(),
-                                                 ShoppingListModel.init(isLastRow: true)])]
-        datasource.value = section
+        prepareData()
     }
     
-    func cellHeight(indexPath: IndexPath) -> CGFloat {
-        let model = datasource.value[0].items[indexPath.row]
-        return model.height
+//    func cellHeight(indexPath: IndexPath) -> CGFloat {
+//        let model = datasource.value[0].items[indexPath.row]
+//        return model.height
+//    }
+    
+    private func prepareData() {
+        
+        CourseClassModel.slectedClassInfo()
+            .map { datas -> [SectionModel<String ,CourseClassModel>] in
+                var findShopids = [String: String]()
+                for item in datas { findShopids[item.shop_id] = "" }
+                let allShopids = findShopids.keys
+                
+                var tempData = [SectionModel<String ,CourseClassModel>]()
+                for shopId in allShopids {
+                    let models = datas.filter{ $0.shop_id == shopId }
+                    
+                    tempData.append(SectionModel.init(model: shopId, items: models))
+                }
+                tempData.last?.items.last?.isLasstRow = true
+                return tempData
+            }
+            .bind(to: datasource)
+            .disposed(by: disposeBag)
     }
 }

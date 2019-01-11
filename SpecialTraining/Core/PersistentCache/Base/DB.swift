@@ -22,4 +22,7 @@ struct DBUtls {
 
 //MARK
 //MARK: 数据库表名
-let userTB                = "SRUserTable"                 // 用户表
+
+let userTB                = "STUserTable"
+// 订单
+let courseOrderTB         = "courseOrderTable"
