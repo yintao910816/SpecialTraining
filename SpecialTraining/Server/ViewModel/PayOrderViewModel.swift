@@ -12,17 +12,15 @@ import RxCocoa
 
 class PayOrderViewModel: BaseViewModel {
     private var model: CourseClassModel!
-    private var shopId: String!
     private var payType: PayType = .wchatPay
     
     private let wxPayManager = WXPayManager()
     
-    init(input: (model: CourseClassModel, shopId: String, payType: PayType),
+    init(input: (model: CourseClassModel, payType: PayType),
          tap: Driver<Void>) {
         super.init()
 
         model = input.model
-        shopId = input.shopId
         payType  = input.payType
         
         tap.asDriver()
@@ -39,7 +37,7 @@ class PayOrderViewModel: BaseViewModel {
     }
     
     private func submitOrder() {
-        wxPayManager.startWchatPay(model: model, shopId: shopId)
+        wxPayManager.startWchatPay(model: model)
         
 //        STProvider.request(.submitOrder(params: configParams())).map(model: OrderModel.self)
 //            .asObservable().concatMap{ orderModel in

@@ -1388,7 +1388,6 @@
 		B85F3314219E796100023958 /* View */ = {
 			isa = PBXGroup;
 			children = (
-				B8A4661721D278590022146C /* Shop */,
 				B86D68B921C405FE001A0B75 /* Course */,
 				6BF7B94721BA65C200BE1E4A /* MineCollection */,
 				C45AAE5021B6A12300692D7D /* Video */,
@@ -1841,13 +1840,6 @@
 				B81EDF6C21A5324700F9D3B0 /* ChatAudoRightView.xib */,
 			);
 			path = Message;
-			sourceTree = "<group>";
-		};
-		B8A4661721D278590022146C /* Shop */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Shop;
 			sourceTree = "<group>";
 		};
 		B8BD92CE21E64C200089495F /* PersistentCache */ = {

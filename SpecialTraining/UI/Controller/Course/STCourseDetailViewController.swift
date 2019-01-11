@@ -205,7 +205,11 @@ class STCourseDetailViewController: BaseViewController {
         selectedClassView.choseSubject
             .subscribe(onNext: { [unowned self] model in
                 CourseClassModel.inster(classInfo: [model])
-                self.performSegue(withIdentifier: "verifyOrderOutlet", sender: model)
+                if self.isGotopay == true {
+                    self.performSegue(withIdentifier: "verifyOrderOutlet", sender: model)
+                }else {
+                  self.viewModel.hud.successHidden("添加成功")
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -224,7 +228,7 @@ class STCourseDetailViewController: BaseViewController {
         if segue.identifier == "verifyOrderOutlet" {
             // 确认订单
             let ctrol = segue.destination
-            ctrol.prepare(parameters: ["model": sender!, "shop_id": viewModel.shopId])
+            ctrol.prepare(parameters: ["models": [sender!]])
         }
     }
 }

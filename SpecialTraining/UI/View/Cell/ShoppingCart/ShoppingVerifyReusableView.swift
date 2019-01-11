@@ -28,4 +28,10 @@ class ShoppingVerifyReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    var model: CourseClassModel! {
+        didSet {
+            dianpuOutlet.text = model.shop_name
+            addressOutlet.text = model.address
+        }
+    }
 }

@@ -19,7 +19,6 @@ class STPayOrderViewController: BaseViewController {
     @IBOutlet weak var okOutlet: UIButton!
     
     private var model: CourseClassModel!
-    private var shopId: String!
     
     private var payType: PayType = .wchatPay
     
@@ -46,13 +45,12 @@ class STPayOrderViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = PayOrderViewModel.init(input: (model: model, shopId: shopId, payType: payType),
+        viewModel = PayOrderViewModel.init(input: (model: model, payType: payType),
                                            tap: okOutlet.rx.tap.asDriver())
     }
     
     override func prepare(parameters: [String : Any]?) {
         model = (parameters!["model"] as! CourseClassModel)
-        shopId = (parameters!["shop_id"] as! String)
     }
     
 }

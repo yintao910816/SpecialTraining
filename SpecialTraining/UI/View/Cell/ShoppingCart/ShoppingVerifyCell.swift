@@ -21,4 +21,12 @@ class ShoppingVerifyCell: UICollectionViewCell {
         // Initialization code
     }
 
+    var model: CourseClassModel! {
+        didSet {
+            coverOutlet.setImage(model.class_image)
+            titleOutlet.text = model.class_name
+            priceOutlet.text = "￥\(model.price)"
+            calssOutlet.text = "  \(model.label)  "
+        }
+    }
 }

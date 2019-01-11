@@ -26,8 +26,8 @@ class WXPayManager {
             .disposed(by: disposeBag)
     }
     
-    func startWchatPay(model: CourseClassModel, shopId: String) {
-        STProvider.request(.submitOrder(params: configParams(model: model, shopId: shopId)))
+    func startWchatPay(model: CourseClassModel) {
+        STProvider.request(.submitOrder(params: configParams(model: model, shopId: model.shop_id)))
             .map(model: OrderModel.self)
             .asObservable().concatMap{ orderModel in
                 STProvider.request(.wxPay(order_number: orderModel.order_number, real_amount: orderModel.real_amount))
