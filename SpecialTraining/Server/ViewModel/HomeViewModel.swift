@@ -21,26 +21,33 @@ class HomeViewModel: BaseViewModel {
     override init() {
         super.init()
         
-        NotificationCenter.default.rx.notification(NotificationName.BMK.RefreshHomeLocation, object: nil)
-            .subscribe(onNext: { no in
-                BMKGeoCodeSearchHelper.share.startReverseGeoCode(coordinate: no.object as! CLLocationCoordinate2D)
-            })
-            .disposed(by: disposeBag)
-        
-        BMKGeoCodeSearchHelper.share.reverseGeoObser
-            .subscribe(onNext: { [unowned self] (result, flag, message) in
-                self.navigationItemTitle.value = (false, result.addressDetail.city)
-            })
-            .disposed(by: disposeBag)
-        
-        NotificationCenter.default.rx.notification(NotificationName.BMK.LoadHomeData, object: nil)
-            .subscribe(onNext: { [unowned self] no in
-                self.loadDatas()
-            })
-            .disposed(by: disposeBag)
-        
-        NotificationCenter.default.rx.notification(NotificationName.BMK.BMKSetupFail, object: nil)
-            .subscribe(onNext: { [unowned self] no in
+//        NotificationCenter.default.rx.notification(NotificationName.BMK.RefreshHomeLocation, object: nil)
+//            .subscribe(onNext: { no in
+//                BMKGeoCodeSearchHelper.share.startReverseGeoCode(coordinate: no.object as! CLLocationCoordinate2D)
+//            })
+//            .disposed(by: disposeBag)
+//
+//        BMKGeoCodeSearchHelper.share.reverseGeoObser
+//            .subscribe(onNext: { [unowned self] (result, flag, message) in
+//                self.navigationItemTitle.value = (false, result.addressDetail.city)
+//            })
+//            .disposed(by: disposeBag)
+//
+//        NotificationCenter.default.rx.notification(NotificationName.BMK.LoadHomeData, object: nil)
+//            .subscribe(onNext: { [unowned self] no in
+//                self.loadDatas()
+//            })
+//            .disposed(by: disposeBag)
+//
+//        NotificationCenter.default.rx.notification(NotificationName.BMK.BMKSetupFail, object: nil)
+//            .subscribe(onNext: { [unowned self] no in
+//                self.loadDatas()
+//            })
+//            .disposed(by: disposeBag)
+
+        reloadSubject
+            ._doNext(forNotice: hud)
+            .subscribe(onNext: { [unowned self] _ in
                 self.loadDatas()
             })
             .disposed(by: disposeBag)

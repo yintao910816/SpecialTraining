@@ -12,8 +12,16 @@ class ShopingCarTitleReusableView: UICollectionReusableView {
 
     @IBOutlet var contentView: UICollectionReusableView!
     @IBOutlet weak var shpoNameOutlet: UILabel!
+    @IBOutlet weak var choseOutlet: UIButton!
     
-    private var shopId: String = ""
+    weak var delegate: ShopingCarTitleActions?
+    
+    @IBAction func actions(_ sender: UIButton) {
+        sender.isSelected = !sender.isSelected
+        model.isSelected = !model.isSelected
+        
+        delegate?.section(selected: model)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,12 +33,19 @@ class ShopingCarTitleReusableView: UICollectionReusableView {
         addSubview(contentView)
     }
 
-    func set(shopName: String?, shopId: String) {
-        shpoNameOutlet.text = shopName
-        self.shopId = shopId
+    var model: SectionCourseClassModel! {
+        didSet {
+            shpoNameOutlet.text = model.shopName
+            choseOutlet.isSelected = model.isSelected
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+}
+
+protocol ShopingCarTitleActions: class {
+    
+    func section(selected model: SectionCourseClassModel)
 }

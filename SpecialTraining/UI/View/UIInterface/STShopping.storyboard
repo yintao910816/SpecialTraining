@@ -175,7 +175,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="nlf-Sp-BXw" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1208.8" y="348.57571214392806"/>
+            <point key="canvasLocation" x="1009" y="314"/>
         </scene>
         <!--My Score View Controller-->
         <scene sceneID="Co5-ND-0pl">

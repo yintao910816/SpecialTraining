@@ -147,6 +147,23 @@ class CourseClassModel: HJModel {
     var isLasstRow: Bool = false
 }
 
+class SectionCourseClassModel {
+    var shopId: String = ""
+    var shopName: String?
+    var isSelected: Bool = false
+    
+    init() {
+        
+    }
+    
+    convenience init(shopId: String, shopName: String?) {
+        self.init()
+        
+        self.shopId = shopId
+        self.shopName = shopName
+    }
+}
+
 fileprivate let idEx = Expression<Int64>("id")
 fileprivate let class_idEx = Expression<String>("class_id")
 fileprivate let class_nameEx = Expression<String>("class_name")
@@ -195,6 +212,10 @@ extension CourseClassModel: DBOperation {
                                               courseOrderTB,
                                               CourseClassModel.self)
         }
+    }
+    
+    class func remove(classInfo classId: String) {
+        DBQueue.share.deleteRowQueue(class_idEx == classId, courseOrderTB, CourseClassModel.self)
     }
     
     class func slectedClassInfo() -> Observable<[CourseClassModel]>{

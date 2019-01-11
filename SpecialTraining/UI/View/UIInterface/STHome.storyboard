@@ -689,7 +689,7 @@
         <!--确认订单-->
         <scene sceneID="IuD-Rp-G5h">
             <objects>
-                <viewController title="确认订单" id="DAP-4o-dbH" customClass="STVerifyOrderViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="verifyCtrlID" title="确认订单" id="DAP-4o-dbH" customClass="STVerifyOrderViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="GDR-lj-vVr"/>
                         <viewControllerLayoutGuide type="bottom" id="1Te-X2-qo5"/>

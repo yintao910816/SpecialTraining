@@ -163,6 +163,8 @@ class STHomeViewController: BaseViewController {
                 self.performSegue(withIdentifier: "courseDetailSegue", sender: nil)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.reloadSubject.onNext(Void())
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

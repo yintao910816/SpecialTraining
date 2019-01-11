@@ -25,8 +25,9 @@
                             <constraint firstAttribute="width" secondItem="aAe-qi-v5s" secondAttribute="height" multiplier="1:1" id="mef-E1-b5v"/>
                         </constraints>
                         <state key="normal" image="shopping_unselected"/>
+                        <state key="selected" image="shopping_selected"/>
                         <connections>
-                            <action selector="actions:" destination="gTV-IL-0wX" eventType="touchUpInside" id="w6f-el-3j8"/>
+                            <action selector="actions:" destination="gTV-IL-0wX" eventType="touchUpInside" id="qIc-tr-JkN"/>
                         </connections>
                     </button>
                     <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demandView_bg" translatesAutoresizingMaskIntoConstraints="NO" id="VZQ-lv-qVx">
@@ -138,7 +139,7 @@
                         </constraints>
                         <state key="normal" image="shopping_delete"/>
                         <connections>
-                            <action selector="actions:" destination="gTV-IL-0wX" eventType="touchUpInside" id="amH-zP-Abl"/>
+                            <action selector="actions:" destination="gTV-IL-0wX" eventType="touchUpInside" id="zTS-HO-w7a"/>
                         </connections>
                     </button>
                 </subviews>
@@ -181,6 +182,7 @@
     <resources>
         <image name="demandView_bg" width="640" height="960"/>
         <image name="shopping_delete" width="16" height="16"/>
+        <image name="shopping_selected" width="13" height="13"/>
         <image name="shopping_unselected" width="120" height="120"/>
     </resources>
 </document>

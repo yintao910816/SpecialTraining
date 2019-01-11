@@ -63,6 +63,7 @@ class ShoppingCarCell: UICollectionViewCell {
             desOutlet.text = model.label
             priceOutlet.text = model.price
             countOutlet.text = "\(model.count)"
+            choseOutlet.isSelected = model.isSelected
             if model.isLasstRow == true {
                 set(cornerRadius: 6, borderCorners: [.bottomLeft, .bottomRight])
             }else {

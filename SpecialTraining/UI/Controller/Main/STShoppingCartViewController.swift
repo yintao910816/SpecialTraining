@@ -52,11 +52,13 @@ class STShoppingCartViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = ShoppingCartViewModel()
+        viewModel = ShoppingCartViewModel.init(tap: jiesuanOutlet.rx.tap.asDriver())
 
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<String, CourseClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<SectionCourseClassModel, CourseClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "ShoppingCarCellID", for: indexPath) as! ShoppingCarCell
             cell.model = model
+            cell.delegate = nil
+            cell.delegate = self
             return cell
         }, configureSupplementaryView: { [unowned self] (_, col, identifier, indexPath) -> UICollectionReusableView in
             if identifier == UICollectionView.elementKindSectionHeader {
@@ -64,7 +66,9 @@ class STShoppingCartViewController: BaseViewController {
                                                                   withReuseIdentifier: "ShopingCarTitleReusableViewID",
                                                                   for: indexPath) as! ShopingCarTitleReusableView
                 let sectionModel = self.viewModel.datasource.value[indexPath.section]
-                header.set(shopName: sectionModel.items.first?.shop_name, shopId: sectionModel.model)
+                header.model = sectionModel.model
+                header.delegate = nil
+                header.delegate = self
                 return header
             }
             return UICollectionReusableView()
@@ -105,7 +109,14 @@ extension STShoppingCartViewController: UICollectionViewDelegateFlowLayout {
 extension STShoppingCartViewController: ShoppingCarCellActions {
     
     func delShop(model: CourseClassModel) {
-        
+        viewModel.delShopingSubject.onNext(model)
     }
     
+}
+
+extension STShoppingCartViewController: ShopingCarTitleActions {
+    
+    func section(selected model: SectionCourseClassModel) {
+        viewModel.sectionSelectedSubject.onNext(model)
+    }
 }
