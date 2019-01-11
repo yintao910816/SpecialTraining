@@ -26,18 +26,20 @@ class PayOrderViewModel: BaseViewModel {
         tap.asDriver()
             ._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] in
+                PrintLog("开始支付")
                 switch self.payType {
                 case .wchatPay:
+                    PrintLog("开始微信支付")
                         self.submitOrder()
                 case .alipay:
-                    break
+                    PrintLog("开始支付宝支付")
                 }
             })
             .disposed(by: disposeBag)
     }
     
     private func submitOrder() {
-        wxPayManager.startWchatPay(model: model)
+        wxPayManager.startWchatPay(model: model, hud: hud)
         
 //        STProvider.request(.submitOrder(params: configParams())).map(model: OrderModel.self)
 //            .asObservable().concatMap{ orderModel in

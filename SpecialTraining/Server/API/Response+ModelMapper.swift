@@ -37,7 +37,6 @@ public extension Response {
             throw MapperError.json(message: "json解析失败")
         }
         
-        PrintLog("mapModel --- \(jsonDictionary)")
         if serverModel.errno == 0, let model = serverModel.data {
             return model
         }else {

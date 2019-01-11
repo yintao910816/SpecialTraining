@@ -26,21 +26,37 @@ class WXPayManager {
             .disposed(by: disposeBag)
     }
     
-    func startWchatPay(model: CourseClassModel) {
+    func startWchatPay(model: CourseClassModel, hud: NoticesCenter) {
         STProvider.request(.submitOrder(params: configParams(model: model, shopId: model.shop_id)))
-            .map(model: OrderModel.self)
-            .asObservable().concatMap{ orderModel in
-                STProvider.request(.wxPay(order_number: orderModel.order_number, real_amount: orderModel.real_amount))
+//            .map(model: OrderModel.self)
+            .asObservable().concatMap{ res ->Observable<WchatPayModel> in
+                guard let jsonDictionary = try res.mapJSON() as? NSDictionary else {
+                    hud.failureHidden("接口解析失败")
+                    throw MapperError.json(message: "json解析失败")
+                }
+                guard let orderNum = jsonDictionary.value(forKeyPath: "data") as? String else {
+                    hud.failureHidden("接口解析失败")
+                    return Observable.just(WchatPayModel())
+                }
+                return STProvider.request(.wxPay(order_number: orderNum, real_amount: "0.1"))
                     .map(model: WchatPayModel.self)
+                    .asObservable()
             }
             .subscribe(onNext: { payModel in
-                if WXApi.send(PayReq.init(model: payModel)) == true {
+
+                let payModel = PayReq.init(model: payModel)
+                payModel.openID = wxAppid
+                payModel.type = 1
+                if WXApi.send(payModel) == true {
                     PrintLog("掉起微信支付成功")
+                    hud.noticeHidden()
                 }else {
                     PrintLog("掉起微信支付失败")
+                    hud.failureHidden("参数错误")
                 }
             }, onError: { error in
                 PrintLog("支付出错：\(error)")
+                hud.failureHidden("\(error)")
             })
             .disposed(by: disposeBag)
     }

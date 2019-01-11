@@ -22,7 +22,6 @@ class OrderModel: HJModel {
 
 }
 
-
 import HandyJSON
 class WchatPayModel: HJModel {
     var appid: String = ""
