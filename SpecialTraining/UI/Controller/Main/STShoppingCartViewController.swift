@@ -84,6 +84,8 @@ class STShoppingCartViewController: BaseViewController {
         
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
+        
+        viewModel.reloadSubject.onNext(Void())
     }
 }
 

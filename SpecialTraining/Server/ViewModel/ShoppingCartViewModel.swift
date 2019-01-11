@@ -21,8 +21,6 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     init(tap: Driver<Void>) {
         super.init()
         
-        prepareData()
-        
         delShopingSubject
             .subscribe(onNext: { [unowned self] model in self.dealDel(model: model) })
             .disposed(by: disposeBag)
@@ -33,6 +31,12 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
         
         tap.drive(onNext: { [unowned self] _ in self.prepareBuyModel() })
             .disposed(by: disposeBag)
+        
+        reloadSubject
+            .subscribe(onNext: { [unowned self] _ in
+                self.prepareData()
+            })
+            .disposed(by: disposeBag)
     }
     
     private func prepareData() {
@@ -40,7 +44,9 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
         CourseClassModel.slectedClassInfo()
             .map { datas -> [SectionModel<SectionCourseClassModel ,CourseClassModel>] in
                 var findShopids = [String: String]()
-                for item in datas { findShopids[item.shop_id] = "" }
+                for item in datas {
+                    findShopids[item.shop_id] = ""
+                }
                 let allShopids = findShopids.keys
                 
                 var tempData = [SectionModel<SectionCourseClassModel ,CourseClassModel>]()
@@ -74,15 +80,15 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     }
     
     private func dealSectionSelected(model: SectionCourseClassModel) {
-        let tempData = datasource.value.map { data -> SectionModel<SectionCourseClassModel ,CourseClassModel> in
-            if data.model.shopId == model.shopId {
-                let dealSection = data
-                for item in dealSection.items {
+        var tempData = [SectionModel<SectionCourseClassModel ,CourseClassModel>]()
+        for section in datasource.value {
+            if section.model.shopId == model.shopId {
+                for item in section.items {
                     item.isSelected = model.isSelected
-                    return dealSection
                 }
             }
-            return data
+            
+            tempData.append(section)
         }
         datasource.value = tempData
     }
@@ -97,6 +103,10 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
             }
         }
         
-        ShoppingCartViewModel.sbPush("STHome", "verifyCtrlID", parameters: ["models": buyModel])
+        if buyModel.count == 0 {
+            hud.failureHidden("请选择要购买的课程")
+        }else {
+            ShoppingCartViewModel.sbPush("STHome", "verifyCtrlID", parameters: ["models": buyModel])
+        }
     }
 }
