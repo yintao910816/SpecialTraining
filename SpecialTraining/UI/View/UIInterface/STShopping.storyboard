@@ -79,6 +79,7 @@
                                             <constraint firstAttribute="width" secondItem="vLu-mV-PN1" secondAttribute="height" multiplier="1:1" id="O02-AW-9dG"/>
                                         </constraints>
                                         <state key="normal" image="shopping_unselected"/>
+                                        <state key="selected" image="shopping_selected"/>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="合计：" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="S5s-lz-ivk">
                                         <rect key="frame" x="186" y="14" width="43" height="17"/>
@@ -395,6 +396,7 @@
     </scenes>
     <resources>
         <image name="demandView_bg" width="640" height="960"/>
+        <image name="shopping_selected" width="13" height="13"/>
         <image name="shopping_unselected" width="120" height="120"/>
     </resources>
 </document>

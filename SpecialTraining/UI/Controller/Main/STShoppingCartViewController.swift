@@ -62,6 +62,12 @@ class STShoppingCartViewController: BaseViewController {
         viewModel.totlePriceObser.asDriver()
             .drive(priceOutlet.rx.text)
             .disposed(by: disposeBag)
+        
+        allChoseOutlet.rx.tap.asDriver()
+            .do(onNext: { [unowned self] in self.allChoseOutlet.isSelected = !self.allChoseOutlet.isSelected })
+            .map{ [unowned self] in self.allChoseOutlet.isSelected }
+            .drive(viewModel.allSelectedSubject)
+            .disposed(by: disposeBag)
 
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<SectionCourseClassModel, CourseClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "ShoppingCarCellID", for: indexPath) as! ShoppingCarCell
@@ -70,15 +76,17 @@ class STShoppingCartViewController: BaseViewController {
             cell.delegate = self
             return cell
         }, configureSupplementaryView: { [unowned self] (_, col, identifier, indexPath) -> UICollectionReusableView in
-            if identifier == UICollectionView.elementKindSectionHeader {
-                let header = col.dequeueReusableSupplementaryView(ofKind:  UICollectionView.elementKindSectionHeader,
-                                                                  withReuseIdentifier: "ShopingCarTitleReusableViewID",
-                                                                  for: indexPath) as! ShopingCarTitleReusableView
-                let sectionModel = self.viewModel.datasource.value[indexPath.section]
-                header.model = sectionModel.model
-                header.delegate = nil
-                header.delegate = self
-                return header
+            if self.viewModel.hasSection(section: indexPath.section) {
+                if identifier == UICollectionView.elementKindSectionHeader {
+                    let header = col.dequeueReusableSupplementaryView(ofKind:  UICollectionView.elementKindSectionHeader,
+                                                                      withReuseIdentifier: "ShopingCarTitleReusableViewID",
+                                                                      for: indexPath) as! ShopingCarTitleReusableView
+                    let sectionModel = self.viewModel.datasource.value[indexPath.section]
+                    header.model = sectionModel.model
+                    header.delegate = nil
+                    header.delegate = self
+                    return header
+                }
             }
             return UICollectionReusableView()
         }, moveItem: { (_, _, _) in
@@ -124,7 +132,11 @@ extension STShoppingCartViewController: ShoppingCarCellActions {
     }
     
     func selecte(model: CourseClassModel) {
-        
+        viewModel.cellSelectedSubject.onNext(model)
+    }
+    
+    func changeCount(isAdd: Bool, model: CourseClassModel) {
+        viewModel.changeCountSubject.onNext((isAdd, model))
     }
 }
 

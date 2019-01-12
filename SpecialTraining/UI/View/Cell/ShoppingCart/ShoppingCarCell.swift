@@ -50,6 +50,8 @@ class ShoppingCarCell: UICollectionViewCell {
             model.count = model.count == 1 ? 1 : model.count - 1
         }
         countOutlet.text = "\(model.count)"
+        
+        delegate?.changeCount(isAdd: isAdd, model: model)
     }
     
     override func awakeFromNib() {
@@ -80,4 +82,6 @@ protocol ShoppingCarCellActions: class {
     func delShop(model: CourseClassModel)
     
     func selecte(model: CourseClassModel)
+    
+    func changeCount(isAdd: Bool, model: CourseClassModel)
 }

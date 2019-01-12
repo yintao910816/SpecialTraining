@@ -209,6 +209,7 @@ class STCourseDetailViewController: BaseViewController {
                     self.performSegue(withIdentifier: "verifyOrderOutlet", sender: model)
                 }else {
                   self.viewModel.hud.successHidden("添加成功")
+                    NotificationCenter.default.post(name: NotificationName.Order.AddOrder, object: model)
                 }
             })
             .disposed(by: disposeBag)

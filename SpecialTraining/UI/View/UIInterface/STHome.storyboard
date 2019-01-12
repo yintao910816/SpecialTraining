@@ -130,23 +130,23 @@
                                         <state key="normal" image="home_nav_left"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="FEJ-6k-QGY">
-                                        <rect key="frame" x="335" y="31.5" width="25" height="25"/>
+                                        <rect key="frame" x="340" y="31.5" width="20" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" secondItem="FEJ-6k-QGY" secondAttribute="height" multiplier="1:1" id="2Tv-7M-Vki"/>
-                                            <constraint firstAttribute="width" constant="25" id="WSu-U2-mJ6"/>
+                                            <constraint firstAttribute="width" secondItem="FEJ-6k-QGY" secondAttribute="height" multiplier="44:56" id="2Tv-7M-Vki"/>
+                                            <constraint firstAttribute="width" constant="20" id="WSu-U2-mJ6"/>
                                         </constraints>
                                         <state key="normal" image="home_nav_right"/>
                                     </button>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DIa-93-CMB">
-                                        <rect key="frame" x="302" y="33" width="18" height="22"/>
+                                        <rect key="frame" x="307" y="35" width="18" height="18"/>
                                         <constraints>
-                                            <constraint firstAttribute="height" constant="22" id="D0M-pI-FOK"/>
+                                            <constraint firstAttribute="width" secondItem="DIa-93-CMB" secondAttribute="height" multiplier="1:1" id="U3D-Pn-Nez"/>
                                             <constraint firstAttribute="width" constant="18" id="tBf-dB-5Zg"/>
                                         </constraints>
                                         <state key="normal" image="home_nav_search"/>
                                     </button>
                                     <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="Wef-fF-3LS">
-                                        <rect key="frame" x="80" y="31.5" width="212" height="25"/>
+                                        <rect key="frame" x="80" y="31.5" width="217" height="25"/>
                                         <constraints>
                                             <constraint firstAttribute="height" constant="25" id="c0Q-VK-8gO"/>
                                         </constraints>

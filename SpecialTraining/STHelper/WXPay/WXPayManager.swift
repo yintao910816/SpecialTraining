@@ -46,7 +46,6 @@ class WXPayManager {
 
                 let payModel = PayReq.init(model: payModel)
                 payModel.openID = wxAppid
-                payModel.type = 1
                 if WXApi.send(payModel) == true {
                     PrintLog("掉起微信支付成功")
                     hud.noticeHidden()

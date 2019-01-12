@@ -48,4 +48,8 @@ extension Notification.Name {
         public static let WXPay = Notification.Name(rawValue: "ORDER_PAY_NOTIFICATION")
     }
     
+    public struct Order {
+        // 添加课程到购物车购物车
+        public static let AddOrder = Notification.Name(rawValue: "org.bmk.notification.name.AddOrder")
+    }
 }
