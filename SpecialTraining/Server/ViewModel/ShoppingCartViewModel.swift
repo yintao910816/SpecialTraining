@@ -19,7 +19,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     let allSelectedSubject = PublishSubject<Bool>()
     let changeCountSubject = PublishSubject<(Bool, CourseClassModel)>()
 
-    let totlePriceObser = Variable("0")
+    let totlePriceObser = Variable("0.0")
     let totleShopCountObser = Variable("购物车空空如也")
     
     private var shopCount: Int = 0
@@ -133,17 +133,13 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     }
     
     private func dealChangeCount(isAdd: Bool, model: CourseClassModel) {
-        var tempPrice: Double = Double(totlePriceObser.value) ?? 0
-        let signalPrice: Double = Double(model.price) ?? 0
-        if isAdd == true {
-            tempPrice += signalPrice
-        }else {
-            if tempPrice > 0 {
-                tempPrice -= signalPrice
-            }
-        }
         
-        totlePriceObser.value = "\(tempPrice)"
+        let tempPrice: Double = Double(totlePriceObser.value) ?? 0
+        if isAdd == true {
+            totlePriceObser.value = "\(tempPrice + model.calculatePrice)"
+        }else {
+            totlePriceObser.value = "\(tempPrice - model.calculatePrice)"
+        }
     }
     
     private func dealAddOrder(model: CourseClassModel?) {

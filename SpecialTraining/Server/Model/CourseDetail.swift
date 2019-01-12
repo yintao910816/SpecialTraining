@@ -142,6 +142,10 @@ class CourseClassModel: HJModel {
     var teacher_level: String = ""
     /// 商品总数
     var count: Int = 1
+    /// 商品数量变成1的次数  为2时不能再改变总价
+    var countOne: Int = 1
+    /// 通过点击+ - 计算好的价格，总数计算时只需正常加减此值
+    var calculatePrice: Double = 0.0
     
     var isSelected: Bool = false
     var isLasstRow: Bool = false

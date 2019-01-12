@@ -44,9 +44,18 @@ class ShoppingCarCell: UICollectionViewCell {
     }
     
     private func setCount(isAdd: Bool) {
+        let signalPrice: Double = Double(model.price) ?? 0
+
         if isAdd == true {
             model.count += 1
+            model.calculatePrice = model.isSelected ? signalPrice : 2 * signalPrice
+
+            if model.isSelected == false {
+                model.isSelected = true
+                (contentView.viewWithTag(200) as! UIButton).isSelected = true
+            }
         }else {
+            model.calculatePrice = model.count == 1 ? 0 : signalPrice
             model.count = model.count == 1 ? 1 : model.count - 1
         }
         countOutlet.text = "\(model.count)"
