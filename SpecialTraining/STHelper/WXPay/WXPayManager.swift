@@ -42,11 +42,9 @@ class WXPayManager {
                     .map(model: WchatPayModel.self)
                     .asObservable()
             }
-            .subscribe(onNext: { payModel in
+            .subscribe(onNext: { [weak self] model in
 
-                let payModel = PayReq.init(model: payModel)
-                payModel.openID = wxAppid
-                if WXApi.send(payModel) == true {
+                if WXApi.send(self?.creatPayModel(model: model)) == true {
                     PrintLog("掉起微信支付成功")
                     hud.noticeHidden()
                 }else {
@@ -58,6 +56,19 @@ class WXPayManager {
                 hud.failureHidden("\(error)")
             })
             .disposed(by: disposeBag)
+    }
+    
+    private func creatPayModel(model: WchatPayModel) ->PayReq {
+        let req = PayReq()
+        req.openID = model.appid
+        req.partnerId = model.partnerId
+        req.prepayId = model.prepayId
+        req.nonceStr = model.nonceStr
+        req.timeStamp = UInt32(model.timeStamp)!
+        req.package = model.package
+        req.sign    = model.sign
+       
+        return req
     }
     
     private func configParams(model: CourseClassModel, shopId: String) ->[String: Any] {

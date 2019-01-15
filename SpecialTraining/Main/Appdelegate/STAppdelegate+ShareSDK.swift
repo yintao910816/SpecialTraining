@@ -12,7 +12,7 @@ let wxAppid = "wxcb1e987d2389e80d"
 extension STAppDelegate {
     
     func setupShareSDK() {
-        WXApi.startLog(by: .detail) { msg in
+        WXApi.startLog(by: .normal) { msg in
             PrintLog("微信log日资：\(msg)")
         }
         

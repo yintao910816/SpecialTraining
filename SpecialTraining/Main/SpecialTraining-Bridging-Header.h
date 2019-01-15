@@ -24,6 +24,7 @@
 #import <BMKLocationKit/BMKLocationComponent.h>
 
 #import "WXApi.h"
+#import "WXApiObject.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
 #import <ShareSDKExtension/ShareSDK+Extension.h>
