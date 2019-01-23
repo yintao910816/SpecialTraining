@@ -96,7 +96,12 @@ extension STAppDelegate {
     // 处理支付宝支付结果
     private func dealAlipay(resultDic: [AnyHashable: Any]?) {
         PrintLog("支付宝支付结果 -- \(resultDic)")
-        if let code = resultDic?["resultStatus"] as? Int, code == 9000 {
+        guard let jsonDic = resultDic as? [String: Any] else {
+            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "未知结果"))
+            return
+        }
+        
+        if let code = jsonDic["resultStatus"] as? String, code == "9000" {
             NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (true, "支付成功"))
         }else {
             NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "未知结果"))
