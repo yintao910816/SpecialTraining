@@ -30,6 +30,16 @@
 				<string>wxcb1e987d2389e80d</string>
 			</array>
 		</dict>
+		<dict>
+			<key>CFBundleTypeRole</key>
+			<string>Editor</string>
+			<key>CFBundleURLName</key>
+			<string>appScheme</string>
+			<key>CFBundleURLSchemes</key>
+			<array>
+				<string>specialTraining.youpeixun.com</string>
+			</array>
+		</dict>
 	</array>
 	<key>CFBundleVersion</key>
 	<string>1.5</string>
@@ -41,6 +51,10 @@
 	</array>
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
+	<key>MOBAppKey</key>
+	<string>296a8c21b4cfe</string>
+	<key>MOBAppSecret</key>
+	<string>cb96ac9fc87e03e1e47145261b98fc67</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
 		<key>NSAllowsArbitraryLoads</key>
@@ -74,10 +88,6 @@
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>
 	</array>
-	<key>MOBAppKey</key>
-	<string>296a8c21b4cfe</string>
-	<key>MOBAppSecret</key>
-	<string>cb96ac9fc87e03e1e47145261b98fc67</string>
 	<key>UISupportedInterfaceOrientations~ipad</key>
 	<array>
 		<string>UIInterfaceOrientationPortrait</string>

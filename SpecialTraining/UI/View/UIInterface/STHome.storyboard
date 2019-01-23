@@ -1015,13 +1015,13 @@
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWS-rJ-qJU">
-                                        <rect key="frame" x="155" y="23" width="65.5" height="19.5"/>
+                                        <rect key="frame" x="155" y="80.5" width="65.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付：2800" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zea-63-0ZF">
-                                        <rect key="frame" x="148.5" y="50.5" width="78" height="17"/>
+                                        <rect key="frame" x="148.5" y="108" width="78" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1030,11 +1030,11 @@
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="zea-63-0ZF" firstAttribute="centerX" secondItem="LWS-rJ-qJU" secondAttribute="centerX" id="3ZY-o4-S6v"/>
+                                    <constraint firstItem="LWS-rJ-qJU" firstAttribute="centerY" secondItem="IYs-Y0-SYQ" secondAttribute="centerY" constant="-10" id="AK6-5r-ieE"/>
                                     <constraint firstItem="zea-63-0ZF" firstAttribute="top" secondItem="LWS-rJ-qJU" secondAttribute="bottom" constant="8" id="B5E-q5-m6l"/>
                                     <constraint firstItem="LWS-rJ-qJU" firstAttribute="centerX" secondItem="IYs-Y0-SYQ" secondAttribute="centerX" id="Diz-h3-vXe"/>
                                     <constraint firstItem="2vM-XR-g9Y" firstAttribute="top" secondItem="IYs-Y0-SYQ" secondAttribute="top" constant="20" id="ND6-aI-AKy"/>
                                     <constraint firstAttribute="height" constant="200" id="QHq-aS-6h5"/>
-                                    <constraint firstItem="LWS-rJ-qJU" firstAttribute="centerY" secondItem="2vM-XR-g9Y" secondAttribute="centerY" id="cuP-4Y-PEs"/>
                                     <constraint firstItem="2vM-XR-g9Y" firstAttribute="leading" secondItem="IYs-Y0-SYQ" secondAttribute="leading" constant="15" id="e8T-Do-qTl"/>
                                 </constraints>
                             </view>

@@ -49,6 +49,10 @@ extension Notification.Name {
         public static let WXPay = Notification.Name(rawValue: "org.bmk.notification.name.payResult")
     }
     
+    public struct AliPay {
+        public static let aliPayBack = Notification.Name(rawValue: "org.bmk.notification.name.aliPayBack")
+    }
+    
     public struct Order {
         // 添加课程到购物车购物车
         public static let AddOrder = Notification.Name(rawValue: "org.bmk.notification.name.AddOrder")

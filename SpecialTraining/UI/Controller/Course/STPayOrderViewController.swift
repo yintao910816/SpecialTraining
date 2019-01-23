@@ -42,8 +42,8 @@ class STPayOrderViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = PayOrderViewModel.init(input: (models: models, payType: payType),
-                                           tap: okOutlet.rx.tap.asDriver())
+        let tapDriver = okOutlet.rx.tap.asDriver().map{ [unowned self] _ in self.payType }
+        viewModel = PayOrderViewModel.init(models: models, tap: tapDriver)
         
         viewModel.pushNextSubject
             .subscribe(onNext: { [weak self] _ in

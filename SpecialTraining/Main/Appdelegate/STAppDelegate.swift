@@ -53,12 +53,54 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
     }
     
     func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
-        PrintLog("openURL:\(url.absoluteString)")
+
+        if (url.host ?? "" ) == "safepay" {
+            //跳转支付宝钱包进行支付，处理支付结果
+            AlipaySDK.defaultService()?.processOrder(withPaymentResult: url) { [unowned self] resultDic in
+                self.dealAlipay(resultDic: resultDic)
+            }
+            
+//            AlipaySDK.defaultService()?.processAuthResult(url, standbyCallback: { resultDic in
+//                PrintLog("222222222222 -- \(resultDic)")
+//            })
+        }
+
         if url.scheme == wxAppid {
             return WXApi.handleOpen(url, delegate: self)
         }
         return true
     }
     
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
+        if (url.host ?? "" ) == "safepay" {
+            //跳转支付宝钱包进行支付，处理支付结果
+            AlipaySDK.defaultService()?.processOrder(withPaymentResult: url) { [unowned self] resultDic in
+                self.dealAlipay(resultDic: resultDic)
+            }
+            
+//            AlipaySDK.defaultService()?.processAuthResult(url, standbyCallback: { resultDic in
+//                PrintLog("444444444444 -- \(resultDic)")
+//            })
+        }
+        
+        if url.scheme == wxAppid {
+            return WXApi.handleOpen(url, delegate: self)
+        }
+
+        return true
+    }
+}
+
+extension STAppDelegate {
+    
+    // 处理支付宝支付结果
+    private func dealAlipay(resultDic: [AnyHashable: Any]?) {
+        PrintLog("支付宝支付结果 -- \(resultDic)")
+        if let code = resultDic?["resultStatus"] as? Int, code == 9000 {
+            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (true, "支付成功"))
+        }else {
+            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "未知结果"))
+        }
+    }
 }
 

@@ -77,7 +77,8 @@ struct APIAssistance {
         case .register(_, _, _),
              .login(_, _, _),
              .submitOrder(_),
-             .wxPay(_, _):
+             .wxPay(_, _),
+             .alipay(_):
             return .post
         default:
             return .get

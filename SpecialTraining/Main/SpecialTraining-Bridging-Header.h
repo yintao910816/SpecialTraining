@@ -30,6 +30,8 @@
 #import <ShareSDKExtension/ShareSDK+Extension.h>
 #import <CommonCrypto/CommonCrypto.h>
 
+#import <AlipaySDK/AlipaySDK.h>
+
 #import "DPAudioRecorder.h"
 #import "DPAudioPlayer.h"
 #import "ChatToolBarAudioButton.h"

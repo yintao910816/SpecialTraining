@@ -72,6 +72,8 @@ enum API{
     case submitOrder(params: [String: Any])
     /// 微信支付统一下单 api.youpeixunjiaoyu.com/v1/pay/wxPay?order_number=DL2437140294456282&real_amount=3560
     case wxPay(order_number: String, real_amount: String)
+    /// 获取支付宝支付订单字符串
+    case alipay(order_number: String)
     
     //MARK:
     //MARK: 购物车
@@ -142,6 +144,8 @@ extension API: TargetType{
             return "v1/order/submitOrder"
         case .wxPay(_, _):
             return "v1/pay/wxPay"
+        case .alipay(_):
+            return "v1/pay/aliPay"
         }
     }
     
@@ -249,7 +253,9 @@ extension API {
         case .wxPay(let order_number, let real_amount):
             params["order_number"] = order_number
 //            params["real_amount"]  = real_amount
-
+        case .alipay(let order_number):
+            params["order_number"] = order_number
+            
         default:
             break
         }
