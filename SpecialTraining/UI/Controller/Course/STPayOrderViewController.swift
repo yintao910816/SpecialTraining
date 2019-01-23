@@ -44,6 +44,12 @@ class STPayOrderViewController: BaseViewController {
     override func rxBind() {
         viewModel = PayOrderViewModel.init(input: (models: models, payType: payType),
                                            tap: okOutlet.rx.tap.asDriver())
+        
+        viewModel.pushNextSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.performSegue(withIdentifier: "payResultSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
 
         viewModel.priceTextObser.asDriver()
             .drive(priceOutlet.rx.attributedText)

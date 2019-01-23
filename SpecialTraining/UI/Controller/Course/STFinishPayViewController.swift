@@ -14,6 +14,17 @@ class STFinishPayViewController: BaseViewController {
     @IBOutlet weak var bgHeightCns: NSLayoutConstraint!
     @IBOutlet weak var topCns: NSLayoutConstraint!
     
+    
+    @IBAction func backAction(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
+        
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func setupUI() {
         if UIDevice.current.isX == true {
             topCns.constant = topCns.constant + 44

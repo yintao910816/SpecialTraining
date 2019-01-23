@@ -27,6 +27,7 @@ class BaseViewModel: NSObject {
     public var reloadSubject = PublishSubject<Void>()
     // 返回上一个界面
     public let popSubject = PublishSubject<Void>()
+    public let pushNextSubject = PublishSubject<Void>()
 
     public func errorMessage(_ error: Swift.Error) ->String {
         

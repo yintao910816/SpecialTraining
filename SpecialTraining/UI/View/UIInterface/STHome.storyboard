@@ -971,7 +971,7 @@
                         <outlet property="wchatPayTapGes" destination="gft-7q-s9K" id="a2A-wK-g2q"/>
                         <outlet property="zfbChoseOutlet" destination="ANr-4U-SbN" id="bRj-ue-AD2"/>
                         <outlet property="zfbPayTapGes" destination="GSr-Jz-Kpg" id="b8P-82-VMh"/>
-                        <segue destination="YO9-LC-JRK" kind="show" id="Q8k-Yw-Mpw"/>
+                        <segue destination="YO9-LC-JRK" kind="show" identifier="payResultSegue" id="Q8k-Yw-Mpw"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="RK8-bF-gJw" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -1001,27 +1001,27 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IYs-Y0-SYQ">
-                                <rect key="frame" x="0.0" y="140" width="375" height="166"/>
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="200"/>
                                 <subviews>
                                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2vM-XR-g9Y">
-                                        <rect key="frame" x="15" y="20" width="30" height="30"/>
+                                        <rect key="frame" x="15" y="20" width="25" height="25"/>
                                         <constraints>
-                                            <constraint firstAttribute="width" constant="30" id="DRw-yx-Li3"/>
-                                            <constraint firstAttribute="height" constant="30" id="Uly-Et-lnz"/>
+                                            <constraint firstAttribute="width" constant="25" id="DRw-yx-Li3"/>
+                                            <constraint firstAttribute="width" secondItem="2vM-XR-g9Y" secondAttribute="height" multiplier="1:1" id="nve-5L-NZg"/>
                                         </constraints>
                                         <state key="normal" image="big_nav_back"/>
                                         <connections>
-                                            <action selector="actions:" destination="YO9-LC-JRK" eventType="touchUpInside" id="YKo-hC-GoE"/>
+                                            <action selector="backAction:" destination="YO9-LC-JRK" eventType="touchUpInside" id="lzo-79-gTW"/>
                                         </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="支付成功" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LWS-rJ-qJU">
-                                        <rect key="frame" x="155" y="25.5" width="65.5" height="19.5"/>
+                                        <rect key="frame" x="155" y="23" width="65.5" height="19.5"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="16"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="实付：2800" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zea-63-0ZF">
-                                        <rect key="frame" x="148.5" y="53" width="78" height="17"/>
+                                        <rect key="frame" x="148.5" y="50.5" width="78" height="17"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
@@ -1033,7 +1033,7 @@
                                     <constraint firstItem="zea-63-0ZF" firstAttribute="top" secondItem="LWS-rJ-qJU" secondAttribute="bottom" constant="8" id="B5E-q5-m6l"/>
                                     <constraint firstItem="LWS-rJ-qJU" firstAttribute="centerX" secondItem="IYs-Y0-SYQ" secondAttribute="centerX" id="Diz-h3-vXe"/>
                                     <constraint firstItem="2vM-XR-g9Y" firstAttribute="top" secondItem="IYs-Y0-SYQ" secondAttribute="top" constant="20" id="ND6-aI-AKy"/>
-                                    <constraint firstAttribute="height" constant="166" id="QHq-aS-6h5"/>
+                                    <constraint firstAttribute="height" constant="200" id="QHq-aS-6h5"/>
                                     <constraint firstItem="LWS-rJ-qJU" firstAttribute="centerY" secondItem="2vM-XR-g9Y" secondAttribute="centerY" id="cuP-4Y-PEs"/>
                                     <constraint firstItem="2vM-XR-g9Y" firstAttribute="leading" secondItem="IYs-Y0-SYQ" secondAttribute="leading" constant="15" id="e8T-Do-qTl"/>
                                 </constraints>
@@ -1043,7 +1043,7 @@
                         <constraints>
                             <constraint firstAttribute="trailing" secondItem="IYs-Y0-SYQ" secondAttribute="trailing" id="7So-kS-rAZ"/>
                             <constraint firstItem="IYs-Y0-SYQ" firstAttribute="leading" secondItem="S1E-Jc-KtZ" secondAttribute="leading" id="9Jm-dX-PeW"/>
-                            <constraint firstItem="IYs-Y0-SYQ" firstAttribute="top" secondItem="S1E-Jc-KtZ" secondAttribute="top" constant="140" id="U52-RA-g0Z"/>
+                            <constraint firstItem="IYs-Y0-SYQ" firstAttribute="top" secondItem="S1E-Jc-KtZ" secondAttribute="top" id="U52-RA-g0Z"/>
                         </constraints>
                     </view>
                     <connections>

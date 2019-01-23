@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class PayOrderViewModel: BaseViewModel {
+class PayOrderViewModel: BaseViewModel, VMNavigation {
     private var models: [CourseClassModel]!
     private var payType: PayType = .wchatPay
     
@@ -37,12 +37,13 @@ class PayOrderViewModel: BaseViewModel {
                 }
             })
             .disposed(by: disposeBag)
-        
+
         NotificationCenter.default.rx.notification(NotificationName.WX.WXPay, object: nil)
             .subscribe(onNext: { [weak self] no in
                 if let ret = no.object as? (Bool, String) {
                     if ret.0 == true {
-                        self?.hud.successHidden("支付成功")
+                        self?.hud.noticeHidden()
+                        self?.pushNextSubject.onNext(Void())
                     }else {
                         self?.hud.failureHidden(ret.1)
                     }
