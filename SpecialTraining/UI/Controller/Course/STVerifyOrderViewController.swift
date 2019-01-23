@@ -77,7 +77,7 @@ class STVerifyOrderViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoPaySegue" {
             let ctrol = segue.destination
-            ctrol.prepare(parameters: ["model": models.first!])
+            ctrol.prepare(parameters: ["models": models])
         }
     }
     

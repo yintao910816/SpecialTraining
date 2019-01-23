@@ -11,61 +11,61 @@ import RxSwift
 import RxCocoa
 
 class PayOrderViewModel: BaseViewModel {
-    private var model: CourseClassModel!
+    private var models: [CourseClassModel]!
     private var payType: PayType = .wchatPay
     
     private let wxPayManager = WXPayManager()
     
-    init(input: (model: CourseClassModel, payType: PayType),
+    let priceTextObser = Variable(NSAttributedString.init(string: ""))
+    
+    init(input: (models: [CourseClassModel], payType: PayType),
          tap: Driver<Void>) {
         super.init()
 
-        model = input.model
+        models = input.models
         payType  = input.payType
         
-        tap.asDriver()
-            ._doNext(forNotice: hud)
+        caculatePrice()
+        
+        tap.asDriver()._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] in
-                PrintLog("开始支付")
                 switch self.payType {
                 case .wchatPay:
-                    PrintLog("开始微信支付")
                         self.submitOrder()
                 case .alipay:
                     PrintLog("开始支付宝支付")
                 }
             })
             .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.WX.WXPay, object: nil)
+            .subscribe(onNext: { [weak self] no in
+                if let ret = no.object as? (Bool, String) {
+                    if ret.0 == true {
+                        self?.hud.successHidden("支付成功")
+                    }else {
+                        self?.hud.failureHidden(ret.1)
+                    }
+                }else {
+                    self?.hud.noticeHidden()
+                }
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    private func caculatePrice() {
+        var totlePrice: Double = 0.0
+        for course in models {
+            totlePrice += (Double(course.price) ?? 0)
+        }
+        
+        let priceText = "￥\(totlePrice)"
+
+        priceTextObser.value = priceText.attributed([NSRange.init(location: 0, length: 1)],
+                                                    font: [UIFont.systemFont(ofSize: 13)])
     }
     
     private func submitOrder() {
-        wxPayManager.startWchatPay(model: model, hud: hud)
-        
-//        STProvider.request(.submitOrder(params: configParams())).map(model: OrderModel.self)
-//            .asObservable().concatMap{ orderModel in
-//                STProvider.request(.wxPay(order_number: orderModel.order_number, real_amount: orderModel.real_amount))
-//                    .map(model: WchatPayModel.self)
-//            }
-//            .subscribe(onNext: { [weak self] model in
-//                self?.hud.noticeHidden()
-//
-//
-//            }, onError: { [weak self] error in
-//                self?.hud.failureHidden(self?.errorMessage(error))
-//            })
-//            .disposed(by: disposeBag)
+        wxPayManager.startWchatPay(models: models)
     }
-    
-//    private func configParams() ->[String: Any] {
-//        let classInfo: [String: Any] = ["shop_id": shopId!,
-//                         "class_id": "\(model.class_id)",
-//            //                                                    "class_num": "\(model.total)",
-//                         "class_num": "1",
-//                         "total_money": model.price]
-//        let params: [String : Any] = ["member_id": userDefault.uid,
-//                                      "order_total_money": model.price,
-//                                      "classInfo": [classInfo]]
-//
-//        return params
-//    }
 }

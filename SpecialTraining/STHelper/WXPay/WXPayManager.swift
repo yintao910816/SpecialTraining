@@ -18,67 +18,52 @@ class WXPayManager {
     
     private let disposeBag = DisposeBag()
     
-    init() {
-        NotificationCenter.default.rx.notification(NotificationName.WX.WXPay, object: nil)
-            .subscribe(onNext: { no in
-               PrintLog(no.object)
-            })
-            .disposed(by: disposeBag)
-    }
-    
-    func startWchatPay(model: CourseClassModel, hud: NoticesCenter) {
-        STProvider.request(.submitOrder(params: configParams(model: model, shopId: model.shop_id)))
-//            .map(model: OrderModel.self)
-            .asObservable().concatMap{ res ->Observable<WchatPayModel> in
-                guard let jsonDictionary = try res.mapJSON() as? NSDictionary else {
-                    hud.failureHidden("接口解析失败")
-                    throw MapperError.json(message: "json解析失败")
-                }
-                guard let orderNum = jsonDictionary.value(forKeyPath: "data") as? String else {
-                    hud.failureHidden("接口解析失败")
-                    return Observable.just(WchatPayModel())
-                }
-                return STProvider.request(.wxPay(order_number: orderNum, real_amount: "0.1"))
+    func startWchatPay(models: [CourseClassModel]) {
+        STProvider.request(.submitOrder(params: configParams(models: models)))
+            .map(model: OrderModel.self)
+            .asObservable().concatMap{ model ->Observable<WchatPayModel> in
+                return STProvider.request(.wxPay(order_number: model.order_number, real_amount: model.real_amount))
                     .map(model: WchatPayModel.self)
                     .asObservable()
             }
             .subscribe(onNext: { [weak self] model in
-
-                if WXApi.send(self?.creatPayModel(model: model)) == true {
-                    PrintLog("掉起微信支付成功")
-                    hud.noticeHidden()
-                }else {
-                    PrintLog("掉起微信支付失败")
-                    hud.failureHidden("参数错误")
+                if WXApi.send(self?.creatPayModel(model: model)) == false {
+                    NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (false, "调起微信支付失败！"))
                 }
             }, onError: { error in
-                PrintLog("支付出错：\(error)")
-                hud.failureHidden("\(error)")
+                NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (false, error.localizedDescription))
             })
             .disposed(by: disposeBag)
     }
     
     private func creatPayModel(model: WchatPayModel) ->PayReq {
         let req = PayReq()
-        req.openID = model.appid
+        req.openID = model.partnerId // "1521169891"
         req.partnerId = model.partnerId
         req.prepayId = model.prepayId
         req.nonceStr = model.nonceStr
-        req.timeStamp = UInt32(model.timeStamp)!
+        req.timeStamp = UInt32(model.timeStamp) ?? 0
         req.package = model.package
         req.sign    = model.sign
        
         return req
     }
     
-    private func configParams(model: CourseClassModel, shopId: String) ->[String: Any] {
-        let classInfo: [String: Any] = ["shop_id": shopId,
-                                        "class_id": "\(model.class_id)",
-                                        "class_num": "1",
-                                        "total_money": model.price]
+    private func configParams(models: [CourseClassModel]) ->[String: Any] {
+        var classInfos = [[String: Any]]()
+        var totleMoney: Double = 0.0
+        for course in models {
+            let classInfo: [String: Any] = ["shop_id": course.shop_id,
+                                            "class_id": "\(course.class_id)",
+                "class_num": "1",
+                "total_money": course.price]
+            classInfos.append(classInfo)
+            
+            totleMoney += (Double(course.price) ?? 0.0)
+        }
         let params: [String : Any] = ["member_id": userDefault.uid,
-                                      "order_total_money": model.price,
-                                      "classInfo": [classInfo]]
+                                      "order_total_money": totleMoney,
+                                      "classInfo": classInfos]
         
         return params
     }

@@ -13,12 +13,12 @@ extension STAppDelegate {
     
     func setupShareSDK() {
         WXApi.startLog(by: .normal) { msg in
-            PrintLog("微信log日资：\(msg)")
+            PrintLog("微信log日志：\(msg ?? "")")
         }
         
-//        if WXApi.registerApp("wxcb1e987d2389e80d") == true {
-//            PrintLog("微信注册成功")
-//        }
+        if WXApi.registerApp(wxAppid) == true {
+            PrintLog("微信注册成功")
+        }
         
         setup()
     }
@@ -43,55 +43,22 @@ extension STAppDelegate {
             }
         }
     }
-    
-    
-    func application(_ application: UIApplication, open url: URL, sourceApplication: String?, annotation: Any) -> Bool {
-        PrintLog("openURL:\(url.absoluteString)")
-        
-        
-        
-        if url.scheme == wxAppid {
-            
-            return WXApi.handleOpen(url, delegate: self)
-            
-        }
-        
-
-        return true
-    }
-
 }
 
 extension STAppDelegate: WXApiDelegate {
  
     public func onResp(_ resp: BaseResp!) {
         
-//        if resp.isKindOfClass(BaseResp.classForCoder()) {
-        
-            //支付返回结果，实际支付结果需要去微信服务器端查询
-        
-        PrintLog("微信错误提示：\(resp.errStr)")
-        
+        if resp.isKind(of: BaseResp.classForCoder()) {
             switch resp.errCode {
                 
             case WXSuccess.rawValue:
-                
-                print("支付成功")
-                
-                //在这里你是不是可以去干你想干的事了呢
-                
-                break
-                
+                PrintLog("支付成功")
+                NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (true, ""))
             default:
-                
-                //当然了 失败了也是要干事情滴
-                
-                break
-                
+                NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (false, resp.errStr ?? ""))
             }
             
-//        }
-        
-
+        }
     }
 }

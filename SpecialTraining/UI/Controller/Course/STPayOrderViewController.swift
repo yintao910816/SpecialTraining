@@ -18,7 +18,7 @@ class STPayOrderViewController: BaseViewController {
     @IBOutlet weak var zfbChoseOutlet: UIButton!
     @IBOutlet weak var okOutlet: UIButton!
     
-    private var model: CourseClassModel!
+    private var models: [CourseClassModel]!
     
     private var payType: PayType = .wchatPay
     
@@ -39,18 +39,19 @@ class STPayOrderViewController: BaseViewController {
     override func setupUI() {
         let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
         okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
-
-        let priceText = "￥\(model.price)"
-        priceOutlet.attributedText = priceText.attributed([NSRange.init(location: 0, length: 1)], font: [UIFont.systemFont(ofSize: 13)])
     }
     
     override func rxBind() {
-        viewModel = PayOrderViewModel.init(input: (model: model, payType: payType),
+        viewModel = PayOrderViewModel.init(input: (models: models, payType: payType),
                                            tap: okOutlet.rx.tap.asDriver())
+
+        viewModel.priceTextObser.asDriver()
+            .drive(priceOutlet.rx.attributedText)
+            .disposed(by: disposeBag)
     }
     
     override func prepare(parameters: [String : Any]?) {
-        model = (parameters!["model"] as! CourseClassModel)
+        models = (parameters!["models"] as! [CourseClassModel])
     }
     
 }

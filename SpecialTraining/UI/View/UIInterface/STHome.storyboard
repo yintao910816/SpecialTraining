@@ -1026,22 +1026,6 @@
                                         <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         <nil key="highlightedColor"/>
                                     </label>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="kca-fD-JNk">
-                                        <rect key="frame" x="77" y="117" width="58" height="29"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="返回首页">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
-                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="1g1-oR-M7c">
-                                        <rect key="frame" x="240.5" y="117" width="58" height="29"/>
-                                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="返回课程">
-                                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        </state>
-                                    </button>
                                 </subviews>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
@@ -1050,12 +1034,8 @@
                                     <constraint firstItem="LWS-rJ-qJU" firstAttribute="centerX" secondItem="IYs-Y0-SYQ" secondAttribute="centerX" id="Diz-h3-vXe"/>
                                     <constraint firstItem="2vM-XR-g9Y" firstAttribute="top" secondItem="IYs-Y0-SYQ" secondAttribute="top" constant="20" id="ND6-aI-AKy"/>
                                     <constraint firstAttribute="height" constant="166" id="QHq-aS-6h5"/>
-                                    <constraint firstItem="LWS-rJ-qJU" firstAttribute="leading" secondItem="kca-fD-JNk" secondAttribute="trailing" constant="20" id="XAy-Kh-0zZ"/>
                                     <constraint firstItem="LWS-rJ-qJU" firstAttribute="centerY" secondItem="2vM-XR-g9Y" secondAttribute="centerY" id="cuP-4Y-PEs"/>
                                     <constraint firstItem="2vM-XR-g9Y" firstAttribute="leading" secondItem="IYs-Y0-SYQ" secondAttribute="leading" constant="15" id="e8T-Do-qTl"/>
-                                    <constraint firstItem="1g1-oR-M7c" firstAttribute="centerY" secondItem="kca-fD-JNk" secondAttribute="centerY" id="jmz-Xr-bt5"/>
-                                    <constraint firstItem="1g1-oR-M7c" firstAttribute="leading" secondItem="LWS-rJ-qJU" secondAttribute="trailing" constant="20" id="rai-eT-Uhz"/>
-                                    <constraint firstItem="kca-fD-JNk" firstAttribute="top" secondItem="zea-63-0ZF" secondAttribute="bottom" constant="47" id="zm3-Ky-Xtu"/>
                                 </constraints>
                             </view>
                         </subviews>
@@ -1068,8 +1048,6 @@
                     </view>
                     <connections>
                         <outlet property="bgHeightCns" destination="QHq-aS-6h5" id="sib-oB-OE9"/>
-                        <outlet property="goBackCourseOutlet" destination="1g1-oR-M7c" id="eWJ-QA-QP5"/>
-                        <outlet property="goBackHomeOutlet" destination="kca-fD-JNk" id="OKH-c0-BZz"/>
                         <outlet property="headerBgView" destination="IYs-Y0-SYQ" id="Pxv-5T-4uH"/>
                         <outlet property="topCns" destination="ND6-aI-AKy" id="FrD-bW-bd0"/>
                     </connections>

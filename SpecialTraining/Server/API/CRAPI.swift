@@ -248,7 +248,7 @@ extension API {
             
         case .wxPay(let order_number, let real_amount):
             params["order_number"] = order_number
-            params["real_amount"]  = real_amount
+//            params["real_amount"]  = real_amount
 
         default:
             break

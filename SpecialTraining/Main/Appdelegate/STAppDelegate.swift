@@ -51,5 +51,14 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
     func applicationWillEnterForeground(_ application: UIApplication) {
         EMClient.shared()?.applicationWillEnterForeground(application)
     }
+    
+    func application(_ app: UIApplication, open url: URL, options: [UIApplication.OpenURLOptionsKey : Any] = [:]) -> Bool {
+        PrintLog("openURL:\(url.absoluteString)")
+        if url.scheme == wxAppid {
+            return WXApi.handleOpen(url, delegate: self)
+        }
+        return true
+    }
+    
 }
 
