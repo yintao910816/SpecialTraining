@@ -33,6 +33,21 @@ class MineOrderViewModel: RefreshVM<MineOrderModel> {
                 return d
             })
         }).disposed(by: disposeBag)
+        
+        reloadSubject.subscribe(onNext: { [weak self] in
+            self?.loadData()
+        })
+            .disposed(by: disposeBag)
+    }
+    
+    private func loadData() {
+        STProvider.request(.getMemberAllOrder(member_id: "1"))
+        .map(model: MineOrderModel.self)
+            .subscribe(onSuccess: { model in
+                
+            }) { error in
+                
+        }
     }
     
 }

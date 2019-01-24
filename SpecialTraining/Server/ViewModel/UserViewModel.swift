@@ -84,7 +84,7 @@ class LoginViewModel: BaseViewModel,VMNavigation {
 //                STHelper.share.saveLoginUser(user: userInfo)
 //
 //                STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
-                
+                userDefault.token = model.token
                 self?.hud.successHidden("登录成功", {
                     self?.popSubject.onNext(Void())
                 })

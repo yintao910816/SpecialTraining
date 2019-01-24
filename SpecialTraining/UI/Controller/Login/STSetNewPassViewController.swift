@@ -24,7 +24,13 @@ class STSetNewPassViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = SetNewPwdViewModel(tap: okOutlet.rx.tap.asDriver(), pwd: passOutlet.rx.text.orEmpty.asDriver(), code: code ?? "", phone: phone ?? "")
+        let okDriver = okOutlet.rx.tap.asDriver()
+            .do(onNext: { [unowned self] in self.view.endEditing(true) })
+
+        viewModel = SetNewPwdViewModel(tap: okDriver,
+                                       pwd: passOutlet.rx.text.orEmpty.asDriver(),
+                                       code: code ?? "",
+                                       phone: phone ?? "")
         
         viewModel.popSubject
             .subscribe(onNext: { [weak self] _ in

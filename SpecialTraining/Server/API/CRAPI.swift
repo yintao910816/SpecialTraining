@@ -76,10 +76,9 @@ enum API{
     case alipay(order_number: String)
     
     //MARK:
-    //MARK: 购物车
-    
-    /// 提交
-//    case selectClass()
+    //MARK: 个人中心
+    /// 所有订单 api.youpeixunjiaoyu.com/v1/order/getMemberAllOrder?member_id=1
+    case getMemberAllOrder(member_id: String)
 }
 
 //MARK:
@@ -146,6 +145,9 @@ extension API: TargetType{
             return "v1/pay/wxPay"
         case .alipay(_):
             return "v1/pay/aliPay"
+            
+        case .getMemberAllOrder(_):
+            return "v1/order/getMemberAllOrder"
         }
     }
     
@@ -256,6 +258,8 @@ extension API {
         case .alipay(let order_number):
             params["order_number"] = order_number
             
+        case .getMemberAllOrder(let member_id):
+            params["member_id"] = member_id
         default:
             break
         }

@@ -37,10 +37,12 @@ class STLoginViewController: BaseViewController {
     }
     
     override func rxBind() {
+        let loginTapDriver = loginOutlet.rx.tap.asDriver()
+        .do(onNext: { [unowned self] in self.view.endEditing(true) })
         
         viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
                                                 passwd: passOutlet.rx.text.orEmpty.asDriver()),
-                                        tap: (loginTap: loginOutlet.rx.tap.asDriver(),
+                                        tap: (loginTap: loginTapDriver,
                                               sendCodeTap: securityBtn.rx.tap.asDriver(),
                                               wechatTap: wchatOutlet.rx.tap.asDriver()),
                                         loginType: "1")

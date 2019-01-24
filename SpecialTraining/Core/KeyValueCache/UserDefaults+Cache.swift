@@ -33,6 +33,7 @@ extension UserDefaults{
             if newValue.isEmpty == false {
                 set(newValue, forKey: kToken)
                 synchronize()
+                AppSetup.instance.resetParam()
             }
         }
     }

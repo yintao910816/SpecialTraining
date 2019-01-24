@@ -34,8 +34,6 @@
 		6B80F14921B9020E004142D2 /* STMineOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */; };
 		6B80F14B21B9074D004142D2 /* MineOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14A21B9074D004142D2 /* MineOrderViewModel.swift */; };
 		6B80F14D21B9077A004142D2 /* MineOrderModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14C21B9077A004142D2 /* MineOrderModel.swift */; };
-		6B80F15121B9161F004142D2 /* MineOrderMenuCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B80F14F21B9161F004142D2 /* MineOrderMenuCell.swift */; };
-		6B80F15221B9161F004142D2 /* MineOrderMenuCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B80F15021B9161F004142D2 /* MineOrderMenuCell.xib */; };
 		6B859EF021B66507009FB70A /* STMineBankViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B859EEF21B66507009FB70A /* STMineBankViewController.swift */; };
 		6B859EF321B66851009FB70A /* MineBankCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B859EF121B66851009FB70A /* MineBankCell.swift */; };
 		6B859EF421B66851009FB70A /* MineBankCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = 6B859EF221B66851009FB70A /* MineBankCell.xib */; };
@@ -409,6 +407,15 @@
 		C45AAE5621B6A15200692D7D /* UserVideosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45AAE5421B6A15200692D7D /* UserVideosCell.xib */; };
 		C45AAE5821B6A21E00692D7D /* UserVideosViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AAE5721B6A21E00692D7D /* UserVideosViewModel.swift */; };
 		C460193A21B0D883004498DB /* STMine.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C460193921B0D883004498DB /* STMine.storyboard */; };
+		C468B8E921F9E662001AA08B /* MineNeedPayOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468B8E821F9E662001AA08B /* MineNeedPayOrderView.swift */; };
+		C468B8EC21F9F0C3001AA08B /* MineNeedPayOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468B8EA21F9F0C3001AA08B /* MineNeedPayOrderCell.swift */; };
+		C468B8ED21F9F0C3001AA08B /* MineNeedPayOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C468B8EB21F9F0C3001AA08B /* MineNeedPayOrderCell.xib */; };
+		C468B8F421F9F105001AA08B /* MineNeedClassOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468B8F221F9F105001AA08B /* MineNeedClassOrderCell.swift */; };
+		C468B8F521F9F105001AA08B /* MineNeedClassOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C468B8F321F9F105001AA08B /* MineNeedClassOrderCell.xib */; };
+		C468B8F821F9F129001AA08B /* MineNeedCourseOrderCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468B8F621F9F129001AA08B /* MineNeedCourseOrderCell.swift */; };
+		C468B8F921F9F129001AA08B /* MineNeedCourseOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C468B8F721F9F129001AA08B /* MineNeedCourseOrderCell.xib */; };
+		C468B8FC21F9F196001AA08B /* MineNeedPayBackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468B8FA21F9F196001AA08B /* MineNeedPayBackCell.swift */; };
+		C468B8FD21F9F196001AA08B /* MineNeedPayBackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C468B8FB21F9F196001AA08B /* MineNeedPayBackCell.xib */; };
 		C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */; };
 		C47356D721AEB6A4000E24A5 /* amr_wav_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = C47356D321AEB6A4000E24A5 /* amr_wav_converter.c */; };
 		C47356D821AEB6A4000E24A5 /* DPAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356D421AEB6A4000E24A5 /* DPAudioRecorder.m */; };
@@ -461,8 +468,6 @@
 		6B80F14821B9020D004142D2 /* STMineOrderViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineOrderViewController.swift; sourceTree = "<group>"; };
 		6B80F14A21B9074D004142D2 /* MineOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderViewModel.swift; sourceTree = "<group>"; };
 		6B80F14C21B9077A004142D2 /* MineOrderModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderModel.swift; sourceTree = "<group>"; };
-		6B80F14F21B9161F004142D2 /* MineOrderMenuCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderMenuCell.swift; sourceTree = "<group>"; };
-		6B80F15021B9161F004142D2 /* MineOrderMenuCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineOrderMenuCell.xib; sourceTree = "<group>"; };
 		6B859EEF21B66507009FB70A /* STMineBankViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineBankViewController.swift; sourceTree = "<group>"; };
 		6B859EF121B66851009FB70A /* MineBankCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineBankCell.swift; sourceTree = "<group>"; };
 		6B859EF221B66851009FB70A /* MineBankCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineBankCell.xib; sourceTree = "<group>"; };
@@ -843,6 +848,15 @@
 		C45AAE5421B6A15200692D7D /* UserVideosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserVideosCell.xib; sourceTree = "<group>"; };
 		C45AAE5721B6A21E00692D7D /* UserVideosViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideosViewModel.swift; sourceTree = "<group>"; };
 		C460193921B0D883004498DB /* STMine.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMine.storyboard; sourceTree = "<group>"; };
+		C468B8E821F9E662001AA08B /* MineNeedPayOrderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineNeedPayOrderView.swift; sourceTree = "<group>"; };
+		C468B8EA21F9F0C3001AA08B /* MineNeedPayOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineNeedPayOrderCell.swift; sourceTree = "<group>"; };
+		C468B8EB21F9F0C3001AA08B /* MineNeedPayOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineNeedPayOrderCell.xib; sourceTree = "<group>"; };
+		C468B8F221F9F105001AA08B /* MineNeedClassOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineNeedClassOrderCell.swift; sourceTree = "<group>"; };
+		C468B8F321F9F105001AA08B /* MineNeedClassOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineNeedClassOrderCell.xib; sourceTree = "<group>"; };
+		C468B8F621F9F129001AA08B /* MineNeedCourseOrderCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineNeedCourseOrderCell.swift; sourceTree = "<group>"; };
+		C468B8F721F9F129001AA08B /* MineNeedCourseOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineNeedCourseOrderCell.xib; sourceTree = "<group>"; };
+		C468B8FA21F9F196001AA08B /* MineNeedPayBackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineNeedPayBackCell.swift; sourceTree = "<group>"; };
+		C468B8FB21F9F196001AA08B /* MineNeedPayBackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineNeedPayBackCell.xib; sourceTree = "<group>"; };
 		C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAudioPlayer.m; sourceTree = "<group>"; };
 		C47356CF21AEB6A4000E24A5 /* DPAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAudioRecorder.h; sourceTree = "<group>"; };
 		C47356D021AEB6A4000E24A5 /* amr_wav_converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amr_wav_converter.h; sourceTree = "<group>"; };
@@ -908,8 +922,14 @@
 		6B80F14E21B915F3004142D2 /* MineOrder */ = {
 			isa = PBXGroup;
 			children = (
-				6B80F14F21B9161F004142D2 /* MineOrderMenuCell.swift */,
-				6B80F15021B9161F004142D2 /* MineOrderMenuCell.xib */,
+				C468B8EA21F9F0C3001AA08B /* MineNeedPayOrderCell.swift */,
+				C468B8EB21F9F0C3001AA08B /* MineNeedPayOrderCell.xib */,
+				C468B8F221F9F105001AA08B /* MineNeedClassOrderCell.swift */,
+				C468B8F321F9F105001AA08B /* MineNeedClassOrderCell.xib */,
+				C468B8F621F9F129001AA08B /* MineNeedCourseOrderCell.swift */,
+				C468B8F721F9F129001AA08B /* MineNeedCourseOrderCell.xib */,
+				C468B8FA21F9F196001AA08B /* MineNeedPayBackCell.swift */,
+				C468B8FB21F9F196001AA08B /* MineNeedPayBackCell.xib */,
 			);
 			path = MineOrder;
 			sourceTree = "<group>";
@@ -1210,6 +1230,7 @@
 		B8350AAC21A1084B0020A6A6 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				C468B8E721F9E5C6001AA08B /* MineOrder */,
 				B8350AAF21A108E60020A6A6 /* MineHeaderCollectionReusableView.swift */,
 				B8350AB021A108E60020A6A6 /* MineHeaderCollectionReusableView.xib */,
 				B8350AB321A1112D0020A6A6 /* MineSectionCollectionReusableView.swift */,
@@ -2031,6 +2052,14 @@
 			path = Video;
 			sourceTree = "<group>";
 		};
+		C468B8E721F9E5C6001AA08B /* MineOrder */ = {
+			isa = PBXGroup;
+			children = (
+				C468B8E821F9E662001AA08B /* MineNeedPayOrderView.swift */,
+			);
+			path = MineOrder;
+			sourceTree = "<group>";
+		};
 		C47356CD21AEB6A4000E24A5 /* Record&Player */ = {
 			isa = PBXGroup;
 			children = (
@@ -2163,7 +2192,6 @@
 				B8FBFA2C21A3DD9600AECB75 /* z2_thumb.png in Resources */,
 				B8FBFA3521A3DD9600AECB75 /* sada_thumb.png in Resources */,
 				B87F8F8521A2933D00DE9DC1 /* MessageListCell.xib in Resources */,
-				6B80F15221B9161F004142D2 /* MineOrderMenuCell.xib in Resources */,
 				C498BA7321B79AB100A29385 /* API接口.rtf in Resources */,
 				B85F33A2219EA3AD00023958 /* CourseListCell.xib in Resources */,
 				C47356E221AEBA6E000E24A5 /* chatBar_recordBg@2x.png in Resources */,
@@ -2177,6 +2205,7 @@
 				B8FBFA2321A3DD9600AECB75 /* shamea_thumb.png in Resources */,
 				B8FBFA5021A3DD9600AECB75 /* cj_thumb.png in Resources */,
 				B8FBFA1E21A3DD9600AECB75 /* EmjoToolBar.xib in Resources */,
+				C468B8F921F9F129001AA08B /* MineNeedCourseOrderCell.xib in Resources */,
 				B85F33DB219F084000023958 /* OrganizationCell.xib in Resources */,
 				B87A94E821A82D9B003E2D21 /* ActivityBrefCell.xib in Resources */,
 				B8FBFA4B21A3DD9600AECB75 /* smilea_thumb.png in Resources */,
@@ -2203,6 +2232,7 @@
 				C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */,
 				B81EDF7A21A5570200F9D3B0 /* mapapi.bundle in Resources */,
 				B80B6BFE219FEE1100C33F11 /* VideoCell.xib in Resources */,
+				C468B8F521F9F105001AA08B /* MineNeedClassOrderCell.xib in Resources */,
 				6B280D6B21CCEEDA00C5DEED /* SendCodeCell.xib in Resources */,
 				C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */,
 				B85F33AE219EADB300023958 /* HomeHeaderNearByCourseView.xib in Resources */,
@@ -2211,6 +2241,7 @@
 				B85F33B4219EB0EC00023958 /* HomeHeaderOptimizingView.xib in Resources */,
 				B8FBFA5521A3DD9600AECB75 /* hatea_thumb.png in Resources */,
 				B8FBFA4F21A3DD9600AECB75 /* sb_thumb.png in Resources */,
+				C468B8ED21F9F0C3001AA08B /* MineNeedPayOrderCell.xib in Resources */,
 				B8FBFA4A21A3DD9600AECB75 /* crazya_thumb.png in Resources */,
 				B81E90BE21A3C57D000754E3 /* ChatLeftView.xib in Resources */,
 				C408422421B54A1A00C491A8 /* STMessage.storyboard in Resources */,
@@ -2223,6 +2254,7 @@
 				B8FBFA4D21A3DD9600AECB75 /* sweata_thumb.png in Resources */,
 				B8FBFA2921A3DD9600AECB75 /* bs_thumb.png in Resources */,
 				B8FBFA3F21A3DD9600AECB75 /* kbsa_thumb.png in Resources */,
+				C468B8FD21F9F196001AA08B /* MineNeedPayBackCell.xib in Resources */,
 				6B859EFF21B67731009FB70A /* MineBankFooterView.xib in Resources */,
 				B8547E2821A6772300281554 /* OrganizationHeaderView.xib in Resources */,
 				B87800B221C7E23100EDCE72 /* CourseTimeCell.xib in Resources */,
@@ -2409,6 +2441,7 @@
 				C45AAE5221B6A13500692D7D /* UserVideosView.swift in Sources */,
 				C4F9AB1121E8653C00140A93 /* ShoppingVerifyReusableView.swift in Sources */,
 				C4C71E1D21F869DC0060C880 /* AppPayManager.swift in Sources */,
+				C468B8E921F9E662001AA08B /* MineNeedPayOrderView.swift in Sources */,
 				6B280D5F21CCDC3600C5DEED /* STMineChangeInfoViewController.swift in Sources */,
 				B88F8CAA21C16E0B0064C1CF /* STBindPhoneViewController.swift in Sources */,
 				B8FBFA7621A426A200AECB75 /* NSDictionary+Extension.swift in Sources */,
@@ -2416,6 +2449,7 @@
 				B8FBFA1B21A3DD9600AECB75 /* EmojViewFlowLayout.swift in Sources */,
 				6B859EF321B66851009FB70A /* MineBankCell.swift in Sources */,
 				B87A94DE21A82099003E2D21 /* TeachersCollectionVIew.swift in Sources */,
+				C468B8EC21F9F0C3001AA08B /* MineNeedPayOrderCell.swift in Sources */,
 				C4F9AB0D21E864B500140A93 /* ShoppingVerifyCell.swift in Sources */,
 				B85F3355219E94D600023958 /* BackgroundView.swift in Sources */,
 				6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */,
@@ -2487,7 +2521,6 @@
 				6B280D7121CCF41400C5DEED /* MineAddAccountViewModel.swift in Sources */,
 				B85F3345219E94B200023958 /* NoticesCenter.swift in Sources */,
 				B80B6BF7219FC38300C33F11 /* ShoppingCartViewModel.swift in Sources */,
-				6B80F15121B9161F004142D2 /* MineOrderMenuCell.swift in Sources */,
 				B81E909A21A39A80000754E3 /* ChatRoomViewModel.swift in Sources */,
 				B87F8F7521A2805400DE9DC1 /* StudentInfoCell.swift in Sources */,
 				6BEA00D821B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.swift in Sources */,
@@ -2526,6 +2559,7 @@
 				B80B6C11219FF4DF00C33F11 /* Video.swift in Sources */,
 				6BAE0AD821CA2CC10065BAD2 /* ResetPasOneViewModel.swift in Sources */,
 				B81E90BC21A3C559000754E3 /* ChatRightView.swift in Sources */,
+				C468B8FC21F9F196001AA08B /* MineNeedPayBackCell.swift in Sources */,
 				6BAE0ADE21CA2CE50065BAD2 /* BindPhoneViewModel.swift in Sources */,
 				B85F3344219E94B200023958 /* HttpLoadingUI.swift in Sources */,
 				B85F3352219E94D600023958 /* TYHUDAnimating.swift in Sources */,
@@ -2543,6 +2577,7 @@
 				B803C3CA21BD6876004C97DB /* VideoCoverChoseCell.swift in Sources */,
 				B87F8F7121A2446E00DE9DC1 /* MineInfoCell.swift in Sources */,
 				B87A94EB21A83208003E2D21 /* RecommendCourseCell.swift in Sources */,
+				C468B8F421F9F105001AA08B /* MineNeedClassOrderCell.swift in Sources */,
 				C47356D721AEB6A4000E24A5 /* amr_wav_converter.c in Sources */,
 				B80B6C13219FF5B800C33F11 /* VideoViewModel.swift in Sources */,
 				B87A94DA21A82052003E2D21 /* RecommendCourseTableView.swift in Sources */,
@@ -2552,6 +2587,7 @@
 				B8BD92D821E64C200089495F /* DBCtrl.swift in Sources */,
 				B87A94D821A81FE1003E2D21 /* PhysicalStoreTableView.swift in Sources */,
 				B844477D21B825AE00808F5A /* BaseTableViewController.swift in Sources */,
+				C468B8F821F9F129001AA08B /* MineNeedCourseOrderCell.swift in Sources */,
 				B8A4661921D27B9A0022146C /* ShopViewModel.swift in Sources */,
 				B85F3357219E94D600023958 /* TYHUD.swift in Sources */,
 				C47356E321AEBA6E000E24A5 /* ChatToolBarAudioButton.m in Sources */,

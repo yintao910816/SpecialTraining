@@ -683,53 +683,124 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="pvS-qg-AXh" customClass="BaseTB" customModule="SpecialTraining" customModuleProvider="target">
-                                <rect key="frame" x="0.0" y="124" width="375" height="543"/>
-                                <color key="backgroundColor" red="0.94463080167770386" green="0.93728941679000854" blue="0.94139552116394043" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                            </tableView>
-                            <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="dWL-vW-epX">
-                                <rect key="frame" x="0.0" y="64" width="375" height="60"/>
-                                <color key="backgroundColor" red="0.94463080170000002" green="0.9372894168" blue="0.94139552120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <constraints>
-                                    <constraint firstAttribute="height" constant="60" id="Kai-6L-Ifd"/>
-                                </constraints>
-                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="cgQ-fl-qaG">
-                                    <size key="itemSize" width="50" height="50"/>
-                                    <size key="headerReferenceSize" width="0.0" height="0.0"/>
-                                    <size key="footerReferenceSize" width="0.0" height="0.0"/>
-                                    <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                </collectionViewFlowLayout>
-                                <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="p21-O4-87N">
-                                        <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
+                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="7gI-nQ-WFt">
+                                <rect key="frame" x="0.0" y="64" width="375" height="47"/>
+                                <subviews>
+                                    <button opaque="NO" tag="200" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vz9-2Y-Eof">
+                                        <rect key="frame" x="0.0" y="0.0" width="94" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="待付款">
+                                            <color key="titleColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.074509803921568626" green="0.64313725490196072" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actions:" destination="81g-Au-StY" eventType="touchUpInside" id="PnB-lg-8og"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kO-Rj-mVx">
+                                        <rect key="frame" x="94" y="0.0" width="93.5" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="待排课">
+                                            <color key="titleColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.074509803920000006" green="0.64313725489999995" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actions:" destination="81g-Au-StY" eventType="touchUpInside" id="e7T-c1-w8E"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zX-b2-lKr">
+                                        <rect key="frame" x="187.5" y="0.0" width="94" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="待上课">
+                                            <color key="titleColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.074509803920000006" green="0.64313725489999995" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actions:" destination="81g-Au-StY" eventType="touchUpInside" id="c0L-uS-jCe"/>
+                                        </connections>
+                                    </button>
+                                    <button opaque="NO" tag="203" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="IjQ-3U-wL9">
+                                        <rect key="frame" x="281.5" y="0.0" width="93.5" height="45"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                        <state key="normal" title="退款">
+                                            <color key="titleColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="deviceRGB"/>
+                                        </state>
+                                        <state key="selected">
+                                            <color key="titleColor" red="0.074509803920000006" green="0.64313725489999995" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                        </state>
+                                        <connections>
+                                            <action selector="actions:" destination="81g-Au-StY" eventType="touchUpInside" id="QbP-NH-AHu"/>
+                                        </connections>
+                                    </button>
+                                    <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="KPI-86-yt5">
+                                        <rect key="frame" x="28" y="43" width="58" height="4"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                        <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO">
-                                            <rect key="frame" x="0.0" y="0.0" width="50" height="50"/>
-                                            <autoresizingMask key="autoresizingMask"/>
-                                        </view>
-                                    </collectionViewCell>
-                                </cells>
-                            </collectionView>
+                                        <color key="backgroundColor" red="0.074509803921568626" green="0.64313725490196072" blue="0.99215686274509807" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                    </view>
+                                </subviews>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="47" id="AEP-3d-7DR"/>
+                                    <constraint firstAttribute="bottom" secondItem="vz9-2Y-Eof" secondAttribute="bottom" constant="2" id="BDM-0S-wwF"/>
+                                    <constraint firstItem="2kO-Rj-mVx" firstAttribute="height" secondItem="vz9-2Y-Eof" secondAttribute="height" id="Cdz-j6-rfX"/>
+                                    <constraint firstItem="2kO-Rj-mVx" firstAttribute="width" secondItem="vz9-2Y-Eof" secondAttribute="width" id="DHX-sy-dwd"/>
+                                    <constraint firstAttribute="trailing" secondItem="IjQ-3U-wL9" secondAttribute="trailing" id="Dh9-Dk-qSe"/>
+                                    <constraint firstItem="5zX-b2-lKr" firstAttribute="width" secondItem="2kO-Rj-mVx" secondAttribute="width" id="FHJ-QP-Cwp"/>
+                                    <constraint firstItem="2kO-Rj-mVx" firstAttribute="centerY" secondItem="vz9-2Y-Eof" secondAttribute="centerY" id="Kml-Ml-emE"/>
+                                    <constraint firstItem="IjQ-3U-wL9" firstAttribute="width" secondItem="5zX-b2-lKr" secondAttribute="width" id="LEg-RT-aSf"/>
+                                    <constraint firstItem="5zX-b2-lKr" firstAttribute="leading" secondItem="2kO-Rj-mVx" secondAttribute="trailing" id="R7N-2D-WAC"/>
+                                    <constraint firstItem="5zX-b2-lKr" firstAttribute="centerY" secondItem="2kO-Rj-mVx" secondAttribute="centerY" id="VdT-dZ-hu4"/>
+                                    <constraint firstItem="IjQ-3U-wL9" firstAttribute="centerY" secondItem="5zX-b2-lKr" secondAttribute="centerY" id="WbY-Y0-NjK"/>
+                                    <constraint firstItem="IjQ-3U-wL9" firstAttribute="height" secondItem="5zX-b2-lKr" secondAttribute="height" id="XWZ-LJ-1XQ"/>
+                                    <constraint firstItem="5zX-b2-lKr" firstAttribute="height" secondItem="2kO-Rj-mVx" secondAttribute="height" id="eF4-vx-cBo"/>
+                                    <constraint firstItem="vz9-2Y-Eof" firstAttribute="leading" secondItem="7gI-nQ-WFt" secondAttribute="leading" id="eeC-9G-Zk0"/>
+                                    <constraint firstItem="2kO-Rj-mVx" firstAttribute="leading" secondItem="vz9-2Y-Eof" secondAttribute="trailing" id="iix-hA-fWr"/>
+                                    <constraint firstItem="IjQ-3U-wL9" firstAttribute="leading" secondItem="5zX-b2-lKr" secondAttribute="trailing" id="jm3-w3-paU"/>
+                                    <constraint firstItem="vz9-2Y-Eof" firstAttribute="top" secondItem="7gI-nQ-WFt" secondAttribute="top" id="llV-Tz-SEB"/>
+                                </constraints>
+                            </view>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="75h-0a-vWr">
+                                <rect key="frame" x="0.0" y="111" width="375" height="556"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <connections>
+                                    <outlet property="delegate" destination="81g-Au-StY" id="nWg-hG-tpX"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
-                        <color key="backgroundColor" red="0.94463080170000002" green="0.9372894168" blue="0.94139552120000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
-                            <constraint firstAttribute="trailing" secondItem="dWL-vW-epX" secondAttribute="trailing" id="4GK-w4-hbo"/>
-                            <constraint firstAttribute="trailing" secondItem="pvS-qg-AXh" secondAttribute="trailing" id="5aA-QD-7na"/>
-                            <constraint firstItem="DBA-xj-G9Z" firstAttribute="top" secondItem="pvS-qg-AXh" secondAttribute="bottom" id="Jf2-0b-wdc"/>
-                            <constraint firstItem="pvS-qg-AXh" firstAttribute="top" secondItem="dWL-vW-epX" secondAttribute="bottom" id="cjh-dR-gFj"/>
-                            <constraint firstItem="pvS-qg-AXh" firstAttribute="leading" secondItem="tIi-Tg-Kd0" secondAttribute="leading" id="mnp-py-Lf3"/>
-                            <constraint firstItem="dWL-vW-epX" firstAttribute="leading" secondItem="tIi-Tg-Kd0" secondAttribute="leading" id="tUK-68-GeU"/>
-                            <constraint firstItem="dWL-vW-epX" firstAttribute="top" secondItem="3pe-Wl-FYI" secondAttribute="bottom" id="zfs-u7-aAL"/>
+                            <constraint firstAttribute="trailing" secondItem="7gI-nQ-WFt" secondAttribute="trailing" id="ACt-Lw-Kln"/>
+                            <constraint firstItem="DBA-xj-G9Z" firstAttribute="top" secondItem="75h-0a-vWr" secondAttribute="bottom" id="eIY-ts-c5P"/>
+                            <constraint firstAttribute="trailing" secondItem="75h-0a-vWr" secondAttribute="trailing" id="gEB-Sx-aBN"/>
+                            <constraint firstItem="75h-0a-vWr" firstAttribute="top" secondItem="7gI-nQ-WFt" secondAttribute="bottom" id="kio-Sd-64l"/>
+                            <constraint firstItem="7gI-nQ-WFt" firstAttribute="top" secondItem="3pe-Wl-FYI" secondAttribute="bottom" id="psW-oj-tpj"/>
+                            <constraint firstItem="75h-0a-vWr" firstAttribute="leading" secondItem="tIi-Tg-Kd0" secondAttribute="leading" id="sAK-ba-5hj"/>
+                            <constraint firstItem="7gI-nQ-WFt" firstAttribute="leading" secondItem="tIi-Tg-Kd0" secondAttribute="leading" id="t2f-Ex-3nQ"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="menuCollectionView" destination="dWL-vW-epX" id="hnF-Pz-eCE"/>
-                        <outlet property="tableView" destination="pvS-qg-AXh" id="DJH-v5-jGw"/>
+                        <outlet property="headerView" destination="7gI-nQ-WFt" id="38T-w5-fyJ"/>
+                        <outlet property="moveAnimotionView" destination="KPI-86-yt5" id="sbM-SV-aPD"/>
+                        <outlet property="needClassOutlet" destination="5zX-b2-lKr" id="LUE-DS-Jqu"/>
+                        <outlet property="needCourseOutlet" destination="2kO-Rj-mVx" id="ZUG-K1-xWk"/>
+                        <outlet property="needPayBackOutlet" destination="IjQ-3U-wL9" id="gyH-9x-yI0"/>
+                        <outlet property="needPayOutlet" destination="vz9-2Y-Eof" id="NxU-Mj-GPm"/>
+                        <outlet property="scrollOutlet" destination="75h-0a-vWr" id="WgZ-U5-H7W"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="8N6-TD-1Xl" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-4446" y="2507"/>
+            <point key="canvasLocation" x="-4447.1999999999998" y="2506.5967016491754"/>
         </scene>
         <!--宝贝互换-->
         <scene sceneID="E1J-KB-eh1">

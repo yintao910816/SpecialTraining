@@ -35,11 +35,9 @@ class AppSetup {
      切换用户重新设置请求相关参数
      */
     public func resetParam() {
-        //        requestParam = [
-        //            "uid":"" ,
-        ////            "token":userDefault.token,
-        ////            "channel_id":channelId
-        //        ]
+                requestParam = [
+//                    "uid": userDefault.uid,
+                    "token": userDefault.token]
         
         PrintLog("默认请求参数已改变：\(requestParam)")
     }

@@ -41,8 +41,14 @@ class STBindPhoneViewController: BaseViewController {
                 }
             }).disposed(by: disposeBag)
         
-        viewModel = BindPhoneViewModel.init(input: (phoneOutlet.rx.text.orEmpty.asDriver(), code: codeOutlet.rx.text.orEmpty.asDriver(), openid: openid),
-                                            tap: (sendAuth: authorOutlet.rx.tap.asDriver(), next: okOutlet.rx.tap.asDriver()))
+        let nextDriver = okOutlet.rx.tap.asDriver()
+            .do(onNext: { [unowned self] in self.view.endEditing(true) })
+
+        viewModel = BindPhoneViewModel.init(input: (phoneOutlet.rx.text.orEmpty.asDriver(),
+                                                    code: codeOutlet.rx.text.orEmpty.asDriver(),
+                                                    openid: openid),
+                                            tap: (sendAuth: authorOutlet.rx.tap.asDriver(),
+                                                  next: nextDriver))
         
         viewModel.sendCodeSubject.subscribe(onNext: { [unowned self] (success) in
             success == true ? self.timer.timerStar() : self.timer.timerPause()
