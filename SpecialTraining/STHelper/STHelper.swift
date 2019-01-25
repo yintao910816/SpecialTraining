@@ -70,12 +70,10 @@ extension STHelper {
     
     // 平台用户登录
     class func login(account: String, password: String) {
-        _ = STProvider.request(.login(mobile: account, code: "", pswd: password))
+        _ = STProvider.request(.login(mobile: account, code: password))
             .map(model: UserInfoModel.self)
             .subscribe(onSuccess: { userInfo in
-                STHelper.share.saveLoginUser(user: userInfo)
-                
-                STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
+                STHelper.share.saveLoginUser(user: userInfo)                
             }) {  error in
         }
     }

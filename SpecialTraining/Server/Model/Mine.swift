@@ -27,19 +27,6 @@ struct MineModel {
     }
 }
 
-import HandyJSON
-class UserInfoModel: HJModel {
-    var uid: String = ""
-    var nickname: String = ""
-    var pic: String = ""
-    var pwd: String = ""
-    
-    override func mapping(mapper: HelpingMapper) {
-        mapper <<<
-            [uid <-- "member_id"]
-    }
-}
-
 //MARK:
 //MARK: 个人中心所有订单
 class MemberAllOrderModel: HJModel {

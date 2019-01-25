@@ -57,7 +57,6 @@
 		6BAE0ADC21CA2CD80065BAD2 /* SetNewPwdViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0ADB21CA2CD80065BAD2 /* SetNewPwdViewModel.swift */; };
 		6BAE0ADE21CA2CE50065BAD2 /* BindPhoneViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0ADD21CA2CE50065BAD2 /* BindPhoneViewModel.swift */; };
 		6BAE0AE021CA2FDC0065BAD2 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = 6BAE0ADF21CA2FDC0065BAD2 /* libopencore-amrnb.a */; };
-		6BAE0AE221CB3E700065BAD2 /* LoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0AE121CB3E700065BAD2 /* LoginModel.swift */; };
 		6BAE0AE921CB906B0065BAD2 /* Validate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0AE821CB906B0065BAD2 /* Validate.swift */; };
 		6BAE0AEB21CB9B470065BAD2 /* WXLoginModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BAE0AEA21CB9B470065BAD2 /* WXLoginModel.swift */; };
 		6BEA00D821B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6BEA00D621B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.swift */; };
@@ -416,6 +415,7 @@
 		C468B8F921F9F129001AA08B /* MineNeedCourseOrderCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C468B8F721F9F129001AA08B /* MineNeedCourseOrderCell.xib */; };
 		C468B8FC21F9F196001AA08B /* MineNeedPayBackCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C468B8FA21F9F196001AA08B /* MineNeedPayBackCell.swift */; };
 		C468B8FD21F9F196001AA08B /* MineNeedPayBackCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C468B8FB21F9F196001AA08B /* MineNeedPayBackCell.xib */; };
+		C46D0C8321FADD7200E94C9B /* User.swift in Sources */ = {isa = PBXBuildFile; fileRef = C46D0C8221FADD7200E94C9B /* User.swift */; };
 		C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */; };
 		C47356D721AEB6A4000E24A5 /* amr_wav_converter.c in Sources */ = {isa = PBXBuildFile; fileRef = C47356D321AEB6A4000E24A5 /* amr_wav_converter.c */; };
 		C47356D821AEB6A4000E24A5 /* DPAudioRecorder.m in Sources */ = {isa = PBXBuildFile; fileRef = C47356D421AEB6A4000E24A5 /* DPAudioRecorder.m */; };
@@ -491,7 +491,6 @@
 		6BAE0ADB21CA2CD80065BAD2 /* SetNewPwdViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SetNewPwdViewModel.swift; sourceTree = "<group>"; };
 		6BAE0ADD21CA2CE50065BAD2 /* BindPhoneViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BindPhoneViewModel.swift; sourceTree = "<group>"; };
 		6BAE0ADF21CA2FDC0065BAD2 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
-		6BAE0AE121CB3E700065BAD2 /* LoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LoginModel.swift; sourceTree = "<group>"; };
 		6BAE0AE821CB906B0065BAD2 /* Validate.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Validate.swift; sourceTree = "<group>"; };
 		6BAE0AEA21CB9B470065BAD2 /* WXLoginModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WXLoginModel.swift; sourceTree = "<group>"; };
 		6BEA00D621B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomCollectionReusableFooterView.swift; sourceTree = "<group>"; };
@@ -857,6 +856,7 @@
 		C468B8F721F9F129001AA08B /* MineNeedCourseOrderCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineNeedCourseOrderCell.xib; sourceTree = "<group>"; };
 		C468B8FA21F9F196001AA08B /* MineNeedPayBackCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineNeedPayBackCell.swift; sourceTree = "<group>"; };
 		C468B8FB21F9F196001AA08B /* MineNeedPayBackCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineNeedPayBackCell.xib; sourceTree = "<group>"; };
+		C46D0C8221FADD7200E94C9B /* User.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = User.swift; sourceTree = "<group>"; };
 		C47356CE21AEB6A4000E24A5 /* DPAudioPlayer.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = DPAudioPlayer.m; sourceTree = "<group>"; };
 		C47356CF21AEB6A4000E24A5 /* DPAudioRecorder.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = DPAudioRecorder.h; sourceTree = "<group>"; };
 		C47356D021AEB6A4000E24A5 /* amr_wav_converter.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = amr_wav_converter.h; sourceTree = "<group>"; };
@@ -1568,10 +1568,10 @@
 				6B80F14C21B9077A004142D2 /* MineOrderModel.swift */,
 				6BF7B95A21BA6C2C00BE1E4A /* MineCollectionModel.swift */,
 				B8547E1D21A640E000281554 /* City.swift */,
-				6BAE0AE121CB3E700065BAD2 /* LoginModel.swift */,
 				6BAE0AEA21CB9B470065BAD2 /* WXLoginModel.swift */,
 				B82722F221E5E42300147397 /* CourseDetail.swift */,
 				B8BD92CC21E641580089495F /* Order.swift */,
+				C46D0C8221FADD7200E94C9B /* User.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -2424,7 +2424,6 @@
 				B85F335E219E95E000023958 /* UIDevice+Extension.swift in Sources */,
 				B803C3CD21BD760B004C97DB /* STPublishChoseClassificationViewController.swift in Sources */,
 				B85F335C219E95A800023958 /* ViewControllerServer.swift in Sources */,
-				6BAE0AE221CB3E700065BAD2 /* LoginModel.swift in Sources */,
 				B85F33A5219EA3FE00023958 /* CourseDisplayMinuteCell.swift in Sources */,
 				6B0754BA21B1165200B36740 /* STMineAccountViewController.swift in Sources */,
 				6B8A611921B51CFE00C0DFCD /* MineAccountViewModel.swift in Sources */,
@@ -2630,6 +2629,7 @@
 				B85F33C1219EB94100023958 /* BaseViewModel.swift in Sources */,
 				B85F33B0219EB07700023958 /* UIView+XIB.swift in Sources */,
 				B87A94E121A820F4003E2D21 /* PhysicalStoreCell.swift in Sources */,
+				C46D0C8321FADD7200E94C9B /* User.swift in Sources */,
 				B8BD92D921E64C200089495F /* DB+Extension.swift in Sources */,
 				B85F33C2219EB94100023958 /* PageModel.swift in Sources */,
 				B85F3358219E94D600023958 /* HUDUtil.swift in Sources */,

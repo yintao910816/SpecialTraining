@@ -35,9 +35,10 @@ class AppSetup {
      切换用户重新设置请求相关参数
      */
     public func resetParam() {
-                requestParam = [
+//                requestParam = [
 //                    "uid": userDefault.uid,
-                    "token": userDefault.token]
+//                    "token": userDefault.token
+//        ]
         
         PrintLog("默认请求参数已改变：\(requestParam)")
     }
@@ -54,7 +55,6 @@ struct APIAssistance {
         switch API {
         case .bindPhone(_, _, _),
              .sendCode(_),
-             .login(_, _, _),
              .setPassword(_,  _, _),
              .register(_, _, _),
              .getUserInfo(_),
@@ -73,7 +73,7 @@ struct APIAssistance {
     static public func mothed(API: API) ->Moya.Method{
         switch API {
         case .register(_, _, _),
-             .login(_, _, _),
+//             .login(_, _),
              .submitOrder(_),
              .wxPay(_, _),
              .alipay(_):

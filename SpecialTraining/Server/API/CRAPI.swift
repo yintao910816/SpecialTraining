@@ -15,7 +15,7 @@ enum API{
     // 用户注册
     case register(username: String, password: String, nickname: String)
     // 登录
-    case login(mobile: String, code: String, pswd: String)
+    case login(mobile: String, code: String)
     // 获取用户信息
     case getUserInfo(uid: String)
     //设置/修改密码
@@ -89,8 +89,9 @@ extension API: TargetType{
         switch self {
         case .register(_, _, _):
             return "member/registerImUser"
-        case .login(_, _, _):
-            return "server/auth/login.php"
+        case .login(_, _):
+            // http://api.youpeixunjiaoyu.com/v1/login/mobLogin?appid=ypxcb1e987d2389e80d&mobile=18627844751&code=9067
+            return "v1/login/mobLogin"
         case .getUserInfo(_):
             return "member/read"
         case .setPassword(_, _, _):
@@ -173,7 +174,9 @@ extension API: TargetType{
     
     var validate: Bool { return false }
     
-    var headers: [String : String]? { return nil }
+    var headers: [String : String]? {
+        return ["authentication": userDefault.token]
+    }
     
 }
 
@@ -188,10 +191,10 @@ extension API {
             params["username"] = username
             params["password"] = password
             params["nickname"] = nickname
-        case .login(let mobile, let code, let pswd):
+        case .login(let mobile, let code):
             params["mobile"] = mobile
             params["code"] = code
-            params["pswd"] = pswd
+            params["appid"] = "ypxcb1e987d2389e80d"
         case .getUserInfo(let uid):
             params["id"] = uid
         case .setPassword(let mobile, let code, let pswd):

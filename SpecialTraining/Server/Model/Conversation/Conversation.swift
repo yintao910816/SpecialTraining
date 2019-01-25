@@ -69,16 +69,16 @@ class ChatModel {
         let myInfo = STHelper.share.loginUser!
         for chat in chats {
             // 自己
-            if chat.message.from == myInfo.uid {
+            if chat.message.from == "\(myInfo.uid)" {
                 chat.isMyselfSend = true
-                chat.uid = myInfo.uid
+                chat.uid = "\(myInfo.uid)"
                 chat.nickName = myInfo.nickname
-                chat.iconStr  = myInfo.pic
+                chat.iconStr  = myInfo.headimgurl
             }else {
                 chat.isMyselfSend = false
-                chat.uid = userInfo.uid
+                chat.uid = "\(userInfo.uid)"
                 chat.nickName = userInfo.nickname
-                chat.iconStr  = userInfo.pic
+                chat.iconStr  = userInfo.headimgurl
             }
         }
         

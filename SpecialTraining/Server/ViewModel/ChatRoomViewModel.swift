@@ -161,7 +161,7 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
         PrintLog(conversation.conversationId!)
 
         let amessage = EMMessage.init(conversationID: conversation.conversationId,
-                                      from: userDefault.uid,
+                                      from: "\(userDefault.uid)",
                                       to: conversation.conversationId,
                                       body: body,
                                       ext: ["em_apns_ext": ["em_push_title": content]])!
@@ -176,7 +176,7 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
         PrintLog(conversation.conversationId!)
         
         let amessage = EMMessage.init(conversationID: conversation.conversationId,
-                                      from: userDefault.uid,
+                                      from: "\(userDefault.uid)",
                                       to: conversation.conversationId,
                                       body: body,
                                       ext: ["em_apns_ext": ["em_push_title": "语音消息"]])!
@@ -191,7 +191,7 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
         }
         let body = EMImageMessageBody.init(data: data, displayName: "image")
         let amessage = EMMessage.init(conversationID: conversation.conversationId,
-                                      from: userDefault.uid,
+                                      from: "\(userDefault.uid)",
                                       to: conversation.conversationId,
                                       body: body,
                                       ext: ["em_apns_ext": ["em_push_title": "图片消息"]])!

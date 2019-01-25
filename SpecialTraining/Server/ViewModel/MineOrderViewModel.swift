@@ -44,7 +44,7 @@ class MineOrderViewModel: RefreshVM<MineOrderModel> {
         STProvider.request(.getMemberAllOrder(member_id: "1"))
         .map(model: MineOrderModel.self)
             .subscribe(onSuccess: { model in
-                
+               PrintLog(model)
             }) { error in
                 
         }

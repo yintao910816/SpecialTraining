@@ -39,6 +39,10 @@ class STAuthorCodeLoginViewController: BaseViewController {
         let frame = CGRect.init(x: 0, y: 0, width: loginOutlet.width, height: loginOutlet.height)
         loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
         
+        #if DEBUG
+        phoneOutlet.text = "18627844751"
+        codeOutlet.text = "9067"
+        #endif
     }
     
     override func rxBind() {

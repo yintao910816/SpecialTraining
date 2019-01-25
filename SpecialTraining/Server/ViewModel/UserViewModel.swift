@@ -78,13 +78,14 @@ class LoginViewModel: BaseViewModel,VMNavigation {
     }
     //登录
     func loginRequest(account: String,code: String, password: String) {
-        STProvider.request(.login(mobile: account, code: code, pswd: password))
+        STProvider.request(.login(mobile: account, code: code))
             .map(model: LoginModel.self)
             .subscribe(onSuccess: { [weak self] model in
 //                STHelper.share.saveLoginUser(user: userInfo)
 //
 //                STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
-                userDefault.token = model.token
+                userDefault.token = model.access_token
+                userDefault.uid = model.member.uid
                 self?.hud.successHidden("登录成功", {
                     self?.popSubject.onNext(Void())
                 })
