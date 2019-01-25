@@ -10,44 +10,36 @@ import UIKit
 import RxSwift
 import RxCocoa
 
-class MineOrderViewModel: RefreshVM<MineOrderModel> {
+class MineOrderViewModel: BaseViewModel {
     
-    let statusSource = Variable([MineOrderMenuModel]())
-    
-    let statusChangeSubject = PublishSubject<MineOrderMenuModel>()
-    
+    let needPayDatasource = Variable([String]())
+    let needCourseDatasource = Variable([String]())
+    let needClassasource = Variable([String]())
+    let needPayBackDatasource = Variable([String]())
+
     override init() {
         super.init()
         
-        statusSource.value = [MineOrderMenuModel.createModel(title: "待付款", isSelected: true),
-                              MineOrderMenuModel.createModel(title: "待排课"),
-                              MineOrderMenuModel.createModel(title: "待上课"),
-                              MineOrderMenuModel.createModel(title: "待退款")]
-        
-        self.datasource.value = [MineOrderModel(),MineOrderModel(),MineOrderModel(),MineOrderModel(),MineOrderModel()]
-        
-        statusChangeSubject.subscribe(onNext: { [unowned self] (model) in
-            let tempDatas = self.statusSource.value
-            self.statusSource.value = tempDatas.map({ d -> MineOrderMenuModel in
-                d.isSelected = d.title == model.title ? true : false
-                return d
-            })
-        }).disposed(by: disposeBag)
-        
         reloadSubject.subscribe(onNext: { [weak self] in
+            PrintLog("222222222222")
             self?.loadData()
         })
             .disposed(by: disposeBag)
     }
     
     private func loadData() {
-        STProvider.request(.getMemberAllOrder(member_id: "1"))
-        .map(model: MineOrderModel.self)
-            .subscribe(onSuccess: { model in
-               PrintLog(model)
-            }) { error in
-                
-        }
+//        STProvider.request(.getMemberAllOrder(member_id: "1"))
+//        .map(model: MineOrderModel.self)
+//            .subscribe(onSuccess: { model in
+//               PrintLog(model)
+//            }) { error in
+//
+//        }
+        
+        needPayDatasource.value = ["a", "b", "c", "d"]
+        needCourseDatasource.value = ["a", "b", "c", "d"]
+        needClassasource.value = ["a", "b", "c", "d"]
+        needPayBackDatasource.value = ["a", "b", "c", "d"]
     }
     
 }

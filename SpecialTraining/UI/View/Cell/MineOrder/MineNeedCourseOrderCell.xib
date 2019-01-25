@@ -124,6 +124,9 @@
                 <constraint firstAttribute="bottom" secondItem="mkO-Km-NYl" secondAttribute="bottom" constant="8" id="hQb-Tt-OU7"/>
             </constraints>
             <size key="customSize" width="283" height="50"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="canclePayOutlet" destination="6vG-I4-pVn" id="CgC-gr-wjd"/>
                 <outlet property="coverOutlet" destination="6rv-mM-w3m" id="cY1-DK-ApJ"/>

@@ -138,6 +138,9 @@
                 <constraint firstItem="Y0C-y2-VhB" firstAttribute="top" secondItem="JNO-cU-dek" secondAttribute="bottom" constant="3" id="vQU-6V-giR"/>
             </constraints>
             <size key="customSize" width="348" height="169"/>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="canclePayOutlet" destination="2dK-YI-Mgv" id="8gB-JJ-Ejq"/>
                 <outlet property="coverOutlet" destination="kBX-ft-e3a" id="aGy-Zy-P14"/>

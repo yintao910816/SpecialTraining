@@ -93,6 +93,7 @@
                     </view>
                 </subviews>
             </view>
+            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
                 <constraint firstItem="WiB-SU-JTn" firstAttribute="centerY" secondItem="h6X-J2-U2q" secondAttribute="centerY" id="1H9-Tg-6XZ"/>
                 <constraint firstItem="y1a-y0-yC4" firstAttribute="top" secondItem="h6X-J2-U2q" secondAttribute="bottom" constant="3" id="5Ki-gp-fF0"/>
@@ -104,6 +105,9 @@
                 <constraint firstAttribute="trailing" secondItem="y1a-y0-yC4" secondAttribute="trailing" constant="8" id="iXT-5Y-PxI"/>
                 <constraint firstItem="h6X-J2-U2q" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="18" id="k3s-3u-goX"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="coverOutlet" destination="3rN-vb-4NC" id="11v-4l-bdV"/>
                 <outlet property="desOutlet" destination="h2q-iF-9PO" id="ciP-IO-BzA"/>

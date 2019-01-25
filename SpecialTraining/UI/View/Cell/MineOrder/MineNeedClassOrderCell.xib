@@ -139,6 +139,9 @@
                 <constraint firstItem="7dc-6Z-Bwj" firstAttribute="top" secondItem="MGg-2Y-rNC" secondAttribute="bottom" constant="3" id="y8p-Oe-Yug"/>
                 <constraint firstAttribute="bottom" secondItem="7dc-6Z-Bwj" secondAttribute="bottom" constant="8" id="zcS-He-nlQ"/>
             </constraints>
+            <userDefinedRuntimeAttributes>
+                <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
+            </userDefinedRuntimeAttributes>
             <connections>
                 <outlet property="coverOutlet" destination="dPr-xI-zrP" id="hdT-uz-yGa"/>
                 <outlet property="desOutlet" destination="abD-mO-Ydn" id="skF-Bj-dO7"/>

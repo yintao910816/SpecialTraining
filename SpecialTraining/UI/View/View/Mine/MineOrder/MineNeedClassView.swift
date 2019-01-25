@@ -1,16 +1,16 @@
 //
-//  MineNeedPayOrderView.swift
+//  MineNeedClassView.swift
 //  SpecialTraining
 //
-//  Created by sw on 24/01/2019.
+//  Created by sw on 25/01/2019.
 //  Copyright © 2019 youpeixun. All rights reserved.
 //
 
 import UIKit
 import RxSwift
 
-class MineNeedPayOrderView: UICollectionView {
-
+class MineNeedClassView: UICollectionView {
+    
     let datasource = Variable([String]())
     let disposeBag = DisposeBag()
     
@@ -21,7 +21,7 @@ class MineNeedPayOrderView: UICollectionView {
         myLayout.itemSize = .init(width: PPScreenW - 10 - 10, height: 145)
         
         super.init(frame: frame, collectionViewLayout: myLayout)
-        
+
         setupView()
         rxBind()
     }
@@ -32,16 +32,16 @@ class MineNeedPayOrderView: UICollectionView {
     
     private func setupView() {
         backgroundColor = RGB(245, 245, 245)
-        
-        register(UINib.init(nibName: "MineNeedPayOrderCell", bundle: Bundle.main), forCellWithReuseIdentifier: "MineNeedPayOrderCellID")
+
+        register(UINib.init(nibName: "MineNeedClassOrderCell", bundle: Bundle.main), forCellWithReuseIdentifier: "MineNeedClassOrderCellID")
     }
     
     private func rxBind() {
         datasource.asDriver()
-            .drive(rx.items(cellIdentifier: "MineNeedPayOrderCellID", cellType: MineNeedPayOrderCell.self)) {
+            .drive(rx.items(cellIdentifier: "MineNeedClassOrderCellID", cellType: MineNeedClassOrderCell.self)) {
                 _, mode, cell in
-
             }
             .disposed(by: disposeBag)
+        
     }
 }

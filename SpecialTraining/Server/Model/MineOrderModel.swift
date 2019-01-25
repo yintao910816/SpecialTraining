@@ -7,23 +7,3 @@
 //
 
 import UIKit
-
-class MineOrderModel: HJModel {
-    
-}
-
-class MineOrderMenuModel: HJModel {
-    
-    var title: String = ""
-    
-    var isSelected: Bool = false
-    
-    class func createModel(title: String, isSelected: Bool = false) -> MineOrderMenuModel {
-        let model = MineOrderMenuModel()
-        model.title = title
-        model.isSelected = isSelected
-        
-        return model
-    }
-    
-}
