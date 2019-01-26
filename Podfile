@@ -14,6 +14,9 @@ pod 'SQLite.swift', '~> 0.11.5'
 pod 'SnapKit', '~> 4.0.0'
 pod 'MJRefresh', '~> 3.1.15.3'
 pod 'Kingfisher', '~> 4.6.1'
+pod 'YYCategories'
+pod 'YYText'
+pod 'YYImage'
 
 pod 'SwiftGifOrigin', '~> 1.6.1'
 
@@ -23,6 +26,6 @@ pod 'AlipaySDK-iOS'
 pod 'BaiduMapKit'
 pod 'BMKLocationKit'
 
-pod 'YYKit'
+pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull'
 
 end

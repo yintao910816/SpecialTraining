@@ -81,7 +81,11 @@ extension EmojiHander {
         image?.preloadAllAnimatedImageFrames = true
         
         let imageView = YYAnimatedImageView.init(image: image)
-        let attachText = NSMutableAttributedString.attachmentString(withContent: imageView, contentMode: .scaleAspectFill, attachmentSize: imageView.size, alignTo: UIFont.systemFont(ofSize: 15), alignment: .center)
+        let attachText = NSMutableAttributedString.yy_attachmentString(withContent: imageView,
+                                                                    contentMode: .scaleAspectFill,
+                                                                    attachmentSize: imageView.size,
+                                                                    alignTo: UIFont.systemFont(ofSize: 15),
+                                                                    alignment: .center)
         return attachText
     }
     
@@ -141,11 +145,11 @@ extension EmojiHander {
                 if subString.contains("em=") {
                     contentString.append(emoji(subString, 3.0))
                 }else{
-                    contentString.appendString(subString)
+                    contentString.yy_appendString(subString)
                 }
             }
         }else {
-            contentString.appendString(emojiString)
+            contentString.yy_appendString(emojiString)
         }
         return contentString
     }

@@ -16,6 +16,8 @@ enum API{
     case register(username: String, password: String, nickname: String)
     // 登录
     case login(mobile: String, code: String)
+    /// 微信登录
+    case wxLogin(code: String)
     // 获取用户信息
     case getUserInfo(uid: String)
     //设置/修改密码
@@ -92,6 +94,8 @@ extension API: TargetType{
         case .login(_, _):
             // http://api.youpeixunjiaoyu.com/v1/login/mobLogin?appid=ypxcb1e987d2389e80d&mobile=18627844751&code=9067
             return "v1/login/mobLogin"
+        case .wxLogin(_):
+            return "v1/login/wxLogin"
         case .getUserInfo(_):
             return "member/read"
         case .setPassword(_, _, _):
@@ -193,6 +197,9 @@ extension API {
             params["nickname"] = nickname
         case .login(let mobile, let code):
             params["mobile"] = mobile
+            params["code"] = code
+            params["appid"] = "ypxcb1e987d2389e80d"
+        case .wxLogin(let code):
             params["code"] = code
             params["appid"] = "ypxcb1e987d2389e80d"
         case .getUserInfo(let uid):

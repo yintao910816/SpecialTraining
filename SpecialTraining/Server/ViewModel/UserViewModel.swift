@@ -28,12 +28,24 @@ class LoginViewModel: BaseViewModel,VMNavigation {
             ._doNext(forNotice: hud)
             .flatMap { UserAccountServer.authorizeWchat() }
             .subscribe(onNext: { [weak self] user in
-                self?.hud.noticeHidden()
-                LoginViewModel.sbPush("STLogin", "bindPhone", parameters: ["openid": user.uid])
+                PrintLog(user.credential)
+                PrintLog(user.credential.authCode)
+                PrintLog(user.credential.token)
+
+                self?.wxLogin(code: user.credential.authCode)
+            
                 }, onError: { [weak self] error in
                     self?.hud.failureHidden(self?.errorMessage(error))
             })
             .disposed(by: disposeBag)
+//            .subscribe(onNext: { [weak self] user in
+//                PrintLog(user.rawData)
+//                self?.hud.noticeHidden()
+////                LoginViewModel.sbPush("STLogin", "bindPhone", parameters: ["openid": user.uid])
+//                }, onError: { [weak self] error in
+//                    self?.hud.failureHidden(self?.errorMessage(error))
+//            })
+//            .disposed(by: disposeBag)
 
         if self.loginType == "1" {//change security
             tap.sendCodeTap.drive(onNext: { [unowned self] (_) in
@@ -93,6 +105,17 @@ class LoginViewModel: BaseViewModel,VMNavigation {
                 self?.hud.failureHidden(self?.errorMessage(error))
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func wxLogin(code: String) {
+       STProvider.request(.wxLogin(code: code))
+        .map(model: LoginModel.self)
+        .subscribe(onSuccess: { [weak self] model in
+            PrintLog(model)
+            self?.hud.successHidden("登录成功")
+        }) { [weak self] error in
+            self?.hud.failureHidden(self?.errorMessage(error))
+        }
     }
     
     //发送验证码

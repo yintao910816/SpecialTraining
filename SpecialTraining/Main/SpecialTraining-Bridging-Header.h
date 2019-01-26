@@ -10,7 +10,9 @@
 #define SpecialTraining_Bridging_Header_h
 
 #import <Hyphenate/Hyphenate.h>
-#import <YYKit/YYKit.h>
+#import <YYCategories/YYCategories.h>
+#import <YYText/YYText.h>
+#import <YYImage/YYImage.h>
 
 // MD5
 #import <CommonCrypto/CommonDigest.h>
@@ -27,7 +29,7 @@
 #import "WXApiObject.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
-#import <ShareSDKExtension/ShareSDK+Extension.h>
+//#import <ShareSDKExtension/ShareSDK+Extension.h>
 #import <CommonCrypto/CommonCrypto.h>
 
 #import <AlipaySDK/AlipaySDK.h>

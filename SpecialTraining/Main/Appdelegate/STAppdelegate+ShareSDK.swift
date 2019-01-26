@@ -8,6 +8,7 @@
 
 import Foundation
 let wxAppid = "wxcb1e987d2389e80d"
+let wx_appSecret = "79d8d1710b07f0e96e6f40ee58f5d9fe"
 
 extension STAppDelegate {
     
@@ -24,23 +25,8 @@ extension STAppDelegate {
     }
     
     private func setup() {
-        
-        ShareSDK.registerActivePlatforms([SSDKPlatformType.typeWechat.rawValue],
-                                         onImport: { platform in
-                                            switch platform {
-                                            case .typeWechat:
-                                                ShareSDKConnector.connectWeChat(WXApi.classForCoder())
-                                            default:
-                                                break
-                                            }
-        }) { (platform, appInfo) in
-            switch platform {
-            case .typeWechat:
-                appInfo?.ssdkSetupWeChat(byAppId: wxAppid,
-                                         appSecret: "79d8d1710b07f0e96e6f40ee58f5d9fe")
-            default:
-                break
-            }
+        ShareSDK.registPlatforms { platformRegister in
+            platformRegister?.setupWeChat(withAppId: wxAppid, appSecret: wx_appSecret)
         }
     }
 }
