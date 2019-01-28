@@ -13,7 +13,8 @@ import RxCocoa
 class LoginViewModel: BaseViewModel,VMNavigation {
     
     var sendCodeSubject = PublishSubject<Bool>()
-    
+    var bindPhoneSubject = PublishSubject<String>()
+
     var loginType: String!
     
     var security = Variable(true)
@@ -26,27 +27,23 @@ class LoginViewModel: BaseViewModel,VMNavigation {
         //微信授权登录
         tap.wechatTap.asObservable()
             ._doNext(forNotice: hud)
-            .flatMap { UserAccountServer.authorizeWchat() }
-            .subscribe(onNext: { [weak self] user in
-                PrintLog(user.credential)
-                PrintLog(user.credential.authCode)
-                PrintLog(user.credential.token)
-
-                self?.wxLogin(code: user.credential.authCode)
-            
-                }, onError: { [weak self] error in
-                    self?.hud.failureHidden(self?.errorMessage(error))
+            .subscribe(onNext: { _ in
+                let req = SendAuthReq.init()
+                req.state = "wx_oauth_authorization_state"
+                req.scope = "snsapi_userinfo"
+                
+                WXApi.send(req)
             })
             .disposed(by: disposeBag)
-//            .subscribe(onNext: { [weak self] user in
-//                PrintLog(user.rawData)
-//                self?.hud.noticeHidden()
-////                LoginViewModel.sbPush("STLogin", "bindPhone", parameters: ["openid": user.uid])
-//                }, onError: { [weak self] error in
-//                    self?.hud.failureHidden(self?.errorMessage(error))
-//            })
-//            .disposed(by: disposeBag)
 
+        NotificationCenter.default.rx.notification(NotificationName.WX.WXAuthLogin)
+            .subscribe(onNext: { [weak self] no in
+                if let code = no.object as? String {
+                    self?.wxLogin(code: code)
+                }
+            })
+            .disposed(by: disposeBag)
+        
         if self.loginType == "1" {//change security
             tap.sendCodeTap.drive(onNext: { [unowned self] (_) in
                 self.security.value = !self.security.value
@@ -108,14 +105,21 @@ class LoginViewModel: BaseViewModel,VMNavigation {
     }
     
     private func wxLogin(code: String) {
-       STProvider.request(.wxLogin(code: code))
-        .map(model: LoginModel.self)
-        .subscribe(onSuccess: { [weak self] model in
-            PrintLog(model)
-            self?.hud.successHidden("登录成功")
-        }) { [weak self] error in
-            self?.hud.failureHidden(self?.errorMessage(error))
-        }
+        STProvider.request(.wxLogin(code: code))
+            .map(model: LoginModel.self)
+            .subscribe(onSuccess: { [weak self] model in
+                if model.member.is_bind_mobile == true {
+                    self?.hud.successHidden("登录成功", {
+                        self?.popSubject.onNext(Void())
+                    })
+                }else {
+                    self?.hud.noticeHidden()
+                    self?.bindPhoneSubject.onNext(model.member.op_openid)
+                }
+            }) { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+            }
+            .disposed(by: disposeBag)
     }
     
     //发送验证码

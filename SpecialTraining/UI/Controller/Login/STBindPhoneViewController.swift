@@ -44,10 +44,14 @@ class STBindPhoneViewController: BaseViewController {
         let nextDriver = okOutlet.rx.tap.asDriver()
             .do(onNext: { [unowned self] in self.view.endEditing(true) })
 
+        let codeDriver = authorOutlet.rx.tap.asDriver()
+            .do(onNext: { [unowned self] _ in
+                self.view.endEditing(true)
+            })
         viewModel = BindPhoneViewModel.init(input: (phoneOutlet.rx.text.orEmpty.asDriver(),
                                                     code: codeOutlet.rx.text.orEmpty.asDriver(),
                                                     openid: openid),
-                                            tap: (sendAuth: authorOutlet.rx.tap.asDriver(),
+                                            tap: (sendAuth: codeDriver,
                                                   next: nextDriver))
         
         viewModel.sendCodeSubject.subscribe(onNext: { [unowned self] (success) in
@@ -61,7 +65,7 @@ class STBindPhoneViewController: BaseViewController {
     }
     
     override func prepare(parameters: [String : Any]?) {
-        openid = (parameters!["openid"] as! String)
+        openid = (parameters!["op_openid"] as! String)
     }
     
 }

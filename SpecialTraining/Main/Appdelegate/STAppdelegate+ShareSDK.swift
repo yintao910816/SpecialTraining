@@ -35,16 +35,19 @@ extension STAppDelegate: WXApiDelegate {
  
     public func onResp(_ resp: BaseResp!) {
         
-        if resp.isKind(of: BaseResp.classForCoder()) {
+        if resp.isKind(of: PayReq.classForCoder()) {
             switch resp.errCode {
-                
             case WXSuccess.rawValue:
                 PrintLog("支付成功")
                 NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (true, ""))
             default:
                 NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (false, resp.errStr ?? ""))
             }
-            
         }
+       
+        if let authResp = resp as? SendAuthResp {
+            NotificationCenter.default.post(name: NotificationName.WX.WXAuthLogin, object: authResp.code)
+        }
+        
     }
 }

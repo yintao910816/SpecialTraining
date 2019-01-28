@@ -18,24 +18,16 @@ class STAuthorCodeLoginViewController: BaseViewController {
     @IBOutlet weak var wchatOutlet: UIButton!
     
     @IBOutlet weak var authorOutlet: UIButton!
-
-    @IBOutlet weak var topBgHeightCns: NSLayoutConstraint!
     
     private var viewModel: LoginViewModel!
     
     private let timer = CountdownTimer.init()
-    
-    @IBAction func actions(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
-    }
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func setupUI() {
-        topBgHeightCns.constant += UIDevice.current.isX ? 44 : 0
-                
         let frame = CGRect.init(x: 0, y: 0, width: loginOutlet.width, height: loginOutlet.height)
         loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
         
@@ -77,5 +69,18 @@ class STAuthorCodeLoginViewController: BaseViewController {
                 self?.navigationController?.dismiss(animated: true, completion: nil)
             })
             .disposed(by: disposeBag)
+        
+        viewModel.bindPhoneSubject
+            .subscribe(onNext: { [weak self] op_openid in
+                self?.performSegue(withIdentifier: "bindPhoneSegue", sender: op_openid)
+            })
+            .disposed(by: disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "bindPhoneSegue" {
+            let bindPhoneVC = segue.destination as! STBindPhoneViewController
+            bindPhoneVC.prepare(parameters: ["op_openid": sender as! String])
+        }
     }
 }

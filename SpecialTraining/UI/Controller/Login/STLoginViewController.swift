@@ -50,7 +50,8 @@ class STLoginViewController: BaseViewController {
             self.passOutlet.isSecureTextEntry = isSecurity
         }).disposed(by: disposeBag)
         
-        viewModel.sendCodeSubject.subscribe(onNext: { (isSecurity) in
+        viewModel.sendCodeSubject
+            .subscribe(onNext: { (isSecurity) in
             
         }).disposed(by: disposeBag)
         
@@ -58,6 +59,6 @@ class STLoginViewController: BaseViewController {
             .subscribe(onNext: { [weak self] _ in
                 self?.navigationController?.dismiss(animated: true, completion: nil)
             })
-            .disposed(by: disposeBag)
+            .disposed(by: disposeBag)        
     }
 }

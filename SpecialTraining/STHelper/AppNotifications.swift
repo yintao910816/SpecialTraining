@@ -43,7 +43,7 @@ extension Notification.Name {
     }
     
     public struct WX {
-        //微信授权登录
+        //微信授权登录 获取code进行登录
         public static let WXAuthLogin = Notification.Name(rawValue: "org.bmk.notification.name.WXAuthLogin")
         
         public static let WXPay = Notification.Name(rawValue: "org.bmk.notification.name.payResult")
