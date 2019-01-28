@@ -33,7 +33,7 @@ class STAuthorCodeLoginViewController: BaseViewController {
         
         #if DEBUG
         phoneOutlet.text = "18627844751"
-        codeOutlet.text = "9067"
+        codeOutlet.text = "5965"
         #endif
     }
     
@@ -54,11 +54,10 @@ class STAuthorCodeLoginViewController: BaseViewController {
             .do(onNext: { [unowned self] in self.view.endEditing(true) })
 
         viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
-                                                passwd: codeOutlet.rx.text.orEmpty.asDriver()),
+                                                code: codeOutlet.rx.text.orEmpty.asDriver()),
                                         tap: (loginTap: loginTapDriver,
                                               sendCodeTap: authorOutlet.rx.tap.asDriver(),
-                                              wechatTap: wchatOutlet.rx.tap.asDriver()),
-                                        loginType: "2")
+                                              wechatTap: wchatOutlet.rx.tap.asDriver()))
         
         viewModel.sendCodeSubject.subscribe(onNext: { [unowned self] (success) in
             success == true ? self.timer.timerStar() : self.timer.timerPause()

@@ -14,15 +14,12 @@ class LoginViewModel: BaseViewModel,VMNavigation {
     
     var sendCodeSubject = PublishSubject<Bool>()
     var bindPhoneSubject = PublishSubject<String>()
-
-    var loginType: String!
     
     var security = Variable(true)
     
-    init(input:(account: Driver<String>, passwd: Driver<String>),
-         tap: (loginTap: Driver<Void>, sendCodeTap: Driver<Void>, wechatTap: Driver<Void>), loginType: String) {
+    init(input:(account: Driver<String>, code: Driver<String>),
+         tap: (loginTap: Driver<Void>, sendCodeTap: Driver<Void>, wechatTap: Driver<Void>)) {
         super.init()
-        self.loginType = loginType
         
         //微信授权登录
         tap.wechatTap.asObservable()
@@ -44,49 +41,39 @@ class LoginViewModel: BaseViewModel,VMNavigation {
             })
             .disposed(by: disposeBag)
         
-        if self.loginType == "1" {//change security
-            tap.sendCodeTap.drive(onNext: { [unowned self] (_) in
-                self.security.value = !self.security.value
+        tap.sendCodeTap.withLatestFrom(input.account)
+            .filter { [unowned self] (phone) -> Bool in
+                if ValidateNum.phoneNum(phone).isRight == false {
+                    self.hud.failureHidden("请输入正确的手机号")
+                    return false
+                }
+                return true
+            }.asDriver()
+            ._doNext(forNotice: hud)
+            .drive(onNext: { [unowned self] (phone) in
+                self.sendCodeSubject.onNext(true)
+                self.sendAuthCode(phone: phone)
             }).disposed(by: disposeBag)
-        } else if self.loginType == "2" {//验证码发送
-            tap.sendCodeTap.withLatestFrom(input.account)
-                .filter { [unowned self] (phone) -> Bool in
-                    if ValidateNum.phoneNum(phone).isRight == false {
-                        self.hud.failureHidden("请输入正确的手机号")
-                        return false
-                    }
-                    return true
-                }.asDriver()
-                ._doNext(forNotice: hud)
-                .drive(onNext: { [unowned self] (phone) in
-                    self.sendCodeSubject.onNext(true)
-                    self.sendAuthCode(phone: phone)
-                }).disposed(by: disposeBag)
-        }
-        
+
         //登录
-        let signal = Driver.combineLatest(input.account, input.passwd) { ($0, $1) }
+        let signal = Driver.combineLatest(input.account, input.code) { ($0, $1) }
         tap.loginTap.withLatestFrom(signal)
             .filter { [unowned self] (account, pass) -> Bool in
                 if account.count > 0 && pass.count > 0 {
                     return true
                 }
-                self.hud.failureHidden("请填写用户名密码")
+                self.hud.failureHidden("请填写用户名和验证码")
                 return false
             }
             .asDriver()
             ._doNext(forNotice: hud)
-            .drive(onNext: { [unowned self] (account, pass) in
-                if self.loginType == "1" {
-                    self.loginRequest(account: account, code: "", password: pass)
-                } else if self.loginType == "2" {
-                    self.loginRequest(account: account, code: pass, password: "")
-                }
+            .drive(onNext: { [unowned self] (account, code) in
+                self.loginRequest(account: account, code: code)
             })
             .disposed(by: disposeBag)
     }
     //登录
-    func loginRequest(account: String,code: String, password: String) {
+    func loginRequest(account: String,code: String) {
         STProvider.request(.login(mobile: account, code: code))
             .map(model: LoginModel.self)
             .subscribe(onSuccess: { [weak self] model in
@@ -108,6 +95,7 @@ class LoginViewModel: BaseViewModel,VMNavigation {
         STProvider.request(.wxLogin(code: code))
             .map(model: LoginModel.self)
             .subscribe(onSuccess: { [weak self] model in
+                userDefault.token = model.access_token
                 if model.member.is_bind_mobile == true {
                     self?.hud.successHidden("登录成功", {
                         self?.popSubject.onNext(Void())
