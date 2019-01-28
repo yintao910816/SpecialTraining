@@ -118,7 +118,11 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
             for j in 0..<section.items.count {
                 if section.items[j].class_id == model.class_id {
                     tempData[i].items.remove(at: j)
-                    tempData[i].items.last?.isLasstRow = true
+                    if tempData[i].items.count > 0 {
+                        tempData[i].items.last?.isLasstRow = true
+                    }else {
+                        tempData.remove(at: i)
+                    }
                     
                     if section.items[j].isSelected == true {
                         totlePriceObser.value = "\((Double(totlePriceObser.value) ?? 0) - (Double(section.items[j].price) ?? 0))"

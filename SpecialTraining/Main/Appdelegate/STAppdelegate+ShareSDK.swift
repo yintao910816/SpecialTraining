@@ -35,7 +35,7 @@ extension STAppDelegate: WXApiDelegate {
  
     public func onResp(_ resp: BaseResp!) {
         
-        if resp.isKind(of: PayReq.classForCoder()) {
+        if resp.isKind(of: PayResp.classForCoder()) {
             switch resp.errCode {
             case WXSuccess.rawValue:
                 PrintLog("支付成功")

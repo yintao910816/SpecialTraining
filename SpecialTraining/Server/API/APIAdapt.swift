@@ -24,10 +24,7 @@ class AppSetup {
             let versionInfo = Bundle.main.infoDictionary
             let appVersion = versionInfo?["CFBundleShortVersionString"] as! String
             let resultString = appVersion.replacingOccurrences(of: ".", with: "")
-            guard let resultInt = Int(resultString) else {
-                return "100"
-            }
-            return resultInt >= 1000 ? "100" : resultString
+            return resultString
         }
     }
     

@@ -21,6 +21,8 @@ class STMineViewController: BaseViewController {
     
     override func setupUI() {
         
+        NoticesCenter.alert(title: "当前版本", message: AppSetup.instance.urlVision)
+
         if #available(iOS 11, *) {
             collectionView.contentInsetAdjustmentBehavior = .never
         }else {

@@ -169,7 +169,7 @@
                                     <constraint firstItem="Wef-fF-3LS" firstAttribute="centerY" secondItem="5fV-CX-32y" secondAttribute="centerY" id="lul-hQ-YRM"/>
                                 </constraints>
                             </view>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-hF-Ogt">
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="0XH-hF-Ogt">
                                 <rect key="frame" x="0.0" y="104" width="375" height="563"/>
                                 <connections>
                                     <outlet property="delegate" destination="rCC-6w-DCI" id="sBC-ee-M02"/>

@@ -11,6 +11,7 @@ import UIKit
 class STAuthorCodeLoginViewController: BaseViewController {
     
     @IBOutlet weak var contentBgView: UIView!
+    @IBOutlet weak var wchatLoginBg: UIView!
     
     @IBOutlet weak var loginOutlet: UIButton!
     @IBOutlet weak var phoneOutlet: UITextField!
@@ -28,6 +29,8 @@ class STAuthorCodeLoginViewController: BaseViewController {
     }
     
     override func setupUI() {
+        wchatLoginBg.isHidden = !WXApi.isWXAppInstalled()
+
         let frame = CGRect.init(x: 0, y: 0, width: loginOutlet.width, height: loginOutlet.height)
         loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
         
