@@ -36,7 +36,7 @@ class STAuthorCodeLoginViewController: BaseViewController {
         
         #if DEBUG
         phoneOutlet.text = "18627844751"
-        codeOutlet.text = "5965"
+        codeOutlet.text = "1310"
         #endif
     }
     
