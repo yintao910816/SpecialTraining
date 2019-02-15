@@ -661,7 +661,7 @@
                         <outlet property="topViewHeightCns" destination="UxN-qn-gDQ" id="vMS-t5-UL8"/>
                         <outlet property="topViewTopCns" destination="2Ic-sE-jto" id="oeY-hz-Bi0"/>
                         <segue destination="4jk-Jr-6PG" kind="show" identifier="demandVideoSegue" id="ZEV-nS-slu"/>
-                        <segue destination="Dhx-f5-svs" kind="presentation" id="FEc-xw-4eg"/>
+                        <segue destination="Dhx-f5-svs" kind="presentation" identifier="publishVideoSegue" id="FEc-xw-4eg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yec-FG-WOh" userLabel="First Responder" sceneMemberID="firstResponder"/>
