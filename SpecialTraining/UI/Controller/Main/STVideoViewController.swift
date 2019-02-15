@@ -15,14 +15,17 @@ class STVideoViewController: BaseViewController {
 
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var contentCollectionView: UICollectionView!
+    @IBOutlet weak var publishOutlet: UIButton!
     
     @IBOutlet weak var topViewHeightCns: NSLayoutConstraint!
     @IBOutlet weak var topViewTopCns: NSLayoutConstraint!
     
+    private var floatView: TYFloatView!
+    
     var viewModel: VideoViewModel!
     
     @IBAction func actions(_ sender: UIButton) {
-    
+        floatView.viewAnimotion()
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -49,6 +52,19 @@ class STVideoViewController: BaseViewController {
         
         contentCollectionView.register(UINib.init(nibName: "VideoCell", bundle: Bundle.main), forCellWithReuseIdentifier: "VideoCellID")
         menuCollectionView.register(UINib.init(nibName: "VideoClassificationCell", bundle: Bundle.main), forCellWithReuseIdentifier: "VideoClassificationCellID")
+        
+        floatView = TYFloatView.creatView(belowViewFrame: publishOutlet.frame,
+                                          convertView: view,
+                                          superView: view,
+                                          menuDatasource: ["拍摄", "上传"],
+                                          fontSize: 14)
+        
+        floatView.didSelectedCallBack = { [unowned self] title in
+            if title == "拍摄" {
+                let testVC = ViewController()
+                self.navigationController?.pushViewController(testVC, animated: true)
+            }
+        }
     }
     
     override func rxBind() {

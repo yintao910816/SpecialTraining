@@ -19,7 +19,7 @@ public func setAttribute(color: [[Int]],content:[String],size: [CGFloat])-> NSMu
     
     let str = NSMutableAttributedString()
     for i in 0..<color.count {
-        str.append(NSAttributedString(string: content[i], attributes: [NSForegroundColorAttributeName: UIColor(hex: color[i][0]), NSFontAttributeName:UIFont.systemFont(ofSize: size[i])]))
+        str.append(NSAttributedString(string: content[i], attributes: [NSAttributedString.Key.foregroundColor: UIColor(hex: color[i][0]), NSAttributedString.Key.font:UIFont.systemFont(ofSize: size[i])]))
     }
     return str
 }
@@ -55,7 +55,6 @@ extension String {
     /// - Parameter end: 结束的位值
     /// - Returns: 截取后的字符串
     func stringCut(end: Int) ->String{
-        printLogDebug(self.characters.count)
         if !(end < characters.count) { return "截取超出范围" }
         let sInde = index(startIndex, offsetBy: end)
         return substring(to: sInde)

@@ -604,7 +604,7 @@
                                             <color key="titleColor" red="0.14901960780000001" green="0.14901960780000001" blue="0.14901960780000001" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="Dhx-f5-svs" kind="presentation" id="EH7-DD-R7h"/>
+                                            <action selector="actions:" destination="1La-1o-IG8" eventType="touchUpInside" id="mbS-WF-V5M"/>
                                         </connections>
                                     </button>
                                 </subviews>
@@ -657,9 +657,11 @@
                     <connections>
                         <outlet property="contentCollectionView" destination="vKm-au-Xaj" id="Yt2-Nq-5nf"/>
                         <outlet property="menuCollectionView" destination="bQb-7H-rx8" id="gRC-Jp-86P"/>
+                        <outlet property="publishOutlet" destination="GYK-yP-Joj" id="y8P-Sv-rV6"/>
                         <outlet property="topViewHeightCns" destination="UxN-qn-gDQ" id="vMS-t5-UL8"/>
                         <outlet property="topViewTopCns" destination="2Ic-sE-jto" id="oeY-hz-Bi0"/>
                         <segue destination="4jk-Jr-6PG" kind="show" identifier="demandVideoSegue" id="ZEV-nS-slu"/>
+                        <segue destination="Dhx-f5-svs" kind="presentation" id="FEc-xw-4eg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="yec-FG-WOh" userLabel="First Responder" sceneMemberID="firstResponder"/>

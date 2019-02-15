@@ -40,4 +40,6 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#import "ViewController.h"
+
 #endif /* SpecialTraining_Bridging_Header_h */
