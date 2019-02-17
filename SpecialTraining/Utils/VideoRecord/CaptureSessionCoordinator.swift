@@ -64,10 +64,28 @@ class CaptureSessionCoordinator: NSObject {
     
     private func addDefaultCameraInputToCaptureSession(capSession: AVCaptureSession) -> Bool {
         do {
-            let cameraInput = try AVCaptureDeviceInput(device: AVCaptureDevice.default(for: AVMediaType.video)!)
-            let success = addInput(input: cameraInput, capSession: capSession)
-            cameraDevice = cameraInput.device
-            return success
+            var videoDevice: AVCaptureDevice?
+            if let defaultVideoDevice = AVCaptureDevice.default(for: AVMediaType.video) {
+                videoDevice = defaultVideoDevice
+            }else if #available(iOS 10.0, *){
+                if let backCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) {
+                    videoDevice = backCameraDevice
+                }else if let frontCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front) {
+                    videoDevice = frontCameraDevice
+                }
+            }else if #available(iOS 10.2, *),
+                let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: AVMediaType.video, position: .back){
+                videoDevice = dualCameraDevice
+            }
+
+            if videoDevice == nil {
+                return false
+            }else {
+                let cameraInput = try AVCaptureDeviceInput(device: videoDevice!)
+                let success = addInput(input: cameraInput, capSession: capSession)
+                cameraDevice = cameraInput.device
+                return success
+            }
         } catch let error as NSError {
             PrintLog("error configuring camera input: \(error.localizedDescription)")
             return false
@@ -76,9 +94,27 @@ class CaptureSessionCoordinator: NSObject {
     
     private func addDefaultMicInputToCaptureSession(capSession: AVCaptureSession) -> Bool {
         do {
-            let micInput = try AVCaptureDeviceInput(device: AVCaptureDevice.default(for: AVMediaType.audio)!)
-            let success = addInput(input: micInput, capSession: capSession)
-            return success
+            var videoDevice: AVCaptureDevice?
+            if let defaultVideoDevice = AVCaptureDevice.default(for: AVMediaType.video) {
+                videoDevice = defaultVideoDevice
+            }else if #available(iOS 10.0, *){
+                if let backCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .back) {
+                    videoDevice = backCameraDevice
+                }else if let frontCameraDevice = AVCaptureDevice.default(.builtInWideAngleCamera, for: AVMediaType.video, position: .front) {
+                    videoDevice = frontCameraDevice
+                }
+            }else if #available(iOS 10.2, *),
+                let dualCameraDevice = AVCaptureDevice.default(.builtInDualCamera, for: AVMediaType.video, position: .back){
+                videoDevice = dualCameraDevice
+            }
+            
+            if videoDevice == nil {
+                return false
+            }else {
+                let micInput = try AVCaptureDeviceInput(device: videoDevice!)
+                let success = addInput(input: micInput, capSession: capSession)
+                return success
+            }
         } catch let error as NSError {
             PrintLog("error configuring mic input: \(error.localizedDescription)")
             return false

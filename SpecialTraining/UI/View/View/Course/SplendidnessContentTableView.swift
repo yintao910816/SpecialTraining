@@ -27,7 +27,7 @@ class SplendidnessContentTableView: BaseTB {
         super.init(coder: aDecoder)
     }
     
-    private func setupUI() {        
+    private func setupUI() {
         backgroundColor = .white
         
         showsVerticalScrollIndicator = false

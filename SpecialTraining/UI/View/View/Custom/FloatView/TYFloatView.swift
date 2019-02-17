@@ -29,15 +29,17 @@ class TYFloatView: UIView {
         if menuDatasource.count == 0 { return }
         
         let maxString = menuDatasource.max(by: { $1.count > $0.count })!
-        let maxWidth = maxString.getTexWidth(fontSize: fontSize, height: 40) + 30
+        let maxWidth: CGFloat = 80//maxString.getTexWidth(fontSize: fontSize, height: 20) + 20
         let floatHeight: CGFloat = CGFloat(menuDatasource.count * 44)
 //        let rect = convertView.convert(belowViewFrame, to: superView)
         let floatX = belowViewFrame.minX - maxWidth
         let floatY = UIDevice.current.isX == true ? belowViewFrame.maxY + 10 + 44 : belowViewFrame.maxY + 10
 
+        PrintLog("maxWidth - \(maxWidth)")
         menuTbView = UITableView.init(frame: .init(x: floatX, y: floatY, width: maxWidth, height: floatHeight))
         menuTbView.delegate = self
         menuTbView.dataSource = self
+        menuTbView.clipsToBounds = false
         menuTbView.backgroundColor = .white
         menuTbView.rowHeight = 44
         menuTbView.isScrollEnabled = false
@@ -84,10 +86,12 @@ class TYFloatView: UIView {
 extension TYFloatView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
+        PrintLog("tableView --- \(tableView.frame)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "FLoatViewCellID")!
         cell.selectionStyle = .none
         cell.textLabel?.text = menuDatasource[indexPath.row]
         cell.textLabel?.font = UIFont.init(name: sr_fontName, size: CGFloat(fontSize))
+        PrintLog("cell.textLabel?.font  --- \(cell.textLabel?.font)")
         cell.textLabel?.textAlignment = .center
         return cell
     }

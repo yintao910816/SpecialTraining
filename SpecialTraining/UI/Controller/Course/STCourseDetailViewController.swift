@@ -73,7 +73,6 @@ class STCourseDetailViewController: BaseViewController {
         }
     }
     
-    
     private func set(button: UIButton, offsetX: CGFloat) {
         let btns = [conentOutlet, courseTimeOutlet, courseAudioOutlet, courseSchoolOutlet]
         
