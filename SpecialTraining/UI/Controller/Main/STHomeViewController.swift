@@ -176,7 +176,7 @@ class STHomeViewController: BaseViewController {
         
         expericeColView.rx.modelSelected(ExperienceCourseItemModel.self)
             .subscribe(onNext: { [unowned self] model in
-                self.performSegue(withIdentifier: "courseDetailSegue", sender: nil)
+                self.performSegue(withIdentifier: "courseDetailSegue", sender: model.course_id)
             })
             .disposed(by: disposeBag)
         

@@ -8,18 +8,21 @@
 
 import UIKit
 
-class OrganizationHeaderView: BaseFilesOwner {
+class OrganizationHeaderView: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var carouselOutlet: CarouselView!
     
-    override init() {
-        super.init()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
         
         contentView = (Bundle.main.loadNibNamed("OrganizationHeaderView", owner: self, options: nil)!.first as! UIView)
-        contentView.correctWidth()
-        
-        contentView.layoutIfNeeded()
+        addSubview(contentView)
+        contentView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
+    }
+    
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
     }
     
     public func setData<T: CarouselSource>(source: [T]) {

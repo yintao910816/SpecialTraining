@@ -77,7 +77,7 @@ class HomeOrganizationTableView: BaseTB {
 extension HomeOrganizationTableView: UITableViewDelegate {
     
     func tableView(_ tableView: UITableView, viewForHeaderInSection section: Int) -> UIView? {
-        return tableHeader.contentView
+        return tableHeader
     }
     
     func tableView(_ tableView: UITableView, heightForHeaderInSection section: Int) -> CGFloat {

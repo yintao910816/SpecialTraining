@@ -216,11 +216,7 @@
 		B85F33A6219EA3FE00023958 /* CourseDisplayMinuteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F33A4219EA3FE00023958 /* CourseDisplayMinuteCell.xib */; };
 		B85F33A9219EAB8900023958 /* HomeHeaderCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33A7219EAB8900023958 /* HomeHeaderCarouselView.swift */; };
 		B85F33AA219EAB8900023958 /* HomeHeaderCarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F33A8219EAB8900023958 /* HomeHeaderCarouselView.xib */; };
-		B85F33AD219EADB300023958 /* HomeHeaderNearByCourseView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33AB219EADB300023958 /* HomeHeaderNearByCourseView.swift */; };
-		B85F33AE219EADB300023958 /* HomeHeaderNearByCourseView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F33AC219EADB300023958 /* HomeHeaderNearByCourseView.xib */; };
 		B85F33B0219EB07700023958 /* UIView+XIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33AF219EB07700023958 /* UIView+XIB.swift */; };
-		B85F33B3219EB0EC00023958 /* HomeHeaderOptimizingView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33B1219EB0EC00023958 /* HomeHeaderOptimizingView.swift */; };
-		B85F33B4219EB0EC00023958 /* HomeHeaderOptimizingView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F33B2219EB0EC00023958 /* HomeHeaderOptimizingView.xib */; };
 		B85F33C1219EB94100023958 /* BaseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33BE219EB94000023958 /* BaseViewModel.swift */; };
 		B85F33C2219EB94100023958 /* PageModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33BF219EB94000023958 /* PageModel.swift */; };
 		B85F33C3219EB94100023958 /* RefreshServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33C0219EB94000023958 /* RefreshServer.swift */; };
@@ -654,11 +650,7 @@
 		B85F33A4219EA3FE00023958 /* CourseDisplayMinuteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDisplayMinuteCell.xib; sourceTree = "<group>"; };
 		B85F33A7219EAB8900023958 /* HomeHeaderCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCarouselView.swift; sourceTree = "<group>"; };
 		B85F33A8219EAB8900023958 /* HomeHeaderCarouselView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderCarouselView.xib; sourceTree = "<group>"; };
-		B85F33AB219EADB300023958 /* HomeHeaderNearByCourseView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderNearByCourseView.swift; sourceTree = "<group>"; };
-		B85F33AC219EADB300023958 /* HomeHeaderNearByCourseView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderNearByCourseView.xib; sourceTree = "<group>"; };
 		B85F33AF219EB07700023958 /* UIView+XIB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+XIB.swift"; sourceTree = "<group>"; };
-		B85F33B1219EB0EC00023958 /* HomeHeaderOptimizingView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderOptimizingView.swift; sourceTree = "<group>"; };
-		B85F33B2219EB0EC00023958 /* HomeHeaderOptimizingView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderOptimizingView.xib; sourceTree = "<group>"; };
 		B85F33BE219EB94000023958 /* BaseViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseViewModel.swift; sourceTree = "<group>"; };
 		B85F33BF219EB94000023958 /* PageModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PageModel.swift; sourceTree = "<group>"; };
 		B85F33C0219EB94000023958 /* RefreshServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RefreshServer.swift; sourceTree = "<group>"; };
@@ -1523,14 +1515,10 @@
 				B85F337A219EA0E700023958 /* HomeOrganizationTableView.swift */,
 				B85F33A7219EAB8900023958 /* HomeHeaderCarouselView.swift */,
 				B85F33A8219EAB8900023958 /* HomeHeaderCarouselView.xib */,
-				B85F33AB219EADB300023958 /* HomeHeaderNearByCourseView.swift */,
-				B85F33AC219EADB300023958 /* HomeHeaderNearByCourseView.xib */,
-				B85F33B1219EB0EC00023958 /* HomeHeaderOptimizingView.swift */,
-				B85F33B2219EB0EC00023958 /* HomeHeaderOptimizingView.xib */,
-				B80B6BE0219FA66000C33F11 /* OrganizationHeaderView.swift */,
-				B8547E2721A6772300281554 /* OrganizationHeaderView.xib */,
 				C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */,
 				C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */,
+				B80B6BE0219FA66000C33F11 /* OrganizationHeaderView.swift */,
+				B8547E2721A6772300281554 /* OrganizationHeaderView.xib */,
 			);
 			path = Home;
 			sourceTree = "<group>";
@@ -2169,10 +2157,8 @@
 				C468B8F521F9F105001AA08B /* MineNeedClassOrderCell.xib in Resources */,
 				6B280D6B21CCEEDA00C5DEED /* SendCodeCell.xib in Resources */,
 				C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */,
-				B85F33AE219EADB300023958 /* HomeHeaderNearByCourseView.xib in Resources */,
 				6BF7B95321BA693700BE1E4A /* MineHeaderCollectionCell.xib in Resources */,
 				B87A94F021A8381D003E2D21 /* TeachersCell.xib in Resources */,
-				B85F33B4219EB0EC00023958 /* HomeHeaderOptimizingView.xib in Resources */,
 				B8FBFA5521A3DD9600AECB75 /* hatea_thumb.png in Resources */,
 				B8FBFA4F21A3DD9600AECB75 /* sb_thumb.png in Resources */,
 				C468B8ED21F9F0C3001AA08B /* MineNeedPayOrderCell.xib in Resources */,
@@ -2346,7 +2332,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				B85F33B3219EB0EC00023958 /* HomeHeaderOptimizingView.swift in Sources */,
 				B81EDF6621A522B100F9D3B0 /* HttpImage.swift in Sources */,
 				B85F331F219E8F4B00023958 /* STTabBarItem.swift in Sources */,
 				B810F48B21B97859005918B9 /* STOpenAccountViewController.swift in Sources */,
@@ -2487,7 +2472,6 @@
 				B803C3D721BD7CA0004C97DB /* ChoseClassificationViewModel.swift in Sources */,
 				B87F8F8D21A29CCC00DE9DC1 /* AppInfo.swift in Sources */,
 				6B280D6E21CCEEF700C5DEED /* ConfirmBtnCell.swift in Sources */,
-				B85F33AD219EADB300023958 /* HomeHeaderNearByCourseView.swift in Sources */,
 				B85F33D2219EBB4200023958 /* BaseModel.swift in Sources */,
 				B87A94E421A826F2003E2D21 /* OrganizationViewModel.swift in Sources */,
 				C43339B221C0FBD900CAF850 /* STMyScoreViewController.swift in Sources */,

@@ -19,11 +19,10 @@ class HomeHeaderExperienceView: UICollectionReusableView {
         clipsToBounds = true
         
         contentView = (Bundle.main.loadNibNamed("HomeHeaderExperienceView", owner: self, options: nil)?.first as! UICollectionReusableView)
-        contentView.correctWidth()
         addSubview(contentView)
-        
+        contentView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
+
         layoutIfNeeded()
-        
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -36,9 +35,7 @@ class HomeHeaderExperienceView: UICollectionReusableView {
 
     var actualHeight: CGFloat {
         get {
-            PrintLog("111 -- \(contentView.viewWithTag(2000)!.frame)")
-            
-            return contentView.viewWithTag(2000)!.frame.maxY + 10
+            return contentView.viewWithTag(2000)!.frame.maxY
         }
     }
 

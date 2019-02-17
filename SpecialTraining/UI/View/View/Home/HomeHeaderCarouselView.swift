@@ -20,12 +20,10 @@ class HomeHeaderCarouselView: UICollectionReusableView {
         clipsToBounds = true
         
         contentView = (Bundle.main.loadNibNamed("HomeHeaderCarouselView", owner: self, options: nil)?.first as! UICollectionReusableView)
-        contentView.correctWidth()
         addSubview(contentView)
+        contentView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
         
         layoutIfNeeded()
-        
-        PrintLog("222 -- \(contentView.viewWithTag(2000)!.frame)")
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -38,15 +36,7 @@ class HomeHeaderCarouselView: UICollectionReusableView {
     
     var actualHeight: CGFloat {
         get {
-            PrintLog("111 -- \(contentView.viewWithTag(2000)!.frame)")
-
-            return contentView.viewWithTag(2000)!.frame.maxY + 10
+            return contentView.viewWithTag(2000)!.frame.maxY
         }
-    }
-    
-    override func layoutSubviews() {
-        super.layoutSubviews()
-        
-        PrintLog("333 -- \(contentView.viewWithTag(2000)!.frame)")
     }
 }
