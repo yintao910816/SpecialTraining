@@ -61,10 +61,10 @@ class STVideoViewController: BaseViewController {
         
         floatView.didSelectedCallBack = { [unowned self] title in
             if title == "拍摄" {
+                self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
+            }else if title == "上传" {
                 let testVC = ViewController()
                 self.navigationController?.pushViewController(testVC, animated: true)
-            }else if title == "上传" {
-                self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
             }
         }
     }

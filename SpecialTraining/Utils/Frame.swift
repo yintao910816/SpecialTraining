@@ -48,6 +48,12 @@ struct LayoutSize {
         }
     }
     
+    static var fitTopArea: CGFloat {
+        get {
+            return UIDevice.current.isX == true ? 24 : 0
+        }
+    }
+    
     static var saveAreaHeight: CGFloat { get { return (PPScreenH - topVirtualArea - bottomVirtualArea) } }
     
     static var saveAreaFrame: CGRect {

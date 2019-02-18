@@ -13,6 +13,8 @@ class fileOutputViewController: BaseViewController, captureSessionCoordinatorDel
     var captureSessionCoordinator: fileOutputCoordinator?
     var recording: Bool = false
     var dismissing: Bool = false
+    /// 是否是取消视频录制
+    var isCancle: Bool = false
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -33,16 +35,16 @@ class fileOutputViewController: BaseViewController, captureSessionCoordinatorDel
             stopPipelineAndDismiss()
         }
     }
-    ///  开始记录 与停止记录
-    func record() {
-        if recording {
-            captureSessionCoordinator?.stopRecording()
-        } else {
-            UIApplication.shared.isIdleTimerDisabled = true
-            
-            captureSessionCoordinator?.startRecording()
-            recording = true
-        }
+
+    func stopRecord() {
+        captureSessionCoordinator?.stopRecording()
+    }
+    
+    func startRecord() {
+        UIApplication.shared.isIdleTimerDisabled = true
+        
+        captureSessionCoordinator?.startRecording()
+        recording = true
     }
     
     func confiureCamper() {
@@ -63,13 +65,12 @@ class fileOutputViewController: BaseViewController, captureSessionCoordinatorDel
     
     func didFinishRecording(coordinator: CaptureSessionCoordinator, url: URL) {
         UIApplication.shared.isIdleTimerDisabled = false
-
         recording = false
-        let fm = YfileManager()
-        fm.copFileToCameraRoll(fileUrl: url)
-        if dismissing {
-            stopPipelineAndDismiss()
-        }        
+        if isCancle == false {
+            let fm = YfileManager()
+            fm.copFileToCameraRoll(fileUrl: url)
+        }
+        if dismissing { stopPipelineAndDismiss() }
     }
 
 }

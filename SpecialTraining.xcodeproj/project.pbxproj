@@ -250,6 +250,7 @@
 		B87800BA21C7E51500EDCE72 /* CourseAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87800B821C7E51500EDCE72 /* CourseAudioCell.xib */; };
 		B87800BC21C7E7EA00EDCE72 /* CourseAudioTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800BB21C7E7EA00EDCE72 /* CourseAudioTableView.swift */; };
 		B87800BE21C7E7F800EDCE72 /* CourseSchoolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */; };
+		B879A064221B1D6200E573C9 /* Int+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B879A063221B1D6200E573C9 /* Int+Extention.swift */; };
 		B87A94D321A81F46003E2D21 /* STOrganizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */; };
 		B87A94D821A81FE1003E2D21 /* PhysicalStoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D721A81FE1003E2D21 /* PhysicalStoreTableView.swift */; };
 		B87A94DA21A82052003E2D21 /* RecommendCourseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */; };
@@ -684,6 +685,7 @@
 		B87800B821C7E51500EDCE72 /* CourseAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseAudioCell.xib; sourceTree = "<group>"; };
 		B87800BB21C7E7EA00EDCE72 /* CourseAudioTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAudioTableView.swift; sourceTree = "<group>"; };
 		B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSchoolTableView.swift; sourceTree = "<group>"; };
+		B879A063221B1D6200E573C9 /* Int+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extention.swift"; sourceTree = "<group>"; };
 		B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STOrganizationViewController.swift; sourceTree = "<group>"; };
 		B87A94D721A81FE1003E2D21 /* PhysicalStoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalStoreTableView.swift; sourceTree = "<group>"; };
 		B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCourseTableView.swift; sourceTree = "<group>"; };
@@ -1352,6 +1354,7 @@
 				B80B6BE7219FB00800C33F11 /* CAGradientLayer+Gradient.swift */,
 				B8350AA921A0FDE70020A6A6 /* UIImage+Extension.swift */,
 				B82F45C121A99640009DC25C /* Date+Extension.swift */,
+				B879A063221B1D6200E573C9 /* Int+Extention.swift */,
 			);
 			path = Extension;
 			sourceTree = "<group>";
@@ -2542,6 +2545,7 @@
 				B827230B21E633A700147397 /* FinishPayViewModel.swift in Sources */,
 				B80B6C0E219FF29900C33F11 /* VideoClassificationCell.swift in Sources */,
 				B85F3356219E94D600023958 /* HUD.swift in Sources */,
+				B879A064221B1D6200E573C9 /* Int+Extention.swift in Sources */,
 				B85F337B219EA0E700023958 /* HomeOrganizationTableView.swift in Sources */,
 				B87A94EF21A8381D003E2D21 /* TeachersCell.swift in Sources */,
 				B852F13921BD6738002A5887 /* VideoCoverChoseViewModel.swift in Sources */,

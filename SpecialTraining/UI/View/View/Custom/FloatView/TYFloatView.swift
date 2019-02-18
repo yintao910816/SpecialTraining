@@ -86,12 +86,10 @@ class TYFloatView: UIView {
 extension TYFloatView: UITableViewDelegate, UITableViewDataSource {
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
-        PrintLog("tableView --- \(tableView.frame)")
         let cell = tableView.dequeueReusableCell(withIdentifier: "FLoatViewCellID")!
         cell.selectionStyle = .none
         cell.textLabel?.text = menuDatasource[indexPath.row]
         cell.textLabel?.font = UIFont.init(name: sr_fontName, size: CGFloat(fontSize))
-        PrintLog("cell.textLabel?.font  --- \(cell.textLabel?.font)")
         cell.textLabel?.textAlignment = .center
         return cell
     }
