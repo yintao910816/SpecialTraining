@@ -318,6 +318,9 @@
                                     </imageView>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="选择分类" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="7Hd-Cf-xLf">
                                         <rect key="frame" x="43" y="16" width="61.5" height="18"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" constant="61.5" id="weN-k6-qeW"/>
+                                        </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="15"/>
                                         <color key="textColor" red="0.31372549019607843" green="0.31372549019607843" blue="0.31372549019607843" alpha="1" colorSpace="deviceRGB"/>
                                         <nil key="highlightedColor"/>
@@ -336,16 +339,25 @@
                                             <segue destination="Gem-zA-UmO" kind="show" id="Jrx-5j-zjp"/>
                                         </connections>
                                     </button>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="" textAlignment="right" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="ZSu-4N-tbH">
+                                        <rect key="frame" x="119.5" y="25" width="221.5" height="0.0"/>
+                                        <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="14"/>
+                                        <color key="textColor" red="0.47058823529411764" green="0.47058823529411764" blue="0.47058823529411764" alpha="1" colorSpace="deviceRGB"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
+                                    <constraint firstItem="ZSu-4N-tbH" firstAttribute="leading" secondItem="7Hd-Cf-xLf" secondAttribute="trailing" constant="15" id="Hel-gS-O3r"/>
                                     <constraint firstItem="7Hd-Cf-xLf" firstAttribute="centerY" secondItem="Ae7-sB-aq4" secondAttribute="centerY" id="I5T-Oh-QWN"/>
                                     <constraint firstItem="Ae7-sB-aq4" firstAttribute="centerY" secondItem="bhH-LS-PgN" secondAttribute="centerY" id="K66-v6-M7N"/>
                                     <constraint firstAttribute="trailing" secondItem="Ffp-Z6-ThP" secondAttribute="trailing" id="Sch-hN-Udw"/>
                                     <constraint firstAttribute="trailing" secondItem="MEl-hX-RgT" secondAttribute="trailing" constant="15" id="VGC-tf-BYs"/>
+                                    <constraint firstItem="MEl-hX-RgT" firstAttribute="leading" secondItem="ZSu-4N-tbH" secondAttribute="trailing" constant="3" id="XCS-YK-wWb"/>
                                     <constraint firstItem="MEl-hX-RgT" firstAttribute="centerY" secondItem="Ae7-sB-aq4" secondAttribute="centerY" id="abY-xe-zL6"/>
                                     <constraint firstAttribute="height" constant="50" id="cyI-0R-bjO"/>
                                     <constraint firstItem="7Hd-Cf-xLf" firstAttribute="leading" secondItem="Ae7-sB-aq4" secondAttribute="trailing" constant="5" id="lYO-kS-29c"/>
+                                    <constraint firstItem="ZSu-4N-tbH" firstAttribute="centerY" secondItem="MEl-hX-RgT" secondAttribute="centerY" id="qBv-JW-QMK"/>
                                     <constraint firstItem="Ffp-Z6-ThP" firstAttribute="leading" secondItem="bhH-LS-PgN" secondAttribute="leading" id="rCf-lX-wRM"/>
                                     <constraint firstAttribute="bottom" secondItem="Ffp-Z6-ThP" secondAttribute="bottom" id="sBz-SJ-O7J"/>
                                     <constraint firstItem="Ffp-Z6-ThP" firstAttribute="top" secondItem="bhH-LS-PgN" secondAttribute="top" id="ugT-2u-tsK"/>
@@ -450,6 +462,7 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="classificationOutlet" destination="ZSu-4N-tbH" id="gOe-jt-e7X"/>
                         <outlet property="inputTextOutlet" destination="nJM-Yx-de1" id="dsc-SR-oX1"/>
                         <outlet property="meidaChoseOutlet" destination="s6r-UH-tmT" id="kFa-VO-UEa"/>
                         <outlet property="saveOutlet" destination="9kX-RI-xoe" id="VLm-hG-Cih"/>
@@ -939,6 +952,6 @@
         <image name="navigationButtonReturn" width="40" height="40"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="HCU-pq-qHM"/>
+        <segue reference="KpB-So-eUZ"/>
     </inferredMetricsTieBreakers>
 </document>

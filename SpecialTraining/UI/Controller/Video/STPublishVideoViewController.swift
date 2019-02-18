@@ -15,6 +15,7 @@ class STPublishVideoViewController: BaseViewController {
     @IBOutlet weak var inputTextOutlet: PlaceholderTextView!
     @IBOutlet weak var meidaChoseOutlet: UIButton!
     @IBOutlet weak var saveOutlet: UIButton!
+    @IBOutlet weak var classificationOutlet: UILabel!
     
     private var coverImage: UIImage!
     
@@ -28,9 +29,9 @@ class STPublishVideoViewController: BaseViewController {
         case 101:
             // 发布
             navigationController?.dismiss(animated: true, completion: nil)
-        case 102:
-            // 选择分类
-            break
+//        case 102:
+//            // 选择分类
+//            break
         case 103:
             // 选择机构
             break
@@ -60,6 +61,12 @@ class STPublishVideoViewController: BaseViewController {
                 NoticesCenter.alertActionSheet(actionTitles: ["相册", "相机"], cancleTitle: "取消", presentCtrl: self, callBackCancle:  nil, callBackChoose: { idx in
                     self.managerPicker.openPickerSignal.onNext((MediaType(rawValue: idx)!, true))
                 })
+            })
+            .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.PublishVideo.ChooseClassifications)
+            .subscribe(onNext: { [weak self] no in
+                self?.classificationOutlet.text = (no.object as? String)
             })
             .disposed(by: disposeBag)
     }

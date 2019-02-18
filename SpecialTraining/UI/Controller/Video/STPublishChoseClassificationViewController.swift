@@ -15,6 +15,9 @@ class STPublishChoseClassificationViewController: BaseViewController {
     var viewModel: ChoseClassificationViewModel!
     
     @IBAction func actions(_ sender: UIButton) {
+        
+        NotificationCenter.default.post(name: NotificationName.PublishVideo.ChooseClassifications,
+                                        object: viewModel.appendClassifications())
         navigationController?.popViewController(animated: true)
     }
 
