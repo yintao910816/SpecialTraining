@@ -125,6 +125,7 @@
 		B826AF8A221C7934000428C1 /* ChoseClassificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B826AF88221C7934000428C1 /* ChoseClassificationCell.xib */; };
 		B826AF8D221C7CEA000428C1 /* VideoClassificationCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B826AF8B221C7CE9000428C1 /* VideoClassificationCell.xib */; };
 		B826AF8E221C7CEA000428C1 /* VideoClassificationCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B826AF8C221C7CEA000428C1 /* VideoClassificationCell.swift */; };
+		B826AF90221C820A000428C1 /* STVideoChoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B826AF8F221C820A000428C1 /* STVideoChoseViewController.swift */; };
 		B82722E721E5C10F00147397 /* ShoppingCarCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722E521E5C10F00147397 /* ShoppingCarCell.swift */; };
 		B82722E821E5C10F00147397 /* ShoppingCarCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B82722E621E5C10F00147397 /* ShoppingCarCell.xib */; };
 		B82722EB21E5CBE500147397 /* ShopingCarTitleReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82722E921E5CBE500147397 /* ShopingCarTitleReusableView.swift */; };
@@ -558,6 +559,7 @@
 		B826AF88221C7934000428C1 /* ChoseClassificationCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ChoseClassificationCell.xib; sourceTree = "<group>"; };
 		B826AF8B221C7CE9000428C1 /* VideoClassificationCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = VideoClassificationCell.xib; sourceTree = "<group>"; };
 		B826AF8C221C7CEA000428C1 /* VideoClassificationCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = VideoClassificationCell.swift; sourceTree = "<group>"; };
+		B826AF8F221C820A000428C1 /* STVideoChoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoChoseViewController.swift; sourceTree = "<group>"; };
 		B82722E521E5C10F00147397 /* ShoppingCarCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingCarCell.swift; sourceTree = "<group>"; };
 		B82722E621E5C10F00147397 /* ShoppingCarCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingCarCell.xib; sourceTree = "<group>"; };
 		B82722E921E5CBE500147397 /* ShopingCarTitleReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopingCarTitleReusableView.swift; sourceTree = "<group>"; };
@@ -1933,10 +1935,10 @@
 				B8FC3AE22217224500889483 /* ViewController.h */,
 				B8FC3AE12217224500889483 /* ViewController.m */,
 				B8FC3AD52217219A00889483 /* TJPlayerViewController.h */,
+				B8FC3AD92217219A00889483 /* TJPlayerViewController.m */,
 				B8FC3AD62217219A00889483 /* TimeChooseView.h */,
 				B8FC3AD72217219A00889483 /* TJMediaManager.m */,
 				B8FC3AD82217219A00889483 /* TJPhotoManager.h */,
-				B8FC3AD92217219A00889483 /* TJPlayerViewController.m */,
 				B8FC3ADA2217219A00889483 /* TJPhotoManager.m */,
 				B8FC3ADB2217219A00889483 /* TJMediaManager.h */,
 				B8FC3ADC2217219A00889483 /* TimeChooseView.m */,
@@ -1949,6 +1951,7 @@
 			children = (
 				C408422A21B559A500C491A8 /* STVideoDemandViewController.swift */,
 				C408422C21B562DD00C491A8 /* STUserVideosViewController.swift */,
+				B826AF8F221C820A000428C1 /* STVideoChoseViewController.swift */,
 				C498BA7421B7A54100A29385 /* STPublishVideoViewController.swift */,
 				B83BA1F721BC16B600496AFE /* STVideoRecordingViewController.swift */,
 				B83BA21021BC2AEC00496AFE /* STVideoCoverChoseViewController.swift */,
@@ -2528,6 +2531,7 @@
 				B85F3357219E94D600023958 /* TYHUD.swift in Sources */,
 				C47356E321AEBA6E000E24A5 /* ChatToolBarAudioButton.m in Sources */,
 				B85F3337219E92A600023958 /* EmptyDataView.swift in Sources */,
+				B826AF90221C820A000428C1 /* STVideoChoseViewController.swift in Sources */,
 				B8FC3AB92217163600889483 /* fileOutputCoordinator.swift in Sources */,
 				B8350AAA21A0FDE70020A6A6 /* UIImage+Extension.swift in Sources */,
 				B844477F21B829D200808F5A /* STTeacherPrepareViewController.swift in Sources */,

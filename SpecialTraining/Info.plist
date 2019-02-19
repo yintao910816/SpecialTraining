@@ -60,8 +60,6 @@
 		<key>NSAllowsArbitraryLoads</key>
 		<true/>
 	</dict>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>允许访问</string>
 	<key>NSCameraUsageDescription</key>
 	<string>APP需要需要您授权摄像头权限</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -95,5 +93,7 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>媒体</string>
 </dict>
 </plist>

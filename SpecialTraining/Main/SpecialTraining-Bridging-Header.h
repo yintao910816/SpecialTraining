@@ -40,6 +40,7 @@
 
 #import <AssetsLibrary/AssetsLibrary.h>
 
+#import "TJPlayerViewController.h"
 #import "ViewController.h"
 
 #endif /* SpecialTraining_Bridging_Header_h */

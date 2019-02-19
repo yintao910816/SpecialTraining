@@ -43,7 +43,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         
         return true
     }
-
+    
     func applicationDidEnterBackground(_ application: UIApplication) {
         EMClient.shared()?.applicationDidEnterBackground(application)
     }

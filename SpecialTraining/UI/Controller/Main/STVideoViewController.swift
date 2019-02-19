@@ -10,6 +10,7 @@ import UIKit
 import RxCocoa
 import RxSwift
 import RxDataSources
+import MobileCoreServices
 
 class STVideoViewController: BaseViewController {
 
@@ -22,6 +23,8 @@ class STVideoViewController: BaseViewController {
     
     private var floatView: TYFloatView!
     
+    private var videoUrl: URL?
+    
     var viewModel: VideoViewModel!
     
     @IBAction func actions(_ sender: UIButton) {
@@ -32,6 +35,31 @@ class STVideoViewController: BaseViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    private func photoAlbumPermissions() {
+        let authStatus = PHPhotoLibrary.authorizationStatus()        
+        if authStatus == .notDetermined {
+            PHPhotoLibrary.requestAuthorization { [weak self] status in
+                if status == .authorized {
+                    self?.showVideoVC()
+                }
+            }
+        } else if authStatus == .authorized  {
+            showVideoVC()
+        } else {
+            
+        }
+    }
+    
+    private func showVideoVC() {
+        let picker = UIImagePickerController()
+        picker.delegate = self
+        picker.modalTransitionStyle = .flipHorizontal
+        picker.allowsEditing = true
+        picker.sourceType = .savedPhotosAlbum
+        picker.mediaTypes = ["public.movie"]
+        present(picker, animated: true, completion: nil)
+    }
+
     override func setupUI() {
         if #available(iOS 11, *) {
             contentCollectionView.contentInsetAdjustmentBehavior = .never
@@ -63,8 +91,7 @@ class STVideoViewController: BaseViewController {
             if title == "拍摄" {
                 self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
             }else if title == "上传" {
-                let testVC = ViewController()
-                self.navigationController?.pushViewController(testVC, animated: true)
+                self.photoAlbumPermissions()
             }
         }
     }
@@ -107,3 +134,28 @@ extension STVideoViewController: FlowLayoutDelegate {
         return .init(width: model.width, height: model.height)
     }
 }
+
+extension STVideoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
+    
+    private func videoPlay() {
+        let pvc = TJPlayerViewController.init()
+        pvc.videoUrl = videoUrl
+        navigationController?.pushViewController(pvc, animated: true)
+    }
+    
+    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
+        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String
+        
+        if mediaType == String(kUTTypeImage) {
+            // 图片
+        }else {
+            // 视频
+            let url = info[UIImagePickerController.InfoKey.mediaURL] as? URL
+            videoUrl = url
+            // 播放视频
+            videoPlay()
+        }
+        picker.dismiss(animated: true, completion: nil)
+    }
+}
+
