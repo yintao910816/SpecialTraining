@@ -26,7 +26,6 @@ class OndemandModel: HJModel {
 class VideoClassificationModel: HJModel {
     
     var title: String = ""
-    
     var isSelected: Bool = false
     var size: CGSize = .zero
     

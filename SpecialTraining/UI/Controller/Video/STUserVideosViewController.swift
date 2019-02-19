@@ -30,13 +30,9 @@ class STUserVideosViewController: BaseViewController {
 
     override func setupUI() {
         if UIDevice.current.isX == true {
-            topViewHeightCns.constant = 130 + 44
-            topSaveAreaCns.constant = 20 + 44
-        }else {
-            topViewHeightCns.constant = 130
-            topSaveAreaCns.constant = 20
+            topViewHeightCns.constant = 150 + 44
+            topSaveAreaCns.constant = 44
         }
-        
 
         let frame = CGRect.init(x: 0, y: 0, width: PPScreenW, height: topViewHeightCns.constant)
         bgHeader.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)

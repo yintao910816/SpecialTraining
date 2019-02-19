@@ -28,7 +28,7 @@ class STPublishVideoViewController: BaseViewController {
             navigationController?.dismiss(animated: true, completion: nil)
         case 101:
             // 发布
-            navigationController?.dismiss(animated: true, completion: nil)
+            performSegue(withIdentifier: "publishUserVidesSegue", sender: nil)
 //        case 102:
 //            // 选择分类
 //            break
