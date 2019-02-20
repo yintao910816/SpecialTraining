@@ -17,7 +17,7 @@ class STPublishVideoViewController: BaseViewController {
     @IBOutlet weak var saveOutlet: UIButton!
     @IBOutlet weak var classificationOutlet: UILabel!
     
-    private var coverImage: UIImage!
+    private var coverImage: UIImage?
     
     private var managerPicker: ImagePickerManager!
     
@@ -72,7 +72,7 @@ class STPublishVideoViewController: BaseViewController {
     }
     
     override func prepare(parameters: [String : Any]?) {
-        coverImage = parameters?["image"] as! UIImage
+        coverImage = parameters?["image"] as? UIImage
     }
 }
 

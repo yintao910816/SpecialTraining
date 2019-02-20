@@ -16,6 +16,10 @@
 @property(nonatomic,strong) AVPlayerItem *playerItem;
 
 //保存完成后的回调
-@property (nonatomic, copy) void (^cutDoneBlock)(PHAsset *);
+@property (nonatomic, copy) void (^cutDoneBlock)(PHAsset *, NSString*);
+
+-(void)showChooseView:(BOOL)isShow;
+-(void)cutVideoAction;
+-(void)removeNotification;
 
 @end

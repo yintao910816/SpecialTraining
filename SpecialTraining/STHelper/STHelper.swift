@@ -88,3 +88,14 @@ extension STHelper {
         return gradientLayer
     }
 }
+
+import AVFoundation
+extension STHeader {
+    
+    static func getVideoDuration(path: URL) ->Int {
+        let asset = AVURLAsset.init(url: path)
+        let time = asset.duration
+        let sections = round(Float(time.value)/Float(time.timescale))
+        return Int(sections)
+    }
+}

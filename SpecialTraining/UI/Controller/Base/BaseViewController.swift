@@ -36,6 +36,9 @@ class BaseViewController: UIViewController {
         if UIApplication.shared.isStatusBarHidden == true {
             UIApplication.shared.isStatusBarHidden = false
         }
+        
+        navigationController?.setNavigationBarHidden(false, animated: animated)
+        
         navigationController?.setNavigationBarHidden(false, animated: animated)
         let imageView = findHarilineImageViewUnder(view: (self.navigationController?.navigationBar)!)
         imageView.isHidden = true

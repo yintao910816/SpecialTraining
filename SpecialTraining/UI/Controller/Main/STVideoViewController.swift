@@ -23,8 +23,6 @@ class STVideoViewController: BaseViewController {
     
     private var floatView: TYFloatView!
     
-    private var videoUrl: URL?
-    
     var viewModel: VideoViewModel!
     
     @IBAction func actions(_ sender: UIButton) {
@@ -54,7 +52,7 @@ class STVideoViewController: BaseViewController {
         let picker = UIImagePickerController()
         picker.delegate = self
         picker.modalTransitionStyle = .flipHorizontal
-        picker.allowsEditing = true
+        picker.allowsEditing = false
         picker.sourceType = .savedPhotosAlbum
         picker.mediaTypes = ["public.movie"]
         present(picker, animated: true, completion: nil)
@@ -137,9 +135,13 @@ extension STVideoViewController: FlowLayoutDelegate {
 
 extension STVideoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
-    private func videoPlay() {
-        let pvc = TJPlayerViewController.init()
+    private func videoPlay(videoDuration: Int, videoUrl: URL) {
+        let pvc = STEditVideoViewController.init()
         pvc.videoUrl = videoUrl
+        pvc.videoDuration = videoDuration
+        pvc.representChooseVideoCallback = { [weak self] in
+            self?.showVideoVC()
+        }
         navigationController?.pushViewController(pvc, animated: true)
     }
     
@@ -150,10 +152,12 @@ extension STVideoViewController: UIImagePickerControllerDelegate, UINavigationCo
             // 图片
         }else {
             // 视频
-            let url = info[UIImagePickerController.InfoKey.mediaURL] as? URL
-            videoUrl = url
-            // 播放视频
-            videoPlay()
+            if let url = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
+                // 播放视频
+                videoPlay(videoDuration: STHeader.getVideoDuration(path: url), videoUrl: url)
+            }else {
+                NoticesCenter.alert(title: "提示", message: "视频无效，请重新选择")
+            }
         }
         picker.dismiss(animated: true, completion: nil)
     }

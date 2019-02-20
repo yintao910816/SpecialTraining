@@ -32,6 +32,8 @@
 @property(nonatomic,strong) UIButton *cutBtn;
 @property(nonatomic,strong) UIButton *backBtn;
 
+@property(nonatomic,strong) TimeChooseView *chooseView;
+
 @property (nonatomic,strong) PHFetchResult *collectonResuts;
 
 
@@ -57,26 +59,12 @@
 
 
 -(void)setupUI{
-    
-    //demo中的按钮
-    UIButton *cutBtn = [[UIButton alloc]initWithFrame:CGRectMake(self.view.bounds.size.width-50, 30,40, 40)];
-    [cutBtn setImage:[UIImage imageNamed:@"channleGou"] forState:UIControlStateNormal];
-    [cutBtn addTarget:self action:@selector(cutVideoAction) forControlEvents:UIControlEventTouchUpInside];
-    _cutBtn = cutBtn;
-    [self.view addSubview:cutBtn];
-    
-    UIButton *backBtn = [[UIButton alloc]initWithFrame:CGRectMake(10, 30, 40, 40)];
-    [backBtn setImage:[UIImage imageNamed:@"videoClose"] forState:UIControlStateNormal];
-    [backBtn addTarget:self action:@selector(cancelOrDoneCutAction) forControlEvents:UIControlEventTouchUpInside];
-    _backBtn = backBtn;
-    [self.view addSubview:backBtn];
-    
     //裁剪操作控制区
-    TimeChooseView *chooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height - 70,self.view.bounds.size.width,50)];
-    chooseView.videoURL = self.videoUrl;
+    self.chooseView = [[TimeChooseView alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height - 70,self.view.bounds.size.width,50)];
+    self.chooseView.videoURL = self.videoUrl;
     
     __weak typeof (self)weakself = self;
-    chooseView.getTimeRange = ^(CGFloat startTime,CGFloat endTime,CGFloat imageTime){
+    self.chooseView.getTimeRange = ^(CGFloat startTime,CGFloat endTime,CGFloat imageTime){
         
         __strong typeof(weakself) strongSelf = weakself;
         
@@ -100,18 +88,21 @@
         
     };
     
-    chooseView.cutWhenDragEnd = ^{
+    self.chooseView.cutWhenDragEnd = ^{
         
         __strong typeof(weakself) strongSelf = weakself;
         [strongSelf preViewAction];
         
     };
     
-    [chooseView setupUI];
-    [self.view addSubview:chooseView];
+    [self.chooseView setupUI];
+    [self.view addSubview:self.chooseView];
     
 }
 
+- (void)showChooseView:(BOOL)isShow {
+    self.chooseView.hidden = !isShow;
+}
 
 -(void)setVideoViewWithUrlPath:(NSString *)url{
     
@@ -148,26 +139,7 @@
     
 }
 
-
--(void)cancelOrDoneCutAction{
-    
-    if (self.navigationController) {
-        [self.navigationController popViewControllerAnimated:YES];
-    }else{
-        [self dismissViewControllerAnimated:YES completion:nil];
-        
-    }
-    [self removeNotification];
-    
-}
-
-
 -(void)cutVideoAction{
-    
-    __block UILabel *label = [[UILabel alloc]initWithFrame:CGRectMake(0, self.view.bounds.size.height*0.5-10, self.view.bounds.size.width, 20)];
-    label.text = @"视频正在剪切";
-    label.textAlignment = NSTextAlignmentCenter;
-    [self.view addSubview:label];
     
     [_player pause];
     if (_videoUrl  && self.startTime>=0 && self.endTime>self.startTime) {
@@ -185,16 +157,12 @@
                 
                 __strong typeof(self) strongself = weakself;
                 if (strongself.cutDoneBlock) {
-                    strongself.cutDoneBlock(asset);
+                    dispatch_async(dispatch_get_main_queue(), ^{
+                        
+                        strongself.cutDoneBlock(asset, exportPath);
+
+                    });
                 }
-                
-                dispatch_async(dispatch_get_main_queue(), ^{
-                    
-                    [label removeFromSuperview];
-                    [strongself cancelOrDoneCutAction];
-                    
-                });
-                
             } error:^(NSString *error) {
                 NSLog(@"错误%@",error);
             }];
@@ -216,8 +184,8 @@
     NSLog(@"视频播放完成.");
     // 播放完成后重复播放
     // 跳到剪切开始处
-    [_player seekToTime:CMTimeMake(_startTime*30, 30)];
-    [_player play];
+//    [_player seekToTime:CMTimeMake(_startTime*30, 30)];
+//    [_player play];
 }
 
 

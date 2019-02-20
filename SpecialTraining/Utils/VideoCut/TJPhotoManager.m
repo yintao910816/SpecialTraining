@@ -181,6 +181,7 @@
     
     if (self.completionHandler) {
         self.completionHandler(asset);
+        [[PHPhotoLibrary sharedPhotoLibrary] unregisterChangeObserver:self];
     }
     
 }

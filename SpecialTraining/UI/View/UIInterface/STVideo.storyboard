@@ -280,7 +280,7 @@
         <!--发布-->
         <scene sceneID="GC5-fO-8Xd">
             <objects>
-                <viewController id="fgy-ko-4Ky" customClass="STPublishVideoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PublishVideoCtrl" id="fgy-ko-4Ky" customClass="STPublishVideoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="kBA-Hc-3r9"/>
                         <viewControllerLayoutGuide type="bottom" id="dqQ-hP-Mms"/>

@@ -80,10 +80,7 @@ class fileOutputViewController: BaseViewController, captureSessionCoordinatorDel
 /// - parameter fps                     : 自定义帧数 每秒内取的帧数
 /// - parameter splitCompleteClosure    : 回调
 func splitVideoFileUrlFps(splitFileUrl:URL, fps:Float, splitCompleteClosure: @escaping ((Bool, [UIImage]) ->Void)) {
-    
-    // TODO: 判断fileUrl是否为空
-    print("QQQQQQQQQQ ==> split: \(splitFileUrl)")
-    
+        
     var splitImages = [UIImage]()
     let optDict = NSDictionary(object: NSNumber(value: false), forKey: AVURLAssetPreferPreciseDurationAndTimingKey as NSCopying)
     let urlAsset = AVURLAsset(url: splitFileUrl, options: optDict as? [String : Any])
@@ -112,17 +109,12 @@ func splitVideoFileUrlFps(splitFileUrl:URL, fps:Float, splitCompleteClosure: @es
     imgGenerator.generateCGImagesAsynchronously(forTimes: times) { (requestedTime, image, actualTime, result, error) in
         
         //times有多少次body就循环多少次。。。。
-        print("current-----\(requestedTime.value)   timesCount == \(timesCount)")
-        print("timeScale-----\(requestedTime.timescale) requestedTime:\(requestedTime.value)")
-        
         var isSuccess = false
         switch (result) {
         case AVAssetImageGenerator.Result.cancelled:
-            print("cancelled------")
-            
+            splitCompleteClosure(false, [UIImage]())
         case AVAssetImageGenerator.Result.failed:
-            print("failed++++++")
-            
+            splitCompleteClosure(false, [UIImage]())
         case AVAssetImageGenerator.Result.succeeded:
             let framImg = UIImage(cgImage: image!)
             splitImages.append(framImg)
