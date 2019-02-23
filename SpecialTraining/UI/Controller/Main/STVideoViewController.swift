@@ -22,6 +22,7 @@ class STVideoViewController: BaseViewController {
     @IBOutlet weak var topViewTopCns: NSLayoutConstraint!
     
     private var floatView: TYFloatView!
+    private var picker: UIImagePickerController!
     
     var viewModel: VideoViewModel!
     
@@ -66,6 +67,13 @@ class STVideoViewController: BaseViewController {
             automaticallyAdjustsScrollViewInsets = false
         }
 
+        picker = UIImagePickerController()
+        picker.delegate = self
+        picker.modalTransitionStyle = .coverVertical
+        picker.allowsEditing = false
+        //        picker.sourceType = .savedPhotosAlbum
+//        picker.videoQuality = .typeLow
+        picker.mediaTypes = [String(kUTTypeMovie)]
         topViewHeightCns.constant += (LayoutSize.topVirtualArea + 20)
         
         let layout = VideoFlowLayout.init()

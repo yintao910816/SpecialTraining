@@ -166,6 +166,24 @@ class STMineOrderViewController: BaseViewController {
             .drive(needPayBackView.datasource)
             .disposed(by: disposeBag)
         
+        needPayView.rx.itemSelected.asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.performSegue(withIdentifier: "needPayDetailSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
+        
+        needCourseView.rx.itemSelected.asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.performSegue(withIdentifier: "needForClassSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
+
+        needClassView.rx.itemSelected.asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.performSegue(withIdentifier: "needForClassSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.reloadSubject.onNext(Void())
     }
     

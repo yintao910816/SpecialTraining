@@ -42,4 +42,7 @@
 
 #import "TJPlayerViewController.h"
 
+#import "ZLPhotoBrowser.h"
+#import "ZLThumbnailViewController.h"
+
 #endif /* SpecialTraining_Bridging_Header_h */

@@ -28,7 +28,14 @@ class STMineCourseViewController: BaseViewController {
             cell.delegate = nil
             cell.delegate = self
             PrintLog(row)
-        }.disposed(by: disposeBag)
+            }
+            .disposed(by: disposeBag)
+
+        tableView.rx.itemSelected.asDriver()
+            .drive(onNext: { [unowned self] _ in
+
+            })
+            .disposed(by: disposeBag)
         
     }
 

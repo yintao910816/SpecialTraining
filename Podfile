@@ -28,4 +28,5 @@ pod 'BMKLocationKit'
 
 pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull'
 
+pod 'ZLPhotoBrowser'
 end
