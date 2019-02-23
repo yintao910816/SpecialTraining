@@ -12,6 +12,8 @@ class STPayBackInfoViewController: BaseViewController {
 
     @IBOutlet weak var tableView: UITableView!
     
+    private var alertView: EditForBackAlertView!
+    
     private lazy var payBackSuccessView: PayBackSuccessView = {
         let header = PayBackSuccessView.init(frame: .init(x: 0, y: 0, width: self.view.width, height: 412))
         return header
@@ -30,10 +32,18 @@ class STPayBackInfoViewController: BaseViewController {
             navigationItem.title = "退款状态"
             tableView.tableHeaderView = waitForDealView
         }
+        
+        alertView = EditForBackAlertView()
+        view.addSubview(alertView)
+        alertView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
     }
     
     override func rxBind() {
-        
+        NotificationCenter.default.rx.notification(NotificationName.TestNo.alertEditPayBack)
+            .subscribe(onNext: { [unowned self] _ in
+                self.alertView.viewAnimotin()
+            })
+            .disposed(by: disposeBag)
     }
 
 }

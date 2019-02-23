@@ -35,4 +35,7 @@ class WaitForDealView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
 
+    @IBAction func actions(_ sender: UIButton) {
+        NotificationCenter.default.post(name: NotificationName.TestNo.alertEditPayBack, object: nil)
+    }
 }

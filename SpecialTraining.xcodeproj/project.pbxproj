@@ -179,6 +179,8 @@
 		B85DBFFE2221DAE6000D3977 /* STPayBackInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFFD2221DAE6000D3977 /* STPayBackInfoViewController.swift */; };
 		B85DC0002221DE88000D3977 /* ApplyForBackAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFFF2221DE88000D3977 /* ApplyForBackAlertView.swift */; };
 		B85DC0022221DE91000D3977 /* ApplyForBackAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85DC0012221DE91000D3977 /* ApplyForBackAlertView.xib */; };
+		B85DC0042221E5CC000D3977 /* EditForBackAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DC0032221E5CC000D3977 /* EditForBackAlertView.swift */; };
+		B85DC0062221E5DC000D3977 /* EditForBackAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85DC0052221E5DC000D3977 /* EditForBackAlertView.xib */; };
 		B85F3300219E769900023958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B85F32FF219E769900023958 /* Assets.xcassets */; };
 		B85F331F219E8F4B00023958 /* STTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F331E219E8F4B00023958 /* STTabBarItem.swift */; };
 		B85F3324219E902A00023958 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F3320219E902A00023958 /* BaseViewController.swift */; };
@@ -621,6 +623,8 @@
 		B85DBFFD2221DAE6000D3977 /* STPayBackInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPayBackInfoViewController.swift; sourceTree = "<group>"; };
 		B85DBFFF2221DE88000D3977 /* ApplyForBackAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForBackAlertView.swift; sourceTree = "<group>"; };
 		B85DC0012221DE91000D3977 /* ApplyForBackAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyForBackAlertView.xib; sourceTree = "<group>"; };
+		B85DC0032221E5CC000D3977 /* EditForBackAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditForBackAlertView.swift; sourceTree = "<group>"; };
+		B85DC0052221E5DC000D3977 /* EditForBackAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = EditForBackAlertView.xib; sourceTree = "<group>"; };
 		B85F32F5219E769800023958 /* SpecialTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpecialTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85F32FF219E769900023958 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B85F3304219E769900023958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1174,6 +1178,8 @@
 				B85DBFFB2221D5FA000D3977 /* WaitForDealView.xib */,
 				B85DBFFF2221DE88000D3977 /* ApplyForBackAlertView.swift */,
 				B85DC0012221DE91000D3977 /* ApplyForBackAlertView.xib */,
+				B85DC0032221E5CC000D3977 /* EditForBackAlertView.swift */,
+				B85DC0052221E5DC000D3977 /* EditForBackAlertView.xib */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -2210,6 +2216,7 @@
 				B81E90BE21A3C57D000754E3 /* ChatLeftView.xib in Resources */,
 				C408422421B54A1A00C491A8 /* STMessage.storyboard in Resources */,
 				6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */,
+				B85DC0062221E5DC000D3977 /* EditForBackAlertView.xib in Resources */,
 				B82722F921E5FC0000147397 /* CourseClassSelectView.xib in Resources */,
 				B85F339E219EA37100023958 /* CourseDisplayCell.xib in Resources */,
 				B8FBFA2221A3DD9600AECB75 /* 88_thumb.png in Resources */,
@@ -2534,6 +2541,7 @@
 				B8BD92D521E64C200089495F /* DBQueue.swift in Sources */,
 				6B8A611521B4E10C00C0DFCD /* MineCourseViewModel.swift in Sources */,
 				C46D0C8521FAFF4700E94C9B /* MineNeedCourseView.swift in Sources */,
+				B85DC0042221E5CC000D3977 /* EditForBackAlertView.swift in Sources */,
 				B844477B21B81DF100808F5A /* STTreasureExchangeViewController.swift in Sources */,
 				B85F33D6219EC05500023958 /* Home.swift in Sources */,
 				6B8A612421B537A600C0DFCD /* MineChangeModel.swift in Sources */,
