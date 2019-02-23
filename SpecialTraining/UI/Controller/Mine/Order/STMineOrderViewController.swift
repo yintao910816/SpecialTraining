@@ -26,8 +26,9 @@ class STMineOrderViewController: BaseViewController {
     private var needClassView: MineNeedClassView!
     private var needPayBackView: MineNeedPayBackView!
     
-    var viewModel: MineOrderViewModel!
+    private var alertView: ApplyForBackAlertView!
     
+    var viewModel: MineOrderViewModel!
     
     @IBAction func actions(_ sender: UIButton) {
         if sender == needPayOutlet {
@@ -140,13 +141,24 @@ class STMineOrderViewController: BaseViewController {
         needClassView  = MineNeedClassView()
         needPayBackView = MineNeedPayBackView()
         
+        alertView = ApplyForBackAlertView()
+        
         scrollOutlet.addSubview(needPayView)
         scrollOutlet.addSubview(needCourseView)
         scrollOutlet.addSubview(needClassView)
         scrollOutlet.addSubview(needPayBackView)
+        
+        view.addSubview(alertView)
+        alertView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
     }
     
     override func rxBind() {
+        
+        NotificationCenter.default.rx.notification(NotificationName.TestNo.alertPayBack)
+            .subscribe(onNext: { [unowned self] _ in
+                self.alertView.viewAnimotin()
+            })
+            .disposed(by: disposeBag)
         
         viewModel = MineOrderViewModel()
         

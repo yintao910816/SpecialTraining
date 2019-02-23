@@ -18,7 +18,7 @@ class MineNeedCourseOrderCell: UICollectionViewCell {
     @IBOutlet weak var canclePayOutlet: UIButton!
 
     @IBAction func canclePayAction(_ sender: UIButton) {
-    
+        NotificationCenter.default.post(name: NotificationName.TestNo.alertPayBack, object: nil)
     }
     
     override func awakeFromNib() {

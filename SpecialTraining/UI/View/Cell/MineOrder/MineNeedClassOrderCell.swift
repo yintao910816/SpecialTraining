@@ -28,9 +28,14 @@ class MineNeedClassOrderCell: UICollectionViewCell {
         
         secondButton.layer.cornerRadius = 4.0
         secondButton.layer.borderWidth  = 1
-        secondButton.layer.borderColor  = RGB(60, 60, 60).cgColor
+        secondButton.layer.borderColor  = RGB(212, 108, 52).cgColor
     }
 
     @IBAction func actions(_ sender: UIButton) {
+        if sender == firstButton {
+            
+        }else if sender == secondButton {
+            NotificationCenter.default.post(name: NotificationName.TestNo.alertPayBack, object: nil)
+        }
     }
 }

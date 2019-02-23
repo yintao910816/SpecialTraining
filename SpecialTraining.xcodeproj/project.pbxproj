@@ -177,6 +177,8 @@
 		B85DBFFA2221D5E2000D3977 /* WaitForDealView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFF92221D5E2000D3977 /* WaitForDealView.swift */; };
 		B85DBFFC2221D5FA000D3977 /* WaitForDealView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85DBFFB2221D5FA000D3977 /* WaitForDealView.xib */; };
 		B85DBFFE2221DAE6000D3977 /* STPayBackInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFFD2221DAE6000D3977 /* STPayBackInfoViewController.swift */; };
+		B85DC0002221DE88000D3977 /* ApplyForBackAlertView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFFF2221DE88000D3977 /* ApplyForBackAlertView.swift */; };
+		B85DC0022221DE91000D3977 /* ApplyForBackAlertView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85DC0012221DE91000D3977 /* ApplyForBackAlertView.xib */; };
 		B85F3300219E769900023958 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = B85F32FF219E769900023958 /* Assets.xcassets */; };
 		B85F331F219E8F4B00023958 /* STTabBarItem.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F331E219E8F4B00023958 /* STTabBarItem.swift */; };
 		B85F3324219E902A00023958 /* BaseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F3320219E902A00023958 /* BaseViewController.swift */; };
@@ -617,6 +619,8 @@
 		B85DBFF92221D5E2000D3977 /* WaitForDealView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitForDealView.swift; sourceTree = "<group>"; };
 		B85DBFFB2221D5FA000D3977 /* WaitForDealView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = WaitForDealView.xib; sourceTree = "<group>"; };
 		B85DBFFD2221DAE6000D3977 /* STPayBackInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPayBackInfoViewController.swift; sourceTree = "<group>"; };
+		B85DBFFF2221DE88000D3977 /* ApplyForBackAlertView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ApplyForBackAlertView.swift; sourceTree = "<group>"; };
+		B85DC0012221DE91000D3977 /* ApplyForBackAlertView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ApplyForBackAlertView.xib; sourceTree = "<group>"; };
 		B85F32F5219E769800023958 /* SpecialTraining.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SpecialTraining.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		B85F32FF219E769900023958 /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		B85F3304219E769900023958 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -1168,6 +1172,8 @@
 				B85DBFF72221D1A7000D3977 /* PayBackSuccessView.xib */,
 				B85DBFF92221D5E2000D3977 /* WaitForDealView.swift */,
 				B85DBFFB2221D5FA000D3977 /* WaitForDealView.xib */,
+				B85DBFFF2221DE88000D3977 /* ApplyForBackAlertView.swift */,
+				B85DC0012221DE91000D3977 /* ApplyForBackAlertView.xib */,
 			);
 			path = Order;
 			sourceTree = "<group>";
@@ -2210,6 +2216,7 @@
 				B8FBFA5621A3DD9600AECB75 /* t_thumb.png in Resources */,
 				B803C3CB21BD6876004C97DB /* VideoCoverChoseCell.xib in Resources */,
 				B8FBFA4D21A3DD9600AECB75 /* sweata_thumb.png in Resources */,
+				B85DC0022221DE91000D3977 /* ApplyForBackAlertView.xib in Resources */,
 				B8FBFA2921A3DD9600AECB75 /* bs_thumb.png in Resources */,
 				B8FBFA3F21A3DD9600AECB75 /* kbsa_thumb.png in Resources */,
 				C468B8FD21F9F196001AA08B /* MineNeedPayBackCell.xib in Resources */,
@@ -2647,6 +2654,7 @@
 				B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */,
 				B80B6BFD219FEE1100C33F11 /* VideoCell.swift in Sources */,
 				C45AAE5521B6A15200692D7D /* UserVideosCell.swift in Sources */,
+				B85DC0002221DE88000D3977 /* ApplyForBackAlertView.swift in Sources */,
 				B82F45BD21A97B70009DC25C /* MedieView.swift in Sources */,
 				B81E909F21A3A474000754E3 /* EaseMobHelper.swift in Sources */,
 				B80B6BF5219FC31E00C33F11 /* Shopping.swift in Sources */,

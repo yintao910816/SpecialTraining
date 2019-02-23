@@ -62,4 +62,8 @@ extension Notification.Name {
         /// 发布界面选择了分类
         public static let ChooseClassifications = Notification.Name(rawValue: "org.bmk.notification.name.ChooseClassifications")
     }
+    
+    public struct TestNo {
+        public static let alertPayBack = Notification.Name(rawValue: "org.bmk.notification.name.alertPayBack")
+    }
 }
