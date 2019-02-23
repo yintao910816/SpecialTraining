@@ -174,7 +174,7 @@ class STMineOrderViewController: BaseViewController {
         
         needCourseView.rx.itemSelected.asDriver()
             .drive(onNext: { [unowned self] _ in
-                self.performSegue(withIdentifier: "needForClassSegue", sender: nil)
+                self.performSegue(withIdentifier: "needForCourseSegue", sender: nil)
             })
             .disposed(by: disposeBag)
 
@@ -184,6 +184,12 @@ class STMineOrderViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        needPayBackView.rx.itemSelected.asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.performSegue(withIdentifier: "payBackInfoSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
+
         viewModel.reloadSubject.onNext(Void())
     }
     

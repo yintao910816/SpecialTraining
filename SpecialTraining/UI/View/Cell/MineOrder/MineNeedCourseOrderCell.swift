@@ -23,7 +23,10 @@ class MineNeedCourseOrderCell: UICollectionViewCell {
     
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        canclePayOutlet.layer.cornerRadius = 4.0
+        canclePayOutlet.layer.borderWidth  = 1
+        canclePayOutlet.layer.borderColor  = RGB(212, 108, 52).cgColor
     }
 
 }

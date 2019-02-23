@@ -21,7 +21,14 @@ class MineNeedClassOrderCell: UICollectionViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+
+        firstButton.layer.cornerRadius = 4.0
+        firstButton.layer.borderWidth  = 1
+        firstButton.layer.borderColor  = RGB(212, 108, 52).cgColor
+        
+        secondButton.layer.cornerRadius = 4.0
+        secondButton.layer.borderWidth  = 1
+        secondButton.layer.borderColor  = RGB(60, 60, 60).cgColor
     }
 
     @IBAction func actions(_ sender: UIButton) {
