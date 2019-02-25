@@ -27,6 +27,7 @@ class STMineOrderViewController: BaseViewController {
     private var needPayBackView: MineNeedPayBackView!
     
     private var alertView: ApplyForBackAlertView!
+    private var cancleAlertView: CancleOrderView!
     
     var viewModel: MineOrderViewModel!
     
@@ -142,6 +143,7 @@ class STMineOrderViewController: BaseViewController {
         needPayBackView = MineNeedPayBackView()
         
         alertView = ApplyForBackAlertView()
+        cancleAlertView = CancleOrderView()
         
         scrollOutlet.addSubview(needPayView)
         scrollOutlet.addSubview(needCourseView)
@@ -149,7 +151,10 @@ class STMineOrderViewController: BaseViewController {
         scrollOutlet.addSubview(needPayBackView)
         
         view.addSubview(alertView)
+        view.addSubview(cancleAlertView)
+
         alertView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
+        cancleAlertView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
     }
     
     override func rxBind() {
@@ -157,6 +162,12 @@ class STMineOrderViewController: BaseViewController {
         NotificationCenter.default.rx.notification(NotificationName.TestNo.alertPayBack)
             .subscribe(onNext: { [unowned self] _ in
                 self.alertView.viewAnimotin()
+            })
+            .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.TestNo.alertCancleOrder)
+            .subscribe(onNext: { [unowned self] _ in
+                self.cancleAlertView.viewAnimotin()
             })
             .disposed(by: disposeBag)
         

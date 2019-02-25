@@ -27,13 +27,8 @@ class MineNeedPayOrderCell: UICollectionViewCell {
     }
     
     @IBAction func actios(_ sender: UIButton) {
-        switch sender.tag {
-//        case 200:
-//            // 取消
-//        case 201:
-//            // 支付
-        default:
-            break
+        if sender == canclePayOutlet {
+            NotificationCenter.default.post(name: NotificationName.TestNo.alertCancleOrder, object: nil)
         }
     }
     

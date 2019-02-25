@@ -1,0 +1,100 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CancleOrderView" customModule="SpecialTraining" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="URY-sk-58Q" id="QG8-bZ-pAG"/>
+                <outlet property="okOutlet" destination="zHK-6Z-qR1" id="sP5-3M-CB7"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="URY-sk-58Q">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="672"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view clipsSubviews="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="SeO-v1-x5S">
+                    <rect key="frame" x="20" y="253" width="335" height="166"/>
+                    <subviews>
+                        <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="jMi-Xb-5es">
+                            <rect key="frame" x="0.0" y="0.0" width="335" height="30"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <subviews>
+                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="取消订单" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="aHT-oU-0Kc">
+                                    <rect key="frame" x="139" y="7" width="58" height="17"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <color key="textColor" red="0.23529411759999999" green="0.23529411759999999" blue="0.23529411759999999" alpha="1" colorSpace="deviceRGB"/>
+                                    <nil key="highlightedColor"/>
+                                </label>
+                                <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2av-jE-ws3">
+                                    <rect key="frame" x="290" y="1" width="30" height="29"/>
+                                    <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                    <state key="normal" title="关闭"/>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" red="0.96470588239999999" green="0.95294117649999999" blue="0.96862745100000003" alpha="1" colorSpace="deviceRGB"/>
+                        </view>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="您确定取消订单！" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="v48-NL-PLD">
+                            <rect key="frame" x="15" y="75" width="305" height="16"/>
+                            <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="18"/>
+                            <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zHK-6Z-qR1">
+                            <rect key="frame" x="127.5" y="126" width="80" height="25"/>
+                            <constraints>
+                                <constraint firstAttribute="width" constant="80" id="ncy-aW-hDm"/>
+                                <constraint firstAttribute="height" constant="25" id="ucb-7S-rO3"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                            <state key="normal" title="确定">
+                                <color key="titleColor" red="0.83137254900000002" green="0.42352941179999998" blue="0.20392156859999999" alpha="1" colorSpace="deviceRGB"/>
+                            </state>
+                            <connections>
+                                <action selector="actions:" destination="-1" eventType="touchUpInside" id="hyu-gA-K4E"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstAttribute="bottom" secondItem="zHK-6Z-qR1" secondAttribute="bottom" constant="15" id="2cV-YM-Vlz"/>
+                        <constraint firstItem="zHK-6Z-qR1" firstAttribute="centerX" secondItem="SeO-v1-x5S" secondAttribute="centerX" id="2i5-iE-0vz"/>
+                        <constraint firstAttribute="height" constant="166" id="wdk-en-eIB"/>
+                    </constraints>
+                    <userDefinedRuntimeAttributes>
+                        <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                            <integer key="value" value="5"/>
+                        </userDefinedRuntimeAttribute>
+                    </userDefinedRuntimeAttributes>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.039215686270000001" green="0.039215686270000001" blue="0.039215686270000001" alpha="0.20000000000000001" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstAttribute="trailing" secondItem="SeO-v1-x5S" secondAttribute="trailing" constant="20" id="618-Os-YcS"/>
+                <constraint firstItem="SeO-v1-x5S" firstAttribute="leading" secondItem="URY-sk-58Q" secondAttribute="leading" constant="20" id="8bl-fd-iIR"/>
+                <constraint firstItem="SeO-v1-x5S" firstAttribute="centerY" secondItem="URY-sk-58Q" secondAttribute="centerY" id="jV9-yu-4kQ"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="qJm-ma-UyK" appends="YES" id="Z9c-Wk-Hfj"/>
+            </connections>
+            <point key="canvasLocation" x="310" y="-85"/>
+        </view>
+        <tapGestureRecognizer id="qJm-ma-UyK">
+            <connections>
+                <action selector="actions:" destination="-1" id="awR-PI-GZN"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>

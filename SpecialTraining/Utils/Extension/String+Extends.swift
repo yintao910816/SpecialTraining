@@ -186,7 +186,7 @@ extension String {
     
     /// 同一lable种现实两种不同颜色字体
     ///
-    public func attributed(_ range: NSRange, _ color: UIColor, _ font: UIFont?) ->NSAttributedString {
+    public func attributed(_ range: NSRange, _ color: UIColor, _ font: UIFont? = nil) ->NSAttributedString {
         
         let muString = NSMutableAttributedString.init(string: self)
         var dic: [NSAttributedString.Key : Any] = [NSAttributedString.Key.foregroundColor : color]

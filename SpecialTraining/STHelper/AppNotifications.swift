@@ -66,5 +66,6 @@ extension Notification.Name {
     public struct TestNo {
         public static let alertPayBack = Notification.Name(rawValue: "org.bmk.notification.name.alertPayBack")
         public static let alertEditPayBack = Notification.Name(rawValue: "org.bmk.notification.name.alertEditPayBack")
+        public static let alertCancleOrder = Notification.Name(rawValue: "org.bmk.notification.name.alertCancleOrder")
     }
 }
