@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxDataSources
 
-class CourseClassSelectView: BaseFilesOwner {
+class CourseClassSelectView: UIView {
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var iconOutlet: UIButton!
@@ -31,22 +31,29 @@ class CourseClassSelectView: BaseFilesOwner {
         animotion(animotion: true)
     }
 
-    init(controller: UIViewController) {
-        super.init()
+    override init(frame: CGRect) {
+        super.init(frame: frame)
+        
+        backgroundColor = RGB(10, 10, 10, 0.3)
         
         contentView = (Bundle.main.loadNibNamed("CourseClassSelectView", owner: self, options: nil)?.first as! UIView)
-        var frame = contentView.frame
-        frame.size.width = controller.view.width
-        frame.size.height = controller.view.height
+        addSubview(contentView)
         
-        contentView.frame = frame
-        
-        controller.view.addSubview(contentView)
+        contentView.snp.makeConstraints{
+            $0.bottom.equalTo(self)
+            $0.left.equalTo(self)
+            $0.right.equalTo(self)
+            $0.height.equalTo(550)
+        }
         
         setupUI()
         rxBind()
     }
     
+    required init?(coder aDecoder: NSCoder) {
+        fatalError("init(coder:) has not been implemented")
+    }
+
     private func setupUI() {
         let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
         okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
@@ -118,18 +125,18 @@ extension CourseClassSelectView {
     func animotion(animotion: Bool) {
         if mainContentView.transform.ty == 0 {
             if animotion == false {
-                contentView.isHidden = true
+                isHidden = true
                 mainContentView.transform = CGAffineTransform.init(translationX: 0, y: mainContentView.height)
             }else {
                 UIView.animate(withDuration: 0.25, animations: { [weak self] in
                     guard let strongSelf = self else { return }
                     strongSelf.mainContentView.transform = CGAffineTransform.init(translationX: 0, y: strongSelf.mainContentView.height)
                 }) { [weak self] finish in
-                    if finish { self?.contentView.isHidden = true }
+                    if finish { self?.isHidden = true }
                 }
             }
         }else {
-            contentView.isHidden = false
+            isHidden = false
             
             UIView.animate(withDuration: 0.25, animations: { [weak self] in
                 guard let strongSelf = self else { return }
@@ -141,7 +148,7 @@ extension CourseClassSelectView {
 
 extension CourseClassSelectView: UIGestureRecognizerDelegate {
     
-    func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
         let point = gestureRecognizer.location(in: contentView)
         if contentView.convert(point, toViewOrWindow: mainContentView).y > 0 {
             return false

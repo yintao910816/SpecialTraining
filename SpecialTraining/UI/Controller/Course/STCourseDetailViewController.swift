@@ -115,8 +115,7 @@ class STCourseDetailViewController: BaseViewController {
     override func setupUI() {
         navigationItem.title = "课程详情"
         
-        selectedClassView = CourseClassSelectView.init(controller: self)
-        
+        selectedClassView = CourseClassSelectView.init(frame: .zero)
         
         set(button: conentOutlet, offsetX: 0)
         
@@ -131,6 +130,7 @@ class STCourseDetailViewController: BaseViewController {
         scrollOutlet.addSubview(courseTimeTB)
         scrollOutlet.addSubview(courseAudioTB)
         scrollOutlet.addSubview(courseSchoolTB)
+        view.addSubview(selectedClassView)
 
         splendidnessContentTB.snp.makeConstraints{
             $0.left.equalTo(scrollOutlet.snp.left)
@@ -159,6 +159,8 @@ class STCourseDetailViewController: BaseViewController {
             $0.height.equalTo(scrollOutlet.snp.height)
             $0.width.equalTo(PPScreenW)
         }
+        
+        selectedClassView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
         
 //        if #available(iOS 11, *) {
 //            scrollOutlet.contentInsetAdjustmentBehavior = .never
