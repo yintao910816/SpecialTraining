@@ -26,7 +26,7 @@ class MineHeaderCollectionReusableView: UICollectionReusableView {
         case 500:
             delegate?.gotoMineInfo()
         case 501:
-            delegate?.login()
+            delegate?.gotoSetting()
         case 502:
             delegate?.gotoMineCourse()
         case 503:
@@ -71,7 +71,7 @@ protocol MineHeaderActions: class {
     
     func gotoMineInfo()
     
-    func login()
+    func gotoSetting()
     
     func gotoMineCourse()
     

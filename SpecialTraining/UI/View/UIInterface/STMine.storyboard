@@ -1864,6 +1864,111 @@
             </objects>
             <point key="canvasLocation" x="-2695" y="-298"/>
         </scene>
+        <!--Notice Setting View Controller-->
+        <scene sceneID="FJQ-jw-xkO">
+            <objects>
+                <viewController id="Daq-EG-D1k" customClass="STNoticeSettingViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="mgl-wt-egh"/>
+                        <viewControllerLayoutGuide type="bottom" id="JUX-TG-eTN"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="YCO-Kc-kVT">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="V9v-WL-U5d">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="V9v-WL-U5d" secondAttribute="trailing" id="4GQ-CJ-i1p"/>
+                            <constraint firstItem="V9v-WL-U5d" firstAttribute="top" secondItem="mgl-wt-egh" secondAttribute="bottom" id="CZz-Na-UPg"/>
+                            <constraint firstItem="V9v-WL-U5d" firstAttribute="leading" secondItem="YCO-Kc-kVT" secondAttribute="leading" id="S9C-ZG-Eyu"/>
+                            <constraint firstItem="JUX-TG-eTN" firstAttribute="top" secondItem="V9v-WL-U5d" secondAttribute="bottom" id="yrE-tV-5DN"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="V9v-WL-U5d" id="Ytq-rz-yJv"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="nur-iI-eNt" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-6140" y="-381"/>
+        </scene>
+        <!--Use Tips View Controller-->
+        <scene sceneID="MOk-M2-YFn">
+            <objects>
+                <viewController id="1X2-2s-n2A" customClass="STUseTipsViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aHy-Gp-6ar"/>
+                        <viewControllerLayoutGuide type="bottom" id="yLI-no-HVj"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="QsW-w2-tR6">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="OyK-cz-Lk1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="yLI-no-HVj" firstAttribute="top" secondItem="OyK-cz-Lk1" secondAttribute="bottom" id="0wK-QK-FTe"/>
+                            <constraint firstAttribute="trailing" secondItem="OyK-cz-Lk1" secondAttribute="trailing" id="V8D-LL-YnB"/>
+                            <constraint firstItem="OyK-cz-Lk1" firstAttribute="top" secondItem="aHy-Gp-6ar" secondAttribute="bottom" id="iF2-63-CKB"/>
+                            <constraint firstItem="OyK-cz-Lk1" firstAttribute="leading" secondItem="QsW-w2-tR6" secondAttribute="leading" id="pQk-8O-lui"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="OyK-cz-Lk1" id="NKJ-Oq-XtT"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="o5Z-Fl-O3z" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-5031" y="-382"/>
+        </scene>
+        <!--Setting View Controller-->
+        <scene sceneID="4sh-jw-MJJ">
+            <objects>
+                <viewController id="B0A-XK-GO6" customClass="STSettingViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="Efq-1Y-i28"/>
+                        <viewControllerLayoutGuide type="bottom" id="62n-VW-WSy"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="KmG-ho-1zS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" scrollEnabled="NO" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="uPT-Co-fRj">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="0.29999999999999999" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="62n-VW-WSy" firstAttribute="top" secondItem="uPT-Co-fRj" secondAttribute="bottom" id="1a6-0R-Kth"/>
+                            <constraint firstItem="uPT-Co-fRj" firstAttribute="leading" secondItem="KmG-ho-1zS" secondAttribute="leading" id="TPE-6D-c3g"/>
+                            <constraint firstAttribute="trailing" secondItem="uPT-Co-fRj" secondAttribute="trailing" id="dRK-JR-XRW"/>
+                            <constraint firstItem="uPT-Co-fRj" firstAttribute="top" secondItem="Efq-1Y-i28" secondAttribute="bottom" id="eEr-6U-ySF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="uPT-Co-fRj" id="V3p-WU-4zl"/>
+                        <segue destination="Daq-EG-D1k" kind="show" identifier="noticeSettingSegue" id="naI-bt-dlh"/>
+                        <segue destination="1X2-2s-n2A" kind="show" identifier="useTipsSegue" id="3UH-hr-Rag"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="AIH-8n-F2r" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-3687" y="367"/>
+        </scene>
         <!--成为机构-->
         <scene sceneID="jhb-MF-CFZ">
             <objects>
@@ -2102,6 +2207,7 @@
                         <segue destination="81g-Au-StY" kind="show" identifier="myOrderSegue" id="VMb-xQ-GJa"/>
                         <segue destination="a1A-L9-lfI" kind="show" identifier="tobeOrganizationSegue" id="yro-Tp-fgY"/>
                         <segue destination="lIU-ZM-Q7S" kind="show" identifier="collectionSegue" id="gCY-bQ-xZB"/>
+                        <segue destination="B0A-XK-GO6" kind="show" identifier="settingSegue" id="HsJ-tX-4kj"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ToY-Hd-2SP" userLabel="First Responder" sceneMemberID="firstResponder"/>

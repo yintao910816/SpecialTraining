@@ -21,8 +21,6 @@ class STMineViewController: BaseViewController {
     
     override func setupUI() {
         
-        NoticesCenter.alert(title: "当前版本", message: AppSetup.instance.urlVision)
-
         if #available(iOS 11, *) {
             collectionView.contentInsetAdjustmentBehavior = .never
         }else {
@@ -96,10 +94,10 @@ extension STMineViewController: MineHeaderActions, VMNavigation {
         performSegue(withIdentifier: "mineInfoSegue", sender: nil)
     }
     
-    func login() {
-        STHelper.presentLogin()
+    func gotoSetting() {
+        performSegue(withIdentifier: "settingSegue", sender: nil)
     }
-    
+
     func gotoMineCourse() {
         performSegue(withIdentifier: "mineCourse", sender: nil)
     }
