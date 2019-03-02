@@ -15,7 +15,14 @@ class StudentInfoCell: UITableViewCell {
     @IBOutlet weak var lblName: UILabel!
     @IBOutlet weak var lblGender: UILabel!
     
-    weak var delegate: StudentInfoAction?
+    public var changeStuentInfoCallBack: ((StudentInfoModel) ->())?
+    public var deleteStudentCallBack: ((StudentInfoModel) ->())?
+
+    var model: StudentInfoModel! {
+        didSet {
+            
+        }
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -25,23 +32,18 @@ class StudentInfoCell: UITableViewCell {
     @IBAction func clickBtn(_ sender: UIButton) {
         switch sender.tag {
         case 1000:
-            delegate?.changeInfo()
+            changeStuentInfoCallBack?(model)
         case 1001:
-            delegate?.addInfo()
+            deleteStudentCallBack?(model)
         default:
             break
         }
     }
+    
     override func setSelected(_ selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
 
         // Configure the view for the selected state
     }
     
-}
-
-protocol StudentInfoAction:class {
-    func changeInfo()
-    
-    func addInfo()
 }

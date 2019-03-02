@@ -20,6 +20,12 @@ class STMineInfoViewController: BaseViewController , VMNavigation{
     override func setupUI() {
         title = "个人信息"
         
+        let footerView = MineInfoAddStudentView.init(frame: .init(x: 0, y: 0, width: view.width, height: 121))
+        tableView.tableFooterView = footerView
+        footerView.addStudentCallBack = {
+            PrintLog("添加学员")
+        }
+        
         tableView.register(UINib.init(nibName: "MineInfoCell", bundle: Bundle.main), forCellReuseIdentifier: "MineInfoCellID")
         tableView.register(UINib.init(nibName: "StudentInfoCell", bundle: Bundle.main), forCellReuseIdentifier: "StudentInfoCellID")
     }
@@ -28,14 +34,19 @@ class STMineInfoViewController: BaseViewController , VMNavigation{
         viewModel = MineInfoViewModel()
         
         let datasource = RxTableViewSectionedReloadDataSource<SectionModel<Int, MineInfoModelAdapt>>.init(configureCell: { (_, tb, indexPath, model) -> UITableViewCell in
-            if indexPath.section == 0 || indexPath.section == 1 {
+            if indexPath.section == 0{
                 let cell = tb.dequeueReusableCell(withIdentifier: "MineInfoCellID") as! MineInfoCell
                 cell.model = (model as! MineInfoModel)
                 return cell
             }
             let cell = tb.dequeueReusableCell(withIdentifier: "StudentInfoCellID") as! StudentInfoCell
-            cell.delegate = nil
-            cell.delegate = self
+            cell.model = (model as! StudentInfoModel)
+            cell.changeStuentInfoCallBack = { [weak self] model in
+                self?.performSegue(withIdentifier: "editStudentInfoSegue", sender: nil)
+            }
+            cell.deleteStudentCallBack = { model in
+                
+            }
             return cell
         })
         
@@ -46,17 +57,20 @@ class STMineInfoViewController: BaseViewController , VMNavigation{
         tableView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
-        tableView.rx.itemSelected.asDriver().drive(onNext: { [unowned self] (indexpath) in
-            if indexpath.section == 1 {
-                self.performSegue(withIdentifier: "mineCustom", sender: nil)
-            }else if indexpath.section == 0 {
-                if indexpath.row == 0 {
+        tableView.rx.modelSelected(MineInfoModel.self)
+            .asDriver()
+            .drive(onNext: { [unowned self] model in
+                if model.title == "头像" {
                     self.performSegue(withIdentifier: "mineHeadIVSegue", sender: nil)
-                }else if indexpath.row == 3 {
+                }else if model.title == "昵称" {
+                    
+                }else if model.title == "我的二维码" {
                     self.performSegue(withIdentifier: "mineQRCodeSegue", sender: nil)
+                }else if model.title == "常用地址" {
+                    
                 }
-            }
-        }).disposed(by: disposeBag)
+            })
+            .disposed(by: disposeBag)
     }
 }
 
@@ -72,16 +86,11 @@ extension STMineInfoViewController: UITableViewDelegate {
         case 0:
             return nil
         case 1:
-            let view = UIView()
-            view.backgroundColor = .clear
-            return view
-        case 2:
             let lable = UILabel()
-            lable.textColor = RGB(68, 68, 68)
-            lable.font = UIFont.systemFont(ofSize: 16)
-            lable.backgroundColor = .clear
-            lable.text = "学员信息"
-            lable.textAlignment = .center
+            lable.textColor = ST_MAIN_COLOR
+            lable.font = UIFont.systemFont(ofSize: 14)
+            lable.backgroundColor = RGB(236, 235, 243)
+            lable.text = "   学员信息"
             return lable
         default:
             return nil
@@ -93,23 +102,9 @@ extension STMineInfoViewController: UITableViewDelegate {
         case 0:
             return 0
         case 1:
-            return 10
-        case 2:
-            return 45
+            return 50
         default:
             return 0
         }
     }
-}
-
-extension STMineInfoViewController: StudentInfoAction {
-    func changeInfo() {
-        PrintLog("修改学员信息")
-        self.performSegue(withIdentifier: "changeInfoSegue", sender: nil)
-    }
-    
-    func addInfo() {
-        PrintLog("添加学员信息")
-    }
-    
 }

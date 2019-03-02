@@ -23,14 +23,14 @@ class MineInfoModel: MineInfoModelAdapt {
     }
     
     var height: CGFloat {
-        return title == "头像" ? 80 : 45
+        return (title == "头像" || title == "学员照片") ? 80 : 45
     }
 }
 
 class StudentInfoModel: HJModel, MineInfoModelAdapt {
     
     var height: CGFloat {
-        return 165
+        return 81
     }
 }
 

@@ -19,13 +19,14 @@ class MineInfoViewModel: BaseViewModel {
         
         datasource.value = [SectionModel.init(model: 0, items: [MineInfoModel.creatModel(title: "头像", detailImageStr: ""),
                                                                 MineInfoModel.creatModel(title: "昵称", detailTitle: "张小二"),
-                                                                MineInfoModel.creatModel(title: "平台账号", detailTitle: "18627875"),
+//                                                                MineInfoModel.creatModel(title: "平台账号", detailTitle: "18627875"),
                                                                 MineInfoModel.creatModel(title: "我的二维码", detailImageStr: ""),
-                                                                MineInfoModel.creatModel(title: "地址"),
-                                                                MineInfoModel.creatModel(title: "手机号码"),
-                                                                MineInfoModel.creatModel(title: "身份证号"),
-                                                                MineInfoModel.creatModel(title: "我的推荐人")]),
-                            SectionModel.init(model: 1, items: [MineInfoModel.creatModel(title: "我的定制")]),
+                                                                MineInfoModel.creatModel(title: "常用地址"),
+//                                                                MineInfoModel.creatModel(title: "手机号码"),
+//                                                                MineInfoModel.creatModel(title: "身份证号"),
+//                                                                MineInfoModel.creatModel(title: "我的推荐人")
+            ]),
+//                            SectionModel.init(model: 1, items: [MineInfoModel.creatModel(title: "我的定制")]),
                             SectionModel.init(model: 2, items: [StudentInfoModel()])]
     }
 }

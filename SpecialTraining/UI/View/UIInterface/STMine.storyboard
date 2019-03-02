@@ -99,7 +99,40 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="FrV-ad-cKh" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="218" y="-169"/>
+            <point key="canvasLocation" x="966" y="-834"/>
+        </scene>
+        <!--学员信息-->
+        <scene sceneID="GTK-mk-VTw">
+            <objects>
+                <viewController title="学员信息" id="nHJ-yC-p8f" customClass="STEditStudentInfoViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="S7o-LI-flQ"/>
+                        <viewControllerLayoutGuide type="bottom" id="L5d-24-0qO"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="EBS-cP-FhG">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="ms0-RJ-co1">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.92549019607843142" green="0.92156862745098034" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="L5d-24-0qO" firstAttribute="top" secondItem="ms0-RJ-co1" secondAttribute="bottom" id="OII-7U-U4m"/>
+                            <constraint firstAttribute="trailing" secondItem="ms0-RJ-co1" secondAttribute="trailing" id="VF2-mM-HeR"/>
+                            <constraint firstItem="ms0-RJ-co1" firstAttribute="leading" secondItem="EBS-cP-FhG" secondAttribute="leading" id="sUd-rd-fpC"/>
+                            <constraint firstItem="ms0-RJ-co1" firstAttribute="top" secondItem="S7o-LI-flQ" secondAttribute="bottom" id="xVv-9T-7cZ"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="ms0-RJ-co1" id="jUQ-J5-iLP"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="fPb-DX-YHD" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1820" y="-839"/>
         </scene>
         <!--待付款详情-->
         <scene sceneID="QXX-4z-X5W">
@@ -1568,7 +1601,7 @@
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="cm1-Dp-YTr" customClass="BaseTB" customModule="SpecialTraining" customModuleProvider="target">
                                 <rect key="frame" x="0.0" y="64" width="375" height="603"/>
-                                <color key="backgroundColor" red="0.92549019610000005" green="0.92156862750000001" blue="0.95294117649999999" alpha="1" colorSpace="deviceRGB"/>
+                                <color key="backgroundColor" red="0.92549019610000005" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="deviceRGB"/>
                             </tableView>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1586,11 +1619,12 @@
                         <segue destination="kgA-DY-SOw" kind="show" identifier="mineQRCodeSegue" id="tLv-T1-b6a"/>
                         <segue destination="wxJ-bh-Xbj" kind="show" identifier="mineHeadIVSegue" id="MjR-Tv-YzH"/>
                         <segue destination="M5P-gP-w2H" kind="push" identifier="changeInfoSegue" id="9lu-CN-mbi"/>
+                        <segue destination="nHJ-yC-p8f" kind="show" identifier="editStudentInfoSegue" id="cZv-jF-CKG"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UH8-JS-xFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-1482" y="-168"/>
+            <point key="canvasLocation" x="-268" y="-5"/>
         </scene>
         <!--Mine HeadIV View Controller-->
         <scene sceneID="4ze-CN-XAc">
@@ -1750,7 +1784,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ozk-GX-FeH" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-684" y="-168"/>
+            <point key="canvasLocation" x="150" y="-834"/>
         </scene>
         <!--我的-->
         <scene sceneID="DHQ-Xi-Uk0">

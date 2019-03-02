@@ -12,8 +12,6 @@
 		6B0754BA21B1165200B36740 /* STMineAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0754B921B1165200B36740 /* STMineAccountViewController.swift */; };
 		6B0754BC21B1166500B36740 /* STMineRecomendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0754BB21B1166500B36740 /* STMineRecomendViewController.swift */; };
 		6B0754C221B1257100B36740 /* MineCustomViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B0754C121B1257100B36740 /* MineCustomViewModel.swift */; };
-		6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */; };
-		6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */; };
 		6B27E44421D71C520019BE17 /* STMineWithdrawViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B27E44321D71C520019BE17 /* STMineWithdrawViewController.swift */; };
 		6B280D3921CC775E00C5DEED /* Timer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B280D3821CC775E00C5DEED /* Timer.swift */; };
 		6B280D5F21CCDC3600C5DEED /* STMineChangeInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 6B280D5E21CCDC3600C5DEED /* STMineChangeInfoViewController.swift */; };
@@ -293,7 +291,6 @@
 		B87F0968222412FE00310445 /* Search.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F0967222412FE00310445 /* Search.swift */; };
 		B87F096C222416CB00310445 /* SearchTypeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F096A222416CB00310445 /* SearchTypeCell.swift */; };
 		B87F096D222416CB00310445 /* SearchTypeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87F096B222416CB00310445 /* SearchTypeCell.xib */; };
-		B87F8F6921A2414900DE9DC1 /* STMineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F8F6821A2414900DE9DC1 /* STMineInfoViewController.swift */; };
 		B87F8F6B21A241AC00DE9DC1 /* MineInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F8F6A21A241AC00DE9DC1 /* MineInfoViewModel.swift */; };
 		B87F8F6D21A241EA00DE9DC1 /* MineInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F8F6C21A241EA00DE9DC1 /* MineInfo.swift */; };
 		B87F8F7121A2446E00DE9DC1 /* MineInfoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87F8F6F21A2446E00DE9DC1 /* MineInfoCell.swift */; };
@@ -315,6 +312,14 @@
 		B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88F8CA521C169F20064C1CF /* STAuthorCodeLoginViewController.swift */; };
 		B88F8CA821C16C3E0064C1CF /* STSetNewPassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88F8CA721C16C3E0064C1CF /* STSetNewPassViewController.swift */; };
 		B88F8CAA21C16E0B0064C1CF /* STBindPhoneViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B88F8CA921C16E0B0064C1CF /* STBindPhoneViewController.swift */; };
+		B8914E2E222AE95A00612FFE /* MineInfoAddStudentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E2C222AE95900612FFE /* MineInfoAddStudentView.swift */; };
+		B8914E2F222AE95A00612FFE /* MineInfoAddStudentView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8914E2D222AE95A00612FFE /* MineInfoAddStudentView.xib */; };
+		B8914E35222AEDDA00612FFE /* STMineInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E31222AEDD900612FFE /* STMineInfoViewController.swift */; };
+		B8914E36222AEDDA00612FFE /* STMineQRCodeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E32222AEDD900612FFE /* STMineQRCodeViewController.swift */; };
+		B8914E37222AEDDA00612FFE /* STMineCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E33222AEDD900612FFE /* STMineCourseViewController.swift */; };
+		B8914E38222AEDDA00612FFE /* STMineHeadIVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E34222AEDD900612FFE /* STMineHeadIVViewController.swift */; };
+		B8914E3A222AEDEE00612FFE /* STEditStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E39222AEDEE00612FFE /* STEditStudentInfoViewController.swift */; };
+		B8914E3C222AEEFC00612FFE /* EditStudentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E3B222AEEFC00612FFE /* EditStudentInfoViewModel.swift */; };
 		B8A4661921D27B9A0022146C /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A4661821D27B9A0022146C /* ShopViewModel.swift */; };
 		B8BD92CD21E641580089495F /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD92CC21E641580089495F /* Order.swift */; };
 		B8BD92D521E64C200089495F /* DBQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD92CF21E64C200089495F /* DBQueue.swift */; };
@@ -470,8 +475,6 @@
 		6B0754B921B1165200B36740 /* STMineAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineAccountViewController.swift; sourceTree = "<group>"; };
 		6B0754BB21B1166500B36740 /* STMineRecomendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineRecomendViewController.swift; sourceTree = "<group>"; };
 		6B0754C121B1257100B36740 /* MineCustomViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineCustomViewModel.swift; sourceTree = "<group>"; };
-		6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineHeadIVViewController.swift; sourceTree = "<group>"; };
-		6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineQRCodeViewController.swift; sourceTree = "<group>"; };
 		6B27E44321D71C520019BE17 /* STMineWithdrawViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineWithdrawViewController.swift; sourceTree = "<group>"; };
 		6B280D3821CC775E00C5DEED /* Timer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Timer.swift; sourceTree = "<group>"; };
 		6B280D5E21CCDC3600C5DEED /* STMineChangeInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineChangeInfoViewController.swift; sourceTree = "<group>"; };
@@ -754,7 +757,6 @@
 		B87F0967222412FE00310445 /* Search.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Search.swift; sourceTree = "<group>"; };
 		B87F096A222416CB00310445 /* SearchTypeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SearchTypeCell.swift; sourceTree = "<group>"; };
 		B87F096B222416CB00310445 /* SearchTypeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SearchTypeCell.xib; sourceTree = "<group>"; };
-		B87F8F6821A2414900DE9DC1 /* STMineInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineInfoViewController.swift; sourceTree = "<group>"; };
 		B87F8F6A21A241AC00DE9DC1 /* MineInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineInfoViewModel.swift; sourceTree = "<group>"; };
 		B87F8F6C21A241EA00DE9DC1 /* MineInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineInfo.swift; sourceTree = "<group>"; };
 		B87F8F6F21A2446E00DE9DC1 /* MineInfoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineInfoCell.swift; sourceTree = "<group>"; };
@@ -777,6 +779,14 @@
 		B88F8CA521C169F20064C1CF /* STAuthorCodeLoginViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STAuthorCodeLoginViewController.swift; sourceTree = "<group>"; };
 		B88F8CA721C16C3E0064C1CF /* STSetNewPassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSetNewPassViewController.swift; sourceTree = "<group>"; };
 		B88F8CA921C16E0B0064C1CF /* STBindPhoneViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBindPhoneViewController.swift; sourceTree = "<group>"; };
+		B8914E2C222AE95900612FFE /* MineInfoAddStudentView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineInfoAddStudentView.swift; sourceTree = "<group>"; };
+		B8914E2D222AE95A00612FFE /* MineInfoAddStudentView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = MineInfoAddStudentView.xib; sourceTree = "<group>"; };
+		B8914E31222AEDD900612FFE /* STMineInfoViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineInfoViewController.swift; sourceTree = "<group>"; };
+		B8914E32222AEDD900612FFE /* STMineQRCodeViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineQRCodeViewController.swift; sourceTree = "<group>"; };
+		B8914E33222AEDD900612FFE /* STMineCourseViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineCourseViewController.swift; sourceTree = "<group>"; };
+		B8914E34222AEDD900612FFE /* STMineHeadIVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineHeadIVViewController.swift; sourceTree = "<group>"; };
+		B8914E39222AEDEE00612FFE /* STEditStudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEditStudentInfoViewController.swift; sourceTree = "<group>"; };
+		B8914E3B222AEEFC00612FFE /* EditStudentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentInfoViewModel.swift; sourceTree = "<group>"; };
 		B8A4661821D27B9A0022146C /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		B8BD92CC21E641580089495F /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		B8BD92CF21E64C200089495F /* DBQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQueue.swift; sourceTree = "<group>"; };
@@ -1561,6 +1571,7 @@
 				B80B6C12219FF5B800C33F11 /* VideoViewModel.swift */,
 				B8350AB721A111E20020A6A6 /* MineViewModel.swift */,
 				B87F8F6A21A241AC00DE9DC1 /* MineInfoViewModel.swift */,
+				B8914E3B222AEEFC00612FFE /* EditStudentInfoViewModel.swift */,
 				6B0754C121B1257100B36740 /* MineCustomViewModel.swift */,
 				6B8A611421B4E10C00C0DFCD /* MineCourseViewModel.swift */,
 				6B8A611821B51CFE00C0DFCD /* MineAccountViewModel.swift */,
@@ -1762,9 +1773,9 @@
 		B87F8F6721A2413A00DE9DC1 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
+				B8914E30222AEDD900612FFE /* MineInfo */,
 				B838C6C222284BEC00917741 /* Setting */,
 				B85DBFE72221C4B9000D3977 /* Order */,
-				B87F8F6821A2414900DE9DC1 /* STMineInfoViewController.swift */,
 				6B0754B521B0E9F700B36740 /* STMineCustomViewController.swift */,
 				6B0754B921B1165200B36740 /* STMineAccountViewController.swift */,
 				6B280D6021CCE08000C5DEED /* STMineWithdrawAccountViewController.swift */,
@@ -1779,8 +1790,6 @@
 				B810F48A21B97859005918B9 /* STOpenAccountViewController.swift */,
 				B810F48C21B97C4E005918B9 /* STUpdateFileViewController.swift */,
 				6BF7B94521BA633600BE1E4A /* STMineCollectionViewController.swift */,
-				6B22D4C821C2482400FC17B4 /* STMineHeadIVViewController.swift */,
-				6B22D4CA21C2484100FC17B4 /* STMineQRCodeViewController.swift */,
 			);
 			path = Mine;
 			sourceTree = "<group>";
@@ -1799,6 +1808,8 @@
 		B87F8F7721A286C200DE9DC1 /* MineInfo */ = {
 			isa = PBXGroup;
 			children = (
+				B8914E2C222AE95900612FFE /* MineInfoAddStudentView.swift */,
+				B8914E2D222AE95A00612FFE /* MineInfoAddStudentView.xib */,
 				B87F8F7821A286E300DE9DC1 /* MineInfoFilesOwner.swift */,
 				B87F8F7A21A2873000DE9DC1 /* MineInfoFooterView.xib */,
 			);
@@ -1834,6 +1845,18 @@
 				B81EDF6C21A5324700F9D3B0 /* ChatAudoRightView.xib */,
 			);
 			path = Message;
+			sourceTree = "<group>";
+		};
+		B8914E30222AEDD900612FFE /* MineInfo */ = {
+			isa = PBXGroup;
+			children = (
+				B8914E31222AEDD900612FFE /* STMineInfoViewController.swift */,
+				B8914E39222AEDEE00612FFE /* STEditStudentInfoViewController.swift */,
+				B8914E32222AEDD900612FFE /* STMineQRCodeViewController.swift */,
+				B8914E33222AEDD900612FFE /* STMineCourseViewController.swift */,
+				B8914E34222AEDD900612FFE /* STMineHeadIVViewController.swift */,
+			);
+			path = MineInfo;
 			sourceTree = "<group>";
 		};
 		B8BD92CE21E64C200089495F /* PersistentCache */ = {
@@ -2263,6 +2286,7 @@
 				B8FBFA2521A3DD9600AECB75 /* ok_thumb.png in Resources */,
 				B87F096D222416CB00310445 /* SearchTypeCell.xib in Resources */,
 				C460193A21B0D883004498DB /* STMine.storyboard in Resources */,
+				B8914E2F222AE95A00612FFE /* MineInfoAddStudentView.xib in Resources */,
 				6B859EF421B66851009FB70A /* MineBankCell.xib in Resources */,
 				6BEA00D921B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.xib in Resources */,
 				B8FBFA5721A3DD9600AECB75 /* good_thumb.png in Resources */,
@@ -2463,6 +2487,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				B8914E36222AEDDA00612FFE /* STMineQRCodeViewController.swift in Sources */,
 				B81EDF6621A522B100F9D3B0 /* HttpImage.swift in Sources */,
 				B85F331F219E8F4B00023958 /* STTabBarItem.swift in Sources */,
 				B810F48B21B97859005918B9 /* STOpenAccountViewController.swift in Sources */,
@@ -2493,6 +2518,7 @@
 				6B859EF021B66507009FB70A /* STMineBankViewController.swift in Sources */,
 				B81EDF6521A522B100F9D3B0 /* ImageRx.swift in Sources */,
 				B87800AE21C7E1EB00EDCE72 /* CourseTimeTableView.swift in Sources */,
+				B8914E37222AEDDA00612FFE /* STMineCourseViewController.swift in Sources */,
 				B838C6CA22284CBF00917741 /* UseTipsViewModel.swift in Sources */,
 				6BF7B94621BA633600BE1E4A /* STMineCollectionViewController.swift in Sources */,
 				B82722F521E5F24E00147397 /* STEnum.swift in Sources */,
@@ -2517,7 +2543,6 @@
 				C468B8EC21F9F0C3001AA08B /* MineNeedPayOrderCell.swift in Sources */,
 				C4F9AB0D21E864B500140A93 /* ShoppingVerifyCell.swift in Sources */,
 				B85F3355219E94D600023958 /* BackgroundView.swift in Sources */,
-				6B22D4C921C2482400FC17B4 /* STMineHeadIVViewController.swift in Sources */,
 				B85F3354219E94D600023958 /* TYIndicatorBaseView.swift in Sources */,
 				B85F33D0219EBAB100023958 /* HandyJSON+MapModel.swift in Sources */,
 				B87800BE21C7E7F800EDCE72 /* CourseSchoolTableView.swift in Sources */,
@@ -2578,6 +2603,7 @@
 				6B859EF821B6753B009FB70A /* MineBankModel.swift in Sources */,
 				6B80F14B21B9074D004142D2 /* MineOrderViewModel.swift in Sources */,
 				C47356D821AEB6A4000E24A5 /* DPAudioRecorder.m in Sources */,
+				B8914E38222AEDDA00612FFE /* STMineHeadIVViewController.swift in Sources */,
 				B86D68B521C3F5D3001A0B75 /* HomeExpericeCollectionView.swift in Sources */,
 				6B859EFD21B6771D009FB70A /* MineBankFooterFilesOwner.swift in Sources */,
 				B838C6B822283E5300917741 /* SettingViewModel.swift in Sources */,
@@ -2632,6 +2658,7 @@
 				B80B6C11219FF4DF00C33F11 /* Video.swift in Sources */,
 				6BAE0AD821CA2CC10065BAD2 /* ResetPasOneViewModel.swift in Sources */,
 				B81E90BC21A3C559000754E3 /* ChatRightView.swift in Sources */,
+				B8914E3A222AEDEE00612FFE /* STEditStudentInfoViewController.swift in Sources */,
 				C468B8FC21F9F196001AA08B /* MineNeedPayBackCell.swift in Sources */,
 				6BAE0ADE21CA2CE50065BAD2 /* BindPhoneViewModel.swift in Sources */,
 				B85F3344219E94B200023958 /* HttpLoadingUI.swift in Sources */,
@@ -2641,6 +2668,7 @@
 				B8FBFA1A21A3DD9600AECB75 /* EmojTextView.swift in Sources */,
 				B8BD92D721E64C200089495F /* DB.swift in Sources */,
 				B81E909721A39868000754E3 /* ChatCell.swift in Sources */,
+				B8914E35222AEDDA00612FFE /* STMineInfoViewController.swift in Sources */,
 				B87F096422240EAF00310445 /* STSearchViewController.swift in Sources */,
 				B82CEED621CD3552000DE904 /* UserAccountServer.swift in Sources */,
 				B85F33CB219EBAB100023958 /* APIAdapt.swift in Sources */,
@@ -2649,6 +2677,7 @@
 				B8FBFA1D21A3DD9600AECB75 /* EmojiTextField.swift in Sources */,
 				B85F3350219E94D600023958 /* FrameView.swift in Sources */,
 				B81EDF6421A522B100F9D3B0 /* ImageCacheCenter.swift in Sources */,
+				B8914E3C222AEEFC00612FFE /* EditStudentInfoViewModel.swift in Sources */,
 				B803C3CA21BD6876004C97DB /* VideoCoverChoseCell.swift in Sources */,
 				B87F8F7121A2446E00DE9DC1 /* MineInfoCell.swift in Sources */,
 				B87A94EB21A83208003E2D21 /* RecommendCourseCell.swift in Sources */,
@@ -2694,12 +2723,12 @@
 				B852F13921BD6738002A5887 /* VideoCoverChoseViewModel.swift in Sources */,
 				B803C3CF21BD7651004C97DB /* STPublishChoseOrganizationViewController.swift in Sources */,
 				B82722F721E5FBDB00147397 /* CourseClassSelectView.swift in Sources */,
+				B8914E2E222AE95A00612FFE /* MineInfoAddStudentView.swift in Sources */,
 				B85F336F219E9D9E00023958 /* HandyModel.swift in Sources */,
 				B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */,
 				B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */,
 				B85F33CF219EBAB100023958 /* APIServer.swift in Sources */,
 				B81E909421A396B7000754E3 /* STChatRoomViewController.swift in Sources */,
-				6B22D4CB21C2484100FC17B4 /* STMineQRCodeViewController.swift in Sources */,
 				B87F09662224121100310445 /* SearchViewModel.swift in Sources */,
 				B85F337F219EA17100023958 /* CarouselView.swift in Sources */,
 				6BAE0ADA21CA2CCA0065BAD2 /* SendMessageViewModel.swift in Sources */,
@@ -2768,7 +2797,6 @@
 				B8350AB121A108E60020A6A6 /* MineHeaderCollectionReusableView.swift in Sources */,
 				6BEA00DC21B4C5B400343EE8 /* MineCustomCollectionReusableHeaderView.swift in Sources */,
 				B82F45C021A98D83009DC25C /* ImagePickerManager.swift in Sources */,
-				B87F8F6921A2414900DE9DC1 /* STMineInfoViewController.swift in Sources */,
 				B85F33DD219F179400023958 /* Organization.swift in Sources */,
 				B85DBFED2221CB19000D3977 /* STMineOrderViewController.swift in Sources */,
 				C43339B421C0FC1B00CAF850 /* STCreditViewController.swift in Sources */,

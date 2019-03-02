@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineInfoAddStudentView" customModule="SpecialTraining" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="iN0-l3-epB" id="b3p-iN-BVF"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="121"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="学员信息" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="yyx-EV-5W6">
+                    <rect key="frame" x="158.5" y="40" width="58" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="(用于具体学员上课)" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1SQ-23-thZ">
+                    <rect key="frame" x="125" y="73.5" width="125" height="17"/>
+                    <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                    <color key="textColor" red="0.54117647059999996" green="0.54117647059999996" blue="0.54117647059999996" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="十" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Z7t-jQ-I3W">
+                    <rect key="frame" x="139" y="39" width="16.5" height="19.5"/>
+                    <fontDescription key="fontDescription" type="boldSystem" pointSize="16"/>
+                    <color key="textColor" red="0.54117647058823526" green="0.54117647058823526" blue="0.54117647058823526" alpha="1" colorSpace="deviceRGB"/>
+                    <nil key="highlightedColor"/>
+                </label>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="wjV-RJ-E5K">
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="10"/>
+                    <color key="backgroundColor" red="0.92549019607843142" green="0.92156862745098034" blue="0.95294117647058818" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="10" id="1Wx-pS-r4Q"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+            <gestureRecognizers/>
+            <constraints>
+                <constraint firstItem="1SQ-23-thZ" firstAttribute="top" secondItem="Z7t-jQ-I3W" secondAttribute="bottom" constant="15" id="6Gr-eC-SuI"/>
+                <constraint firstItem="yyx-EV-5W6" firstAttribute="leading" secondItem="Z7t-jQ-I3W" secondAttribute="trailing" constant="3" id="H6Z-g1-ldL"/>
+                <constraint firstAttribute="trailing" secondItem="wjV-RJ-E5K" secondAttribute="trailing" id="KBi-1G-eLQ"/>
+                <constraint firstItem="yyx-EV-5W6" firstAttribute="top" secondItem="wjV-RJ-E5K" secondAttribute="bottom" constant="30" id="ZMg-ca-vXg"/>
+                <constraint firstItem="Z7t-jQ-I3W" firstAttribute="centerY" secondItem="yyx-EV-5W6" secondAttribute="centerY" id="Zbm-6q-Jxv"/>
+                <constraint firstItem="wjV-RJ-E5K" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="aWv-eK-pkF"/>
+                <constraint firstItem="wjV-RJ-E5K" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="hxT-h3-fWi"/>
+                <constraint firstItem="yyx-EV-5W6" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="lWc-0P-j5F"/>
+                <constraint firstItem="1SQ-23-thZ" firstAttribute="centerX" secondItem="iN0-l3-epB" secondAttribute="centerX" id="w35-ud-gwY"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outletCollection property="gestureRecognizers" destination="5Me-eH-8cy" appends="YES" id="Hwx-Ao-dFP"/>
+            </connections>
+            <point key="canvasLocation" x="104.8" y="152.02398800599701"/>
+        </view>
+        <tapGestureRecognizer id="5Me-eH-8cy">
+            <connections>
+                <action selector="actions:" destination="-1" id="gU3-AG-6bJ"/>
+            </connections>
+        </tapGestureRecognizer>
+    </objects>
+</document>
