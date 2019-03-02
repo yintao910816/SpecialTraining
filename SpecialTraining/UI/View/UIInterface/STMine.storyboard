@@ -1733,10 +1733,10 @@
             </objects>
             <point key="canvasLocation" x="-1482" y="-834"/>
         </scene>
-        <!--MineQR Code View Controller-->
+        <!--我的二维码-->
         <scene sceneID="Y0N-64-Kay">
             <objects>
-                <viewController id="kgA-DY-SOw" customClass="STMineQRCodeViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController title="我的二维码" id="kgA-DY-SOw" customClass="STMineQRCodeViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="LIe-Hl-iBI"/>
                         <viewControllerLayoutGuide type="bottom" id="k8M-BP-Y2b"/>
@@ -1745,7 +1745,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demandView_bg" translatesAutoresizingMaskIntoConstraints="NO" id="DpE-Cp-sj9">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demandView_bg" translatesAutoresizingMaskIntoConstraints="NO" id="DpE-Cp-sj9">
                                 <rect key="frame" x="40" y="146" width="295" height="295"/>
                                 <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <gestureRecognizers/>
@@ -1753,65 +1753,25 @@
                                     <constraint firstAttribute="width" secondItem="DpE-Cp-sj9" secondAttribute="height" multiplier="1:1" id="PBn-1h-BjH"/>
                                 </constraints>
                                 <connections>
-                                    <outletCollection property="gestureRecognizers" destination="VcD-5K-JCA" appends="YES" id="5ei-0e-vqA"/>
+                                    <outletCollection property="gestureRecognizers" destination="fKN-JV-Fbb" appends="YES" id="I1i-n3-kYQ"/>
                                 </connections>
                             </imageView>
-                            <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="FCG-Zb-1th">
-                                <rect key="frame" x="157.5" y="263.5" width="60" height="60"/>
-                                <subviews>
-                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="demandView_bg" translatesAutoresizingMaskIntoConstraints="NO" id="Ioh-hm-Buq">
-                                        <rect key="frame" x="5" y="5" width="50" height="50"/>
-                                        <color key="backgroundColor" red="0.88201898339999996" green="0.87811899189999998" blue="0.90421932940000005" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        <userDefinedRuntimeAttributes>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
-                                            <userDefinedRuntimeAttribute type="color" keyPath="layer.borderColor">
-                                                <color key="value" white="0.33333333333333331" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                            </userDefinedRuntimeAttribute>
-                                            <userDefinedRuntimeAttribute type="string" keyPath="layer.borderWidth" value="1"/>
-                                        </userDefinedRuntimeAttributes>
-                                    </imageView>
-                                </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <constraints>
-                                    <constraint firstAttribute="bottom" secondItem="Ioh-hm-Buq" secondAttribute="bottom" constant="5" id="EqU-3h-kdM"/>
-                                    <constraint firstAttribute="trailing" secondItem="Ioh-hm-Buq" secondAttribute="trailing" constant="5" id="MRX-fQ-aKh"/>
-                                    <constraint firstAttribute="width" constant="60" id="PfH-CY-MYx"/>
-                                    <constraint firstAttribute="height" constant="60" id="QZl-J5-LUD"/>
-                                    <constraint firstItem="Ioh-hm-Buq" firstAttribute="leading" secondItem="FCG-Zb-1th" secondAttribute="leading" constant="5" id="l9P-oQ-ZLY"/>
-                                    <constraint firstItem="Ioh-hm-Buq" firstAttribute="top" secondItem="FCG-Zb-1th" secondAttribute="top" constant="5" id="yDH-KM-zi1"/>
-                                </constraints>
-                                <userDefinedRuntimeAttributes>
-                                    <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="10"/>
-                                </userDefinedRuntimeAttributes>
-                            </view>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="长按识别二维码" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="eXP-Zg-M5m">
-                                <rect key="frame" x="137.5" y="446" width="100" height="17"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                         </subviews>
                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
-                            <constraint firstItem="FCG-Zb-1th" firstAttribute="centerY" secondItem="DpE-Cp-sj9" secondAttribute="centerY" id="Emp-dN-EWv"/>
                             <constraint firstItem="DpE-Cp-sj9" firstAttribute="centerX" secondItem="JWS-ut-TYn" secondAttribute="centerX" id="NNw-ew-VTq"/>
                             <constraint firstItem="DpE-Cp-sj9" firstAttribute="centerY" secondItem="JWS-ut-TYn" secondAttribute="centerY" constant="-40" id="R6a-h1-wRO"/>
-                            <constraint firstItem="eXP-Zg-M5m" firstAttribute="top" secondItem="DpE-Cp-sj9" secondAttribute="bottom" constant="5" id="cH2-g1-kQa"/>
-                            <constraint firstItem="FCG-Zb-1th" firstAttribute="centerX" secondItem="DpE-Cp-sj9" secondAttribute="centerX" id="jLW-Te-Rzv"/>
                             <constraint firstItem="DpE-Cp-sj9" firstAttribute="leading" secondItem="JWS-ut-TYn" secondAttribute="leading" constant="40" id="nj5-Th-gHA"/>
-                            <constraint firstItem="eXP-Zg-M5m" firstAttribute="centerX" secondItem="DpE-Cp-sj9" secondAttribute="centerX" id="ztS-TY-FIg"/>
                         </constraints>
                     </view>
                     <connections>
-                        <outlet property="ivHead" destination="Ioh-hm-Buq" id="gHE-cX-5pp"/>
                         <outlet property="ivQRCode" destination="DpE-Cp-sj9" id="KV8-5C-zet"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="PnC-4j-pzO" userLabel="First Responder" sceneMemberID="firstResponder"/>
-                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="VcD-5K-JCA">
+                <pongPressGestureRecognizer allowableMovement="10" minimumPressDuration="0.5" id="fKN-JV-Fbb">
                     <connections>
-                        <action selector="longPressAction:" destination="kgA-DY-SOw" id="Kfk-Xf-MCQ"/>
-                        <outlet property="delegate" destination="kgA-DY-SOw" id="rGx-Sx-Fla"/>
+                        <action selector="longPressAction:" destination="kgA-DY-SOw" id="kCy-Eh-ocd"/>
                     </connections>
                 </pongPressGestureRecognizer>
             </objects>
