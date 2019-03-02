@@ -134,6 +134,77 @@
             </objects>
             <point key="canvasLocation" x="1820" y="-839"/>
         </scene>
+        <!--常用地址-->
+        <scene sceneID="xV6-uZ-tm0">
+            <objects>
+                <viewController title="常用地址" id="JjR-e0-1av" customClass="STMyAddressViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="aQL-z5-w6f"/>
+                        <viewControllerLayoutGuide type="bottom" id="fz6-vn-lwx"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="TFM-ki-BBZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="Iya-Dq-y24">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstItem="Iya-Dq-y24" firstAttribute="top" secondItem="aQL-z5-w6f" secondAttribute="bottom" id="08Z-fD-wkQ"/>
+                            <constraint firstItem="fz6-vn-lwx" firstAttribute="top" secondItem="Iya-Dq-y24" secondAttribute="bottom" id="Rwf-ll-lxa"/>
+                            <constraint firstAttribute="trailing" secondItem="Iya-Dq-y24" secondAttribute="trailing" id="aBc-2E-yO3"/>
+                            <constraint firstItem="Iya-Dq-y24" firstAttribute="leading" secondItem="TFM-ki-BBZ" secondAttribute="leading" id="v8o-Ht-UPF"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="Iya-Dq-y24" id="esu-Ee-LGY"/>
+                        <segue destination="sDT-gP-teV" kind="show" identifier="editMyAddressSegue" id="yvm-8O-ths"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="kag-MO-gxQ" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="2664" y="-839"/>
+        </scene>
+        <!--编辑地址-->
+        <scene sceneID="xxs-ww-Lwj">
+            <objects>
+                <viewController title="编辑地址" id="sDT-gP-teV" customClass="STEditMyAddressViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="LSh-C0-NlK"/>
+                        <viewControllerLayoutGuide type="bottom" id="DU2-hQ-WXp"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="smp-st-php">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="LbI-7x-h7k">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="separatorColor" red="0.91764705879999997" green="0.92156862750000001" blue="0.96078431369999995" alpha="1" colorSpace="deviceRGB"/>
+                                <inset key="separatorInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" red="0.91764705882352937" green="0.92156862745098034" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="LbI-7x-h7k" secondAttribute="trailing" id="9Q1-kp-EdY"/>
+                            <constraint firstItem="LbI-7x-h7k" firstAttribute="top" secondItem="LSh-C0-NlK" secondAttribute="bottom" id="aNN-tj-dGi"/>
+                            <constraint firstItem="DU2-hQ-WXp" firstAttribute="top" secondItem="LbI-7x-h7k" secondAttribute="bottom" id="bwz-08-27M"/>
+                            <constraint firstItem="LbI-7x-h7k" firstAttribute="leading" secondItem="smp-st-php" secondAttribute="leading" id="xaL-NE-y6e"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="LbI-7x-h7k" id="ned-4c-CbF"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="7Ot-T3-iIy" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="3530" y="-840"/>
+        </scene>
         <!--待付款详情-->
         <scene sceneID="QXX-4z-X5W">
             <objects>
@@ -1620,11 +1691,12 @@
                         <segue destination="wxJ-bh-Xbj" kind="show" identifier="mineHeadIVSegue" id="MjR-Tv-YzH"/>
                         <segue destination="M5P-gP-w2H" kind="push" identifier="changeInfoSegue" id="9lu-CN-mbi"/>
                         <segue destination="nHJ-yC-p8f" kind="show" identifier="editStudentInfoSegue" id="cZv-jF-CKG"/>
+                        <segue destination="JjR-e0-1av" kind="show" identifier="myAddressSegue" id="pAe-Nk-0db"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="UH8-JS-xFY" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-268" y="-5"/>
+            <point key="canvasLocation" x="150" y="64"/>
         </scene>
         <!--Mine HeadIV View Controller-->
         <scene sceneID="4ze-CN-XAc">

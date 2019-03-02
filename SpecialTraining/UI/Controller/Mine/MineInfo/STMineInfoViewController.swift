@@ -67,7 +67,7 @@ class STMineInfoViewController: BaseViewController , VMNavigation{
                 }else if model.title == "我的二维码" {
                     self.performSegue(withIdentifier: "mineQRCodeSegue", sender: nil)
                 }else if model.title == "常用地址" {
-                    
+                    self.performSegue(withIdentifier: "myAddressSegue", sender: nil)
                 }
             })
             .disposed(by: disposeBag)

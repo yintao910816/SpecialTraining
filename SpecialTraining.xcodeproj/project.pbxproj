@@ -320,6 +320,13 @@
 		B8914E38222AEDDA00612FFE /* STMineHeadIVViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E34222AEDD900612FFE /* STMineHeadIVViewController.swift */; };
 		B8914E3A222AEDEE00612FFE /* STEditStudentInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E39222AEDEE00612FFE /* STEditStudentInfoViewController.swift */; };
 		B8914E3C222AEEFC00612FFE /* EditStudentInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E3B222AEEFC00612FFE /* EditStudentInfoViewModel.swift */; };
+		B8914E3E222AF36400612FFE /* STMyAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E3D222AF36400612FFE /* STMyAddressViewController.swift */; };
+		B8914E41222AF41B00612FFE /* MyAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E3F222AF41B00612FFE /* MyAddressCell.swift */; };
+		B8914E42222AF41B00612FFE /* MyAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8914E40222AF41B00612FFE /* MyAddressCell.xib */; };
+		B8914E45222AF42B00612FFE /* MyEditAddressCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E43222AF42B00612FFE /* MyEditAddressCell.swift */; };
+		B8914E46222AF42B00612FFE /* MyEditAddressCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8914E44222AF42B00612FFE /* MyEditAddressCell.xib */; };
+		B8914E48222AF60800612FFE /* MyAddressViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E47222AF60800612FFE /* MyAddressViewModel.swift */; };
+		B8914E4A222AF89000612FFE /* STEditMyAddressViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8914E49222AF89000612FFE /* STEditMyAddressViewController.swift */; };
 		B8A4661921D27B9A0022146C /* ShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8A4661821D27B9A0022146C /* ShopViewModel.swift */; };
 		B8BD92CD21E641580089495F /* Order.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD92CC21E641580089495F /* Order.swift */; };
 		B8BD92D521E64C200089495F /* DBQueue.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD92CF21E64C200089495F /* DBQueue.swift */; };
@@ -787,6 +794,13 @@
 		B8914E34222AEDD900612FFE /* STMineHeadIVViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineHeadIVViewController.swift; sourceTree = "<group>"; };
 		B8914E39222AEDEE00612FFE /* STEditStudentInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEditStudentInfoViewController.swift; sourceTree = "<group>"; };
 		B8914E3B222AEEFC00612FFE /* EditStudentInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EditStudentInfoViewModel.swift; sourceTree = "<group>"; };
+		B8914E3D222AF36400612FFE /* STMyAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyAddressViewController.swift; sourceTree = "<group>"; };
+		B8914E3F222AF41B00612FFE /* MyAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressCell.swift; sourceTree = "<group>"; };
+		B8914E40222AF41B00612FFE /* MyAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyAddressCell.xib; sourceTree = "<group>"; };
+		B8914E43222AF42B00612FFE /* MyEditAddressCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyEditAddressCell.swift; sourceTree = "<group>"; };
+		B8914E44222AF42B00612FFE /* MyEditAddressCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MyEditAddressCell.xib; sourceTree = "<group>"; };
+		B8914E47222AF60800612FFE /* MyAddressViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyAddressViewModel.swift; sourceTree = "<group>"; };
+		B8914E49222AF89000612FFE /* STEditMyAddressViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEditMyAddressViewController.swift; sourceTree = "<group>"; };
 		B8A4661821D27B9A0022146C /* ShopViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewModel.swift; sourceTree = "<group>"; };
 		B8BD92CC21E641580089495F /* Order.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Order.swift; sourceTree = "<group>"; };
 		B8BD92CF21E64C200089495F /* DBQueue.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBQueue.swift; sourceTree = "<group>"; };
@@ -1572,6 +1586,7 @@
 				B8350AB721A111E20020A6A6 /* MineViewModel.swift */,
 				B87F8F6A21A241AC00DE9DC1 /* MineInfoViewModel.swift */,
 				B8914E3B222AEEFC00612FFE /* EditStudentInfoViewModel.swift */,
+				B8914E47222AF60800612FFE /* MyAddressViewModel.swift */,
 				6B0754C121B1257100B36740 /* MineCustomViewModel.swift */,
 				6B8A611421B4E10C00C0DFCD /* MineCourseViewModel.swift */,
 				6B8A611821B51CFE00C0DFCD /* MineAccountViewModel.swift */,
@@ -1801,6 +1816,10 @@
 				B87F8F7021A2446E00DE9DC1 /* MineInfoCell.xib */,
 				B87F8F7321A2805400DE9DC1 /* StudentInfoCell.swift */,
 				B87F8F7421A2805400DE9DC1 /* StudentInfoCell.xib */,
+				B8914E3F222AF41B00612FFE /* MyAddressCell.swift */,
+				B8914E40222AF41B00612FFE /* MyAddressCell.xib */,
+				B8914E43222AF42B00612FFE /* MyEditAddressCell.swift */,
+				B8914E44222AF42B00612FFE /* MyEditAddressCell.xib */,
 			);
 			path = MineInfo;
 			sourceTree = "<group>";
@@ -1855,6 +1874,8 @@
 				B8914E32222AEDD900612FFE /* STMineQRCodeViewController.swift */,
 				B8914E33222AEDD900612FFE /* STMineCourseViewController.swift */,
 				B8914E34222AEDD900612FFE /* STMineHeadIVViewController.swift */,
+				B8914E3D222AF36400612FFE /* STMyAddressViewController.swift */,
+				B8914E49222AF89000612FFE /* STEditMyAddressViewController.swift */,
 			);
 			path = MineInfo;
 			sourceTree = "<group>";
@@ -2294,6 +2315,7 @@
 				B8FBFA2E21A3DD9600AECB75 /* bba_thumb.png in Resources */,
 				B8FBFA2821A3DD9600AECB75 /* yx_thumb.png in Resources */,
 				B8FBFA3221A3DD9600AECB75 /* angrya_thumb.png in Resources */,
+				B8914E46222AF42B00612FFE /* MyEditAddressCell.xib in Resources */,
 				C486959F21AFC83600249C47 /* other_voice.gif in Resources */,
 				C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */,
 				B81EDF7A21A5570200F9D3B0 /* mapapi.bundle in Resources */,
@@ -2301,6 +2323,7 @@
 				C468B8F521F9F105001AA08B /* MineNeedClassOrderCell.xib in Resources */,
 				6B280D6B21CCEEDA00C5DEED /* SendCodeCell.xib in Resources */,
 				C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */,
+				B8914E42222AF41B00612FFE /* MyAddressCell.xib in Resources */,
 				6BF7B95321BA693700BE1E4A /* MineHeaderCollectionCell.xib in Resources */,
 				B87A94F021A8381D003E2D21 /* TeachersCell.xib in Resources */,
 				B8FBFA5521A3DD9600AECB75 /* hatea_thumb.png in Resources */,
@@ -2554,6 +2577,7 @@
 				C498BA7921B7B56500A29385 /* ImagePickerManager+Rx.swift in Sources */,
 				B80B6C09219FF0D900C33F11 /* String+Extends.swift in Sources */,
 				B87F8F6D21A241EA00DE9DC1 /* MineInfo.swift in Sources */,
+				B8914E48222AF60800612FFE /* MyAddressViewModel.swift in Sources */,
 				B8FC3AB52217163600889483 /* YYGRegular.swift in Sources */,
 				B81EDF5521A4FECA00F9D3B0 /* ConversationUtils.swift in Sources */,
 				B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */,
@@ -2621,6 +2645,7 @@
 				C46D0C8921FAFF5F00E94C9B /* MineNeedPayBackView.swift in Sources */,
 				B87F8F7521A2805400DE9DC1 /* StudentInfoCell.swift in Sources */,
 				6BEA00D821B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.swift in Sources */,
+				B8914E4A222AF89000612FFE /* STEditMyAddressViewController.swift in Sources */,
 				B81EDF5C21A51A8900F9D3B0 /* ChatImageRightView.swift in Sources */,
 				B85F3379219EA0B600023958 /* HomeRecommendCollectionView.swift in Sources */,
 				B8FBFA2021A3DD9600AECB75 /* EmojUtls.swift in Sources */,
@@ -2657,6 +2682,7 @@
 				B827230521E6336E00147397 /* VerifyOrderViewModel.swift in Sources */,
 				B80B6C11219FF4DF00C33F11 /* Video.swift in Sources */,
 				6BAE0AD821CA2CC10065BAD2 /* ResetPasOneViewModel.swift in Sources */,
+				B8914E41222AF41B00612FFE /* MyAddressCell.swift in Sources */,
 				B81E90BC21A3C559000754E3 /* ChatRightView.swift in Sources */,
 				B8914E3A222AEDEE00612FFE /* STEditStudentInfoViewController.swift in Sources */,
 				C468B8FC21F9F196001AA08B /* MineNeedPayBackCell.swift in Sources */,
@@ -2761,6 +2787,7 @@
 				B85F3324219E902A00023958 /* BaseViewController.swift in Sources */,
 				B85F33E1219F1DC200023958 /* BaseTBCell.swift in Sources */,
 				B87F09602224041300310445 /* CancleOrderView.swift in Sources */,
+				B8914E45222AF42B00612FFE /* MyEditAddressCell.swift in Sources */,
 				6B8A611221B4DE5700C0DFCD /* MineCourseTableViewCell.swift in Sources */,
 				C408422821B54C0B00C491A8 /* STMainTabBarController.swift in Sources */,
 				B80B6C0B219FF1CD00C33F11 /* VideoFlowLayout.swift in Sources */,
@@ -2803,6 +2830,7 @@
 				6B280D7321CCF48500C5DEED /* MineAddAccountModel.swift in Sources */,
 				B803C3D421BD7A4E004C97DB /* ChoseOrganizationCell.swift in Sources */,
 				6B27E44421D71C520019BE17 /* STMineWithdrawViewController.swift in Sources */,
+				B8914E3E222AF36400612FFE /* STMyAddressViewController.swift in Sources */,
 				B827230721E6338100147397 /* PayOrderViewModel.swift in Sources */,
 				B85F33CE219EBAB100023958 /* Response+ModelMapper.swift in Sources */,
 				B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */,

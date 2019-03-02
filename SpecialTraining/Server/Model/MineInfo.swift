@@ -39,3 +39,34 @@ protocol MineInfoModelAdapt {
     
     var height: CGFloat { get }
 }
+
+
+class MyAddressModel: HJModel {
+    var address: String = ""
+    
+    var placholdText: String = ""
+    var title: String = ""
+    
+    class func testData() ->[MyAddressModel] {
+        var data = [MyAddressModel]()
+        for idx in 1..<4 {
+            let model = MyAddressModel()
+            model.address = "我的第\(idx)地址"
+            data.append(model)
+        }
+        return data
+    }
+    
+    class func testEditAddressModel() ->[MyAddressModel] {
+        var data = [MyAddressModel]()
+        var titles = ["联系人姓名", "手机号码", "详细地址"]
+        var placholdTexts = ["请输入联系人姓名", "请输入手机号码", "请输入详细地址"]
+        for idx in 0..<3 {
+            let model = MyAddressModel()
+            model.title = titles[idx]
+            model.placholdText = placholdTexts[idx]
+            data.append(model)
+        }
+        return data
+    }
+}
