@@ -28,5 +28,6 @@ pod 'BMKLocationKit'
 
 pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull'
 
-pod 'ZLPhotoBrowser'
+pod 'PhotoAlbum', :git => 'https://github.com/yintao910816/PhotoAlbum.git'
+
 end

@@ -97,7 +97,12 @@ class STVideoViewController: BaseViewController {
             if title == "拍摄" {
                 self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
             }else if title == "上传" {
-                self.photoAlbumPermissions()
+//                self.photoAlbumPermissions()
+                PhotoAlbums.photoVideo(withMaxDurtion: 15, delegate: self, updateUIFinishPicking: { image in
+                    
+                }, didFinishPickingVideoHandle: { (url, image, obj) in
+                    PrintLog("didFinishPickingVideoHandle -- \(obj)")
+                })
             }
         }
     }
