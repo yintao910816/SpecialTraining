@@ -24,13 +24,17 @@
                         <color key="textColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" contentMode="scaleToFill" selected="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-nn-08a">
-                        <rect key="frame" x="275" y="7.5" width="30" height="29"/>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="9p6-nn-08a">
+                        <rect key="frame" x="288.5" y="16" width="16.5" height="12"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="9p6-nn-08a" secondAttribute="height" multiplier="32:23" id="02c-QH-Nif"/>
+                            <constraint firstAttribute="height" constant="12" id="PaP-eu-9MA"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal">
+                        <state key="normal" image="cell_unselected">
                             <color key="titleColor" red="0.12549019610000001" green="0.72156862749999995" blue="0.92941176469999998" alpha="1" colorSpace="deviceRGB"/>
                         </state>
-                        <state key="selected" title="已选"/>
+                        <state key="selected" image="cell_selected"/>
                     </button>
                 </subviews>
                 <constraints>
@@ -48,4 +52,8 @@
             <point key="canvasLocation" x="137.59999999999999" y="153.82308845577214"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cell_selected" width="64" height="46"/>
+        <image name="cell_unselected" width="64" height="46"/>
+    </resources>
 </document>

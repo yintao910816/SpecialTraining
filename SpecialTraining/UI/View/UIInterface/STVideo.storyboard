@@ -70,17 +70,21 @@
                                             <constraint firstAttribute="width" secondItem="kCS-xC-szD" secondAttribute="height" multiplier="1:1" id="c7T-gP-qqG"/>
                                         </constraints>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <state key="normal" title="开始">
-                                            <color key="titleColor" red="0.40000000000000002" green="0.83921568629999999" blue="0.97647058819999999" alpha="1" colorSpace="deviceRGB"/>
+                                        <state key="normal" image="start_record_video">
+                                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
-                                        <state key="selected" title="停止"/>
+                                        <state key="selected" image="stop_record_video"/>
                                         <connections>
                                             <action selector="actions:" destination="tIt-Rv-2Qs" eventType="touchUpInside" id="wAs-Em-UNb"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emZ-vf-t4C">
-                                        <rect key="frame" x="324" y="23" width="31" height="30"/>
-                                        <state key="normal" title="翻转"/>
+                                    <button opaque="NO" tag="105" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="emZ-vf-t4C">
+                                        <rect key="frame" x="325" y="25" width="30" height="26"/>
+                                        <constraints>
+                                            <constraint firstAttribute="width" secondItem="emZ-vf-t4C" secondAttribute="height" multiplier="192:165" id="6Kp-Ki-vqm"/>
+                                            <constraint firstAttribute="width" constant="30" id="Hdy-zu-nIs"/>
+                                        </constraints>
+                                        <state key="normal" image="change_camera"/>
                                         <connections>
                                             <action selector="actions:" destination="tIt-Rv-2Qs" eventType="touchUpInside" id="Gyi-8v-zMn"/>
                                         </connections>
@@ -116,9 +120,13 @@
                                     <constraint firstItem="emZ-vf-t4C" firstAttribute="centerY" secondItem="kCS-xC-szD" secondAttribute="centerY" id="TZt-QV-et7"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLM-8d-Sia">
-                                <rect key="frame" x="20" y="40" width="31" height="30"/>
-                                <state key="normal" title="关闭"/>
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="DLM-8d-Sia">
+                                <rect key="frame" x="20" y="44" width="22" height="22"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="22" id="ITN-ep-Ykk"/>
+                                    <constraint firstAttribute="width" secondItem="DLM-8d-Sia" secondAttribute="height" multiplier="1:1" id="jVZ-V1-eo9"/>
+                                </constraints>
+                                <state key="normal" image="close_record_vedio"/>
                                 <connections>
                                     <action selector="actions:" destination="tIt-Rv-2Qs" eventType="touchUpInside" id="eoH-W5-5M7"/>
                                 </connections>
@@ -922,13 +930,17 @@
         <image name="arrow_right" width="75" height="75"/>
         <image name="big_nav_back" width="200" height="200"/>
         <image name="cell_location" width="30" height="30"/>
+        <image name="change_camera" width="192" height="165"/>
+        <image name="close_record_vedio" width="105" height="105"/>
         <image name="default_user_icon" width="300" height="300"/>
         <image name="demandView_bg" width="640" height="960"/>
         <image name="dianpu" width="36" height="36"/>
         <image name="navigationButtonReturn" width="40" height="40"/>
+        <image name="start_record_video" width="453" height="453"/>
+        <image name="stop_record_video" width="453" height="453"/>
     </resources>
     <inferredMetricsTieBreakers>
         <segue reference="4QD-CB-URw"/>
-        <segue reference="KpB-So-eUZ"/>
+        <segue reference="HCU-pq-qHM"/>
     </inferredMetricsTieBreakers>
 </document>

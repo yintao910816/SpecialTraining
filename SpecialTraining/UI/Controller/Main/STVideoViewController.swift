@@ -125,7 +125,7 @@ class STVideoViewController: BaseViewController {
     }
     
     private func showVideoVC() {
-        PhotoAlbums.photoVideo(withMaxDurtion: 15, delegate: self, updateUIFinishPicking: { image in
+        PhotoAlbums.photoVideo(withMaxDurtion: 60, delegate: self, updateUIFinishPicking: { image in
             
         }, didFinishPickingVideoHandle: { [unowned self] (url, image, obj) in
             if let _url = url {

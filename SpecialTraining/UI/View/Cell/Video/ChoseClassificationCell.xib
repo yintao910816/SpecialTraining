@@ -19,9 +19,9 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1l-Qs-9MW">
-                        <rect key="frame" x="277" y="12.5" width="28" height="20"/>
+                        <rect key="frame" x="288.5" y="16.5" width="16.5" height="12"/>
                         <constraints>
-                            <constraint firstAttribute="height" constant="20" id="CeM-6m-uYd"/>
+                            <constraint firstAttribute="height" constant="12" id="CeM-6m-uYd"/>
                             <constraint firstAttribute="width" secondItem="F1l-Qs-9MW" secondAttribute="height" multiplier="32:23" id="ekI-pP-U7f"/>
                         </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
