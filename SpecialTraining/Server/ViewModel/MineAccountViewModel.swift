@@ -9,6 +9,11 @@
 import Foundation
 import RxSwift
 
-class MineAccountViewModel: BaseViewModel {
+class MineAccountViewModel: RefreshVM<MineAccountModel>   {
     
+    override init() {
+        super.init()
+    
+        datasource.value = [MineAccountModel(), MineAccountModel(), MineAccountModel()]
+    }
 }
