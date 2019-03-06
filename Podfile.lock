@@ -20,7 +20,6 @@ PODS:
   - Moya/RxSwift (11.0.2):
     - Moya/Core
     - RxSwift (~> 4.0)
-  - PhotoAlbum (0.6.0)
   - Result (3.2.4)
   - RxCocoa (4.3.0):
     - RxSwift (~> 4.0)
@@ -52,7 +51,6 @@ DEPENDENCIES:
   - MJRefresh (~> 3.1.15.3)
   - mob_sharesdk/ShareSDKPlatforms/WeChatFull
   - Moya/RxSwift (~> 11.0)
-  - PhotoAlbum (from `https://github.com/yintao910816/PhotoAlbum.git`)
   - RxCocoa (~> 4.3.0)
   - RxDataSources (~> 3.1.0)
   - RxSwift (~> 4.3.0)
@@ -88,15 +86,6 @@ SPEC REPOS:
     - YYImage
     - YYText
 
-EXTERNAL SOURCES:
-  PhotoAlbum:
-    :git: https://github.com/yintao910816/PhotoAlbum.git
-
-CHECKOUT OPTIONS:
-  PhotoAlbum:
-    :commit: c00d413fb74078d9a06988b6fa1a9980926f6cac
-    :git: https://github.com/yintao910816/PhotoAlbum.git
-
 SPEC CHECKSUMS:
   Alamofire: c7287b6e5d7da964a70935e5db17046b7fde6568
   AlipaySDK-iOS: 1c5283b30977a24acecc0114662697f7dc78f618
@@ -110,7 +99,6 @@ SPEC CHECKSUMS:
   mob_sharesdk: e36e88015480f4d0c28e99ef8875ce1e10ca3a9e
   MOBFoundation: ce2ba976fd435b0cb06897466b2746e639895b7d
   Moya: a725035953bc1c0eb1be505ab903984501d82440
-  PhotoAlbum: 00c84ae88e4bb18adcd79c447c8cd177dee720bf
   Result: d2d07204ce72856f1fd9130bbe42c35a7b0fea10
   RxCocoa: 71b9cce833fbcb89a8eec11816dd225830c2bd3c
   RxDataSources: a843bad90c29817f5923ec8163f4af2de084ceb3
@@ -122,6 +110,6 @@ SPEC CHECKSUMS:
   YYImage: 1e1b62a9997399593e4b9c4ecfbbabbf1d3f3b54
   YYText: 5c461d709e24d55a182d1441c41dc639a18a4849
 
-PODFILE CHECKSUM: 045cac5c43e284801036df5ec2707fb6fa0a6087
+PODFILE CHECKSUM: 37f8878c3985cf8c9eb58398b96e9334c242ff7c
 
 COCOAPODS: 1.6.0

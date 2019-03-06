@@ -19,12 +19,16 @@
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="F1l-Qs-9MW">
-                        <rect key="frame" x="275" y="8" width="30" height="29"/>
+                        <rect key="frame" x="277" y="12.5" width="28" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="20" id="CeM-6m-uYd"/>
+                            <constraint firstAttribute="width" secondItem="F1l-Qs-9MW" secondAttribute="height" multiplier="32:23" id="ekI-pP-U7f"/>
+                        </constraints>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <state key="normal" title="未选">
-                            <color key="titleColor" red="0.25834332059767773" green="0.67133648550773928" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <state key="normal" image="cell_unselected">
+                            <color key="titleColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         </state>
-                        <state key="selected" title="已选"/>
+                        <state key="selected" image="cell_selected"/>
                     </button>
                     <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="NdL-XK-9mF">
                         <rect key="frame" x="15" y="7.5" width="46" height="30"/>
@@ -51,4 +55,8 @@
             <point key="canvasLocation" x="22.399999999999999" y="175.86206896551727"/>
         </tableViewCell>
     </objects>
+    <resources>
+        <image name="cell_selected" width="64" height="46"/>
+        <image name="cell_unselected" width="64" height="46"/>
+    </resources>
 </document>

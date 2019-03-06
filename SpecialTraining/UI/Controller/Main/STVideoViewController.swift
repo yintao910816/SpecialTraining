@@ -22,7 +22,6 @@ class STVideoViewController: BaseViewController {
     @IBOutlet weak var topViewTopCns: NSLayoutConstraint!
     
     private var floatView: TYFloatView!
-    private var picker: UIImagePickerController!
     
     var viewModel: VideoViewModel!
     
@@ -39,26 +38,16 @@ class STVideoViewController: BaseViewController {
         if authStatus == .notDetermined {
             PHPhotoLibrary.requestAuthorization { [weak self] status in
                 if status == .authorized {
-                    self?.showVideoVC()
+
                 }
             }
         } else if authStatus == .authorized  {
-            showVideoVC()
+
         } else {
             
         }
     }
     
-    private func showVideoVC() {
-        let picker = UIImagePickerController()
-        picker.delegate = self
-        picker.modalTransitionStyle = .flipHorizontal
-        picker.allowsEditing = false
-        picker.sourceType = .savedPhotosAlbum
-        picker.mediaTypes = ["public.movie"]
-        present(picker, animated: true, completion: nil)
-    }
-
     override func setupUI() {
         if #available(iOS 11, *) {
             contentCollectionView.contentInsetAdjustmentBehavior = .never
@@ -67,13 +56,6 @@ class STVideoViewController: BaseViewController {
             automaticallyAdjustsScrollViewInsets = false
         }
 
-        picker = UIImagePickerController()
-        picker.delegate = self
-        picker.modalTransitionStyle = .coverVertical
-        picker.allowsEditing = false
-        //        picker.sourceType = .savedPhotosAlbum
-//        picker.videoQuality = .typeLow
-        picker.mediaTypes = [String(kUTTypeMovie)]
         topViewHeightCns.constant += (LayoutSize.topVirtualArea + 20)
         
         let layout = VideoFlowLayout.init()
@@ -97,12 +79,7 @@ class STVideoViewController: BaseViewController {
             if title == "拍摄" {
                 self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
             }else if title == "上传" {
-//                self.photoAlbumPermissions()
-                PhotoAlbums.photoVideo(withMaxDurtion: 15, delegate: self, updateUIFinishPicking: { image in
-                    
-                }, didFinishPickingVideoHandle: { (url, image, obj) in
-                    PrintLog("didFinishPickingVideoHandle -- \(obj)")
-                })
+                self.showVideoVC()
             }
         }
     }
@@ -136,17 +113,6 @@ class STVideoViewController: BaseViewController {
             .disposed(by: disposeBag)
 
     }
-}
-
-extension STVideoViewController: FlowLayoutDelegate {
-    
-    func itemContent(layout: BaseFlowLayout, indexPath: IndexPath) -> CGSize {
-        let model = viewModel.datasource.value[indexPath.row]
-        return .init(width: model.width, height: model.height)
-    }
-}
-
-extension STVideoViewController: UIImagePickerControllerDelegate, UINavigationControllerDelegate {
     
     private func videoPlay(videoDuration: Int, videoUrl: URL) {
         let pvc = STEditVideoViewController.init()
@@ -158,21 +124,24 @@ extension STVideoViewController: UIImagePickerControllerDelegate, UINavigationCo
         navigationController?.pushViewController(pvc, animated: true)
     }
     
-    func imagePickerController(_ picker: UIImagePickerController, didFinishPickingMediaWithInfo info: [UIImagePickerController.InfoKey : Any]) {
-        let mediaType = info[UIImagePickerController.InfoKey.mediaType] as? String
-        
-        if mediaType == String(kUTTypeImage) {
-            // 图片
-        }else {
-            // 视频
-            if let url = info[UIImagePickerController.InfoKey.mediaURL] as? URL {
+    private func showVideoVC() {
+        PhotoAlbums.photoVideo(withMaxDurtion: 15, delegate: self, updateUIFinishPicking: { image in
+            
+        }, didFinishPickingVideoHandle: { [unowned self] (url, image, obj) in
+            if let _url = url {
                 // 播放视频
-                videoPlay(videoDuration: STHeader.getVideoDuration(path: url), videoUrl: url)
+                self.videoPlay(videoDuration: STHeader.getVideoDuration(path: _url), videoUrl: _url)
             }else {
                 NoticesCenter.alert(title: "提示", message: "视频无效，请重新选择")
             }
-        }
-        picker.dismiss(animated: true, completion: nil)
+        })
     }
 }
 
+extension STVideoViewController: FlowLayoutDelegate {
+    
+    func itemContent(layout: BaseFlowLayout, indexPath: IndexPath) -> CGSize {
+        let model = viewModel.datasource.value[indexPath.row]
+        return .init(width: model.width, height: model.height)
+    }
+}
