@@ -19,9 +19,7 @@ class STMineAccountViewController: BaseViewController {
     
     private var viewModel: MineAccountViewModel!
     
-    override func viewWillAppear(_ animated: Bool) {
-        super.viewWillAppear(animated)
-        
+    override func viewWillAppear(_ animated: Bool) {        
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
@@ -42,6 +40,18 @@ class STMineAccountViewController: BaseViewController {
         headerView.backCallBack = { [unowned self] in
             self.navigationController?.popViewController(animated: true)
         }
+        
+        headerView.clickBalanceCallBack = { [unowned self] in
+            self.performSegue(withIdentifier: "mineBalanceSegue", sender: nil)
+        }
+        
+        headerView.clickWithdrawCallBack = { [unowned self] in
+            self.performSegue(withIdentifier: "withdrawSegue", sender: nil)
+        }
+        
+        headerView.clickPayAccountCallBack = { [unowned self] in
+            self.performSegue(withIdentifier: "mineEditAccoutSegue", sender: nil)
+        }
     }
     
     override func rxBind() {
@@ -52,7 +62,12 @@ class STMineAccountViewController: BaseViewController {
                 
             }
             .disposed(by: disposeBag)
-
+        
+        tableView.rx.itemSelected.asDriver()
+            .drive(onNext: { [unowned self] _ in
+                self.performSegue(withIdentifier: "accountDetailSegue", sender: nil)
+            })
+            .disposed(by: disposeBag)
     }
     
 //    @IBAction func btnClick(_ sender: UIButton) {

@@ -17,11 +17,22 @@ class MineAccountHeaderView: UIView {
     @IBOutlet weak var topCns: NSLayoutConstraint!
     
     public var backCallBack: (()->())?
-    
+    public var clickBalanceCallBack: (()->())?
+    public var clickWithdrawCallBack: (() ->())?
+    public var clickPayAccountCallBack: (() ->())?
+
     @IBAction func actions(_ sender: UIButton) {
         switch sender.tag {
         case 100:
+            // 返回
             backCallBack?()
+        case 101:
+            // 零钱
+            clickBalanceCallBack?()
+        case 102:
+            clickWithdrawCallBack?()
+        case 103:
+            clickPayAccountCallBack?()
         default:
             break
         }

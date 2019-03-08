@@ -38,13 +38,16 @@
                                 <action selector="actions:" destination="-1" eventType="touchUpInside" id="3mk-UC-HEg"/>
                             </connections>
                         </button>
-                        <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaH-uN-7S9">
+                        <button opaque="NO" clipsSubviews="YES" tag="103" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaH-uN-7S9">
                             <rect key="frame" x="262.5" y="69" width="45" height="45"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="45" id="M5m-qv-JBH"/>
                                 <constraint firstAttribute="width" secondItem="jaH-uN-7S9" secondAttribute="height" multiplier="1:1" id="enj-vl-gN3"/>
                             </constraints>
                             <state key="normal" image="demandView_bg"/>
+                            <connections>
+                                <action selector="actions:" destination="-1" eventType="touchUpInside" id="GRH-kt-peA"/>
+                            </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="零钱" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2H3-R3-ycL">
                             <rect key="frame" x="75.5" y="122" width="29" height="17"/>
@@ -74,9 +77,12 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
-                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbz-cW-VRg">
+                        <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbz-cW-VRg">
                             <rect key="frame" x="67.5" y="69" width="45" height="45"/>
                             <state key="normal" image="demandView_bg"/>
+                            <connections>
+                                <action selector="actions:" destination="-1" eventType="touchUpInside" id="MPa-OQ-fBh"/>
+                            </connections>
                         </button>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -120,7 +126,7 @@
                         <constraint firstAttribute="width" constant="1" id="qbW-eh-FHg"/>
                     </constraints>
                 </view>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHx-rM-qmz">
+                <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHx-rM-qmz">
                     <rect key="frame" x="15" y="189.5" width="157" height="20"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="20" id="gxv-bk-2J1"/>
@@ -129,6 +135,9 @@
                     <state key="normal" title="可提现￥1800">
                         <color key="titleColor" red="0.0078431372549019607" green="0.71764705882352942" blue="0.94117647058823528" alpha="1" colorSpace="deviceRGB"/>
                     </state>
+                    <connections>
+                        <action selector="actions:" destination="-1" eventType="touchUpInside" id="VbR-4f-HVl"/>
+                    </connections>
                 </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>

@@ -1,14 +1,14 @@
 //
-//  ConfirmBtnCell.swift
+//  MineAddPayAccountCell.swift
 //  SpecialTraining
 //
-//  Created by xujun on 2018/12/21.
-//  Copyright © 2018 youpeixun. All rights reserved.
+//  Created by yintao on 2019/3/9.
+//  Copyright © 2019 youpeixun. All rights reserved.
 //
 
 import UIKit
 
-class ConfirmBtnCell: BaseTBCell {
+class MineAddPayAccountCell: UITableViewCell {
 
     override func awakeFromNib() {
         super.awakeFromNib()
