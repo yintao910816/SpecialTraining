@@ -14,11 +14,13 @@ class STOrganizationViewController: BaseViewController {
     @IBOutlet weak var topViewHeightCns: NSLayoutConstraint!
     @IBOutlet weak var bottomHeightCns: NSLayoutConstraint!
     
-    @IBOutlet weak var phyicalStoreOutlet: UIButton!
-    @IBOutlet weak var recommentCourseOutlet: UIButton!
-    @IBOutlet weak var activityBrefOutlet: UIButton!
-    @IBOutlet weak var teachersOutlet: UIButton!
-
+    @IBOutlet weak var homeOutlet: UIButton!
+    @IBOutlet weak var courseOutlet: UIButton!
+    @IBOutlet weak var teachersBrefOutlet: UIButton!
+    @IBOutlet weak var shopOutlet: UIButton!
+    @IBOutlet weak var carouseOutlet: CarouselView!
+    @IBOutlet weak var titleOutlet: UILabel!
+    
     private var physicalStoreTB: PhysicalStoreTableView!
     private var activityBrefTB: ActivityBrefTableView!
     private var recommendCourseTB: RecommendCourseTableView!
@@ -31,31 +33,36 @@ class STOrganizationViewController: BaseViewController {
     // 被选中的按钮
     private var selectedIdx: Int = 0
     
+    
+    @IBAction func backAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func actions(_ sender: UIButton) {
-        if sender == phyicalStoreOutlet {
+        if sender == homeOutlet {
             setButtonState(selected: 0)
-        }else if sender == recommentCourseOutlet {
+        }else if sender == courseOutlet {
             setButtonState(selected: 1)
-        }else if sender == activityBrefOutlet {
+        }else if sender == teachersBrefOutlet {
             setButtonState(selected: 2)
-        }else if sender == teachersOutlet {
+        }else if sender == shopOutlet {
             setButtonState(selected: 3)
         }
     }
     
     private func setButtonState(selected idx: Int, _ needScroll: Bool = true) {
-        let btns = [phyicalStoreOutlet, recommentCourseOutlet, activityBrefOutlet, teachersOutlet]
+        let btns = [homeOutlet, courseOutlet, teachersBrefOutlet, shopOutlet]
+        let titles = ["机构介绍", "开设课程", "最强师资", "所有分店"]
+        titleOutlet.text = titles[idx]
         if idx != selectedIdx {
             for i in 0..<btns.count {
                 if i == idx {
                     // 设置选中
                     btns[i]?.isSelected = true
-                    btns[i]?.backgroundColor = .white
                     
                     selectedIdx = i
                 }else {
                     btns[i]?.isSelected = false
-                    btns[i]?.backgroundColor = .clear
                 }
             }
             
@@ -70,7 +77,7 @@ class STOrganizationViewController: BaseViewController {
     }
     
     override func setupUI() {
-        topViewHeightCns.constant += UIDevice.current.isX ? 0 : 24
+        topViewHeightCns.constant += LayoutSize.fitTopArea
         bottomHeightCns.constant += LayoutSize.bottomVirtualArea
         
         scrollOutlet.contentSize = .init(width: PPScreenW * 4, height: scrollOutlet.height)

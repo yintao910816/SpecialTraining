@@ -56,6 +56,13 @@ class NearByOrganizationModel: HJModel {
     var advertList = [AdvertListModel]()
     
     var agnList = [NearByOrganizationItemModel]()
+    
+    class func testData() ->NearByOrganizationModel {
+        let m = NearByOrganizationModel()
+        m.advertList = [AdvertListModel(), AdvertListModel()]
+        m.agnList    = [NearByOrganizationItemModel(), NearByOrganizationItemModel()]
+        return m
+    }
 }
 
 class NearByOrganizationItemModel: HJModel {

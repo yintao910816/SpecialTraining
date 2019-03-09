@@ -182,10 +182,11 @@ class HomenNearByOrgnazitionViewModel: RefreshVM<NearByOrganizationItemModel> {
     }
     
     func nearByOrganization(offset: Int = 0) ->Observable<NearByOrganizationModel> {
-        return STProvider.request(.agency(lat: userDefault.lat, lng: userDefault.lng, offset: offset))
-            .map(model: NearByOrganizationModel.self)
-            .asObservable()
-            .catchErrorJustReturn(NearByOrganizationModel())
+        return Observable.just(NearByOrganizationModel.testData())
+//        return STProvider.request(.agency(lat: userDefault.lat, lng: userDefault.lng, offset: offset))
+//            .map(model: NearByOrganizationModel.self)
+//            .asObservable()
+//            .catchErrorJustReturn(NearByOrganizationModel())
     }
 
     func dealData(data: NearByOrganizationModel) {
