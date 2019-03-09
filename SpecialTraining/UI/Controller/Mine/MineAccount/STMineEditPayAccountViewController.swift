@@ -48,4 +48,10 @@ extension STMineEditPayAccountViewController: UITableViewDelegate {
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
         return indexPath.row == 2 ? 120 : 140
     }
+    
+    func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+        if indexPath.row == 2 {
+            performSegue(withIdentifier: "bindPayAccountSegue", sender: nil)
+        }
+    }
 }

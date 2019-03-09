@@ -19,7 +19,11 @@ class STMineAccountViewController: BaseViewController {
     
     private var viewModel: MineAccountViewModel!
     
-    override func viewWillAppear(_ animated: Bool) {        
+    @IBAction func actions(_ sender: UIButton) {
+        performSegue(withIdentifier: "balanceToFundsSegue", sender: nil)
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     

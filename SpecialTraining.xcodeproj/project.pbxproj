@@ -232,6 +232,11 @@
 		B85F33DD219F179400023958 /* Organization.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33DC219F179400023958 /* Organization.swift */; };
 		B85F33DF219F1D0300023958 /* BaseTB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33DE219F1D0300023958 /* BaseTB.swift */; };
 		B85F33E1219F1DC200023958 /* BaseTBCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33E0219F1DC200023958 /* BaseTBCell.swift */; };
+		B862DBBE22341E0200C535AE /* STBindPayAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862DBBD22341E0200C535AE /* STBindPayAccountViewController.swift */; };
+		B862DBC022341E8000C535AE /* BindPayAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862DBBF22341E8000C535AE /* BindPayAccountViewModel.swift */; };
+		B862DBC322341F9400C535AE /* BindPayAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862DBC122341F9400C535AE /* BindPayAccountCell.swift */; };
+		B862DBC422341F9400C535AE /* BindPayAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B862DBC222341F9400C535AE /* BindPayAccountCell.xib */; };
+		B862DBC62234233D00C535AE /* STBalanceToFundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862DBC52234233D00C535AE /* STBalanceToFundsViewController.swift */; };
 		B86CB19421FCC6B500564C80 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B86CB19321FCC6B500564C80 /* libopencore-amrnb.a */; };
 		B86D68B521C3F5D3001A0B75 /* HomeExpericeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */; };
 		B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */; };
@@ -730,6 +735,11 @@
 		B85F33DC219F179400023958 /* Organization.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Organization.swift; sourceTree = "<group>"; };
 		B85F33DE219F1D0300023958 /* BaseTB.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTB.swift; sourceTree = "<group>"; };
 		B85F33E0219F1DC200023958 /* BaseTBCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseTBCell.swift; sourceTree = "<group>"; };
+		B862DBBD22341E0200C535AE /* STBindPayAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBindPayAccountViewController.swift; sourceTree = "<group>"; };
+		B862DBBF22341E8000C535AE /* BindPayAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindPayAccountViewModel.swift; sourceTree = "<group>"; };
+		B862DBC122341F9400C535AE /* BindPayAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindPayAccountCell.swift; sourceTree = "<group>"; };
+		B862DBC222341F9400C535AE /* BindPayAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindPayAccountCell.xib; sourceTree = "<group>"; };
+		B862DBC52234233D00C535AE /* STBalanceToFundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBalanceToFundsViewController.swift; sourceTree = "<group>"; };
 		B86CB19321FCC6B500564C80 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExpericeCollectionView.swift; sourceTree = "<group>"; };
 		B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCourseDetailViewController.swift; sourceTree = "<group>"; };
@@ -1640,6 +1650,7 @@
 				B8F117CF2232F07C008B63B8 /* MineBalanceViewModel.swift */,
 				B8F117D72232F53C008B63B8 /* WithdrawViewModel.swift */,
 				B8F117E32232FA91008B63B8 /* MineEditPayAccountViewModel.swift */,
+				B862DBBF22341E8000C535AE /* BindPayAccountViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1931,6 +1942,8 @@
 				B8F117DC2232F7B1008B63B8 /* MineEditPayAccountCell.xib */,
 				B8F117DF2232F992008B63B8 /* MineAddPayAccountCell.swift */,
 				B8F117E02232F992008B63B8 /* MineAddPayAccountCell.xib */,
+				B862DBC122341F9400C535AE /* BindPayAccountCell.swift */,
+				B862DBC222341F9400C535AE /* BindPayAccountCell.xib */,
 			);
 			path = MineAccount;
 			sourceTree = "<group>";
@@ -1996,6 +2009,8 @@
 				B8F117C92232EDED008B63B8 /* STMineBalanceViewController.swift */,
 				B8F117D12232F3F6008B63B8 /* STWithdrawViewController.swift */,
 				B8F117D92232F6EC008B63B8 /* STMineEditPayAccountViewController.swift */,
+				B862DBBD22341E0200C535AE /* STBindPayAccountViewController.swift */,
+				B862DBC52234233D00C535AE /* STBalanceToFundsViewController.swift */,
 			);
 			path = MineAccount;
 			sourceTree = "<group>";
@@ -2515,6 +2530,7 @@
 				B8FBFA2821A3DD9600AECB75 /* yx_thumb.png in Resources */,
 				B8FBFA3221A3DD9600AECB75 /* angrya_thumb.png in Resources */,
 				B8BB6A422230339E0001AB5D /* MineInfoCell.xib in Resources */,
+				B862DBC422341F9400C535AE /* BindPayAccountCell.xib in Resources */,
 				C486959F21AFC83600249C47 /* other_voice.gif in Resources */,
 				C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */,
 				B81EDF7A21A5570200F9D3B0 /* mapapi.bundle in Resources */,
@@ -2777,6 +2793,7 @@
 				B81EDF5521A4FECA00F9D3B0 /* ConversationUtils.swift in Sources */,
 				B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */,
 				B85F3327219E902A00023958 /* BaseNavigationController.swift in Sources */,
+				B862DBC322341F9400C535AE /* BindPayAccountCell.swift in Sources */,
 				B83BA1FC21BC182900496AFE /* PressButton.swift in Sources */,
 				B8F117E12232F992008B63B8 /* MineAddPayAccountCell.swift in Sources */,
 				B80B6BE1219FA66000C33F11 /* OrganizationHeaderView.swift in Sources */,
@@ -2833,6 +2850,7 @@
 				6B859EFD21B6771D009FB70A /* MineBankFooterFilesOwner.swift in Sources */,
 				B838C6B822283E5300917741 /* SettingViewModel.swift in Sources */,
 				B87F8F6B21A241AC00DE9DC1 /* MineInfoViewModel.swift in Sources */,
+				B862DBBE22341E0200C535AE /* STBindPayAccountViewController.swift in Sources */,
 				B87A94DC21A82073003E2D21 /* ActivityBrefTableView.swift in Sources */,
 				B85F333C219E940D00023958 /* UIKit+Extension.swift in Sources */,
 				B8FBFA5A21A3DD9600AECB75 /* CommentTextView.swift in Sources */,
@@ -2957,6 +2975,7 @@
 				B85F337B219EA0E700023958 /* HomeOrganizationTableView.swift in Sources */,
 				B87A94EF21A8381D003E2D21 /* TeachersCell.swift in Sources */,
 				B852F13921BD6738002A5887 /* VideoCoverChoseViewModel.swift in Sources */,
+				B862DBC62234233D00C535AE /* STBalanceToFundsViewController.swift in Sources */,
 				C41D24FE222FA60F00DC3D83 /* ZQPhotoPreviewVC.m in Sources */,
 				B8BB6A572230339E0001AB5D /* MineNeedPayOrderCell.swift in Sources */,
 				B803C3CF21BD7651004C97DB /* STPublishChoseOrganizationViewController.swift in Sources */,
@@ -3016,6 +3035,7 @@
 				B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */,
 				B80B6BFD219FEE1100C33F11 /* VideoCell.swift in Sources */,
 				C45AAE5521B6A15200692D7D /* UserVideosCell.swift in Sources */,
+				B862DBC022341E8000C535AE /* BindPayAccountViewModel.swift in Sources */,
 				B85DC0002221DE88000D3977 /* ApplyForBackAlertView.swift in Sources */,
 				B82F45BD21A97B70009DC25C /* MedieView.swift in Sources */,
 				B81E909F21A3A474000754E3 /* EaseMobHelper.swift in Sources */,
