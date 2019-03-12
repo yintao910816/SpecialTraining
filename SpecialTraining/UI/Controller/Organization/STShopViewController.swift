@@ -102,9 +102,9 @@ class STShopViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        viewModel.teachersDatasource.asDriver()
-            .drive(teacherCol.datasource)
-            .disposed(by: disposeBag)
+//        viewModel.teachersDatasource.asDriver()
+//            .drive(teacherCol.datasource)
+//            .disposed(by: disposeBag)
     }
     
     override func prepare(parameters: [String : Any]?) {

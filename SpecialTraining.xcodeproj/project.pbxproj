@@ -335,6 +335,8 @@
 		B8BD92D721E64C200089495F /* DB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD92D221E64C200089495F /* DB.swift */; };
 		B8BD92D821E64C200089495F /* DBCtrl.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD92D321E64C200089495F /* DBCtrl.swift */; };
 		B8BD92D921E64C200089495F /* DB+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD92D421E64C200089495F /* DB+Extension.swift */; };
+		B8BFC53C2238203700E153AB /* AgnDetailHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BFC53B2238203700E153AB /* AgnDetailHomeView.swift */; };
+		B8BFC53E2238205E00E153AB /* AgnDetailHomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8BFC53D2238205D00E153AB /* AgnDetailHomeView.xib */; };
 		B8F117C62232E827008B63B8 /* STMineAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F117C52232E826008B63B8 /* STMineAccountViewController.swift */; };
 		B8F117C82232E846008B63B8 /* STMineAccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F117C72232E846008B63B8 /* STMineAccountDetailViewController.swift */; };
 		B8F117CA2232EDED008B63B8 /* STMineBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F117C92232EDED008B63B8 /* STMineBalanceViewController.swift */; };
@@ -839,6 +841,8 @@
 		B8BD92D221E64C200089495F /* DB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DB.swift; sourceTree = "<group>"; };
 		B8BD92D321E64C200089495F /* DBCtrl.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DBCtrl.swift; sourceTree = "<group>"; };
 		B8BD92D421E64C200089495F /* DB+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DB+Extension.swift"; sourceTree = "<group>"; };
+		B8BFC53B2238203700E153AB /* AgnDetailHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgnDetailHomeView.swift; sourceTree = "<group>"; };
+		B8BFC53D2238205D00E153AB /* AgnDetailHomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgnDetailHomeView.xib; sourceTree = "<group>"; };
 		B8F117C52232E826008B63B8 /* STMineAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineAccountViewController.swift; sourceTree = "<group>"; };
 		B8F117C72232E846008B63B8 /* STMineAccountDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineAccountDetailViewController.swift; sourceTree = "<group>"; };
 		B8F117C92232EDED008B63B8 /* STMineBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineBalanceViewController.swift; sourceTree = "<group>"; };
@@ -1806,6 +1810,8 @@
 				B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */,
 				B87A94DB21A82073003E2D21 /* ActivityBrefTableView.swift */,
 				B87A94DD21A82099003E2D21 /* TeachersCollectionVIew.swift */,
+				B8BFC53B2238203700E153AB /* AgnDetailHomeView.swift */,
+				B8BFC53D2238205D00E153AB /* AgnDetailHomeView.xib */,
 			);
 			path = Organization;
 			sourceTree = "<group>";
@@ -2537,6 +2543,7 @@
 				B80B6BFE219FEE1100C33F11 /* VideoCell.xib in Resources */,
 				C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */,
 				6BF7B95321BA693700BE1E4A /* MineHeaderCollectionCell.xib in Resources */,
+				B8BFC53E2238205E00E153AB /* AgnDetailHomeView.xib in Resources */,
 				B8F117D62232F486008B63B8 /* WithdrawHeaderView.xib in Resources */,
 				B87A94F021A8381D003E2D21 /* TeachersCell.xib in Resources */,
 				B8FBFA5521A3DD9600AECB75 /* hatea_thumb.png in Resources */,
@@ -3071,6 +3078,7 @@
 				B8F117C82232E846008B63B8 /* STMineAccountDetailViewController.swift in Sources */,
 				B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */,
 				B86D68BB21C40630001A0B75 /* SplendidnessContentTableView.swift in Sources */,
+				B8BFC53C2238203700E153AB /* AgnDetailHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

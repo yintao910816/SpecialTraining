@@ -11,14 +11,16 @@ import RxSwift
 
 class OrganizationViewModel: BaseViewModel {
     
-    // 实体店数据
-    var physicalStoreDatasource = Variable([PhysicalStoreModel]())
-    // 活动介绍数据
-    var activityBrefDatasource = Variable([ActivityBrefModel]())
-    // 推荐课程
-    var recommendCourseDatasource = Variable([RecommendCourseModel]())
-    // 老师风采
-    var teachersDatasource = Variable([TeachersModel]())
+    // 广告
+    var advListDatasource = Variable(AgencyDetailAdvListModel())
+    // 机构首页信息
+    var agnInfoDatasource = Variable(AgnDetailInfoModel())
+    // 课程
+    var courseListDatasource = Variable([AgnDetailCourseListModel]())
+    // 店铺信息
+    var shopListDatasource = Variable([AgnDetailShopListModel]())
+    //
+    var teachersDatasource = Variable([AgnDetailTeacherModel]())
         
     var agnId: String!
 
@@ -27,51 +29,85 @@ class OrganizationViewModel: BaseViewModel {
         
         self.agnId = agnId
         
-        loadDatas()
+        reloadSubject.subscribe(onNext: { [weak self] _ in
+            self?.loadDatas()
+        })
+            .disposed(by: disposeBag)
+    }
+    
+    func getAdvData(selectedIdx: Int) ->[AgencyDetailAdvModel] {
+        switch selectedIdx {
+        case 0:
+            return advListDatasource.value.AI
+        case 1:
+            return advListDatasource.value.AC
+        case 2:
+            return advListDatasource.value.AT
+        case 3:
+            return advListDatasource.value.AS
+        default:
+            return [AgencyDetailAdvModel]()
+        }
     }
     
     private func loadDatas() {
 
         hud.noticeLoading()
-        Observable.zip(physicalStore(), activityBref(), recommendCourse(), teachers(), resultSelector:  { ($0, $1, $2, $3) })
-            .subscribe(onNext: { [weak self] (physicalStoreModels, activityBrefModels, recommendCourseModels, teachersModels) in
-                self?.physicalStoreDatasource.value = physicalStoreModels
-                self?.activityBrefDatasource.value = activityBrefModels
-                self?.recommendCourseDatasource.value = recommendCourseModels
-                self?.teachersDatasource.value = teachersModels
+        Observable.zip(agnDetailRequest(), agnTeachersRequest(), resultSelector:  { ($0, $1) })
+            .subscribe(onNext: { [weak self] data in
+                self?.advListDatasource.value = data.0.advList
+                self?.agnInfoDatasource.value = data.0.agn_info
+                self?.courseListDatasource.value = data.0.courseList
+                
+                self?.teachersDatasource.value = data.1
+                
                 self?.hud.noticeHidden()
             })
             .disposed(by: disposeBag)
 
     }
     
-    private func physicalStore() ->Observable<[PhysicalStoreModel]> {
-        return STProvider.request(.agnShops(agn_id: agnId))
-            .map(model: PhysicalStoreModel.self)
-            .map { [$0] }
+    private func agnDetailRequest() ->Observable<AgencyDetailModel>{
+        return STProvider.request(.agencyDetail(id: agnId))
+            .map(model: AgencyDetailModel.self)
             .asObservable()
-            .catchErrorJustReturn([PhysicalStoreModel]())
+            .catchErrorJustReturn(AgencyDetailModel())
     }
     
-    private func activityBref() ->Observable<[ActivityBrefModel]> {
-        return STProvider.request(.agnActivity(agn_id: agnId))
-            .map(models: ActivityBrefModel.self)
+    private func agnTeachersRequest() ->Observable<[AgnDetailTeacherModel]>{
+        return STProvider.request(.agnTeachers(agnId: agnId))
+            .map(models: AgnDetailTeacherModel.self)
             .asObservable()
-            .catchErrorJustReturn([ActivityBrefModel]())
-    }
-
-    private func recommendCourse() ->Observable<[RecommendCourseModel]> {
-        return STProvider.request(.agnCourse(agn_id: agnId))
-            .map(models: RecommendCourseModel.self)
-            .asObservable()
-            .catchErrorJustReturn([RecommendCourseModel]())
+            .catchErrorJustReturn([AgnDetailTeacherModel]())
     }
     
-    private func teachers() ->Observable<[TeachersModel]> {
-        return STProvider.request(.agnTeachers(agn_id: agnId))
-            .map(models: TeachersModel.self)
-            .asObservable()
-            .catchErrorJustReturn([TeachersModel]())
-    }
+//    private func physicalStore() ->Observable<[PhysicalStoreModel]> {
+//        return STProvider.request(.agnShops(agn_id: agnId))
+//            .map(model: PhysicalStoreModel.self)
+//            .map { [$0] }
+//            .asObservable()
+//            .catchErrorJustReturn([PhysicalStoreModel]())
+//    }
+//
+//    private func activityBref() ->Observable<[ActivityBrefModel]> {
+//        return STProvider.request(.agnActivity(agn_id: agnId))
+//            .map(models: ActivityBrefModel.self)
+//            .asObservable()
+//            .catchErrorJustReturn([ActivityBrefModel]())
+//    }
+//
+//    private func recommendCourse() ->Observable<[RecommendCourseModel]> {
+//        return STProvider.request(.agnCourse(agn_id: agnId))
+//            .map(models: RecommendCourseModel.self)
+//            .asObservable()
+//            .catchErrorJustReturn([RecommendCourseModel]())
+//    }
+//
+//    private func teachers() ->Observable<[TeachersModel]> {
+//        return STProvider.request(.agnTeachers(agn_id: agnId))
+//            .map(models: TeachersModel.self)
+//            .asObservable()
+//            .catchErrorJustReturn([TeachersModel]())
+//    }
 
 }

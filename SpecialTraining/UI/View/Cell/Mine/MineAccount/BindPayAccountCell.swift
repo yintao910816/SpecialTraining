@@ -18,10 +18,10 @@ class BindPayAccountCell: UITableViewCell {
         // Initialization code
     }
 
-    var model: MineEditPayAccountModel! {
+    var model: AgnDetailTeacherModel! {
         didSet {
-            iconOutlet.image = model.icon
-            titleOutlet.text = model.title
+            iconOutlet.setImage(model.pic)
+            titleOutlet.text = model.teacher_name
         }
     }
 }

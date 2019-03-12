@@ -27,7 +27,7 @@ class STBindPayAccountViewController: BaseViewController {
         
         viewModel.datasource.asDriver()
             .drive(tableView.rx.items(cellIdentifier: "BindPayAccountCellID", cellType: BindPayAccountCell.self)) { _, model, cell in
-                cell.model = model
+//                cell.model = model
             }
             .disposed(by: disposeBag)
     }

@@ -56,6 +56,11 @@ enum API{
     // 店铺 - 老师风采
     case shopTeachers(shop_id: String)
     
+    
+    // 机构详情
+    case agencyDetail(id: String)
+    /// 师资
+    case agnTeachers(agnId: String)
     //MARK:
     //MARK: 购物车
 
@@ -125,6 +130,11 @@ extension API: TargetType{
             return "v1/agency/agnActivity"
         case .agnTeachers(_):
             return "v1/agency/agnTeachers"
+        
+        case .agencyDetail(_):
+            return "v1/agency/read"
+        case .agnTeachers(_):
+            return "agency/agnTeachers"
             
         case .shopCourse(_):
             return "v1/shop/shopCourse"
@@ -240,6 +250,11 @@ extension API {
             params["agn_id"] = agn_id
         case .agnTeachers(let agn_id):
             params["agn_id"] = agn_id
+            
+        case .agencyDetail(let id):
+            params["id"] = id
+        case .agnTeachers(let agnId):
+            params["agn_id"] = agnId
 
         case .shopCourse(let shop_id):
             params["shop_id"] = shop_id
