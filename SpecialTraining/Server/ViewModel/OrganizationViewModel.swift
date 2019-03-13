@@ -58,7 +58,7 @@ class OrganizationViewModel: BaseViewModel {
                 self?.advListDatasource.value = data.0.advList
                 self?.agnInfoDatasource.value = data.0.agn_info
                 self?.courseListDatasource.value = data.0.courseList
-                
+                self?.shopListDatasource.value = data.0.shopList
                 self?.teachersDatasource.value = data.1
                 
                 self?.hud.noticeHidden()

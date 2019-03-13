@@ -130,7 +130,7 @@ class AgencyDetailModel: HJModel {
     var advList: AgencyDetailAdvListModel = AgencyDetailAdvListModel()
     var agn_info: AgnDetailInfoModel = AgnDetailInfoModel()
     var courseList: [AgnDetailCourseListModel] = []
-    var shopList: AgnDetailShopListModel = AgnDetailShopListModel()
+    var shopList: [AgnDetailShopListModel] = []
 }
 
 class AgencyDetailAdvListModel: HJModel {

@@ -7,8 +7,13 @@
 //
 
 import UIKit
+import RxSwift
+import RxDataSources
 
 class RecommendCourseTableView: BaseTB {
+    
+    let datasource = Variable([AgnDetailCourseListModel]())
+    private let disposeBag = DisposeBag()
 
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -23,10 +28,18 @@ class RecommendCourseTableView: BaseTB {
     
     private func setupUI() {
         showsVerticalScrollIndicator = false
+        
+        rowHeight = 160
+        register(UINib.init(nibName: "OrganizationDetailCourseCell", bundle: Bundle.main),
+                 forCellReuseIdentifier: "OrganizationDetailCourseCellID")
     }
     
     private func rxBind() {
-        
+        datasource.asDriver()
+            .drive(rx.items(cellIdentifier: "OrganizationDetailCourseCellID", cellType: OrganizationDetailCourseCell.self)) { _, model, cell in
+                cell.model = model
+            }
+            .disposed(by: disposeBag)
     }
 
 }

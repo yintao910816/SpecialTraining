@@ -20,6 +20,7 @@ class STOrganizationViewController: BaseViewController {
     @IBOutlet weak var shopOutlet: UIButton!
     @IBOutlet weak var carouseOutlet: CarouselView!
     @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var navLogoOutlet: UIButton!
     
     private var physicalStoreTB: PhysicalStoreTableView!
     private var activityBrefTB: ActivityBrefTableView!
@@ -90,31 +91,19 @@ class STOrganizationViewController: BaseViewController {
         scrollOutlet.contentSize = .init(width: PPScreenW * 4, height: scrollOutlet.height)
         
         homeView = AgnDetailHomeView.init()
-        scrollOutlet.addSubview(homeView)
-        
-//        physicalStoreTB = PhysicalStoreTableView()
-//        physicalStoreTB.rowHeight = PhysicalStoreModel.cellHeight
-//        scrollOutlet.addSubview(physicalStoreTB)
-//
-//        recommendCourseTB = RecommendCourseTableView()
-//        recommendCourseTB.rowHeight = RecommendCourseModel.cellHeight
-//        scrollOutlet.addSubview(recommendCourseTB)
-//
-//        activityBrefTB = ActivityBrefTableView()
-//        activityBrefTB.rowHeight = ActivityBrefModel.cellHeight
-//        scrollOutlet.addSubview(activityBrefTB)
-//
+        physicalStoreTB = PhysicalStoreTableView()
+        recommendCourseTB = RecommendCourseTableView()
         teacherCol = TeachersCollectionVIew()
+        
+        scrollOutlet.addSubview(homeView)
         scrollOutlet.addSubview(teacherCol)
-//
-//        physicalStoreTB.register(UINib.init(nibName: "PhysicalStoreCell", bundle: Bundle.main), forCellReuseIdentifier: "PhysicalStoreCellID")
-//        activityBrefTB.register(UINib.init(nibName: "ActivityBrefCell", bundle: Bundle.main), forCellReuseIdentifier: "ActivityBrefCellID")
-//        recommendCourseTB.register(UINib.init(nibName: "RecommendCourseCell", bundle: Bundle.main), forCellReuseIdentifier: "RecommendCourseCellID")
+        scrollOutlet.addSubview(physicalStoreTB)
+        scrollOutlet.addSubview(recommendCourseTB)
     }
     
     override func rxBind() {
         viewModel = OrganizationViewModel.init(agnId: agnId)
-        
+                
         viewModel.advListDatasource.asDriver()
             .drive(onNext: { [weak self] _ in
                 guard let strongSelf = self else { return }
@@ -123,6 +112,7 @@ class STOrganizationViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         viewModel.agnInfoDatasource.asDriver()
+            .do(onNext: { [weak self] model in self?.navLogoOutlet.setImage(model.logo) })
             .drive(homeView.datasource)
             .disposed(by: disposeBag)
         
@@ -130,37 +120,23 @@ class STOrganizationViewController: BaseViewController {
             .drive(teacherCol.datasource)
             .disposed(by: disposeBag)
         
+        viewModel.courseListDatasource.asDriver()
+            .drive(recommendCourseTB.datasource)
+            .disposed(by: disposeBag)
+        
+        viewModel.shopListDatasource.asDriver()
+            .drive(physicalStoreTB.datasource)
+            .disposed(by: disposeBag)
+
         viewModel.reloadSubject.onNext(Void())
-//        viewModel.physicalStoreDatasource.asDriver()
-//            .drive(physicalStoreTB.rx.items(cellIdentifier: "PhysicalStoreCellID", cellType: PhysicalStoreCell.self)) { (_, model, cell) in
-//                cell.model = model
-//                cell.tapShop = { [unowned self] shopId in
-//                    self.performSegue(withIdentifier: "shopInfoSegue", sender: shopId)
-//                }
-//            }
-//            .disposed(by: disposeBag)
-//
-//        viewModel.activityBrefDatasource.asDriver()
-//            .drive(activityBrefTB.rx.items(cellIdentifier: "ActivityBrefCellID", cellType: ActivityBrefCell.self)) { (_, model, cell) in
-//                cell.model = model
-//            }
-//            .disposed(by: disposeBag)
-//
-//        viewModel.recommendCourseDatasource.asDriver()
-//            .drive(recommendCourseTB.rx.items(cellIdentifier: "RecommendCourseCellID", cellType: RecommendCourseCell.self)) { (_, model, cell) in
-//                cell.model = model
-//            }
-//            .disposed(by: disposeBag)
-//
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
         homeView.frame = .init(x: 0, y: 0, width: scrollOutlet.width, height: 300)
-//        physicalStoreTB.frame = .init(x: 0, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
-//        recommendCourseTB.frame = .init(x: scrollOutlet.width, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
-//        activityBrefTB.frame = .init(x: scrollOutlet.width * 2, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
+        recommendCourseTB.frame = .init(x: scrollOutlet.width, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
         teacherCol.frame = .init(x: scrollOutlet.width * 2, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
+        physicalStoreTB.frame = .init(x: scrollOutlet.width * 3, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
     }
     
     override func prepare(parameters: [String : Any]?) {
