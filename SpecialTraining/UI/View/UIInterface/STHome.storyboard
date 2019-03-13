@@ -592,9 +592,10 @@
                                             <action selector="backAction:" destination="vnb-9R-D3W" eventType="touchUpInside" id="a2d-h8-tZz"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqY-oa-8Ek">
-                                        <rect key="frame" x="69" y="27" width="30" height="30"/>
+                                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tqY-oa-8Ek">
+                                        <rect key="frame" x="69" y="27" width="100" height="30"/>
                                         <constraints>
+                                            <constraint firstAttribute="width" constant="100" id="lUv-we-BSh"/>
                                             <constraint firstAttribute="height" constant="30" id="xAt-iI-Pdt"/>
                                         </constraints>
                                         <connections>
