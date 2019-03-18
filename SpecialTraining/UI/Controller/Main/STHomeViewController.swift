@@ -185,9 +185,7 @@ class STHomeViewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "organizationSegue" {
-            let ctrl = segue.destination as! STOrganizationViewController
-//            ctrl.prepare(parameters: ["agn_id": sender as! String])
-            ctrl.prepare(parameters: ["agn_id": "1"])
+            segue.destination.prepare(parameters: ["agn_id": "1"])
         }else if segue.identifier == "courseSegue" {
             let ctrl = segue.destination
             ctrl.prepare(parameters: ["agn_id": "1"])

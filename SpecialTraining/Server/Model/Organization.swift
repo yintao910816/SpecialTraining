@@ -8,20 +8,6 @@
 
 import Foundation
 
-//MARK:
-//MARK: 实体店
-class PhysicalStoreModel: HJModel {
-    
-    var agn_id: String = ""
-    var agn_name: String = ""
-    var logo: String = ""
-    var introduce: String = ""
-    var label: String = ""
-
-    var shops = [ShopModel]()
-
-    static var cellHeight: CGFloat = 184.0
-}
 
 //MARK:
 //MARK: 活动介绍

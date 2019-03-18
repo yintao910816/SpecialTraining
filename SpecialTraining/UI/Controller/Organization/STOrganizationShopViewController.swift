@@ -13,10 +13,15 @@ class STOrganizationShopViewController: BaseViewController {
     @IBOutlet weak var navheightCns: NSLayoutConstraint!
     @IBOutlet weak var tableView: PhysicalStoreTableView!
     @IBOutlet weak var carouseView: CarouselView!
+    @IBOutlet weak var logoOutlet: UIButton!
     
     private var agnId: String = ""
     
     var viewModel: OrganizationShopViewModel!
+   
+    @IBAction func actions(_ sender: UIButton) {
+        navigationController?.popViewController(animated: true)
+    }
     
     override func viewWillAppear(_ animated: Bool) {        
         navigationController?.setNavigationBarHidden(true, animated: animated)
@@ -45,10 +50,23 @@ class STOrganizationShopViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        tableView.rx.modelSelected(OrganazitonShopModel.self)
+            .asDriver()
+            .drive(onNext: { [weak self] model in
+                self?.performSegue(withIdentifier: "shopCourseSegue", sender: model.shop_id)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.reloadSubject.onNext(Void())
     }
     
     override func prepare(parameters: [String : Any]?) {
         agnId = parameters!["agn_id"] as! String
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "shopCourseSegue" {
+            segue.destination.prepare(parameters: ["shop_id": sender as! String])
+        }
     }
 }

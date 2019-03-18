@@ -30,15 +30,15 @@
                         <color key="textColor" red="0.50196078431372548" green="0.50196078431372548" blue="0.50196078431372548" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <imageView userInteractionEnabled="NO" tag="100" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HjA-kc-LVr">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="100" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="HjA-kc-LVr">
                         <rect key="frame" x="15" y="45" width="80" height="60"/>
                         <color key="backgroundColor" red="0.99607843137254903" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="deviceRGB"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" tag="101" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PcH-Th-Rvl">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="101" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="PcH-Th-Rvl">
                         <rect key="frame" x="102" y="45" width="80" height="60"/>
                         <color key="backgroundColor" red="0.99607843137254903" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="deviceRGB"/>
                     </imageView>
-                    <imageView userInteractionEnabled="NO" tag="102" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0b3-uS-mNG">
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" tag="102" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="0b3-uS-mNG">
                         <rect key="frame" x="189" y="45" width="80" height="60"/>
                         <color key="backgroundColor" red="0.99607843137254903" green="0.89411764705882346" blue="0.89411764705882346" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>

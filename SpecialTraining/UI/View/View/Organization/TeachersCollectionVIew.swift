@@ -14,7 +14,7 @@ class TeachersCollectionVIew: UICollectionView {
     
     lazy var disposeBag: DisposeBag = { return DisposeBag() }()
 
-    let datasource = Variable([AgnDetailTeacherModel]())
+    let datasource = Variable([ShopTeacherModel]())
 
     private let layout = VideoFlowLayout()
     

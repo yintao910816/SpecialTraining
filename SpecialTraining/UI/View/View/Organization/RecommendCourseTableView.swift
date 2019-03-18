@@ -12,7 +12,7 @@ import RxDataSources
 
 class RecommendCourseTableView: BaseTB {
     
-    let datasource = Variable([AgnDetailCourseListModel]())
+    let datasource = Variable([ShopCourseModel]())
     private let disposeBag = DisposeBag()
 
     override init(frame: CGRect, style: UITableView.Style) {

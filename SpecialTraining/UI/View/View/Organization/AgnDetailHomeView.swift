@@ -16,7 +16,7 @@ class AgnDetailHomeView: UIView {
 
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable(AgnDetailInfoModel())
+    let datasource = Variable(OrganazitionShopModel())
     let contentHeightObser = Variable(CGFloat(0))
     
     override init(frame: CGRect) {

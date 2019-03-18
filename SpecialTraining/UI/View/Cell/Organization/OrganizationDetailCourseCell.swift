@@ -30,7 +30,7 @@ class OrganizationDetailCourseCell: UITableViewCell {
         classTimeOutlet.layer.borderWidth  = 1
     }
 
-    var model: AgnDetailCourseListModel! {
+    var model: ShopCourseModel! {
         didSet {
             coverOutlet.setImage(model.pic)
             titleOutlet.text = model.title

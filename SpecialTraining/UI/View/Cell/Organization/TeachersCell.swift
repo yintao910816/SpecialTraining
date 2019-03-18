@@ -23,7 +23,7 @@ class TeachersCell: UICollectionViewCell {
         // Initialization code
     }
     
-    var model: AgnDetailTeacherModel! {
+    var model: ShopTeacherModel! {
         didSet {
             coverOutlet.setImage(model.pic)
             nameOutlet.text = model.teacher_name

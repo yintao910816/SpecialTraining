@@ -30,13 +30,16 @@ class OrganizationShopViewModel: BaseViewModel {
     }
     
     private func requestShopData() {
+        hud.noticeLoading()
+        
         STProvider.request(.agnShop(id: agnId))
             .map(model: OrganzationModel.self)
             .subscribe(onSuccess: { [weak self] data in
                 self?.datasource.value = data.shopList
                 self?.advDatasource.value = data.advList
-            }) { error in
-                
+                self?.hud.noticeHidden()
+            }) { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
             }
             .disposed(by: disposeBag)
     }

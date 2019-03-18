@@ -250,6 +250,8 @@
 		B86D68C121C40897001A0B75 /* CourseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */; };
 		B873B3EC223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */; };
 		B873B3F0223CCEB700D3C6B1 /* OrganizationShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */; };
+		B873B3F22240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3F12240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift */; };
+		B873B3F4224008A400D3C6B1 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3F3224008A400D3C6B1 /* Shop.swift */; };
 		B87800AE21C7E1EB00EDCE72 /* CourseTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800AD21C7E1EB00EDCE72 /* CourseTimeTableView.swift */; };
 		B87800B121C7E23100EDCE72 /* CourseTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800AF21C7E23100EDCE72 /* CourseTimeCell.swift */; };
 		B87800B221C7E23100EDCE72 /* CourseTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87800B021C7E23100EDCE72 /* CourseTimeCell.xib */; };
@@ -260,13 +262,10 @@
 		B87800BC21C7E7EA00EDCE72 /* CourseAudioTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800BB21C7E7EA00EDCE72 /* CourseAudioTableView.swift */; };
 		B87800BE21C7E7F800EDCE72 /* CourseSchoolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */; };
 		B879A064221B1D6200E573C9 /* Int+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B879A063221B1D6200E573C9 /* Int+Extention.swift */; };
-		B87A94D321A81F46003E2D21 /* STOrganizationViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */; };
 		B87A94D821A81FE1003E2D21 /* PhysicalStoreTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D721A81FE1003E2D21 /* PhysicalStoreTableView.swift */; };
 		B87A94DA21A82052003E2D21 /* RecommendCourseTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */; };
 		B87A94DC21A82073003E2D21 /* ActivityBrefTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94DB21A82073003E2D21 /* ActivityBrefTableView.swift */; };
 		B87A94DE21A82099003E2D21 /* TeachersCollectionVIew.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94DD21A82099003E2D21 /* TeachersCollectionVIew.swift */; };
-		B87A94E121A820F4003E2D21 /* PhysicalStoreCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94DF21A820F4003E2D21 /* PhysicalStoreCell.swift */; };
-		B87A94E221A820F4003E2D21 /* PhysicalStoreCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87A94E021A820F4003E2D21 /* PhysicalStoreCell.xib */; };
 		B87A94E421A826F2003E2D21 /* OrganizationViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94E321A826F2003E2D21 /* OrganizationViewModel.swift */; };
 		B87A94E721A82D9B003E2D21 /* ActivityBrefCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A94E521A82D9B003E2D21 /* ActivityBrefCell.swift */; };
 		B87A94E821A82D9B003E2D21 /* ActivityBrefCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87A94E621A82D9B003E2D21 /* ActivityBrefCell.xib */; };
@@ -761,6 +760,8 @@
 		B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewModel.swift; sourceTree = "<group>"; };
 		B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrganizationShopViewController.swift; sourceTree = "<group>"; };
 		B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShopViewModel.swift; sourceTree = "<group>"; };
+		B873B3F12240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STOrganazitonCourseDetailViewController.swift; sourceTree = "<group>"; };
+		B873B3F3224008A400D3C6B1 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		B87800AD21C7E1EB00EDCE72 /* CourseTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTimeTableView.swift; sourceTree = "<group>"; };
 		B87800AF21C7E23100EDCE72 /* CourseTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTimeCell.swift; sourceTree = "<group>"; };
 		B87800B021C7E23100EDCE72 /* CourseTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTimeCell.xib; sourceTree = "<group>"; };
@@ -771,13 +772,10 @@
 		B87800BB21C7E7EA00EDCE72 /* CourseAudioTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAudioTableView.swift; sourceTree = "<group>"; };
 		B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSchoolTableView.swift; sourceTree = "<group>"; };
 		B879A063221B1D6200E573C9 /* Int+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extention.swift"; sourceTree = "<group>"; };
-		B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STOrganizationViewController.swift; sourceTree = "<group>"; };
 		B87A94D721A81FE1003E2D21 /* PhysicalStoreTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalStoreTableView.swift; sourceTree = "<group>"; };
 		B87A94D921A82051003E2D21 /* RecommendCourseTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecommendCourseTableView.swift; sourceTree = "<group>"; };
 		B87A94DB21A82073003E2D21 /* ActivityBrefTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBrefTableView.swift; sourceTree = "<group>"; };
 		B87A94DD21A82099003E2D21 /* TeachersCollectionVIew.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeachersCollectionVIew.swift; sourceTree = "<group>"; };
-		B87A94DF21A820F4003E2D21 /* PhysicalStoreCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhysicalStoreCell.swift; sourceTree = "<group>"; };
-		B87A94E021A820F4003E2D21 /* PhysicalStoreCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PhysicalStoreCell.xib; sourceTree = "<group>"; };
 		B87A94E321A826F2003E2D21 /* OrganizationViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationViewModel.swift; sourceTree = "<group>"; };
 		B87A94E521A82D9B003E2D21 /* ActivityBrefCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ActivityBrefCell.swift; sourceTree = "<group>"; };
 		B87A94E621A82D9B003E2D21 /* ActivityBrefCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ActivityBrefCell.xib; sourceTree = "<group>"; };
@@ -1600,6 +1598,7 @@
 				B85F3370219E9DDC00023958 /* BaseCourse.swift */,
 				B85F33D5219EC05500023958 /* Home.swift */,
 				B85F33DC219F179400023958 /* Organization.swift */,
+				B873B3F3224008A400D3C6B1 /* Shop.swift */,
 				B80B6BF4219FC31E00C33F11 /* Shopping.swift */,
 				B80B6C10219FF4DF00C33F11 /* Video.swift */,
 				B8350AB921A112150020A6A6 /* Mine.swift */,
@@ -1771,8 +1770,6 @@
 			children = (
 				B85F33D8219F084000023958 /* OrganizationCell.swift */,
 				B85F33D9219F084000023958 /* OrganizationCell.xib */,
-				B87A94DF21A820F4003E2D21 /* PhysicalStoreCell.swift */,
-				B87A94E021A820F4003E2D21 /* PhysicalStoreCell.xib */,
 				B87A94E521A82D9B003E2D21 /* ActivityBrefCell.swift */,
 				B87A94E621A82D9B003E2D21 /* ActivityBrefCell.xib */,
 				B87A94E921A83208003E2D21 /* RecommendCourseCell.swift */,
@@ -1814,7 +1811,7 @@
 		B87A94D121A81F45003E2D21 /* Organization */ = {
 			isa = PBXGroup;
 			children = (
-				B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */,
+				B873B3F12240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift */,
 				C406108221D1FEEA00C28EBB /* STShopViewController.swift */,
 				B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */,
 			);
@@ -2527,7 +2524,6 @@
 				B85F33A6219EA3FE00023958 /* CourseDisplayMinuteCell.xib in Resources */,
 				B82722EC21E5CBE500147397 /* ShopingCarTitleReusableView.xib in Resources */,
 				B8FBFA2A21A3DD9600AECB75 /* cza_thumb.png in Resources */,
-				B87A94E221A820F4003E2D21 /* PhysicalStoreCell.xib in Resources */,
 				B8FBFA2321A3DD9600AECB75 /* shamea_thumb.png in Resources */,
 				B8FBFA5021A3DD9600AECB75 /* cj_thumb.png in Resources */,
 				B8FBFA1E21A3DD9600AECB75 /* EmjoToolBar.xib in Resources */,
@@ -2813,6 +2809,7 @@
 				B85F33D0219EBAB100023958 /* HandyJSON+MapModel.swift in Sources */,
 				B87800BE21C7E7F800EDCE72 /* CourseSchoolTableView.swift in Sources */,
 				B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */,
+				B873B3F4224008A400D3C6B1 /* Shop.swift in Sources */,
 				B8FC3AA8221706F300889483 /* TYFloatView.swift in Sources */,
 				C41D250A222FA60F00DC3D83 /* ZQAlbumCell.m in Sources */,
 				B82722FC21E6016500147397 /* CourseClassSelectedCell.swift in Sources */,
@@ -2931,6 +2928,7 @@
 				6B8A611521B4E10C00C0DFCD /* MineCourseViewModel.swift in Sources */,
 				C46D0C8521FAFF4700E94C9B /* MineNeedCourseView.swift in Sources */,
 				B85DC0042221E5CC000D3977 /* EditForBackAlertView.swift in Sources */,
+				B873B3F22240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift in Sources */,
 				B844477B21B81DF100808F5A /* STTreasureExchangeViewController.swift in Sources */,
 				B85F33D6219EC05500023958 /* Home.swift in Sources */,
 				6B8A612421B537A600C0DFCD /* MineChangeModel.swift in Sources */,
@@ -3031,7 +3029,6 @@
 				B87F8F8F21A29DCF00DE9DC1 /* AppNotifications.swift in Sources */,
 				B85F33C1219EB94100023958 /* BaseViewModel.swift in Sources */,
 				B85F33B0219EB07700023958 /* UIView+XIB.swift in Sources */,
-				B87A94E121A820F4003E2D21 /* PhysicalStoreCell.swift in Sources */,
 				B85DBFF62221D1A0000D3977 /* PayBackSuccessView.swift in Sources */,
 				C46D0C8321FADD7200E94C9B /* User.swift in Sources */,
 				B8BD92D921E64C200089495F /* DB+Extension.swift in Sources */,
@@ -3081,7 +3078,6 @@
 				B87A94E721A82D9B003E2D21 /* ActivityBrefCell.swift in Sources */,
 				6B8A611721B4E19900C0DFCD /* MineCourseModel.swift in Sources */,
 				B85DBFFA2221D5E2000D3977 /* WaitForDealView.swift in Sources */,
-				B87A94D321A81F46003E2D21 /* STOrganizationViewController.swift in Sources */,
 				B8350AB521A1112D0020A6A6 /* MineSectionCollectionReusableView.swift in Sources */,
 				B85F3364219E966400023958 /* STMessageViewController.swift in Sources */,
 				B8F117D02232F07C008B63B8 /* MineBalanceViewModel.swift in Sources */,

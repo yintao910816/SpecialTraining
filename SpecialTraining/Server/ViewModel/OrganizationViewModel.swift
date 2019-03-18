@@ -12,20 +12,20 @@ import RxSwift
 class OrganizationViewModel: BaseViewModel {
     
     // 广告
-    var advListDatasource = Variable(AgencyDetailAdvListModel())
+    var advListDatasource = Variable([AgencyDetailAdvModel]())
     // 机构首页信息
-    var agnInfoDatasource = Variable(AgnDetailInfoModel())
+    var agnInfoDatasource = Variable(OrganazitionShopModel())
     // 课程
-    var courseListDatasource = Variable([AgnDetailCourseListModel]())
+    var courseListDatasource = Variable([ShopCourseModel]())
     //
-    var teachersDatasource = Variable([AgnDetailTeacherModel]())
+    var teachersDatasource = Variable([ShopTeacherModel]())
         
-    var agnId: String!
+    var shopId: String!
 
-    init(agnId: String) {
+    init(shopId: String) {
         super.init()
         
-        self.agnId = agnId
+        self.shopId = shopId
         
         reloadSubject.subscribe(onNext: { [weak self] _ in
             self?.loadDatas()
@@ -33,48 +33,21 @@ class OrganizationViewModel: BaseViewModel {
             .disposed(by: disposeBag)
     }
     
-    func getAdvData(selectedIdx: Int) ->[AgencyDetailAdvModel] {
-        switch selectedIdx {
-        case 0:
-            return advListDatasource.value.AI
-        case 1:
-            return advListDatasource.value.AC
-        case 2:
-            return advListDatasource.value.AT
-        case 3:
-            return advListDatasource.value.AS
-        default:
-            return [AgencyDetailAdvModel]()
-        }
-    }
-    
     private func loadDatas() {
-
         hud.noticeLoading()
-        Observable.zip(agnDetailRequest(), agnTeachersRequest(), resultSelector:  { ($0, $1) })
-            .subscribe(onNext: { [weak self] data in
-                self?.advListDatasource.value = data.0.advList
-                self?.agnInfoDatasource.value = data.0.agn_info
-                self?.courseListDatasource.value = data.0.courseList
-                self?.teachersDatasource.value = data.1
-                
+        
+        STProvider.request(.shopRead(shopId: shopId))
+            .map(model: OrganazitionShopModel.self)
+            .subscribe(onSuccess: { [weak self] data in
                 self?.hud.noticeHidden()
-            })
-            .disposed(by: disposeBag)
 
-    }
-    
-    private func agnDetailRequest() ->Observable<AgencyDetailModel>{
-        return STProvider.request(.agencyDetail(id: agnId))
-            .map(model: AgencyDetailModel.self)
-            .asObservable()
-            .catchErrorJustReturn(AgencyDetailModel())
-    }
-    
-    private func agnTeachersRequest() ->Observable<[AgnDetailTeacherModel]>{
-        return STProvider.request(.agnTeachers(agnId: agnId))
-            .map(models: AgnDetailTeacherModel.self)
-            .asObservable()
-            .catchErrorJustReturn([AgnDetailTeacherModel]())
+                self?.advListDatasource.value = data.advList
+                self?.agnInfoDatasource.value = data
+                self?.courseListDatasource.value = data.course
+                self?.teachersDatasource.value = data.teachers
+            }) { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+            }
+            .disposed(by: disposeBag)
     }
 }

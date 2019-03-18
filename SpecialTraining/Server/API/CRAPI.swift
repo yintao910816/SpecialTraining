@@ -62,6 +62,8 @@ enum API{
     
     /// 机构店铺
     case agnShop(id: String)
+    /// 店铺二级界面
+    case shopRead(shopId: String)
     //MARK:
     //MARK: 购物车
 
@@ -124,6 +126,8 @@ extension API: TargetType{
             return "v1/agency/index"
         case .agnShop(_):
             return "v1/agency/read"
+        case .shopRead(_):
+            return "v1/shop/read"
             
         case .agnCourse(_):
             return "v1/agency/agnCourse"
@@ -251,6 +255,8 @@ extension API {
             params["id"] = id
             params["lat"] = userDefault.lat
             params["lng"] = userDefault.lng
+        case .shopRead(let shopId):
+            params["id"] = shopId
 
         case .agencyDetail(let id):
             params["id"] = id
