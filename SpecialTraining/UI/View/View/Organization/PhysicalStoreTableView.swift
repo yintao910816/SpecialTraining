@@ -12,12 +12,19 @@ import RxDataSources
 
 class PhysicalStoreTableView: BaseTB {
 
-    var datasource = Variable([AgnDetailShopListModel]())
+    var datasource = Variable([OrganazitonShopModel]())
     
     private let disposeBag = DisposeBag()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
+        
+        setupUI()
+        rxBind()
+    }
+    
+    override func awakeFromNib() {
+        super.awakeFromNib()
         
         setupUI()
         rxBind()

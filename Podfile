@@ -27,5 +27,6 @@ pod 'BaiduMapKit'
 pod 'BMKLocationKit'
 
 pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull'
+pod 'AliyunPlayer_iOS/AliyunPlayerSDK'
 
 end

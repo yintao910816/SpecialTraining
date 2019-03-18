@@ -17,12 +17,12 @@ class STOrganizationViewController: BaseViewController {
     @IBOutlet weak var homeOutlet: UIButton!
     @IBOutlet weak var courseOutlet: UIButton!
     @IBOutlet weak var teachersBrefOutlet: UIButton!
-    @IBOutlet weak var shopOutlet: UIButton!
+//    @IBOutlet weak var shopOutlet: UIButton!
     @IBOutlet weak var carouseOutlet: CarouselView!
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var navLogoOutlet: UIButton!
     
-    private var physicalStoreTB: PhysicalStoreTableView!
+//    private var physicalStoreTB: PhysicalStoreTableView!
     private var activityBrefTB: ActivityBrefTableView!
     private var recommendCourseTB: RecommendCourseTableView!
     private var teacherCol: TeachersCollectionVIew!
@@ -50,14 +50,11 @@ class STOrganizationViewController: BaseViewController {
         }else if sender == teachersBrefOutlet {
             setButtonState(selected: 2)
             carouseOutlet.setData(source: viewModel.getAdvData(selectedIdx: 2))
-        }else if sender == shopOutlet {
-            setButtonState(selected: 3)
-            carouseOutlet.setData(source: viewModel.getAdvData(selectedIdx: 3))
         }
     }
     
     private func setButtonState(selected idx: Int, _ needScroll: Bool = true) {
-        let btns = [homeOutlet, courseOutlet, teachersBrefOutlet, shopOutlet]
+        let btns = [homeOutlet, courseOutlet, teachersBrefOutlet]
         let titles = ["机构介绍", "开设课程", "最强师资", "所有分店"]
         titleOutlet.text = titles[idx]
         if idx != selectedIdx {
@@ -85,19 +82,25 @@ class STOrganizationViewController: BaseViewController {
     }
     
     override func setupUI() {
+        if #available(iOS 11, *) {
+            scrollOutlet.contentInsetAdjustmentBehavior = .never
+        }else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+
         topViewHeightCns.constant += LayoutSize.fitTopArea
         bottomHeightCns.constant += LayoutSize.bottomVirtualArea
         
         scrollOutlet.contentSize = .init(width: PPScreenW * 4, height: scrollOutlet.height)
         
         homeView = AgnDetailHomeView.init()
-        physicalStoreTB = PhysicalStoreTableView()
+//        physicalStoreTB = PhysicalStoreTableView()
         recommendCourseTB = RecommendCourseTableView()
         teacherCol = TeachersCollectionVIew()
         
         scrollOutlet.addSubview(homeView)
         scrollOutlet.addSubview(teacherCol)
-        scrollOutlet.addSubview(physicalStoreTB)
+//        scrollOutlet.addSubview(physicalStoreTB)
         scrollOutlet.addSubview(recommendCourseTB)
     }
     
@@ -124,9 +127,9 @@ class STOrganizationViewController: BaseViewController {
             .drive(recommendCourseTB.datasource)
             .disposed(by: disposeBag)
         
-        viewModel.shopListDatasource.asDriver()
-            .drive(physicalStoreTB.datasource)
-            .disposed(by: disposeBag)
+//        viewModel.shopListDatasource.asDriver()
+//            .drive(physicalStoreTB.datasource)
+//            .disposed(by: disposeBag)
 
         viewModel.reloadSubject.onNext(Void())
     }
@@ -136,7 +139,7 @@ class STOrganizationViewController: BaseViewController {
         homeView.frame = .init(x: 0, y: 0, width: scrollOutlet.width, height: 300)
         recommendCourseTB.frame = .init(x: scrollOutlet.width, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
         teacherCol.frame = .init(x: scrollOutlet.width * 2, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
-        physicalStoreTB.frame = .init(x: scrollOutlet.width * 3, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
+//        physicalStoreTB.frame = .init(x: scrollOutlet.width * 3, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
     }
     
     override func prepare(parameters: [String : Any]?) {

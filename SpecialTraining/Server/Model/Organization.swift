@@ -8,10 +8,6 @@
 
 import Foundation
 
-class OrganizationModel: HJModel {
-    
-}
-
 //MARK:
 //MARK: 实体店
 class PhysicalStoreModel: HJModel {
@@ -130,7 +126,6 @@ class AgencyDetailModel: HJModel {
     var advList: AgencyDetailAdvListModel = AgencyDetailAdvListModel()
     var agn_info: AgnDetailInfoModel = AgnDetailInfoModel()
     var courseList: [AgnDetailCourseListModel] = []
-    var shopList: [AgnDetailShopListModel] = []
 }
 
 class AgencyDetailAdvListModel: HJModel {
@@ -152,26 +147,6 @@ extension AgencyDetailAdvModel: CarouselSource {
     var url: String?{ return self.adv_image }
 }
 
-class AgnDetailInfoModel: HJModel {
-    var agn_id: String = ""
-    var agn_name: String = ""
-    var logo: String = ""
-    var top_pic: String = ""
-    var motto: String = ""
-    var introduce: String = ""
-    var content: String = ""
-    var label: String = ""
-    var mob: String = ""
-    var address: String = ""
-    var license_pic: String = ""
-    var idcard_a: String = ""
-    var idcard_b: String = ""
-    var reg_num: String = ""
-    var createtime: String = ""
-    var check_truth: String = ""
-    var status: Int = 1
-}
-
 class AgnDetailCourseListModel: HJModel {
     var course_id: String = ""
     var agn_id: String = ""
@@ -188,29 +163,6 @@ class AgnDetailCourseListModel: HJModel {
 }
 
 import HandyJSON
-class AgnDetailShopListModel: HJModel {
-    var shop_id: String = ""
-    var agn_id: String = ""
-    var shop_name: String = ""
-    var logo: String = ""
-    var agn_description: String = ""
-    var content: String = ""
-    var contact: String = ""
-    var label: String = ""
-    var tel: String = ""
-    var mob: String = ""
-    var address: String = ""
-    var lat: String = ""
-    var lng: String = ""
-    var createtime: String = ""
-    var check_truth: String = ""
-    var status: Int = 1
-    
-    override func mapping(mapper: HelpingMapper) {
-        mapper.specify(property: &agn_description, name: "description")
-    }
-}
-
 /// 机构详情师资
 class AgnDetailTeacherModel: HJModel {
     var teacher_id: String = ""
@@ -234,4 +186,67 @@ class AgnDetailTeacherModel: HJModel {
     lazy var cellHeight: CGFloat = {
         return imgShowHeight + TeachersCell.withoutImageHeight
     }()
+}
+
+
+/// 机构 ->所有店铺
+class OrganzationModel: HJModel {
+    var agn_info: AgnDetailInfoModel = AgnDetailInfoModel()
+    var advList: [AgencyDetailAdvModel] = [AgencyDetailAdvModel]()
+    var shopList: [OrganazitonShopModel] = [OrganazitonShopModel]()
+}
+
+class AgnDetailInfoModel: HJModel {
+    var agn_id: String = ""
+    var agn_name: String = ""
+    var logo: String = ""
+    var top_pic: String = ""
+    var motto: String = ""
+    var introduce: String = ""
+    var content: String = ""
+    var label: String = ""
+    var mob: String = ""
+    var address: String = ""
+    var license_pic: String = ""
+    var idcard_a: String = ""
+    var idcard_b: String = ""
+    var reg_num: String = ""
+    var createtime: String = ""
+    var check_truth: String = ""
+    var status: Int = 1
+}
+
+class OrganazitonShopModel: HJModel {
+    var shop_id: String = ""
+    var agn_id: String = ""
+    var shop_name: String = ""
+    var logo: String = ""
+    var agnShopDescription: String = ""
+    var content: String = ""
+    var contact: String = ""
+    var label: String = ""
+    var tel: String = ""
+    var mob: String = ""
+    var address: String = ""
+    var work_time: String = ""
+    var lat: String = ""
+    var lng: String = ""
+    var createtime: String = ""
+    var check_truth: String = ""
+    var status: String = ""
+    var dis: String = ""
+    
+    var picList: [OrganazitonPicModel] = [OrganazitonPicModel]()
+    
+    override func mapping(mapper: HelpingMapper) {
+        mapper.specify(property: &agnShopDescription, name: "description")
+    }
+}
+
+class OrganazitonPicModel: HJModel {
+    var id: String = ""
+    var shop_id: String = ""
+    var category_id: String = ""
+    var category_name: String = ""
+    var shop_pic: String = ""
 }

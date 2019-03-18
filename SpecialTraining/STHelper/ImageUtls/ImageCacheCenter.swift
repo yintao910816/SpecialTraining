@@ -31,7 +31,6 @@ class ImageCacheCenter { /** 图片缓存信息 */
                 return fullPath
             }
         default:
-            PrintLog("图片加载地址：\(fullPath)")
             return fullPath
         }
     }

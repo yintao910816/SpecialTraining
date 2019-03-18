@@ -248,6 +248,8 @@
 		B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */; };
 		B86D68BF21C406BC001A0B75 /* SplendidnessContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */; };
 		B86D68C121C40897001A0B75 /* CourseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */; };
+		B873B3EC223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */; };
+		B873B3F0223CCEB700D3C6B1 /* OrganizationShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */; };
 		B87800AE21C7E1EB00EDCE72 /* CourseTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800AD21C7E1EB00EDCE72 /* CourseTimeTableView.swift */; };
 		B87800B121C7E23100EDCE72 /* CourseTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800AF21C7E23100EDCE72 /* CourseTimeCell.swift */; };
 		B87800B221C7E23100EDCE72 /* CourseTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87800B021C7E23100EDCE72 /* CourseTimeCell.xib */; };
@@ -757,6 +759,8 @@
 		B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplendidnessContentCell.swift; sourceTree = "<group>"; };
 		B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplendidnessContentCell.xib; sourceTree = "<group>"; };
 		B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewModel.swift; sourceTree = "<group>"; };
+		B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrganizationShopViewController.swift; sourceTree = "<group>"; };
+		B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShopViewModel.swift; sourceTree = "<group>"; };
 		B87800AD21C7E1EB00EDCE72 /* CourseTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTimeTableView.swift; sourceTree = "<group>"; };
 		B87800AF21C7E23100EDCE72 /* CourseTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTimeCell.swift; sourceTree = "<group>"; };
 		B87800B021C7E23100EDCE72 /* CourseTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTimeCell.xib; sourceTree = "<group>"; };
@@ -1622,6 +1626,7 @@
 			children = (
 				B85F33BD219EB94000023958 /* Base */,
 				B85F33D3219EBB9B00023958 /* HomeViewModel.swift */,
+				B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */,
 				B87F09652224121100310445 /* SearchViewModel.swift */,
 				B80B6BF6219FC38300C33F11 /* ShoppingCartViewModel.swift */,
 				B80B6C12219FF5B800C33F11 /* VideoViewModel.swift */,
@@ -1811,6 +1816,7 @@
 			children = (
 				B87A94D221A81F45003E2D21 /* STOrganizationViewController.swift */,
 				C406108221D1FEEA00C28EBB /* STShopViewController.swift */,
+				B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */,
 			);
 			path = Organization;
 			sourceTree = "<group>";
@@ -2652,6 +2658,8 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-frameworks.sh",
 				"${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework",
+				"${PODS_ROOT}/AliyunPlayer_iOS/AliyunPlayerSDK.framework",
+				"${PODS_ROOT}/AliyunPlayer_iOS/AliThirdparty.framework",
 				"${BUILT_PRODUCTS_DIR}/Differentiator/Differentiator.framework",
 				"${BUILT_PRODUCTS_DIR}/HandyJSON/HandyJSON.framework",
 				"${PODS_ROOT}/Hyphenate/iOS_Pods_IMFullSDK_V3.5.2/Hyphenate.framework",
@@ -2672,6 +2680,8 @@
 			name = "[CP] Embed Pods Frameworks";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Alamofire.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliyunPlayerSDK.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/AliThirdparty.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Differentiator.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/HandyJSON.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Hyphenate.framework",
@@ -2702,12 +2712,14 @@
 			inputPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-SpecialTraining/Pods-SpecialTraining-resources.sh",
 				"${PODS_ROOT}/AlipaySDK-iOS/AlipaySDK.bundle",
+				"${PODS_ROOT}/AliyunPlayer_iOS/AliyunLanguageSource.bundle",
 				"${PODS_ROOT}/BaiduMapKit/BaiduMapKit/BaiduMapAPI_Map.framework/mapapi.bundle",
 				"${PODS_ROOT}/mob_sharesdk/ShareSDK/Support/Required/ShareSDK.bundle",
 			);
 			name = "[CP] Copy Pods Resources";
 			outputPaths = (
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AlipaySDK.bundle",
+				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/AliyunLanguageSource.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/mapapi.bundle",
 				"${TARGET_BUILD_DIR}/${UNLOCALIZED_RESOURCES_FOLDER_PATH}/ShareSDK.bundle",
 			);
@@ -2806,6 +2818,7 @@
 				B82722FC21E6016500147397 /* CourseClassSelectedCell.swift in Sources */,
 				B8FC3ADF2217219A00889483 /* TJPhotoManager.m in Sources */,
 				B85F3380219EA17100023958 /* CarouselDatasource.swift in Sources */,
+				B873B3F0223CCEB700D3C6B1 /* OrganizationShopViewModel.swift in Sources */,
 				C498BA7921B7B56500A29385 /* ImagePickerManager+Rx.swift in Sources */,
 				B80B6C09219FF0D900C33F11 /* String+Extends.swift in Sources */,
 				B87F8F6D21A241EA00DE9DC1 /* MineInfo.swift in Sources */,
@@ -2815,6 +2828,7 @@
 				B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */,
 				B85F3327219E902A00023958 /* BaseNavigationController.swift in Sources */,
 				B862DBC322341F9400C535AE /* BindPayAccountCell.swift in Sources */,
+				B873B3EC223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift in Sources */,
 				B83BA1FC21BC182900496AFE /* PressButton.swift in Sources */,
 				B8F117E12232F992008B63B8 /* MineAddPayAccountCell.swift in Sources */,
 				B80B6BE1219FA66000C33F11 /* OrganizationHeaderView.swift in Sources */,

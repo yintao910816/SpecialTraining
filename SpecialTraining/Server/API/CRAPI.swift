@@ -40,8 +40,6 @@ enum API{
     // 附近机构
     case agency(lat: CLLocationDegrees, lng: CLLocationDegrees, offset: Int)
     
-    // 实体店 http://api.youpeixunjiaoyu.com/v1/agency/agnShops?agn_id=1
-    case agnShops(agn_id: String)
     // 开设课程 http://api.youpeixunjiaoyu.com/v1/agency/agnCourse?agn_id=1
     case agnCourse(agn_id: String)
     // 推荐活动 http://api.youpeixunjiaoyu.com/v1/agency/agnActivity?agn_id=1
@@ -61,6 +59,9 @@ enum API{
     case agencyDetail(id: String)
     /// 师资
     case agnTeachers(agnId: String)
+    
+    /// 机构店铺
+    case agnShop(id: String)
     //MARK:
     //MARK: 购物车
 
@@ -120,10 +121,10 @@ extension API: TargetType{
         case .activityCourse(_):
             return "v1/index/activityCourse"
         case .agency(_, _, _):
-            return "v1/agency"
+            return "v1/agency/index"
+        case .agnShop(_):
+            return "v1/agency/read"
             
-        case .agnShops(_):
-            return "v1/agency/agnShops"
         case .agnCourse(_):
             return "v1/agency/agnCourse"
         case .agnActivity(_):
@@ -133,8 +134,6 @@ extension API: TargetType{
         
         case .agencyDetail(_):
             return "v1/agency/read"
-        case .agnTeachers(_):
-            return "agency/agnTeachers"
             
         case .shopCourse(_):
             return "v1/shop/shopCourse"
@@ -242,20 +241,19 @@ extension API {
             params["lng"] = userDefault.lng
             params["offset"] = offset
             
-        case .agnShops(let agn_id):
-            params["agn_id"] = agn_id
         case .agnCourse(let agn_id):
             params["agn_id"] = agn_id
         case .agnActivity(let agn_id):
             params["agn_id"] = agn_id
         case .agnTeachers(let agn_id):
             params["agn_id"] = agn_id
-            
+        case .agnShop(let id):
+            params["id"] = id
+            params["lat"] = userDefault.lat
+            params["lng"] = userDefault.lng
+
         case .agencyDetail(let id):
             params["id"] = id
-        case .agnTeachers(let agnId):
-            params["agn_id"] = agnId
-
         case .shopCourse(let shop_id):
             params["shop_id"] = shop_id
         case .shopActivity(let shop_id):

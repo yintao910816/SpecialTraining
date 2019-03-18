@@ -17,8 +17,6 @@ class OrganizationViewModel: BaseViewModel {
     var agnInfoDatasource = Variable(AgnDetailInfoModel())
     // 课程
     var courseListDatasource = Variable([AgnDetailCourseListModel]())
-    // 店铺信息
-    var shopListDatasource = Variable([AgnDetailShopListModel]())
     //
     var teachersDatasource = Variable([AgnDetailTeacherModel]())
         
@@ -58,7 +56,6 @@ class OrganizationViewModel: BaseViewModel {
                 self?.advListDatasource.value = data.0.advList
                 self?.agnInfoDatasource.value = data.0.agn_info
                 self?.courseListDatasource.value = data.0.courseList
-                self?.shopListDatasource.value = data.0.shopList
                 self?.teachersDatasource.value = data.1
                 
                 self?.hud.noticeHidden()
@@ -80,34 +77,4 @@ class OrganizationViewModel: BaseViewModel {
             .asObservable()
             .catchErrorJustReturn([AgnDetailTeacherModel]())
     }
-    
-//    private func physicalStore() ->Observable<[PhysicalStoreModel]> {
-//        return STProvider.request(.agnShops(agn_id: agnId))
-//            .map(model: PhysicalStoreModel.self)
-//            .map { [$0] }
-//            .asObservable()
-//            .catchErrorJustReturn([PhysicalStoreModel]())
-//    }
-//
-//    private func activityBref() ->Observable<[ActivityBrefModel]> {
-//        return STProvider.request(.agnActivity(agn_id: agnId))
-//            .map(models: ActivityBrefModel.self)
-//            .asObservable()
-//            .catchErrorJustReturn([ActivityBrefModel]())
-//    }
-//
-//    private func recommendCourse() ->Observable<[RecommendCourseModel]> {
-//        return STProvider.request(.agnCourse(agn_id: agnId))
-//            .map(models: RecommendCourseModel.self)
-//            .asObservable()
-//            .catchErrorJustReturn([RecommendCourseModel]())
-//    }
-//
-//    private func teachers() ->Observable<[TeachersModel]> {
-//        return STProvider.request(.agnTeachers(agn_id: agnId))
-//            .map(models: TeachersModel.self)
-//            .asObservable()
-//            .catchErrorJustReturn([TeachersModel]())
-//    }
-
 }
