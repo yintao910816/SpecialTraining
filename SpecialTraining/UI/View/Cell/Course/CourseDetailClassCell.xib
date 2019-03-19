@@ -18,48 +18,53 @@
                 <rect key="frame" x="0.0" y="0.0" width="286" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2LP-5q-Ln4">
-                        <rect key="frame" x="15" y="15" width="59.5" height="59.5"/>
-                        <constraints>
-                            <constraint firstAttribute="width" secondItem="2LP-5q-Ln4" secondAttribute="height" multiplier="1:1" id="MVs-d7-e3k"/>
-                        </constraints>
-                    </button>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hz-qA-amL">
-                        <rect key="frame" x="81.5" y="20" width="36" height="17"/>
+                        <rect key="frame" x="89.5" y="15" width="36" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.25490196078431371" green="0.65490196078431373" blue="0.91764705882352937" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh4-X7-3Ee">
-                        <rect key="frame" x="81.5" y="52.5" width="36" height="17"/>
+                        <rect key="frame" x="89.5" y="57.5" width="36" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.25490196079999999" green="0.65490196079999996" blue="0.91764705879999997" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I7-H2-zbO">
-                        <rect key="frame" x="250" y="20" width="36" height="17"/>
+                        <rect key="frame" x="250" y="15" width="36" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.25490196079999999" green="0.65490196079999996" blue="0.91764705879999997" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="XT7-Vw-EIp">
+                        <rect key="frame" x="15" y="10" width="69.5" height="69.5"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="XT7-Vw-EIp" secondAttribute="height" multiplier="1:1" id="1Y4-pa-s1p"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="35"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
                 </subviews>
                 <constraints>
-                    <constraint firstItem="2LP-5q-Ln4" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="6Ux-td-frd"/>
-                    <constraint firstItem="2hz-qA-amL" firstAttribute="leading" secondItem="2LP-5q-Ln4" secondAttribute="trailing" constant="7" id="Aj9-RW-Dy9"/>
-                    <constraint firstAttribute="bottom" secondItem="2LP-5q-Ln4" secondAttribute="bottom" constant="15" id="H29-Vx-Qrw"/>
-                    <constraint firstItem="jh4-X7-3Ee" firstAttribute="bottom" secondItem="2LP-5q-Ln4" secondAttribute="bottom" constant="-5" id="N4e-CK-22m"/>
-                    <constraint firstItem="2LP-5q-Ln4" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="15" id="RzY-SZ-xme"/>
-                    <constraint firstItem="jh4-X7-3Ee" firstAttribute="leading" secondItem="2hz-qA-amL" secondAttribute="leading" id="SiD-AD-k0p"/>
-                    <constraint firstItem="8I7-H2-zbO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2hz-qA-amL" secondAttribute="trailing" constant="5" id="T0w-Nd-gdi"/>
-                    <constraint firstItem="2hz-qA-amL" firstAttribute="centerY" secondItem="8I7-H2-zbO" secondAttribute="centerY" id="awN-Rk-Bhd"/>
-                    <constraint firstItem="8I7-H2-zbO" firstAttribute="top" secondItem="2LP-5q-Ln4" secondAttribute="top" constant="5" id="bXa-J1-vtQ"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jh4-X7-3Ee" secondAttribute="trailing" constant="5" id="cvW-mF-PDJ"/>
-                    <constraint firstAttribute="trailing" secondItem="8I7-H2-zbO" secondAttribute="trailing" id="ylN-PN-Z2M"/>
+                    <constraint firstAttribute="trailing" secondItem="8I7-H2-zbO" secondAttribute="trailing" id="0wb-VY-RMR"/>
+                    <constraint firstItem="2hz-qA-amL" firstAttribute="leading" secondItem="XT7-Vw-EIp" secondAttribute="trailing" constant="5" id="3dT-OR-0lx"/>
+                    <constraint firstItem="8I7-H2-zbO" firstAttribute="top" secondItem="XT7-Vw-EIp" secondAttribute="top" constant="5" id="AcG-Ob-0He"/>
+                    <constraint firstItem="jh4-X7-3Ee" firstAttribute="bottom" secondItem="XT7-Vw-EIp" secondAttribute="bottom" constant="-5" id="BtS-SJ-Bpa"/>
+                    <constraint firstAttribute="bottom" secondItem="XT7-Vw-EIp" secondAttribute="bottom" constant="10" id="JLV-yp-7DU"/>
+                    <constraint firstItem="8I7-H2-zbO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2hz-qA-amL" secondAttribute="trailing" constant="5" id="POA-Mk-nda"/>
+                    <constraint firstItem="2hz-qA-amL" firstAttribute="centerY" secondItem="8I7-H2-zbO" secondAttribute="centerY" id="ZD8-sw-9zx"/>
+                    <constraint firstItem="XT7-Vw-EIp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="bG6-xB-39Q"/>
+                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jh4-X7-3Ee" secondAttribute="trailing" constant="15" id="me1-rB-PG2"/>
+                    <constraint firstItem="XT7-Vw-EIp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="odR-un-SEG"/>
+                    <constraint firstItem="jh4-X7-3Ee" firstAttribute="leading" secondItem="2hz-qA-amL" secondAttribute="leading" id="rhb-n6-21t"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="classNameOutlet" destination="jh4-X7-3Ee" id="CkT-QP-ggh"/>
-                <outlet property="coverOutlet" destination="2LP-5q-Ln4" id="3Yd-j9-fDZ"/>
+                <outlet property="coverOutlet" destination="XT7-Vw-EIp" id="1hV-7o-cta"/>
                 <outlet property="teacherNameOutlet" destination="2hz-qA-amL" id="EJo-38-oZg"/>
                 <outlet property="timeOutlet" destination="8I7-H2-zbO" id="8J8-Ro-FLC"/>
             </connections>

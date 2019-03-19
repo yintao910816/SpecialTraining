@@ -11,7 +11,7 @@ import UIKit
 
 class CourseDetailClassCell: UITableViewCell {
 
-    @IBOutlet weak var coverOutlet: UIButton!
+    @IBOutlet weak var coverOutlet: UIImageView!
     @IBOutlet weak var teacherNameOutlet: UILabel!
     @IBOutlet weak var classNameOutlet: UILabel!
     @IBOutlet weak var timeOutlet: UILabel!
