@@ -241,6 +241,14 @@
 		B862DBC322341F9400C535AE /* BindPayAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862DBC122341F9400C535AE /* BindPayAccountCell.swift */; };
 		B862DBC422341F9400C535AE /* BindPayAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B862DBC222341F9400C535AE /* BindPayAccountCell.xib */; };
 		B862DBC62234233D00C535AE /* STBalanceToFundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862DBC52234233D00C535AE /* STBalanceToFundsViewController.swift */; };
+		B8686AE3224160A20059BCB9 /* STTeacherClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AE2224160A20059BCB9 /* STTeacherClassViewController.swift */; };
+		B8686AE5224161FF0059BCB9 /* TeacherClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AE4224161FF0059BCB9 /* TeacherClassViewModel.swift */; };
+		B8686AE92241711E0059BCB9 /* CourseDetailVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AE82241711E0059BCB9 /* CourseDetailVideoView.swift */; };
+		B8686AEE2241729B0059BCB9 /* CourseDetailVideoCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AEC2241729B0059BCB9 /* CourseDetailVideoCell.swift */; };
+		B8686AEF2241729B0059BCB9 /* CourseDetailVideoCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8686AED2241729B0059BCB9 /* CourseDetailVideoCell.xib */; };
+		B8686AF122417A540059BCB9 /* CourseDetailClassTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AF022417A540059BCB9 /* CourseDetailClassTableView.swift */; };
+		B8686AF422417A8E0059BCB9 /* CourseDetailClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AF222417A8E0059BCB9 /* CourseDetailClassCell.swift */; };
+		B8686AF522417A8E0059BCB9 /* CourseDetailClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8686AF322417A8E0059BCB9 /* CourseDetailClassCell.xib */; };
 		B86CB19421FCC6B500564C80 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B86CB19321FCC6B500564C80 /* libopencore-amrnb.a */; };
 		B86D68B521C3F5D3001A0B75 /* HomeExpericeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */; };
 		B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */; };
@@ -449,7 +457,6 @@
 		B8FC3ADE2217219A00889483 /* TJPlayerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FC3AD92217219A00889483 /* TJPlayerViewController.m */; };
 		B8FC3ADF2217219A00889483 /* TJPhotoManager.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FC3ADA2217219A00889483 /* TJPhotoManager.m */; };
 		B8FC3AE02217219A00889483 /* TimeChooseView.m in Sources */ = {isa = PBXBuildFile; fileRef = B8FC3ADC2217219A00889483 /* TimeChooseView.m */; };
-		C406108321D1FEEA00C28EBB /* STShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C406108221D1FEEA00C28EBB /* STShopViewController.swift */; };
 		C408422021B549C900C491A8 /* STHome.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408421F21B549C900C491A8 /* STHome.storyboard */; };
 		C408422221B54A0D00C491A8 /* STVideo.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408422121B54A0D00C491A8 /* STVideo.storyboard */; };
 		C408422421B54A1A00C491A8 /* STMessage.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = C408422321B54A1A00C491A8 /* STMessage.storyboard */; };
@@ -751,6 +758,14 @@
 		B862DBC122341F9400C535AE /* BindPayAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindPayAccountCell.swift; sourceTree = "<group>"; };
 		B862DBC222341F9400C535AE /* BindPayAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindPayAccountCell.xib; sourceTree = "<group>"; };
 		B862DBC52234233D00C535AE /* STBalanceToFundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBalanceToFundsViewController.swift; sourceTree = "<group>"; };
+		B8686AE2224160A20059BCB9 /* STTeacherClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTeacherClassViewController.swift; sourceTree = "<group>"; };
+		B8686AE4224161FF0059BCB9 /* TeacherClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassViewModel.swift; sourceTree = "<group>"; };
+		B8686AE82241711E0059BCB9 /* CourseDetailVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVideoView.swift; sourceTree = "<group>"; };
+		B8686AEC2241729B0059BCB9 /* CourseDetailVideoCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVideoCell.swift; sourceTree = "<group>"; };
+		B8686AED2241729B0059BCB9 /* CourseDetailVideoCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailVideoCell.xib; sourceTree = "<group>"; };
+		B8686AF022417A540059BCB9 /* CourseDetailClassTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailClassTableView.swift; sourceTree = "<group>"; };
+		B8686AF222417A8E0059BCB9 /* CourseDetailClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailClassCell.swift; sourceTree = "<group>"; };
+		B8686AF322417A8E0059BCB9 /* CourseDetailClassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailClassCell.xib; sourceTree = "<group>"; };
 		B86CB19321FCC6B500564C80 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExpericeCollectionView.swift; sourceTree = "<group>"; };
 		B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCourseDetailViewController.swift; sourceTree = "<group>"; };
@@ -964,7 +979,6 @@
 		B8FC3ADA2217219A00889483 /* TJPhotoManager.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TJPhotoManager.m; sourceTree = "<group>"; };
 		B8FC3ADB2217219A00889483 /* TJMediaManager.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = TJMediaManager.h; sourceTree = "<group>"; };
 		B8FC3ADC2217219A00889483 /* TimeChooseView.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = TimeChooseView.m; sourceTree = "<group>"; };
-		C406108221D1FEEA00C28EBB /* STShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STShopViewController.swift; sourceTree = "<group>"; };
 		C408421F21B549C900C491A8 /* STHome.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STHome.storyboard; sourceTree = "<group>"; };
 		C408422121B54A0D00C491A8 /* STVideo.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STVideo.storyboard; sourceTree = "<group>"; };
 		C408422321B54A1A00C491A8 /* STMessage.storyboard */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; path = STMessage.storyboard; sourceTree = "<group>"; };
@@ -1667,6 +1681,7 @@
 				B8F117D72232F53C008B63B8 /* WithdrawViewModel.swift */,
 				B8F117E32232FA91008B63B8 /* MineEditPayAccountViewModel.swift */,
 				B862DBBF22341E8000C535AE /* BindPayAccountViewModel.swift */,
+				B8686AE4224161FF0059BCB9 /* TeacherClassViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -1738,6 +1753,10 @@
 				B87800B821C7E51500EDCE72 /* CourseAudioCell.xib */,
 				B82722FA21E6016500147397 /* CourseClassSelectedCell.swift */,
 				B82722FB21E6016500147397 /* CourseClassSelectedCell.xib */,
+				B8686AEC2241729B0059BCB9 /* CourseDetailVideoCell.swift */,
+				B8686AED2241729B0059BCB9 /* CourseDetailVideoCell.xib */,
+				B8686AF222417A8E0059BCB9 /* CourseDetailClassCell.swift */,
+				B8686AF322417A8E0059BCB9 /* CourseDetailClassCell.xib */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -1804,6 +1823,8 @@
 				B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */,
 				B82722F621E5FBDB00147397 /* CourseClassSelectView.swift */,
 				B82722F821E5FC0000147397 /* CourseClassSelectView.xib */,
+				B8686AE82241711E0059BCB9 /* CourseDetailVideoView.swift */,
+				B8686AF022417A540059BCB9 /* CourseDetailClassTableView.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -1812,8 +1833,8 @@
 			isa = PBXGroup;
 			children = (
 				B873B3F12240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift */,
-				C406108221D1FEEA00C28EBB /* STShopViewController.swift */,
 				B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */,
+				B8686AE2224160A20059BCB9 /* STTeacherClassViewController.swift */,
 			);
 			path = Organization;
 			sourceTree = "<group>";
@@ -2538,6 +2559,7 @@
 				B8FBFA3C21A3DD9600AECB75 /* lovea_thumb.png in Resources */,
 				B8FBFA3B21A3DD9600AECB75 /* tza_thumb.png in Resources */,
 				C408422021B549C900C491A8 /* STHome.storyboard in Resources */,
+				B8686AEF2241729B0059BCB9 /* CourseDetailVideoCell.xib in Resources */,
 				B8BB6A592230339E0001AB5D /* MineNeedCourseOrderCell.xib in Resources */,
 				B8FBFA3921A3DD9600AECB75 /* money_thumb.png in Resources */,
 				B8FBFA3821A3DD9600AECB75 /* k_thumb.png in Resources */,
@@ -2600,6 +2622,7 @@
 				B8FBFA4621A3DD9600AECB75 /* zy_thumb.png in Resources */,
 				B8FBFA5121A3DD9600AECB75 /* mb_thumb.png in Resources */,
 				C408422621B54A2F00C491A8 /* STShopping.storyboard in Resources */,
+				B8686AF522417A8E0059BCB9 /* CourseDetailClassCell.xib in Resources */,
 				B81EDF5D21A51A8900F9D3B0 /* ChatImageRightView.xib in Resources */,
 				B8FBFA2B21A3DD9600AECB75 /* heia_thumb.png in Resources */,
 				B8547E2621A6437300281554 /* CityCell.xib in Resources */,
@@ -2833,6 +2856,7 @@
 				B87F8F8B21A29B8000DE9DC1 /* STAppDelegate+EaseMob.swift in Sources */,
 				B8F117CA2232EDED008B63B8 /* STMineBalanceViewController.swift in Sources */,
 				B85F3366219E968E00023958 /* STShoppingCartViewController.swift in Sources */,
+				B8686AEE2241729B0059BCB9 /* CourseDetailVideoCell.swift in Sources */,
 				B8FBFA6221A3E11600AECB75 /* KeyboardManager.swift in Sources */,
 				B85F33DF219F1D0300023958 /* BaseTB.swift in Sources */,
 				B85F332F219E913500023958 /* STAppDelegate.swift in Sources */,
@@ -2840,7 +2864,6 @@
 				B82722F321E5E42300147397 /* CourseDetail.swift in Sources */,
 				B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */,
 				B81E90B721A3B2CE000754E3 /* UserDefaults+Cache.swift in Sources */,
-				C406108321D1FEEA00C28EBB /* STShopViewController.swift in Sources */,
 				B87F8F8421A2933D00DE9DC1 /* MessageListCell.swift in Sources */,
 				B8FC3AE02217219A00889483 /* TimeChooseView.m in Sources */,
 				C408422B21B559A500C491A8 /* STVideoDemandViewController.swift in Sources */,
@@ -2896,6 +2919,7 @@
 				B81E909A21A39A80000754E3 /* ChatRoomViewModel.swift in Sources */,
 				C46D0C8921FAFF5F00E94C9B /* MineNeedPayBackView.swift in Sources */,
 				6BEA00D821B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.swift in Sources */,
+				B8686AE5224161FF0059BCB9 /* TeacherClassViewModel.swift in Sources */,
 				B8914E4A222AF89000612FFE /* STEditMyAddressViewController.swift in Sources */,
 				B81EDF5C21A51A8900F9D3B0 /* ChatImageRightView.swift in Sources */,
 				B85F3379219EA0B600023958 /* HomeRecommendCollectionView.swift in Sources */,
@@ -3039,6 +3063,8 @@
 				B8FC3AB62217163600889483 /* YYGText.swift in Sources */,
 				B8FBFA7121A422B300AECB75 /* UIView+_Rx.swift in Sources */,
 				B838C6C522284BEC00917741 /* STNoticeSettingViewController.swift in Sources */,
+				B8686AF422417A8E0059BCB9 /* CourseDetailClassCell.swift in Sources */,
+				B8686AE3224160A20059BCB9 /* STTeacherClassViewController.swift in Sources */,
 				B8BB6A482230339E0001AB5D /* MyEditAddressCell.swift in Sources */,
 				B88F8CA421C1647D0064C1CF /* STResetPassTwoViewController.swift in Sources */,
 				B80B6BDF219FA5FA00C33F11 /* BaseFilesOwner.swift in Sources */,
@@ -3051,6 +3077,7 @@
 				B80B6BEA219FBD5200C33F11 /* UIView+Layer.swift in Sources */,
 				B87800B121C7E23100EDCE72 /* CourseTimeCell.swift in Sources */,
 				B83F5A842239628C00EAC675 /* OrganizationDetailCourseCell.swift in Sources */,
+				B8686AF122417A540059BCB9 /* CourseDetailClassTableView.swift in Sources */,
 				6BAE0AD621CA2BCA0065BAD2 /* STAppdelegate+ShareSDK.swift in Sources */,
 				B85F3324219E902A00023958 /* BaseViewController.swift in Sources */,
 				B85F33E1219F1DC200023958 /* BaseTBCell.swift in Sources */,
@@ -3070,6 +3097,7 @@
 				B80B6BFD219FEE1100C33F11 /* VideoCell.swift in Sources */,
 				C45AAE5521B6A15200692D7D /* UserVideosCell.swift in Sources */,
 				B862DBC022341E8000C535AE /* BindPayAccountViewModel.swift in Sources */,
+				B8686AE92241711E0059BCB9 /* CourseDetailVideoView.swift in Sources */,
 				B85DC0002221DE88000D3977 /* ApplyForBackAlertView.swift in Sources */,
 				B82F45BD21A97B70009DC25C /* MedieView.swift in Sources */,
 				B81E909F21A3A474000754E3 /* EaseMobHelper.swift in Sources */,

@@ -68,14 +68,7 @@ enum API{
     //MARK: 购物车
 
     /// 课程详情
-    /// 相关校区
-    case relateShop(course_id: String)
-    /// 上课时间
-    case classTime(course_id: String)
-    /// 精彩内容/上课音频 --- type: A:上课音频 V:精彩内容
-    case courseVideoOrAudio(course_id: String, type: String)
-    /// 详情顶部内容
-    case course(id: String)
+    case courseDetail(id: String)
     /// 获取班级
     case selectClass(course_id: String)
     /// 提交订单
@@ -145,14 +138,7 @@ extension API: TargetType{
             return "v1/shop/shopActivity"
         case .shopTeachers(_):
             return "v1/agency/agnTeachers"
-            
-        case .relateShop(_):
-            return "v1/course/relateShop"
-        case .classTime(_):
-            return "v1/course/classTime"
-        case .courseVideoOrAudio(_, _):
-            return "v1/course/courseVideoOrAudio"
-        case .course(_):
+        case .courseDetail(_):
             return "v1/course/read"
         case .selectClass(_):
             return "v1/course/selectClass"
@@ -258,6 +244,9 @@ extension API {
         case .shopRead(let shopId):
             params["id"] = shopId
 
+        case .courseDetail(let id):
+            params["id"] = id
+
         case .agencyDetail(let id):
             params["id"] = id
         case .shopCourse(let shop_id):
@@ -267,17 +256,6 @@ extension API {
         case .shopTeachers(let shop_id):
             params["agn_id"] = shop_id
             
-        case .relateShop(let course_id):
-            params["course_id"] = course_id
-            params["lat"] = userDefault.lat
-            params["lng"] = userDefault.lng
-        case .classTime(let course_id):
-            params["course_id"] = course_id
-        case .courseVideoOrAudio(let course_id, let type):
-            params["course_id"] = course_id
-            params["type"] = type
-        case .course(let id):
-            params["id"] = id
         case .selectClass(let course_id):
             params["course_id"] = course_id
             

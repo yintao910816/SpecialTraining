@@ -1,19 +1,20 @@
 //
-//  CourseAudioTableView.swift
+//  CourseDetailClassTableView.swift
 //  SpecialTraining
 //
-//  Created by yintao on 2018/12/17.
-//  Copyright © 2018 youpeixun. All rights reserved.
+//  Created by yintao on 2019/3/20.
+//  Copyright © 2019 youpeixun. All rights reserved.
 //
 
 import UIKit
 import RxSwift
+import RxDataSources
 
-class CourseAudioTableView: BaseTB {
+class CourseDetailClassTableView: UITableView {
     
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable([CourseDetailAudioModel]())
+    let datasource = Variable([CourseDetailClassModel]())
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -26,22 +27,23 @@ class CourseAudioTableView: BaseTB {
     }
     
     private func setupUI() {
-        backgroundColor = .white
-        
+        backgroundColor = .clear
         showsVerticalScrollIndicator = false
+        separatorStyle = .none
         
-        rowHeight = 60
+        rowHeight = 90
         
-        register(UINib.init(nibName: "CourseAudioCell", bundle: Bundle.main), forCellReuseIdentifier: "CourseAudioCellID")
+        register(UINib.init(nibName: "CourseDetailClassCell", bundle: Bundle.main), forCellReuseIdentifier: "CourseDetailClassCellID")
     }
     
     private func rxBind() {
         
         datasource.asDriver()
-            .drive(rx.items(cellIdentifier: "CourseAudioCellID", cellType: CourseAudioCell.self)) { (row, model, cell) in
+            .drive(rx.items(cellIdentifier: "CourseDetailClassCellID", cellType: CourseDetailClassCell.self)) { (row, model, cell) in
                 cell.model = model
             }
             .disposed(by: disposeBag)
+        
     }
     
 }

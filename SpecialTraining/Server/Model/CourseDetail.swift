@@ -299,3 +299,67 @@ extension CourseClassModel: DBOperation {
     }
     
 }
+
+
+class CourseDetailModel: HJModel {
+    var course_info: CourseDetailInfoModel = CourseDetailInfoModel()
+    var videoList: [CourseDetailVideoModel] = []
+    var audioList: [CourseDetailAudioModel] = []
+    var scheduleList: [CourseDetailClassModel] = []
+}
+
+class CourseDetailInfoModel: HJModel {
+    var shop_name: String = ""
+    var course_id: String = ""
+    var shop_id: String = ""
+    var title: String = ""
+    var pic: String = ""
+    var about_price: String = ""
+    var label: String = ""
+    var introduce: String = ""
+    var content: String = ""
+    var type_id: String = ""
+    var flag: String = ""
+    var createtime: String = ""
+    var status: String = ""
+}
+
+class CourseDetailVideoModel: HJModel {
+    var res_id: String = ""
+    var course_id: String = ""
+    var shop_id: String = ""
+    var class_id: String = ""
+    var res_type: String = ""
+    var res_title: String = ""
+    var res_image: String = ""
+    var res_url: String = ""
+    var createtime: String = ""
+    var status: String = ""
+}
+
+class CourseDetailAudioModel: HJModel {
+    var res_id: String = ""
+    var course_id: String = ""
+    var shop_id: String = ""
+    var class_id: String = ""
+    var res_type: String = ""
+    var res_title: String = ""
+    var res_image: String = ""
+    var res_url: String = ""
+    var createtime: String = ""
+    var status: String = ""
+}
+
+class CourseDetailClassModel: HJModel {
+    var sch_id: String = ""
+    var course_id: String = ""
+    var class_id: String = ""
+    var class_name: String = ""
+    var class_level: String = ""
+    var start_time: String = ""
+    var end_time: String = ""
+    var address: String = ""
+    var stuTime: String = ""
+    var teacher_name: String = ""
+    var teacher_pic: String = ""
+}

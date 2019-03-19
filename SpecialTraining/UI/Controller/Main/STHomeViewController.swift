@@ -170,13 +170,13 @@ class STHomeViewController: BaseViewController {
         
         recomendColView.rx.modelSelected(NearByCourseItemModel.self)
             .subscribe(onNext: { [unowned self] model in
-                self.performSegue(withIdentifier: "courseSegue", sender: model.course_id)
+                self.performSegue(withIdentifier: "courseDetailSegue", sender: model.course_id)
             })
             .disposed(by: disposeBag)
         
         expericeColView.rx.modelSelected(ExperienceCourseItemModel.self)
             .subscribe(onNext: { [unowned self] model in
-                self.performSegue(withIdentifier: "courseSegue", sender: model.course_id)
+                self.performSegue(withIdentifier: "courseDetailSegue", sender: model.course_id)
             })
             .disposed(by: disposeBag)
         
@@ -186,9 +186,11 @@ class STHomeViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "organizationSegue" {
             segue.destination.prepare(parameters: ["agn_id": "1"])
-        }else if segue.identifier == "courseSegue" {
+        }else if segue.identifier == "courseDetailSegue" {
             let ctrl = segue.destination
-            ctrl.prepare(parameters: ["agn_id": "1"])
+//            ctrl.prepare(parameters: ["course_id": sender as! String])
+//            ctrl.prepare(parameters: ["course_id": sender as! String])
+            ctrl.prepare(parameters: ["course_id": "1"])
         }else if segue.identifier == "organizationShopSegue" {
             let ctrl = segue.destination
             ctrl.prepare(parameters: ["agn_id": sender as! String])

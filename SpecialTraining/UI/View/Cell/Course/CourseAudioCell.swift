@@ -21,7 +21,7 @@ class CourseAudioCell: BaseTBCell {
         // Initialization code
     }
 
-    var model: CourseDetailMediaModel! {
+    var model: CourseDetailAudioModel! {
         didSet {
             titleOutlet.text = model.res_title
         }

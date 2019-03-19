@@ -85,3 +85,14 @@ class ShopTeacherModel: HJModel {
         return imgShowHeight + TeachersCell.withoutImageHeight
     }()
 }
+
+class TeacherDetailModel: HJModel {
+    var class_id: String = ""
+    var class_name: String = ""
+    var class_image: String = ""
+    var introduce: String = ""
+    var class_days: String = ""
+    var price: String = ""
+    var createtime: String = ""
+    var status: String = ""
+}

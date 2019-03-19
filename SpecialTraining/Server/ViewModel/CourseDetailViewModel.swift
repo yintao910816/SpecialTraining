@@ -14,16 +14,10 @@ class CourseDetailViewModel: BaseViewModel {
     
     private var courseId: String = ""
     
-    // 精彩内容
-    let splendidnessContentSource = Variable([CourseDetailMediaModel]())
-    // 上课音频
-    let courseAudioSource = Variable([CourseDetailMediaModel]())
-    // 上课时间
-    let classTimeSource = Variable([SectionModel<String, ClassTimeItemModel>]())
-    // 相关校区
-    let relateShopSource = Variable([RelateShopModel]())
-    // banner 部分
-    let bannerSource = PublishSubject<CourseDetailBannerModel>()
+    let courseInfoDataSource = Variable(CourseDetailInfoModel())
+    let videoDatasource = Variable([CourseDetailVideoModel]())
+    let audioDatasource = Variable([CourseDetailAudioModel]())
+    let classDatasource = Variable([CourseDetailClassModel]())
     // 获取班级
     let selecteClassSource = Variable([CourseClassModel]())
     
@@ -32,44 +26,7 @@ class CourseDetailViewModel: BaseViewModel {
         
         self.courseId = courseId
         
-        requestSplendidnessData()
-            .subscribe(onNext: { [weak self] datas in
-                self?.splendidnessContentSource.value = datas
-            }, onError: { [weak self] error in
-                PrintLog(self?.errorMessage(error))
-            })
-            .disposed(by: disposeBag)
-        
-        requestClassTimeData()
-            .subscribe(onNext: { [weak self] data in
-                self?.dealClassTimeData(data: data)
-                }, onError: { [weak self] error in
-                    PrintLog(self?.errorMessage(error))
-            })
-            .disposed(by: disposeBag)
-
-        requestCourseAudioData()
-            .subscribe(onNext: { [weak self] datas in
-                self?.courseAudioSource.value = datas
-                }, onError: { [weak self] error in
-                    PrintLog(self?.errorMessage(error))
-            })
-            .disposed(by: disposeBag)
-
-        requestRelateShopData()
-            .subscribe(onNext: { [weak self] datas in
-                self?.relateShopSource.value = datas
-                }, onError: { [weak self] error in
-                    PrintLog(self?.errorMessage(error))
-            })
-            .disposed(by: disposeBag)
-        
-        requestBannerData()
-            .subscribe(onNext: { [weak self] data in
-                self?.bannerSource.onNext(data)
-                }, onError: { [weak self] error in
-                    PrintLog(self?.errorMessage(error))
-            })
+        reloadSubject.subscribe(onNext: { [weak self] _ in self?.requestData() })
             .disposed(by: disposeBag)
         
         requestClassData()
@@ -84,44 +41,10 @@ class CourseDetailViewModel: BaseViewModel {
     
     var shopId: String {
         get {
-            return relateShopSource.value.first?.shop_id ?? "1"
+            return "1"
         }
     }
     
-    // 精彩内容
-    private func requestSplendidnessData() ->Observable<[CourseDetailMediaModel]> {
-        return STProvider.request(.courseVideoOrAudio(course_id: courseId, type: "V"))
-            .map(models: CourseDetailMediaModel.self)
-            .asObservable()
-    }
-    
-    // 上课时间
-    private func requestClassTimeData() ->Observable<ClassTimeModel> {
-        return STProvider.request(.classTime(course_id: courseId))
-            .map(model: ClassTimeModel.self)
-            .asObservable()
-    }
-    
-    // 上课音频
-    private func requestCourseAudioData() ->Observable<[CourseDetailMediaModel]> {
-        return STProvider.request(.courseVideoOrAudio(course_id: courseId, type: "A"))
-            .map(models: CourseDetailMediaModel.self)
-            .asObservable()
-    }
-    
-    // 相关校区
-    private func requestRelateShopData() ->Observable<[RelateShopModel]> {
-        return STProvider.request(.relateShop(course_id: courseId))
-            .map(models: RelateShopModel.self)
-            .asObservable()
-    }
-    
-    // banner部分
-    private func requestBannerData() ->Observable<CourseDetailBannerModel> {
-        return STProvider.request(.course(id: courseId))
-            .map(model: CourseDetailBannerModel.self)
-            .asObservable()
-    }
     // 获取班级
     private func requestClassData() ->Observable<[CourseClassModel]> {
         return STProvider.request(.selectClass(course_id: courseId))
@@ -129,6 +52,22 @@ class CourseDetailViewModel: BaseViewModel {
             .asObservable()
     }
     
+    private func requestData() {
+        hud.noticeLoading()
+        
+        STProvider.request(.courseDetail(id: courseId))
+            .map(model: CourseDetailModel.self)
+            .subscribe(onSuccess: { [weak self] data in
+                self?.courseInfoDataSource.value = data.course_info
+                self?.videoDatasource.value = data.videoList
+                self?.audioDatasource.value = data.audioList
+                self?.classDatasource.value = data.scheduleList
+                self?.hud.noticeHidden()
+            }) { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+            }
+            .disposed(by: disposeBag)
+    }
     
     private func dealClassTimeData(data: ClassTimeModel) {
 
@@ -152,6 +91,6 @@ class CourseDetailViewModel: BaseViewModel {
             dealData.append(sectionData)
         }
         
-        classTimeSource.value = dealData
+//        classTimeSource.value = dealData
     }
 }
