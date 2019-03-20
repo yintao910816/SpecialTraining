@@ -226,7 +226,7 @@ class STCourseDetailViewController: BaseViewController {
             segue.destination.prepare(parameters: ["models": [sender!]])
         }else if segue.identifier == "videoPlaySegue" {
             let ctrl = segue.destination as! STVideoPlayViewController
-            ctrl.preparePlay(urlString: (sender as! CourseDetailVideoModel).res_url)
+            ctrl.preparePlay(videoInfo: (sender as! CourseDetailVideoModel))
         }
     }
 }

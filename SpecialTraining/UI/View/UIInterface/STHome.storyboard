@@ -1123,6 +1123,7 @@
                         <outlet property="playLayer" destination="XiY-t4-tul" id="30l-QI-QZA"/>
                         <outlet property="topBar" destination="ykP-wC-UmI" id="hgZ-Ln-5R5"/>
                         <outlet property="topBarHeightCns" destination="whC-iF-Tzd" id="kro-gy-aaW"/>
+                        <outlet property="videoTitleOutlet" destination="QgT-mb-V98" id="9bL-Gv-NmB"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="Ev7-Fg-74I" userLabel="First Responder" sceneMemberID="firstResponder"/>

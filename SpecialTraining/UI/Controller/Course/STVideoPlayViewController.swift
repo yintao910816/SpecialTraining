@@ -16,14 +16,15 @@ class STVideoPlayViewController: BaseViewController {
     @IBOutlet weak var bottomBar: UIView!
     @IBOutlet weak var nickNameOutlet: UILabel!
     @IBOutlet weak var playLayer: UIView!
+    @IBOutlet weak var videoTitleOutlet: UILabel!
     
     private var player: TYVideoPlayer!
-    private var videoUrl: String = ""
+    private var videoModel: CourseDetailVideoModel!
     
     private var hud = NoticesCenter()
 
-    public func preparePlay(urlString: String){
-        videoUrl = urlString
+    public func preparePlay(videoInfo: CourseDetailVideoModel){
+        videoModel = videoInfo
     }
     
     @IBAction func tapAction(_ sender: UITapGestureRecognizer) {
@@ -43,7 +44,9 @@ class STVideoPlayViewController: BaseViewController {
         hud.noticeLoading()
         player = TYVideoPlayer()
         playLayer.layoutIfNeeded()
-        player.preparePlay(with: videoUrl, playView: playLayer)
+        player.preparePlay(with: videoModel.res_url, playView: playLayer)
+        
+        videoTitleOutlet.text = videoModel.res_title
     }
     
     override func rxBind() {
