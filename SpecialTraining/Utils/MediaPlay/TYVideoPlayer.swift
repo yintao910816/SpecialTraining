@@ -51,6 +51,7 @@ class TYVideoPlayer {
         player = AVPlayer(playerItem: playerItem)
         // 使用avplayer初始化AVPlayerLayer，将AVPlayerLayer添加到view上
         let layer = AVPlayerLayer(player: player)
+        layer.backgroundColor = UIColor.white.cgColor
         playView.layer.addSublayer(layer)
         layer.frame = playView.bounds
         layer.videoGravity = AVLayerVideoGravity.resizeAspect
