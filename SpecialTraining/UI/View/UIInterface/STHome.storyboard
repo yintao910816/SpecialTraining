@@ -1083,7 +1083,7 @@
                                         <state key="normal" title="分享"/>
                                     </button>
                                 </subviews>
-                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="QgT-mb-V98" firstAttribute="leading" secondItem="agO-PE-aMO" secondAttribute="leading" constant="8" id="0Vl-Xn-qVC"/>
                                     <constraint firstItem="QgT-mb-V98" firstAttribute="top" secondItem="agO-PE-aMO" secondAttribute="top" constant="8" id="4Xe-1b-H9x"/>
