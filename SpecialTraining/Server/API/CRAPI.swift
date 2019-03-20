@@ -82,6 +82,9 @@ enum API{
     //MARK: 个人中心
     /// 所有订单 api.youpeixunjiaoyu.com/v1/order/getMemberAllOrder?member_id=1
     case getMemberAllOrder(member_id: String)
+    
+    // 文件下载
+    case downLoad(url: String, mediaType: FileCacheType)
 }
 
 //MARK:
@@ -152,10 +155,20 @@ extension API: TargetType{
             
         case .getMemberAllOrder(_):
             return "v1/order/getMemberAllOrder"
+            
+        case .downLoad(_, _):
+            return ""
         }
     }
     
-    var baseURL: URL{ return APIAssistance.baseURL(API: self) }
+    var baseURL: URL{
+        switch self {
+        case .downLoad(let url, _):
+            return URL.init(string: url)!
+        default:
+            return APIAssistance.baseURL(API: self)
+        }
+    }
     
     var task: Task {
         switch self {
@@ -163,6 +176,11 @@ extension API: TargetType{
             let jsonData = try? JSONSerialization.data(withJSONObject: params, options: [])
             PrintLog("提交订单参数：\(try! JSONSerialization.jsonObject(with: jsonData!, options: []))")
             return .requestData(jsonData ?? Data())
+        case .downLoad(_):
+            if let destination = downloadVideoDestination {
+                return .downloadDestination(destination)
+            }
+            return .requestPlain
         default:
             if let _parameters = parameters {
                 return .requestParameters(parameters: _parameters, encoding: URLEncoding.default)
@@ -288,3 +306,18 @@ func stubbedResponse(_ filename: String) -> Data! {
 //MARK: API server
 let STProvider = MoyaProvider<API>(plugins: [MoyaPlugins.MyNetworkActivityPlugin,
                                              RequestLoadingPlugin()]).rx
+
+extension API {
+    
+    private var downloadVideoDestination: DownloadDestination? {
+        switch self {
+        case .downLoad(let url, let type):
+            let filePath = FileHelper.share.getCachePath(type: type) + url.md5
+            let url = URL.init(fileURLWithPath: filePath)
+            return { _, _ in return (url, [.removePreviousFile, .createIntermediateDirectories]) }
+        default:
+            return nil
+        }
+    }
+}
+

@@ -14,6 +14,7 @@ class CourseAudioTableView: BaseTB {
     private let disposeBag = DisposeBag()
     
     let datasource = Variable([CourseDetailAudioModel]())
+    let itemDidSelected = PublishSubject<CourseDetailAudioModel>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -41,6 +42,10 @@ class CourseAudioTableView: BaseTB {
             .drive(rx.items(cellIdentifier: "CourseAudioCellID", cellType: CourseAudioCell.self)) { (row, model, cell) in
                 cell.model = model
             }
+            .disposed(by: disposeBag)
+        
+        rx.modelSelected(CourseDetailAudioModel.self)
+            .bind(to: itemDidSelected)
             .disposed(by: disposeBag)
     }
     

@@ -249,6 +249,10 @@
 		B8686AF122417A540059BCB9 /* CourseDetailClassTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AF022417A540059BCB9 /* CourseDetailClassTableView.swift */; };
 		B8686AF422417A8E0059BCB9 /* CourseDetailClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AF222417A8E0059BCB9 /* CourseDetailClassCell.swift */; };
 		B8686AF522417A8E0059BCB9 /* CourseDetailClassCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8686AF322417A8E0059BCB9 /* CourseDetailClassCell.xib */; };
+		B86B8F0A224288BE0017D580 /* TYVideoPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86B8F09224288BE0017D580 /* TYVideoPlayer.swift */; };
+		B86B8F0C22428AC00017D580 /* STVideoPlayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86B8F0B22428AC00017D580 /* STVideoPlayViewController.swift */; };
+		B86B8F1422429D8F0017D580 /* FileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86B8F1322429D8F0017D580 /* FileManager.swift */; };
+		B86B8F162242A8600017D580 /* TYAudioPlayer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86B8F152242A8600017D580 /* TYAudioPlayer.swift */; };
 		B86CB19421FCC6B500564C80 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B86CB19321FCC6B500564C80 /* libopencore-amrnb.a */; };
 		B86D68B521C3F5D3001A0B75 /* HomeExpericeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */; };
 		B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */; };
@@ -766,6 +770,10 @@
 		B8686AF022417A540059BCB9 /* CourseDetailClassTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailClassTableView.swift; sourceTree = "<group>"; };
 		B8686AF222417A8E0059BCB9 /* CourseDetailClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailClassCell.swift; sourceTree = "<group>"; };
 		B8686AF322417A8E0059BCB9 /* CourseDetailClassCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailClassCell.xib; sourceTree = "<group>"; };
+		B86B8F09224288BE0017D580 /* TYVideoPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TYVideoPlayer.swift; sourceTree = "<group>"; };
+		B86B8F0B22428AC00017D580 /* STVideoPlayViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoPlayViewController.swift; sourceTree = "<group>"; };
+		B86B8F1322429D8F0017D580 /* FileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FileManager.swift; sourceTree = "<group>"; };
+		B86B8F152242A8600017D580 /* TYAudioPlayer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TYAudioPlayer.swift; sourceTree = "<group>"; };
 		B86CB19321FCC6B500564C80 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExpericeCollectionView.swift; sourceTree = "<group>"; };
 		B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCourseDetailViewController.swift; sourceTree = "<group>"; };
@@ -1197,6 +1205,7 @@
 		B81E90A021A3B2CE000754E3 /* Core */ = {
 			isa = PBXGroup;
 			children = (
+				B86B8F1222429D860017D580 /* MediaCache */,
 				B8BD92CE21E64C200089495F /* PersistentCache */,
 				B81E90AC21A3B2CE000754E3 /* KeyValueCache */,
 			);
@@ -1503,6 +1512,7 @@
 		B85F3328219E90E000023958 /* Utils */ = {
 			isa = PBXGroup;
 			children = (
+				B86B8F08224288AE0017D580 /* MediaPlay */,
 				C41D24CC222FA60F00DC3D83 /* PhotoAlbum */,
 				B8FC3AD42217219A00889483 /* VideoCut */,
 				B8FC3AA92217163600889483 /* VideoRecord */,
@@ -1803,6 +1813,23 @@
 			path = Organization;
 			sourceTree = "<group>";
 		};
+		B86B8F08224288AE0017D580 /* MediaPlay */ = {
+			isa = PBXGroup;
+			children = (
+				B86B8F09224288BE0017D580 /* TYVideoPlayer.swift */,
+				B86B8F152242A8600017D580 /* TYAudioPlayer.swift */,
+			);
+			path = MediaPlay;
+			sourceTree = "<group>";
+		};
+		B86B8F1222429D860017D580 /* MediaCache */ = {
+			isa = PBXGroup;
+			children = (
+				B86B8F1322429D8F0017D580 /* FileManager.swift */,
+			);
+			path = MediaCache;
+			sourceTree = "<group>";
+		};
 		B86D68B621C40333001A0B75 /* Course */ = {
 			isa = PBXGroup;
 			children = (
@@ -1810,6 +1837,7 @@
 				B82722FE21E6315500147397 /* STVerifyOrderViewController.swift */,
 				B827230021E6316300147397 /* STPayOrderViewController.swift */,
 				B827230221E6317000147397 /* STFinishPayViewController.swift */,
+				B86B8F0B22428AC00017D580 /* STVideoPlayViewController.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -2782,6 +2810,7 @@
 				C41D24FD222FA60F00DC3D83 /* ZQVideoPlayVC.m in Sources */,
 				B803C3D121BD775C004C97DB /* PublishChoseOrganizationViewModel.swift in Sources */,
 				B82722EB21E5CBE500147397 /* ShopingCarTitleReusableView.swift in Sources */,
+				B86B8F162242A8600017D580 /* TYAudioPlayer.swift in Sources */,
 				C46D0C8721FAFF5400E94C9B /* MineNeedClassView.swift in Sources */,
 				B8FC3AB82217163600889483 /* YfileManager.swift in Sources */,
 				B85F33C3219EB94100023958 /* RefreshServer.swift in Sources */,
@@ -2890,6 +2919,7 @@
 				B8FC3AB42217163600889483 /* YYGcategory.swift in Sources */,
 				B838C6C622284BEC00917741 /* STSettingViewController.swift in Sources */,
 				B826AF89221C7934000428C1 /* ChoseClassificationCell.swift in Sources */,
+				B86B8F0A224288BE0017D580 /* TYVideoPlayer.swift in Sources */,
 				B8FBFA6721A3E68500AECB75 /* STLoginViewController.swift in Sources */,
 				B85F3368219E96A700023958 /* STMineViewController.swift in Sources */,
 				B81EDF7021A53B4C00F9D3B0 /* STAppDelegate+BMK.swift in Sources */,
@@ -3026,6 +3056,7 @@
 				B81EDF7621A54D8500F9D3B0 /* STMapViewController.swift in Sources */,
 				B88F8CA221C164100064C1CF /* STResetPassOneViewController.swift in Sources */,
 				6BF7B93821BA1BF500BE1E4A /* BaseTableViewController.swift in Sources */,
+				B86B8F1422429D8F0017D580 /* FileManager.swift in Sources */,
 				B8BD92CD21E641580089495F /* Order.swift in Sources */,
 				B827230B21E633A700147397 /* FinishPayViewModel.swift in Sources */,
 				B85F3356219E94D600023958 /* HUD.swift in Sources */,
@@ -3073,6 +3104,7 @@
 				B81EDF7321A53C1300F9D3B0 /* BMKMapHelper.swift in Sources */,
 				B8FBFA5D21A3DE3D00AECB75 /* PlaceholderTextView.swift in Sources */,
 				B85F33A1219EA3AD00023958 /* CourseListCell.swift in Sources */,
+				B86B8F0C22428AC00017D580 /* STVideoPlayViewController.swift in Sources */,
 				B8BB6A1A2230301F0001AB5D /* MineInfoAddStudentView.swift in Sources */,
 				B80B6BEA219FBD5200C33F11 /* UIView+Layer.swift in Sources */,
 				B87800B121C7E23100EDCE72 /* CourseTimeCell.swift in Sources */,

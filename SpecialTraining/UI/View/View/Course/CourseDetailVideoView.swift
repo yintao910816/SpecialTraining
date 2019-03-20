@@ -15,8 +15,9 @@ class CourseDetailVideoView: UIView {
     private var collectionView: UICollectionView!
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable([CourseDetailVideoModel]())
-
+    public let datasource = Variable([CourseDetailVideoModel]())
+    public let itemDidSelected = PublishSubject<CourseDetailVideoModel>()
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -51,6 +52,11 @@ class CourseDetailVideoView: UIView {
             .drive(collectionView.rx.items(cellIdentifier: "CourseDetailVideoCellID", cellType: CourseDetailVideoCell.self)) { _, model, cell in
                 cell.model = model
             }
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.modelSelected(CourseDetailVideoModel.self)
+            .asDriver()
+            .drive(itemDidSelected)
             .disposed(by: disposeBag)
     }
     

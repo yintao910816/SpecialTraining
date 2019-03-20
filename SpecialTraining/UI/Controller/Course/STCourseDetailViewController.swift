@@ -22,6 +22,8 @@ class STCourseDetailViewController: BaseViewController {
     
     private var courseId: String = ""
     
+    private let audioPlay = TYAudioPlayer()
+    
     @IBOutlet weak var scrollOutlet: UIScrollView!
     
     @IBOutlet weak var videoOutlet: UIButton!
@@ -100,6 +102,10 @@ class STCourseDetailViewController: BaseViewController {
         }
     }
 
+    override func viewDidDisappear(_ animated: Bool) {
+        audioPlay.stop()
+    }
+    
     override func setupUI() {
         navigationItem.title = "课程详情"
         
@@ -173,6 +179,23 @@ class STCourseDetailViewController: BaseViewController {
         viewModel.classDatasource.asDriver()
             .drive(courseClassTB.datasource)
             .disposed(by: disposeBag)
+        
+        videoView.itemDidSelected
+            .subscribe(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "videoPlaySegue", sender: model)
+            })
+            .disposed(by: disposeBag)
+        
+        courseAudioTB.itemDidSelected
+            .do(onNext: { [weak self] _ in self?.audioPlay.stop() })
+            .bind(to: viewModel.requestAudioSource)
+            .disposed(by: disposeBag)
+        
+        viewModel.audioSourceChange
+            .subscribe(onNext: { [weak self] path in
+                self?.audioPlay.play(with: path)
+            })
+            .disposed(by: disposeBag)
 
 //        viewModel.selecteClassSource.asDriver()
 //            .drive(selectedClassView.dataSource)
@@ -200,8 +223,10 @@ class STCourseDetailViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "verifyOrderOutlet" {
             // 确认订单
-            let ctrol = segue.destination
-            ctrol.prepare(parameters: ["models": [sender!]])
+            segue.destination.prepare(parameters: ["models": [sender!]])
+        }else if segue.identifier == "videoPlaySegue" {
+            let ctrl = segue.destination as! STVideoPlayViewController
+            ctrl.preparePlay(urlString: (sender as! CourseDetailVideoModel).res_url)
         }
     }
 }
