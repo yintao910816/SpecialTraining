@@ -25,7 +25,12 @@ class OrganizationDetailShopCell: UITableViewCell {
             distanceOutlet.text = model.dis
             addressOutlet.text = model.address
             
-            let lables = model.label.components(separatedBy: " ")
+            for idx in 0..<3 {
+                let lable = contentView.viewWithTag(200 + idx) as? UILabel
+                lable?.text = nil
+            }
+
+            let lables = model.label.components(separatedBy: " ").filter{ $0.count > 0 }
             for idx in 0..<lables.count {
                 if idx < 4 {
                     let lable = contentView.viewWithTag(200 + idx) as? UILabel

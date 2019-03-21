@@ -18,6 +18,8 @@ class STMapViewController: BaseViewController {
     
     var userLocation: BMKUserLocation!
     
+    private var coor: CLLocationCoordinate2D?
+    
     @IBAction func actions(_ sender: UIButton) {
         switch sender.tag {
         case 200:
@@ -63,6 +65,14 @@ class STMapViewController: BaseViewController {
         userLocation = BMKUserLocation()
         
         creatMapView()
+        
+        // 添加一个标注
+        if let _coor = coor {
+            let annotation = BMKPointAnnotation()
+            annotation.coordinate = _coor
+            mapView.addAnnotation(annotation)
+            mapView.selectAnnotation(annotation, animated: true)
+        }
     }
     
     override func rxBind() {
@@ -94,7 +104,7 @@ class STMapViewController: BaseViewController {
     }
     
     //添加固定屏幕位置的标注
-    func addLockScreenAnnotation() {
+    private func addLockScreenAnnotation() {
         if lockedScreenAnnotation == nil {
             lockedScreenAnnotation = BMKPointAnnotation()
             lockedScreenAnnotation?.isLockedToScreen = true
@@ -102,6 +112,13 @@ class STMapViewController: BaseViewController {
             lockedScreenAnnotation?.title = "我是固定屏幕的标注"
         }
         mapView.addAnnotation(lockedScreenAnnotation)
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        if let lat = parameters?["lat"] as? Double,
+            let lng = parameters?["lng"] as? Double{
+            coor = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
+        }
     }
 }
 

@@ -8,6 +8,7 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 
 class OrganizationViewModel: BaseViewModel {
     
@@ -19,10 +20,13 @@ class OrganizationViewModel: BaseViewModel {
     var courseListDatasource = Variable([ShopCourseModel]())
     //
     var teachersDatasource = Variable([ShopTeacherModel]())
+    
+    var logoObser = Variable("")
+    var navTitleObser = Variable("")
         
     var shopId: String!
 
-    init(shopId: String) {
+    init(shopId: String, locationAction: Driver<Void>) {
         super.init()
         
         self.shopId = shopId
@@ -31,6 +35,12 @@ class OrganizationViewModel: BaseViewModel {
             self?.loadDatas()
         })
             .disposed(by: disposeBag)
+    }
+    
+    func getCoorInfo() ->[String: Double?] {
+        let lat = Double(agnInfoDatasource.value.lat)
+        let lng = Double(agnInfoDatasource.value.lng)
+        return ["lat": lat, "lng": lng]
     }
     
     private func loadDatas() {
@@ -45,6 +55,9 @@ class OrganizationViewModel: BaseViewModel {
                 self?.agnInfoDatasource.value = data
                 self?.courseListDatasource.value = data.course
                 self?.teachersDatasource.value = data.teachers
+                
+                self?.logoObser.value = data.logo
+                self?.navTitleObser.value = data.shop_name
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
             }

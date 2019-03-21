@@ -29,7 +29,7 @@ class RecommendCourseTableView: BaseTB {
     private func setupUI() {
         showsVerticalScrollIndicator = false
         
-        rowHeight = 160
+        rowHeight = 175
         register(UINib.init(nibName: "OrganizationDetailCourseCell", bundle: Bundle.main),
                  forCellReuseIdentifier: "OrganizationDetailCourseCellID")
     }

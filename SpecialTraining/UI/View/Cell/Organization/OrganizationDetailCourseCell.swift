@@ -14,7 +14,6 @@ class OrganizationDetailCourseCell: UITableViewCell {
     @IBOutlet weak var coverOutlet: UIImageView!
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var priceOutlet: UILabel!
-    @IBOutlet weak var desOutlet: UILabel!
     @IBOutlet weak var classTimeOutlet: UIButton!
     
     public var clickTimeCallBack: ((AgnDetailCourseListModel) ->())?
@@ -34,14 +33,20 @@ class OrganizationDetailCourseCell: UITableViewCell {
         didSet {
             coverOutlet.setImage(model.pic)
             titleOutlet.text = model.title
-            desOutlet.text = model.content
             priceOutlet.text = model.about_price
             
-            let lables = model.label.components(separatedBy: " ")
+            for idx in 0..<6 {
+                let lable = contentView.viewWithTag(100 + idx) as? UILabel
+                lable?.text = ""
+            }
+
+            let lables = model.label.components(separatedBy: " ").filter{ $0.count > 0 }
             for idx in 0..<lables.count {
-                if idx < 3 {
+                if idx < 6 {
                     let lable = contentView.viewWithTag(100 + idx) as? UILabel
                     lable?.text = "  \(lables[idx])  "
+                    lable?.layer.borderColor = RGB(37, 167, 250).cgColor
+                    lable?.layer.borderWidth = 1
                 }
             }
         }

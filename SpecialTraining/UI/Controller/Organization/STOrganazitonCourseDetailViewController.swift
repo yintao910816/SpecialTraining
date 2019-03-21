@@ -20,6 +20,8 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
     @IBOutlet weak var carouseOutlet: CarouselView!
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var navLogoOutlet: UIButton!
+    @IBOutlet weak var navTitleOutlet: UILabel!
+    @IBOutlet weak var locationOutlet: UIButton!
     
     private var activityBrefTB: ActivityBrefTableView!
     private var recommendCourseTB: RecommendCourseTableView!
@@ -50,7 +52,7 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
     
     private func setButtonState(selected idx: Int, _ needScroll: Bool = true) {
         let btns = [homeOutlet, courseOutlet, teachersBrefOutlet]
-        let titles = ["机构介绍", "开设课程", "最强师资"]
+        let titles = ["店铺介绍", "开设课程", "最强师资"]
         titleOutlet.text = titles[idx]
         if idx != selectedIdx {
             for i in 0..<btns.count {
@@ -80,7 +82,11 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
         }else {
             automaticallyAdjustsScrollViewInsets = false
         }
-
+        
+        locationOutlet.layer.borderWidth = 1
+        locationOutlet.layer.borderColor = RGB(37, 167, 250).cgColor
+        locationOutlet.layer.cornerRadius = 4
+        
         topViewHeightCns.constant += LayoutSize.fitTopArea
         bottomHeightCns.constant += LayoutSize.bottomVirtualArea
 
@@ -96,7 +102,22 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = OrganizationViewModel.init(shopId: shopId)
+        viewModel = OrganizationViewModel.init(shopId: shopId,
+                                               locationAction: locationOutlet.rx.tap.asDriver())
+
+        viewModel.logoObser.asDriver()
+            .drive(navLogoOutlet.rx.image())
+            .disposed(by: disposeBag)
+        
+        viewModel.navTitleObser.asDriver()
+            .drive(navTitleOutlet.rx.text)
+            .disposed(by: disposeBag)
+        
+        locationOutlet.rx.tap.asDriver()
+            .drive(onNext: { [unowned self] in
+                self.performSegue(withIdentifier: "mapSegue", sender: self.viewModel.getCoorInfo())
+            })
+            .disposed(by: disposeBag)
 
         viewModel.advListDatasource.asDriver()
             .drive(onNext: { [weak self] data in
@@ -105,7 +126,6 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
 
         viewModel.agnInfoDatasource.asDriver()
-            .do(onNext: { [weak self] model in self?.navLogoOutlet.setImage(model.logo) })
             .drive(homeView.datasource)
             .disposed(by: disposeBag)
 
@@ -134,6 +154,8 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "shopInfoSegue" {
             segue.destination.prepare(parameters: ["shopId": sender as! String])
+        }else if segue.identifier == "mapSegue" {
+            segue.destination.prepare(parameters: sender as? [String: Any])
         }
     }
 }
