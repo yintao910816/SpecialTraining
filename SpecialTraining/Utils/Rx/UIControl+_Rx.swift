@@ -30,10 +30,16 @@ extension Reactive where Base: UIButton {
         }
     }
     
-//    func bgImage(_ strategy: ImageStrategy = .bookOriginal) -> Binder<String?> {
-//        return Binder(self.base) { (button, url) -> () in
-//            button.setImage(url, strategy)
-//        }
-//    }
+    func bgImage(_ strategy: ImageStrategy = .original) -> Binder<String?> {
+        return Binder(self.base) { (button, url) -> () in
+            button.setImage(url, strategy, isBgImage: true)
+        }
+    }
+
+    func image(_ strategy: ImageStrategy = .original) -> Binder<String?> {
+        return Binder(self.base) { (button, url) -> () in
+            button.setImage(url, strategy, isBgImage: false)
+        }
+    }
 
 }

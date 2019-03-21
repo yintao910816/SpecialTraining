@@ -14,6 +14,7 @@ class STOrganizationShopViewController: BaseViewController {
     @IBOutlet weak var tableView: PhysicalStoreTableView!
     @IBOutlet weak var carouseView: CarouselView!
     @IBOutlet weak var logoOutlet: UIButton!
+    @IBOutlet weak var navTitleOutlet: UILabel!
     
     private var agnId: String = ""
     
@@ -35,10 +36,20 @@ class STOrganizationShopViewController: BaseViewController {
         }
 
         navheightCns.constant += LayoutSize.fitTopArea
+        
+        logoOutlet.contentMode = .scaleAspectFill
     }
     
     override func rxBind() {
         viewModel = OrganizationShopViewModel(agnId: agnId)
+        
+        viewModel.agnLogoObser.asDriver()
+            .drive(logoOutlet.rx.image())
+            .disposed(by: disposeBag)
+        
+        viewModel.navTitleObser.asDriver()
+            .drive(navTitleOutlet.rx.text)
+            .disposed(by: disposeBag)
         
         viewModel.datasource.asDriver()
             .drive(tableView.datasource)

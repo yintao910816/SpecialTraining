@@ -36,7 +36,7 @@ class PhysicalStoreTableView: BaseTB {
     
     private func setupUI() {
         showsVerticalScrollIndicator = false
-        rowHeight = 200
+        rowHeight = 145
         
         register(UINib.init(nibName: "OrganizationDetailShopCell", bundle: Bundle.main),
                  forCellReuseIdentifier: "OrganizationDetailShopCellID")

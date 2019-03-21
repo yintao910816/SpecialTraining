@@ -13,8 +13,6 @@ class OrganizationDetailShopCell: UITableViewCell {
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var distanceOutlet: UILabel!
     @IBOutlet weak var addressOutlet: UILabel!
-    @IBOutlet weak var detailAddressOutlet: UILabel!
-    @IBOutlet weak var infoOutlet: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -26,14 +24,14 @@ class OrganizationDetailShopCell: UITableViewCell {
             titleOutlet.text = model.shop_name
             distanceOutlet.text = model.dis
             addressOutlet.text = model.address
-            detailAddressOutlet.text = model.content
-            infoOutlet.text = model.agnShopDescription
             
             let lables = model.label.components(separatedBy: " ")
             for idx in 0..<lables.count {
-                if idx < 3 {
+                if idx < 4 {
                     let lable = contentView.viewWithTag(200 + idx) as? UILabel
-                    lable?.text = "  \(lables[idx])  "
+                    lable?.text = " \(lables[idx])  "
+                    lable?.layer.borderColor = RGB(44, 188, 238).cgColor
+                    lable?.layer.borderWidth = 1
                 }
             }
             

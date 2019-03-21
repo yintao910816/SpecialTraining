@@ -15,8 +15,8 @@ class OrganizationShopViewModel: BaseViewModel {
     
     var datasource = Variable([OrganazitonShopModel]())
     var advDatasource = Variable([AgencyDetailAdvModel]())
-
-    var shopListDatasource = Variable([OrganazitonShopModel]())
+    var agnLogoObser = Variable("")
+    var navTitleObser = Variable("")
 
     init(agnId: String) {
         super.init()
@@ -37,6 +37,8 @@ class OrganizationShopViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] data in
                 self?.datasource.value = data.shopList
                 self?.advDatasource.value = data.advList
+                self?.agnLogoObser.value = data.agn_info.logo
+                self?.navTitleObser.value = data.agn_info.agn_name
                 self?.hud.noticeHidden()
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))

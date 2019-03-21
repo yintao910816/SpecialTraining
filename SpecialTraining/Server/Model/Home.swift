@@ -135,7 +135,7 @@ class AdvertListModel: HJModel {
 extension AdvertListModel: CarouselSource {
     
     var url: String? {
-        return adv_url
+        return adv_image
     }
 }
 
