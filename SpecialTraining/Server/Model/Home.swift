@@ -66,10 +66,19 @@ class NearByOrganizationModel: HJModel {
 }
 
 class NearByOrganizationItemModel: HJModel {
+/**
+     "agn_id": 14,
+     "agn_name": "优培训14",
+     "logo": "http://images.youpeixunjiaoyu.com/test/agn.png",
+     "motto": "我于杀戮之中绽放，亦如黎明中的花朵",
+     "introduce": "机构简介机构简介机构简介机构简介机构简介机构简介",
+     "label": "中国舞 拉丁舞 街舞"
 
+     */
     var agn_id: String = ""
     var agn_name: String = ""
     var logo: String = ""
+    var motto: String = ""
     var introduce: String = ""
     var label: String = ""
     

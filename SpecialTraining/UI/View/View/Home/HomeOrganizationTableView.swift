@@ -60,7 +60,7 @@ class HomeOrganizationTableView: BaseTB {
                 return data.0
             }))
             .drive(rx.items(cellIdentifier: "OrganizationCellID", cellType: OrganizationCell.self)) { [unowned self] row, model, cell in
-
+                cell.model = model
             }
             .disposed(by: disposeBag)
         

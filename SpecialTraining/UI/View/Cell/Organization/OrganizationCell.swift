@@ -8,27 +8,40 @@
 
 import UIKit
 
-let organizationCellHeight: CGFloat = 156.0
+let organizationCellHeight: CGFloat = 114.0
 
 class OrganizationCell: BaseTBCell {
 
-    @IBOutlet weak var moreOutlet: UIButton!
-    @IBOutlet weak var effectOutlet: UILabel!
-    
+    @IBOutlet weak var coverOutlet: UIImageView!
+    @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var desOutlet: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
 
+        for idx in 100..<104 {
+            let lable = contentView.viewWithTag(idx) as? UILabel
+            lable?.layer.borderColor = RGB(37, 167, 250).cgColor
+            lable?.layer.borderWidth = 1
+        }
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
+    var model: NearByOrganizationItemModel! {
+        didSet {
+            coverOutlet.setImage(model.logo)
+            titleOutlet.text = model.agn_name
+            
+            let lables = model.label.components(separatedBy: " ").filter{ $0.count > 0 }
+            for idx in 0..<4 {
+                let lable = contentView.viewWithTag(100 + idx) as? UILabel
 
-        // Configure the view for the selected state
-    }
-    
-    func setupUI() {
-
+                if idx < 4 && idx < lables.count {
+                    lable?.text = "  \(lables[idx])  "
+                }else {
+                    lable?.text = nil
+                }
+            }
+        }
     }
     
 }
