@@ -24,7 +24,7 @@ class CourseDetailClassCell: UITableViewCell {
         didSet {
             coverOutlet.setImage(model.teacher_pic)
             classNameOutlet.text = model.class_name
-            timeOutlet.text = model.start_time
+            timeOutlet.text = model.stuTime
         }
     }
 }
