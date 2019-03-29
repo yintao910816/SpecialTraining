@@ -77,9 +77,11 @@ class HomeViewModel: BaseViewModel {
 }
 
 
-class HomeNearByCourseViewModel: RefreshVM<NearByCourseItemModel> {
-    
+//class HomeNearByCourseViewModel: RefreshVM<NearByCourseItemModel> {
+class HomeNearByCourseViewModel: RefreshVM<TestCourseModel> {
+
     let nearByCourseSourse = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
+    let testCourseSource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
 
     override init() {
         super.init()
@@ -91,7 +93,7 @@ class HomeNearByCourseViewModel: RefreshVM<NearByCourseItemModel> {
 
         nearByCourse(offset: pageModel.offset)
             .subscribe(onNext: { [unowned self] data in
-                self.updateRefresh(refresh, data.nearCourseList, data.total)
+//                self.updateRefresh(refresh, data.nearCourseList, data.total)
                 
                 let tempData = ([SectionModel.init(model: 0, items: self.datasource.value as [HomeCellSize])], data.advertList)
                 
@@ -108,11 +110,13 @@ class HomeNearByCourseViewModel: RefreshVM<NearByCourseItemModel> {
     }
     
     func dealData(data: NearByCourseModel) {
-        updateRefresh(true, data.nearCourseList, data.total)
+//        updateRefresh(true, data.nearCourseList, data.total)
         
         let tempData = ([SectionModel.init(model: 0, items: datasource.value as [HomeCellSize])], data.advertList)
         
         nearByCourseSourse.value = tempData
+        
+        testCourseSource.value = ([SectionModel.init(model: 0, items: TestCourseModel.creatModels() as [HomeCellSize])], data.advertList)
     }
 
 }

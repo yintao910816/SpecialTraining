@@ -148,6 +148,8 @@
 		B844477B21B81DF100808F5A /* STTreasureExchangeViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844477A21B81DF100808F5A /* STTreasureExchangeViewController.swift */; };
 		B844477D21B825AE00808F5A /* BaseTableViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844477C21B825AE00808F5A /* BaseTableViewController.swift */; };
 		B844477F21B829D200808F5A /* STTeacherPrepareViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B844477E21B829D200808F5A /* STTeacherPrepareViewController.swift */; };
+		B84861D6224E99F6004E4DD2 /* HomeCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84861D4224E99F6004E4DD2 /* HomeCourseCell.swift */; };
+		B84861D7224E99F6004E4DD2 /* HomeCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B84861D5224E99F6004E4DD2 /* HomeCourseCell.xib */; };
 		B852F13921BD6738002A5887 /* VideoCoverChoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852F13821BD6738002A5887 /* VideoCoverChoseViewModel.swift */; };
 		B8547E1A21A63F4300281554 /* STSelectedCityViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8547E1921A63F4300281554 /* STSelectedCityViewController.swift */; };
 		B8547E1C21A640CC00281554 /* SelectedCityViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8547E1B21A640CC00281554 /* SelectedCityViewModel.swift */; };
@@ -667,6 +669,8 @@
 		B844477A21B81DF100808F5A /* STTreasureExchangeViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTreasureExchangeViewController.swift; sourceTree = "<group>"; };
 		B844477C21B825AE00808F5A /* BaseTableViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BaseTableViewController.swift; sourceTree = "<group>"; };
 		B844477E21B829D200808F5A /* STTeacherPrepareViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTeacherPrepareViewController.swift; sourceTree = "<group>"; };
+		B84861D4224E99F6004E4DD2 /* HomeCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCourseCell.swift; sourceTree = "<group>"; };
+		B84861D5224E99F6004E4DD2 /* HomeCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCourseCell.xib; sourceTree = "<group>"; };
 		B852F13821BD6738002A5887 /* VideoCoverChoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoverChoseViewModel.swift; sourceTree = "<group>"; };
 		B8547E1921A63F4300281554 /* STSelectedCityViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STSelectedCityViewController.swift; sourceTree = "<group>"; };
 		B8547E1B21A640CC00281554 /* SelectedCityViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SelectedCityViewModel.swift; sourceTree = "<group>"; };
@@ -1767,6 +1771,8 @@
 				B8686AED2241729B0059BCB9 /* CourseDetailVideoCell.xib */,
 				B8686AF222417A8E0059BCB9 /* CourseDetailClassCell.swift */,
 				B8686AF322417A8E0059BCB9 /* CourseDetailClassCell.xib */,
+				B84861D4224E99F6004E4DD2 /* HomeCourseCell.swift */,
+				B84861D5224E99F6004E4DD2 /* HomeCourseCell.xib */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -2681,6 +2687,7 @@
 				B8FBFA4421A3DD9600AECB75 /* sad_thumb.png in Resources */,
 				B8BB6A542230339E0001AB5D /* MineNeedPayBackCell.xib in Resources */,
 				B8FBFA5F21A3E03B00AECB75 /* Resources.bundle in Resources */,
+				B84861D7224E99F6004E4DD2 /* HomeCourseCell.xib in Resources */,
 				B8BB6A442230339E0001AB5D /* MyAddressCell.xib in Resources */,
 				B8BB6A1D2230301F0001AB5D /* MineInfoFooterView.xib in Resources */,
 				B81EDF5921A50D1400F9D3B0 /* ChatImageLeftView.xib in Resources */,
@@ -3103,6 +3110,7 @@
 				C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */,
 				B81EDF7321A53C1300F9D3B0 /* BMKMapHelper.swift in Sources */,
 				B8FBFA5D21A3DE3D00AECB75 /* PlaceholderTextView.swift in Sources */,
+				B84861D6224E99F6004E4DD2 /* HomeCourseCell.swift in Sources */,
 				B85F33A1219EA3AD00023958 /* CourseListCell.swift in Sources */,
 				B86B8F0C22428AC00017D580 /* STVideoPlayViewController.swift in Sources */,
 				B8BB6A1A2230301F0001AB5D /* MineInfoAddStudentView.swift in Sources */,

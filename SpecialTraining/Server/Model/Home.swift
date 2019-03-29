@@ -148,3 +148,49 @@ extension AdvertListModel: CarouselSource {
     }
 }
 
+class TestCourseModel: BaseCourseModel {
+    var showCellImg: Bool = false
+    var cellHeight: CGFloat = 100
+    
+    class func creatModels() ->[TestCourseModel] {
+        var data = [TestCourseModel]()
+        for idx in 0..<4 {
+            let m = TestCourseModel()
+            if idx == 0 {
+                m.showCellImg = true
+                m.cellHeight = 100
+            }else {
+                m.showCellImg = false
+                m.cellHeight = 60
+            }
+            data.append(m)
+        }
+        return data
+    }
+    
+    
+}
+
+extension TestCourseModel {
+    
+    var size: CGSize {
+        get {
+            let width: CGFloat = PPScreenW - sectionInset.left - sectionInset.right - minimumInteritemSpacing
+            let height: CGFloat = showCellImg ? 100 : 80
+            return .init(width:  width, height: height)
+        }
+    }
+    
+    override var minimumLineSpacing: CGFloat {
+        get {
+            return 0
+        }
+    }
+    
+    override var minimumInteritemSpacing: CGFloat {
+        get {
+            return 0
+        }
+    }
+    
+}
