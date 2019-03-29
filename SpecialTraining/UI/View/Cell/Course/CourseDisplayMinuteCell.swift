@@ -27,9 +27,5 @@ class CourseDisplayMinuteCell: UICollectionViewCell {
             coverOutlet.setImage(model.pic)
             priceOutlet.text = model.about_price
         }
-    }
-    
-    @IBAction func actions(_ sender: UIButton) {
-        
-    }
+    }    
 }

@@ -12,7 +12,6 @@ import UIKit
 class CourseDetailClassCell: UITableViewCell {
 
     @IBOutlet weak var coverOutlet: UIImageView!
-    @IBOutlet weak var teacherNameOutlet: UILabel!
     @IBOutlet weak var classNameOutlet: UILabel!
     @IBOutlet weak var timeOutlet: UILabel!
     
@@ -24,7 +23,6 @@ class CourseDetailClassCell: UITableViewCell {
     var model: CourseDetailClassModel! {
         didSet {
             coverOutlet.setImage(model.teacher_pic)
-            teacherNameOutlet.text = model.teacher_name
             classNameOutlet.text = model.class_name
             timeOutlet.text = model.start_time
         }

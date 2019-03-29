@@ -28,37 +28,14 @@
                         <color key="textColor" red="0.76470588235294112" green="0.4823529411764706" blue="0.15294117647058825" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
-                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TUQ-M7-V5G">
-                        <rect key="frame" x="202" y="188.5" width="70" height="22"/>
-                        <color key="backgroundColor" red="0.76470588235294112" green="0.4823529411764706" blue="0.15294117647058825" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                        <constraints>
-                            <constraint firstAttribute="height" constant="22" id="Jzd-ee-Yn1"/>
-                            <constraint firstAttribute="width" constant="70" id="MT6-nx-sWn"/>
-                        </constraints>
-                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
-                        <state key="normal" title="立即体验">
-                            <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                        </state>
-                        <userDefinedRuntimeAttributes>
-                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
-                                <integer key="value" value="11"/>
-                            </userDefinedRuntimeAttribute>
-                        </userDefinedRuntimeAttributes>
-                        <connections>
-                            <action selector="actions:" destination="gTV-IL-0wX" eventType="touchUpInside" id="Cpj-tm-Jal"/>
-                        </connections>
-                    </button>
                 </subviews>
             </view>
             <constraints>
-                <constraint firstItem="TUQ-M7-V5G" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Ver-JD-uY3" secondAttribute="trailing" priority="750" constant="10" id="0YN-tM-hKT"/>
                 <constraint firstItem="Ver-JD-uY3" firstAttribute="leading" secondItem="4gW-oP-YIl" secondAttribute="leading" id="6Xa-0Z-VvP"/>
                 <constraint firstAttribute="trailing" secondItem="4gW-oP-YIl" secondAttribute="trailing" id="M5f-Gu-N1t"/>
                 <constraint firstItem="4gW-oP-YIl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="Sdf-Wy-LM6"/>
-                <constraint firstItem="Ver-JD-uY3" firstAttribute="centerY" secondItem="TUQ-M7-V5G" secondAttribute="centerY" id="Y1d-Tp-vCJ"/>
                 <constraint firstAttribute="bottom" secondItem="4gW-oP-YIl" secondAttribute="bottom" constant="37.5" id="clU-UU-ozf"/>
-                <constraint firstItem="TUQ-M7-V5G" firstAttribute="top" secondItem="4gW-oP-YIl" secondAttribute="bottom" constant="7" id="rKA-L4-VYx"/>
-                <constraint firstItem="TUQ-M7-V5G" firstAttribute="trailing" secondItem="4gW-oP-YIl" secondAttribute="trailing" id="sMR-lP-8mF"/>
+                <constraint firstItem="Ver-JD-uY3" firstAttribute="top" secondItem="4gW-oP-YIl" secondAttribute="bottom" constant="8.5" id="fEj-q6-X9a"/>
                 <constraint firstItem="4gW-oP-YIl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="w7I-VK-P8Y"/>
             </constraints>
             <size key="customSize" width="272" height="225"/>

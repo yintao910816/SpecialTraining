@@ -19,7 +19,6 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
     @IBOutlet weak var teachersBrefOutlet: UIButton!
     @IBOutlet weak var carouseOutlet: CarouselView!
     @IBOutlet weak var titleOutlet: UILabel!
-    @IBOutlet weak var navLogoOutlet: UIButton!
     @IBOutlet weak var navTitleOutlet: UILabel!
     @IBOutlet weak var locationOutlet: UIButton!
     
@@ -82,11 +81,7 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
         }else {
             automaticallyAdjustsScrollViewInsets = false
         }
-        
-        locationOutlet.layer.borderWidth = 1
-        locationOutlet.layer.borderColor = RGB(37, 167, 250).cgColor
-        locationOutlet.layer.cornerRadius = 4
-        
+                
         topViewHeightCns.constant += LayoutSize.fitTopArea
         bottomHeightCns.constant += LayoutSize.bottomVirtualArea
 
@@ -104,10 +99,6 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
     override func rxBind() {
         viewModel = OrganizationViewModel.init(shopId: shopId,
                                                locationAction: locationOutlet.rx.tap.asDriver())
-
-        viewModel.logoObser.asDriver()
-            .drive(navLogoOutlet.rx.image())
-            .disposed(by: disposeBag)
         
         viewModel.navTitleObser.asDriver()
             .drive(navTitleOutlet.rx.text)

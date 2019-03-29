@@ -18,20 +18,8 @@
                 <rect key="frame" x="0.0" y="0.0" width="286" height="89.5"/>
                 <autoresizingMask key="autoresizingMask"/>
                 <subviews>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="2hz-qA-amL">
-                        <rect key="frame" x="89.5" y="15" width="36" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.25490196078431371" green="0.65490196078431373" blue="0.91764705882352937" alpha="1" colorSpace="deviceRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="jh4-X7-3Ee">
-                        <rect key="frame" x="89.5" y="57.5" width="36" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                        <color key="textColor" red="0.25490196079999999" green="0.65490196079999996" blue="0.91764705879999997" alpha="1" colorSpace="deviceRGB"/>
-                        <nil key="highlightedColor"/>
-                    </label>
-                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I7-H2-zbO">
-                        <rect key="frame" x="250" y="15" width="36" height="17"/>
+                        <rect key="frame" x="89.5" y="17" width="196.5" height="17"/>
                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                         <color key="textColor" red="0.25490196079999999" green="0.65490196079999996" blue="0.91764705879999997" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
@@ -47,25 +35,27 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="8I7-H2-zbO">
+                        <rect key="frame" x="89.5" y="55.5" width="36" height="17"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <color key="textColor" red="0.62745098039215685" green="0.62745098039215685" blue="0.62745098039215685" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
                 </subviews>
                 <constraints>
-                    <constraint firstAttribute="trailing" secondItem="8I7-H2-zbO" secondAttribute="trailing" id="0wb-VY-RMR"/>
-                    <constraint firstItem="2hz-qA-amL" firstAttribute="leading" secondItem="XT7-Vw-EIp" secondAttribute="trailing" constant="5" id="3dT-OR-0lx"/>
-                    <constraint firstItem="8I7-H2-zbO" firstAttribute="top" secondItem="XT7-Vw-EIp" secondAttribute="top" constant="5" id="AcG-Ob-0He"/>
-                    <constraint firstItem="jh4-X7-3Ee" firstAttribute="bottom" secondItem="XT7-Vw-EIp" secondAttribute="bottom" constant="-5" id="BtS-SJ-Bpa"/>
+                    <constraint firstItem="jh4-X7-3Ee" firstAttribute="top" secondItem="XT7-Vw-EIp" secondAttribute="top" constant="7" id="4yy-q8-0CU"/>
+                    <constraint firstItem="jh4-X7-3Ee" firstAttribute="leading" secondItem="XT7-Vw-EIp" secondAttribute="trailing" constant="5" id="Dsr-Tp-PLo"/>
                     <constraint firstAttribute="bottom" secondItem="XT7-Vw-EIp" secondAttribute="bottom" constant="10" id="JLV-yp-7DU"/>
-                    <constraint firstItem="8I7-H2-zbO" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="2hz-qA-amL" secondAttribute="trailing" constant="5" id="POA-Mk-nda"/>
-                    <constraint firstItem="2hz-qA-amL" firstAttribute="centerY" secondItem="8I7-H2-zbO" secondAttribute="centerY" id="ZD8-sw-9zx"/>
                     <constraint firstItem="XT7-Vw-EIp" firstAttribute="top" secondItem="H2p-sc-9uM" secondAttribute="top" constant="10" id="bG6-xB-39Q"/>
-                    <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="jh4-X7-3Ee" secondAttribute="trailing" constant="15" id="me1-rB-PG2"/>
+                    <constraint firstItem="8I7-H2-zbO" firstAttribute="bottom" secondItem="XT7-Vw-EIp" secondAttribute="bottom" constant="-7" id="coS-o4-twK"/>
+                    <constraint firstItem="8I7-H2-zbO" firstAttribute="leading" secondItem="jh4-X7-3Ee" secondAttribute="leading" id="mHP-VT-rHP"/>
                     <constraint firstItem="XT7-Vw-EIp" firstAttribute="leading" secondItem="H2p-sc-9uM" secondAttribute="leading" constant="15" id="odR-un-SEG"/>
-                    <constraint firstItem="jh4-X7-3Ee" firstAttribute="leading" secondItem="2hz-qA-amL" secondAttribute="leading" id="rhb-n6-21t"/>
+                    <constraint firstAttribute="trailing" secondItem="jh4-X7-3Ee" secondAttribute="trailing" id="ttK-Jw-7HK"/>
                 </constraints>
             </tableViewCellContentView>
             <connections>
                 <outlet property="classNameOutlet" destination="jh4-X7-3Ee" id="CkT-QP-ggh"/>
                 <outlet property="coverOutlet" destination="XT7-Vw-EIp" id="1hV-7o-cta"/>
-                <outlet property="teacherNameOutlet" destination="2hz-qA-amL" id="EJo-38-oZg"/>
                 <outlet property="timeOutlet" destination="8I7-H2-zbO" id="8J8-Ro-FLC"/>
             </connections>
             <point key="canvasLocation" x="-78.400000000000006" y="96.251874062968525"/>
