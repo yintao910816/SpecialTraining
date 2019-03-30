@@ -28,5 +28,6 @@ pod 'BMKLocationKit'
 
 pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull'
 pod 'AliyunPlayer_iOS/AliyunPlayerSDK'
+pod 'VODUpload'
 
 end

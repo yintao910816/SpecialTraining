@@ -34,6 +34,9 @@
 
 #import <AlipaySDK/AlipaySDK.h>
 
+#import <VODUpload/VODUploadClient.h>
+#import <VODUpload/VODUploadSVideoClient.h>
+
 #import "DPAudioRecorder.h"
 #import "DPAudioPlayer.h"
 #import "ChatToolBarAudioButton.h"

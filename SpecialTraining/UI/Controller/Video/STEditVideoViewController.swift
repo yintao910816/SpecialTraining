@@ -39,7 +39,7 @@ class STEditVideoViewController: TJPlayerViewController {
             self?.getFirstImage(path: path, callBack: { image in
                 self?.hud.noticeHidden()
                 let publishVideoCtrl = UIStoryboard.init(name: "STVideo", bundle: Bundle.main).instantiateViewController(withIdentifier: "PublishVideoCtrl")
-                publishVideoCtrl.prepare(parameters: ["image": image as Any])
+                publishVideoCtrl.prepare(parameters: ["image": image as Any, "videoURL": path as Any])
                 self?.navigationController?.pushViewController(publishVideoCtrl, animated: true)
             })
         }

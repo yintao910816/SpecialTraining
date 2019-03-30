@@ -473,7 +473,9 @@
                         <outlet property="classificationOutlet" destination="ZSu-4N-tbH" id="gOe-jt-e7X"/>
                         <outlet property="inputTextOutlet" destination="nJM-Yx-de1" id="dsc-SR-oX1"/>
                         <outlet property="meidaChoseOutlet" destination="s6r-UH-tmT" id="kFa-VO-UEa"/>
+                        <outlet property="publishOutlet" destination="9CB-zv-IGc" id="Vef-8I-jKb"/>
                         <outlet property="saveOutlet" destination="9kX-RI-xoe" id="VLm-hG-Cih"/>
+                        <outlet property="titleOutlet" destination="nJM-Yx-de1" id="WfF-nH-509"/>
                         <segue destination="IkI-Ly-MWf" kind="show" identifier="publishUserVidesSegue" id="4QD-CB-URw"/>
                     </connections>
                 </viewController>

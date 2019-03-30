@@ -17,7 +17,13 @@ class STPublishVideoViewController: BaseViewController {
     @IBOutlet weak var saveOutlet: UIButton!
     @IBOutlet weak var classificationOutlet: UILabel!
     
+    @IBOutlet weak var titleOutlet: PlaceholderTextView!
+    @IBOutlet weak var publishOutlet: UIButton!
+    
     private var coverImage: UIImage?
+    private var videoPath: String?
+    
+    private var viewModel: PublishVideoViewModel!
     
     private var managerPicker: ImagePickerManager!
     
@@ -56,6 +62,14 @@ class STPublishVideoViewController: BaseViewController {
     
     override func rxBind() {
         
+        viewModel = PublishVideoViewModel()
+        
+        publishOutlet.rx.tap.asDriver()
+            .filter{ [unowned self] in self.videoPath?.count ?? 0 > 0 }
+            .map{ [unowned self] in (self.titleOutlet.text, self.coverImage, self.videoPath!) }
+            .drive(viewModel.publishDataSubject)
+            .disposed(by: disposeBag)
+        
         meidaChoseOutlet.rx.tap.asDriver()
             .drive(onNext: { _ in
                 NoticesCenter.alertActionSheet(actionTitles: ["相册", "相机"], cancleTitle: "取消", presentCtrl: self, callBackCancle:  nil, callBackChoose: { idx in
@@ -73,12 +87,14 @@ class STPublishVideoViewController: BaseViewController {
     
     override func prepare(parameters: [String : Any]?) {
         coverImage = parameters?["image"] as? UIImage
+        videoPath = parameters?["videoURL"] as? String
     }
 }
 
 extension STPublishVideoViewController: ImagePickerDelegate {
     
     func imagePickerController(_ picker: UIImagePickerController, didFinishPickingImage image: UIImage?, editedImage: UIImage?) {
+        coverImage = image
         meidaChoseOutlet.setImage(image, for: .normal)
     }
 }
