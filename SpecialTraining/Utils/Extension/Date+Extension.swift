@@ -16,4 +16,11 @@ extension Date {
         let millisecond = CLongLong(round(timeInterval*1000))
         return "\(millisecond)"
     }
+    
+    /// 获取当前 秒级 时间戳 - 10位
+    var timeStamp : String {
+        let timeInterval: TimeInterval = self.timeIntervalSince1970
+        let timeStamp = Int(timeInterval)
+        return "\(timeStamp)"
+    }    
 }

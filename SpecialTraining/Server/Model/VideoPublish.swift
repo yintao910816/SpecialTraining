@@ -17,8 +17,8 @@ class VideoUploadAuthRefreshModel: HJModel {
 
 class VideoSTSModel: HJModel {
     var RequestId: String = ""
-    var AssumedRoleUser: String = ""
-    var Credentials: String = ""
+    var AssumedRoleUser: AssumedRoleUserModel = AssumedRoleUserModel()
+    var Credentials: CredentialsModel = CredentialsModel()
 }
 
 class AssumedRoleUserModel: HJModel {
