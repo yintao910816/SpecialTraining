@@ -151,17 +151,17 @@ class STHomeViewController: BaseViewController {
 //            .drive(recomendColView.datasource)
 //            .disposed(by: disposeBag)
 
-        recomendColView.prepare(viewModel.nearByCourseViewModel, TestCourseModel.self, showFooter: true)
-        viewModel.nearByCourseViewModel.testCourseSource.asDriver()
-            .drive(recomendColView.testDatasource)
+        recomendColView.prepare(viewModel.nearByCourseViewModel, NearCourseListModel.self, showFooter: false)
+        viewModel.nearByCourseViewModel.nearByCourseSourse.asDriver()
+            .drive(recomendColView.datasource)
             .disposed(by: disposeBag)
         
-        expericeColView.prepare(viewModel.expericeCourseViewModel, ExperienceCourseItemModel.self, showFooter: true)
+        expericeColView.prepare(viewModel.expericeCourseViewModel, ExperienceCourseItemModel.self, showFooter: false)
         viewModel.expericeCourseViewModel.experienceCourseSourse.asDriver()
             .drive(expericeColView.datasource)
             .disposed(by: disposeBag)
 
-        organizationColView.prepare(viewModel.nearByOrgnazitionViewModel, NearByOrganizationItemModel.self, showFooter: true)
+        organizationColView.prepare(viewModel.nearByOrgnazitionViewModel, NearByOrganizationItemModel.self, showFooter: false)
         viewModel.nearByOrgnazitionViewModel.nearByOrgnazitionSourse.asDriver()
             .drive(organizationColView.datasource)
             .disposed(by: disposeBag)
@@ -172,7 +172,7 @@ class STHomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        recomendColView.rx.modelSelected(NearByCourseItemModel.self)
+        recomendColView.rx.modelSelected(HomeNearbyCourseItemModel.self)
             .subscribe(onNext: { [unowned self] model in
                 self.performSegue(withIdentifier: "courseDetailSegue", sender: model.course_id)
             })
@@ -191,13 +191,9 @@ class STHomeViewController: BaseViewController {
         if segue.identifier == "organizationSegue" {
             segue.destination.prepare(parameters: ["agn_id": "1"])
         }else if segue.identifier == "courseDetailSegue" {
-            let ctrl = segue.destination
-//            ctrl.prepare(parameters: ["course_id": sender as! String])
-//            ctrl.prepare(parameters: ["course_id": sender as! String])
-            ctrl.prepare(parameters: ["course_id": "1"])
+            segue.destination.prepare(parameters: ["course_id": sender as! String])
         }else if segue.identifier == "organizationShopSegue" {
-            let ctrl = segue.destination
-            ctrl.prepare(parameters: ["agn_id": sender as! String])
+            segue.destination.prepare(parameters: ["agn_id": sender as! String])
         }
     }
     

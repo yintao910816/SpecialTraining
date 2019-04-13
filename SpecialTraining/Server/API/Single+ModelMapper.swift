@@ -13,9 +13,9 @@ import HandyJSON
 
 extension PrimitiveSequence where TraitType == SingleTrait, ElementType == Response {
     
-    func mapResponse() -> Single<ResponseModel> {
+    func mapResponse() -> Single<SingleResponseModel> {
         return observeOn(ConcurrentDispatchQueueScheduler(qos: .background))
-            .flatMap { response -> Single<ResponseModel> in
+            .flatMap { response -> Single<SingleResponseModel> in
                 return Single.just(try response.mapResponse())
             }
             .observeOn(MainScheduler.instance)

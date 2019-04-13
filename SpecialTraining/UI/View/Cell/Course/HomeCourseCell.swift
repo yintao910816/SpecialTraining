@@ -27,12 +27,13 @@ class HomeCourseCell: UICollectionViewCell {
         // Initialization code
     }
 
-    var model: TestCourseModel! {
+    var model: HomeNearbyCourseItemModel! {
         didSet {
             coverOutlet.isHidden = !model.showCellImg
             if model.showCellImg {
-                titleOutlet.text = "引领右脑(公安青少年宫)"
-                addressOutlet.text = "1.3km"
+                coverOutlet.setImage(model.shop_logo)
+                titleOutlet.text = model.shop_name
+                addressOutlet.text = model.dis
                 setLineOutlet.backgroundColor = RGB(240, 202, 162)
             }else {
                 titleOutlet.text = nil

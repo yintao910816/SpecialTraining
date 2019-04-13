@@ -55,7 +55,9 @@ class MineViewModel: BaseViewModel {
                                                                                      imageString: "mine_laoshibeike",
                                                                                      segueIdentifier: "teacherPrepareSegue"),
                                                                 MineModel.creatModel(title: "排课表", imageString: "mine_laoshikechengbiao")]),
-                            SectionModel.init(model: 4, items: [MineModel.creatModel(title: "投诉", imageString: "mine_tousuliuyan")])]
+                            SectionModel.init(model: 4, items: [MineModel.creatModel(title: "投诉",
+                                                                                     imageString: "mine_tousuliuyan",
+                                                                                     segueIdentifier: "faceBackSegue")])]
     }
     
     func sectionTitle(_ indexPath: IndexPath) ->String{

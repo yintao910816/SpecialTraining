@@ -77,11 +77,9 @@ class HomeViewModel: BaseViewModel {
 }
 
 
-//class HomeNearByCourseViewModel: RefreshVM<NearByCourseItemModel> {
-class HomeNearByCourseViewModel: RefreshVM<TestCourseModel> {
+class HomeNearByCourseViewModel: RefreshVM<NearCourseListModel> {
 
     let nearByCourseSourse = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
-    let testCourseSource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
 
     override init() {
         super.init()
@@ -92,31 +90,40 @@ class HomeNearByCourseViewModel: RefreshVM<TestCourseModel> {
         setOffset(refresh: refresh)
 
         nearByCourse(offset: pageModel.offset)
-            .subscribe(onNext: { [unowned self] data in
-//                self.updateRefresh(refresh, data.nearCourseList, data.total)
-                
-                let tempData = ([SectionModel.init(model: 0, items: self.datasource.value as [HomeCellSize])], data.advertList)
-                
-                self.nearByCourseSourse.value = tempData
-            })
+            .subscribe(onNext: { [weak self] data in self?.dealData(data: data) })
             .disposed(by: disposeBag)
     }
     
-    func nearByCourse(offset: Int = 0) ->Observable<NearByCourseModel> {
+    func nearByCourse(offset: Int = 0) ->Observable<DataModel<HomeNearbyCourseModel>> {
         return STProvider.request(.nearCourse(lat: userDefault.lat, lng: userDefault.lng, offset: offset))
-            .map(model: NearByCourseModel.self)
+            .map(result: HomeNearbyCourseModel.self)
             .asObservable()
-            .catchErrorJustReturn(NearByCourseModel())
+            .catchErrorJustReturn(DataModel<HomeNearbyCourseModel>())
     }
     
-    func dealData(data: NearByCourseModel) {
-//        updateRefresh(true, data.nearCourseList, data.total)
+    func dealData(data: DataModel<HomeNearbyCourseModel>) {
+        guard let sourceData = data.data else {
+            updateRefresh(true, [NearCourseListModel](), 0)
+            nearByCourseSourse.value = ([SectionModel<Int, HomeCellSize>](), [AdvertListModel]())
+            return
+        }
+        var sectionData: [SectionModel<Int, HomeCellSize>] = []
         
-        let tempData = ([SectionModel.init(model: 0, items: datasource.value as [HomeCellSize])], data.advertList)
+        for item in sourceData.nearCourseList {
+            if item.course.count > 0 {
+                item.course[0].shop_id   = item.shop_id
+                item.course[0].shop_name = item.shop_name
+                item.course[0].shop_logo = item.shop_logo
+                item.course[0].dis       = item.dis
+                item.course[0].showCellImg = true
+                sectionData.append(SectionModel.init(model: 0, items: item.course))
+                continue
+            }
+        }
         
-        nearByCourseSourse.value = tempData
+        nearByCourseSourse.value = (sectionData, sourceData.advertList)
         
-        testCourseSource.value = ([SectionModel.init(model: 0, items: TestCourseModel.creatModels() as [HomeCellSize])], data.advertList)
+        updateRefresh(true, sourceData.nearCourseList, data.total)
     }
 
 }

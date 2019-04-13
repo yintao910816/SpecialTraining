@@ -148,30 +148,37 @@ extension AdvertListModel: CarouselSource {
     }
 }
 
-class TestCourseModel: BaseCourseModel {
-    var showCellImg: Bool = false
-    var cellHeight: CGFloat = 100
-    
-    class func creatModels() ->[TestCourseModel] {
-        var data = [TestCourseModel]()
-        for idx in 0..<4 {
-            let m = TestCourseModel()
-            if idx == 0 {
-                m.showCellImg = true
-                m.cellHeight = 100
-            }else {
-                m.showCellImg = false
-                m.cellHeight = 60
-            }
-            data.append(m)
-        }
-        return data
-    }
-    
-    
+class HomeNearbyCourseModel: HJModel {
+    var advertList: [AdvertListModel] = []
+    var nearCourseList: [NearCourseListModel] = []
 }
 
-extension TestCourseModel {
+class NearCourseListModel: HJModel {
+    var shop_id: String = ""
+    var shop_name: String = ""
+    var shop_logo: String = ""
+    var dis: String = ""
+
+    var course: [HomeNearbyCourseItemModel] = []
+}
+
+class HomeNearbyCourseItemModel: BaseCourseModel {
+    var course_id: String = ""
+    var title: String = ""
+    var about_price: String = ""
+    var introduce: String = ""
+    
+    // 第一个cell所需要的参数
+    var shop_id: String = ""
+    var shop_name: String = ""
+    var shop_logo: String = ""
+    var dis: String = ""
+
+    var showCellImg: Bool = false
+    var cellHeight: CGFloat = 100
+}
+
+extension HomeNearbyCourseItemModel {
     
     var size: CGSize {
         get {
@@ -194,3 +201,4 @@ extension TestCourseModel {
     }
     
 }
+

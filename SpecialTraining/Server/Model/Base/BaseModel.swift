@@ -18,6 +18,10 @@ class ResponseModel: HJModel{
     
 }
 
+class SingleResponseModel: ResponseModel {
+    var data: String = ""
+}
+
 class DataModel<T>: ResponseModel {
     
     var data: T?

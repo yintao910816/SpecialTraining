@@ -20,7 +20,6 @@ class HomeRecommendCollectionView: UICollectionView {
     private let disposeBag = DisposeBag()
     
     public let datasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
-    public let testDatasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
 
     private var carouseDatas = [AdvertListModel]()
 
@@ -44,7 +43,6 @@ class HomeRecommendCollectionView: UICollectionView {
         backgroundColor = .white
 
         register(HomeHeaderCarouselView.self, forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID)
-//        register(UINib.init(nibName: "CourseListCell", bundle: Bundle.main), forCellWithReuseIdentifier: courseListCellID)
         register(UINib.init(nibName: "HomeCourseCell", bundle: Bundle.main), forCellWithReuseIdentifier: courseListCellID)
     }
     
@@ -53,39 +51,29 @@ class HomeRecommendCollectionView: UICollectionView {
             .disposed(by: disposeBag)
 
         let datasourceSignal = RxCollectionViewSectionedReloadDataSource<SectionModel<Int, HomeCellSize>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
-//            let cell = col.dequeueReusableCell(withReuseIdentifier: courseListCellID, for: indexPath) as! CourseListCell
-//            cell.model = (model as! NearByCourseItemModel)
             let cell = col.dequeueReusableCell(withReuseIdentifier: courseListCellID, for: indexPath) as! HomeCourseCell
-            cell.model = (model as! TestCourseModel)
+            cell.model = (model as! HomeNearbyCourseItemModel)
             return cell
         }, configureSupplementaryView: { [unowned self] (_, col, kind, indexPath) -> UICollectionReusableView in
-            let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID, for: indexPath) as! HomeHeaderCarouselView
-            colHeader.setData(source: self.carouseDatas)
-            return colHeader
+            if indexPath.section == 0 {
+                let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID, for: indexPath) as! HomeHeaderCarouselView
+                colHeader.setData(source: self.carouseDatas)
+                return colHeader
+            }
+            return UICollectionReusableView()
             }, moveItem: { _,_,_  in
                 
         }) { _,_  -> Bool in
             return false
         }
         
-//        datasource.asDriver()
-//            .map({ [weak self] data -> [SectionModel<Int, HomeCellSize>] in
-//                self?.carouseDatas = data.1
-//
-//                return data.0
-//            })
-//            .drive(rx.items(dataSource: datasourceSignal))
-//            .disposed(by: disposeBag)
-
-        testDatasource.asDriver()
+        datasource.asDriver()
             .map({ [weak self] data -> [SectionModel<Int, HomeCellSize>] in
                 self?.carouseDatas = data.1
-                
                 return data.0
             })
             .drive(rx.items(dataSource: datasourceSignal))
             .disposed(by: disposeBag)
-
     }
 
 }
@@ -93,18 +81,19 @@ class HomeRecommendCollectionView: UICollectionView {
 extension HomeRecommendCollectionView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let carouselHeader = HomeHeaderCarouselView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: 200))
-        return .init(width: PPScreenW, height: carouselHeader.actualHeight)
+        if section == 0 {
+            let carouselHeader = HomeHeaderCarouselView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: 200))
+            return .init(width: PPScreenW, height: carouselHeader.actualHeight)
+        }
+        return .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
-//        return datasource.value.0[section].items.first?.minimumLineSpacing ?? 0
-        return testDatasource.value.0[section].items.first?.minimumLineSpacing ?? 0
+        return datasource.value.0[section].items.first?.minimumLineSpacing ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumInteritemSpacingForSectionAt section: Int) -> CGFloat {
-//        return datasource.value.0[section].items.first?.minimumInteritemSpacing ?? 0
-        return testDatasource.value.0[section].items.first?.minimumInteritemSpacing ?? 0
+        return datasource.value.0[section].items.first?.minimumInteritemSpacing ?? 0
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
@@ -112,8 +101,7 @@ extension HomeRecommendCollectionView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
-//        return datasource.value.0[indexPath.section].items[indexPath.row].size ?? .zero
-        return testDatasource.value.0[indexPath.section].items[indexPath.row].size ?? .zero
+        return datasource.value.0[indexPath.section].items[indexPath.row].size ?? .zero
     }
     
     func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {

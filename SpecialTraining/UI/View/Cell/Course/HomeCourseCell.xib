@@ -66,12 +66,12 @@
                 <constraint firstItem="794-QF-G2U" firstAttribute="top" secondItem="xty-YM-sey" secondAttribute="bottom" constant="5" id="JWv-GZ-0aN"/>
                 <constraint firstItem="DSv-rt-CCn" firstAttribute="top" secondItem="3dV-Gc-3ps" secondAttribute="bottom" constant="12" id="S97-uc-cg0"/>
                 <constraint firstItem="794-QF-G2U" firstAttribute="leading" secondItem="xty-YM-sey" secondAttribute="leading" id="Vsp-Z4-Dub"/>
-                <constraint firstItem="xty-YM-sey" firstAttribute="leading" secondItem="Cay-K5-ZXs" secondAttribute="trailing" constant="12" id="W7q-ea-xgk"/>
                 <constraint firstItem="xty-YM-sey" firstAttribute="top" secondItem="Cay-K5-ZXs" secondAttribute="top" id="ahh-v1-OSL"/>
                 <constraint firstItem="794-QF-G2U" firstAttribute="trailing" secondItem="RHp-tC-1qW" secondAttribute="trailing" id="cPo-eX-KBP"/>
                 <constraint firstAttribute="bottom" secondItem="Cay-K5-ZXs" secondAttribute="bottom" constant="5" id="cey-BM-64g"/>
                 <constraint firstItem="RHp-tC-1qW" firstAttribute="centerY" secondItem="xty-YM-sey" secondAttribute="centerY" id="fmu-1P-uBC"/>
                 <constraint firstItem="DSv-rt-CCn" firstAttribute="leading" secondItem="3dV-Gc-3ps" secondAttribute="leading" id="gPR-ud-ERn"/>
+                <constraint firstItem="xty-YM-sey" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="112" id="jmE-7C-I3X"/>
                 <constraint firstItem="3dV-Gc-3ps" firstAttribute="top" secondItem="794-QF-G2U" secondAttribute="bottom" constant="13" id="zs6-dW-0HU"/>
             </constraints>
             <size key="customSize" width="370" height="102"/>

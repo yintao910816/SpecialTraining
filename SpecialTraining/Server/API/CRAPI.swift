@@ -82,6 +82,8 @@ enum API{
     //MARK: 个人中心
     /// 所有订单 api.youpeixunjiaoyu.com/v1/order/getMemberAllOrder?member_id=1
     case getMemberAllOrder(member_id: String)
+    /// 意见反馈
+    case feedback(category_id: String, content: String, contact: String, member_id: String)
     
     //MARK:
     //MARK: 文件上传
@@ -160,6 +162,9 @@ extension API: TargetType{
             
         case .getMemberAllOrder(_):
             return "v1/order/getMemberAllOrder"
+        case .feedback(_):
+            return "v1/member/feedback"
+            
         case .sts():
             return "v1/video/get_video_sts"
         case .aliyunUpLoadAuth(_):
@@ -293,7 +298,12 @@ extension API {
             
         case .getMemberAllOrder(let member_id):
             params["member_id"] = member_id
-            
+        case .feedback(let category_id, let content, let contact, let member_id):
+            params["category_id"] = category_id
+            params["content"] = content
+            params["contact"] = contact
+            params["member_id"] = member_id
+
         case .aliyunUpLoadAuth(let title, let filename, let cate_id, let member_id):
             params["title"] = title
             params["filename"] = filename

@@ -12,20 +12,16 @@ import HandyJSON
 
 public extension Response {
     
-    internal func mapResponse() throws -> ResponseModel {
+    internal func mapResponse() throws -> SingleResponseModel {
         guard let jsonDictionary = try mapJSON() as? NSDictionary else {
             throw MapperError.json(message: "json解析失败")
         }
         
-        guard let serverModel = JSONDeserializer<ResponseModel>.deserializeFrom(dict: jsonDictionary) else {
+        guard let serverModel = JSONDeserializer<SingleResponseModel>.deserializeFrom(dict: jsonDictionary) else {
             throw MapperError.json(message: "json解析失败")
         }
         
-        if serverModel.errno == 0 {
-            return serverModel
-        }else {
-            throw MapperError.server(message: serverModel.errmsg)
-        }
+        return serverModel
     }
     
     internal func map<T: HandyJSON>(model type: T.Type) throws -> T {
