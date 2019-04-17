@@ -13,9 +13,9 @@ let noUID = "-UID520"
 
 extension UserDefaults{
 
-    var uid: Int {
+    var uid: Int32 {
         get{
-            guard let rtUID = (object(forKey: kUID) as? Int) else {
+            guard let rtUID = (object(forKey: kUID) as? Int32) else {
                 return 1
             }
             return rtUID

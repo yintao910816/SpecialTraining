@@ -57,16 +57,18 @@
 	<string>cb96ac9fc87e03e1e47145261b98fc67</string>
 	<key>NSAppTransportSecurity</key>
 	<dict>
+		<key>NSAllowsArbitraryLoads</key>
+		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>api.youpeixunjiaoyu.com</key>
+			<key>alpha.youpeixunjiaoyu.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
 				<key>NSIncludesSubdomains</key>
 				<true/>
 			</dict>
-			<key>alpha.youpeixunjiaoyu.com</key>
+			<key>api.youpeixunjiaoyu.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>
 				<true/>
@@ -160,9 +162,9 @@
 				<true/>
 			</dict>
 		</dict>
-		<key>NSAllowsArbitraryLoads</key>
-		<true/>
 	</dict>
+	<key>NSAppleMusicUsageDescription</key>
+	<string>媒体</string>
 	<key>NSCameraUsageDescription</key>
 	<string>APP需要需要您授权摄像头权限</string>
 	<key>NSLocationAlwaysUsageDescription</key>
@@ -196,7 +198,5 @@
 		<string>UIInterfaceOrientationLandscapeLeft</string>
 		<string>UIInterfaceOrientationLandscapeRight</string>
 	</array>
-	<key>NSAppleMusicUsageDescription</key>
-	<string>媒体</string>
 </dict>
 </plist>

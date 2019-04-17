@@ -26,7 +26,12 @@ class DbManager {
             let db = try Connection(dbFullPath)
             
             // 创建用户表
-            var table = Table(courseOrderTB)
+            var table = Table(userTB)
+            try db.run(table.create { t in
+                CourseClassModel.dbBind(t)
+            })
+
+            table = Table(courseOrderTB)
             try db.run(table.create { t in
                 CourseClassModel.dbBind(t)
             })

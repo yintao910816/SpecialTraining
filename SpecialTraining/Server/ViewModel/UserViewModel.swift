@@ -96,7 +96,7 @@ class LoginViewModel: BaseViewModel,VMNavigation {
             .map(model: LoginModel.self)
             .subscribe(onSuccess: { [weak self] model in
                 userDefault.token = model.access_token
-                if model.member.is_bind_mobile == true {
+                if model.member.isBindPhone == true {
                     self?.hud.successHidden("登录成功", {
                         self?.popSubject.onNext(Void())
                     })
