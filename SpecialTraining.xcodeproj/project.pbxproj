@@ -477,6 +477,7 @@
 		C408422821B54C0B00C491A8 /* STMainTabBarController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408422721B54C0B00C491A8 /* STMainTabBarController.swift */; };
 		C408422B21B559A500C491A8 /* STVideoDemandViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408422A21B559A500C491A8 /* STVideoDemandViewController.swift */; };
 		C408422D21B562DD00C491A8 /* STUserVideosViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C408422C21B562DD00C491A8 /* STUserVideosViewController.swift */; };
+		C40DC22E2267706400BD868D /* STAppDelegate+Core.swift in Sources */ = {isa = PBXBuildFile; fileRef = C40DC22D2267706400BD868D /* STAppDelegate+Core.swift */; };
 		C41D24FD222FA60F00DC3D83 /* ZQVideoPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D24CF222FA60F00DC3D83 /* ZQVideoPlayVC.m */; };
 		C41D24FE222FA60F00DC3D83 /* ZQPhotoPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D24D2222FA60F00DC3D83 /* ZQPhotoPreviewVC.m */; };
 		C41D24FF222FA60F00DC3D83 /* ZQAlbumListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D24D6222FA60F00DC3D83 /* ZQAlbumListVC.m */; };
@@ -1012,6 +1013,7 @@
 		C408422721B54C0B00C491A8 /* STMainTabBarController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMainTabBarController.swift; sourceTree = "<group>"; };
 		C408422A21B559A500C491A8 /* STVideoDemandViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoDemandViewController.swift; sourceTree = "<group>"; };
 		C408422C21B562DD00C491A8 /* STUserVideosViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STUserVideosViewController.swift; sourceTree = "<group>"; };
+		C40DC22D2267706400BD868D /* STAppDelegate+Core.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "STAppDelegate+Core.swift"; sourceTree = "<group>"; };
 		C41D24CF222FA60F00DC3D83 /* ZQVideoPlayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQVideoPlayVC.m; sourceTree = "<group>"; };
 		C41D24D0222FA60F00DC3D83 /* ZQAlbumNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAlbumNavVC.h; sourceTree = "<group>"; };
 		C41D24D1222FA60F00DC3D83 /* ZQAlbumListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAlbumListVC.h; sourceTree = "<group>"; };
@@ -1597,6 +1599,7 @@
 				B87F8F8A21A29B8000DE9DC1 /* STAppDelegate+EaseMob.swift */,
 				B81EDF6F21A53B4C00F9D3B0 /* STAppDelegate+BMK.swift */,
 				6BAE0AD521CA2BC90065BAD2 /* STAppdelegate+ShareSDK.swift */,
+				C40DC22D2267706400BD868D /* STAppDelegate+Core.swift */,
 			);
 			path = Appdelegate;
 			sourceTree = "<group>";
@@ -2962,6 +2965,7 @@
 				C498BA7521B7A54100A29385 /* STPublishVideoViewController.swift in Sources */,
 				B8547E2521A6437300281554 /* CityCell.swift in Sources */,
 				B85F3351219E94D600023958 /* HUDIndicatorView.swift in Sources */,
+				C40DC22E2267706400BD868D /* STAppDelegate+Core.swift in Sources */,
 				B85F3333219E926800023958 /* Debug.swift in Sources */,
 				B8BB6A432230339E0001AB5D /* StudentInfoCell.swift in Sources */,
 				B8FC3AB42217163600889483 /* YYGcategory.swift in Sources */,

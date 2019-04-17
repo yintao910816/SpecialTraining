@@ -22,13 +22,13 @@ class DbManager {
 //        }
 
         do {
-            PrintLog(dbFullPath)
+            PrintLog("沙盒路径：\(dbPath)")
             let db = try Connection(dbFullPath)
             
             // 创建用户表
             var table = Table(userTB)
             try db.run(table.create { t in
-                CourseClassModel.dbBind(t)
+                UserInfoModel.dbBind(t)
             })
 
             table = Table(courseOrderTB)

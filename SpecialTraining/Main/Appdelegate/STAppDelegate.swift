@@ -29,7 +29,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         window?.makeKeyAndVisible()
         window?.backgroundColor = .white
 
-        DbManager.dbSetup()
+        configAppData()
         // 环信
         easemobConfig(application: application, launchOptions: launchOptions)
         // 百度
