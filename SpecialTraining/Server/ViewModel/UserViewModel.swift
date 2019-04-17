@@ -77,11 +77,10 @@ class LoginViewModel: BaseViewModel,VMNavigation {
         STProvider.request(.login(mobile: account, code: code))
             .map(model: LoginModel.self)
             .subscribe(onSuccess: { [weak self] model in
-//                STHelper.share.saveLoginUser(user: userInfo)
-//
 //                STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
-                userDefault.token = model.access_token
-                userDefault.uid = model.member.uid
+
+                UserAccountServer.shre.save(loginUser: model)
+                
                 self?.hud.successHidden("登录成功", {
                     self?.popSubject.onNext(Void())
                 })

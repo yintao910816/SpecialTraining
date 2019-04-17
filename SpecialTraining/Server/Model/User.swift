@@ -91,59 +91,59 @@ extension UserInfoModel: DBOperation {
     static func inster(user loginInfo: LoginModel) {
         DBQueue.share.insterOrUpdateQueue(ExpressionEx.uidEx == Int64(loginInfo.member.uid),
                                           config(setters: loginInfo),
-                                          courseOrderTB,
-                                          CourseClassModel.self)
+                                          userTB,
+                                          UserInfoModel.self)
     }
     
     static func slectedLoginUser() -> Observable<LoginModel>{
         return Observable<LoginModel>.create({ obser -> Disposable in
-            DBQueue.share.selectQueue(ExpressionEx.uidEx != 0,
-                                      courseOrderTB,
-                                      CourseClassModel.self,
-                                      complement: { table in
-                                        
-                                        guard let query = table else {
-                                            obser.onNext([CourseClassModel]())
-                                            obser.onCompleted()
-                                            return
-                                        }
-                                        
-                                        do {
-                                            guard let rows = try db?.prepare(query) else {
-                                                obser.onNext([CourseClassModel]())
-                                                obser.onCompleted()
-                                                return
-                                            }
-                                            var retModels = [CourseClassModel]()
-                                            for row in rows {
-                                                let model = CourseClassModel()
-                                                model.class_id = row[class_idEx]
-                                                model.class_name = row[class_nameEx]
-                                                model.price = row[priceEx]
-                                                model.teacher_name = row[teacher_nameEx]
-                                                model.label = row[labelEx]
-                                                model.address = row[addressEx]
-                                                model.shop_name = row[shop_nameEx]
-                                                model.introduce = row[introduceEx]
-                                                model.shop_id = row[shop_idEx]
-                                                model.course_id = row[course_idEx]
-                                                model.teacher_id = row[teacher_idEx]
-                                                model.content = row[contentEx]
-                                                model.class_level = row[class_levelEx]
-                                                model.createtime = row[createtimeEx]
-                                                model.teacher_level = row[teacher_levelEx]
-                                                
-                                                retModels.append(model)
-                                            }
-                                            
-                                            obser.onNext(retModels)
-                                            obser.onCompleted()
-                                            
-                                        }catch {
-                                            obser.onNext([CourseClassModel]())
-                                            obser.onCompleted()
-                                        }
-                                        
+            DBQueue.share.selectQueue(ExpressionEx.uidEx == Int64(userDefault.uid),
+                                      userTB,
+                                      UserInfoModel.self,
+                                      complement:
+                { table in
+                    guard let query = table else {
+                        obser.onNext(LoginModel())
+                        obser.onCompleted()
+                        return
+                    }
+                    
+                    do {
+                        guard let rows = try db?.prepare(query) else {
+                            obser.onNext(LoginModel())
+                            obser.onCompleted()
+                            return
+                        }
+                        let loginModel = LoginModel()
+                        loginModel.member = UserInfoModel()
+                        for row in rows {
+                            loginModel.access_token = row[ExpressionEx.access_tokenEx]
+                            loginModel.expires_time = row[ExpressionEx.expires_timeEx]
+                            loginModel.refresh_expires_time = row[ExpressionEx.refresh_expires_timeEx]
+                            loginModel.refresh_token = row[ExpressionEx.refresh_tokenEx]
+                            loginModel.member.code = row[ExpressionEx.codeEx]
+                            loginModel.member.createtime = row[ExpressionEx.createtimeEx]
+                            loginModel.member.headimgurl = row[ExpressionEx.headimgurlEx]
+                            loginModel.member.uid = Int32(row[ExpressionEx.uidEx])
+                            loginModel.member.mob = row[ExpressionEx.mobEx]
+                            loginModel.member.mp_openid = row[ExpressionEx.mp_openidEx]
+                            loginModel.member.nickname = row[ExpressionEx.nicknameEx]
+                            loginModel.member.op_openid = row[ExpressionEx.op_openidEx]
+                            loginModel.member.parent_id = row[ExpressionEx.parent_idEx]
+                            loginModel.member.pid = row[ExpressionEx.pidEx]
+                            loginModel.member.pwd = row[ExpressionEx.pwdEx]
+                            loginModel.member.sex = row[ExpressionEx.sexEx]
+
+                            obser.onNext(loginModel)
+                            obser.onCompleted()
+                            return
+                        }
+                        
+                    }catch {
+                        obser.onNext(LoginModel())
+                        obser.onCompleted()
+                    }
+                    
             })
             return Disposables.create()
         })

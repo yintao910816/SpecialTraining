@@ -14,8 +14,16 @@ class UserAccountServer {
     static let shre = UserAccountServer()
     
     // 当前登录用户信息
-    var loginUser: UserInfoModel?
-    
+    var loginUser = LoginModel()
+ 
+    final func save(loginUser userModel: LoginModel) {
+        loginUser = userModel
+        
+        userDefault.token = userModel.access_token
+        userDefault.uid = userModel.member.uid
+
+        UserInfoModel.inster(user: userModel)
+    }
 }
 
 extension UserAccountServer { /**第三方登录授权相关*/

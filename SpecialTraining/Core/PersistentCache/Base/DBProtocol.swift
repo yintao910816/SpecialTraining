@@ -28,13 +28,6 @@ extension DBOperation {
         return nil
     }
     
-    /**
-     根据表名获取表
-     */
-    static func table(_ name: String) -> Table? {
-        return Table(name)
-    }
-
 }
 
 extension DBOperation {
@@ -42,16 +35,14 @@ extension DBOperation {
     //MARK:
     //MARK: 增加数据
     @discardableResult
-    static func dbInster<T: DBOperation>(_ setters: [Setter], _ tbName: String, _ type: T.Type) -> Bool {
+    static func dbInster(_ setters: [Setter], _ tbName: String) -> Bool {
 
         guard let DB = db else {
             PrintLog("数据库连接失败：\(tbName)")
             return false
         }
-        guard let table = T.table(tbName) else {
-            PrintLog("没有表：\(tbName)")
-            return false
-        }
+        
+        let table = Table(tbName)
         
         do {
             try DB.run(table.insert(setters))
@@ -65,34 +56,30 @@ extension DBOperation {
     }
     
     @discardableResult
-    static func dbInsterOrUpdate<T: DBOperation>(_ filier: Expression<Bool>? = nil,
-                                       _ setters: [Setter],
-                                       _ tbName: String,
-                                       _ type: T.Type) ->Bool {
+    static func dbInsterOrUpdate(_ filier: Expression<Bool>? = nil,
+                                 _ setters: [Setter],
+                                 _ tbName: String) ->Bool {
 
         if let _filier = filier {
-            if dbExist(_filier, tbName, type) == true {
-                return dbUpdate(_filier, setters, tbName, type)
+            if dbExist(_filier, tbName) == true {
+                return dbUpdate(_filier, setters, tbName)
             }else {
-                return dbInster(setters, tbName, type)
+                return dbInster(setters, tbName)
             }
         }else {
-            return dbInster(setters, tbName, type)
+            return dbInster(setters, tbName)
         }
     }
     
     //MARK:
     //MARK: 查询所有数据
-    static func dbSelectAll<T: DBOperation>(_ tbName: String,
-                               _ type: T.Type) -> [Row]? {
-        guard let db = T.db else {
+    static func dbSelectAll(_ tbName: String) -> [Row]? {
+        guard let db = db else {
             return nil
         }
-        guard let table = T.table(tbName) else {
-            PrintLog("没有表 \(tbName)")
-            return nil
-        }
-
+        
+        let table = Table(tbName)
+        
         do {
            return Array(try db.prepare(table))
         } catch  {
@@ -102,18 +89,15 @@ extension DBOperation {
     }
 
     // 根据 filier 查询数据
-    static func dbSelect<T: DBOperation>(_ filier: Expression<Bool>,
-                                    order aorder: [Expressible]? = nil,
-                                    _ tbName: String,
-                                    limit alimit: Int? = nil,
-                                    _ type: T.Type) -> Table? {
-        guard let _ = T.db else {
-            return nil;
-        }
-        guard let table = T.table(tbName) else {
-            PrintLog("没有表 \(tbName)")
+    static func dbSelect(_ filier: Expression<Bool>,
+                         order aorder: [Expressible]? = nil,
+                         _ tbName: String,
+                         limit alimit: Int? = nil) -> Table? {
+        guard let _ = db else {
             return nil
         }
+
+        let table = Table(tbName)
 
         if aorder != nil && alimit != nil {
             return table.filter(filier)
@@ -135,16 +119,14 @@ extension DBOperation {
     }
     
     // 查询是否存在
-    static func dbExist<T: DBOperation>(_ filier: Expression<Bool>, _ tbName: String, _ type: T.Type) ->Bool {
+    static func dbExist(_ filier: Expression<Bool>, _ tbName: String) ->Bool {
         guard let DB = db else {
             PrintLog("数据库连接失败\(tbName)")
             return false
         }
-        guard let table = T.table(tbName) else {
-            PrintLog("没有表：\(tbName)")
-            return false
-        }
-        
+
+        let table = Table(tbName)
+
         do {
             let allDatas = try Array(DB.prepare(table.filter(filier)))
             return allDatas.count > 0
@@ -156,16 +138,13 @@ extension DBOperation {
     
     //MARK:
     //MARK: 删除所有数据
-    static func deleteAll<T: DBOperation>(_ tbName: String, _ type: T.Type) ->Bool {
+    static func deleteAll(_ tbName: String) ->Bool {
         guard let DB = db else {
             PrintLog("数据库连接失败：\(tbName)")
             return false
         }
         
-        guard let table = T.table(tbName) else {
-            PrintLog("没有表：\(tbName)")
-            return false
-        }
+        let table = Table(tbName)
 
         do {
             try DB.run(table.delete())
@@ -180,17 +159,14 @@ extension DBOperation {
     
     //根据 filier 删除数据
     @discardableResult
-    static func db_deleteRow<T: DBOperation>(_ filier: Expression<Bool>, _ tbName: String, _ type: T.Type) ->Bool {
+    static func db_deleteRow(_ filier: Expression<Bool>, _ tbName: String) ->Bool {
         guard let DB = db else {
             PrintLog("数据库连接失败：\(tbName)")
             return false
         }
         
-        guard let table = T.table(tbName) else {
-            PrintLog("没有表：\(tbName)")
-            return false
-        }
-        
+        let table = Table(tbName)
+
         do {
             try DB.run(table.filter(filier).delete())
             PrintLog("删除数据成功：\(tbName)")
@@ -204,17 +180,14 @@ extension DBOperation {
     
     // 删除所有数据
     @discardableResult
-    static func db_deleteAll<T: DBOperation>(_ tbName: String, _ type: T.Type) ->Bool {
+    static func db_deleteAll(_ tbName: String) ->Bool {
         guard let DB = db else {
             PrintLog("数据库连接失败：\(tbName)")
             return false
         }
         
-        guard let table = T.table(tbName) else {
-            PrintLog("没有表：\(tbName)")
-            return false
-        }
-        
+        let table = Table(tbName)
+
         do {
             try DB.run(table.delete())
             PrintLog("删除数据成功：\(tbName)")
@@ -230,18 +203,15 @@ extension DBOperation {
     //MARK:
     //MARK: 根据 filier 更新数据
     @discardableResult
-    static func dbUpdate<T: DBOperation>(_ filier: Expression<Bool>, _ setters: [Setter], _ tbName: String, _ type: T.Type) ->Bool {
+    static func dbUpdate(_ filier: Expression<Bool>, _ setters: [Setter], _ tbName: String) ->Bool {
     
         guard let DB = db else {
-            PrintLog("数据库连接失败\(T.self)")
+            PrintLog("数据库连接失败\(tbName)")
             return false
         }
         
-        guard let table = T.table(tbName) else {
-            PrintLog("没有表：\(tbName)")
-            return false
-        }
-        
+        let table = Table(tbName)
+
         do {
             try DB.run(table.filter(filier).update(setters))
             PrintLog("数据更新成功：\(tbName)")
