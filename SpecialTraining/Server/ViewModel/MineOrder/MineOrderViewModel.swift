@@ -9,13 +9,14 @@
 import UIKit
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class MineOrderViewModel: BaseViewModel {
     
-    let needPayDatasource = Variable([String]())
-    let needCourseDatasource = Variable([String]())
-    let needClassasource = Variable([String]())
-    let needPayBackDatasource = Variable([String]())
+    let totleOrderDatasource   = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
+    let needPayOrderDatasource = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
+    let hasPayOrderDatasource  = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
+    let payBackOrderDatasource = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
 
     override init() {
         super.init()
@@ -29,20 +30,40 @@ class MineOrderViewModel: BaseViewModel {
     }
     
     private func loadData() {
-        STProvider.request(.getMemberAllOrder(member_id: "1"))
+        STProvider.request(.getMemberAllOrder(member_id: "100"))
             .map(models: MemberAllOrderModel.self)
-            .subscribe(onSuccess: { [weak self] model in
-                PrintLog(model)
-                self?.hud.noticeHidden()
+            .subscribe(onSuccess: { [weak self] data in
+                self?.dealData(orderModels: data)
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
             }
             .disposed(by: disposeBag)
-        
-        needPayDatasource.value = ["a", "b", "c", "d"]
-        needCourseDatasource.value = ["a", "b", "c", "d"]
-        needClassasource.value = ["a", "b", "c", "d"]
-        needPayBackDatasource.value = ["a", "b", "c", "d"]
     }
     
+    private func dealData(orderModels: [MemberAllOrderModel]) {
+        var totleOrderSectionData   = [SectionModel<MemberAllOrderModel, OrderItemModel>]()
+        var needPayOrderSectionData = [SectionModel<MemberAllOrderModel, OrderItemModel>]()
+        var hasPayOrderSectionData  = [SectionModel<MemberAllOrderModel, OrderItemModel>]()
+        var payBackOrderSectionData = [SectionModel<MemberAllOrderModel, OrderItemModel>]()
+
+        for item in orderModels {
+            let section = SectionModel<MemberAllOrderModel, OrderItemModel>.init(model: item, items: item.orderItem)
+            totleOrderSectionData.append(section)
+            switch item.statue {
+            case .noPay:
+                needPayOrderSectionData.append(section)
+            case .haspay:
+                hasPayOrderSectionData.append(section)
+            case .packBack:
+                payBackOrderSectionData.append(section)
+            }
+        }
+
+        totleOrderDatasource.value = totleOrderSectionData
+        needPayOrderDatasource.value = needPayOrderSectionData
+        hasPayOrderDatasource.value  = hasPayOrderSectionData
+        payBackOrderDatasource.value = payBackOrderSectionData
+        
+        hud.noticeHidden()
+    }
 }

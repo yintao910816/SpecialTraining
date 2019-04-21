@@ -21,11 +21,11 @@ class STMineOrderViewController: BaseViewController {
     @IBOutlet weak var needClassOutlet: UIButton!
     @IBOutlet weak var needPayBackOutlet: UIButton!
 
-    private var needPayView: MineNeedPayOrderView!
-    private var needCourseView: MineNeedCourseView!
-    private var needClassView: MineNeedClassView!
-    private var needPayBackView: MineNeedPayBackView!
-    
+    private var totleOrderView: MineOrderView!
+    private var noPayOrderView: MineOrderView!
+    private var hasPayOrderView: MineOrderView!
+    private var payBackOrderView: MineOrderView!
+
     private var alertView: ApplyForBackAlertView!
     private var cancleAlertView: CancleOrderView!
     
@@ -137,18 +137,18 @@ class STMineOrderViewController: BaseViewController {
             $0.bottom.equalTo(headerView)
         }
         
-        needPayView = MineNeedPayOrderView()
-        needCourseView = MineNeedCourseView()
-        needClassView  = MineNeedClassView()
-        needPayBackView = MineNeedPayBackView()
-        
+        totleOrderView = MineOrderView()
+        noPayOrderView = MineOrderView()
+        hasPayOrderView = MineOrderView()
+        payBackOrderView = MineOrderView()
+
         alertView = ApplyForBackAlertView()
         cancleAlertView = CancleOrderView()
         
-        scrollOutlet.addSubview(needPayView)
-        scrollOutlet.addSubview(needCourseView)
-        scrollOutlet.addSubview(needClassView)
-        scrollOutlet.addSubview(needPayBackView)
+        scrollOutlet.addSubview(totleOrderView)
+        scrollOutlet.addSubview(noPayOrderView)
+        scrollOutlet.addSubview(hasPayOrderView)
+        scrollOutlet.addSubview(payBackOrderView)
         
         view.addSubview(alertView)
         view.addSubview(cancleAlertView)
@@ -173,41 +173,41 @@ class STMineOrderViewController: BaseViewController {
         
         viewModel = MineOrderViewModel()
         
-        viewModel.needPayDatasource.asDriver()
-            .drive(needPayView.datasource)
+        viewModel.totleOrderDatasource.asDriver()
+            .drive(totleOrderView.orderDatasource)
             .disposed(by: disposeBag)
         
-        viewModel.needCourseDatasource.asDriver()
-            .drive(needCourseView.datasource)
+        viewModel.needPayOrderDatasource.asDriver()
+            .drive(noPayOrderView.orderDatasource)
             .disposed(by: disposeBag)
 
-        viewModel.needClassasource.asDriver()
-            .drive(needClassView.datasource)
+        viewModel.hasPayOrderDatasource.asDriver()
+            .drive(hasPayOrderView.orderDatasource)
             .disposed(by: disposeBag)
 
-        viewModel.needPayBackDatasource.asDriver()
-            .drive(needPayBackView.datasource)
+        viewModel.payBackOrderDatasource.asDriver()
+            .drive(payBackOrderView.orderDatasource)
             .disposed(by: disposeBag)
-        
-        needPayView.rx.itemSelected.asDriver()
+
+        noPayOrderView.rx.itemSelected.asDriver()
             .drive(onNext: { [unowned self] _ in
                 self.performSegue(withIdentifier: "needPayDetailSegue", sender: nil)
             })
             .disposed(by: disposeBag)
         
-        needCourseView.rx.itemSelected.asDriver()
-            .drive(onNext: { [unowned self] _ in
-                self.performSegue(withIdentifier: "needForCourseSegue", sender: nil)
-            })
-            .disposed(by: disposeBag)
-
-        needClassView.rx.itemSelected.asDriver()
-            .drive(onNext: { [unowned self] _ in
-                self.performSegue(withIdentifier: "needForClassSegue", sender: nil)
-            })
-            .disposed(by: disposeBag)
+//        needCourseView.rx.itemSelected.asDriver()
+//            .drive(onNext: { [unowned self] _ in
+//                self.performSegue(withIdentifier: "needForCourseSegue", sender: nil)
+//            })
+//            .disposed(by: disposeBag)
+//
+//        needClassView.rx.itemSelected.asDriver()
+//            .drive(onNext: { [unowned self] _ in
+//                self.performSegue(withIdentifier: "needForClassSegue", sender: nil)
+//            })
+//            .disposed(by: disposeBag)
         
-        needPayBackView.rx.itemSelected.asDriver()
+        payBackOrderView.rx.itemSelected.asDriver()
             .drive(onNext: { [unowned self] _ in
                 self.performSegue(withIdentifier: "payBackInfoSegue", sender: nil)
             })
@@ -221,28 +221,28 @@ class STMineOrderViewController: BaseViewController {
         
         scrollOutlet.contentSize = .init(width: scrollOutlet.width * 4, height: scrollOutlet.height)
         
-        needPayView.snp.makeConstraints{
+        totleOrderView.snp.makeConstraints{
             $0.left.equalTo(scrollOutlet)
             $0.top.equalTo(scrollOutlet)
             $0.width.equalTo(scrollOutlet.width)
             $0.height.equalTo(scrollOutlet.height)
         }
         
-        needCourseView.snp.makeConstraints{
+        noPayOrderView.snp.makeConstraints{
             $0.left.equalTo(scrollOutlet).offset(scrollOutlet.width)
             $0.top.equalTo(scrollOutlet)
             $0.width.equalTo(scrollOutlet.width)
             $0.height.equalTo(scrollOutlet.height)
         }
         
-        needClassView.snp.makeConstraints{
+        hasPayOrderView.snp.makeConstraints{
             $0.left.equalTo(scrollOutlet).offset(scrollOutlet.width * 2)
             $0.top.equalTo(scrollOutlet)
             $0.width.equalTo(scrollOutlet.width)
             $0.height.equalTo(scrollOutlet.height)
         }
         
-        needPayBackView.snp.makeConstraints{
+        payBackOrderView.snp.makeConstraints{
             $0.left.equalTo(scrollOutlet).offset(scrollOutlet.width * 3)
             $0.top.equalTo(scrollOutlet)
             $0.width.equalTo(scrollOutlet.width)

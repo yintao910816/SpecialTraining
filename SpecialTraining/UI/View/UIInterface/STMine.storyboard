@@ -1112,7 +1112,7 @@
                                 <rect key="frame" x="94" y="64" width="93.5" height="45"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                <state key="normal" title="代付款">
+                                <state key="normal" title="待付款">
                                     <color key="titleColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="deviceRGB"/>
                                 </state>
                                 <state key="selected">
@@ -1131,9 +1131,9 @@
                             <constraint firstItem="5zX-b2-lKr" firstAttribute="leading" secondItem="2kO-Rj-mVx" secondAttribute="trailing" id="EVJ-NH-JoS"/>
                             <constraint firstItem="2kO-Rj-mVx" firstAttribute="leading" secondItem="vz9-2Y-Eof" secondAttribute="trailing" id="HBo-s6-0hT"/>
                             <constraint firstItem="5zX-b2-lKr" firstAttribute="height" secondItem="2kO-Rj-mVx" secondAttribute="height" id="Uag-3k-Cg3"/>
+                            <constraint firstAttribute="bottom" secondItem="75h-0a-vWr" secondAttribute="bottom" id="afu-xb-yuK"/>
                             <constraint firstItem="2kO-Rj-mVx" firstAttribute="centerY" secondItem="vz9-2Y-Eof" secondAttribute="centerY" id="b3T-dL-2Oe"/>
                             <constraint firstItem="2kO-Rj-mVx" firstAttribute="width" secondItem="vz9-2Y-Eof" secondAttribute="width" id="dlt-2y-mUZ"/>
-                            <constraint firstItem="DBA-xj-G9Z" firstAttribute="top" secondItem="75h-0a-vWr" secondAttribute="bottom" id="eIY-ts-c5P"/>
                             <constraint firstAttribute="trailing" secondItem="75h-0a-vWr" secondAttribute="trailing" id="gEB-Sx-aBN"/>
                             <constraint firstItem="2kO-Rj-mVx" firstAttribute="height" secondItem="vz9-2Y-Eof" secondAttribute="height" id="iwf-lm-vJb"/>
                             <constraint firstItem="75h-0a-vWr" firstAttribute="top" secondItem="7gI-nQ-WFt" secondAttribute="bottom" id="kio-Sd-64l"/>

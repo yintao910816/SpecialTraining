@@ -11,6 +11,8 @@ import RxSwift
 
 class UserAccountServer {
     
+    private let disposeBag = DisposeBag()
+    
     static let shre = UserAccountServer()
     
     // 当前登录用户信息
@@ -23,6 +25,14 @@ class UserAccountServer {
         userDefault.uid = userModel.member.uid
 
         UserInfoModel.inster(user: userModel)
+    }
+    
+    final func loadLoginUser() {
+        if userDefault.uid > 0 {
+            UserInfoModel.slectedLoginUser()
+                .subscribe(onNext: { UserAccountServer.shre.loginUser = $0 })
+                .disposed(by: disposeBag)
+        }
     }
 }
 

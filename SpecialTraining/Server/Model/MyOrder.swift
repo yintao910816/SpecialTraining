@@ -11,19 +11,32 @@ import Foundation
 //MARK:
 //MARK: 个人中心所有订单
 class MemberAllOrderModel: HJModel {
+    enum OrderStatu: Int {
+        case noPay = 1
+        case haspay = 2
+        case packBack = 6
+    }
+
     var shop_id: String = ""
     var shop_name: String = ""
     var order_id: String = ""
     var order_number: String = ""
     var real_amount: String = ""
-    var trade_status: String = ""
+    var trade_status: Int = 1
     var createtime: String = ""
     var pay_type: String = ""
     var orderItem: [OrderItemModel] = []
 
+    public var statue: OrderStatu {
+        if let statu = OrderStatu.init(rawValue: trade_status) {
+            return statu
+        }
+        return .noPay
+    }
 }
 
 class OrderItemModel: HJModel {
+    
     var shop_id: String = ""
     var order_number: String = ""
     var course_id: String = ""

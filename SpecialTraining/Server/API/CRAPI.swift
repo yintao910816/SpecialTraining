@@ -82,6 +82,8 @@ enum API{
     //MARK: 个人中心
     /// 所有订单
     case getMemberAllOrder(member_id: String)
+    /// 取消退款
+    case 
     /// 意见反馈
     case feedback(category_id: String, content: String, contact: String, member_id: String)
     
