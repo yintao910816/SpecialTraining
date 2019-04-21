@@ -26,9 +26,3 @@ struct MineModel {
         return m
     }
 }
-
-//MARK:
-//MARK: 个人中心所有订单
-class MemberAllOrderModel: HJModel {
-    
-}

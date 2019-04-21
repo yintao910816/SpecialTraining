@@ -20,21 +20,24 @@ class MineOrderViewModel: BaseViewModel {
     override init() {
         super.init()
         
-        reloadSubject.subscribe(onNext: { [weak self] in
-            PrintLog("222222222222")
+        reloadSubject
+            ._doNext(forNotice: hud)
+            .subscribe(onNext: { [weak self] in
             self?.loadData()
         })
             .disposed(by: disposeBag)
     }
     
     private func loadData() {
-//        STProvider.request(.getMemberAllOrder(member_id: "1"))
-//        .map(model: MineOrderModel.self)
-//            .subscribe(onSuccess: { model in
-//               PrintLog(model)
-//            }) { error in
-//
-//        }
+        STProvider.request(.getMemberAllOrder(member_id: "1"))
+            .map(models: MemberAllOrderModel.self)
+            .subscribe(onSuccess: { [weak self] model in
+                PrintLog(model)
+                self?.hud.noticeHidden()
+            }) { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+            }
+            .disposed(by: disposeBag)
         
         needPayDatasource.value = ["a", "b", "c", "d"]
         needCourseDatasource.value = ["a", "b", "c", "d"]

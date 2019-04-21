@@ -1044,7 +1044,7 @@
                                         <rect key="frame" x="0.0" y="0.0" width="94" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="待付款">
+                                        <state key="normal" title="全部">
                                             <color key="titleColor" red="0.66274509803921566" green="0.66274509803921566" blue="0.66274509803921566" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
                                         <state key="selected">
@@ -1054,25 +1054,11 @@
                                             <action selector="actions:" destination="81g-Au-StY" eventType="touchUpInside" id="PnB-lg-8og"/>
                                         </connections>
                                     </button>
-                                    <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kO-Rj-mVx">
-                                        <rect key="frame" x="94" y="0.0" width="93.5" height="45"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                        <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="待排课">
-                                            <color key="titleColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="deviceRGB"/>
-                                        </state>
-                                        <state key="selected">
-                                            <color key="titleColor" red="0.074509803920000006" green="0.64313725489999995" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                        </state>
-                                        <connections>
-                                            <action selector="actions:" destination="81g-Au-StY" eventType="touchUpInside" id="e7T-c1-w8E"/>
-                                        </connections>
-                                    </button>
                                     <button opaque="NO" tag="202" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="5zX-b2-lKr">
                                         <rect key="frame" x="187.5" y="0.0" width="94" height="45"/>
                                         <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                         <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                        <state key="normal" title="待上课">
+                                        <state key="normal" title="已付款">
                                             <color key="titleColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="deviceRGB"/>
                                         </state>
                                         <state key="selected">
@@ -1106,19 +1092,11 @@
                                 <constraints>
                                     <constraint firstAttribute="height" constant="47" id="AEP-3d-7DR"/>
                                     <constraint firstAttribute="bottom" secondItem="vz9-2Y-Eof" secondAttribute="bottom" constant="2" id="BDM-0S-wwF"/>
-                                    <constraint firstItem="2kO-Rj-mVx" firstAttribute="height" secondItem="vz9-2Y-Eof" secondAttribute="height" id="Cdz-j6-rfX"/>
-                                    <constraint firstItem="2kO-Rj-mVx" firstAttribute="width" secondItem="vz9-2Y-Eof" secondAttribute="width" id="DHX-sy-dwd"/>
                                     <constraint firstAttribute="trailing" secondItem="IjQ-3U-wL9" secondAttribute="trailing" id="Dh9-Dk-qSe"/>
-                                    <constraint firstItem="5zX-b2-lKr" firstAttribute="width" secondItem="2kO-Rj-mVx" secondAttribute="width" id="FHJ-QP-Cwp"/>
-                                    <constraint firstItem="2kO-Rj-mVx" firstAttribute="centerY" secondItem="vz9-2Y-Eof" secondAttribute="centerY" id="Kml-Ml-emE"/>
                                     <constraint firstItem="IjQ-3U-wL9" firstAttribute="width" secondItem="5zX-b2-lKr" secondAttribute="width" id="LEg-RT-aSf"/>
-                                    <constraint firstItem="5zX-b2-lKr" firstAttribute="leading" secondItem="2kO-Rj-mVx" secondAttribute="trailing" id="R7N-2D-WAC"/>
-                                    <constraint firstItem="5zX-b2-lKr" firstAttribute="centerY" secondItem="2kO-Rj-mVx" secondAttribute="centerY" id="VdT-dZ-hu4"/>
                                     <constraint firstItem="IjQ-3U-wL9" firstAttribute="centerY" secondItem="5zX-b2-lKr" secondAttribute="centerY" id="WbY-Y0-NjK"/>
                                     <constraint firstItem="IjQ-3U-wL9" firstAttribute="height" secondItem="5zX-b2-lKr" secondAttribute="height" id="XWZ-LJ-1XQ"/>
-                                    <constraint firstItem="5zX-b2-lKr" firstAttribute="height" secondItem="2kO-Rj-mVx" secondAttribute="height" id="eF4-vx-cBo"/>
                                     <constraint firstItem="vz9-2Y-Eof" firstAttribute="leading" secondItem="7gI-nQ-WFt" secondAttribute="leading" id="eeC-9G-Zk0"/>
-                                    <constraint firstItem="2kO-Rj-mVx" firstAttribute="leading" secondItem="vz9-2Y-Eof" secondAttribute="trailing" id="iix-hA-fWr"/>
                                     <constraint firstItem="IjQ-3U-wL9" firstAttribute="leading" secondItem="5zX-b2-lKr" secondAttribute="trailing" id="jm3-w3-paU"/>
                                     <constraint firstItem="vz9-2Y-Eof" firstAttribute="top" secondItem="7gI-nQ-WFt" secondAttribute="top" id="llV-Tz-SEB"/>
                                 </constraints>
@@ -1130,12 +1108,34 @@
                                     <outlet property="delegate" destination="81g-Au-StY" id="nWg-hG-tpX"/>
                                 </connections>
                             </scrollView>
+                            <button opaque="NO" tag="201" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="2kO-Rj-mVx">
+                                <rect key="frame" x="94" y="64" width="93.5" height="45"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                <state key="normal" title="代付款">
+                                    <color key="titleColor" red="0.66274509800000003" green="0.66274509800000003" blue="0.66274509800000003" alpha="1" colorSpace="deviceRGB"/>
+                                </state>
+                                <state key="selected">
+                                    <color key="titleColor" red="0.074509803920000006" green="0.64313725489999995" blue="0.99215686270000003" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
+                                </state>
+                                <connections>
+                                    <action selector="actions:" destination="81g-Au-StY" eventType="touchUpInside" id="e7T-c1-w8E"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                         <constraints>
+                            <constraint firstItem="5zX-b2-lKr" firstAttribute="centerY" secondItem="2kO-Rj-mVx" secondAttribute="centerY" id="1Q1-vf-xlB"/>
+                            <constraint firstItem="5zX-b2-lKr" firstAttribute="width" secondItem="2kO-Rj-mVx" secondAttribute="width" id="6Ae-O8-ayZ"/>
                             <constraint firstAttribute="trailing" secondItem="7gI-nQ-WFt" secondAttribute="trailing" id="ACt-Lw-Kln"/>
+                            <constraint firstItem="5zX-b2-lKr" firstAttribute="leading" secondItem="2kO-Rj-mVx" secondAttribute="trailing" id="EVJ-NH-JoS"/>
+                            <constraint firstItem="2kO-Rj-mVx" firstAttribute="leading" secondItem="vz9-2Y-Eof" secondAttribute="trailing" id="HBo-s6-0hT"/>
+                            <constraint firstItem="5zX-b2-lKr" firstAttribute="height" secondItem="2kO-Rj-mVx" secondAttribute="height" id="Uag-3k-Cg3"/>
+                            <constraint firstItem="2kO-Rj-mVx" firstAttribute="centerY" secondItem="vz9-2Y-Eof" secondAttribute="centerY" id="b3T-dL-2Oe"/>
+                            <constraint firstItem="2kO-Rj-mVx" firstAttribute="width" secondItem="vz9-2Y-Eof" secondAttribute="width" id="dlt-2y-mUZ"/>
                             <constraint firstItem="DBA-xj-G9Z" firstAttribute="top" secondItem="75h-0a-vWr" secondAttribute="bottom" id="eIY-ts-c5P"/>
                             <constraint firstAttribute="trailing" secondItem="75h-0a-vWr" secondAttribute="trailing" id="gEB-Sx-aBN"/>
+                            <constraint firstItem="2kO-Rj-mVx" firstAttribute="height" secondItem="vz9-2Y-Eof" secondAttribute="height" id="iwf-lm-vJb"/>
                             <constraint firstItem="75h-0a-vWr" firstAttribute="top" secondItem="7gI-nQ-WFt" secondAttribute="bottom" id="kio-Sd-64l"/>
                             <constraint firstItem="7gI-nQ-WFt" firstAttribute="top" secondItem="3pe-Wl-FYI" secondAttribute="bottom" id="psW-oj-tpj"/>
                             <constraint firstItem="75h-0a-vWr" firstAttribute="leading" secondItem="tIi-Tg-Kd0" secondAttribute="leading" id="sAK-ba-5hj"/>

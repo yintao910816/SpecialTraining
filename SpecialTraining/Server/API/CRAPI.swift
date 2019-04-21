@@ -80,7 +80,7 @@ enum API{
     
     //MARK:
     //MARK: 个人中心
-    /// 所有订单 api.youpeixunjiaoyu.com/v1/order/getMemberAllOrder?member_id=1
+    /// 所有订单
     case getMemberAllOrder(member_id: String)
     /// 意见反馈
     case feedback(category_id: String, content: String, contact: String, member_id: String)
@@ -164,6 +164,7 @@ extension API: TargetType{
             return "v1/order/getMemberAllOrder"
         case .feedback(_):
             return "v1/member/feedback"
+            
             
         case .sts():
             return "v1/video/get_video_sts"
@@ -261,7 +262,9 @@ extension API {
             params["lat"] = userDefault.lat
             params["lng"] = userDefault.lng
             params["offset"] = offset
-            
+        case .getMemberAllOrder(let member_id):
+            params["member_id"] = member_id
+
         case .agnCourse(let agn_id):
             params["agn_id"] = agn_id
         case .agnActivity(let agn_id):
@@ -296,8 +299,6 @@ extension API {
         case .alipay(let order_number):
             params["order_number"] = order_number
             
-        case .getMemberAllOrder(let member_id):
-            params["member_id"] = member_id
         case .feedback(let category_id, let content, let contact, let member_id):
             params["category_id"] = category_id
             params["content"] = content

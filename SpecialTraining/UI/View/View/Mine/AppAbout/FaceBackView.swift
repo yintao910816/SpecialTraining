@@ -72,6 +72,13 @@ class FaceBackView: UIView {
     override func layoutSubviews() {
         super.layoutSubviews()
         
+//        keyBoardManager.move(coverView: inputPhoneOutlet, moveView: contentView)
+    }
+}
+
+extension FaceBackView: UITextFieldDelegate {
+    func textFieldShouldBeginEditing(_ textField: UITextField) -> Bool {
         keyBoardManager.move(coverView: inputPhoneOutlet, moveView: contentView)
+        return true
     }
 }
