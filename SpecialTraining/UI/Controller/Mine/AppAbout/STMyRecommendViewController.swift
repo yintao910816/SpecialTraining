@@ -26,6 +26,7 @@ class STMyRecommendViewController: BaseViewController {
     }
     
     override func setupUI() {
+        backTopCns.constant += LayoutSize.fitTopArea
         redBagView.loadGif(name: "红包")
     }
 }

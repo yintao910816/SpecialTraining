@@ -1794,7 +1794,7 @@
                                 </constraints>
                             </imageView>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-eB-PM3">
-                                <rect key="frame" x="25" y="27" width="30" height="30"/>
+                                <rect key="frame" x="18" y="27" width="30" height="30"/>
                                 <constraints>
                                     <constraint firstAttribute="width" secondItem="aUv-eB-PM3" secondAttribute="height" multiplier="1:1" id="2iN-Vh-MhA"/>
                                     <constraint firstAttribute="width" constant="30" id="VSr-oK-aOQ"/>
@@ -1811,7 +1811,7 @@
                             <constraint firstItem="Gr1-oV-EIF" firstAttribute="leading" secondItem="VcJ-Ve-yFA" secondAttribute="leading" id="B8F-ul-LTI"/>
                             <constraint firstItem="Iy7-jI-xPg" firstAttribute="leading" secondItem="VcJ-Ve-yFA" secondAttribute="leading" constant="25" id="H98-qf-NXj"/>
                             <constraint firstAttribute="bottom" secondItem="Gr1-oV-EIF" secondAttribute="bottom" id="Kdt-QS-qaS"/>
-                            <constraint firstItem="aUv-eB-PM3" firstAttribute="leading" secondItem="VcJ-Ve-yFA" secondAttribute="leading" constant="25" id="T3H-Bm-Mgd"/>
+                            <constraint firstItem="aUv-eB-PM3" firstAttribute="leading" secondItem="VcJ-Ve-yFA" secondAttribute="leading" constant="18" id="T3H-Bm-Mgd"/>
                             <constraint firstItem="Gr1-oV-EIF" firstAttribute="top" secondItem="VcJ-Ve-yFA" secondAttribute="top" id="gHa-LX-ZU6"/>
                             <constraint firstAttribute="trailing" secondItem="zlg-qR-9To" secondAttribute="trailing" id="hzc-v7-R2N"/>
                             <constraint firstItem="aUv-eB-PM3" firstAttribute="top" secondItem="VcJ-Ve-yFA" secondAttribute="top" constant="27" id="lwE-Bd-qKf"/>
