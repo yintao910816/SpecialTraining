@@ -82,6 +82,8 @@ enum API{
     //MARK: 个人中心
     /// 所有订单
     case getMemberAllOrder(member_id: String)
+    /// 退款
+    case refundOrder(order_no: String)
     /// 意见反馈
     case feedback(category_id: String, content: String, contact: String, member_id: String)
     
@@ -162,6 +164,8 @@ extension API: TargetType{
             
         case .getMemberAllOrder(_):
             return "v1/order/getMemberAllOrder"
+        case .refundOrder(_):
+            return "v1/order/refund_order"
         case .feedback(_):
             return "v1/member/feedback"
             
@@ -264,6 +268,8 @@ extension API {
             params["offset"] = offset
         case .getMemberAllOrder(let member_id):
             params["member_id"] = member_id
+        case .refundOrder(let order_no):
+            params["order_no"] = order_no
 
         case .agnCourse(let agn_id):
             params["agn_id"] = agn_id

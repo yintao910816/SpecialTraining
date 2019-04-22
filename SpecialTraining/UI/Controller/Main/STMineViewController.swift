@@ -107,6 +107,6 @@ extension STMineViewController: MineHeaderActions, VMNavigation {
     }
     
     func gotoMineRecommend() {
-        performSegue(withIdentifier: "mineRecomend", sender: nil)
+        performSegue(withIdentifier: "myRecommendSegue", sender: nil)
     }
 }

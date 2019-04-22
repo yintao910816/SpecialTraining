@@ -279,8 +279,8 @@ extension STMineOrderViewController: UserOperation {
     func orderOperation(statu: OrderStatu, orderNum: String) {
         switch statu {
         case .haspay:
-            NoticesCenter.alert(title: "退款", message: "订单尚未完成，即将为您安排上课班级，请确认是否要退款", cancleTitle: "取消", okTitle: "确定", presentCtrl: self) {
-                
+            NoticesCenter.alert(title: "退款", message: "订单尚未完成，即将为您安排上课班级，请确认是否要退款", cancleTitle: "取消", okTitle: "确定", presentCtrl: self) { [weak self] in
+                self?.viewModel.paybackSubject.onNext(orderNum)
             }
         default:
             break

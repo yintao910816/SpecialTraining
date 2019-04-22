@@ -18,25 +18,51 @@ class MineOrderViewModel: BaseViewModel {
     let hasPayOrderDatasource  = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
     let payBackOrderDatasource = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
 
+    let paybackSubject = PublishSubject<String>()
+    
     override init() {
         super.init()
         
         reloadSubject
             ._doNext(forNotice: hud)
-            .subscribe(onNext: { [weak self] in
-            self?.loadData()
-        })
+            .flatMap{ [unowned self] in self.loadData() }
+            .subscribe(onNext: { [weak self] data in
+                self?.dealData(orderModels: data)
+            }, onError: { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+            })
+            .disposed(by: disposeBag)
+        
+        paybackSubject._doNext(forNotice: hud)
+            .subscribe(onNext: { [weak self] orderNo in self?.requestPayBack(orderNo: orderNo) })
             .disposed(by: disposeBag)
     }
     
-    private func loadData() {
-        STProvider.request(.getMemberAllOrder(member_id: "100"))
+    private func loadData() ->Observable<[MemberAllOrderModel]> {
+        return STProvider.request(.getMemberAllOrder(member_id: "100"))
             .map(models: MemberAllOrderModel.self)
-            .subscribe(onSuccess: { [weak self] data in
-                self?.dealData(orderModels: data)
-            }) { [weak self] error in
-                self?.hud.failureHidden(self?.errorMessage(error))
+            .asObservable()
+//            .subscribe(onSuccess: { [weak self] data in
+//                self?.dealData(orderModels: data)
+//            }) { [weak self] error in
+//                self?.hud.failureHidden(self?.errorMessage(error))
+//            }
+//            .disposed(by: disposeBag)
+    }
+    
+    private func requestPayBack(orderNo: String) {
+        STProvider.request(.refundOrder(order_no: orderNo))
+            .mapResponse()
+            .asObservable()
+            .concatMap{ [weak self] res -> Observable<[MemberAllOrderModel]> in
+                guard let strongSelf = self else { return Observable.just([MemberAllOrderModel]()) }
+                return strongSelf.loadData()
             }
+            .subscribe(onNext: { [weak self] data in
+                self?.dealData(orderModels: data)
+                }, onError: { [weak self] error in
+                    self?.hud.failureHidden(self?.errorMessage(error))
+            })
             .disposed(by: disposeBag)
     }
     
