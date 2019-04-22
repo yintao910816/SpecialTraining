@@ -130,7 +130,7 @@ class STVideoViewController: BaseViewController {
         }, didFinishPickingVideoHandle: { [unowned self] (url, image, obj) in
             if let _url = url {
                 // 播放视频
-                self.videoPlay(videoDuration: STHeader.getVideoDuration(path: _url), videoUrl: _url)
+                self.videoPlay(videoDuration: STHelper.getVideoDuration(path: _url), videoUrl: _url)
             }else {
                 NoticesCenter.alert(title: "提示", message: "视频无效，请重新选择")
             }

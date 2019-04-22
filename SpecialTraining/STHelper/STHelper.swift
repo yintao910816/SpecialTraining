@@ -90,7 +90,7 @@ extension STHelper {
 }
 
 import AVFoundation
-extension STHeader {
+extension STHelper {
     
     static func getVideoDuration(path: URL) ->Int {
         let asset = AVURLAsset.init(url: path)
@@ -98,4 +98,67 @@ extension STHeader {
         let sections = round(Float(time.value)/Float(time.timescale))
         return Int(sections)
     }
+}
+
+extension STHelper {
+    
+    class func presentShare(_ viewController: UIViewController, _ title: String, _ content: String, _ image: String, _ link: String?) {
+        share(viewController, title, content, image, link)
+    }
+    
+    fileprivate class func share(_ viewController: UIViewController, _ title: String, _ content: String, _ image: String, _ link: String?) {
+        PrintLog("分享链接：\(link ?? "") \n图片链接：\(image)")
+        
+//        SSUIShareActionSheetStyle.setItemNameFont(UIFont.systemFont(ofSize: 12))
+//        SSUIShareActionSheetStyle.setShareActionSheetStyle(.simple)
+        
+        let shareParames = NSMutableDictionary()
+        shareParames.ssdkSetupShareParams(byText: content,
+                                          images: [image],
+                                          url: link?.isEmpty == false ? URL.init(string: link!) : URL.init(string: "https://www.xiaoshuo520.com"),
+                                          title: title,
+                                          type: .auto)
+        
+        ShareSDK.showShareActionSheet(viewController.view,
+                                      items: nil,
+                                      shareParams: shareParames) { (state, platformType, userData, contentEntity, error, end) in
+                                        
+                                        switch state {
+                                        case .success:
+                                            NoticesCenter().successHidden("分享成功！")
+                                            break
+                                        case .fail:
+                                            NoticesCenter().failureHidden("分享失败！")
+                                            break
+                                        default:
+                                            break
+                                        }
+                                        
+                                        
+        }
+    }
+    
+    class func customShare(content: String, title: String, images: [String], link: String?, platformType: SSDKPlatformType) {
+        let shareParames = NSMutableDictionary()
+        shareParames.ssdkSetupShareParams(byText: content,
+                                          images: images,
+                                          url: link?.isEmpty == false ? URL.init(string: link!) : URL.init(string: "https://www.xiaoshuo520.com"),
+                                          title: title,
+                                          type: .auto)
+        
+        ShareSDK.share(platformType, parameters: shareParames) { (state, userData, contentEntity, error) in
+            switch state {
+            case .success:
+                PrintLog("分享成功")
+                NoticesCenter().successHidden("分享成功！")
+            case .fail:
+                PrintLog("分享失败")
+                NoticesCenter().failureHidden("分享失败！")
+            default:
+                break
+            }
+        }
+        
+    }
+
 }

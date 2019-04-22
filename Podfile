@@ -26,7 +26,11 @@ pod 'AlipaySDK-iOS'
 pod 'BaiduMapKit'
 pod 'BMKLocationKit'
 
+pod 'mob_sharesdk'
 pod 'mob_sharesdk/ShareSDKPlatforms/WeChatFull'
+pod 'mob_sharesdk/ShareSDKUI'
+pod 'mob_sharesdk/ShareSDKExtension'
+
 pod 'AliyunPlayer_iOS/AliyunPlayerSDK'
 pod 'VODUpload'
 

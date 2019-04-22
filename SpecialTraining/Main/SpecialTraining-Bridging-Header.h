@@ -29,7 +29,9 @@
 #import "WXApiObject.h"
 #import <ShareSDK/ShareSDK.h>
 #import <ShareSDKConnector/ShareSDKConnector.h>
-//#import <ShareSDKExtension/ShareSDK+Extension.h>
+#import <ShareSDKExtension/ShareSDK+Extension.h>
+#import <ShareSDKUI/ShareSDK+SSUI.h>
+
 #import <CommonCrypto/CommonCrypto.h>
 
 #import <AlipaySDK/AlipaySDK.h>
