@@ -12,6 +12,8 @@ import RxDataSources
 
 class MineOrderView: UICollectionView {
 
+    weak var aDelegate: UserOperation?
+    
     let orderDatasource = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
     let disposeBag = DisposeBag()
     
@@ -43,10 +45,12 @@ class MineOrderView: UICollectionView {
     }
     
     private func rxBind() {
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<MemberAllOrderModel, OrderItemModel>>.init(configureCell: { (section, col, indexPath, model) -> UICollectionViewCell in
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<MemberAllOrderModel, OrderItemModel>>.init(configureCell: { [weak self] (section, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "MineOrderRecordCellID", for: indexPath) as! MineOrderRecordCell
             cell.shopModel = section.sectionModels[indexPath.section].model
             cell.orderModel = model
+            cell.delegate = nil
+            cell.delegate = self
             return cell
         }, configureSupplementaryView: { (section, col, kind, indexpath) -> UICollectionReusableView in
             if kind == UICollectionView.elementKindSectionHeader {
@@ -89,4 +93,15 @@ extension MineOrderView: UICollectionViewDelegateFlowLayout {
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: width - 20, height: MineOrderRecordCell.contentHeight)
     }
+}
+
+extension MineOrderView: MineOrderRecordOperation {
+    
+    func orderOperation(statu: OrderStatu, orderNum: String) {
+        aDelegate?.orderOperation(statu: statu, orderNum: orderNum)
+    }
+}
+
+protocol UserOperation: class {
+    func orderOperation(statu: OrderStatu, orderNum: String)
 }

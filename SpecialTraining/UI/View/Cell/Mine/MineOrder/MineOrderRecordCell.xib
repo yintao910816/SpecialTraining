@@ -67,6 +67,9 @@
                                 </constraints>
                                 <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
                                 <state key="normal" title="Button"/>
+                                <connections>
+                                    <action selector="actions:" destination="gTV-IL-0wX" eventType="touchUpInside" id="c4g-g4-ab3"/>
+                                </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="83m-Ar-HmM">
                                 <rect key="frame" x="252" y="102" width="70" height="20"/>

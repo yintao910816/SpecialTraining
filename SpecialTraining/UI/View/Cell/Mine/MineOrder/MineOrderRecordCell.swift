@@ -8,6 +8,8 @@
 
 import UIKit
 
+typealias OrderStatu = MemberAllOrderModel.OrderStatu
+
 class MineOrderRecordCell: UICollectionViewCell {
 
     static let contentHeight: CGFloat = 136
@@ -21,9 +23,15 @@ class MineOrderRecordCell: UICollectionViewCell {
     @IBOutlet weak var rightOutlet: UIButton!
     @IBOutlet weak var leftOutlet: UIButton!
     
+    weak var delegate: MineOrderRecordOperation?
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         coverOutlet.imageView?.contentMode = .scaleAspectFill
+    }
+    
+    @IBAction func actions(_ sender: UIButton) {
+        delegate?.orderOperation(statu: shopModel.statue, orderNum: orderModel.order_number)
     }
     
     var orderModel: OrderItemModel! {
@@ -86,4 +94,8 @@ class MineOrderRecordCell: UICollectionViewCell {
         
         bgView.set(cornerRadius: 8, borderCorners: [.bottomLeft, .bottomRight])
     }
+}
+
+protocol MineOrderRecordOperation: class {
+    func orderOperation(statu: OrderStatu, orderNum: String)
 }

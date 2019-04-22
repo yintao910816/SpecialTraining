@@ -138,9 +138,16 @@ class STMineOrderViewController: BaseViewController {
         }
         
         totleOrderView = MineOrderView()
+        totleOrderView.aDelegate = self
+        
         noPayOrderView = MineOrderView()
+        noPayOrderView.aDelegate = self
+
         hasPayOrderView = MineOrderView()
+        hasPayOrderView.aDelegate = self
+
         payBackOrderView = MineOrderView()
+        payBackOrderView.aDelegate = self
 
         alertView = ApplyForBackAlertView()
         cancleAlertView = CancleOrderView()
@@ -265,4 +272,18 @@ extension STMineOrderViewController: UIScrollViewDelegate {
         }
     }
 
+}
+
+extension STMineOrderViewController: UserOperation {
+    
+    func orderOperation(statu: OrderStatu, orderNum: String) {
+        switch statu {
+        case .haspay:
+            NoticesCenter.alert(title: "退款", message: "订单尚未完成，即将为您安排上课班级，请确认是否要退款", cancleTitle: "取消", okTitle: "确定", presentCtrl: self) {
+                
+            }
+        default:
+            break
+        }
+    }
 }
