@@ -1786,12 +1786,16 @@
                                     <action selector="actions:" destination="YQD-Sg-JNJ" eventType="touchUpInside" id="mM1-Xv-tyz"/>
                                 </connections>
                             </button>
-                            <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zlg-qR-9To">
+                            <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="zlg-qR-9To">
                                 <rect key="frame" x="285" y="442" width="90" height="138"/>
+                                <gestureRecognizers/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="90" id="CXB-BP-BRG"/>
                                     <constraint firstAttribute="width" secondItem="zlg-qR-9To" secondAttribute="height" multiplier="183:281" id="lG7-ML-6OP"/>
                                 </constraints>
+                                <connections>
+                                    <outletCollection property="gestureRecognizers" destination="p3v-SL-3m6" appends="YES" id="Ciu-VS-dDY"/>
+                                </connections>
                             </imageView>
                             <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aUv-eB-PM3">
                                 <rect key="frame" x="18" y="27" width="30" height="30"/>
@@ -1823,11 +1827,65 @@
                     <connections>
                         <outlet property="backTopCns" destination="lwE-Bd-qKf" id="jGP-qp-CbY"/>
                         <outlet property="redBagView" destination="zlg-qR-9To" id="H9R-Ms-Rrn"/>
+                        <segue destination="Lcy-Z6-dNj" kind="show" identifier="recommendAwardSegue" id="VgJ-TJ-xBg"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="zDh-5F-LDp" userLabel="First Responder" sceneMemberID="firstResponder"/>
+                <tapGestureRecognizer id="p3v-SL-3m6">
+                    <connections>
+                        <action selector="tapAction:" destination="YQD-Sg-JNJ" id="19i-wG-WBg"/>
+                    </connections>
+                </tapGestureRecognizer>
             </objects>
             <point key="canvasLocation" x="1229.5999999999999" y="840.62968515742136"/>
+        </scene>
+        <!--Recommend Award View Controller-->
+        <scene sceneID="pMB-kv-90g">
+            <objects>
+                <viewController id="Lcy-Z6-dNj" customClass="STRecommendAwardViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="zKV-Oq-a19"/>
+                        <viewControllerLayoutGuide type="bottom" id="Gcy-Xt-7u9"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="N05-7T-Vro">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="ieK-A1-vZG">
+                                <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                            </scrollView>
+                            <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="W33-HF-ajK">
+                                <rect key="frame" x="18" y="27" width="30" height="30"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" secondItem="W33-HF-ajK" secondAttribute="height" multiplier="1:1" id="GfC-Ur-rbv"/>
+                                    <constraint firstAttribute="width" constant="30" id="vUX-NJ-jCX"/>
+                                </constraints>
+                                <state key="normal" image="navigationButtonReturn"/>
+                                <connections>
+                                    <action selector="actions:" destination="YQD-Sg-JNJ" eventType="touchUpInside" id="asE-4Y-B3d"/>
+                                    <action selector="backAction:" destination="Lcy-Z6-dNj" eventType="touchUpInside" id="O2w-fD-H3b"/>
+                                </connections>
+                            </button>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="ieK-A1-vZG" firstAttribute="leading" secondItem="N05-7T-Vro" secondAttribute="leading" id="8kB-QK-CYC"/>
+                            <constraint firstItem="W33-HF-ajK" firstAttribute="top" secondItem="N05-7T-Vro" secondAttribute="top" constant="27" id="EXU-Sd-4wU"/>
+                            <constraint firstAttribute="bottom" secondItem="ieK-A1-vZG" secondAttribute="bottom" id="M6A-id-QpM"/>
+                            <constraint firstAttribute="trailing" secondItem="ieK-A1-vZG" secondAttribute="trailing" id="gmF-6b-GAq"/>
+                            <constraint firstItem="ieK-A1-vZG" firstAttribute="top" secondItem="N05-7T-Vro" secondAttribute="top" id="lZn-Lh-Q1U"/>
+                            <constraint firstItem="W33-HF-ajK" firstAttribute="leading" secondItem="N05-7T-Vro" secondAttribute="leading" constant="18" id="uxv-ai-G7t"/>
+                        </constraints>
+                    </view>
+                    <nil key="simulatedTopBarMetrics"/>
+                    <connections>
+                        <outlet property="backTopCns" destination="EXU-Sd-4wU" id="VWZ-ze-mYr"/>
+                        <outlet property="scrollOutlet" destination="ieK-A1-vZG" id="ON1-x7-0jd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="lDi-8t-o96" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1914" y="841"/>
         </scene>
         <!--我的-->
         <scene sceneID="DHQ-Xi-Uk0">

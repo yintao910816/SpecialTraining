@@ -21,6 +21,10 @@ class STMyRecommendViewController: BaseViewController {
         }
     }
 
+    @IBAction func tapAction(_ sender: UITapGestureRecognizer) {
+        performSegue(withIdentifier: "recommendAwardSegue", sender: nil)
+    }
+    
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }

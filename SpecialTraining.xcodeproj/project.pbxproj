@@ -162,6 +162,7 @@
 		B8547E2821A6772300281554 /* OrganizationHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8547E2721A6772300281554 /* OrganizationHeaderView.xib */; };
 		B85BEA7E226E2F5000C2719A /* STMyRecommendViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BEA7D226E2F5000C2719A /* STMyRecommendViewController.swift */; };
 		B85BEA80226E31F100C2719A /* 红包.gif in Resources */ = {isa = PBXBuildFile; fileRef = B85BEA7F226E31F000C2719A /* 红包.gif */; };
+		B85BEA82226E364D00C2719A /* STRecommendAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BEA81226E364D00C2719A /* STRecommendAwardViewController.swift */; };
 		B85DBFEB2221C4E7000D3977 /* STNeedPayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFEA2221C4E7000D3977 /* STNeedPayDetailViewController.swift */; };
 		B85DBFED2221CB19000D3977 /* STMineOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFEC2221CB18000D3977 /* STMineOrderViewController.swift */; };
 		B85DBFF12221CB75000D3977 /* STNeedForCourseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFF02221CB75000D3977 /* STNeedForCourseViewController.swift */; };
@@ -686,6 +687,7 @@
 		B8547E2721A6772300281554 /* OrganizationHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = OrganizationHeaderView.xib; sourceTree = "<group>"; };
 		B85BEA7D226E2F5000C2719A /* STMyRecommendViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyRecommendViewController.swift; sourceTree = "<group>"; };
 		B85BEA7F226E31F000C2719A /* 红包.gif */ = {isa = PBXFileReference; lastKnownFileType = image.gif; path = "红包.gif"; sourceTree = "<group>"; };
+		B85BEA81226E364D00C2719A /* STRecommendAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRecommendAwardViewController.swift; sourceTree = "<group>"; };
 		B85DBFEA2221C4E7000D3977 /* STNeedPayDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STNeedPayDetailViewController.swift; sourceTree = "<group>"; };
 		B85DBFEC2221CB18000D3977 /* STMineOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineOrderViewController.swift; sourceTree = "<group>"; };
 		B85DBFF02221CB75000D3977 /* STNeedForCourseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STNeedForCourseViewController.swift; sourceTree = "<group>"; };
@@ -1319,6 +1321,7 @@
 			children = (
 				B845ADCE22625E1700BD0AC3 /* STFeedbackViewController.swift */,
 				B85BEA7D226E2F5000C2719A /* STMyRecommendViewController.swift */,
+				B85BEA81226E364D00C2719A /* STRecommendAwardViewController.swift */,
 			);
 			path = AppAbout;
 			sourceTree = "<group>";
@@ -3098,6 +3101,7 @@
 				B88F8CA821C16C3E0064C1CF /* STSetNewPassViewController.swift in Sources */,
 				B85F33DA219F084000023958 /* OrganizationCell.swift in Sources */,
 				B8F117CC2232EE4C008B63B8 /* MineBalanceHeaderView.swift in Sources */,
+				B85BEA82226E364D00C2719A /* STRecommendAwardViewController.swift in Sources */,
 				B81EDF6321A522B100F9D3B0 /* DiskImage.swift in Sources */,
 				B8F117D42232F47B008B63B8 /* WithdrawHeaderView.swift in Sources */,
 				C41D250D222FA60F00DC3D83 /* ViewUtils.m in Sources */,
