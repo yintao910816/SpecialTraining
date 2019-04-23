@@ -35,22 +35,20 @@ class MineOrderView: UICollectionView {
     private func setupView() {
         backgroundColor = RGB(250, 248, 249)
         
-        register(UINib.init(nibName: "MineOrderHeaderReusableView", bundle: Bundle.main),
-                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                 withReuseIdentifier: "header")
         register(MineOrderHeaderReusableView.self,
                  forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                  withReuseIdentifier: "header")
+        register(MineOrderFooterReusableView.self,
+                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                 withReuseIdentifier: "footer")
+
         register(UINib.init(nibName: "MineOrderRecordCell", bundle: Bundle.main), forCellWithReuseIdentifier: "MineOrderRecordCellID")
     }
     
     private func rxBind() {
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<MemberAllOrderModel, OrderItemModel>>.init(configureCell: { [weak self] (section, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "MineOrderRecordCellID", for: indexPath) as! MineOrderRecordCell
-            cell.shopModel = section.sectionModels[indexPath.section].model
             cell.orderModel = model
-            cell.delegate = nil
-            cell.delegate = self
             return cell
         }, configureSupplementaryView: { (section, col, kind, indexpath) -> UICollectionReusableView in
             if kind == UICollectionView.elementKindSectionHeader {
@@ -59,6 +57,15 @@ class MineOrderView: UICollectionView {
                                                                   for: indexpath) as! MineOrderHeaderReusableView
                 header.model = section.sectionModels[indexpath.section].model
                 return header
+            }
+            if kind == UICollectionView.elementKindSectionFooter {
+                let footer = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                                  withReuseIdentifier: "footer",
+                                                                  for: indexpath) as! MineOrderFooterReusableView
+                footer.shopModel = section.sectionModels[indexpath.section].model
+                footer.delegate = nil
+                footer.delegate = self
+                return footer
             }
             return UICollectionReusableView()
         }, moveItem: { _,_,_  in
@@ -79,7 +86,7 @@ class MineOrderView: UICollectionView {
 extension MineOrderView: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
-        return .init(top: 0, left: 10, bottom: 10, right: 10)
+        return .init(top: 0, left: 10, bottom: 0, right: 10)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, minimumLineSpacingForSectionAt section: Int) -> CGFloat {
@@ -90,6 +97,10 @@ extension MineOrderView: UICollectionViewDelegateFlowLayout {
         return .init(width: width, height: 45)
     }
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return .init(width: width, height: 40)
+    }
+    
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {
         return CGSize.init(width: width - 20, height: MineOrderRecordCell.contentHeight)
     }
@@ -97,11 +108,11 @@ extension MineOrderView: UICollectionViewDelegateFlowLayout {
 
 extension MineOrderView: MineOrderRecordOperation {
     
-    func orderOperation(statu: OrderStatu, orderNum: String) {
-        aDelegate?.orderOperation(statu: statu, orderNum: orderNum)
+    func orderOperation(orderNum: String, operationType: MineOrderFooterOpType) {
+        aDelegate?.orderOperation(statu: operationType, orderNum: orderNum)
     }
 }
 
 protocol UserOperation: class {
-    func orderOperation(statu: OrderStatu, orderNum: String)
+    func orderOperation(statu: MineOrderFooterOpType, orderNum: String)
 }

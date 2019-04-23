@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina4_7" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MineOrderFooterReusableView" customModule="SpecialTraining" customModuleProvider="target">
+            <connections>
+                <outlet property="contentView" destination="U6b-Vx-4bR" id="jHj-BG-l2K"/>
+                <outlet property="cornerBgOutlet" destination="XYv-xd-OqO" id="Bnt-Zx-3fh"/>
+                <outlet property="leftOutlet" destination="cBO-9D-IiG" id="aN8-zn-PIV"/>
+                <outlet property="rightOutlet" destination="6aY-IA-Jah" id="KL8-Lh-vUf"/>
+            </connections>
+        </placeholder>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionReusableView opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="U6b-Vx-4bR">
+            <rect key="frame" x="0.0" y="0.0" width="320" height="40"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="XYv-xd-OqO">
+                    <rect key="frame" x="10" y="0.0" width="300" height="30"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="cBO-9D-IiG">
+                            <rect key="frame" x="140" y="0.0" width="70" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="Iq0-2j-6za"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="actions:" destination="-1" eventType="touchUpInside" id="IJo-v5-8Ui"/>
+                            </connections>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="6aY-IA-Jah">
+                            <rect key="frame" x="225" y="0.0" width="70" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="MFJ-La-KHc"/>
+                                <constraint firstAttribute="width" constant="70" id="b0r-jf-VhS"/>
+                            </constraints>
+                            <fontDescription key="fontDescription" name="PingFangSC-Regular" family="PingFang SC" pointSize="13"/>
+                            <state key="normal" title="Button"/>
+                            <connections>
+                                <action selector="actions:" destination="-1" eventType="touchUpInside" id="xid-fN-f6v"/>
+                            </connections>
+                        </button>
+                    </subviews>
+                    <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                    <constraints>
+                        <constraint firstItem="6aY-IA-Jah" firstAttribute="top" secondItem="XYv-xd-OqO" secondAttribute="top" id="T3B-RE-sZE"/>
+                        <constraint firstAttribute="height" constant="30" id="V5d-Jx-IbK"/>
+                        <constraint firstItem="cBO-9D-IiG" firstAttribute="width" secondItem="6aY-IA-Jah" secondAttribute="width" id="cKi-Kx-se8"/>
+                        <constraint firstItem="cBO-9D-IiG" firstAttribute="height" secondItem="6aY-IA-Jah" secondAttribute="height" id="g4J-DB-vMg"/>
+                        <constraint firstItem="cBO-9D-IiG" firstAttribute="centerY" secondItem="6aY-IA-Jah" secondAttribute="centerY" id="h39-DY-zFV"/>
+                        <constraint firstItem="6aY-IA-Jah" firstAttribute="leading" secondItem="cBO-9D-IiG" secondAttribute="trailing" constant="15" id="mQ6-Bc-7yf"/>
+                        <constraint firstAttribute="trailing" secondItem="6aY-IA-Jah" secondAttribute="trailing" constant="5" id="xPC-O8-X3F"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <color key="backgroundColor" red="0.98039215686274506" green="0.97254901960784312" blue="0.97647058823529409" alpha="1" colorSpace="deviceRGB"/>
+            <constraints>
+                <constraint firstItem="XYv-xd-OqO" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="AdS-kz-r6P"/>
+                <constraint firstAttribute="trailing" secondItem="XYv-xd-OqO" secondAttribute="trailing" constant="10" id="FYP-3y-S7o"/>
+                <constraint firstItem="XYv-xd-OqO" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="mPE-J9-gaJ"/>
+            </constraints>
+            <point key="canvasLocation" x="-91" y="161"/>
+        </collectionReusableView>
+    </objects>
+</document>

@@ -73,10 +73,16 @@ class STMineViewController: BaseViewController {
             .asDriver()
             .drive(onNext: { [unowned self] model in
                 if let segue = model.segueIdentifier {
-                    self.performSegue(withIdentifier: segue, sender: nil)
+                    self.performSegue(withIdentifier: segue, sender: model.clickedOrderIdx)
                 }
             })
             .disposed(by: disposeBag)
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "myOrderSegue" {
+            segue.destination.prepare(parameters: ["idx": sender as! Int])
+        }
     }
 }
 

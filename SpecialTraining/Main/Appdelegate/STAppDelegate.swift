@@ -65,7 +65,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
 //            })
         }
 
-        if url.scheme == wxAppid {
+        if url.scheme == Account.wxAppid {
             return WXApi.handleOpen(url, delegate: self)
         }
         return true
@@ -83,7 +83,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
 //            })
         }
         
-        if url.scheme == wxAppid {
+        if url.scheme == Account.wxAppid {
             return WXApi.handleOpen(url, delegate: self)
         }
 

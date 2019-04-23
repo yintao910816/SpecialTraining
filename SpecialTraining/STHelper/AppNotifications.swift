@@ -56,6 +56,7 @@ extension Notification.Name {
     public struct Order {
         /// 添加课程到购物车购物车
         public static let AddOrder = Notification.Name(rawValue: "org.bmk.notification.name.AddOrder")
+        public static let canclePayBack = Notification.Name(rawValue: "org.bmk.notification.name.canclePayBack")
     }
     
     public struct PublishVideo {

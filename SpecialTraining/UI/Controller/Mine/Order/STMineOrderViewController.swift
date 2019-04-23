@@ -29,6 +29,8 @@ class STMineOrderViewController: BaseViewController {
     private var alertView: ApplyForBackAlertView!
     private var cancleAlertView: CancleOrderView!
     
+    private var selectedIdx: Int = 0
+    
     var viewModel: MineOrderViewModel!
     
     @IBAction func actions(_ sender: UIButton) {
@@ -162,6 +164,16 @@ class STMineOrderViewController: BaseViewController {
 
         alertView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
         cancleAlertView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
+        
+        if selectedIdx == 0 {
+            set(button: needPayOutlet, offsetX: 0)
+        }else if selectedIdx == 1 {
+            set(button: needCourseOutlet, offsetX: scrollOutlet.width)
+        }else if selectedIdx == 2 {
+            set(button: needClassOutlet, offsetX: scrollOutlet.width * 2)
+        }else if selectedIdx == 3 {
+            set(button: needPayBackOutlet, offsetX: scrollOutlet.width * 3)
+        }
     }
     
     override func rxBind() {
@@ -214,11 +226,17 @@ class STMineOrderViewController: BaseViewController {
 //            })
 //            .disposed(by: disposeBag)
         
-        payBackOrderView.rx.itemSelected.asDriver()
-            .drive(onNext: { [unowned self] _ in
-                self.performSegue(withIdentifier: "payBackInfoSegue", sender: nil)
+        viewModel.gotoPayBackDetail
+            .subscribe(onNext: { [unowned self] memberOrder in
+                self.performSegue(withIdentifier: "payBackInfoSegue", sender: memberOrder)
             })
             .disposed(by: disposeBag)
+        
+//        payBackOrderView.rx.itemSelected.asDriver()
+//            .drive(onNext: { [unowned self] _ in
+//                self.performSegue(withIdentifier: "payBackInfoSegue", sender: nil)
+//            })
+//            .disposed(by: disposeBag)
 
         viewModel.reloadSubject.onNext(Void())
     }
@@ -255,7 +273,16 @@ class STMineOrderViewController: BaseViewController {
             $0.width.equalTo(scrollOutlet.width)
             $0.height.equalTo(scrollOutlet.height)
         }
-
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "payBackInfoSegue" {
+            segue.destination.prepare(parameters: ["model": sender as! MemberAllOrderModel])
+        }
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        selectedIdx = (parameters!["idx"] as! Int)
     }
 }
 
@@ -275,15 +302,9 @@ extension STMineOrderViewController: UIScrollViewDelegate {
 }
 
 extension STMineOrderViewController: UserOperation {
-    
-    func orderOperation(statu: OrderStatu, orderNum: String) {
-        switch statu {
-        case .haspay:
-            NoticesCenter.alert(title: "退款", message: "订单尚未完成，即将为您安排上课班级，请确认是否要退款", cancleTitle: "取消", okTitle: "确定", presentCtrl: self) { [weak self] in
-                self?.viewModel.paybackSubject.onNext(orderNum)
-            }
-        default:
-            break
-        }
+
+    func orderOperation(statu: MineOrderFooterOpType, orderNum: String) {
+        viewModel.orderOpretionSubject.onNext((statu, orderNum))
     }
+    
 }

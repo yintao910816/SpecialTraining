@@ -14,50 +14,55 @@ class MineViewModel: BaseViewModel {
     
     var datasource = Variable([SectionModel<Int, MineModel>]())
     
-    private let sectionTitles = ["收藏", "我要开店", "老师备课", "投诉留言"]
+    private let sectionTitles = ["我的订单", "成为机构", "吐槽"]
     
     override init() {
         super.init()
         
-        datasource.value = [SectionModel.init(model: 0, items: [MineModel.creatModel(title: "待付款",
+        datasource.value = [SectionModel.init(model: 0, items: [MineModel.creatModel(title: "全部",
                                                                                      imageString: "mine_daifukuan",
-                                                                                     segueIdentifier:"myOrderSegue"),
-                                                                MineModel.creatModel(title: "待排课",
+                                                                                     segueIdentifier:"myOrderSegue",
+                                                                                     clickedOrderIdx: 0),
+                                                                MineModel.creatModel(title: "待付款",
                                                                                      imageString: "mine_daipaike",
-                                                                                     segueIdentifier:"myOrderSegue"),
-                                                                MineModel.creatModel(title: "待上课",
+                                                                                     segueIdentifier:"myOrderSegue",
+                                                                                     clickedOrderIdx: 1),
+                                                                MineModel.creatModel(title: "已付款",
                                                                                      imageString: "mine_daishangke",
-                                                                                     segueIdentifier:"myOrderSegue"),
-                                                                
+                                                                                     segueIdentifier:"myOrderSegue",
+                                                                                     clickedOrderIdx: 2),
                                                                 MineModel.creatModel(title: "退款",
                                                                                      imageString: "mine_tuikuan",
-                                                                                     segueIdentifier:"myOrderSegue")]),
-                            SectionModel.init(model: 1, items: [MineModel.creatModel(title: "文章",
-                                                                                     imageString: "mine_shoucangwenzhang",
-                                                                                     segueIdentifier: "collectionSegue"),
-                                                                MineModel.creatModel(title: "图片相册",
-                                                                                     imageString: "mine_shoucangtupian",
-                                                                                     segueIdentifier: "collectionSegue"),
-                                                                MineModel.creatModel(title: "视屏",
-                                                                                     imageString: "mine_shoucangshiping",
-                                                                                     segueIdentifier: "collectionSegue"),
-                                                                MineModel.creatModel(title: "音频",
-                                                                                     imageString: "mine_shucangyinping",
-                                                                                     segueIdentifier: "collectionSegue")]),
-                            SectionModel.init(model: 2, items: [MineModel.creatModel(title: "成为机构",
+                                                                                     segueIdentifier:"myOrderSegue",
+                                                                                     clickedOrderIdx: 3)]),
+//                            SectionModel.init(model: 1, items: [MineModel.creatModel(title: "文章",
+//                                                                                     imageString: "mine_shoucangwenzhang",
+//                                                                                     segueIdentifier: "collectionSegue"),
+//                                                                MineModel.creatModel(title: "图片相册",
+//                                                                                     imageString: "mine_shoucangtupian",
+//                                                                                     segueIdentifier: "collectionSegue"),
+//                                                                MineModel.creatModel(title: "视屏",
+//                                                                                     imageString: "mine_shoucangshiping",
+//                                                                                     segueIdentifier: "collectionSegue"),
+//                                                                MineModel.creatModel(title: "音频",
+//                                                                                     imageString: "mine_shucangyinping",
+//                                                                                     segueIdentifier: "collectionSegue")]),
+                            SectionModel.init(model: 2, items: [MineModel.creatModel(title: "机构入驻",
                                                                                      imageString: "mine_jigoukaidian",
                                                                                      segueIdentifier: "tobeOrganizationSegue"),
-                                                                MineModel.creatModel(title: "宝贝互换",
-                                                                                     imageString: "mine_baobeihuhuan",
-                                                                                     segueIdentifier: "treasureExchangeSegue"),
-                                                                MineModel.creatModel(title: "商品买卖", imageString: "mine_wodeshangpingmaimai")]),
-                            SectionModel.init(model: 3, items: [MineModel.creatModel(title: "备课",
-                                                                                     imageString: "mine_laoshibeike",
-                                                                                     segueIdentifier: "teacherPrepareSegue"),
-                                                                MineModel.creatModel(title: "排课表", imageString: "mine_laoshikechengbiao")]),
-                            SectionModel.init(model: 4, items: [MineModel.creatModel(title: "投诉",
+//                                                                MineModel.creatModel(title: "宝贝互换",
+//                                                                                     imageString: "mine_baobeihuhuan",
+//                                                                                     segueIdentifier: "treasureExchangeSegue"),
+//                                                                MineModel.creatModel(title: "商品买卖", imageString: "mine_wodeshangpingmaimai")
+                                ]),
+//                            SectionModel.init(model: 3, items: [MineModel.creatModel(title: "备课",
+//                                                                                     imageString: "mine_laoshibeike",
+//                                                                                     segueIdentifier: "teacherPrepareSegue"),
+//                                                                MineModel.creatModel(title: "排课表", imageString: "mine_laoshikechengbiao")]),
+                            SectionModel.init(model: 3, items: [MineModel.creatModel(title: "优学乐秀",
                                                                                      imageString: "mine_tousuliuyan",
-                                                                                     segueIdentifier: "faceBackSegue")])]
+                                                                                     segueIdentifier: "faceBackSegue")])
+        ]
     }
     
     func sectionTitle(_ indexPath: IndexPath) ->String{

@@ -8,14 +8,16 @@
 
 import UIKit
 
-class PayBackSuccessView: UIView {
+class PayBackDetailHeaderView: UICollectionReusableView {
+    
+    static let contentHeight: CGFloat = 257
 
-    @IBOutlet var contentView: UIView!
+    @IBOutlet var contentView: UICollectionReusableView!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        contentView = (Bundle.main.loadNibNamed("PayBackSuccessView", owner: self, options: nil)?.first as! UIView)
+        contentView = (Bundle.main.loadNibNamed("PayBackDetailHeaderView", owner: self, options: nil)?.first as! UICollectionReusableView)
         addSubview(contentView)
     
         contentView.snp.makeConstraints { $0.edges.equalTo(UIEdgeInsets.zero) }

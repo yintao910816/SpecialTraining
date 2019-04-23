@@ -50,3 +50,18 @@ class OrderItemModel: HJModel {
     var class_category: String = ""
     var createtime: String = ""
 }
+
+/// 退款详情
+class RefundDetailsModel: HJModel {
+    var order_returns_id: String = ""
+    var returns_no: String = ""
+    var order_number: String = ""
+    var shop_id: String = ""
+    var consignee_realname: String = ""
+    var consignee_telphone: String = ""
+    var returns_amount: String = ""
+    var return_submit_time: String = ""
+    var handling_time: String = ""
+    var returns_reason: String = ""
+    var returns_status: Int = 0
+}

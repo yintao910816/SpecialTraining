@@ -82,8 +82,15 @@ enum API{
     //MARK: 个人中心
     /// 所有订单
     case getMemberAllOrder(member_id: String)
+    /// 取消订单
+    case cancleOrder(order_no: String)
     /// 退款
     case refundOrder(order_no: String)
+    /// 取消退款
+    case canclePayBack(order_no: String)
+    /// 获取退款信息
+    case refundDetails(order_no: String)
+    
     /// 意见反馈
     case feedback(category_id: String, content: String, contact: String, member_id: String)
     
@@ -164,11 +171,17 @@ extension API: TargetType{
             
         case .getMemberAllOrder(_):
             return "v1/order/getMemberAllOrder"
+        case .cancleOrder(_):
+            return "v1/order/orderCancel"
         case .refundOrder(_):
             return "v1/order/refund_order"
+        case .canclePayBack(_):
+            return "v1/order/canncel_refund"
+        case .refundDetails(_):
+            return "v1/order/refund_details"
+            
         case .feedback(_):
             return "v1/member/feedback"
-            
             
         case .sts():
             return "v1/video/get_video_sts"
@@ -268,9 +281,15 @@ extension API {
             params["offset"] = offset
         case .getMemberAllOrder(let member_id):
             params["member_id"] = member_id
+        case .cancleOrder(let order_no):
+            params["order_no"] = order_no
         case .refundOrder(let order_no):
             params["order_no"] = order_no
-
+        case .canclePayBack(let order_no):
+            params["order_no"] = order_no
+        case .refundDetails(let order_no):
+            params["order_no"] = order_no
+            
         case .agnCourse(let agn_id):
             params["agn_id"] = agn_id
         case .agnActivity(let agn_id):
