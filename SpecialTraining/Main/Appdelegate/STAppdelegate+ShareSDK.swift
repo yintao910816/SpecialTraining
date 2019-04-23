@@ -7,17 +7,23 @@
 //
 
 import Foundation
-let wxAppid = "wxcb1e987d2389e80d"
-let wx_appSecret = "79d8d1710b07f0e96e6f40ee58f5d9fe"
 
 extension STAppDelegate {
+
+    struct Account {
+        static let wxAppid = "wxcb1e987d2389e80d"
+        static let wx_appSecret = "79d8d1710b07f0e96e6f40ee58f5d9fe"
+
+        static let share_AppKey = "296a8c21b4cfe"
+        static let share_AppSecret = "cb96ac9fc87e03e1e47145261b98fc67"
+    }
     
     func setupShareSDK() {
         WXApi.startLog(by: .normal) { msg in
             PrintLog("微信log日志：\(msg ?? "")")
         }
         
-        if WXApi.registerApp(wxAppid) == true {
+        if WXApi.registerApp(Account.wxAppid) == true {
             PrintLog("微信注册成功")
         }
         
@@ -26,7 +32,7 @@ extension STAppDelegate {
     
     private func setup() {
         ShareSDK.registPlatforms { platformRegister in
-            platformRegister?.setupWeChat(withAppId: wxAppid, appSecret: wx_appSecret)
+            platformRegister?.setupWeChat(withAppId: Account.wxAppid, appSecret: Account.wx_appSecret)
         }
     }
 }
