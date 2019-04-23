@@ -63,6 +63,7 @@ class MineOrderViewModel: BaseViewModel {
     
     /// 退款
     private func requestPayBack(orderNo: String, type: MineOrderFooterOpType) {
+        hud.noticeLoading()
         STProvider.request(.refundOrder(order_no: orderNo))
             .mapResponse()
             .asObservable()
@@ -80,6 +81,7 @@ class MineOrderViewModel: BaseViewModel {
     
     /// 取消退款
     private func requestCanclePayBack(orderNo: String, type: MineOrderFooterOpType) {
+        hud.noticeLoading()
         STProvider.request(.canclePayBack(order_no: orderNo))
             .mapResponse()
             .asObservable()
@@ -97,6 +99,7 @@ class MineOrderViewModel: BaseViewModel {
     
     /// 取消订单
     private func requestCancleOrder(orderNo: String, type: MineOrderFooterOpType) {
+        hud.noticeLoading()
         STProvider.request(.cancleOrder(order_no: orderNo))
             .mapResponse()
             .asObservable()
@@ -176,7 +179,7 @@ extension MineOrderViewModel {
             }
         case .canclePayBack:
             // 取消退款
-            NoticesCenter.alert(title: "取消退款", message: "请确认是否要取消q退款", cancleTitle: "取消", okTitle: "确定") { [weak self] in
+            NoticesCenter.alert(title: "取消退款", message: "请确认是否要取消退款", cancleTitle: "取消", okTitle: "确定") { [weak self] in
                 self?.requestCanclePayBack(orderNo: data.1, type: data.0)
             }
         }
