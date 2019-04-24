@@ -31,7 +31,7 @@ class CourseDetailClassTableView: UITableView {
         showsVerticalScrollIndicator = false
         separatorStyle = .none
         
-        rowHeight = 90
+        rowHeight = 75
         
         register(UINib.init(nibName: "CourseDetailClassCell", bundle: Bundle.main), forCellReuseIdentifier: "CourseDetailClassCellID")
     }

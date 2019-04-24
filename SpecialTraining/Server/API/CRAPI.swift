@@ -71,6 +71,8 @@ enum API{
     case courseDetail(id: String)
     /// 获取班级
     case selectClass(course_id: String)
+    /// 班级详情
+    case courseClassInfo(classId: String, shop_id: String)
     /// 提交订单
     case submitOrder(params: [String: Any])
     /// 微信支付统一下单 api.youpeixunjiaoyu.com/v1/pay/wxPay?order_number=DL2437140294456282&real_amount=3560
@@ -161,7 +163,9 @@ extension API: TargetType{
             return "v1/course/read"
         case .selectClass(_):
             return "v1/course/selectClass"
-        
+        case .courseClassInfo(_):
+            return "v1/courseClass/read"
+            
         case .submitOrder(_):
             return "v1/order/submitOrder"
         case .wxPay(_, _):
@@ -317,7 +321,10 @@ extension API {
             
         case .selectClass(let course_id):
             params["course_id"] = course_id
-            
+        case .courseClassInfo(let classId, let shop_id):
+            params["id"] = classId
+            params["shop_id"] = shop_id
+
         case .wxPay(let order_number, let real_amount):
             params["order_number"] = order_number
 //            params["real_amount"]  = real_amount

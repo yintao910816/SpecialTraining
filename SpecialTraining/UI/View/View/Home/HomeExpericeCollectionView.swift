@@ -47,6 +47,7 @@ class HomeExpericeCollectionView: UICollectionView {
 
         let datasourceSignal = RxCollectionViewSectionedReloadDataSource<SectionModel<Int, HomeCellSize>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "CourseDisplayMinuteCellID", for: indexPath) as! CourseDisplayMinuteCell
+            cell.model = model as! ExperienceCourseItemModel
             return cell
         }, configureSupplementaryView: { [unowned self] (_, col, kind, indexPath) -> UICollectionReusableView in
             let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeHeaderExperienceViewID", for: indexPath) as! HomeHeaderExperienceView

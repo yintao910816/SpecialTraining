@@ -33,6 +33,7 @@ class STCourseDetailViewController: BaseViewController {
     @IBOutlet weak var classNameOutlet: UILabel!
     @IBOutlet weak var desOutlet: UILabel!
     @IBOutlet weak var priceOutlet: UILabel!
+    @IBOutlet weak var bottomRemindOutlet: UILabel!
     
     private var isGotopay: Bool = false
     
@@ -163,7 +164,8 @@ class STCourseDetailViewController: BaseViewController {
             .drive(onNext: { [weak self] data in
                 self?.classNameOutlet.text = data.title
                 self?.desOutlet.text = data.content
-                self?.priceOutlet.text = data.about_price
+                self?.priceOutlet.text = "¥:\(data.about_price)"
+                self?.bottomRemindOutlet.text = data.shop_name
             })
             .disposed(by: disposeBag)
         
@@ -190,6 +192,15 @@ class STCourseDetailViewController: BaseViewController {
             .do(onNext: { [weak self] _ in self?.audioPlay.stop() })
             .bind(to: viewModel.requestAudioSource)
             .disposed(by: disposeBag)
+        
+        courseClassTB.rx.modelSelected(CourseDetailClassModel.self)
+            .asDriver()
+            .drive(onNext: { [weak self] model in
+                self?.performSegue(withIdentifier: "classInfoSegue",
+                                   sender: ["classId":model.class_id, "shopId": self?.viewModel.getShopID() ?? "1"])
+            })
+            .disposed(by: disposeBag)
+        
         
         viewModel.audioSourceChange
             .subscribe(onNext: { [weak self] path in
@@ -227,6 +238,9 @@ class STCourseDetailViewController: BaseViewController {
         }else if segue.identifier == "videoPlaySegue" {
             let ctrl = segue.destination as! STVideoPlayViewController
             ctrl.preparePlay(videoInfo: (sender as! CourseDetailVideoModel))
+        }else if segue.identifier == "classInfoSegue" {
+            // 班级详情
+            segue.destination.prepare(parameters: sender as? [String: Any])
         }
     }
 }

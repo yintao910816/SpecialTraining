@@ -31,8 +31,8 @@
                         <nil key="highlightedColor"/>
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国舞" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="3dV-Gc-3ps">
-                        <rect key="frame" x="112" y="41" width="49" height="20"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <rect key="frame" x="112" y="36" width="46" height="18"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="15"/>
                         <color key="textColor" red="0.094117647058823528" green="0.58039215686274503" blue="0.85882352941176465" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
@@ -50,9 +50,15 @@
                         </constraints>
                     </view>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国古典的身孕训练充分体现" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="DSv-rt-CCn">
-                        <rect key="frame" x="112" y="73" width="248" height="17"/>
-                        <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                        <rect key="frame" x="112" y="59" width="248" height="16"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
                         <color key="textColor" red="0.41960784309999999" green="0.41960784309999999" blue="0.41960784309999999" alpha="1" colorSpace="deviceRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="kYX-jU-cii">
+                        <rect key="frame" x="329" y="80" width="31" height="15"/>
+                        <fontDescription key="fontDescription" type="system" pointSize="12"/>
+                        <color key="textColor" red="0.89803921568627454" green="0.62745098039215685" blue="0.27058823529411763" alpha="1" colorSpace="deviceRGB"/>
                         <nil key="highlightedColor"/>
                     </label>
                 </subviews>
@@ -64,7 +70,7 @@
                 <constraint firstItem="Cay-K5-ZXs" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" constant="5" id="Cwi-gG-lBO"/>
                 <constraint firstItem="Cay-K5-ZXs" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="10" id="Fqx-CH-6as"/>
                 <constraint firstItem="794-QF-G2U" firstAttribute="top" secondItem="xty-YM-sey" secondAttribute="bottom" constant="5" id="JWv-GZ-0aN"/>
-                <constraint firstItem="DSv-rt-CCn" firstAttribute="top" secondItem="3dV-Gc-3ps" secondAttribute="bottom" constant="12" id="S97-uc-cg0"/>
+                <constraint firstItem="DSv-rt-CCn" firstAttribute="top" secondItem="3dV-Gc-3ps" secondAttribute="bottom" constant="5" id="S97-uc-cg0"/>
                 <constraint firstItem="794-QF-G2U" firstAttribute="leading" secondItem="xty-YM-sey" secondAttribute="leading" id="Vsp-Z4-Dub"/>
                 <constraint firstItem="xty-YM-sey" firstAttribute="top" secondItem="Cay-K5-ZXs" secondAttribute="top" id="ahh-v1-OSL"/>
                 <constraint firstItem="794-QF-G2U" firstAttribute="trailing" secondItem="RHp-tC-1qW" secondAttribute="trailing" id="cPo-eX-KBP"/>
@@ -72,17 +78,20 @@
                 <constraint firstItem="RHp-tC-1qW" firstAttribute="centerY" secondItem="xty-YM-sey" secondAttribute="centerY" id="fmu-1P-uBC"/>
                 <constraint firstItem="DSv-rt-CCn" firstAttribute="leading" secondItem="3dV-Gc-3ps" secondAttribute="leading" id="gPR-ud-ERn"/>
                 <constraint firstItem="xty-YM-sey" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="112" id="jmE-7C-I3X"/>
-                <constraint firstItem="3dV-Gc-3ps" firstAttribute="top" secondItem="794-QF-G2U" secondAttribute="bottom" constant="13" id="zs6-dW-0HU"/>
+                <constraint firstItem="kYX-jU-cii" firstAttribute="top" secondItem="DSv-rt-CCn" secondAttribute="bottom" constant="5" id="kdI-kH-0Gz"/>
+                <constraint firstItem="kYX-jU-cii" firstAttribute="trailing" secondItem="DSv-rt-CCn" secondAttribute="trailing" id="oR8-hh-VlZ"/>
+                <constraint firstItem="3dV-Gc-3ps" firstAttribute="top" secondItem="794-QF-G2U" secondAttribute="bottom" constant="8" id="zs6-dW-0HU"/>
             </constraints>
             <size key="customSize" width="370" height="102"/>
             <connections>
                 <outlet property="addressOutlet" destination="RHp-tC-1qW" id="tP1-L9-Lg9"/>
                 <outlet property="coverOutlet" destination="Cay-K5-ZXs" id="jUh-XM-Lu6"/>
+                <outlet property="priceOutlet" destination="kYX-jU-cii" id="8hf-o1-q9D"/>
                 <outlet property="secondTitleTopCns" destination="zs6-dW-0HU" id="gTg-az-rPI"/>
                 <outlet property="setLineOutlet" destination="794-QF-G2U" id="W6p-xa-zRw"/>
                 <outlet property="titleOutlet" destination="xty-YM-sey" id="v6a-oi-ceE"/>
             </connections>
-            <point key="canvasLocation" x="393.60000000000002" y="170.91454272863569"/>
+            <point key="canvasLocation" x="470" y="158"/>
         </collectionViewCell>
     </objects>
     <resources>

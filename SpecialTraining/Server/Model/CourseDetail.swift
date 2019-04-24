@@ -305,7 +305,7 @@ class CourseDetailModel: HJModel {
     var course_info: CourseDetailInfoModel = CourseDetailInfoModel()
     var videoList: [CourseDetailVideoModel] = []
     var audioList: [CourseDetailAudioModel] = []
-    var scheduleList: [CourseDetailClassModel] = []
+    var classList: [CourseDetailClassModel] = []
 }
 
 class CourseDetailInfoModel: HJModel {
@@ -351,15 +351,17 @@ class CourseDetailAudioModel: HJModel {
 }
 
 class CourseDetailClassModel: HJModel {
-    var sch_id: String = ""
-    var course_id: String = ""
     var class_id: String = ""
     var class_name: String = ""
-    var class_level: String = ""
-    var start_time: String = ""
-    var end_time: String = ""
-    var address: String = ""
-    var stuTime: String = ""
+    var introduce: String = ""
+    var suit_peoples: String = ""
+    var describe: String = ""
+    var class_days: String = ""
+    var price: String = ""
+    var createtime: String = ""
+    var status: String = ""
+    var teacher_id: String = ""
+    var pic: String = ""
     var teacher_name: String = ""
-    var teacher_pic: String = ""
+    var class_category: String = ""
 }

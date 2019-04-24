@@ -29,16 +29,8 @@ class CourseDetailViewModel: BaseViewModel {
         
         self.courseId = courseId
         
-        reloadSubject.subscribe(onNext: { [weak self] _ in self?.requestData() })
-            .disposed(by: disposeBag)
-        
-        requestClassData()
-            .subscribe(onNext: { [weak self] datas in
-                datas.first?.isSelected = true
-                self?.selecteClassSource.value = datas
-                }, onError: { [weak self] error in
-                    PrintLog(self?.errorMessage(error))
-            })
+        reloadSubject
+            .subscribe(onNext: { [weak self] _ in  self?.requestData() })
             .disposed(by: disposeBag)
         
         requestAudioSource
@@ -56,10 +48,16 @@ class CourseDetailViewModel: BaseViewModel {
     }
     
     // 获取班级
-    private func requestClassData() ->Observable<[CourseClassModel]> {
-        return STProvider.request(.selectClass(course_id: courseId))
+    private func requestClassData() {
+        STProvider.request(.selectClass(course_id: courseId))
             .map(models: CourseClassModel.self)
-            .asObservable()
+            .subscribe(onSuccess: { [weak self] datas in
+                datas.first?.isSelected = true
+                self?.selecteClassSource.value = datas
+                }, onError: { [weak self] error in
+                    PrintLog(self?.errorMessage(error))
+            })
+            .disposed(by: disposeBag)
     }
     
     private func requestData() {
@@ -71,7 +69,7 @@ class CourseDetailViewModel: BaseViewModel {
                 self?.courseInfoDataSource.value = data.course_info
                 self?.videoDatasource.value = data.videoList
                 self?.audioDatasource.value = data.audioList
-                self?.classDatasource.value = data.scheduleList
+                self?.classDatasource.value = data.classList
                 self?.hud.noticeHidden()
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
@@ -133,4 +131,9 @@ class CourseDetailViewModel: BaseViewModel {
         
 //        classTimeSource.value = dealData
     }
+}
+
+extension CourseDetailViewModel {
+    
+    public func getShopID() ->String { return courseInfoDataSource.value.shop_id }
 }

@@ -146,8 +146,6 @@
 		B845ADD2226261AD00BD0AC3 /* FaceBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845ADD1226261AD00BD0AC3 /* FaceBackView.swift */; };
 		B845ADD4226261B500BD0AC3 /* FaceBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B845ADD3226261B500BD0AC3 /* FaceBackView.xib */; };
 		B845ADD62262682A00BD0AC3 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845ADD52262682A00BD0AC3 /* FeedbackViewModel.swift */; };
-		B84861D6224E99F6004E4DD2 /* HomeCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84861D4224E99F6004E4DD2 /* HomeCourseCell.swift */; };
-		B84861D7224E99F6004E4DD2 /* HomeCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B84861D5224E99F6004E4DD2 /* HomeCourseCell.xib */; };
 		B852F13921BD6738002A5887 /* VideoCoverChoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852F13821BD6738002A5887 /* VideoCoverChoseViewModel.swift */; };
 		B8530783224FD54900A21564 /* PublishVideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8530782224FD54900A21564 /* PublishVideoViewModel.swift */; };
 		B8530785224FDC6000A21564 /* VideoPublish.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8530784224FDC6000A21564 /* VideoPublish.swift */; };
@@ -225,8 +223,6 @@
 		B85F339E219EA37100023958 /* CourseDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F339C219EA37100023958 /* CourseDisplayCell.xib */; };
 		B85F33A1219EA3AD00023958 /* CourseListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F339F219EA3AD00023958 /* CourseListCell.swift */; };
 		B85F33A2219EA3AD00023958 /* CourseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F33A0219EA3AD00023958 /* CourseListCell.xib */; };
-		B85F33A5219EA3FE00023958 /* CourseDisplayMinuteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33A3219EA3FE00023958 /* CourseDisplayMinuteCell.swift */; };
-		B85F33A6219EA3FE00023958 /* CourseDisplayMinuteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F33A4219EA3FE00023958 /* CourseDisplayMinuteCell.xib */; };
 		B85F33A9219EAB8900023958 /* HomeHeaderCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33A7219EAB8900023958 /* HomeHeaderCarouselView.swift */; };
 		B85F33AA219EAB8900023958 /* HomeHeaderCarouselView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F33A8219EAB8900023958 /* HomeHeaderCarouselView.xib */; };
 		B85F33B0219EB07700023958 /* UIView+XIB.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33AF219EB07700023958 /* UIView+XIB.swift */; };
@@ -269,7 +265,6 @@
 		B86D68BB21C40630001A0B75 /* SplendidnessContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68BA21C40630001A0B75 /* SplendidnessContentTableView.swift */; };
 		B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */; };
 		B86D68BF21C406BC001A0B75 /* SplendidnessContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */; };
-		B86D68C121C40897001A0B75 /* CourseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */; };
 		B873B3EC223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */; };
 		B873B3F0223CCEB700D3C6B1 /* OrganizationShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */; };
 		B873B3F22240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3F12240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift */; };
@@ -371,6 +366,16 @@
 		B8F117E12232F992008B63B8 /* MineAddPayAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F117DF2232F992008B63B8 /* MineAddPayAccountCell.swift */; };
 		B8F117E22232F992008B63B8 /* MineAddPayAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8F117E02232F992008B63B8 /* MineAddPayAccountCell.xib */; };
 		B8F117E42232FA91008B63B8 /* MineEditPayAccountViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F117E32232FA91008B63B8 /* MineEditPayAccountViewModel.swift */; };
+		B8F264A82270B6880058D5F6 /* HomeCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F264A42270B6880058D5F6 /* HomeCourseCell.swift */; };
+		B8F264A92270B6880058D5F6 /* CourseDisplayMinuteCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F264A52270B6880058D5F6 /* CourseDisplayMinuteCell.swift */; };
+		B8F264AA2270B6880058D5F6 /* HomeCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8F264A62270B6880058D5F6 /* HomeCourseCell.xib */; };
+		B8F264AB2270B6880058D5F6 /* CourseDisplayMinuteCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8F264A72270B6880058D5F6 /* CourseDisplayMinuteCell.xib */; };
+		B8F264AE2270BB950058D5F6 /* CourseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F264AD2270BB950058D5F6 /* CourseDetailViewModel.swift */; };
+		B8F264B02270C2D90058D5F6 /* STClassDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F264AF2270C2D90058D5F6 /* STClassDetailViewController.swift */; };
+		B8F264B22270C7FF0058D5F6 /* ClassDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F264B12270C7FF0058D5F6 /* ClassDetailViewModel.swift */; };
+		B8F264B42270C8DB0058D5F6 /* ClassInfo.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F264B32270C8DB0058D5F6 /* ClassInfo.swift */; };
+		B8F264B72270CBDA0058D5F6 /* TeacherLessionsCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F264B52270CBDA0058D5F6 /* TeacherLessionsCell.swift */; };
+		B8F264B82270CBDA0058D5F6 /* TeacherLessionsCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8F264B62270CBDA0058D5F6 /* TeacherLessionsCell.xib */; };
 		B8F7375A226CDBDD002C1B66 /* MineOrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F73759226CDBDC002C1B66 /* MineOrderView.swift */; };
 		B8F7375D226CE23C002C1B66 /* MineOrderHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F7375B226CE23C002C1B66 /* MineOrderHeaderReusableView.swift */; };
 		B8F7375E226CE23C002C1B66 /* MineOrderHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8F7375C226CE23C002C1B66 /* MineOrderHeaderReusableView.xib */; };
@@ -676,8 +681,6 @@
 		B845ADD1226261AD00BD0AC3 /* FaceBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBackView.swift; sourceTree = "<group>"; };
 		B845ADD3226261B500BD0AC3 /* FaceBackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaceBackView.xib; sourceTree = "<group>"; };
 		B845ADD52262682A00BD0AC3 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
-		B84861D4224E99F6004E4DD2 /* HomeCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeCourseCell.swift; sourceTree = "<group>"; };
-		B84861D5224E99F6004E4DD2 /* HomeCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeCourseCell.xib; sourceTree = "<group>"; };
 		B852F13821BD6738002A5887 /* VideoCoverChoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoverChoseViewModel.swift; sourceTree = "<group>"; };
 		B8530782224FD54900A21564 /* PublishVideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PublishVideoViewModel.swift; sourceTree = "<group>"; };
 		B8530784224FDC6000A21564 /* VideoPublish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPublish.swift; sourceTree = "<group>"; };
@@ -757,8 +760,6 @@
 		B85F339C219EA37100023958 /* CourseDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDisplayCell.xib; sourceTree = "<group>"; };
 		B85F339F219EA3AD00023958 /* CourseListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListCell.swift; sourceTree = "<group>"; };
 		B85F33A0219EA3AD00023958 /* CourseListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseListCell.xib; sourceTree = "<group>"; };
-		B85F33A3219EA3FE00023958 /* CourseDisplayMinuteCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDisplayMinuteCell.swift; sourceTree = "<group>"; };
-		B85F33A4219EA3FE00023958 /* CourseDisplayMinuteCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDisplayMinuteCell.xib; sourceTree = "<group>"; };
 		B85F33A7219EAB8900023958 /* HomeHeaderCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCarouselView.swift; sourceTree = "<group>"; };
 		B85F33A8219EAB8900023958 /* HomeHeaderCarouselView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderCarouselView.xib; sourceTree = "<group>"; };
 		B85F33AF219EB07700023958 /* UIView+XIB.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "UIView+XIB.swift"; sourceTree = "<group>"; };
@@ -801,7 +802,6 @@
 		B86D68BA21C40630001A0B75 /* SplendidnessContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplendidnessContentTableView.swift; sourceTree = "<group>"; };
 		B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplendidnessContentCell.swift; sourceTree = "<group>"; };
 		B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplendidnessContentCell.xib; sourceTree = "<group>"; };
-		B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailViewModel.swift; sourceTree = "<group>"; };
 		B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrganizationShopViewController.swift; sourceTree = "<group>"; };
 		B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShopViewModel.swift; sourceTree = "<group>"; };
 		B873B3F12240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STOrganazitonCourseDetailViewController.swift; sourceTree = "<group>"; };
@@ -904,6 +904,16 @@
 		B8F117DF2232F992008B63B8 /* MineAddPayAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineAddPayAccountCell.swift; sourceTree = "<group>"; };
 		B8F117E02232F992008B63B8 /* MineAddPayAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineAddPayAccountCell.xib; sourceTree = "<group>"; };
 		B8F117E32232FA91008B63B8 /* MineEditPayAccountViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineEditPayAccountViewModel.swift; sourceTree = "<group>"; };
+		B8F264A42270B6880058D5F6 /* HomeCourseCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomeCourseCell.swift; sourceTree = "<group>"; };
+		B8F264A52270B6880058D5F6 /* CourseDisplayMinuteCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDisplayMinuteCell.swift; sourceTree = "<group>"; };
+		B8F264A62270B6880058D5F6 /* HomeCourseCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = HomeCourseCell.xib; sourceTree = "<group>"; };
+		B8F264A72270B6880058D5F6 /* CourseDisplayMinuteCell.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = CourseDisplayMinuteCell.xib; sourceTree = "<group>"; };
+		B8F264AD2270BB950058D5F6 /* CourseDetailViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CourseDetailViewModel.swift; sourceTree = "<group>"; };
+		B8F264AF2270C2D90058D5F6 /* STClassDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STClassDetailViewController.swift; sourceTree = "<group>"; };
+		B8F264B12270C7FF0058D5F6 /* ClassDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassDetailViewModel.swift; sourceTree = "<group>"; };
+		B8F264B32270C8DB0058D5F6 /* ClassInfo.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ClassInfo.swift; sourceTree = "<group>"; };
+		B8F264B52270CBDA0058D5F6 /* TeacherLessionsCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherLessionsCell.swift; sourceTree = "<group>"; };
+		B8F264B62270CBDA0058D5F6 /* TeacherLessionsCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = TeacherLessionsCell.xib; sourceTree = "<group>"; };
 		B8F73759226CDBDC002C1B66 /* MineOrderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MineOrderView.swift; sourceTree = "<group>"; };
 		B8F7375B226CE23C002C1B66 /* MineOrderHeaderReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderHeaderReusableView.swift; sourceTree = "<group>"; };
 		B8F7375C226CE23C002C1B66 /* MineOrderHeaderReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineOrderHeaderReusableView.xib; sourceTree = "<group>"; };
@@ -1690,6 +1700,7 @@
 				B8BB6A642230352C0001AB5D /* MineAccount.swift */,
 				B8530784224FDC6000A21564 /* VideoPublish.swift */,
 				C413E371226C6109001D745F /* MyOrder.swift */,
+				B8F264B32270C8DB0058D5F6 /* ClassInfo.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -1697,6 +1708,7 @@
 		B85F336A219E9D1900023958 /* ViewModel */ = {
 			isa = PBXGroup;
 			children = (
+				B8F264AC2270BB950058D5F6 /* Course */,
 				C413E361226C5EF8001D745F /* MineOrder */,
 				C413E362226C5EF8001D745F /* UserAccountEdit */,
 				B85F33BD219EB94000023958 /* Base */,
@@ -1725,7 +1737,6 @@
 				B8530782224FD54900A21564 /* PublishVideoViewModel.swift */,
 				B803C3D621BD7CA0004C97DB /* ChoseClassificationViewModel.swift */,
 				C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */,
-				B86D68C021C40897001A0B75 /* CourseDetailViewModel.swift */,
 				6BAE0AD721CA2CC00065BAD2 /* ResetPasOneViewModel.swift */,
 				6BAE0AD921CA2CCA0065BAD2 /* SendMessageViewModel.swift */,
 				6BAE0ADB21CA2CD80065BAD2 /* SetNewPwdViewModel.swift */,
@@ -1794,12 +1805,11 @@
 		B85F339A219EA33E00023958 /* Course */ = {
 			isa = PBXGroup;
 			children = (
+				B8F264A32270B6880058D5F6 /* Home */,
 				B85F339B219EA37100023958 /* CourseDisplayCell.swift */,
 				B85F339C219EA37100023958 /* CourseDisplayCell.xib */,
 				B85F339F219EA3AD00023958 /* CourseListCell.swift */,
 				B85F33A0219EA3AD00023958 /* CourseListCell.xib */,
-				B85F33A3219EA3FE00023958 /* CourseDisplayMinuteCell.swift */,
-				B85F33A4219EA3FE00023958 /* CourseDisplayMinuteCell.xib */,
 				B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */,
 				B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */,
 				B87800AF21C7E23100EDCE72 /* CourseTimeCell.swift */,
@@ -1814,8 +1824,8 @@
 				B8686AED2241729B0059BCB9 /* CourseDetailVideoCell.xib */,
 				B8686AF222417A8E0059BCB9 /* CourseDetailClassCell.swift */,
 				B8686AF322417A8E0059BCB9 /* CourseDetailClassCell.xib */,
-				B84861D4224E99F6004E4DD2 /* HomeCourseCell.swift */,
-				B84861D5224E99F6004E4DD2 /* HomeCourseCell.xib */,
+				B8F264B52270CBDA0058D5F6 /* TeacherLessionsCell.swift */,
+				B8F264B62270CBDA0058D5F6 /* TeacherLessionsCell.xib */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -1883,6 +1893,7 @@
 			isa = PBXGroup;
 			children = (
 				B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */,
+				B8F264AF2270C2D90058D5F6 /* STClassDetailViewController.swift */,
 				B82722FE21E6315500147397 /* STVerifyOrderViewController.swift */,
 				B827230021E6316300147397 /* STPayOrderViewController.swift */,
 				B827230221E6317000147397 /* STFinishPayViewController.swift */,
@@ -2132,6 +2143,26 @@
 				B862DBC52234233D00C535AE /* STBalanceToFundsViewController.swift */,
 			);
 			path = MineAccount;
+			sourceTree = "<group>";
+		};
+		B8F264A32270B6880058D5F6 /* Home */ = {
+			isa = PBXGroup;
+			children = (
+				B8F264A42270B6880058D5F6 /* HomeCourseCell.swift */,
+				B8F264A52270B6880058D5F6 /* CourseDisplayMinuteCell.swift */,
+				B8F264A62270B6880058D5F6 /* HomeCourseCell.xib */,
+				B8F264A72270B6880058D5F6 /* CourseDisplayMinuteCell.xib */,
+			);
+			path = Home;
+			sourceTree = "<group>";
+		};
+		B8F264AC2270BB950058D5F6 /* Course */ = {
+			isa = PBXGroup;
+			children = (
+				B8F264AD2270BB950058D5F6 /* CourseDetailViewModel.swift */,
+				B8F264B12270C7FF0058D5F6 /* ClassDetailViewModel.swift */,
+			);
+			path = Course;
 			sourceTree = "<group>";
 		};
 		B8FBF9D021A3DD9600AECB75 /* CustomKeyBoard */ = {
@@ -2616,6 +2647,7 @@
 				B85F3300219E769900023958 /* Assets.xcassets in Resources */,
 				B8FBFA4021A3DD9600AECB75 /* nm_thumb.png in Resources */,
 				B8350AB221A108E60020A6A6 /* MineHeaderCollectionReusableView.xib in Resources */,
+				B8F264AB2270B6880058D5F6 /* CourseDisplayMinuteCell.xib in Resources */,
 				B85F33AA219EAB8900023958 /* HomeHeaderCarouselView.xib in Resources */,
 				B8FBFA3021A3DD9600AECB75 /* wq_thumb.png in Resources */,
 				C486959E21AFC83600249C47 /* myself_voice.gif in Resources */,
@@ -2639,7 +2671,6 @@
 				C4CBC46A21C1FA0400AEDB86 /* MyScoreCell.xib in Resources */,
 				B82722FD21E6016500147397 /* CourseClassSelectedCell.xib in Resources */,
 				B85F3375219EA01B00023958 /* LaunchScreen.storyboard in Resources */,
-				B85F33A6219EA3FE00023958 /* CourseDisplayMinuteCell.xib in Resources */,
 				B82722EC21E5CBE500147397 /* ShopingCarTitleReusableView.xib in Resources */,
 				B8FBFA2A21A3DD9600AECB75 /* cza_thumb.png in Resources */,
 				B8FBFA2321A3DD9600AECB75 /* shamea_thumb.png in Resources */,
@@ -2680,6 +2711,7 @@
 				6BF7B95321BA693700BE1E4A /* MineHeaderCollectionCell.xib in Resources */,
 				B8BFC53E2238205E00E153AB /* AgnDetailHomeView.xib in Resources */,
 				B8F117D62232F486008B63B8 /* WithdrawHeaderView.xib in Resources */,
+				B8F264B82270CBDA0058D5F6 /* TeacherLessionsCell.xib in Resources */,
 				B87A94F021A8381D003E2D21 /* TeachersCell.xib in Resources */,
 				B8FBFA5521A3DD9600AECB75 /* hatea_thumb.png in Resources */,
 				B8BB6A1422302B4B0001AB5D /* MineAccountHeaderView.xib in Resources */,
@@ -2720,6 +2752,7 @@
 				B8FBFA5821A3DD9600AECB75 /* hearta_thumb.png in Resources */,
 				B8FBFA4621A3DD9600AECB75 /* zy_thumb.png in Resources */,
 				B8FBFA5121A3DD9600AECB75 /* mb_thumb.png in Resources */,
+				B8F264AA2270B6880058D5F6 /* HomeCourseCell.xib in Resources */,
 				B85D9C7F226F6446007624ED /* MineOrderFooterReusableView.xib in Resources */,
 				C408422621B54A2F00C491A8 /* STShopping.storyboard in Resources */,
 				B8686AF522417A8E0059BCB9 /* CourseDetailClassCell.xib in Resources */,
@@ -2752,7 +2785,6 @@
 				B8FBFA5421A3DD9600AECB75 /* sw_thumb.png in Resources */,
 				B8FBFA4421A3DD9600AECB75 /* sad_thumb.png in Resources */,
 				B8FBFA5F21A3E03B00AECB75 /* Resources.bundle in Resources */,
-				B84861D7224E99F6004E4DD2 /* HomeCourseCell.xib in Resources */,
 				B8BB6A442230339E0001AB5D /* MyAddressCell.xib in Resources */,
 				B8BB6A1D2230301F0001AB5D /* MineInfoFooterView.xib in Resources */,
 				B81EDF5921A50D1400F9D3B0 /* ChatImageLeftView.xib in Resources */,
@@ -2898,7 +2930,6 @@
 				C41D250B222FA60F00DC3D83 /* ProgressHUD.m in Sources */,
 				B85F335C219E95A800023958 /* ViewControllerServer.swift in Sources */,
 				C41D250C222FA60F00DC3D83 /* ZQAlbumListCell.m in Sources */,
-				B85F33A5219EA3FE00023958 /* CourseDisplayMinuteCell.swift in Sources */,
 				C45AAE5821B6A21E00692D7D /* UserVideosViewModel.swift in Sources */,
 				6B0754B621B0E9F700B36740 /* STMineCustomViewController.swift in Sources */,
 				B85F333E219E943000023958 /* Bundle+Extension.swift in Sources */,
@@ -2985,10 +3016,10 @@
 				B83F5A8822396F5900EAC675 /* OrganizationDetailShopCell.swift in Sources */,
 				C47356D521AEB6A4000E24A5 /* DPAudioPlayer.m in Sources */,
 				B87800B921C7E51500EDCE72 /* CourseAudioCell.swift in Sources */,
-				B86D68C121C40897001A0B75 /* CourseDetailViewModel.swift in Sources */,
 				B83BA21121BC2AEC00496AFE /* STVideoCoverChoseViewController.swift in Sources */,
 				C498BA7521B7A54100A29385 /* STPublishVideoViewController.swift in Sources */,
 				B8547E2521A6437300281554 /* CityCell.swift in Sources */,
+				B8F264B02270C2D90058D5F6 /* STClassDetailViewController.swift in Sources */,
 				B85F3351219E94D600023958 /* HUDIndicatorView.swift in Sources */,
 				C40DC22E2267706400BD868D /* STAppDelegate+Core.swift in Sources */,
 				B85F3333219E926800023958 /* Debug.swift in Sources */,
@@ -2997,6 +3028,7 @@
 				B838C6C622284BEC00917741 /* STSettingViewController.swift in Sources */,
 				B826AF89221C7934000428C1 /* ChoseClassificationCell.swift in Sources */,
 				B86B8F0A224288BE0017D580 /* TYVideoPlayer.swift in Sources */,
+				B8F264A92270B6880058D5F6 /* CourseDisplayMinuteCell.swift in Sources */,
 				B8FBFA6721A3E68500AECB75 /* STLoginViewController.swift in Sources */,
 				B85F3368219E96A700023958 /* STMineViewController.swift in Sources */,
 				B81EDF7021A53B4C00F9D3B0 /* STAppDelegate+BMK.swift in Sources */,
@@ -3065,6 +3097,7 @@
 				6B8A612421B537A600C0DFCD /* MineChangeModel.swift in Sources */,
 				C4CBC46C21C1FB2300AEDB86 /* MyScoreViewModel.swift in Sources */,
 				6B8A612221B5366200C0DFCD /* MineChangeViewModel.swift in Sources */,
+				B8F264B72270CBDA0058D5F6 /* TeacherLessionsCell.swift in Sources */,
 				B8FC3ADE2217219A00889483 /* TJPlayerViewController.m in Sources */,
 				C408422D21B562DD00C491A8 /* STUserVideosViewController.swift in Sources */,
 				B827230521E6336E00147397 /* VerifyOrderViewModel.swift in Sources */,
@@ -3080,6 +3113,7 @@
 				C47356DB21AEB8DE000E24A5 /* JX_GCDTimerManager.m in Sources */,
 				B8FBFA1A21A3DD9600AECB75 /* EmojTextView.swift in Sources */,
 				B8BD92D721E64C200089495F /* DB.swift in Sources */,
+				B8F264B42270C8DB0058D5F6 /* ClassInfo.swift in Sources */,
 				B81E909721A39868000754E3 /* ChatCell.swift in Sources */,
 				B8914E35222AEDDA00612FFE /* STMineInfoViewController.swift in Sources */,
 				B87F096422240EAF00310445 /* STSearchViewController.swift in Sources */,
@@ -3186,7 +3220,6 @@
 				C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */,
 				B81EDF7321A53C1300F9D3B0 /* BMKMapHelper.swift in Sources */,
 				B8FBFA5D21A3DE3D00AECB75 /* PlaceholderTextView.swift in Sources */,
-				B84861D6224E99F6004E4DD2 /* HomeCourseCell.swift in Sources */,
 				B85F33A1219EA3AD00023958 /* CourseListCell.swift in Sources */,
 				B86B8F0C22428AC00017D580 /* STVideoPlayViewController.swift in Sources */,
 				B8BB6A1A2230301F0001AB5D /* MineInfoAddStudentView.swift in Sources */,
@@ -3205,6 +3238,7 @@
 				B85DBFFE2221DAE6000D3977 /* STPayBackInfoViewController.swift in Sources */,
 				B8547E1C21A640CC00281554 /* SelectedCityViewModel.swift in Sources */,
 				C4CBC46921C1FA0400AEDB86 /* MyScoreCell.swift in Sources */,
+				B8F264B22270C7FF0058D5F6 /* ClassDetailViewModel.swift in Sources */,
 				B81EDF6D21A5324700F9D3B0 /* ChatAudoRightView.swift in Sources */,
 				B85F3326219E902A00023958 /* STTabBarController.swift in Sources */,
 				6BAE0AE921CB906B0065BAD2 /* Validate.swift in Sources */,
@@ -3223,6 +3257,7 @@
 				6B8A611721B4E19900C0DFCD /* MineCourseModel.swift in Sources */,
 				B85DBFFA2221D5E2000D3977 /* WaitForDealView.swift in Sources */,
 				B8F7375A226CDBDD002C1B66 /* MineOrderView.swift in Sources */,
+				B8F264A82270B6880058D5F6 /* HomeCourseCell.swift in Sources */,
 				B8350AB521A1112D0020A6A6 /* MineSectionCollectionReusableView.swift in Sources */,
 				B85F3364219E966400023958 /* STMessageViewController.swift in Sources */,
 				B8547E1A21A63F4300281554 /* STSelectedCityViewController.swift in Sources */,
@@ -3238,6 +3273,7 @@
 				B85F33DD219F179400023958 /* Organization.swift in Sources */,
 				B85DBFED2221CB19000D3977 /* STMineOrderViewController.swift in Sources */,
 				C43339B421C0FC1B00CAF850 /* STCreditViewController.swift in Sources */,
+				B8F264AE2270BB950058D5F6 /* CourseDetailViewModel.swift in Sources */,
 				C413E36C226C5EF9001D745F /* BindPayAccountViewModel.swift in Sources */,
 				6B280D7321CCF48500C5DEED /* MineAddAccountModel.swift in Sources */,
 				C41D250F222FA60F00DC3D83 /* ZQTools.m in Sources */,

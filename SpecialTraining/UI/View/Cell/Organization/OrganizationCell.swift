@@ -30,7 +30,7 @@ class OrganizationCell: BaseTBCell {
         didSet {
             coverOutlet.setImage(model.logo)
             titleOutlet.text = model.agn_name
-            
+            desOutlet.text = model.motto
             let lables = model.label.components(separatedBy: " ").filter{ $0.count > 0 }
             for idx in 0..<4 {
                 let lable = contentView.viewWithTag(100 + idx) as? UILabel

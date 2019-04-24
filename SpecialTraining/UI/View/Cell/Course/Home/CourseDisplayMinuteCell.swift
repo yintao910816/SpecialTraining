@@ -25,7 +25,7 @@ class CourseDisplayMinuteCell: UICollectionViewCell {
     var model: ExperienceCourseItemModel! {
         didSet {
             coverOutlet.setImage(model.pic)
-            priceOutlet.text = model.about_price
+            priceOutlet.text = "¥:\(model.about_price)"
         }
     }    
 }

@@ -21,6 +21,7 @@ class HomeCourseCell: UICollectionViewCell {
     @IBOutlet weak var secondTitleTopCns: NSLayoutConstraint!
     @IBOutlet weak var setLineOutlet: UIView!
     @IBOutlet weak var coverOutlet: UIImageView!
+    @IBOutlet weak var priceOutlet: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -30,6 +31,7 @@ class HomeCourseCell: UICollectionViewCell {
     var model: HomeNearbyCourseItemModel! {
         didSet {
             coverOutlet.isHidden = !model.showCellImg
+            priceOutlet.text = "¥:\(model.about_price)"
             if model.showCellImg {
                 coverOutlet.setImage(model.shop_logo)
                 titleOutlet.text = model.shop_name
