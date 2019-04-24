@@ -14,7 +14,7 @@ class STVideoPlayViewController: BaseViewController {
     @IBOutlet weak var topBar: UIView!
     @IBOutlet weak var topBarHeightCns: NSLayoutConstraint!
     @IBOutlet weak var bottomBar: UIView!
-    @IBOutlet weak var nickNameOutlet: UILabel!
+    @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var playLayer: UIView!
     @IBOutlet weak var videoTitleOutlet: UILabel!
     
@@ -28,9 +28,12 @@ class STVideoPlayViewController: BaseViewController {
     }
     
     @IBAction func tapAction(_ sender: UITapGestureRecognizer) {
-        UIView.animate(withDuration: 0.25) {
-            self.topBar.isHidden = !self.topBar.isHidden
-            self.bottomBar.isHidden = !self.bottomBar.isHidden
+        UIView.animate(withDuration: 0.15) {
+            if self.topBar.transform.isIdentity == true {
+                self.topBar.transform = CGAffineTransform.init(translationX: 0, y: -self.topBar.height)
+            }else {
+                self.topBar.transform = CGAffineTransform.identity
+            }
         }
     }
     
@@ -41,12 +44,12 @@ class STVideoPlayViewController: BaseViewController {
     override func setupUI() {
         topBarHeightCns.constant += LayoutSize.fitTopArea
         
-        hud.noticeLoading()
+        hud.noticeLoading(nil, UIApplication.shared.keyWindow)
         player = TYVideoPlayer()
         playLayer.layoutIfNeeded()
         player.preparePlay(with: videoModel.res_url, playView: playLayer)
         
-        videoTitleOutlet.text = videoModel.res_title
+        titleOutlet.text = videoModel.res_title
     }
     
     override func rxBind() {
