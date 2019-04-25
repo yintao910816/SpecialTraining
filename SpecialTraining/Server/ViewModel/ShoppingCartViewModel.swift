@@ -13,18 +13,18 @@ import RxDataSources
 
 class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     
-    let delShopingSubject = PublishSubject<CourseClassModel>()
+    let delShopingSubject = PublishSubject<CourseDetailClassModel>()
     let sectionSelectedSubject = PublishSubject<SectionCourseClassModel>()
-    let cellSelectedSubject = PublishSubject<CourseClassModel>()
+    let cellSelectedSubject = PublishSubject<CourseDetailClassModel>()
     let allSelectedSubject = PublishSubject<Bool>()
-    let changeCountSubject = PublishSubject<(Bool, CourseClassModel)>()
+    let changeCountSubject = PublishSubject<(Bool, CourseDetailClassModel)>()
 
     let totlePriceObser = Variable("0.0")
     let totleShopCountObser = Variable("购物车空空如也")
     
     private var shopCount: Int = 0
     
-    let datasource = Variable([SectionModel<SectionCourseClassModel ,CourseClassModel>]())
+    let datasource = Variable([SectionModel<SectionCourseClassModel ,CourseDetailClassModel>]())
     
     public func hasSection(section: Int) ->Bool{
         if datasource.value.count > section {
@@ -66,7 +66,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
 
         NotificationCenter.default.rx.notification(NotificationName.Order.AddOrder)
             .subscribe(onNext: { [unowned self] no in
-                self.dealAddOrder(model: no.object as? CourseClassModel)
+                self.dealAddOrder(model: no.object as? CourseDetailClassModel)
             })
             .disposed(by: disposeBag)
 
@@ -82,19 +82,19 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     
     private func prepareData() {
         
-        CourseClassModel.slectedClassInfo()
+        CourseDetailClassModel.selectedAllOrderClass()
             .do(onNext: { [unowned self] datas in
                 self.shopCount = datas.count
                 self.totleShopCountObser.value = datas.count == 0 ? "购物车空空如也" : "共\(datas.count)件商品"
             })
-            .map { datas -> [SectionModel<SectionCourseClassModel ,CourseClassModel>] in
+            .map { datas -> [SectionModel<SectionCourseClassModel ,CourseDetailClassModel>] in
                 var findShopids = [String: String]()
                 for item in datas {
                     findShopids[item.shop_id] = ""
                 }
                 let allShopids = findShopids.keys
                 
-                var tempData = [SectionModel<SectionCourseClassModel ,CourseClassModel>]()
+                var tempData = [SectionModel<SectionCourseClassModel ,CourseDetailClassModel>]()
                 for shopId in allShopids {
                     let models = datas.filter{ $0.shop_id == shopId }
                     models.last?.isLasstRow = true
@@ -108,7 +108,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
             .disposed(by: disposeBag)
     }
     
-    private func dealDel(model: CourseClassModel) {
+    private func dealDel(model: CourseDetailClassModel) {
         shopCount -= 1
         totleShopCountObser.value = shopCount <= 0 ? "购物车空空如也" : "共\(shopCount)件商品"
 
@@ -127,7 +127,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
                     if section.items[j].isSelected == true {
                         totlePriceObser.value = "\((Double(totlePriceObser.value) ?? 0) - (Double(section.items[j].price) ?? 0))"
                     }
-                    CourseClassModel.remove(classInfo: model.class_id)
+                    CourseDetailClassModel.remove(classInfo: model.class_id)
                     break
                 }
             }
@@ -136,7 +136,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
         datasource.value = tempData
     }
     
-    private func dealChangeCount(isAdd: Bool, model: CourseClassModel) {
+    private func dealChangeCount(isAdd: Bool, model: CourseDetailClassModel) {
         
         let tempPrice: Double = Double(totlePriceObser.value) ?? 0
         if isAdd == true {
@@ -146,20 +146,20 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
         }
     }
     
-    private func dealAddOrder(model: CourseClassModel?) {
+    private func dealAddOrder(model: CourseDetailClassModel?) {
         guard let courseClassModel = model else {
             return
         }
         
         courseClassModel.isSelected = false
-        
+
         var isExistSection: Bool = false
         var tempData = datasource.value
         for i in 0..<tempData.count {
             var section = tempData[i]
             if section.model.shopId == courseClassModel.shop_id {
                 isExistSection = true
-                
+
                 if section.items.contains(where: { $0.class_id == model?.class_id }) == false {
                     section.items.insert(courseClassModel, at: 0)
                     section.items.last?.isLasstRow = true
@@ -168,7 +168,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
                 break
             }
         }
-        
+
         if isExistSection == true {
             datasource.value = tempData
         }else {
@@ -185,12 +185,12 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
         var tempData = datasource.value
         var tempPrice: Double = 0
         // UI界面更新
-        tempData = tempData.compactMap({ data -> SectionModel<SectionCourseClassModel, CourseClassModel> in
+        tempData = tempData.compactMap({ data -> SectionModel<SectionCourseClassModel, CourseDetailClassModel> in
             var tempSection = data
             tempSection.model.isSelected = isSelected
             
             var tempModel = tempSection.items
-            tempModel = tempModel.compactMap({ model -> CourseClassModel in
+            tempModel = tempModel.compactMap({ model -> CourseDetailClassModel in
                 let aModel = model
                 aModel.isSelected = isSelected
                 if isSelected == true { tempPrice += Double(aModel.price) ?? 0 }
@@ -209,7 +209,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     }
     
     private func dealSectionSelected(model: SectionCourseClassModel) {
-        var tempData = [SectionModel<SectionCourseClassModel ,CourseClassModel>]()
+        var tempData = [SectionModel<SectionCourseClassModel ,CourseDetailClassModel>]()
         // UI界面更新
         for section in datasource.value {
             if section.model.shopId == model.shopId {
@@ -236,7 +236,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     }
     
     private func prepareBuyModel() {
-        var buyModel = [CourseClassModel]()
+        var buyModel = [CourseDetailClassModel]()
         for section in datasource.value {
             for item in section.items {
                 if item.isSelected == true {

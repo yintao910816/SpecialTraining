@@ -40,7 +40,7 @@
                     </label>
                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="中国精品舞蹈班" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="5uD-9k-geH">
                         <rect key="frame" x="107" y="45" width="218" height="30"/>
-                        <color key="backgroundColor" red="0.96862745100000003" green="0.96862745100000003" blue="0.96862745100000003" alpha="1" colorSpace="deviceRGB"/>
+                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                         <constraints>
                             <constraint firstAttribute="height" constant="30" id="PDD-tD-std"/>
                         </constraints>
@@ -56,7 +56,7 @@
                     </label>
                 </subviews>
             </view>
-            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
             <constraints>
                 <constraint firstItem="SI7-NZ-Vmb" firstAttribute="top" secondItem="1fc-Mh-t9s" secondAttribute="bottom" constant="8" id="33Q-CI-4wy"/>
                 <constraint firstItem="NHS-Nx-38L" firstAttribute="width" secondItem="NHS-Nx-38L" secondAttribute="height" multiplier="1:1" id="7DX-ho-1j0"/>

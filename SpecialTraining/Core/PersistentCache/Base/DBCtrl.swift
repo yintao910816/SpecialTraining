@@ -33,7 +33,7 @@ class DbManager {
 
             table = Table(courseOrderTB)
             try db.run(table.create { t in
-                CourseClassModel.dbBind(t)
+                CourseDetailClassModel.dbBind(t)
             })
 
             

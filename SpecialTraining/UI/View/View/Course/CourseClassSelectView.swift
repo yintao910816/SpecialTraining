@@ -23,9 +23,9 @@ class CourseClassSelectView: UIView {
     private var selectedIndexPath = IndexPath.init(row: 0, section: 0)
     private let disposeBag = DisposeBag()
     
-    let dataSource = Variable([CourseClassModel]())
+    let dataSource = Variable([CourseDetailClassModel]())
     
-    let choseSubject = PublishSubject<CourseClassModel>()
+    let choseSubject = PublishSubject<CourseDetailClassModel>()
     
     @IBAction func closeAction(_ sender: Any) {
         animotion(animotion: true)
@@ -77,7 +77,7 @@ class CourseClassSelectView: UIView {
     private func rxBind() {
        
         okOutlet.rx.tap.asDriver()
-            .map { [unowned self] _ ->CourseClassModel in
+            .map { [unowned self] _ ->CourseDetailClassModel in
                 self.animotion(animotion: true)
                 return self.dataSource.value[self.selectedIndexPath.row]
             }
@@ -93,6 +93,7 @@ class CourseClassSelectView: UIView {
 
         collectView.rx.itemSelected.asDriver()
             .drive(onNext: { [unowned self] indexPath in
+                print(self.selectedIndexPath)
                 if indexPath.row != self.selectedIndexPath.row {
                     self.configHeader(model: self.dataSource.value[indexPath.row])
                     
@@ -111,10 +112,10 @@ class CourseClassSelectView: UIView {
             .disposed(by: disposeBag)
     }
     
-    private func configHeader(model: CourseClassModel?) {
+    private func configHeader(model: CourseDetailClassModel?) {
         guard let tempModel = model else { return }
         
-        iconOutlet.setImage(tempModel.class_image)
+        iconOutlet.setImage(tempModel.pic)
         priceOutlet.text = "￥\(tempModel.price)"
         teacherOutlet.text = "  \(tempModel.teacher_name)  "
     }

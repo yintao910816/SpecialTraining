@@ -13,7 +13,6 @@ class ShoppingVerifyReusableView: UICollectionReusableView {
     @IBOutlet var contentView: UICollectionReusableView!
     
     @IBOutlet weak var dianpuOutlet: UILabel!
-    @IBOutlet weak var addressOutlet: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -28,10 +27,9 @@ class ShoppingVerifyReusableView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
 
-    var model: CourseClassModel! {
+    var model: CourseDetailClassModel! {
         didSet {
             dianpuOutlet.text = model.shop_name
-            addressOutlet.text = model.address
         }
     }
 }

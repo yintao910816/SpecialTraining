@@ -18,7 +18,7 @@ class AppPayManager {
     
     private let disposeBag = DisposeBag()
     
-    func startWchatPay(models: [CourseClassModel]) {
+    func startWchatPay(models: [CourseDetailClassModel]) {
         STProvider.request(.submitOrder(params: configParams(models: models)))
             .map(model: OrderModel.self)
             .asObservable().concatMap{ model ->Observable<WchatPayModel> in
@@ -36,7 +36,7 @@ class AppPayManager {
             .disposed(by: disposeBag)
     }
     
-    func startAliPay(models: [CourseClassModel]) {
+    func startAliPay(models: [CourseDetailClassModel]) {
         STProvider.request(.submitOrder(params: configParams(models: models)))
             .map(model: OrderModel.self)
             .asObservable().concatMap{ model ->Observable<String> in
@@ -58,7 +58,15 @@ class AppPayManager {
             .subscribe(onNext: { orderString in
                 if orderString.count > 0 {
                     AlipaySDK.defaultService()?.payOrder(orderString, fromScheme: "specialTraining.youpeixun.com", callback: { resultDic in
-
+                        guard let jsonDic = resultDic as? [String : Any] else {
+                            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "未知结果，请联系商家"))
+                            return
+                        }
+                        if let code = jsonDic["resultStatus"] as? String, code == "9000" {
+                            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (true, "支付成功"))
+                        }else {
+                            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "未知结果，请联系商家"))
+                        }
                     })
                 }else {
                     NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "支付信息后获取失败"))
@@ -86,7 +94,7 @@ extension AppPayManager {
         return req
     }
     
-    private func configParams(models: [CourseClassModel]) ->[String: Any] {
+    private func configParams(models: [CourseDetailClassModel]) ->[String: Any] {
         var classInfos = [[String: Any]]()
         var totleMoney: Double = 0.0
         for course in models {

@@ -11,26 +11,25 @@ import RxSwift
 import RxCocoa
 
 class PayOrderViewModel: BaseViewModel, VMNavigation {
-    private var models: [CourseClassModel]!
+    private var orderModels: [CourseDetailClassModel] = []
+    private var classId: String = ""
     
     private let payManager = AppPayManager()
     
     let priceTextObser = Variable(NSAttributedString.init(string: ""))
     
-    init(models: [CourseClassModel], tap: Driver<PayType>) {
+    init(classId: String, tap: Driver<PayType>) {
         super.init()
 
-        self.models = models
-        
-        caculatePrice()
+        self.classId = classId
         
         tap.asDriver()._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] type in
                 switch type {
                 case .wchatPay:
-                    self.payManager.startWchatPay(models: self.models)
+                    self.payManager.startWchatPay(models: self.orderModels)
                 case .alipay:
-                    self.payManager.startAliPay(models: self.models)
+                    self.payManager.startAliPay(models: self.orderModels)
                 }
             })
             .disposed(by: disposeBag)
@@ -42,11 +41,13 @@ class PayOrderViewModel: BaseViewModel, VMNavigation {
         NotificationCenter.default.rx.notification(NotificationName.AliPay.aliPayBack, object: nil)
             .subscribe(onNext: { [weak self] no in self?.finishPay(result: no.object) })
             .disposed(by: disposeBag)
+        
+        loadDbOrder()
     }
     
     private func caculatePrice() {
         var totlePrice: Double = 0.0
-        for course in models {
+        for course in orderModels {
             totlePrice += (Double(course.price) ?? 0)
         }
         
@@ -66,6 +67,26 @@ class PayOrderViewModel: BaseViewModel, VMNavigation {
             }
         }else {
             hud.noticeHidden()
+        }
+    }
+    
+    private func loadDbOrder() {
+        if classId.count > 0 {
+            CourseDetailClassModel.selectedOrderClass(classId: classId)
+                .subscribe(onNext: { [weak self] model in
+                    if let m = model {
+                        self?.orderModels = [m]
+                        self?.caculatePrice()
+                    }
+                })
+                .disposed(by: disposeBag)
+        }else {
+            CourseDetailClassModel.selectedAllOrderClass()
+                .subscribe(onNext: { [weak self] datas in
+                    self?.orderModels = datas
+                    self?.caculatePrice()
+                })
+                .disposed(by: disposeBag)
         }
     }
 }

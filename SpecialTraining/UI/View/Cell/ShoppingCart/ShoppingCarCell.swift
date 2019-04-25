@@ -69,11 +69,11 @@ class ShoppingCarCell: UICollectionViewCell {
         clipsToBounds = true
     }
 
-    var model: CourseClassModel! {
+    var model: CourseDetailClassModel! {
         didSet {
-            coverOutlet.setImage(model.class_image)
+            coverOutlet.setImage(model.pic)
             titleOutlet.text = model.class_name
-            desOutlet.text = model.label
+            desOutlet.text = model.describe
             priceOutlet.text = model.price
             countOutlet.text = "\(model.count)"
             choseOutlet.isSelected = model.isSelected
@@ -88,9 +88,9 @@ class ShoppingCarCell: UICollectionViewCell {
 
 protocol ShoppingCarCellActions: class {
     
-    func delShop(model: CourseClassModel)
+    func delShop(model: CourseDetailClassModel)
     
-    func selecte(model: CourseClassModel)
+    func selecte(model: CourseDetailClassModel)
     
-    func changeCount(isAdd: Bool, model: CourseClassModel)
+    func changeCount(isAdd: Bool, model: CourseDetailClassModel)
 }

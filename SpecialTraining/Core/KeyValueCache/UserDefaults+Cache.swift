@@ -18,7 +18,8 @@ extension UserDefaults{
             guard let rtUID = (object(forKey: kUID) as? Int32) else {
                 return 1
             }
-            return rtUID
+//            return rtUID
+            return 1
         }
         set{
             set(newValue, forKey: kUID)

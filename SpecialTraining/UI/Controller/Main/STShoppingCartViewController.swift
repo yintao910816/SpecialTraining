@@ -69,7 +69,7 @@ class STShoppingCartViewController: BaseViewController {
             .drive(viewModel.allSelectedSubject)
             .disposed(by: disposeBag)
 
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<SectionCourseClassModel, CourseClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<SectionCourseClassModel, CourseDetailClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "ShoppingCarCellID", for: indexPath) as! ShoppingCarCell
             cell.model = model
             cell.delegate = nil
@@ -127,15 +127,15 @@ extension STShoppingCartViewController: UICollectionViewDelegateFlowLayout {
 
 extension STShoppingCartViewController: ShoppingCarCellActions {
     
-    func delShop(model: CourseClassModel) {
+    func delShop(model: CourseDetailClassModel) {
         viewModel.delShopingSubject.onNext(model)
     }
     
-    func selecte(model: CourseClassModel) {
+    func selecte(model: CourseDetailClassModel) {
         viewModel.cellSelectedSubject.onNext(model)
     }
     
-    func changeCount(isAdd: Bool, model: CourseClassModel) {
+    func changeCount(isAdd: Bool, model: CourseDetailClassModel) {
         viewModel.changeCountSubject.onNext((isAdd, model))
     }
 }

@@ -17,7 +17,7 @@ class STVerifyOrderViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     // 需要购买的商品
-    private var models: [CourseClassModel]!
+    private var classId: String = ""
     
     private var viewModel: VerifyOrderViewModel!
     
@@ -37,11 +37,14 @@ class STVerifyOrderViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = VerifyOrderViewModel.init(models: models)
+        viewModel = VerifyOrderViewModel.init(classId: classId)
+
+        viewModel.totlePriceObser.asDriver()
+            .do(onNext: { print($0) })
+            .drive(totlePriceOutlet.rx.attributedText)
+            .disposed(by: disposeBag)
         
-        totlePriceOutlet.attributedText = viewModel.totlePrice
-        
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<CourseClassModel, CourseClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<CourseDetailClassModel, CourseDetailClassModel>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "ShoppingVerifyCellID", for: indexPath) as! ShoppingVerifyCell
             cell.model = model
             return cell
@@ -71,13 +74,14 @@ class STVerifyOrderViewController: BaseViewController {
     }
     
     override func prepare(parameters: [String : Any]?) {
-        models = (parameters!["models"] as! [CourseClassModel])
+        if let class_id = parameters?["classId"], let id = class_id as? String {
+            classId = id
+        }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoPaySegue" {
-            let ctrol = segue.destination
-            ctrol.prepare(parameters: ["models": models])
+            segue.destination.prepare(parameters: ["classId": classId])
         }
     }
     
@@ -101,6 +105,6 @@ extension STVerifyOrderViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: collectionView.width, height: 60)
+        return .init(width: collectionView.width, height: 45)
     }
 }

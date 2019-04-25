@@ -83,74 +83,6 @@ class RelateShopModel: HJModel {
     }
 }
 
-/// 获取班级
-class CourseClassModel: HJModel {
-    /**
-     class_id: 1,
-     class_name: "拉丁舞初级班",
-     class_image: "http://images.youpeixunjiaoyu.com/course/course.png",
-     shop_id: 1,
-     course_id: 1,
-     teacher_id: 1,
-     introduce: "拉丁舞拉丁舞拉丁舞拉丁舞",
-     content: "优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店优培训-绿地店",
-     price: "1280",
-     class_level: "C",
-     createtime: "2018-11-17 11:56:24",
-     status: 1,
-     agn_id: 1,
-     teacher_name: "吴安娜",
-     teacher_level: "高级拉丁舞教师",
-     pic: "http://images.youpeixunjiaoyu.com/course/course.png",
-     pic_width: "108",
-     pic_high: "138",
-     title: "拉丁舞",
-     top_pic: "http://images.youpeixunjiaoyu.com/test/agn_top.png",
-     about_price: "2200-2800/90节/全年",
-     label: "中国舞 拉丁舞 街舞",
-     type_id: 1,
-     type_name: "拉丁舞",
-     flag: "T",
-     shop_name: "优培训-中银大厦",
-     logo: "logo",
-     description: "优培训-绿地店优培训-绿地店优培训-绿地店",
-     contact: "张三",
-     tel: "8840325",
-     mob: "15927791310",
-     address: "荆州区火车站222号",
-     lat: "112.218148",
-     lng: "30.356011",
-     check_truth: "Y"
-
-     */
-    var class_id: String = ""
-    var class_name: String = ""
-    var price: String = ""
-    var class_image: String = ""
-    var teacher_name: String = ""
-    var label: String = ""
-    var address: String = ""
-    var shop_name: String = ""
-    
-    var introduce: String = ""
-    var shop_id: String = ""
-    var course_id: String = ""
-    var teacher_id: String = ""
-    var content: String = ""
-    var class_level: String = ""
-    var createtime: String = ""
-    var teacher_level: String = ""
-    /// 商品总数
-    var count: Int = 1
-    /// 商品数量变成1的次数  为2时不能再改变总价
-    var countOne: Int = 1
-    /// 通过点击+ - 计算好的价格，总数计算时只需正常加减此值
-    var calculatePrice: Double = 0.0
-    
-    var isSelected: Bool = false
-    var isLasstRow: Bool = false
-}
-
 class SectionCourseClassModel {
     var shopId: String = ""
     var shopName: String?
@@ -167,139 +99,6 @@ class SectionCourseClassModel {
         self.shopName = shopName
     }
 }
-
-fileprivate let idEx = Expression<Int64>("id")
-fileprivate let class_idEx = Expression<String>("class_id")
-fileprivate let class_nameEx = Expression<String>("class_name")
-fileprivate let priceEx = Expression<String>("price")
-fileprivate let class_imageEx = Expression<String>("class_image")
-fileprivate let teacher_nameEx = Expression<String>("teacher_name")
-fileprivate let labelEx = Expression<String>("label")
-fileprivate let addressEx = Expression<String>("address")
-fileprivate let shop_nameEx = Expression<String>("shop_name")
-fileprivate let introduceEx = Expression<String>("introduce")
-fileprivate let shop_idEx = Expression<String>("shop_id")
-fileprivate let course_idEx = Expression<String>("course_id")
-fileprivate let teacher_idEx = Expression<String>("teacher_id")
-fileprivate let contentEx = Expression<String>("content")
-fileprivate let class_levelEx = Expression<String>("class_level")
-fileprivate let createtimeEx = Expression<String>("createtime")
-fileprivate let teacher_levelEx = Expression<String>("teacher_level")
-
-extension CourseClassModel: DBOperation {
-    
-    static func dbBind(_ builder: TableBuilder) {
-        builder.column(idEx, primaryKey: true)
-
-        builder.column(class_idEx)
-        builder.column(class_nameEx)
-        builder.column(priceEx)
-        builder.column(class_imageEx)
-        builder.column(teacher_nameEx)
-        builder.column(labelEx)
-        builder.column(addressEx)
-        builder.column(shop_nameEx)
-        builder.column(introduceEx)
-        builder.column(shop_idEx)
-        builder.column(course_idEx)
-        builder.column(teacher_idEx)
-        builder.column(contentEx)
-        builder.column(class_levelEx)
-        builder.column(createtimeEx)
-        builder.column(teacher_levelEx)
-    }
-    
-    class func inster(classInfo datas: [CourseClassModel]) {
-        for item in datas {
-            DBQueue.share.insterOrUpdateQueue(class_idEx == item.class_id,
-                                              config(setters: item),
-                                              courseOrderTB,
-                                              CourseClassModel.self)
-        }
-    }
-    
-    class func remove(classInfo classId: String) {
-        DBQueue.share.deleteRowQueue(class_idEx == classId, courseOrderTB, CourseClassModel.self)
-    }
-    
-    class func slectedClassInfo() -> Observable<[CourseClassModel]>{
-        return Observable<[CourseClassModel]>.create({ obser -> Disposable in
-            DBQueue.share.selectQueue(class_idEx != "",
-                                      courseOrderTB,
-                                      CourseClassModel.self,
-                                      complement: { table in
-
-                                        guard let query = table else {
-                                            obser.onNext([CourseClassModel]())
-                                            obser.onCompleted()
-                                            return
-                                        }
-
-                                        do {
-                                            guard let rows = try db?.prepare(query) else {
-                                                obser.onNext([CourseClassModel]())
-                                                obser.onCompleted()
-                                                return
-                                            }
-                                            var retModels = [CourseClassModel]()
-                                            for row in rows {
-                                                let model = CourseClassModel()
-                                                model.class_id = row[class_idEx]
-                                                model.class_name = row[class_nameEx]
-                                                model.price = row[priceEx]
-                                                model.teacher_name = row[teacher_nameEx]
-                                                model.label = row[labelEx]
-                                                model.address = row[addressEx]
-                                                model.shop_name = row[shop_nameEx]
-                                                model.introduce = row[introduceEx]
-                                                model.shop_id = row[shop_idEx]
-                                                model.course_id = row[course_idEx]
-                                                model.teacher_id = row[teacher_idEx]
-                                                model.content = row[contentEx]
-                                                model.class_level = row[class_levelEx]
-                                                model.createtime = row[createtimeEx]
-                                                model.teacher_level = row[teacher_levelEx]
-
-                                                retModels.append(model)
-                                            }
-                                            
-                                            obser.onNext(retModels)
-                                            obser.onCompleted()
-
-                                        }catch {
-                                            obser.onNext([CourseClassModel]())
-                                            obser.onCompleted()
-                                        }
-                                        
-            })
-            return Disposables.create()
-        })
-    }
-    
-    private class func config(setters model: CourseClassModel) ->[Setter] {
-        var tempSetters = [Setter]()
-        tempSetters.append(class_idEx <- model.class_id)
-        tempSetters.append(class_imageEx <- model.class_name)
-        tempSetters.append(class_nameEx <- model.class_name)
-        tempSetters.append(priceEx <- model.price)
-        tempSetters.append(teacher_nameEx <- model.teacher_name)
-        tempSetters.append(labelEx <- model.label)
-        tempSetters.append(addressEx <- model.address)
-        tempSetters.append(shop_nameEx <- model.shop_name)
-        tempSetters.append(introduceEx <- model.introduce)
-        tempSetters.append(shop_idEx <- model.shop_id)
-        tempSetters.append(course_idEx <- model.course_id)
-        tempSetters.append(teacher_idEx <- model.teacher_id)
-        tempSetters.append(contentEx <- model.content)
-        tempSetters.append(class_levelEx <- model.class_level)
-        tempSetters.append(createtimeEx <- model.createtime)
-        tempSetters.append(teacher_levelEx <- model.teacher_level)
-
-        return tempSetters
-    }
-    
-}
-
 
 class CourseDetailModel: HJModel {
     var course_info: CourseDetailInfoModel = CourseDetailInfoModel()
@@ -350,6 +149,8 @@ class CourseDetailAudioModel: HJModel {
     var status: String = ""
 }
 
+//MARK:
+//MARK: 班级
 class CourseDetailClassModel: HJModel {
     var class_id: String = ""
     var class_name: String = ""
@@ -364,4 +165,211 @@ class CourseDetailClassModel: HJModel {
     var pic: String = ""
     var teacher_name: String = ""
     var class_category: String = ""
+    
+    /// 店铺信息
+    var shop_id: String = ""
+    var shop_name: String = ""
+    var title: String = ""
+
+    /// 商品总数
+    var count: Int = 1
+    /// 商品数量变成1的次数  为2时不能再改变总价
+    var countOne: Int = 1
+    /// 通过点击+ - 计算好的价格，总数计算时只需正常加减此值
+    var calculatePrice: Double = 0.0
+    
+    var isSelected: Bool = false
+    var isLasstRow: Bool = false
+}
+
+extension CourseDetailClassModel: DBOperation {
+    
+    struct ExpressionEx {
+        static let idEx = Expression<Int64>("id")
+        static let class_idEx = Expression<String>("class_id")
+        static let class_nameEx = Expression<String>("class_name")
+        static let introduceEx = Expression<String>("introduce")
+        static let suit_peoplesEx = Expression<String>("suit_peoples")
+        static let describeEx = Expression<String>("describe")
+        static let class_daysEx = Expression<String>("class_days")
+        static let priceEx = Expression<String>("price")
+        static let createtimeEx = Expression<String>("createtime")
+        static let statusEx = Expression<String>("status")
+        static let teacher_idEx = Expression<String>("teacher_id")
+        static let picEx = Expression<String>("pic")
+        static let teacher_nameEx = Expression<String>("teacher_name")
+        static let class_categoryEx = Expression<String>("class_category")
+        
+        static let shop_idEx = Expression<String>("shop_id")
+        static let shop_nameEx = Expression<String>("shop_name")
+        static let titleEx = Expression<String>("title")
+    }
+    
+    static func dbBind(_ builder: TableBuilder) {
+        builder.column(ExpressionEx.idEx, primaryKey: true)
+        
+        builder.column(ExpressionEx.class_idEx)
+        builder.column(ExpressionEx.class_nameEx)
+        builder.column(ExpressionEx.introduceEx)
+        builder.column(ExpressionEx.suit_peoplesEx)
+        builder.column(ExpressionEx.describeEx)
+        builder.column(ExpressionEx.class_daysEx)
+        builder.column(ExpressionEx.priceEx)
+        builder.column(ExpressionEx.createtimeEx)
+        builder.column(ExpressionEx.statusEx)
+        builder.column(ExpressionEx.teacher_idEx)
+        builder.column(ExpressionEx.picEx)
+        builder.column(ExpressionEx.teacher_nameEx)
+        builder.column(ExpressionEx.class_categoryEx)
+        
+        builder.column(ExpressionEx.shop_idEx)
+        builder.column(ExpressionEx.shop_nameEx)
+        builder.column(ExpressionEx.titleEx)
+    }
+    
+    class func inster(classInfo datas: [CourseDetailClassModel], courseDetail: CourseDetailInfoModel) {
+        for item in datas {
+            DBQueue.share.insterOrUpdateQueue(ExpressionEx.class_idEx == item.class_id,
+                                              config(setters: item, courseDetail: courseDetail),
+                                              courseOrderTB,
+                                              CourseDetailClassModel.self)
+        }
+    }
+    
+    class func remove(classInfo classId: String) {
+        DBQueue.share.deleteRowQueue(ExpressionEx.class_idEx == classId, courseOrderTB, CourseDetailClassModel.self)
+    }
+    
+    class func selectedAllOrderClass() -> Observable<[CourseDetailClassModel]>{
+        return Observable<[CourseDetailClassModel]>.create({ obser -> Disposable in
+            DBQueue.share.selectQueue(ExpressionEx.class_idEx != "",
+                                      courseOrderTB,
+                                      CourseDetailClassModel.self,
+                                      complement: { table in
+                                        
+                                        guard let query = table else {
+                                            obser.onNext([CourseDetailClassModel]())
+                                            obser.onCompleted()
+                                            return
+                                        }
+
+                                        do {
+                                            guard let rows = try db?.prepare(query) else {
+                                                obser.onNext([CourseDetailClassModel]())
+                                                obser.onCompleted()
+                                                return
+                                            }
+                                            var retModels = [CourseDetailClassModel]()
+                                            for row in rows {
+                                                let model = CourseDetailClassModel()
+                                                model.class_id = row[ExpressionEx.class_idEx]
+                                                model.class_name = row[ExpressionEx.class_nameEx]
+                                                model.introduce = row[ExpressionEx.introduceEx]
+                                                model.suit_peoples = row[ExpressionEx.suit_peoplesEx]
+                                                model.describe = row[ExpressionEx.describeEx]
+                                                model.class_days = row[ExpressionEx.class_daysEx]
+                                                model.price = row[ExpressionEx.priceEx]
+                                                model.createtime = row[ExpressionEx.createtimeEx]
+                                                model.status = row[ExpressionEx.statusEx]
+                                                model.teacher_id = row[ExpressionEx.teacher_idEx]
+                                                model.pic = row[ExpressionEx.picEx]
+                                                model.teacher_name = row[ExpressionEx.teacher_nameEx]
+                                                model.class_category = row[ExpressionEx.class_categoryEx]
+                                                
+                                                model.shop_id = row[ExpressionEx.shop_idEx]
+                                                model.shop_name = row[ExpressionEx.shop_nameEx]
+                                                model.title = row[ExpressionEx.titleEx]
+
+                                                retModels.append(model)
+                                            }
+                                            
+                                            obser.onNext(retModels)
+                                            obser.onCompleted()
+                                            
+                                        }catch {
+                                            obser.onNext([CourseDetailClassModel]())
+                                            obser.onCompleted()
+                                        }
+                                        
+            })
+            return Disposables.create()
+        })
+    }
+    
+    class func selectedOrderClass(classId: String) -> Observable<CourseDetailClassModel?>{
+        return Observable<CourseDetailClassModel?>.create({ obser -> Disposable in
+            DBQueue.share.selectQueue(ExpressionEx.class_idEx == classId,
+                                      courseOrderTB,
+                                      CourseDetailClassModel.self,
+                                      complement: { table in
+                                        
+                                        guard let query = table else {
+                                            obser.onNext(nil)
+                                            obser.onCompleted()
+                                            return
+                                        }
+                                        
+                                        do {
+                                            guard let rows = try db?.prepare(query) else {
+                                                obser.onNext(nil)
+                                                obser.onCompleted()
+                                                return
+                                            }
+                                            for row in rows {
+                                                let model = CourseDetailClassModel()
+                                                model.class_id = row[ExpressionEx.class_idEx]
+                                                model.class_name = row[ExpressionEx.class_nameEx]
+                                                model.introduce = row[ExpressionEx.introduceEx]
+                                                model.suit_peoples = row[ExpressionEx.suit_peoplesEx]
+                                                model.describe = row[ExpressionEx.describeEx]
+                                                model.class_days = row[ExpressionEx.class_daysEx]
+                                                model.price = row[ExpressionEx.priceEx]
+                                                model.createtime = row[ExpressionEx.createtimeEx]
+                                                model.status = row[ExpressionEx.statusEx]
+                                                model.teacher_id = row[ExpressionEx.teacher_idEx]
+                                                model.pic = row[ExpressionEx.picEx]
+                                                model.teacher_name = row[ExpressionEx.teacher_nameEx]
+                                                model.class_category = row[ExpressionEx.class_categoryEx]
+                                                
+                                                model.shop_id = row[ExpressionEx.shop_idEx]
+                                                model.shop_name = row[ExpressionEx.shop_nameEx]
+                                                model.title = row[ExpressionEx.titleEx]
+
+                                                obser.onNext(model)
+                                                obser.onCompleted()
+                                            }
+                                        }catch {
+                                            obser.onNext(nil)
+                                            obser.onCompleted()
+                                        }
+                                        
+            })
+            return Disposables.create()
+        })
+    }
+
+
+    private class func config(setters model: CourseDetailClassModel, courseDetail: CourseDetailInfoModel) ->[Setter] {
+        var tempSetters = [Setter]()
+        tempSetters.append(ExpressionEx.class_idEx <- model.class_id)
+        tempSetters.append(ExpressionEx.class_nameEx <- model.class_name)
+        tempSetters.append(ExpressionEx.introduceEx <- model.introduce)
+        tempSetters.append(ExpressionEx.suit_peoplesEx <- model.suit_peoples)
+        tempSetters.append(ExpressionEx.describeEx <- model.describe)
+        tempSetters.append(ExpressionEx.class_daysEx <- model.class_days)
+        tempSetters.append(ExpressionEx.priceEx <- model.price)
+        tempSetters.append(ExpressionEx.createtimeEx <- model.createtime)
+        tempSetters.append(ExpressionEx.statusEx <- model.status)
+        tempSetters.append(ExpressionEx.teacher_idEx <- model.teacher_id)
+        tempSetters.append(ExpressionEx.picEx <- model.pic)
+        tempSetters.append(ExpressionEx.teacher_nameEx <- model.teacher_name)
+        tempSetters.append(ExpressionEx.class_categoryEx <- model.class_category)
+        
+        tempSetters.append(ExpressionEx.shop_idEx <- courseDetail.shop_id)
+        tempSetters.append(ExpressionEx.shop_nameEx <- courseDetail.shop_name)
+        tempSetters.append(ExpressionEx.titleEx <- courseDetail.title)
+
+        return tempSetters
+    }
+    
 }

@@ -12,7 +12,7 @@ import RxDataSources
 
 class CourseDetailViewModel: BaseViewModel {
     
-    private var courseId: String = ""
+    var courseId: String = ""
     
     let courseInfoDataSource = Variable(CourseDetailInfoModel())
     let videoDatasource = Variable([CourseDetailVideoModel]())
@@ -21,8 +21,6 @@ class CourseDetailViewModel: BaseViewModel {
     
     let requestAudioSource = PublishSubject<CourseDetailAudioModel>()
     let audioSourceChange = PublishSubject<String>()
-    // 获取班级
-    let selecteClassSource = Variable([CourseClassModel]())
     
     init(courseId: String) {
         super.init()
@@ -41,23 +39,14 @@ class CourseDetailViewModel: BaseViewModel {
         
     }
     
-    var shopId: String {
-        get {
-            return "1"
+    public func insertOrder(classModel: CourseDetailClassModel, isGotopay: Bool) ->Observable<String> {
+        CourseDetailClassModel.inster(classInfo: [classModel], courseDetail: courseInfoDataSource.value)
+        if isGotopay == false {
+            hud.successHidden("添加成功")
+            NotificationCenter.default.post(name: NotificationName.Order.AddOrder, object: classModel)
         }
-    }
-    
-    // 获取班级
-    private func requestClassData() {
-        STProvider.request(.selectClass(course_id: courseId))
-            .map(models: CourseClassModel.self)
-            .subscribe(onSuccess: { [weak self] datas in
-                datas.first?.isSelected = true
-                self?.selecteClassSource.value = datas
-                }, onError: { [weak self] error in
-                    PrintLog(self?.errorMessage(error))
-            })
-            .disposed(by: disposeBag)
+
+        return Observable.just(classModel.class_id)
     }
     
     private func requestData() {
@@ -69,6 +58,7 @@ class CourseDetailViewModel: BaseViewModel {
                 self?.courseInfoDataSource.value = data.course_info
                 self?.videoDatasource.value = data.videoList
                 self?.audioDatasource.value = data.audioList
+                data.classList.first?.isSelected = true
                 self?.classDatasource.value = data.classList
                 self?.hud.noticeHidden()
             }) { [weak self] error in

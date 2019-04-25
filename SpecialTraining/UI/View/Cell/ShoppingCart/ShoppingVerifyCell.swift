@@ -21,12 +21,12 @@ class ShoppingVerifyCell: UICollectionViewCell {
         // Initialization code
     }
 
-    var model: CourseClassModel! {
+    var model: CourseDetailClassModel! {
         didSet {
-            coverOutlet.setImage(model.class_image)
-            titleOutlet.text = model.class_name
+            coverOutlet.setImage(model.pic)
+            titleOutlet.text = model.title
+            calssOutlet.text = " \(model.class_name)  "
             priceOutlet.text = "￥\(model.price)"
-            calssOutlet.text = "  \(model.label)  "
         }
     }
 }

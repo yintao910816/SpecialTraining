@@ -20,7 +20,7 @@ class STCourseDetailViewController: BaseViewController {
     
     private var selectedClassView: CourseClassSelectView!
     
-    private var courseId: String = ""
+    var courseId: String = ""
     
     private let audioPlay = TYAudioPlayer()
     
@@ -208,21 +208,20 @@ class STCourseDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-//        viewModel.selecteClassSource.asDriver()
-//            .drive(selectedClassView.dataSource)
-//            .disposed(by: disposeBag)
-//
-//        selectedClassView.choseSubject
-//            .subscribe(onNext: { [unowned self] model in
-//                CourseClassModel.inster(classInfo: [model])
-//                if self.isGotopay == true {
-//                    self.performSegue(withIdentifier: "verifyOrderOutlet", sender: model)
-//                }else {
-//                  self.viewModel.hud.successHidden("添加成功")
-//                    NotificationCenter.default.post(name: NotificationName.Order.AddOrder, object: model)
-//                }
-//            })
-//            .disposed(by: disposeBag)
+        viewModel.classDatasource.asDriver()
+            .drive(selectedClassView.dataSource)
+            .disposed(by: disposeBag)
+
+        selectedClassView.choseSubject
+            .flatMap{ [unowned self] classModel in
+                return self.viewModel.insertOrder(classModel: classModel, isGotopay: self.isGotopay)
+            }
+            .subscribe(onNext: { [unowned self] shopId in
+                if self.isGotopay == true {
+                    self.performSegue(withIdentifier: "verifyOrderOutlet", sender: shopId)
+                }
+            })
+            .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(Void())
     }
@@ -234,7 +233,7 @@ class STCourseDetailViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "verifyOrderOutlet" {
             // 确认订单
-            segue.destination.prepare(parameters: ["models": [sender!]])
+            segue.destination.prepare(parameters: ["classId": sender as! String])
         }else if segue.identifier == "videoPlaySegue" {
             let ctrl = segue.destination as! STVideoPlayViewController
             ctrl.preparePlay(videoInfo: (sender as! CourseDetailVideoModel))

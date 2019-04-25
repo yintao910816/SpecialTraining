@@ -12,7 +12,7 @@ class CourseClassSelectedCell: UICollectionViewCell {
 
     @IBOutlet weak var contentOutlet: UILabel!
     
-    var model: CourseClassModel! {
+    var model: CourseDetailClassModel! {
         didSet {
             contentOutlet.text = "   \(model.class_name)   "
             
