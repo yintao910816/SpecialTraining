@@ -12,16 +12,16 @@ import RxCocoa
 
 class PayOrderViewModel: BaseViewModel, VMNavigation {
     private var orderModels: [CourseDetailClassModel] = []
-    private var classId: String = ""
+    private var classIds: [String] = []
     
     private let payManager = AppPayManager()
     
     let priceTextObser = Variable(NSAttributedString.init(string: ""))
     
-    init(classId: String, tap: Driver<PayType>) {
+    init(classIds: [String], tap: Driver<PayType>) {
         super.init()
 
-        self.classId = classId
+        self.classIds = classIds
         
         tap.asDriver()._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] type in
@@ -71,22 +71,14 @@ class PayOrderViewModel: BaseViewModel, VMNavigation {
     }
     
     private func loadDbOrder() {
-        if classId.count > 0 {
-            CourseDetailClassModel.selectedOrderClass(classId: classId)
-                .subscribe(onNext: { [weak self] model in
-                    if let m = model {
-                        self?.orderModels = [m]
-                        self?.caculatePrice()
-                    }
-                })
-                .disposed(by: disposeBag)
-        }else {
-            CourseDetailClassModel.selectedAllOrderClass()
+        if classIds.count > 0 {
+            CourseDetailClassModel.selectedOrderClass(classIds: classIds)
                 .subscribe(onNext: { [weak self] datas in
                     self?.orderModels = datas
                     self?.caculatePrice()
                 })
                 .disposed(by: disposeBag)
+            
         }
     }
 }

@@ -17,7 +17,7 @@ class STVerifyOrderViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     // 需要购买的商品
-    private var classId: String = ""
+    private var classIds: [String] = []
     
     private var viewModel: VerifyOrderViewModel!
     
@@ -37,7 +37,7 @@ class STVerifyOrderViewController: BaseViewController {
     }
     
     override func rxBind() {
-        viewModel = VerifyOrderViewModel.init(classId: classId)
+        viewModel = VerifyOrderViewModel.init(classIds: classIds)
 
         viewModel.totlePriceObser.asDriver()
             .do(onNext: { print($0) })
@@ -74,14 +74,14 @@ class STVerifyOrderViewController: BaseViewController {
     }
     
     override func prepare(parameters: [String : Any]?) {
-        if let class_id = parameters?["classId"], let id = class_id as? String {
-            classId = id
+        if let class_ids = parameters?["classIds"], let _class_ids = class_ids as? [String] {
+            classIds = _class_ids
         }
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoPaySegue" {
-            segue.destination.prepare(parameters: ["classId": classId])
+            segue.destination.prepare(parameters: ["classIds": classIds])
         }
     }
     

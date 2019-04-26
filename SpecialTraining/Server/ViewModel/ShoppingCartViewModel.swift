@@ -236,19 +236,19 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
     }
     
     private func prepareBuyModel() {
-        var buyModel = [CourseDetailClassModel]()
+        var classIds = [String]()
         for section in datasource.value {
             for item in section.items {
                 if item.isSelected == true {
-                    buyModel.append(item)
+                    classIds.append(item.class_id)
                 }
             }
         }
         
-        if buyModel.count == 0 {
+        if classIds.count == 0 {
             hud.failureHidden("请选择要购买的课程")
         }else {
-            ShoppingCartViewModel.sbPush("STHome", "verifyCtrlID", parameters: ["models": buyModel], title: "确认订单")
+            ShoppingCartViewModel.sbPush("STHome", "verifyCtrlID", parameters: ["classIds": classIds], title: "确认订单")
         }
     }
 }

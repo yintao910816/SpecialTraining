@@ -296,54 +296,60 @@ extension CourseDetailClassModel: DBOperation {
         })
     }
     
-    class func selectedOrderClass(classId: String) -> Observable<CourseDetailClassModel?>{
-        return Observable<CourseDetailClassModel?>.create({ obser -> Disposable in
-            DBQueue.share.selectQueue(ExpressionEx.class_idEx == classId,
-                                      courseOrderTB,
-                                      CourseDetailClassModel.self,
-                                      complement: { table in
-                                        
-                                        guard let query = table else {
-                                            obser.onNext(nil)
-                                            obser.onCompleted()
-                                            return
-                                        }
-                                        
-                                        do {
-                                            guard let rows = try db?.prepare(query) else {
-                                                obser.onNext(nil)
+    class func selectedOrderClass(classIds: [String]) -> Observable<[CourseDetailClassModel]>{
+        return Observable<[CourseDetailClassModel]>.create({ obser -> Disposable in
+            var retDatas = [CourseDetailClassModel]()
+            for idx in 0..<classIds.count {
+                DBQueue.share.selectQueue(ExpressionEx.class_idEx == classIds[idx],
+                                          courseOrderTB,
+                                          CourseDetailClassModel.self,
+                                          complement: { table in
+                                            
+                                            guard let query = table else {
+                                                obser.onNext([CourseDetailClassModel]())
                                                 obser.onCompleted()
                                                 return
                                             }
-                                            for row in rows {
-                                                let model = CourseDetailClassModel()
-                                                model.class_id = row[ExpressionEx.class_idEx]
-                                                model.class_name = row[ExpressionEx.class_nameEx]
-                                                model.introduce = row[ExpressionEx.introduceEx]
-                                                model.suit_peoples = row[ExpressionEx.suit_peoplesEx]
-                                                model.describe = row[ExpressionEx.describeEx]
-                                                model.class_days = row[ExpressionEx.class_daysEx]
-                                                model.price = row[ExpressionEx.priceEx]
-                                                model.createtime = row[ExpressionEx.createtimeEx]
-                                                model.status = row[ExpressionEx.statusEx]
-                                                model.teacher_id = row[ExpressionEx.teacher_idEx]
-                                                model.pic = row[ExpressionEx.picEx]
-                                                model.teacher_name = row[ExpressionEx.teacher_nameEx]
-                                                model.class_category = row[ExpressionEx.class_categoryEx]
-                                                
-                                                model.shop_id = row[ExpressionEx.shop_idEx]
-                                                model.shop_name = row[ExpressionEx.shop_nameEx]
-                                                model.title = row[ExpressionEx.titleEx]
-
-                                                obser.onNext(model)
+                                            
+                                            do {
+                                                guard let rows = try db?.prepare(query) else {
+                                                    obser.onNext([CourseDetailClassModel]())
+                                                    obser.onCompleted()
+                                                    return
+                                                }
+                                                for row in rows {
+                                                    let model = CourseDetailClassModel()
+                                                    model.class_id = row[ExpressionEx.class_idEx]
+                                                    model.class_name = row[ExpressionEx.class_nameEx]
+                                                    model.introduce = row[ExpressionEx.introduceEx]
+                                                    model.suit_peoples = row[ExpressionEx.suit_peoplesEx]
+                                                    model.describe = row[ExpressionEx.describeEx]
+                                                    model.class_days = row[ExpressionEx.class_daysEx]
+                                                    model.price = row[ExpressionEx.priceEx]
+                                                    model.createtime = row[ExpressionEx.createtimeEx]
+                                                    model.status = row[ExpressionEx.statusEx]
+                                                    model.teacher_id = row[ExpressionEx.teacher_idEx]
+                                                    model.pic = row[ExpressionEx.picEx]
+                                                    model.teacher_name = row[ExpressionEx.teacher_nameEx]
+                                                    model.class_category = row[ExpressionEx.class_categoryEx]
+                                                    
+                                                    model.shop_id = row[ExpressionEx.shop_idEx]
+                                                    model.shop_name = row[ExpressionEx.shop_nameEx]
+                                                    model.title = row[ExpressionEx.titleEx]
+                                                    
+                                                    retDatas.append(model)
+                                                    if retDatas.count == classIds.count {
+                                                        obser.onNext(retDatas)
+                                                        obser.onCompleted()
+                                                    }
+                                                }
+                                            }catch {
+                                                obser.onNext([CourseDetailClassModel]())
                                                 obser.onCompleted()
                                             }
-                                        }catch {
-                                            obser.onNext(nil)
-                                            obser.onCompleted()
-                                        }
-                                        
-            })
+                                            
+                })
+            }
             return Disposables.create()
         })
     }

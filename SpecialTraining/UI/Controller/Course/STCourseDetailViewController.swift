@@ -233,7 +233,7 @@ class STCourseDetailViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "verifyOrderOutlet" {
             // 确认订单
-            segue.destination.prepare(parameters: ["classId": sender as! String])
+            segue.destination.prepare(parameters: ["classIds": [sender as! String]])
         }else if segue.identifier == "videoPlaySegue" {
             let ctrl = segue.destination as! STVideoPlayViewController
             ctrl.preparePlay(videoInfo: (sender as! CourseDetailVideoModel))

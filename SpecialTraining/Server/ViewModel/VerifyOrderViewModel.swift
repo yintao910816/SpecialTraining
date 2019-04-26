@@ -16,29 +16,19 @@ class VerifyOrderViewModel: BaseViewModel {
     let totlePriceObser = Variable(NSAttributedString.init(string: "合计金额：¥0.00"))
     
     private var orderModels: [CourseDetailClassModel] = []
-    private var classId: String = ""
+    private var classIds: [String] = []
     
-    init(classId: String) {
+    init(classIds: [String]) {
         super.init()
         
-        self.classId = classId
+        self.classIds = classIds
         
         loadDbData()
     }
     
     private func loadDbData() {
-        if classId.count > 0 {
-            CourseDetailClassModel.selectedOrderClass(classId: classId)
-                .subscribe(onNext: { [weak self] model in
-                    if let m = model {
-                        self?.orderModels = [m]
-                        self?.cacultePrice()
-                        self?.datasource.value = [SectionModel.init(model: m, items: [m])]
-                    }
-                })
-                .disposed(by: disposeBag)
-        }else {
-            CourseDetailClassModel.selectedAllOrderClass()
+        if classIds.count > 0 {
+            CourseDetailClassModel.selectedOrderClass(classIds: classIds)
                 .subscribe(onNext: { [weak self] datas in
                     self?.orderModels = datas
                     
