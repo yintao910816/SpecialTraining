@@ -31,7 +31,7 @@ enum API{
     //绑定微信
     case bindWX(token: String, code: String)
     //绑定手机号
-    case bindPhone(mobile: String, code: String, op_openid: String)
+    case bindPhone(mob: String, code: String, nickname: String, sex: String, headimgurl: String, openid: String)
     
     // 附近课程
     case nearCourse(lat: CLLocationDegrees, lng: CLLocationDegrees, offset: Int)
@@ -123,15 +123,15 @@ extension API: TargetType{
         case .setPassword(_, _, _):
             return "server/auth/set_pswd.php"
         case .sendCode(_):
-            return "server/sms/send_sms.php"
+            return "v1/login/sendSms"
         case .refreshToken(_):
             return "server/auth/reflesh_auth.php"
         case .thirdPartyLogin(_):
             return "server/third_party_login/wx.php"
         case .bindWX(_, _):
             return "server/third_party_login/bind_wx.php"
-        case .bindPhone(_, _, _):
-            return "server/third_party_login/bind_mobile.php"
+        case .bindPhone(_):
+            return "v1/login/bindMob"
         case .nearCourse(_, _, _):
             return "v1/index/nearCourse"
         case .activityCourse(_):
@@ -248,7 +248,7 @@ extension API {
             params["password"] = password
             params["nickname"] = nickname
         case .login(let mobile, let code):
-            params["mobile"] = mobile
+            params["mob"] = mobile
             params["code"] = code
             params["appid"] = "ypxcb1e987d2389e80d"
         case .wxLogin(let code):
@@ -269,10 +269,13 @@ extension API {
         case .bindWX(let token, let code):
             params["token"] = token
             params["code"] = code
-        case .bindPhone(let mobile, let code, let op_openid):
-            params["mobile"] = mobile
+        case .bindPhone(let mob, let code, let nickname, let sex, let headimgurl, let openid):
+            params["mob"] = mob
             params["code"] = code
-            params["op_openid"] = op_openid
+            params["nickname"] = nickname
+            params["sex"] = sex
+            params["headimgurl"] = headimgurl
+            params["openid"] = openid
         case .nearCourse(let lat, let lng, let offset):
             params["lat"] = userDefault.lat
             params["lng"] = userDefault.lng

@@ -77,12 +77,5 @@ class STAuthorCodeLoginViewController: BaseViewController {
                 self?.performSegue(withIdentifier: "bindPhoneSegue", sender: op_openid)
             })
             .disposed(by: disposeBag)
-    }
-    
-    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "bindPhoneSegue" {
-            let bindPhoneVC = segue.destination as! STBindPhoneViewController
-            bindPhoneVC.prepare(parameters: ["op_openid": sender as! String])
-        }
-    }
+    }    
 }

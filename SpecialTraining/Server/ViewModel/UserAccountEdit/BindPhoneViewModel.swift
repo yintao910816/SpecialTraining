@@ -12,14 +12,11 @@ import RxCocoa
 
 class BindPhoneViewModel: BaseViewModel {
     
-    private var openid: String = ""
-    
     var sendCodeSubject = PublishSubject<Bool>()
     
-    init(input: (phone: Driver<String>, code: Driver<String>, openid: String),
+    init(input: (phone: Driver<String>, code: Driver<String>),
          tap: (sendAuth: Driver<Void>, next: Driver<Void>)) {
         super.init()
-        self.openid = input.openid
         //发送验证码
         tap.sendAuth.withLatestFrom(input.phone)
             .filter { [unowned self] (phone) -> Bool in
@@ -46,20 +43,31 @@ class BindPhoneViewModel: BaseViewModel {
         }.asDriver()
         ._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] (phone, code) in
-                self.bindPhoneRequest(mobile: phone, code: code, op_openid: self.openid)
+                self.bindPhoneRequest(mobile: phone, code: code)
             }).disposed(by: disposeBag)
     }
     //绑定手机号
-    func bindPhoneRequest(mobile: String, code: String, op_openid: String) {
-        STProvider.request(.bindPhone(mobile: mobile, code: code, op_openid: op_openid))
-            .map(model: LoginModel.self)
-            .subscribe(onSuccess: { [weak self] (_) in
-                self?.hud.successHidden("手机号绑定成功", {
-                    self?.popSubject.onNext(Void())
-                })
-                }, onError: { [weak self] (error) in
-                    self?.hud.failureHidden(self?.errorMessage(error))
-            }).disposed(by: self.disposeBag)
+    func bindPhoneRequest(mobile: String, code: String) {
+        let userModel = UserAccountServer.share.loginUser
+        if userModel.member.op_openid.count > 0 {
+            STProvider.request(.bindPhone(mob: mobile,
+                                          code: code,
+                                          nickname: userModel.member.nickname,
+                                          sex: userModel.member.sex,
+                                          headimgurl: userModel.member.headimgurl,
+                                          openid: userModel.member.op_openid))
+                .map(model: LoginModel.self)
+                .subscribe(onSuccess: { [weak self] user in
+                    UserAccountServer.share.save(loginUser: user)
+                    self?.hud.successHidden("手机号绑定成功", {
+                        self?.popSubject.onNext(Void())
+                    })
+                    }, onError: { [weak self] (error) in
+                        self?.hud.failureHidden(self?.errorMessage(error))
+                }).disposed(by: self.disposeBag)
+        }else {
+            hud.failureHidden("微信授权异常")
+        }
     }
     
     //发送验证码

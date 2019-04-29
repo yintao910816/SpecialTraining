@@ -15,8 +15,6 @@ class STBindPhoneViewController: BaseViewController {
     @IBOutlet weak var okOutlet: UIButton!
     @IBOutlet weak var authorOutlet: UIButton!
     
-    private var openid: String = ""
-    
     private var viewModel: BindPhoneViewModel!
     
     private let timer = CountdownTimer.init()
@@ -49,8 +47,7 @@ class STBindPhoneViewController: BaseViewController {
                 self.view.endEditing(true)
             })
         viewModel = BindPhoneViewModel.init(input: (phoneOutlet.rx.text.orEmpty.asDriver(),
-                                                    code: codeOutlet.rx.text.orEmpty.asDriver(),
-                                                    openid: openid),
+                                                    code: codeOutlet.rx.text.orEmpty.asDriver()),
                                             tap: (sendAuth: codeDriver,
                                                   next: nextDriver))
         
@@ -63,9 +60,4 @@ class STBindPhoneViewController: BaseViewController {
         })
             .disposed(by: disposeBag)
     }
-    
-    override func prepare(parameters: [String : Any]?) {
-        openid = (parameters!["op_openid"] as! String)
-    }
-    
 }

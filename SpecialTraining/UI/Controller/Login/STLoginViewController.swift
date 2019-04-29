@@ -40,15 +40,14 @@ class STLoginViewController: BaseViewController {
         let loginTapDriver = loginOutlet.rx.tap.asDriver()
         .do(onNext: { [unowned self] in self.view.endEditing(true) })
         
-//        viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
-//                                                code: passOutlet.rx.text.orEmpty.asDriver()),
-//                                        tap: (loginTap: loginTapDriver,
-//                                              sendCodeTap: securityBtn.rx.tap.asDriver(),
-//                                              wechatTap: wchatOutlet.rx.tap.asDriver()),
-//                                        loginType: "1")
-//        viewModel.security.asDriver().drive(onNext: { [unowned self] (isSecurity) in
-//            self.passOutlet.isSecureTextEntry = isSecurity
-//        }).disposed(by: disposeBag)
+        viewModel = LoginViewModel.init(input: (account: phoneOutlet.rx.text.orEmpty.asDriver(),
+                                                code: passOutlet.rx.text.orEmpty.asDriver()),
+                                        tap: (loginTap: loginTapDriver,
+                                              sendCodeTap: securityBtn.rx.tap.asDriver(),
+                                              wechatTap: wchatOutlet.rx.tap.asDriver()))
+        viewModel.security.asDriver().drive(onNext: { [unowned self] (isSecurity) in
+            self.passOutlet.isSecureTextEntry = isSecurity
+        }).disposed(by: disposeBag)
         
         viewModel.sendCodeSubject
             .subscribe(onNext: { (isSecurity) in

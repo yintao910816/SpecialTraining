@@ -14,7 +14,7 @@ class MineViewModel: BaseViewModel {
     
     var datasource = Variable([SectionModel<Int, MineModel>]())
     
-    private let sectionTitles = ["我的订单", "成为机构", "吐槽"]
+    private let sectionTitles = ["成为机构", "吐槽"]
     
     override init() {
         super.init()
@@ -49,7 +49,7 @@ class MineViewModel: BaseViewModel {
 //                                                                                     segueIdentifier: "collectionSegue")]),
                             SectionModel.init(model: 2, items: [MineModel.creatModel(title: "机构入驻",
                                                                                      imageString: "mine_jigoukaidian",
-                                                                                     segueIdentifier: "tobeOrganizationSegue"),
+                                                                                     segueIdentifier: "registerOrganizationSegue"),
 //                                                                MineModel.creatModel(title: "宝贝互换",
 //                                                                                     imageString: "mine_baobeihuhuan",
 //                                                                                     segueIdentifier: "treasureExchangeSegue"),

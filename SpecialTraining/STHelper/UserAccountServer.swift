@@ -13,24 +13,27 @@ class UserAccountServer {
     
     private let disposeBag = DisposeBag()
     
-    static let shre = UserAccountServer()
+    static let share = UserAccountServer()
     
     // 当前登录用户信息
     var loginUser = LoginModel()
  
-    final func save(loginUser userModel: LoginModel) {
+    final func save(loginUser userModel: LoginModel, isInsertDB: Bool = true) {
         loginUser = userModel
         
         userDefault.token = userModel.access_token
         userDefault.uid = userModel.member.uid
 
-        UserInfoModel.inster(user: userModel)
+        if isInsertDB == true {
+            UserInfoModel.inster(user: userModel)
+            NotificationCenter.default.post(name: NotificationName.user.loginSuccess, object: nil)
+        }
     }
     
     final func loadLoginUser() {
         if userDefault.uid > 0 {
             UserInfoModel.slectedLoginUser()
-                .subscribe(onNext: { UserAccountServer.shre.loginUser = $0 })
+                .subscribe(onNext: { UserAccountServer.share.loginUser = $0 })
                 .disposed(by: disposeBag)
         }
     }

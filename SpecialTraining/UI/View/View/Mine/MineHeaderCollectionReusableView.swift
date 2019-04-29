@@ -8,17 +8,21 @@
 
 import UIKit
 import SnapKit
+import RxSwift
+import RxCocoa
 
 class MineHeaderCollectionReusableView: UICollectionReusableView {
 
     @IBOutlet var contentView: UICollectionReusableView!
+    @IBOutlet weak var iconOutlet: UIButton!
+    @IBOutlet weak var nickNameOutlet: UILabel!
+
     @IBOutlet weak var bgColorView: UIView!
     @IBOutlet weak var iconTopCns: NSLayoutConstraint!
     @IBOutlet weak var bgColorHeightCns: NSLayoutConstraint!
     
-    @IBOutlet weak var shadowView: UIView!
-    @IBOutlet weak var cornerView: UIView!
-
+    private let disposeBag = DisposeBag()
+    
     weak var delegate: MineHeaderActions?
 
     @IBAction func actions(_ sender: UIButton) {
@@ -47,16 +51,30 @@ class MineHeaderCollectionReusableView: UICollectionReusableView {
 
         contentView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
         
+        iconOutlet.imageView?.contentMode = .scaleAspectFill
+        
         iconTopCns.constant += UIDevice.current.isX ? 44 : 20
         bgColorHeightCns.constant += UIDevice.current.isX ? 44 : 20
         
         bgColorView.layer.insertSublayer(STHelper.themeColorLayer(frame: .init(x: 0, y: 0, width: frame.width, height: bgColorHeightCns.constant)), at: 0)
         
-        shadowView.set(cornerAndShaow: cornerView)
+        setupData()
     }
     
     required init?(coder aDecoder: NSCoder) {
         super.init(coder: aDecoder)
+    }
+    
+    private func setupData() {
+        NotificationCenter.default.rx.notification(NotificationName.user.loginSuccess)
+            .subscribe(onNext: { [weak self] _ in
+                self?.iconOutlet.setImage(UserAccountServer.share.loginUser.member.headimgurl)
+                self?.nickNameOutlet.text = UserAccountServer.share.loginUser.member.nickname
+            })
+            .disposed(by: disposeBag)
+        
+        iconOutlet.setImage(UserAccountServer.share.loginUser.member.headimgurl)
+        nickNameOutlet.text = UserAccountServer.share.loginUser.member.nickname
     }
     
     override func layoutSubviews() {

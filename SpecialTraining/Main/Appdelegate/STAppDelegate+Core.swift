@@ -14,6 +14,6 @@ extension STAppDelegate {
         DbManager.dbSetup()
 
         _ = UserInfoModel.slectedLoginUser()
-            .subscribe(onNext: { UserAccountServer.shre.save(loginUser: $0) })
+            .subscribe(onNext: { UserAccountServer.share.save(loginUser: $0) })
     }
 }

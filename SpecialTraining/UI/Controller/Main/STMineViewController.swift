@@ -28,10 +28,10 @@ class STMineViewController: BaseViewController {
         }
         
         let layout = UICollectionViewFlowLayout()
-        layout.sectionInset = .init(top: 10, left: 15, bottom: 10, right: 15)
+        layout.sectionInset = .init(top: 0, left: 15, bottom: 0, right: 15)
         layout.minimumInteritemSpacing = 10
         layout.minimumLineSpacing      = 15
-        layout.itemSize = .init(width: (PPScreenW - 15*2 - 3*10)/4.0, height: 62)
+        layout.itemSize = .init(width: (PPScreenW - 15*2 - 3*10)/4.0, height: 47)
         collectionView.collectionViewLayout = layout
         
         collectionView.register(UINib.init(nibName: "MineCell", bundle: Bundle.main), forCellWithReuseIdentifier: "MineCellID")
@@ -89,8 +89,8 @@ class STMineViewController: BaseViewController {
 extension STMineViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        let h: CGFloat = UIDevice.current.isX ? (350 + 44) : (350 + 20)
-        return section == 0 ? CGSize.init(width: PPScreenW, height: h) : CGSize.init(width: collectionView.width, height: 45)
+        let h: CGFloat = UIDevice.current.isX ? (220 + 44) : (220 + 20)
+        return section == 0 ? CGSize.init(width: PPScreenW, height: h) : CGSize.init(width: collectionView.width, height: 40)
     }
 }
 

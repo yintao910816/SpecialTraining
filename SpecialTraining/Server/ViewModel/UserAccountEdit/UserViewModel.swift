@@ -13,7 +13,7 @@ import RxCocoa
 class LoginViewModel: BaseViewModel,VMNavigation {
     
     var sendCodeSubject = PublishSubject<Bool>()
-    var bindPhoneSubject = PublishSubject<String>()
+    var bindPhoneSubject = PublishSubject<LoginModel>()
     
     var security = Variable(true)
     
@@ -28,11 +28,11 @@ class LoginViewModel: BaseViewModel,VMNavigation {
                 let req = SendAuthReq.init()
                 req.state = "wx_oauth_authorization_state"
                 req.scope = "snsapi_userinfo"
-                
+
                 WXApi.send(req)
             })
             .disposed(by: disposeBag)
-
+    
         NotificationCenter.default.rx.notification(NotificationName.WX.WXAuthLogin)
             .subscribe(onNext: { [weak self] no in
                 if let code = no.object as? String {
@@ -79,7 +79,7 @@ class LoginViewModel: BaseViewModel,VMNavigation {
             .subscribe(onSuccess: { [weak self] model in
 //                STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
 
-                UserAccountServer.shre.save(loginUser: model)
+                UserAccountServer.share.save(loginUser: model)
                 
                 self?.hud.successHidden("登录成功", {
                     self?.popSubject.onNext(Void())
@@ -94,14 +94,17 @@ class LoginViewModel: BaseViewModel,VMNavigation {
         STProvider.request(.wxLogin(code: code))
             .map(model: LoginModel.self)
             .subscribe(onSuccess: { [weak self] model in
-                userDefault.token = model.access_token
                 if model.member.isBindPhone == true {
                     self?.hud.successHidden("登录成功", {
+                        UserAccountServer.share.save(loginUser: model)
+
                         self?.popSubject.onNext(Void())
                     })
                 }else {
+                    UserAccountServer.share.save(loginUser: model, isInsertDB: false)
+
                     self?.hud.noticeHidden()
-                    self?.bindPhoneSubject.onNext(model.member.op_openid)
+                    self?.bindPhoneSubject.onNext(model)
                 }
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))

@@ -1887,6 +1887,35 @@
             </objects>
             <point key="canvasLocation" x="1914" y="841"/>
         </scene>
+        <!--机构入驻-->
+        <scene sceneID="G1G-aj-rA3">
+            <objects>
+                <viewController title="机构入驻" id="oAd-Z0-eyR" customClass="STRegisterOrginazitionViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="sEd-ci-85l"/>
+                        <viewControllerLayoutGuide type="bottom" id="b5P-OM-ucL"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="R3Q-T5-JgI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="register_organization" translatesAutoresizingMaskIntoConstraints="NO" id="KfL-4v-gbl">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                            </imageView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="KfL-4v-gbl" secondAttribute="trailing" id="DgW-aM-aTQ"/>
+                            <constraint firstItem="KfL-4v-gbl" firstAttribute="leading" secondItem="R3Q-T5-JgI" secondAttribute="leading" id="u0B-b2-Gim"/>
+                            <constraint firstItem="KfL-4v-gbl" firstAttribute="top" secondItem="sEd-ci-85l" secondAttribute="bottom" id="vbs-MG-onV"/>
+                            <constraint firstItem="b5P-OM-ucL" firstAttribute="top" secondItem="KfL-4v-gbl" secondAttribute="bottom" id="yex-8f-fNf"/>
+                        </constraints>
+                    </view>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Bh3-aU-4gB" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-4897" y="1390"/>
+        </scene>
         <!--我的-->
         <scene sceneID="DHQ-Xi-Uk0">
             <objects>
@@ -2344,6 +2373,7 @@
                         <segue destination="B0A-XK-GO6" kind="show" identifier="settingSegue" id="HsJ-tX-4kj"/>
                         <segue destination="Mo1-vY-cKc" kind="show" identifier="faceBackSegue" id="WKX-Zt-D5V"/>
                         <segue destination="YQD-Sg-JNJ" kind="show" identifier="myRecommendSegue" id="RNp-2l-q8p"/>
+                        <segue destination="oAd-Z0-eyR" kind="show" identifier="registerOrganizationSegue" id="kCQ-x9-6FW"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ToY-Hd-2SP" userLabel="First Responder" sceneMemberID="firstResponder"/>
@@ -2790,5 +2820,6 @@
         <image name="demandView_bg" width="640" height="960"/>
         <image name="my_recommend_bg" width="750" height="1334"/>
         <image name="navigationButtonReturn" width="40" height="40"/>
+        <image name="register_organization" width="750" height="1334"/>
     </resources>
 </document>

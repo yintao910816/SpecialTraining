@@ -69,4 +69,8 @@ extension Notification.Name {
         public static let alertEditPayBack = Notification.Name(rawValue: "org.bmk.notification.name.alertEditPayBack")
         public static let alertCancleOrder = Notification.Name(rawValue: "org.bmk.notification.name.alertCancleOrder")
     }
+    
+    public struct user {
+        public static let loginSuccess = Notification.Name(rawValue: "org.bmk.notification.name.loginSuccess")
+    }
 }

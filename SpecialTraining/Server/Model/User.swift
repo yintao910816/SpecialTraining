@@ -17,32 +17,31 @@ class LoginModel: HJModel {
     var expires_time: Int64 = 0
     var refresh_expires_time: Int64 = 0
     var refresh_token: String = ""
-    
+
     var member: UserInfoModel!
 }
 
 class UserInfoModel: HJModel {
-    var code: String = ""
-    var createtime: String = ""
-    var headimgurl: String = ""
     var uid: Int32 = 0
     var mob: String = ""
-    var mp_openid: String = ""
-    var nickname: String = ""
-    var op_openid: String = ""
-    var parent_id: String = ""
-    var pid: String = ""
+    var code: String = ""
     var pwd: String = ""
+    var nickname: String = ""
     var sex: String = ""
-    
-    override func mapping(mapper: HelpingMapper) {
-        mapper.specify(property: &uid, name: "id")
-    }
+    var headimgurl: String = ""
+    var parent_id: String = ""
+    var op_openid: String = ""
+    var mp_openid: String = ""
+    var createtime: String = ""
     
     public var isBindPhone: Bool {
         get {
             return mob.count > 0
         }
+    }
+    
+    override func mapping(mapper: HelpingMapper) {
+        mapper.specify(property: &uid, name: "id")
     }
 }
 
@@ -50,22 +49,22 @@ extension UserInfoModel: DBOperation {
     
     struct ExpressionEx {
         static let idEx = Expression<Int64>("id")
+        static let uidEx = Expression<Int64>("uid")
+        static let mobEx = Expression<String>("mob")
+        static let codeEx = Expression<String>("code")
+        static let pwdEx = Expression<String>("pwd")
+        static let nicknameEx = Expression<String>("nickname")
+        static let sexEx = Expression<String>("sex")
+        static let headimgurlEx = Expression<String>("headimgurl")
+        static let parent_idEx = Expression<String>("parent_id")
+        static let op_openidEx = Expression<String>("op_openid")
+        static let mp_openidEx = Expression<String>("mp_openid")
+        static let createtimeEx = Expression<String>("createtime")
+
         static let access_tokenEx = Expression<String>("access_token")
         static let expires_timeEx = Expression<Int64>("expires_time")
         static let refresh_expires_timeEx = Expression<Int64>("refresh_expires_time")
         static let refresh_tokenEx = Expression<String>("refresh_token")
-        static let codeEx = Expression<String>("code")
-        static let createtimeEx = Expression<String>("createtime")
-        static let headimgurlEx = Expression<String>("headimgurl")
-        static let uidEx = Expression<Int64>("uid")
-        static let mobEx = Expression<String>("mob")
-        static let mp_openidEx = Expression<String>("mp_openid")
-        static let nicknameEx = Expression<String>("nickname")
-        static let op_openidEx = Expression<String>("op_openid")
-        static let parent_idEx = Expression<String>("parent_id")
-        static let pidEx = Expression<String>("pid")
-        static let pwdEx = Expression<String>("pwd")
-        static let sexEx = Expression<String>("sex")
     }
     
     static func dbBind(_ builder: TableBuilder) {
@@ -83,7 +82,6 @@ extension UserInfoModel: DBOperation {
         builder.column(ExpressionEx.nicknameEx)
         builder.column(ExpressionEx.op_openidEx)
         builder.column(ExpressionEx.parent_idEx)
-        builder.column(ExpressionEx.pidEx)
         builder.column(ExpressionEx.pwdEx)
         builder.column(ExpressionEx.sexEx)
     }
@@ -130,7 +128,6 @@ extension UserInfoModel: DBOperation {
                             loginModel.member.nickname = row[ExpressionEx.nicknameEx]
                             loginModel.member.op_openid = row[ExpressionEx.op_openidEx]
                             loginModel.member.parent_id = row[ExpressionEx.parent_idEx]
-                            loginModel.member.pid = row[ExpressionEx.pidEx]
                             loginModel.member.pwd = row[ExpressionEx.pwdEx]
                             loginModel.member.sex = row[ExpressionEx.sexEx]
 
@@ -165,7 +162,6 @@ extension UserInfoModel: DBOperation {
         tempSetters.append(ExpressionEx.nicknameEx <- model.member.nickname)
         tempSetters.append(ExpressionEx.op_openidEx <- model.member.op_openid)
         tempSetters.append(ExpressionEx.parent_idEx <- model.member.parent_id)
-        tempSetters.append(ExpressionEx.pidEx <- model.member.pid)
         tempSetters.append(ExpressionEx.pwdEx <- model.member.pwd)
         tempSetters.append(ExpressionEx.sexEx <- model.member.sex)
 
