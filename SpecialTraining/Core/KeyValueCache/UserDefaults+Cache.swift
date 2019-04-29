@@ -9,17 +9,15 @@
 import Foundation
 
 let userDefault = UserDefaults.standard
-let noUID = "-UID520"
 
 extension UserDefaults{
 
     var uid: Int32 {
         get{
             guard let rtUID = (object(forKey: kUID) as? Int32) else {
-                return 1
+                return 0
             }
-//            return rtUID
-            return 1
+            return rtUID
         }
         set{
             set(newValue, forKey: kUID)

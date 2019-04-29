@@ -18,7 +18,7 @@ class LoginModel: HJModel {
     var refresh_expires_time: Int64 = 0
     var refresh_token: String = ""
 
-    var member: UserInfoModel!
+    var member: UserInfoModel = UserInfoModel()
 }
 
 class UserInfoModel: HJModel {
