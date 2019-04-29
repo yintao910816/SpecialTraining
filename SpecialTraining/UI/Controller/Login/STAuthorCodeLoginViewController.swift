@@ -36,7 +36,7 @@ class STAuthorCodeLoginViewController: BaseViewController {
         
         #if DEBUG
         phoneOutlet.text = "18627844751"
-        codeOutlet.text = "1310"
+        codeOutlet.text = "8888"
         #endif
     }
     
@@ -77,5 +77,5 @@ class STAuthorCodeLoginViewController: BaseViewController {
                 self?.performSegue(withIdentifier: "bindPhoneSegue", sender: op_openid)
             })
             .disposed(by: disposeBag)
-    }    
+    }
 }
