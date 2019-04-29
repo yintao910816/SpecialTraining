@@ -203,7 +203,7 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
         })
         
         // 总价显示更新
-        totlePriceObser.value = "\(tempPrice)"
+        totlePriceObser.value = String.init(format: "%.2f", tempPrice)
         
         datasource.value = tempData
     }
