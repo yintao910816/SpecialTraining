@@ -363,11 +363,6 @@ func stubbedResponse(_ filename: String) -> Data! {
     return (try? Data(contentsOf: URL(fileURLWithPath: path!)))
 }
 
-//MARK:
-//MARK: API server
-let STProvider = MoyaProvider<API>(plugins: [MoyaPlugins.MyNetworkActivityPlugin,
-                                             RequestLoadingPlugin()]).rx
-
 extension API {
     
     private var downloadVideoDestination: DownloadDestination? {
@@ -382,3 +377,30 @@ extension API {
     }
 }
 
+//MARK:
+//MARK: API server
+
+import Alamofire
+
+let STProvider = MoyaProvider<API>(plugins: [MoyaPlugins.MyNetworkActivityPlugin,
+                                             RequestLoadingPlugin()]).rx
+
+let STHttpsProvider = MoyaProvider<API>.init(manager: defaultAlamofireManager(),
+                                             plugins: [MoyaPlugins.MyNetworkActivityPlugin, RequestLoadingPlugin()],
+                                             trackInflights: false).rx
+
+private func defaultAlamofireManager() -> Manager {
+    let configuration = URLSessionConfiguration.default
+    configuration.httpAdditionalHeaders = Alamofire.SessionManager.defaultHTTPHeaders
+    //获取本地证书
+    let path: String = Bundle.main.path(forResource: "证书名", ofType: "cer")!
+    let certificateData = try? Data(contentsOf: URL(fileURLWithPath: path)) as CFData
+    let certificate = SecCertificateCreateWithData(nil, certificateData!)
+    let certificates :[SecCertificate] = [certificate!]
+    
+    let policies: [String: ServerTrustPolicy] = [
+        "域名" : .pinCertificates(certificates: certificates, validateCertificateChain: true, validateHost: true)
+    ]
+    let manager = Alamofire.SessionManager(configuration: configuration,serverTrustPolicyManager: ServerTrustPolicyManager(policies: policies))
+    return manager
+}

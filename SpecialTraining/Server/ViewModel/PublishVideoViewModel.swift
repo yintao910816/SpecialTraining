@@ -21,22 +21,15 @@ class PublishVideoViewModel: BaseViewModel {
     override init() {
         super.init()
         client = VODUploadSVideoClient()
-        
         client.delegate = self
         
-        publishDataSubject.subscribe(onNext: { [unowned self] data in
-            self.mediaData = data
-            self.uploadVideo()
-        })
-        .disposed(by: disposeBag)
-    }
-    
-    private func startUpLoad() {
-        getSTSInfo().subscribe(onNext: { model in
-            print(model)
-        }, onError: { error in
-            print(error)
-        })
+        publishDataSubject
+            ._doNext(forNotice: hud)
+            .do(onNext: { [unowned self] info in self.mediaData = info })
+            .flatMap{ [unowned self] _ in self.getSTSInfo() }
+            .subscribe(onNext: { [unowned self] stsData in
+                self.uploadVideo(stsModel: stsData)
+            })
             .disposed(by: disposeBag)
     }
     
@@ -47,21 +40,22 @@ class PublishVideoViewModel: BaseViewModel {
     }
     
     private func getSTSInfo() ->Observable<VideoSTSModel> {
-        return STProvider.request(.sts())
+        return STHttpsProvider.request(.sts())
             .map(model: VideoSTSModel.self)
             .asObservable()
     }
-    
-//    private func initAliyunUpliad(uploadAddress: String, ) {
-//        
-//    }
 }
 
 extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
     
-    private func uploadVideo() {
+    private func uploadVideo(stsModel: VideoSTSModel) {
         hud.noticeLoading()
         
+        guard let title = mediaData?.0, title.count > 0 else {
+                hud.failureHidden("请填写视频标题")
+                return
+        }
+
         guard let imageCover = mediaData?.1,
             let imageData = imageCover.jpegData(compressionQuality: 0.6) else {
             hud.failureHidden("请选择封面")
@@ -77,21 +71,21 @@ extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
         let coverPath = FileService.share.writeToTempFile(data: imageData, fileName: fileName)
         
         let info = VodSVideoInfo()
-        info.title = mediaData?.2
+        info.title = title
         info.desc = ""
         info.cateId = NSNumber.init(value: 1)
         info.tags = "video"
         
-        let AccessKeySecret = "3YJVJaifpTUyiwvsrBdVDs3ZwpiSzVqe71fHN51Nm8cP"
-        let AccessKeyId = "NHCQfwLjFRFLWjS4qeTu5gWjm"
-        let SecurityToken = "CAIS6wF1q6Ft5B2yfSjIr4v2GtzDobVn5YSnVUzi0HEwWPoZiJLBjzz2IH1Me3hqCe0btv0/mGtS6/4TlqxtSpNIQhRH2gDoG9EFnzm6aq/t5uaXj9Vd+rDHdEGXDxnkprywB8zyUNLafNq0dlnAjVUd6LDmdDKkLTfHWN/z/vwBVNkMWRSiZjdrHcpfIhAYyPUXLnzML/2gQHWI6yjydBM25VYk1DkjtfzhmZzBsErk4QekmrNPlePYOYO5asRgBpB7Xuqu0fZ+Hqi7i3MItEkQpPor1PUUpWyd44nMGTZP5BmcNO7Z4h2X+c+63zxQGoABl69/I+Y2cD3El8sqyDrP0Gu1c7YdLnJr2Vep8Xuw13fK07cMDVY11Hai/KT2IJsdf+VruqJHkEs26xcKxStGwdwhu1y6AQmYP8C655p32hn3xJbVYeirbk9QlEDN+BDa7IqHE/DP7NRG8rEQNSy2K6PLlC0PNtWEfrMIQkJcigI="
-
+//        let AccessKeySecret = "3JHkYFmiFCL9k7EgreB5JXrupEnb3Fpy15Yn1Qj5Cz2A"
+//        let AccessKeyId = "STS.NKQiLBoZ5iUKHZ9umn6N26kfe"
+//        let SecurityToken = "CAIS6wF1q6Ft5B2yfSjIr4jkIvb2goUU3pegSnyIkW07OsEe2a7Nhzz2IH1Me3hqCe0btv0/mGtS6/4TlqxtSpNIQhQtgWXrINEFnzm6aq/t5uaXj9Vd+rDHdEGXDxnkprywB8zyUNLafNq0dlnAjVUd6LDmdDKkLTfHWN/z/vwBVNkMWRSiZjdrHcpfIhAYyPUXLnzML/2gQHWI6yjydBM25VYk1DkjtfzhmZzBsErk4QekmrNPlePYOYO5asRgBpB7Xuqu0fZ+Hqi7i3MItEkQpPor1PUUpWyd44nMGTZP5BmcNO7Z4h2X+c+63zxQGoABV2PacdkYV5cPToiQSH2FPnNUpXFGwRbOx8OtGyoWJ2nAkn0+uOA7fuZYybaJRu8rvYOhI5SSAPcbGs9IgNjq+KNLKh9nxpFLcnotDwNixRwDiKMHOxy5ypuvfTRobJyfLeAYIhKXn0DYT1mFNyJi0uMGea+rZZJJFiYd1O/clQY="
+        
         client.upload(withVideoPath: videoPath,
                       imagePath: coverPath,
                       svideoInfo: info,
-                      accessKeyId: AccessKeyId,
-                      accessKeySecret: AccessKeySecret,
-                      accessToken: SecurityToken)
+                      accessKeyId: stsModel.Credentials.AccessKeyId,
+                      accessKeySecret: stsModel.Credentials.AccessKeySecret,
+                      accessToken: stsModel.Credentials.SecurityToken)
     }
     
     func uploadSuccess(with result: VodSVideoUploadResult!) {
@@ -108,6 +102,7 @@ extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
     
     func uploadTokenExpired() {
         PrintLog("上传token过期")
+//        client.refresh(withAccessKeyId: <#T##String!#>, accessKeySecret: <#T##String!#>, accessToken: <#T##String!#>, expireTime: <#T##String!#>)
     }
     
     func uploadRetry() {
