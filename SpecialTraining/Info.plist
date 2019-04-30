@@ -61,20 +61,6 @@
 		<true/>
 		<key>NSExceptionDomains</key>
 		<dict>
-			<key>alpha.youpeixunjiaoyu.com</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
-			<key>api.youpeixunjiaoyu.com</key>
-			<dict>
-				<key>NSExceptionAllowsInsecureHTTPLoads</key>
-				<true/>
-				<key>NSIncludesSubdomains</key>
-				<true/>
-			</dict>
 			<key>itunes.apple.com</key>
 			<dict>
 				<key>NSExceptionAllowsInsecureHTTPLoads</key>

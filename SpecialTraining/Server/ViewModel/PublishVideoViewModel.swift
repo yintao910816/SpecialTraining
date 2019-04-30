@@ -23,14 +23,16 @@ class PublishVideoViewModel: BaseViewModel {
         client = VODUploadSVideoClient()
         client.delegate = self
         
-        publishDataSubject
-            ._doNext(forNotice: hud)
-            .do(onNext: { [unowned self] info in self.mediaData = info })
-            .flatMap{ [unowned self] _ in self.getSTSInfo() }
-            .subscribe(onNext: { [unowned self] stsData in
-                self.uploadVideo(stsModel: stsData)
-            })
-            .disposed(by: disposeBag)
+//        publishDataSubject
+//            ._doNext(forNotice: hud)
+//            .do(onNext: { [unowned self] info in self.mediaData = info })
+//            .flatMap{ [unowned self] _ in self.getSTSInfo() }
+//            .subscribe(onNext: { [unowned self] stsData in
+//                self.uploadVideo(stsModel: stsData)
+//                }, onError: { error in
+//                print(error.localizedDescription)
+//            })
+//            .disposed(by: disposeBag)
     }
     
     private func getUploadAuthRefreshData() ->Observable<VideoUploadAuthRefreshModel>{
@@ -39,11 +41,11 @@ class PublishVideoViewModel: BaseViewModel {
             .asObservable()
     }
     
-    private func getSTSInfo() ->Observable<VideoSTSModel> {
-        return STHttpsProvider.request(.sts())
-            .map(model: VideoSTSModel.self)
-            .asObservable()
-    }
+//    private func getSTSInfo() ->Observable<VideoSTSModel> {
+//        return STHttpsProvider.request(.sts())
+//            .map(model: VideoSTSModel.self)
+//            .asObservable()
+//    }
 }
 
 extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
