@@ -59,8 +59,8 @@ struct APIAssistance {
 //             .thirdPartyLogin(_),
 //             .bindWX(token: _, _):
 //            return URL(string: userBase)!
-        case .sts():
-            return URL(string: sts)!
+//        case .sts():
+//            return URL(string: sts)!
         default:
             return URL(string: base)!
         }

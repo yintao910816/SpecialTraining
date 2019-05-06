@@ -11,7 +11,7 @@ import RxSwift
 
 class UserVideosView: UICollectionView {
     
-    var datasource = Variable([UserVideosModel]())
+    var datasource = Variable([MyVidesModel]())
     
     private let disposeBag = DisposeBag()
 
@@ -46,7 +46,7 @@ class UserVideosView: UICollectionView {
     private func rxBind() {
         datasource.asDriver()
             .drive(rx.items(cellIdentifier: "UserVideosCellID", cellType: UserVideosCell.self)) { (_, model, cell) in
-
+                cell.model = model
             }
             .disposed(by: disposeBag)
         

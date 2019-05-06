@@ -33,3 +33,12 @@ class CredentialsModel: HJModel {
     var SecurityToken: String = ""
 }
 
+//MARK:
+//MARK: 我的乐秀
+class MyVidesModel: HJModel {
+    var id: String = ""
+    var title: String  = ""
+    var cover_url: String = ""
+    var cate_id: String = ""
+    var video_url: String = ""
+}

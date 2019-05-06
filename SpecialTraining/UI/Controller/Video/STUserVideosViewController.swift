@@ -49,6 +49,7 @@ class STUserVideosViewController: BaseViewController {
             .drive(collectionView.datasource)
             .disposed(by: disposeBag)
         
+        viewModel.reloadSubject.onNext(Void())
     }
     
     override func viewDidLayoutSubviews() {

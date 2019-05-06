@@ -10,9 +10,18 @@ import UIKit
 
 class UserVideosCell: UICollectionViewCell {
 
+    @IBOutlet weak var coverOutlet: UIImageView!
+    @IBOutlet weak var titleOutlet: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
+    var model: MyVidesModel! {
+        didSet {
+            coverOutlet.setImage(model.cover_url)
+            titleOutlet.text = model.title
+        }
+    }
 }

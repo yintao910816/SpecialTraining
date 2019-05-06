@@ -18,21 +18,24 @@ class PublishVideoViewModel: BaseViewModel {
     
     private var mediaData: (String, UIImage?, String)?
     
+    private var videoSTSModel: VideoSTSModel?
+    
     override init() {
         super.init()
         client = VODUploadSVideoClient()
         client.delegate = self
         
-//        publishDataSubject
-//            ._doNext(forNotice: hud)
-//            .do(onNext: { [unowned self] info in self.mediaData = info })
-//            .flatMap{ [unowned self] _ in self.getSTSInfo() }
-//            .subscribe(onNext: { [unowned self] stsData in
-//                self.uploadVideo(stsModel: stsData)
-//                }, onError: { error in
-//                print(error.localizedDescription)
-//            })
-//            .disposed(by: disposeBag)
+        publishDataSubject
+            ._doNext(forNotice: hud)
+            .do(onNext: { [unowned self] info in self.mediaData = info })
+            .flatMap{ [unowned self] _ in self.getSTSInfo() }
+            .subscribe(onNext: { [unowned self] stsData in
+                self.videoSTSModel = stsData
+                self.uploadVideo(stsModel: stsData)
+                }, onError: { error in
+                print(error.localizedDescription)
+            })
+            .disposed(by: disposeBag)
     }
     
     private func getUploadAuthRefreshData() ->Observable<VideoUploadAuthRefreshModel>{
@@ -41,11 +44,11 @@ class PublishVideoViewModel: BaseViewModel {
             .asObservable()
     }
     
-//    private func getSTSInfo() ->Observable<VideoSTSModel> {
-//        return STHttpsProvider.request(.sts())
-//            .map(model: VideoSTSModel.self)
-//            .asObservable()
-//    }
+    private func getSTSInfo() ->Observable<VideoSTSModel> {
+        return STProvider.request(.sts())
+            .map(model: VideoSTSModel.self)
+            .asObservable()
+    }
 }
 
 extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
@@ -78,10 +81,6 @@ extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
         info.cateId = NSNumber.init(value: 1)
         info.tags = "video"
         
-//        let AccessKeySecret = "3JHkYFmiFCL9k7EgreB5JXrupEnb3Fpy15Yn1Qj5Cz2A"
-//        let AccessKeyId = "STS.NKQiLBoZ5iUKHZ9umn6N26kfe"
-//        let SecurityToken = "CAIS6wF1q6Ft5B2yfSjIr4jkIvb2goUU3pegSnyIkW07OsEe2a7Nhzz2IH1Me3hqCe0btv0/mGtS6/4TlqxtSpNIQhQtgWXrINEFnzm6aq/t5uaXj9Vd+rDHdEGXDxnkprywB8zyUNLafNq0dlnAjVUd6LDmdDKkLTfHWN/z/vwBVNkMWRSiZjdrHcpfIhAYyPUXLnzML/2gQHWI6yjydBM25VYk1DkjtfzhmZzBsErk4QekmrNPlePYOYO5asRgBpB7Xuqu0fZ+Hqi7i3MItEkQpPor1PUUpWyd44nMGTZP5BmcNO7Z4h2X+c+63zxQGoABV2PacdkYV5cPToiQSH2FPnNUpXFGwRbOx8OtGyoWJ2nAkn0+uOA7fuZYybaJRu8rvYOhI5SSAPcbGs9IgNjq+KNLKh9nxpFLcnotDwNixRwDiKMHOxy5ypuvfTRobJyfLeAYIhKXn0DYT1mFNyJi0uMGea+rZZJJFiYd1O/clQY="
-        
         client.upload(withVideoPath: videoPath,
                       imagePath: coverPath,
                       svideoInfo: info,
@@ -92,6 +91,19 @@ extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
     
     func uploadSuccess(with result: VodSVideoUploadResult!) {
         PrintLog("上传成功：imageUrl -- \(String(describing: result.imageUrl)) videoId -- \(String(describing: result.videoId))")
+        STProvider.request(.insert_video_info(vodSVideoModel: result, cateID: "1", title: mediaData?.0 ?? ""))
+            .mapResponse()
+            .subscribe(onSuccess: { [weak self] res in
+                if res.errno == 0 {
+                    self?.hud.noticeHidden()
+                    self?.popSubject.onNext(Void())
+                }else {
+                    self?.hud.failureHidden(res.errmsg)
+                }
+            }) { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+            }
+            .disposed(by: disposeBag)
     }
     
     func uploadFailed(withCode code: String!, message: String!) {
@@ -104,7 +116,21 @@ extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
     
     func uploadTokenExpired() {
         PrintLog("上传token过期")
-//        client.refresh(withAccessKeyId: <#T##String!#>, accessKeySecret: <#T##String!#>, accessToken: <#T##String!#>, expireTime: <#T##String!#>)
+        getUploadAuthRefreshData()
+            .subscribe(onNext: { [weak self] data in
+                guard let strongSelf = self else { return }
+                guard let v = strongSelf.videoSTSModel else {
+                    strongSelf.hud.failureHidden("认证失败")
+                    return
+                }
+                strongSelf.client.refresh(withAccessKeyId: v.Credentials.AccessKeyId,
+                                          accessKeySecret: v.Credentials.AccessKeySecret,
+                                          accessToken: data.UploadAuth,
+                                          expireTime: "")
+            }, onError: { [weak self] error in
+                self?.hud.failureHidden(self?.errorMessage(error))
+            })
+            .disposed(by: disposeBag)
     }
     
     func uploadRetry() {

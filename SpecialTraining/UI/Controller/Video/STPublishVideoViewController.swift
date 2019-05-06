@@ -32,9 +32,9 @@ class STPublishVideoViewController: BaseViewController {
         case 100:
             // 保存
             navigationController?.dismiss(animated: true, completion: nil)
-        case 101:
+//        case 101:
             // 发布
-            performSegue(withIdentifier: "publishUserVidesSegue", sender: nil)
+//            performSegue(withIdentifier: "publishUserVidesSegue", sender: nil)
 //        case 102:
 //            // 选择分类
 //            break
@@ -75,6 +75,12 @@ class STPublishVideoViewController: BaseViewController {
                 NoticesCenter.alertActionSheet(actionTitles: ["相册", "相机"], cancleTitle: "取消", presentCtrl: self, callBackCancle:  nil, callBackChoose: { idx in
                     self.managerPicker.openPickerSignal.onNext((MediaType(rawValue: idx)!, true))
                 })
+            })
+            .disposed(by: disposeBag)
+        
+        viewModel.popSubject
+            .subscribe(onNext: { [weak self] _ in
+                self?.performSegue(withIdentifier: "publishUserVidesSegue", sender: nil)
             })
             .disposed(by: disposeBag)
         

@@ -100,6 +100,10 @@ enum API{
     //MARK: 文件上传
     case aliyunUpLoadAuth(title: String, filename: String, cate_id: String, member_id: String)
     case sts()
+    // 视屏上传阿里云成功后上传app服务器
+    case insert_video_info(vodSVideoModel: VodSVideoUploadResult, cateID: String, title: String)
+    // 完的乐秀视频
+    case myVideo()
     
     // 文件下载
     case downLoad(url: String, mediaType: FileCacheType)
@@ -191,6 +195,12 @@ extension API: TargetType{
             return "v1/video/get_video_sts"
         case .aliyunUpLoadAuth(_):
             return "v1/video/upload_video"
+        case .insert_video_info(_):
+            return "v1/video/insert_video_info"
+            
+        case .myVideo():
+            return "v1/video/my_video"
+        
         case .downLoad(_, _):
             return ""
         }
@@ -345,6 +355,16 @@ extension API {
             params["filename"] = filename
             params["cate_id"] = cate_id
             params["member_id"] = member_id
+            
+        case .insert_video_info(let vodSVideoModel, let cate_id, let title):
+            params["member_id"] = userDefault.uid
+            params["cate_id"]   = cate_id
+            params["cover_url"] = vodSVideoModel.imageUrl
+            params["title"]     = title
+            params["video_id"]  = vodSVideoModel.videoId
+            
+        case .myVideo():
+            params["member_id"] = userDefault.uid
 
         default:
             break

@@ -13,11 +13,13 @@ import Result
 struct MoyaPlugins {
     
     static let MyNetworkActivityPlugin = NetworkActivityPlugin { (change, _) -> () in
-        switch(change){
-        case .ended:
-            UIApplication.shared.isNetworkActivityIndicatorVisible = false
-        case .began:
-            UIApplication.shared.isNetworkActivityIndicatorVisible = true
+        DispatchQueue.main.async {
+            switch(change){
+            case .ended:
+                UIApplication.shared.isNetworkActivityIndicatorVisible = false
+            case .began:
+                UIApplication.shared.isNetworkActivityIndicatorVisible = true
+            }
         }
     }
     
