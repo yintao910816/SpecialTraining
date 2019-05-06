@@ -11,29 +11,31 @@ import UIKit
 //MARK:
 //MARK: 点播
 class OndemandModel: HJModel {
-    
-    var height: CGFloat = 100
-    var width: CGFloat = 80
-    
-    class func creatModel(w: CGFloat, h: CGFloat) ->OndemandModel {
-        let m = OndemandModel()
-        m.height = h
-        m.width  = w
-        return m
-    }
+    var cate_list: [VideoCateListModel] = []
+    var video_list: [VideoListModel] = []
 }
 
-class VideoClassificationModel: HJModel {
+class VideoCateListModel: HJModel {
+    var id: String = ""
+    var cate_name: String = ""
     
-    var title: String = ""
     var isSelected: Bool = false
-    var size: CGSize = .zero
     
-    class func creatModel(title: String, selected: Bool = false) ->VideoClassificationModel {
-        let m = VideoClassificationModel()
-        m.title = title
-        m.isSelected = selected
-        m.size = .init(width: title.getTexWidth(fontSize: 14, height: 20) + 20, height: 20)
-        return m
-    }
+    lazy var size: CGSize = {
+        return .init(width: cate_name.getTexWidth(fontSize: 14, height: 20) + 20, height: 20)
+    }()
+}
+
+class VideoListModel: HJModel {
+    var id: String = ""
+    var title: String = ""
+    var cover_url: String = ""
+    var cate_id: String = ""
+    var video_url: String = ""
+    
+    lazy var size: CGSize = {
+        let w: CGFloat = (PPScreenW - 1.0 - 7.0 * 3) / 2.0
+        let h = w * 4.0/3.0
+        return .init(width: w, height: h)
+    }()
 }

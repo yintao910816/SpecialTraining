@@ -17,9 +17,9 @@ class VideoClassificationCell: UICollectionViewCell {
 
     }
     
-    var model: VideoClassificationModel! {
+    var model: VideoCateListModel! {
         didSet {
-            titleOutlet.text = model.title
+            titleOutlet.text = model.cate_name
             
             if model.isSelected == true {
                 backgroundColor = ST_MAIN_COLOR

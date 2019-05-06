@@ -87,10 +87,10 @@ class STVideoViewController: BaseViewController {
     override func rxBind() {
         viewModel = VideoViewModel()
         
-        viewModel.datasource
+        viewModel.videoListSource
             .asObservable()
-            .bind(to: contentCollectionView.rx.items(cellIdentifier: "VideoCellID", cellType: VideoCell.self)) { [unowned self] (row, element, cell) in
-                PrintLog(row)
+            .bind(to: contentCollectionView.rx.items(cellIdentifier: "VideoCellID", cellType: VideoCell.self)) { (row, model, cell) in
+                cell.model = model
             }
             .disposed(by: disposeBag)
 
@@ -101,7 +101,7 @@ class STVideoViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
-        menuCollectionView.rx.modelSelected(VideoClassificationModel.self)
+        menuCollectionView.rx.modelSelected(VideoCateListModel.self)
             .asDriver()
             .drive(viewModel.classifationChangeObser)
             .disposed(by: disposeBag)
@@ -112,6 +112,7 @@ class STVideoViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
+        viewModel.reloadSubject.onNext(Void())
     }
     
     private func videoPlay(videoDuration: Int, videoUrl: URL) {
@@ -141,7 +142,7 @@ class STVideoViewController: BaseViewController {
 extension STVideoViewController: FlowLayoutDelegate {
     
     func itemContent(layout: BaseFlowLayout, indexPath: IndexPath) -> CGSize {
-        let model = viewModel.datasource.value[indexPath.row]
-        return .init(width: model.width, height: model.height)
+        let model = viewModel.videoListSource.value[indexPath.row]
+        return model.size
     }
 }

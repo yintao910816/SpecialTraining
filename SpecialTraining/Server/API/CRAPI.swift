@@ -105,6 +105,9 @@ enum API{
     // 完的乐秀视频
     case myVideo()
     
+    // 乐秀视屏列表
+    case videoList(cate_id: String)
+    
     // 文件下载
     case downLoad(url: String, mediaType: FileCacheType)
 }
@@ -197,6 +200,9 @@ extension API: TargetType{
             return "v1/video/upload_video"
         case .insert_video_info(_):
             return "v1/video/insert_video_info"
+            
+        case .videoList(_):
+            return "v1/video/video_list"
             
         case .myVideo():
             return "v1/video/my_video"
@@ -366,6 +372,8 @@ extension API {
         case .myVideo():
             params["member_id"] = userDefault.uid
 
+        case .videoList(let cate_id):
+            params["cate_id"] = cate_id
         default:
             break
         }
