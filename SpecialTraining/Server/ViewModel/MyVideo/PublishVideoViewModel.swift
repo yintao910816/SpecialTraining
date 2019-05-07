@@ -39,7 +39,7 @@ class PublishVideoViewModel: BaseViewModel {
     }
     
     private func getUploadAuthRefreshData() ->Observable<VideoUploadAuthRefreshModel>{
-        return STProvider.request(.aliyunUpLoadAuth(title: mediaData!.0, filename: "1.mp4", cate_id: "1", member_id: "1"))
+        return STProvider.request(.aliyunUpLoadAuth(title: mediaData!.0, filename: "1.mp4", cate_id: "1", member_id: "\(userDefault.uid)"))
             .map(model: VideoUploadAuthRefreshModel.self)
             .asObservable()
     }
@@ -76,6 +76,7 @@ extension PublishVideoViewModel: VODUploadSVideoClientDelegate {
         let coverPath = FileService.share.writeToTempFile(data: imageData, fileName: fileName)
         
         let info = VodSVideoInfo()
+        info.templateGroupId = "5ca91602d1f35b7598999244d090ead1"
         info.title = title
         info.desc = ""
         info.cateId = NSNumber.init(value: 1)

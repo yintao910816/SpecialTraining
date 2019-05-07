@@ -28,6 +28,7 @@ class UserVideosViewModel: BaseViewModel {
         STProvider.request(.myVideo())
             .map(models: MyVidesModel.self)
             .subscribe(onSuccess: { [weak self] datas in
+                self?.hud.noticeHidden()
                 self?.userVidesDatasource.value = datas
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
