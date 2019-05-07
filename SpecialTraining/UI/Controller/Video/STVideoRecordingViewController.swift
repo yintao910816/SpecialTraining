@@ -27,6 +27,7 @@ class STVideoRecordingViewController: fileOutputViewController {
     private var timer: CountdownTimer!
     private let hud = NoticesCenter()
     private var videoImages: [UIImage]!
+    private var videoURL: String = ""
     
     @IBAction func actions(_ sender: UIButton) {
         if sender == recordButtonOutlet {
@@ -109,6 +110,7 @@ class STVideoRecordingViewController: fileOutputViewController {
         super.didFinishRecording(coordinator: coordinator, url: url)
     
         if isCancle == false {
+            videoURL = url.path
             hud.noticeLoading()
             splitVideoFileUrlFps(splitFileUrl: url, fps: 2) { [weak self] (ret, images) in
                 DispatchQueue.main.async {
@@ -140,7 +142,7 @@ extension STVideoRecordingViewController {
         if let ctrl = segue.destination as? STVideoCoverChoseViewController {
             ctrl.prepare(parameters: ["data": videoImages])
         }else if let ctrl = segue.destination as? STPublishVideoViewController {
-            ctrl.prepare(parameters: ["image": videoImages.first!])
+            ctrl.prepare(parameters: ["image": videoImages.first!, "videoURL": videoURL])
         }
     }
 }

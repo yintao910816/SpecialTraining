@@ -47,16 +47,18 @@ class VideoViewModel: BaseViewModel {
             .map(model: OndemandModel.self)
             .subscribe(onSuccess: { [unowned self] data in
                 var cateList = [VideoCateListModel]()
+                cateList = data.cate_list
+                cateList.insert(VideoCateListModel.creatAllCateModel(), at: 0)
+                
                 if isSeleted == true {
-                    cateList = data.cate_list.map({ m -> VideoCateListModel in
+                    cateList = cateList.map({ m -> VideoCateListModel in
                         m.isSelected = m.id == self.cateModel.id ? true : false
                         return m
                     })
                 }else {
-                    cateList = data.cate_list
                     cateList.first?.isSelected = true
                 }
-                self.videoClassifationSource.value = data.cate_list
+                self.videoClassifationSource.value = cateList
                 self.videoListSource.value = data.video_list
                 
                 self.hud.noticeHidden()

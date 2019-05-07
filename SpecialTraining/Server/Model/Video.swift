@@ -24,6 +24,12 @@ class VideoCateListModel: HJModel {
     lazy var size: CGSize = {
         return .init(width: cate_name.getTexWidth(fontSize: 14, height: 20) + 20, height: 20)
     }()
+    
+    class func creatAllCateModel() ->VideoCateListModel {
+        let m = VideoCateListModel()
+        m.cate_name = "全部"
+        return m
+    }
 }
 
 class VideoListModel: HJModel {

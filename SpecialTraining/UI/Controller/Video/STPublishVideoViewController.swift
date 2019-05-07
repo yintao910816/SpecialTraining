@@ -94,6 +94,7 @@ class STPublishVideoViewController: BaseViewController {
     override func prepare(parameters: [String : Any]?) {
         coverImage = parameters?["image"] as? UIImage
         videoPath = parameters?["videoURL"] as? String
+        PrintLog("视屏发布：\(parameters)")
     }
 }
 

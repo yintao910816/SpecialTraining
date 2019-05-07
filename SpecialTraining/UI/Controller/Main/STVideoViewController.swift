@@ -106,9 +106,10 @@ class STVideoViewController: BaseViewController {
             .drive(viewModel.classifationChangeObser)
             .disposed(by: disposeBag)
         
-        contentCollectionView.rx.itemSelected.asDriver()
-            .drive(onNext: { [unowned self] _ in
-                self.performSegue(withIdentifier: "demandVideoSegue", sender: nil)
+        contentCollectionView.rx.modelSelected(VideoListModel.self)
+            .asDriver()
+            .drive(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "demandVideoSegue", sender: model)
             })
             .disposed(by: disposeBag)
 
@@ -136,6 +137,12 @@ class STVideoViewController: BaseViewController {
                 NoticesCenter.alert(title: "提示", message: "视频无效，请重新选择")
             }
         })
+    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if let videoDemandVC = segue.destination as? STVideoDemandViewController {
+            videoDemandVC.videoInfoModel = (sender as! VideoListModel)
+        }
     }
 }
 
