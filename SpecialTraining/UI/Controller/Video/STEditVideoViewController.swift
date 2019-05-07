@@ -32,6 +32,13 @@ class STEditVideoViewController: TJPlayerViewController {
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
+    override func viewDidDisappear(_ animated: Bool) {
+        super.viewDidDisappear(animated)
+        
+        // 停止视频播放
+        removeNotification()
+    }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
 

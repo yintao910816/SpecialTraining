@@ -21,7 +21,7 @@ class STUserVideosViewController: BaseViewController {
     private var collectionView: UserVideosView!
     
     @IBAction func actions(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {        

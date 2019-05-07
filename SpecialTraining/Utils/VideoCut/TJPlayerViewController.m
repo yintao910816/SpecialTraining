@@ -194,6 +194,7 @@
     [_timer invalidate];
     _timer = nil;
     [[NSNotificationCenter defaultCenter] removeObserver:self];
+    [self.player pause];
     self.player = nil;
 }
 

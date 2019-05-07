@@ -535,6 +535,7 @@
 		C4CBC46C21C1FB2300AEDB86 /* MyScoreViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */; };
 		C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */; };
 		C4CFE7CD21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */; };
+		C4DEA6FC2281A88D000AC200 /* STVideoUploadManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4DEA6FB2281A88D000AC200 /* STVideoUploadManager.swift */; };
 		C4F9AB0D21E864B500140A93 /* ShoppingVerifyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9AB0B21E864B500140A93 /* ShoppingVerifyCell.swift */; };
 		C4F9AB0E21E864B500140A93 /* ShoppingVerifyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C4F9AB0C21E864B500140A93 /* ShoppingVerifyCell.xib */; };
 		C4F9AB1121E8653C00140A93 /* ShoppingVerifyReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C4F9AB0F21E8653C00140A93 /* ShoppingVerifyReusableView.swift */; };
@@ -1106,6 +1107,7 @@
 		C4CBC46B21C1FB2300AEDB86 /* MyScoreViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyScoreViewModel.swift; sourceTree = "<group>"; };
 		C4CFE7CA21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderExperienceView.swift; sourceTree = "<group>"; };
 		C4CFE7CB21C3CD3400DFA3F7 /* HomeHeaderExperienceView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HomeHeaderExperienceView.xib; sourceTree = "<group>"; };
+		C4DEA6FB2281A88D000AC200 /* STVideoUploadManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoUploadManager.swift; sourceTree = "<group>"; };
 		C4F9AB0B21E864B500140A93 /* ShoppingVerifyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVerifyCell.swift; sourceTree = "<group>"; };
 		C4F9AB0C21E864B500140A93 /* ShoppingVerifyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ShoppingVerifyCell.xib; sourceTree = "<group>"; };
 		C4F9AB0F21E8653C00140A93 /* ShoppingVerifyReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShoppingVerifyReusableView.swift; sourceTree = "<group>"; };
@@ -1655,6 +1657,7 @@
 				B85F3343219E94B200023958 /* NoticesCenter.swift */,
 				B80B6BF8219FE71800C33F11 /* STHelper.swift */,
 				B82722F421E5F24E00147397 /* STEnum.swift */,
+				C4DEA6FB2281A88D000AC200 /* STVideoUploadManager.swift */,
 			);
 			path = STHelper;
 			sourceTree = "<group>";
@@ -2983,6 +2986,7 @@
 				B85F3380219EA17100023958 /* CarouselDatasource.swift in Sources */,
 				C413E36E226C5EF9001D745F /* MineAccountViewModel.swift in Sources */,
 				B873B3F0223CCEB700D3C6B1 /* OrganizationShopViewModel.swift in Sources */,
+				C4DEA6FC2281A88D000AC200 /* STVideoUploadManager.swift in Sources */,
 				C498BA7921B7B56500A29385 /* ImagePickerManager+Rx.swift in Sources */,
 				B845ADD2226261AD00BD0AC3 /* FaceBackView.swift in Sources */,
 				B80B6C09219FF0D900C33F11 /* String+Extends.swift in Sources */,
