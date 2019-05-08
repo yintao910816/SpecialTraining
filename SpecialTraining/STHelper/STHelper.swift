@@ -118,9 +118,10 @@ extension STHelper {
                                           url: link?.isEmpty == false ? URL.init(string: link!) : URL.init(string: "https://www.xiaoshuo520.com"),
                                           title: title,
                                           type: .auto)
-        
+
+        let shareList = [SSDKPlatformType.subTypeWechatSession.rawValue, SSDKPlatformType.subTypeWechatTimeline.rawValue]
         ShareSDK.showShareActionSheet(viewController.view,
-                                      items: nil,
+                                      items: shareList,
                                       shareParams: shareParames) { (state, platformType, userData, contentEntity, error, end) in
                                         
                                         switch state {

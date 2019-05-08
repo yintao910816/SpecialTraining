@@ -29,6 +29,10 @@ class STShoppingCartViewController: BaseViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         navigationController?.setNavigationBarHidden(true, animated: animated)
+        
+        if UserAccountServer.share.loginUser.member.uid == 0 {
+            STHelper.presentLogin()
+        }
     }
     
     override func setupUI() {
