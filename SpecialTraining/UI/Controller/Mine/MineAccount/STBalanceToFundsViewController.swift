@@ -31,7 +31,7 @@ class STBalanceToFundsViewController: BaseViewController {
         viewModel = BalanceToFundsViewModel.init(applyFunds: applyFundsOutlet.rx.tap.asDriver())
         
         viewModel.popSubject
-            .subscribe(onNext: { [weak self] _ in self?.navigationController?.popViewController(animated: true) })
+            .subscribe(onNext: { [weak self] _ in self?.navigationController?.popToRootViewController(animated: true) })
             .disposed(by: disposeBag)
     }
     
