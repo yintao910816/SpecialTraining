@@ -86,6 +86,8 @@
             <connections>
                 <outlet property="addressOutlet" destination="RHp-tC-1qW" id="tP1-L9-Lg9"/>
                 <outlet property="coverOutlet" destination="Cay-K5-ZXs" id="jUh-XM-Lu6"/>
+                <outlet property="desOutlet" destination="3dV-Gc-3ps" id="sdb-3K-xZ6"/>
+                <outlet property="detailOutlet" destination="DSv-rt-CCn" id="oo9-HF-rYd"/>
                 <outlet property="priceOutlet" destination="kYX-jU-cii" id="8hf-o1-q9D"/>
                 <outlet property="secondTitleTopCns" destination="zs6-dW-0HU" id="gTg-az-rPI"/>
                 <outlet property="setLineOutlet" destination="794-QF-G2U" id="W6p-xa-zRw"/>

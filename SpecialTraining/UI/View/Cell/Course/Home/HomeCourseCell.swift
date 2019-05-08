@@ -17,6 +17,8 @@ import UIKit
 class HomeCourseCell: UICollectionViewCell {
 
     @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var desOutlet: UILabel!
+    @IBOutlet weak var detailOutlet: UILabel!
     @IBOutlet weak var addressOutlet: UILabel!
     @IBOutlet weak var secondTitleTopCns: NSLayoutConstraint!
     @IBOutlet weak var setLineOutlet: UIView!
@@ -32,6 +34,9 @@ class HomeCourseCell: UICollectionViewCell {
         didSet {
             coverOutlet.isHidden = !model.showCellImg
             priceOutlet.text = "¥:\(model.about_price)"
+            desOutlet.text = model.title
+            detailOutlet.text = model.introduce
+            
             if model.showCellImg {
                 coverOutlet.setImage(model.shop_logo)
                 titleOutlet.text = model.shop_name
