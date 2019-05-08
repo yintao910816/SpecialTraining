@@ -1728,7 +1728,7 @@
         <image name="big_nav_back" width="200" height="200"/>
         <image name="demandView_bg" width="640" height="960"/>
         <image name="dianhua" width="200" height="200"/>
-        <image name="home_nav_left" width="52.666667938232422" height="29.666666030883789"/>
+        <image name="home_nav_left" width="273" height="155.25"/>
         <image name="home_nav_right" width="14.666666984558105" height="18.666666030883789"/>
         <image name="home_nav_search" width="18.666666030883789" height="18.666666030883789"/>
         <image name="kefu" width="200" height="200"/>

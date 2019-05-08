@@ -10,15 +10,19 @@ import UIKit
 
 class MineAccountCell: UITableViewCell {
 
+    @IBOutlet weak var titleOutlet: UILabel!
+    @IBOutlet weak var timeOutlet: UILabel!
+    @IBOutlet weak var countOutlet: UILabel!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
     }
 
-    override func setSelected(_ selected: Bool, animated: Bool) {
-        super.setSelected(selected, animated: animated)
-
-        // Configure the view for the selected state
+    var model: MineAwardsModel! {
+        didSet {
+            titleOutlet.text = "\(model.mob.replacePhone()) 购买课程奖励发放"
+            timeOutlet.text = model.createtime
+        }
     }
-    
 }

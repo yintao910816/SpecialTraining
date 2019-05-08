@@ -146,6 +146,8 @@
 		B845ADD2226261AD00BD0AC3 /* FaceBackView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845ADD1226261AD00BD0AC3 /* FaceBackView.swift */; };
 		B845ADD4226261B500BD0AC3 /* FaceBackView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B845ADD3226261B500BD0AC3 /* FaceBackView.xib */; };
 		B845ADD62262682A00BD0AC3 /* FeedbackViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B845ADD52262682A00BD0AC3 /* FeedbackViewModel.swift */; };
+		B84B10F022833D0D0072D47B /* MineAccountDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B10EF22833D0D0072D47B /* MineAccountDetailViewModel.swift */; };
+		B84B10F2228347760072D47B /* BalanceToFundsViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B84B10F1228347760072D47B /* BalanceToFundsViewModel.swift */; };
 		B852F13921BD6738002A5887 /* VideoCoverChoseViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B852F13821BD6738002A5887 /* VideoCoverChoseViewModel.swift */; };
 		B8530785224FDC6000A21564 /* VideoPublish.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8530784224FDC6000A21564 /* VideoPublish.swift */; };
 		B8530787224FE17900A21564 /* FileService.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8530786224FE17900A21564 /* FileService.swift */; };
@@ -682,6 +684,8 @@
 		B845ADD1226261AD00BD0AC3 /* FaceBackView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FaceBackView.swift; sourceTree = "<group>"; };
 		B845ADD3226261B500BD0AC3 /* FaceBackView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = FaceBackView.xib; sourceTree = "<group>"; };
 		B845ADD52262682A00BD0AC3 /* FeedbackViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FeedbackViewModel.swift; sourceTree = "<group>"; };
+		B84B10EF22833D0D0072D47B /* MineAccountDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineAccountDetailViewModel.swift; sourceTree = "<group>"; };
+		B84B10F1228347760072D47B /* BalanceToFundsViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BalanceToFundsViewModel.swift; sourceTree = "<group>"; };
 		B852F13821BD6738002A5887 /* VideoCoverChoseViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoCoverChoseViewModel.swift; sourceTree = "<group>"; };
 		B8530784224FDC6000A21564 /* VideoPublish.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoPublish.swift; sourceTree = "<group>"; };
 		B8530786224FE17900A21564 /* FileService.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FileService.swift; sourceTree = "<group>"; };
@@ -2414,6 +2418,8 @@
 				C413E366226C5EF8001D745F /* BindPayAccountViewModel.swift */,
 				C413E367226C5EF8001D745F /* BindPhoneViewModel.swift */,
 				C413E368226C5EF8001D745F /* MineAccountViewModel.swift */,
+				B84B10EF22833D0D0072D47B /* MineAccountDetailViewModel.swift */,
+				B84B10F1228347760072D47B /* BalanceToFundsViewModel.swift */,
 			);
 			path = UserAccountEdit;
 			sourceTree = "<group>";
@@ -3018,6 +3024,7 @@
 				B8FC3AE02217219A00889483 /* TimeChooseView.m in Sources */,
 				C408422B21B559A500C491A8 /* STVideoDemandViewController.swift in Sources */,
 				B81EDF7C21A579DC00F9D3B0 /* UINavigationController+BarButtonItem.swift in Sources */,
+				B84B10F2228347760072D47B /* BalanceToFundsViewModel.swift in Sources */,
 				B85F33D4219EBB9B00023958 /* HomeViewModel.swift in Sources */,
 				6BF7B95221BA693700BE1E4A /* MineHeaderCollectionCell.swift in Sources */,
 				B8547E2121A6433C00281554 /* MineCell.swift in Sources */,
@@ -3190,6 +3197,7 @@
 				B85F3356219E94D600023958 /* HUD.swift in Sources */,
 				C413E372226C6109001D745F /* MyOrder.swift in Sources */,
 				B879A064221B1D6200E573C9 /* Int+Extention.swift in Sources */,
+				B84B10F022833D0D0072D47B /* MineAccountDetailViewModel.swift in Sources */,
 				B85F337B219EA0E700023958 /* HomeOrganizationTableView.swift in Sources */,
 				B87A94EF21A8381D003E2D21 /* TeachersCell.swift in Sources */,
 				C413E36B226C5EF9001D745F /* MineBalanceViewModel.swift in Sources */,

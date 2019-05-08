@@ -7,19 +7,29 @@
 //
 
 import UIKit
+import RxSwift
 
 class MineAccountHeaderView: UIView {
 
+    private let disposeBag = DisposeBag()
+    
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var bgView: UIView!
     
     @IBOutlet weak var bgViewHeightCns: NSLayoutConstraint!
     @IBOutlet weak var topCns: NSLayoutConstraint!
     
+    @IBOutlet weak var totleAwardsOutlet: UILabel!
+    @IBOutlet weak var canCommissionOutlet: UIButton!
+    var totleAwardsObser = Variable("总奖金 ¥: 0")
+    var canCommissionObser = Variable("可提现 ¥: 0")
+
     public var backCallBack: (()->())?
     public var clickBalanceCallBack: (()->())?
     public var clickWithdrawCallBack: (() ->())?
     public var clickPayAccountCallBack: (() ->())?
+    // 提现规则
+    public var clickWithdrawRuleCallBack: (() ->())?
 
     @IBAction func actions(_ sender: UIButton) {
         switch sender.tag {
@@ -28,11 +38,19 @@ class MineAccountHeaderView: UIView {
             backCallBack?()
         case 101:
             // 零钱
-            clickBalanceCallBack?()
+//            clickBalanceCallBack?()
+            break
         case 102:
+            // 可提现
             clickWithdrawCallBack?()
         case 103:
-            clickPayAccountCallBack?()
+//            clickPayAccountCallBack?()
+            break
+        case 104:
+            // 提现规则
+//            clickPayAccountCallBack?()
+            clickWithdrawRuleCallBack?()
+            break
         default:
             break
         }
@@ -52,6 +70,18 @@ class MineAccountHeaderView: UIView {
         
         let frame = CGRect.init(x: 0, y: 0, width: bgView.width, height: bgView.height)
         bgView.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
+        
+        rxBind()
+    }
+    
+    private func rxBind() {
+        totleAwardsObser.asDriver()
+            .drive(totleAwardsOutlet.rx.text)
+            .disposed(by: disposeBag)
+        
+        canCommissionObser.asDriver()
+            .drive(canCommissionOutlet.rx.title(for: .normal))
+            .disposed(by: disposeBag)
     }
     
     required init?(coder aDecoder: NSCoder) {

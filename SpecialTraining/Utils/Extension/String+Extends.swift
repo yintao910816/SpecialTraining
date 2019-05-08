@@ -254,10 +254,10 @@ extension String {
 extension String {
     
     func replacePhone() -> String {
-        let start = self.index(self.startIndex, offsetBy: 3)
-        let end = self.index(self.startIndex, offsetBy: 7)
+        let start = index(startIndex, offsetBy: 3)
+        let end = self.index(startIndex, offsetBy: 7)
         let range = Range(uncheckedBounds: (start, end))
-        return self.replacingCharacters(in: range, with: "****")
+        return replacingCharacters(in: range, with: "****")
     }
     
 }

@@ -82,6 +82,12 @@ enum API{
     
     //MARK:
     //MARK: 个人中心
+    /// 我的奖励
+    case myCommission()
+    /// 佣金详情
+    case commissonDetails(item_id: String, level: String)
+    /// 佣金提现
+    case commissionApply()
     /// 所有订单
     case getMemberAllOrder(member_id: String)
     /// 取消订单
@@ -179,6 +185,13 @@ extension API: TargetType{
             return "v1/pay/wxPay"
         case .alipay(_):
             return "v1/pay/aliPay"
+            
+        case .myCommission():
+            return "v1/member/myCommission"
+        case .commissonDetails(_):
+            return "v1/member/commissonDetails"
+        case .commissionApply():
+            return "v1/member/commissionApply"
             
         case .getMemberAllOrder(_):
             return "v1/order/getMemberAllOrder"
@@ -302,6 +315,16 @@ extension API {
             params["lat"] = userDefault.lat
             params["lng"] = userDefault.lng
             params["offset"] = offset
+            
+        case .myCommission():
+            params["id"] = userDefault.uid
+        case .commissonDetails(let item_id, let level):
+            params["id"]      = userDefault.uid
+            params["item_id"] = item_id
+            params["level"]   = level
+        case .commissionApply():
+            params["id"]      = userDefault.uid
+
         case .getMemberAllOrder(let member_id):
             params["member_id"] = member_id
         case .cancleOrder(let order_no):
