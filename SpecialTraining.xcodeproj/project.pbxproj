@@ -356,6 +356,7 @@
 		B8BD92D921E64C200089495F /* DB+Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BD92D421E64C200089495F /* DB+Extension.swift */; };
 		B8BFC53C2238203700E153AB /* AgnDetailHomeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8BFC53B2238203700E153AB /* AgnDetailHomeView.swift */; };
 		B8BFC53E2238205E00E153AB /* AgnDetailHomeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8BFC53D2238205D00E153AB /* AgnDetailHomeView.xib */; };
+		B8DB97E4228569FC00A9A0D1 /* STTeacherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB97E3228569FC00A9A0D1 /* STTeacherInfoViewController.swift */; };
 		B8F117C62232E827008B63B8 /* STMineAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F117C52232E826008B63B8 /* STMineAccountViewController.swift */; };
 		B8F117C82232E846008B63B8 /* STMineAccountDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F117C72232E846008B63B8 /* STMineAccountDetailViewController.swift */; };
 		B8F117CA2232EDED008B63B8 /* STMineBalanceViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8F117C92232EDED008B63B8 /* STMineBalanceViewController.swift */; };
@@ -897,6 +898,7 @@
 		B8BD92D421E64C200089495F /* DB+Extension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = "DB+Extension.swift"; sourceTree = "<group>"; };
 		B8BFC53B2238203700E153AB /* AgnDetailHomeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AgnDetailHomeView.swift; sourceTree = "<group>"; };
 		B8BFC53D2238205D00E153AB /* AgnDetailHomeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = AgnDetailHomeView.xib; sourceTree = "<group>"; };
+		B8DB97E3228569FC00A9A0D1 /* STTeacherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTeacherInfoViewController.swift; sourceTree = "<group>"; };
 		B8F117C52232E826008B63B8 /* STMineAccountViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineAccountViewController.swift; sourceTree = "<group>"; };
 		B8F117C72232E846008B63B8 /* STMineAccountDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineAccountDetailViewController.swift; sourceTree = "<group>"; };
 		B8F117C92232EDED008B63B8 /* STMineBalanceViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMineBalanceViewController.swift; sourceTree = "<group>"; };
@@ -1905,6 +1907,7 @@
 				B827230021E6316300147397 /* STPayOrderViewController.swift */,
 				B827230221E6317000147397 /* STFinishPayViewController.swift */,
 				B86B8F0B22428AC00017D580 /* STVideoPlayViewController.swift */,
+				B8DB97E3228569FC00A9A0D1 /* STTeacherInfoViewController.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -2965,6 +2968,7 @@
 				B8BB6A5E2230339E0001AB5D /* MineCourseTableViewCell.swift in Sources */,
 				B816EB5C221DBA6400F024D5 /* STEditVideoViewController.swift in Sources */,
 				C45AAE5221B6A13500692D7D /* UserVideosView.swift in Sources */,
+				B8DB97E4228569FC00A9A0D1 /* STTeacherInfoViewController.swift in Sources */,
 				B8F117D82232F53C008B63B8 /* WithdrawViewModel.swift in Sources */,
 				B85DBFF32221CEB6000D3977 /* STNeedForClassViewController.swift in Sources */,
 				B85DBFF12221CB75000D3977 /* STNeedForCourseViewController.swift in Sources */,

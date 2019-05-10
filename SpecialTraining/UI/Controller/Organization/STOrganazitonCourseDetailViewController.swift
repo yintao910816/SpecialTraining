@@ -84,10 +84,10 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
 
         homeView = AgnDetailHomeView.init()
         recommendCourseView = RecommendCourseView()
-//        teacherCol = TeachersCollectionVIew()
+        teacherCol = TeachersCollectionVIew()
 
         scrollOutlet.addSubview(homeView)
-//        scrollOutlet.addSubview(teacherCol)
+        scrollOutlet.addSubview(teacherCol)
         scrollOutlet.addSubview(recommendCourseView)
     }
     
@@ -115,12 +115,22 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
             .drive(homeView.datasource)
             .disposed(by: disposeBag)
 
-//        viewModel.teachersDatasource.asDriver()
-//            .drive(teacherCol.datasource)
-//            .disposed(by: disposeBag)
-//
+        viewModel.teachersDatasource.asDriver()
+            .drive(teacherCol.datasource)
+            .disposed(by: disposeBag)
+        teacherCol.itemSelectedSubject
+            .subscribe(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "teacherInfoSegue", sender: model)
+            })
+            .disposed(by: disposeBag)
+
+
         viewModel.courseListDatasource.asDriver()
             .drive(recommendCourseView.datasource)
+            .disposed(by: disposeBag)
+        
+        recommendCourseView.courseDidSelected
+            .bind(to: viewModel.gotoCourdetailSubject)
             .disposed(by: disposeBag)
 
         viewModel.advListDatasource.asDriver()
@@ -134,7 +144,7 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
         super.viewDidLayoutSubviews()
         homeView.frame = .init(x: 0, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
         recommendCourseView.frame = .init(x: scrollOutlet.width, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
-//        teacherCol.frame = .init(x: scrollOutlet.width * 2, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
+        teacherCol.frame = .init(x: scrollOutlet.width * 2, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
     }
     
     override func prepare(parameters: [String : Any]?) {
@@ -146,6 +156,8 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
             segue.destination.prepare(parameters: ["shopId": sender as! String])
         }else if segue.identifier == "mapSegue" {
             segue.destination.prepare(parameters: sender as? [String: Any])
+        }else if segue.identifier == "teacherInfoSegue" {
+            segue.destination.prepare(parameters: ["model": sender as! ShopDetailTeacherModel])
         }
     }
 }

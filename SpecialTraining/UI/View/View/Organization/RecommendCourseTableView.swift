@@ -20,7 +20,8 @@ class RecommendCourseView: UIView {
 
     let datasource = Variable([ShopDetailCourseModel]())
     let advDatasource = Variable([ShopDetailAdvModel]())
-    
+    let courseDidSelected = PublishSubject<ShopDetailCourseModel>()
+
     private let disposeBag = DisposeBag()
 
     override init(frame: CGRect) {
@@ -93,6 +94,11 @@ class RecommendCourseView: UIView {
             .drive(onNext: { [weak self] data in
                 self?.carouselView.setData(source: data)
             })
+            .disposed(by: disposeBag)
+        
+        courseListView.rx.modelSelected(ShopDetailCourseModel.self)
+            .asDriver()
+            .drive(courseDidSelected)
             .disposed(by: disposeBag)
     }
 

@@ -76,7 +76,7 @@
                             </userDefinedRuntimeAttribute>
                         </userDefinedRuntimeAttributes>
                     </label>
-                    <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yab-2r-exD">
+                    <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="yab-2r-exD">
                         <rect key="frame" x="225" y="142" width="85" height="20"/>
                         <color key="backgroundColor" red="0.14509803921568626" green="0.65490196078431373" blue="0.98039215686274506" alpha="1" colorSpace="deviceRGB"/>
                         <constraints>

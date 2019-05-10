@@ -14,12 +14,14 @@ class TeachersCollectionVIew: UICollectionView {
     
     lazy var disposeBag: DisposeBag = { return DisposeBag() }()
 
-    let datasource = Variable([ShopTeacherModel]())
-
+    let datasource = Variable([ShopDetailTeacherModel]())
+    let itemSelectedSubject = PublishSubject<ShopDetailTeacherModel>()
+    
     private let layout = VideoFlowLayout()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         self.layout.interSpacing = 10
+        self.layout.lineSpacing  = 10
         self.layout.edgeInsets = .init(top: 10, left: 10, bottom: 10, right: 10)
         super.init(frame: frame, collectionViewLayout: self.layout)
         
@@ -46,6 +48,11 @@ class TeachersCollectionVIew: UICollectionView {
             .drive(rx.items(cellIdentifier: "TeachersCellID", cellType: TeachersCell.self)) { (_, model, cell) in
                 cell.model = model
             }
+            .disposed(by: disposeBag)
+        
+        rx.modelSelected(ShopDetailTeacherModel.self)
+            .asDriver()
+            .drive(itemSelectedSubject)
             .disposed(by: disposeBag)
     }
 

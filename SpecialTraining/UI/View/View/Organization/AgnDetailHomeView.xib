@@ -29,10 +29,10 @@
                         <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Hnu-pY-OUM">
                             <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                             <subviews>
-                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c86-ij-aJE">
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="c86-ij-aJE">
                                     <rect key="frame" x="0.0" y="0.0" width="375" height="130"/>
                                 </imageView>
-                                <imageView contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ozs-39-sIh">
+                                <imageView clipsSubviews="YES" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="Ozs-39-sIh">
                                     <rect key="frame" x="215" y="10" width="160" height="120"/>
                                     <constraints>
                                         <constraint firstAttribute="width" constant="160" id="AjV-ov-bE5"/>
@@ -47,8 +47,8 @@
                                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="TmU-5D-IzB">
                                                 <rect key="frame" x="0.0" y="0.0" width="160" height="40"/>
                                                 <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                                <inset key="titleEdgeInsets" minX="-50" minY="0.0" maxX="0.0" maxY="0.0"/>
-                                                <inset key="imageEdgeInsets" minX="92" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="titleEdgeInsets" minX="-25" minY="0.0" maxX="0.0" maxY="0.0"/>
+                                                <inset key="imageEdgeInsets" minX="110" minY="0.0" maxX="0.0" maxY="0.0"/>
                                                 <state key="normal" title="更多照片" image="btn_arrow_right_white"/>
                                                 <connections>
                                                     <action selector="actions:" destination="-1" eventType="touchUpInside" id="oRZ-xc-XDL"/>

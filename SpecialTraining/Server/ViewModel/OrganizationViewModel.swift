@@ -10,7 +10,7 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class OrganizationViewModel: BaseViewModel {
+class OrganizationViewModel: BaseViewModel, VMNavigation {
     
 //    // 广告
 //    var advListDatasource = Variable([AgencyDetailAdvModel]())
@@ -32,8 +32,11 @@ class OrganizationViewModel: BaseViewModel {
 
     var logoObser = Variable("")
     var navTitleObser = Variable("")
-        
-    var shopId: String!
+
+    /// 跳转课程详情
+    let gotoCourdetailSubject = PublishSubject<ShopDetailCourseModel>()
+
+    private var shopId: String!
 
     init(shopId: String, locationAction: Driver<Void>) {
         super.init()
@@ -43,6 +46,12 @@ class OrganizationViewModel: BaseViewModel {
         reloadSubject.subscribe(onNext: { [weak self] _ in
             self?.loadDatas()
         })
+            .disposed(by: disposeBag)
+        
+        gotoCourdetailSubject
+            .subscribe(onNext: { model in
+                OrganizationViewModel.sbPush("STHome", "courseDetailCtrl", parameters: ["course_id": model.course_id])
+            })
             .disposed(by: disposeBag)
     }
     
@@ -58,8 +67,6 @@ class OrganizationViewModel: BaseViewModel {
         STProvider.request(.shopRead(shopId: shopId))
             .map(model: ShopDetailModel.self)
             .subscribe(onSuccess: { [weak self] data in
-                self?.hud.noticeHidden()
-
                 self?.advListDatasource.value = data.advList
                 self?.agnInfoDatasource.value = data
                 self?.courseListDatasource.value = data.course
@@ -67,6 +74,9 @@ class OrganizationViewModel: BaseViewModel {
                 
                 self?.logoObser.value = data.logo
                 self?.navTitleObser.value = data.shop_name
+                
+                self?.hud.noticeHidden()
+
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
             }

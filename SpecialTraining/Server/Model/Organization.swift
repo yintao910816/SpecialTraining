@@ -294,9 +294,24 @@ class ShopDetailTeacherModel: HJModel {
     var introduce: String = ""
     var pic: String = ""
     var teacher_level: String = ""
-    var pic_width: CGFloat = 0
-    var pic_high: CGFloat = 0
+    var pic_width: NSNumber = NSNumber.init(value: 0)
+    var pic_high: NSNumber = NSNumber.init(value: 0)
 
+    lazy var imgShowHeight: CGFloat = {
+        let h = CGFloat(self.pic_high.floatValue)
+        let w = CGFloat(self.pic_width.floatValue)
+        let scale: CGFloat = h / w
+        return cellWidth * CGFloat(scale)
+    }()
+    
+    lazy var cellWidth: CGFloat = {
+        let w = (PPScreenW - 30) / 2.0
+        return w
+    }()
+    
+    lazy var cellHeight: CGFloat = {
+        return imgShowHeight + TeachersCell.withoutImageHeight
+    }()
 }
 
 /// 店铺详情 - 课程
