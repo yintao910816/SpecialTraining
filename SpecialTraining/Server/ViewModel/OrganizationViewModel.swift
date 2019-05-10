@@ -12,15 +12,24 @@ import RxCocoa
 
 class OrganizationViewModel: BaseViewModel {
     
-    // 广告
-    var advListDatasource = Variable([AgencyDetailAdvModel]())
-    // 机构首页信息
-    var agnInfoDatasource = Variable(OrganazitionShopModel())
-    // 课程
-    var courseListDatasource = Variable([ShopCourseModel]())
-    //
-    var teachersDatasource = Variable([ShopTeacherModel]())
-    
+//    // 广告
+//    var advListDatasource = Variable([AgencyDetailAdvModel]())
+//    // 机构首页信息
+//    var agnInfoDatasource = Variable(OrganazitionShopModel())
+//    // 课程
+//    var courseListDatasource = Variable([ShopCourseModel]())
+//    //
+//    var teachersDatasource = Variable([ShopTeacherModel]())
+
+    /// 课程广告
+    var advListDatasource = Variable([ShopDetailAdvModel]())
+    /// 机构首页信息
+    var agnInfoDatasource = Variable(ShopDetailModel())
+    /// 课程
+    var courseListDatasource = Variable([ShopDetailCourseModel]())
+    /// 师资
+    var teachersDatasource = Variable([ShopDetailTeacherModel]())
+
     var logoObser = Variable("")
     var navTitleObser = Variable("")
         
@@ -47,7 +56,7 @@ class OrganizationViewModel: BaseViewModel {
         hud.noticeLoading()
         
         STProvider.request(.shopRead(shopId: shopId))
-            .map(model: OrganazitionShopModel.self)
+            .map(model: ShopDetailModel.self)
             .subscribe(onSuccess: { [weak self] data in
                 self?.hud.noticeHidden()
 

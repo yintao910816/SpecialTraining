@@ -152,6 +152,7 @@ class STHomeViewController: BaseViewController {
 //            .disposed(by: disposeBag)
 
         recomendColView.prepare(viewModel.nearByCourseViewModel, NearCourseListModel.self, showFooter: false)
+        
         viewModel.nearByCourseViewModel.nearByCourseSourse.asDriver()
             .drive(recomendColView.datasource)
             .disposed(by: disposeBag)
@@ -182,6 +183,10 @@ class STHomeViewController: BaseViewController {
             .subscribe(onNext: { [unowned self] model in
                 self.performSegue(withIdentifier: "courseDetailSegue", sender: model.course_id)
             })
+            .disposed(by: disposeBag)
+        
+        recomendColView.clickedIconSubject
+            .bind(to: viewModel.clickedIconSubject)
             .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(Void())

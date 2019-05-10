@@ -12,12 +12,17 @@ import RxSwift
 class AgnDetailHomeView: UIView {
 
     @IBOutlet var contentView: UIView!
+    @IBOutlet weak var scrollView: UIScrollView!
     @IBOutlet weak var contentLable: UILabel!
+    @IBOutlet weak var bottomCoverOutlet: UIImageView!
+    @IBOutlet weak var topCoverOutlet: UIImageView!
 
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable(OrganazitionShopModel())
-    let contentHeightObser = Variable(CGFloat(0))
+    let datasource = Variable(ShopDetailModel())
+    
+    @IBAction func actions(_ sender: UIButton) {
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,12 +41,21 @@ class AgnDetailHomeView: UIView {
 
     private func rxBind() {
         datasource.asDriver()
-            .map{ $0.content }
-            .drive(onNext: { [weak self] text in
-                self?.contentLable.text = text
-                self?.contentLable.sizeToFit()
-                self?.contentHeightObser.value = self?.contentLable.height ?? 0
-            })
+            .drive(onNext: { [weak self] model in self?.setContent(model: model) })
             .disposed(by: disposeBag)
+    }
+    
+    private func setContent(model: ShopDetailModel) {
+        contentLable.text = model.content
+        contentLable.sizeToFit()
+        
+        if model.picList.count >= 2 {
+            bottomCoverOutlet.setImage(model.picList.first)
+            topCoverOutlet.setImage(model.picList[1])
+        }else if model.picList.count > 0 {
+            bottomCoverOutlet.setImage(model.picList.first)
+        }
+
+        scrollView.contentSize = .init(width: width, height: 175 + contentLable.height)
     }
 }

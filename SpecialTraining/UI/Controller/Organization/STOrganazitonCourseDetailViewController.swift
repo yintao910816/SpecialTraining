@@ -17,13 +17,10 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
     @IBOutlet weak var homeOutlet: UIButton!
     @IBOutlet weak var courseOutlet: UIButton!
     @IBOutlet weak var teachersBrefOutlet: UIButton!
-    @IBOutlet weak var carouseOutlet: CarouselView!
-    @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var navTitleOutlet: UILabel!
     @IBOutlet weak var locationOutlet: UIButton!
     
-    private var activityBrefTB: ActivityBrefTableView!
-    private var recommendCourseTB: RecommendCourseTableView!
+    private var recommendCourseView: RecommendCourseView!
     private var teacherCol: TeachersCollectionVIew!
     
     private var homeView: AgnDetailHomeView!
@@ -51,8 +48,6 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
     
     private func setButtonState(selected idx: Int, _ needScroll: Bool = true) {
         let btns = [homeOutlet, courseOutlet, teachersBrefOutlet]
-        let titles = ["店铺介绍", "开设课程", "最强师资"]
-        titleOutlet.text = titles[idx]
         if idx != selectedIdx {
             for i in 0..<btns.count {
                 if i == idx {
@@ -88,12 +83,12 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
         scrollOutlet.contentSize = .init(width: PPScreenW * 3, height: scrollOutlet.height)
 
         homeView = AgnDetailHomeView.init()
-        recommendCourseTB = RecommendCourseTableView()
-        teacherCol = TeachersCollectionVIew()
+        recommendCourseView = RecommendCourseView()
+//        teacherCol = TeachersCollectionVIew()
 
         scrollOutlet.addSubview(homeView)
-        scrollOutlet.addSubview(teacherCol)
-        scrollOutlet.addSubview(recommendCourseTB)
+//        scrollOutlet.addSubview(teacherCol)
+        scrollOutlet.addSubview(recommendCourseView)
     }
     
     override func rxBind() {
@@ -110,32 +105,36 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-        viewModel.advListDatasource.asDriver()
-            .drive(onNext: { [weak self] data in
-                self?.carouseOutlet.setData(source: data)
-            })
-            .disposed(by: disposeBag)
+//        viewModel.advListDatasource.asDriver()
+//            .drive(onNext: { [weak self] data in
+//                self?.carouseOutlet.setData(source: data)
+//            })
+//            .disposed(by: disposeBag)
 
         viewModel.agnInfoDatasource.asDriver()
             .drive(homeView.datasource)
             .disposed(by: disposeBag)
 
-        viewModel.teachersDatasource.asDriver()
-            .drive(teacherCol.datasource)
-            .disposed(by: disposeBag)
-
+//        viewModel.teachersDatasource.asDriver()
+//            .drive(teacherCol.datasource)
+//            .disposed(by: disposeBag)
+//
         viewModel.courseListDatasource.asDriver()
-            .drive(recommendCourseTB.datasource)
+            .drive(recommendCourseView.datasource)
             .disposed(by: disposeBag)
 
+        viewModel.advListDatasource.asDriver()
+            .drive(recommendCourseView.advDatasource)
+            .disposed(by: disposeBag)
+        
         viewModel.reloadSubject.onNext(Void())
     }
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
-        homeView.frame = .init(x: 0, y: 0, width: scrollOutlet.width, height: 300)
-        recommendCourseTB.frame = .init(x: scrollOutlet.width, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
-        teacherCol.frame = .init(x: scrollOutlet.width * 2, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
+        homeView.frame = .init(x: 0, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
+        recommendCourseView.frame = .init(x: scrollOutlet.width, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
+//        teacherCol.frame = .init(x: scrollOutlet.width * 2, y: 0, width: scrollOutlet.width, height: scrollOutlet.height)
     }
     
     override func prepare(parameters: [String : Any]?) {

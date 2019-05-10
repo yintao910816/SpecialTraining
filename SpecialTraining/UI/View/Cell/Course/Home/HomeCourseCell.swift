@@ -22,12 +22,20 @@ class HomeCourseCell: UICollectionViewCell {
     @IBOutlet weak var addressOutlet: UILabel!
     @IBOutlet weak var secondTitleTopCns: NSLayoutConstraint!
     @IBOutlet weak var setLineOutlet: UIView!
-    @IBOutlet weak var coverOutlet: UIImageView!
+    @IBOutlet weak var coverOutlet: UIButton!
     @IBOutlet weak var priceOutlet: UILabel!
+    
+    public var clickedIconCallBack: ((HomeNearbyCourseItemModel) ->())?
+    
+    @IBAction func actions(_ sender: UIButton) {
+        clickedIconCallBack?(model)
+    }
     
     override func awakeFromNib() {
         super.awakeFromNib()
         // Initialization code
+        coverOutlet.imageView?.contentMode = .scaleAspectFill
+        coverOutlet.clipsToBounds = true
     }
 
     var model: HomeNearbyCourseItemModel! {

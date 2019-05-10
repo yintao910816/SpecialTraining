@@ -18,10 +18,10 @@ import RxDataSources
 class HomeRecommendCollectionView: UICollectionView {
     
     private let disposeBag = DisposeBag()
+    private var carouseDatas = [AdvertListModel]()
     
     public let datasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
-
-    private var carouseDatas = [AdvertListModel]()
+    public let clickedIconSubject = PublishSubject<HomeNearbyCourseItemModel>()
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
@@ -53,6 +53,7 @@ class HomeRecommendCollectionView: UICollectionView {
         let datasourceSignal = RxCollectionViewSectionedReloadDataSource<SectionModel<Int, HomeCellSize>>.init(configureCell: { (_, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: courseListCellID, for: indexPath) as! HomeCourseCell
             cell.model = (model as! HomeNearbyCourseItemModel)
+            cell.clickedIconCallBack = { [weak self] model in self?.clickedIconSubject.onNext(model) }
             return cell
         }, configureSupplementaryView: { [unowned self] (_, col, kind, indexPath) -> UICollectionReusableView in
             if indexPath.section == 0 {

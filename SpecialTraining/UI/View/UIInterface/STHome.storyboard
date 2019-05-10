@@ -427,7 +427,7 @@
         <!--Organaziton Course Detail View Controller-->
         <scene sceneID="avw-Aw-3uF">
             <objects>
-                <viewController id="vnb-9R-D3W" customClass="STOrganazitonCourseDetailViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="ShopInfoSegue" id="vnb-9R-D3W" customClass="STOrganazitonCourseDetailViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="NPi-uy-ZGi"/>
                         <viewControllerLayoutGuide type="bottom" id="fyk-BC-aWW"/>
@@ -437,7 +437,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Fw5-m6-dml">
-                                <rect key="frame" x="0.0" y="64" width="375" height="240"/>
+                                <rect key="frame" x="0.0" y="64" width="375" height="40"/>
                                 <subviews>
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="g6G-Yp-cuD">
                                         <rect key="frame" x="0.0" y="0.0" width="50" height="40"/>
@@ -517,50 +517,24 @@
                                             <constraint firstItem="PLW-81-Gx1" firstAttribute="leading" secondItem="05y-A0-mYx" secondAttribute="leading" id="uUs-Qk-fcJ"/>
                                         </constraints>
                                     </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="xbJ-ks-MqP" customClass="CarouselView" customModule="SpecialTraining" customModuleProvider="target">
-                                        <rect key="frame" x="0.0" y="40" width="375" height="160"/>
-                                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                                    </view>
-                                    <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="uhx-f4-j70">
-                                        <rect key="frame" x="15" y="210" width="3" height="20"/>
-                                        <color key="backgroundColor" red="0.95294117647058818" green="0.32941176470588235" blue="0.33333333333333331" alpha="1" colorSpace="deviceRGB"/>
-                                        <constraints>
-                                            <constraint firstAttribute="width" constant="3" id="Bot-vd-VpC"/>
-                                            <constraint firstAttribute="height" constant="20" id="QP6-3q-17h"/>
-                                        </constraints>
-                                    </view>
-                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="机构介绍" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="WJV-Jz-KsZ">
-                                        <rect key="frame" x="23" y="210.5" width="65.5" height="19.5"/>
-                                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
-                                        <nil key="textColor"/>
-                                        <nil key="highlightedColor"/>
-                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                 <constraints>
                                     <constraint firstItem="v5o-wS-mNz" firstAttribute="centerY" secondItem="g6G-Yp-cuD" secondAttribute="centerY" id="3um-TG-KUe"/>
-                                    <constraint firstItem="WJV-Jz-KsZ" firstAttribute="centerY" secondItem="uhx-f4-j70" secondAttribute="centerY" id="CK1-tt-QcM"/>
                                     <constraint firstItem="g6G-Yp-cuD" firstAttribute="top" secondItem="Fw5-m6-dml" secondAttribute="top" id="HUe-fN-z6a"/>
-                                    <constraint firstAttribute="bottom" secondItem="uhx-f4-j70" secondAttribute="bottom" constant="10" id="Lae-7J-atn"/>
                                     <constraint firstItem="v5o-wS-mNz" firstAttribute="height" secondItem="g6G-Yp-cuD" secondAttribute="height" id="Mx7-gM-GEk"/>
                                     <constraint firstItem="v5o-wS-mNz" firstAttribute="width" secondItem="g6G-Yp-cuD" secondAttribute="width" id="Ndq-E0-PY8"/>
-                                    <constraint firstAttribute="height" constant="240" id="O0W-Qk-CC9"/>
+                                    <constraint firstAttribute="height" constant="40" id="O0W-Qk-CC9"/>
                                     <constraint firstItem="v5o-wS-mNz" firstAttribute="leading" secondItem="g6G-Yp-cuD" secondAttribute="trailing" id="OdD-2L-5Uj"/>
                                     <constraint firstItem="05y-A0-mYx" firstAttribute="centerY" secondItem="v5o-wS-mNz" secondAttribute="centerY" id="Ueq-YB-zOl"/>
-                                    <constraint firstItem="xbJ-ks-MqP" firstAttribute="top" secondItem="g6G-Yp-cuD" secondAttribute="bottom" id="YDi-em-4fS"/>
-                                    <constraint firstAttribute="trailing" secondItem="xbJ-ks-MqP" secondAttribute="trailing" id="Yts-Az-JD1"/>
                                     <constraint firstItem="05y-A0-mYx" firstAttribute="height" secondItem="v5o-wS-mNz" secondAttribute="height" id="ZN6-Mz-6sv"/>
-                                    <constraint firstItem="uhx-f4-j70" firstAttribute="top" secondItem="xbJ-ks-MqP" secondAttribute="bottom" constant="10" id="ZdU-sX-5uT"/>
-                                    <constraint firstItem="WJV-Jz-KsZ" firstAttribute="leading" secondItem="uhx-f4-j70" secondAttribute="trailing" constant="5" id="dI0-Jp-3zH"/>
-                                    <constraint firstItem="xbJ-ks-MqP" firstAttribute="leading" secondItem="Fw5-m6-dml" secondAttribute="leading" id="dc0-iO-gsm"/>
-                                    <constraint firstItem="uhx-f4-j70" firstAttribute="leading" secondItem="Fw5-m6-dml" secondAttribute="leading" constant="15" id="iKX-k2-CiF"/>
                                     <constraint firstItem="05y-A0-mYx" firstAttribute="width" secondItem="v5o-wS-mNz" secondAttribute="width" id="nLV-y6-as7"/>
                                     <constraint firstItem="g6G-Yp-cuD" firstAttribute="leading" secondItem="Fw5-m6-dml" secondAttribute="leading" id="nZG-S6-I4N"/>
                                     <constraint firstItem="05y-A0-mYx" firstAttribute="leading" secondItem="v5o-wS-mNz" secondAttribute="trailing" constant="-0.5" id="xCJ-P8-nGh"/>
                                 </constraints>
                             </view>
                             <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="lVu-Cw-pgK">
-                                <rect key="frame" x="0.0" y="304" width="375" height="314"/>
+                                <rect key="frame" x="0.0" y="104" width="375" height="514"/>
                                 <connections>
                                     <outlet property="delegate" destination="vnb-9R-D3W" id="C8a-8l-0gD"/>
                                 </connections>
@@ -760,14 +734,12 @@
                     </view>
                     <connections>
                         <outlet property="bottomHeightCns" destination="QmU-oU-tRe" id="WPz-jN-4Nz"/>
-                        <outlet property="carouseOutlet" destination="xbJ-ks-MqP" id="Qjc-Bt-OoF"/>
                         <outlet property="courseOutlet" destination="NTb-Fw-XAx" id="sZv-jU-o3E"/>
                         <outlet property="homeOutlet" destination="Dxp-cR-8zK" id="pug-gG-0U8"/>
                         <outlet property="locationOutlet" destination="ylG-Lc-z8e" id="z1U-s5-QTY"/>
                         <outlet property="navTitleOutlet" destination="eiU-RI-5bn" id="Zg8-B7-qfw"/>
                         <outlet property="scrollOutlet" destination="lVu-Cw-pgK" id="rcu-q6-QSw"/>
                         <outlet property="teachersBrefOutlet" destination="PLW-81-Gx1" id="LrO-zc-fRs"/>
-                        <outlet property="titleOutlet" destination="WJV-Jz-KsZ" id="OTr-gj-t2M"/>
                         <outlet property="topViewHeightCns" destination="Lrz-Cd-Pg3" id="ZK3-d5-6TJ"/>
                         <segue destination="Reo-Jo-EcW" kind="show" id="wNe-3e-HTT"/>
                         <segue destination="G6L-Hh-YVD" kind="show" identifier="mapSegue" id="wWz-ff-yaT"/>
@@ -1741,7 +1713,7 @@
         <image name="show_my_location" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sv0-t4-f5S"/>
+        <segue reference="wWz-ff-yaT"/>
         <segue reference="GvK-5q-bEm"/>
     </inferredMetricsTieBreakers>
 </document>

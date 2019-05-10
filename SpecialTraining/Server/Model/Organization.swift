@@ -236,3 +236,83 @@ class OrganazitonPicModel: HJModel {
     var category_name: String = ""
     var shop_pic: String = ""
 }
+
+
+//MARK:
+//MARK: 店铺详情数据
+
+/// 店铺详情
+class ShopDetailModel: HJModel {
+    var op_id: String = ""
+    var agn_id: String = ""
+    var shop_name: String = ""
+    var logo: String = ""
+    var descriptionText: String = ""
+    var content: String = ""
+    var contact: String = ""
+    var label: String = ""
+    var tel: String = ""
+    var mob: String = ""
+    var address: String = ""
+    var work_time: String = ""
+    var lng: String = ""
+    var lat: String = ""
+    var createtime: String = ""
+    var check_truth: String = ""
+    var status: String = ""
+
+    var picList: [String] = []
+    
+    var teachers: [ShopDetailTeacherModel] = []
+    var advList: [ShopDetailAdvModel] = []
+    var course: [ShopDetailCourseModel] = []
+    
+    override func mapping(mapper: HelpingMapper) {
+        mapper.specify(property: &descriptionText, name: "description")
+    }
+}
+
+/// 店铺详情 - 课程轮播图
+class ShopDetailAdvModel: HJModel {
+    var adv_id: String = ""
+    var adv_title: String = ""
+    var adv_image: String = ""
+    var adv_url: String = ""
+    var adv_type: String = ""
+}
+
+extension ShopDetailAdvModel: CarouselSource {
+    
+    var url: String? { return adv_image }
+}
+
+/// 店铺详情 - 师资
+class ShopDetailTeacherModel: HJModel {
+
+    var teacher_id: String = ""
+    var teacher_name: String = ""
+    var introduce: String = ""
+    var pic: String = ""
+    var teacher_level: String = ""
+    var pic_width: CGFloat = 0
+    var pic_high: CGFloat = 0
+
+}
+
+/// 店铺详情 - 课程
+class ShopDetailCourseModel: HJModel {
+    var course_id: String = ""
+    var shop_id: String = ""
+    var title: String = ""
+    var pic: String = ""
+    var about_price: String = ""
+    var label: String = ""
+    var introduce: String = ""
+    var content: String = ""
+    var pic_list: String = ""
+    var type_id: String = ""
+    var type_name: String = ""
+    var flag: String = ""
+    var createtime: String = ""
+    var status: String = ""
+}

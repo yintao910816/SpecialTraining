@@ -10,11 +10,13 @@ import Foundation
 import RxSwift
 import RxDataSources
 
-class HomeViewModel: BaseViewModel {
+class HomeViewModel: BaseViewModel, VMNavigation {
    
     let nearByCourseViewModel       = HomeNearByCourseViewModel()
     let expericeCourseViewModel     = HomeExperienceCourseViewModel()
     let nearByOrgnazitionViewModel  = HomenNearByOrgnazitionViewModel()
+    
+    let clickedIconSubject = PublishSubject<HomeNearbyCourseItemModel>()
     
     let navigationItemTitle = Variable((false, "荆州市"))
     
@@ -49,6 +51,12 @@ class HomeViewModel: BaseViewModel {
             ._doNext(forNotice: hud)
             .subscribe(onNext: { [unowned self] _ in
                 self.loadDatas()
+            })
+            .disposed(by: disposeBag)
+        
+        clickedIconSubject
+            .subscribe(onNext: { model in
+                HomeViewModel.sbPush("STHome", "ShopInfoSegue", parameters: ["shop_id": model.shop_id])
             })
             .disposed(by: disposeBag)
 

@@ -20,7 +20,7 @@ class STMineAccountViewController: BaseViewController {
     
     @IBAction func actions(_ sender: UIButton) {
         if let model = viewModel.getAccountModel() {
-            if (Double(model.can_commission) ?? 0) > 1 {
+            if (Double(model.can_commission) ?? 0) >= 1 {
                 performSegue(withIdentifier: "balanceToFundsSegue", sender: model)
             }else {
                 NoticesCenter.alert(title: "提示", message: "最小提现金额为1元")
