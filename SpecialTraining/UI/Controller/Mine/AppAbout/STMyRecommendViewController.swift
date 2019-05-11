@@ -18,7 +18,7 @@ class STMyRecommendViewController: BaseViewController {
             navigationController?.popViewController(animated: true)
         }else if sender.tag == 101 {
             // 分享
-            STHelper.presentShare(self, "优学乐秀", "测试分享", "推荐有奖_01", nil)
+            STHelper.presentShare(self, "邀请你体验优学乐秀APP", "学一学 秀一秀 就在优学乐秀\n帮家长找到好的培训机构", "推荐有奖_01", "http://api.youpeixunjiaoyu.com/web")
         }
     }
 

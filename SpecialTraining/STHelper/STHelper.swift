@@ -115,7 +115,7 @@ extension STHelper {
         let shareParames = NSMutableDictionary()
         shareParames.ssdkSetupShareParams(byText: content,
                                           images: [image],
-                                          url: link?.isEmpty == false ? URL.init(string: link!) : URL.init(string: "https://www.xiaoshuo520.com"),
+                                          url: URL.init(string: link ?? ""),
                                           title: title,
                                           type: .auto)
 

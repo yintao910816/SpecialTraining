@@ -290,7 +290,7 @@ extension API {
             params["code"] = code
             params["pswd"] = pswd
         case .sendCode(let mobile):
-            params["mobile"] = mobile
+            params["mob"] = mobile
         case .refreshToken(let token):
             params["token"] = token
         case .thirdPartyLogin(let code):
