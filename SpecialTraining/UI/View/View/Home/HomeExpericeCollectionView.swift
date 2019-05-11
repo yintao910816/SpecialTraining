@@ -13,10 +13,10 @@ import RxDataSources
 class HomeExpericeCollectionView: UICollectionView {
 
     private let disposeBag = DisposeBag()
-    
-    public let datasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
-    
     private var carouseDatas = [AdvertListModel]()
+
+    public let datasource = Variable(([SectionModel<Int, HomeCellSize>](), [AdvertListModel]()))
+    public let itemDidSelected = PublishSubject<ExperienceCourseItemModel>()
 
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         super.init(frame: frame, collectionViewLayout: UICollectionViewFlowLayout())
@@ -66,6 +66,11 @@ class HomeExpericeCollectionView: UICollectionView {
                 return data.0
             })
             .drive(rx.items(dataSource: datasourceSignal))
+            .disposed(by: disposeBag)
+        
+        rx.modelSelected(ExperienceCourseItemModel.self)
+            .asDriver()
+            .drive(itemDidSelected)
             .disposed(by: disposeBag)
     }
     

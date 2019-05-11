@@ -28,3 +28,20 @@ class DataModel<T>: ResponseModel {
 
 }
 
+class PhotoModel: CarouselSource {
+    
+    var photoURL: String = ""
+    
+    class func creatPhotoModels(photoList: [String]) ->[PhotoModel] {
+        var datas = [PhotoModel]()
+        for item in photoList {
+            let model = PhotoModel()
+            model.photoURL = item
+            datas.append(model)
+        }
+        return datas
+    }
+    
+    var url: String? { return photoURL }
+}
+

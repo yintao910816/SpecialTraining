@@ -114,6 +114,8 @@
 		B827230521E6336E00147397 /* VerifyOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827230421E6336E00147397 /* VerifyOrderViewModel.swift */; };
 		B827230721E6338100147397 /* PayOrderViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827230621E6338100147397 /* PayOrderViewModel.swift */; };
 		B827230B21E633A700147397 /* FinishPayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B827230A21E633A700147397 /* FinishPayViewModel.swift */; };
+		B82B2C51228712D40057AFBA /* STExpericeCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B2C50228712D40057AFBA /* STExpericeCourseDetailViewController.swift */; };
+		B82B2C532287160D0057AFBA /* ExpericeCourseDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82B2C522287160D0057AFBA /* ExpericeCourseDetailViewModel.swift */; };
 		B82CEED621CD3552000DE904 /* UserAccountServer.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82CEED521CD3552000DE904 /* UserAccountServer.swift */; };
 		B82F45BD21A97B70009DC25C /* MedieView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F45BC21A97B70009DC25C /* MedieView.swift */; };
 		B82F45C021A98D83009DC25C /* ImagePickerManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = B82F45BF21A98D83009DC25C /* ImagePickerManager.swift */; };
@@ -655,6 +657,8 @@
 		B827230421E6336E00147397 /* VerifyOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOrderViewModel.swift; sourceTree = "<group>"; };
 		B827230621E6338100147397 /* PayOrderViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayOrderViewModel.swift; sourceTree = "<group>"; };
 		B827230A21E633A700147397 /* FinishPayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FinishPayViewModel.swift; sourceTree = "<group>"; };
+		B82B2C50228712D40057AFBA /* STExpericeCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STExpericeCourseDetailViewController.swift; sourceTree = "<group>"; };
+		B82B2C522287160D0057AFBA /* ExpericeCourseDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpericeCourseDetailViewModel.swift; sourceTree = "<group>"; };
 		B82CEED521CD3552000DE904 /* UserAccountServer.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = UserAccountServer.swift; sourceTree = "<group>"; };
 		B82F45BC21A97B70009DC25C /* MedieView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MedieView.swift; sourceTree = "<group>"; };
 		B82F45BF21A98D83009DC25C /* ImagePickerManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImagePickerManager.swift; sourceTree = "<group>"; };
@@ -1300,6 +1304,7 @@
 			isa = PBXGroup;
 			children = (
 				B81EDF7521A54D8500F9D3B0 /* STMapViewController.swift */,
+				B82B2C50228712D40057AFBA /* STExpericeCourseDetailViewController.swift */,
 				B8547E1921A63F4300281554 /* STSelectedCityViewController.swift */,
 				B87F096322240EAF00310445 /* STSearchViewController.swift */,
 			);
@@ -1765,6 +1770,7 @@
 				B8F117E32232FA91008B63B8 /* MineEditPayAccountViewModel.swift */,
 				B8686AE4224161FF0059BCB9 /* TeacherClassViewModel.swift */,
 				B845ADD52262682A00BD0AC3 /* FeedbackViewModel.swift */,
+				B82B2C522287160D0057AFBA /* ExpericeCourseDetailViewModel.swift */,
 			);
 			path = ViewModel;
 			sourceTree = "<group>";
@@ -3038,6 +3044,7 @@
 				B82722F321E5E42300147397 /* CourseDetail.swift in Sources */,
 				B80B6BE8219FB00800C33F11 /* CAGradientLayer+Gradient.swift in Sources */,
 				B81E90B721A3B2CE000754E3 /* UserDefaults+Cache.swift in Sources */,
+				B82B2C532287160D0057AFBA /* ExpericeCourseDetailViewModel.swift in Sources */,
 				B87F8F8421A2933D00DE9DC1 /* MessageListCell.swift in Sources */,
 				B8FC3AE02217219A00889483 /* TimeChooseView.m in Sources */,
 				C408422B21B559A500C491A8 /* STVideoDemandViewController.swift in Sources */,
@@ -3300,6 +3307,7 @@
 				B85DBFFA2221D5E2000D3977 /* WaitForDealView.swift in Sources */,
 				B8F7375A226CDBDD002C1B66 /* MineOrderView.swift in Sources */,
 				B8F264A82270B6880058D5F6 /* HomeCourseCell.swift in Sources */,
+				B82B2C51228712D40057AFBA /* STExpericeCourseDetailViewController.swift in Sources */,
 				B8350AB521A1112D0020A6A6 /* MineSectionCollectionReusableView.swift in Sources */,
 				B85F3364219E966400023958 /* STMessageViewController.swift in Sources */,
 				B8547E1A21A63F4300281554 /* STSelectedCityViewController.swift in Sources */,
@@ -3455,8 +3463,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = 9QC82883K4;
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VF5FF4J6Z3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3484,9 +3492,9 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gtsh.potatochat.PotatoEnterprise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youpeixun.SpecialTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = gtsh.potatochat.PotatoEnterprise_dev;
+				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SpecialTraining/Main/SpecialTraining-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3499,8 +3507,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Manual;
-				DEVELOPMENT_TEAM = "";
+				CODE_SIGN_STYLE = Automatic;
+				DEVELOPMENT_TEAM = VF5FF4J6Z3;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3528,7 +3536,7 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = gtsh.potatochat.PotatoEnterprise;
+				PRODUCT_BUNDLE_IDENTIFIER = com.youpeixun.SpecialTraining;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SpecialTraining/Main/SpecialTraining-Bridging-Header.h";

@@ -179,9 +179,9 @@ class STHomeViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        expericeColView.rx.modelSelected(ExperienceCourseItemModel.self)
+        expericeColView.itemDidSelected
             .subscribe(onNext: { [unowned self] model in
-                self.performSegue(withIdentifier: "courseDetailSegue", sender: model.course_id)
+                self.performSegue(withIdentifier: "expericeCourseDetailSegue", sender: model.course_id)
             })
             .disposed(by: disposeBag)
         
@@ -195,8 +195,8 @@ class STHomeViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "organizationSegue" {
             segue.destination.prepare(parameters: ["agn_id": "1"])
-        }else if segue.identifier == "courseDetailSegue" {
-            segue.destination.prepare(parameters: ["course_id": sender as! String])
+        }else if segue.identifier == "expericeCourseDetailSegue" {
+            segue.destination.prepare(parameters: ["courseId": sender as! String])
         }else if segue.identifier == "organizationShopSegue" {
             segue.destination.prepare(parameters: ["agn_id": sender as! String])
         }

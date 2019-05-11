@@ -121,6 +121,7 @@ class CourseDetailInfoModel: HJModel {
     var flag: String = ""
     var createtime: String = ""
     var status: String = ""
+    var pic_list: [String] = []
 }
 
 class CourseDetailVideoModel: HJModel {
