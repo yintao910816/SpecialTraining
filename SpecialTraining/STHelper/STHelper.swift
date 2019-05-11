@@ -89,6 +89,18 @@ extension STHelper {
     }
 }
 
+extension STHelper {
+    
+    class func phoneCall(with number: String) {
+        guard let url = URL(string: "tel://\(number)") else {
+            NoticesCenter.alert(title: "提示", message: "电话号码有误")
+            return
+        }
+
+        UIApplication.shared.openURL(url)
+    }
+}
+
 import AVFoundation
 extension STHelper {
     

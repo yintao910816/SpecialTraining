@@ -43,6 +43,14 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
             setButtonState(selected: 1)
         }else if sender == teachersBrefOutlet {
             setButtonState(selected: 2)
+        }else if sender.tag == 10000 {
+            // 拨打电话
+            if viewModel != nil {
+                STHelper.phoneCall(with: viewModel.agnInfoDatasource.value.mob)
+            }
+        }else if sender.tag == 10001 {
+            // 客服
+            NoticesCenter.alert(message: "功能未开放，期待中...")
         }
     }
     

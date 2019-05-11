@@ -571,13 +571,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="YN5-iJ-ENp">
                                         <rect key="frame" x="94" y="0.0" width="93.5" height="49"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAS-uZ-efg">
+                                            <button opaque="NO" tag="10000" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aAS-uZ-efg">
                                                 <rect key="frame" x="34.5" y="5" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="IBH-cV-9LG"/>
                                                     <constraint firstAttribute="width" secondItem="aAS-uZ-efg" secondAttribute="height" multiplier="1:1" id="R3k-uo-Pxg"/>
                                                 </constraints>
                                                 <state key="normal" image="shop_dianhua"/>
+                                                <connections>
+                                                    <action selector="actions:" destination="vnb-9R-D3W" eventType="touchUpInside" id="cBB-xM-TsE"/>
+                                                </connections>
                                             </button>
                                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="电话" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="KG6-RZ-Oh0">
                                                 <rect key="frame" x="33" y="32" width="27" height="16"/>
@@ -623,13 +626,16 @@
                                     <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="qoU-xP-RwU">
                                         <rect key="frame" x="187.5" y="0.0" width="94" height="49"/>
                                         <subviews>
-                                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-tv-43g">
+                                            <button opaque="NO" tag="10001" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vcs-tv-43g">
                                                 <rect key="frame" x="35" y="5" width="24" height="24"/>
                                                 <constraints>
                                                     <constraint firstAttribute="width" constant="24" id="EXc-tg-Wci"/>
                                                     <constraint firstAttribute="width" secondItem="vcs-tv-43g" secondAttribute="height" multiplier="1:1" id="PnG-S2-Vt9"/>
                                                 </constraints>
                                                 <state key="normal" image="shop_kefu"/>
+                                                <connections>
+                                                    <action selector="actions:" destination="vnb-9R-D3W" eventType="touchUpInside" id="Khf-zH-8XA"/>
+                                                </connections>
                                             </button>
                                         </subviews>
                                         <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
@@ -1781,7 +1787,7 @@
         <image name="show_my_location" width="200" height="200"/>
     </resources>
     <inferredMetricsTieBreakers>
-        <segue reference="Sv0-t4-f5S"/>
+        <segue reference="wWz-ff-yaT"/>
         <segue reference="GvK-5q-bEm"/>
     </inferredMetricsTieBreakers>
 </document>
