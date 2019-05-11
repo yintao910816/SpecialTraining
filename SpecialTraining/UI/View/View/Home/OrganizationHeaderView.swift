@@ -13,6 +13,10 @@ class OrganizationHeaderView: UIView {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var carouselOutlet: CarouselView!
     
+    deinit {
+        carouselOutlet.dellocTimer()
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         

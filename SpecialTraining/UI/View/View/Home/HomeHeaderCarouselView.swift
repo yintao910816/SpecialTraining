@@ -14,6 +14,10 @@ class HomeHeaderCarouselView: UICollectionReusableView {
     
     @IBOutlet weak var carouselView: CarouselView!
     
+    deinit {
+        carouselView.dellocTimer()
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         

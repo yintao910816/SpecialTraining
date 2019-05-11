@@ -493,6 +493,7 @@
 		C413E379226C6D8E001D745F /* MineOrderRecordCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C413E377226C6D8E001D745F /* MineOrderRecordCell.swift */; };
 		C413E37A226C6D8E001D745F /* MineOrderRecordCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C413E378226C6D8E001D745F /* MineOrderRecordCell.xib */; };
 		C41BFEAE2286C4D40005DA1C /* TYClickedButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BFEAD2286C4D40005DA1C /* TYClickedButton.swift */; };
+		C41BFEB02286F4620005DA1C /* STPhotoShowViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C41BFEAF2286F4620005DA1C /* STPhotoShowViewController.swift */; };
 		C41D24FD222FA60F00DC3D83 /* ZQVideoPlayVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D24CF222FA60F00DC3D83 /* ZQVideoPlayVC.m */; };
 		C41D24FE222FA60F00DC3D83 /* ZQPhotoPreviewVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D24D2222FA60F00DC3D83 /* ZQPhotoPreviewVC.m */; };
 		C41D24FF222FA60F00DC3D83 /* ZQAlbumListVC.m in Sources */ = {isa = PBXBuildFile; fileRef = C41D24D6222FA60F00DC3D83 /* ZQAlbumListVC.m */; };
@@ -1043,6 +1044,7 @@
 		C413E377226C6D8E001D745F /* MineOrderRecordCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderRecordCell.swift; sourceTree = "<group>"; };
 		C413E378226C6D8E001D745F /* MineOrderRecordCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineOrderRecordCell.xib; sourceTree = "<group>"; };
 		C41BFEAD2286C4D40005DA1C /* TYClickedButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TYClickedButton.swift; sourceTree = "<group>"; };
+		C41BFEAF2286F4620005DA1C /* STPhotoShowViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STPhotoShowViewController.swift; sourceTree = "<group>"; };
 		C41D24CF222FA60F00DC3D83 /* ZQVideoPlayVC.m */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.objc; path = ZQVideoPlayVC.m; sourceTree = "<group>"; };
 		C41D24D0222FA60F00DC3D83 /* ZQAlbumNavVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAlbumNavVC.h; sourceTree = "<group>"; };
 		C41D24D1222FA60F00DC3D83 /* ZQAlbumListVC.h */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.c.h; path = ZQAlbumListVC.h; sourceTree = "<group>"; };
@@ -1552,6 +1554,7 @@
 				B85F3321219E902A00023958 /* MainNavigationController.swift */,
 				B85F3322219E902A00023958 /* STTabBarController.swift */,
 				B844477C21B825AE00808F5A /* BaseTableViewController.swift */,
+				C41BFEAF2286F4620005DA1C /* STPhotoShowViewController.swift */,
 			);
 			path = Base;
 			sourceTree = "<group>";
@@ -3255,6 +3258,7 @@
 				C413E370226C60EC001D745F /* MineOrderViewModel.swift in Sources */,
 				B80B6BDF219FA5FA00C33F11 /* BaseFilesOwner.swift in Sources */,
 				B85F339D219EA37100023958 /* CourseDisplayCell.swift in Sources */,
+				C41BFEB02286F4620005DA1C /* STPhotoShowViewController.swift in Sources */,
 				C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */,
 				B81EDF7321A53C1300F9D3B0 /* BMKMapHelper.swift in Sources */,
 				B8FBFA5D21A3DE3D00AECB75 /* PlaceholderTextView.swift in Sources */,

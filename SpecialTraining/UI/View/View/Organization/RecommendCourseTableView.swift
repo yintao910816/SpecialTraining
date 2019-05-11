@@ -35,6 +35,10 @@ class RecommendCourseView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    deinit {
+        carouselView.dellocTimer()
+    }
+    
     private func setupUI() {
         carouselView = CarouselView.init(frame: .init(x: 0, y: 0, width: width, height: 140))
         

@@ -113,11 +113,13 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-//        viewModel.advListDatasource.asDriver()
-//            .drive(onNext: { [weak self] data in
-//                self?.carouseOutlet.setData(source: data)
-//            })
-//            .disposed(by: disposeBag)
+        homeView.showMorePhotoSubject
+            .subscribe(onNext: { [weak self] list in
+                let photoCtrl = STPhotoShowViewController()
+                photoCtrl.configData(photoList: list)
+                self?.present(photoCtrl, animated: true, completion: nil)
+            })
+            .disposed(by: disposeBag)
 
         viewModel.agnInfoDatasource.asDriver()
             .drive(homeView.datasource)

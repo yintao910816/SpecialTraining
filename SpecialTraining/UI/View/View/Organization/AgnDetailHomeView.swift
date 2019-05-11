@@ -19,9 +19,14 @@ class AgnDetailHomeView: UIView {
 
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable(ShopDetailModel())
+    public let datasource = Variable(ShopDetailModel())
+    /// 查看更多照片
+    public let showMorePhotoSubject = PublishSubject<[String]>()
     
     @IBAction func actions(_ sender: UIButton) {
+        if sender.tag == 100 {
+            showMorePhotoSubject.onNext(datasource.value.picList)
+        }
     }
     
     override init(frame: CGRect) {

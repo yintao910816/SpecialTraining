@@ -13,6 +13,10 @@ class HomeHeaderExperienceView: UICollectionReusableView {
     @IBOutlet weak var carouselOutlet: CarouselView!
     @IBOutlet var contentView: UICollectionReusableView!
     
+    deinit {
+        carouselOutlet.dellocTimer()
+    }
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         

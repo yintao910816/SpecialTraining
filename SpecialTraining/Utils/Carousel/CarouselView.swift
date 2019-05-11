@@ -26,6 +26,8 @@ class CarouselView: UIView {
 
     private let dataControl = CarouselDatasource.init()
     
+    private var autoScroll: Bool = true
+    
     private var timer: Timer?
     
     public var tapCallBack: ((CarouselSource) ->Void)?
@@ -60,7 +62,13 @@ class CarouselView: UIView {
         super.init(coder: aDecoder)
     }
     
-    public func setData<T: CarouselSource>(source: [T]) {
+    /**
+     * source -- 遵循 CarouselSource 协议的图片数据源
+     * autoScroll 是否要自动轮播
+     */
+    public func setData<T: CarouselSource>(source: [T], autoScroll: Bool = true) {
+        self.autoScroll = autoScroll
+        
         if source.count > 0 {
             tapGesture.isEnabled = true
             scroll.isUserInteractionEnabled = true
@@ -72,7 +80,9 @@ class CarouselView: UIView {
             
             setCarouselImage()
             
-            timer?.fireDate = Date.init(timeIntervalSinceNow: timeInterval)
+            if self.autoScroll == true {
+                timer?.fireDate = Date.init(timeIntervalSinceNow: timeInterval)
+            }
         }
     }
     
@@ -169,10 +179,13 @@ class CarouselView: UIView {
         scroll.contentSize = .init(width: scroll.width * 3, height: scroll.height)
     }
     
-    deinit {
+    func dellocTimer() {
         timer?.invalidate()
         timer = nil
-        
+    }
+    
+    deinit {
+        dellocTimer()
         PrintLog("计时器释放了 -- \(self)")
     }
 }
@@ -180,7 +193,9 @@ class CarouselView: UIView {
 extension CarouselView: UIScrollViewDelegate {
     
     func scrollViewWillBeginDragging(_ scrollView: UIScrollView) {
-        timer?.fireDate = Date.distantFuture
+        if autoScroll == true {
+            timer?.fireDate = Date.distantFuture
+        }
     }
     
     func scrollViewDidEndDecelerating(_ scrollView: UIScrollView) {
@@ -194,7 +209,9 @@ extension CarouselView: UIScrollViewDelegate {
             scrollViewDidEndDecelerating(scrollView)
         }
         
-        timer?.fireDate = Date.init(timeIntervalSinceNow: timeInterval)
+        if autoScroll == true {
+            timer?.fireDate = Date.init(timeIntervalSinceNow: timeInterval)
+        }
     }
     
     func scrollViewDidEndScrollingAnimation(_ scrollView: UIScrollView) {

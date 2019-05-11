@@ -23,6 +23,10 @@ class STOrganizationShopViewController: BaseViewController {
         navigationController?.popViewController(animated: true)
     }
     
+    deinit {
+        carouseView.dellocTimer()
+    }
+
     override func viewWillAppear(_ animated: Bool) {        
         navigationController?.setNavigationBarHidden(true, animated: animated)
     }
