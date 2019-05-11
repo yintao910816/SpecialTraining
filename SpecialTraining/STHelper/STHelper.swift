@@ -129,7 +129,7 @@ extension STHelper {
                                           images: [image],
                                           url: URL.init(string: link ?? ""),
                                           title: title,
-                                          type: .auto)
+                                          type: .webPage)
 
         let shareList = [SSDKPlatformType.subTypeWechatSession.rawValue, SSDKPlatformType.subTypeWechatTimeline.rawValue]
         ShareSDK.showShareActionSheet(viewController.view,
