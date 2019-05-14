@@ -109,6 +109,7 @@ class CourseDetailModel: HJModel {
 
 class CourseDetailInfoModel: HJModel {
     var shop_name: String = ""
+    var mob: String = ""
     var course_id: String = ""
     var shop_id: String = ""
     var title: String = ""
@@ -117,11 +118,12 @@ class CourseDetailInfoModel: HJModel {
     var label: String = ""
     var introduce: String = ""
     var content: String = ""
+    var pic_list: [String] = []
     var type_id: String = ""
+    var type_name: String = ""
     var flag: String = ""
     var createtime: String = ""
-    var status: String = ""
-    var pic_list: [String] = []
+    var status: String = ""    
 }
 
 class CourseDetailVideoModel: HJModel {
@@ -190,7 +192,7 @@ extension CourseDetailClassModel: DBOperation {
         static let class_idEx = Expression<String>("class_id")
         static let class_nameEx = Expression<String>("class_name")
         static let introduceEx = Expression<String>("introduce")
-        static let suit_peoplesEx = Expression<String>("suit_peoples")
+        static let suit_peoplesEx = Expression<String?>("suit_peoples")
         static let describeEx = Expression<String>("describe")
         static let class_daysEx = Expression<String>("class_days")
         static let priceEx = Expression<String>("price")
@@ -237,6 +239,13 @@ extension CourseDetailClassModel: DBOperation {
         }
     }
     
+    class func inster(classInfo data: CourseDetailClassModel, shopModel: ShopInfoModel) {
+        DBQueue.share.insterOrUpdateQueue(ExpressionEx.class_idEx == data.class_id,
+                                          config(setters: data, shopModel: shopModel),
+                                          courseOrderTB,
+                                          CourseDetailClassModel.self)
+    }
+
     class func remove(classInfo classId: String) {
         DBQueue.share.deleteRowQueue(ExpressionEx.class_idEx == classId, courseOrderTB, CourseDetailClassModel.self)
     }
@@ -266,7 +275,7 @@ extension CourseDetailClassModel: DBOperation {
                                                 model.class_id = row[ExpressionEx.class_idEx]
                                                 model.class_name = row[ExpressionEx.class_nameEx]
                                                 model.introduce = row[ExpressionEx.introduceEx]
-                                                model.suit_peoples = row[ExpressionEx.suit_peoplesEx]
+                                                model.suit_peoples = row[ExpressionEx.suit_peoplesEx] ?? ""
                                                 model.describe = row[ExpressionEx.describeEx]
                                                 model.class_days = row[ExpressionEx.class_daysEx]
                                                 model.price = row[ExpressionEx.priceEx]
@@ -323,7 +332,7 @@ extension CourseDetailClassModel: DBOperation {
                                                     model.class_id = row[ExpressionEx.class_idEx]
                                                     model.class_name = row[ExpressionEx.class_nameEx]
                                                     model.introduce = row[ExpressionEx.introduceEx]
-                                                    model.suit_peoples = row[ExpressionEx.suit_peoplesEx]
+                                                    model.suit_peoples = row[ExpressionEx.suit_peoplesEx] ?? ""
                                                     model.describe = row[ExpressionEx.describeEx]
                                                     model.class_days = row[ExpressionEx.class_daysEx]
                                                     model.price = row[ExpressionEx.priceEx]
@@ -379,4 +388,27 @@ extension CourseDetailClassModel: DBOperation {
         return tempSetters
     }
     
+    private class func config(setters model: CourseDetailClassModel, shopModel: ShopInfoModel) ->[Setter] {
+        var tempSetters = [Setter]()
+        tempSetters.append(ExpressionEx.class_idEx <- model.class_id)
+        tempSetters.append(ExpressionEx.class_nameEx <- model.class_name)
+        tempSetters.append(ExpressionEx.introduceEx <- model.introduce)
+        tempSetters.append(ExpressionEx.suit_peoplesEx <- model.suit_peoples)
+        tempSetters.append(ExpressionEx.describeEx <- model.describe)
+        tempSetters.append(ExpressionEx.class_daysEx <- model.class_days)
+        tempSetters.append(ExpressionEx.priceEx <- model.price)
+        tempSetters.append(ExpressionEx.createtimeEx <- model.createtime)
+        tempSetters.append(ExpressionEx.statusEx <- model.status)
+        tempSetters.append(ExpressionEx.teacher_idEx <- model.teacher_id)
+        tempSetters.append(ExpressionEx.picEx <- model.pic)
+        tempSetters.append(ExpressionEx.teacher_nameEx <- model.teacher_name)
+        tempSetters.append(ExpressionEx.class_categoryEx <- model.class_category)
+        
+        tempSetters.append(ExpressionEx.shop_idEx <- shopModel.shop_id)
+        tempSetters.append(ExpressionEx.shop_nameEx <- shopModel.shop_name)
+        tempSetters.append(ExpressionEx.titleEx <- shopModel.shop_name)
+        
+        return tempSetters
+    }
+
 }

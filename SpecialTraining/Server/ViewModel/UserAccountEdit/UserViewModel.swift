@@ -77,8 +77,6 @@ class LoginViewModel: BaseViewModel,VMNavigation {
         STProvider.request(.login(mobile: account, code: code))
             .map(model: LoginModel.self)
             .subscribe(onSuccess: { [weak self] model in
-//                STHelper.imLogin(uid: userInfo.uid, pass: userInfo.pwd)
-
                 UserAccountServer.share.save(loginUser: model)
                 
                 self?.hud.successHidden("登录成功", {

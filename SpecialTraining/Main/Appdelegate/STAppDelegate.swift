@@ -36,11 +36,7 @@ class STAppDelegate: UIResponder, UIApplicationDelegate {
         baiduMapConfig(application: application, launchOptions: launchOptions)
         //shareSDK
         setupShareSDK()
-        
-//        #if DEBUG
-//        STHelper.login(account: "666666", password: "111111")
-//        #endif
-        
+                
         return true
     }
     

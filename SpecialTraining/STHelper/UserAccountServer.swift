@@ -19,12 +19,17 @@ class UserAccountServer {
     var loginUser = LoginModel()
  
     final func save(loginUser userModel: LoginModel, isInsertDB: Bool = true) {
+        if userModel.member.uid <= 0 { return }
+        
         loginUser = userModel
         
         userDefault.token = userModel.access_token
         userDefault.uid = userModel.member.uid
 
         if isInsertDB == true {
+            // 环信
+            STHelper.imLogin(uid: userModel.member.mob, pass: "123456")
+
             UserInfoModel.inster(user: userModel)
             NotificationCenter.default.post(name: NotificationName.user.loginSuccess, object: nil)
         }

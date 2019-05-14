@@ -19,12 +19,37 @@ class STClassDetailViewController: BaseViewController {
     @IBOutlet weak var addressOutlet: UILabel!
     @IBOutlet weak var shopNameOutlet: UILabel!
     
+    @IBOutlet weak var buyOutlet: UIButton!
+    @IBOutlet weak var addShoppingCarOutlet: UIButton!
+
     private var viewModel: ClassDetailViewModel!
     
     private var classId: String = ""
     private var shopId: String  = ""
     
+    @IBAction func actions(_ sender: UIButton) {
+        if sender.tag == 200 {
+            // 客服
+            NoticesCenter.alert(message: "功能暂未开放，客服系统正在努力完善中...")
+        }else if sender.tag == 201 {
+            // 电话
+            let mob = viewModel.classInfoObser.value.1.mob
+            if mob.count > 0 {
+                STHelper.phoneCall(with: mob)
+            }
+        }else if sender.tag == 202 {
+            // 加入购物车
+            viewModel.insertShoppingCar.onNext(Void())
+        }else if sender.tag == 203 {
+            // 购买
+            viewModel.buySubject.onNext(Void())
+        }
+    }
+    
     override func setupUI() {
+        addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
+        buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
+
         iconOutlet.imageView?.contentMode = .scaleAspectFill
         
         tableView.estimatedRowHeight = 80
@@ -57,7 +82,7 @@ class STClassDetailViewController: BaseViewController {
         viewModel.reloadSubject.onNext(Void())
     }
 
-    private func setClassInfoView(data: (ClassInfoModel, ShopInfoModel)) {
+    private func setClassInfoView(data: (CourseDetailClassModel, ShopInfoModel)) {
         iconOutlet.setImage(data.0.pic)
         classNameOutlet.text = data.0.class_name
         classTimeOutlet.text = "上课时间:\n\(data.0.describe)"

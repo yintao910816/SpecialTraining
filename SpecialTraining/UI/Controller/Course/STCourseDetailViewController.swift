@@ -34,7 +34,9 @@ class STCourseDetailViewController: BaseViewController {
     @IBOutlet weak var desOutlet: UILabel!
     @IBOutlet weak var priceOutlet: UILabel!
     @IBOutlet weak var bottomRemindOutlet: UILabel!
-    
+    @IBOutlet weak var buyOutlet: UIButton!
+    @IBOutlet weak var addShoppingCarOutlet: UIButton!
+
     private var isGotopay: Bool = false
     
     @IBAction func actions(_ sender: UIButton) {
@@ -55,10 +57,13 @@ class STCourseDetailViewController: BaseViewController {
             break
         case 5001:
             // 客服
-            break
+            NoticesCenter.alert(message: "功能暂未开放，客服系统正在努力完善中...")
         case 5002:
             // 电话
-            break
+            let mob = viewModel.courseInfoDataSource.value.mob
+            if mob.count > 0 {
+                STHelper.phoneCall(with: mob)
+            }
         case 5003:
             // 加入购物车
             selectedClassView.animotion(animotion: true)
@@ -110,6 +115,9 @@ class STCourseDetailViewController: BaseViewController {
     override func setupUI() {
         navigationItem.title = "课程详情"
         
+        addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
+        buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
+
         selectedClassView = CourseClassSelectView.init(frame: .zero)
         
         scrollOutlet.contentSize = .init(width: 3*PPScreenW, height: scrollOutlet.height)

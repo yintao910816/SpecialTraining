@@ -9,10 +9,13 @@
 import Foundation
 import RxSwift
 
-class ExpericeCourseDetailViewModel: BaseViewModel {
+class ExpericeCourseDetailViewModel: BaseViewModel, VMNavigation {
     private var courseId: String = ""
     
     let courseInfoObser = Variable(CourseDetailModel())
+    let insertShoppingCar = PublishSubject<Void>()
+    let buySubject = PublishSubject<Void>()
+    let gotoShopDetailSubject = PublishSubject<Void>()
     
     init(courseId: String) {
         super.init()
@@ -23,6 +26,28 @@ class ExpericeCourseDetailViewModel: BaseViewModel {
             ._doNext(forNotice: hud)
             .subscribe(onNext: { [weak self] in
                 self?.requestData()
+            })
+            .disposed(by: disposeBag)
+        
+        insertShoppingCar
+            .subscribe(onNext: { [unowned self] in
+                self.insertShoppingClass()
+            })
+            .disposed(by: disposeBag)
+        
+        buySubject
+            .subscribe(onNext: { [unowned self] in
+                self.insertShoppingClass()
+                if self.courseInfoObser.value.classList.count > 0 {
+                    let classIds = [self.courseInfoObser.value.classList.first!.class_id]
+                    ExpericeCourseDetailViewModel.sbPush("STHome", "verifyCtrlID", parameters: ["classIds": classIds])
+                }
+            })
+            .disposed(by: disposeBag)
+        
+        gotoShopDetailSubject
+            .subscribe(onNext: { [unowned self] in
+                ExpericeCourseDetailViewModel.sbPush("STHome", "ShopInfoSegue", parameters: ["shop_id": self.courseInfoObser.value.course_info.shop_id])
             })
             .disposed(by: disposeBag)
     }
@@ -37,5 +62,11 @@ class ExpericeCourseDetailViewModel: BaseViewModel {
                 self?.hud.failureHidden(self?.errorMessage(error))
             }
             .disposed(by: disposeBag)
+    }
+    
+    private func insertShoppingClass() {
+        CourseDetailClassModel.inster(classInfo: courseInfoObser.value.classList, courseDetail: courseInfoObser.value.course_info)
+        NotificationCenter.default.post(name: NotificationName.Order.AddOrder, object: courseInfoObser.value.classList.first)
+        hud.successHidden("添加成功")
     }
 }

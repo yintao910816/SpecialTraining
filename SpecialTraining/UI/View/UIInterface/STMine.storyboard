@@ -1463,6 +1463,39 @@
             </objects>
             <point key="canvasLocation" x="-2495.1999999999998" y="2494.9025487256372"/>
         </scene>
+        <!--我的班级-->
+        <scene sceneID="hU3-iu-E62">
+            <objects>
+                <viewController title="我的班级" id="zRt-p7-rcd" customClass="STMyClassViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="adG-5c-jZD"/>
+                        <viewControllerLayoutGuide type="bottom" id="UPe-9c-iWr"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="fd2-Op-VBI">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="JqQ-rb-LmG">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="JqQ-rb-LmG" firstAttribute="top" secondItem="adG-5c-jZD" secondAttribute="bottom" id="CMl-Gf-L8C"/>
+                            <constraint firstItem="JqQ-rb-LmG" firstAttribute="leading" secondItem="fd2-Op-VBI" secondAttribute="leading" id="Lb4-cx-n7i"/>
+                            <constraint firstItem="UPe-9c-iWr" firstAttribute="top" secondItem="JqQ-rb-LmG" secondAttribute="bottom" id="V2W-is-El2"/>
+                            <constraint firstAttribute="trailing" secondItem="JqQ-rb-LmG" secondAttribute="trailing" id="yFL-py-Mcm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="JqQ-rb-LmG" id="6OL-Gj-NGC"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="jVF-Dk-WZo" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1463" y="2510"/>
+        </scene>
         <!--Mine Info View Controller-->
         <scene sceneID="9fh-73-ndi">
             <objects>
@@ -2278,6 +2311,7 @@
                         <segue destination="Mo1-vY-cKc" kind="show" identifier="faceBackSegue" id="WKX-Zt-D5V"/>
                         <segue destination="YQD-Sg-JNJ" kind="show" identifier="myRecommendSegue" id="RNp-2l-q8p"/>
                         <segue destination="oAd-Z0-eyR" kind="show" identifier="registerOrganizationSegue" id="kCQ-x9-6FW"/>
+                        <segue destination="zRt-p7-rcd" kind="show" identifier="myclassSegue" id="56j-Rw-lmD"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="ToY-Hd-2SP" userLabel="First Responder" sceneMemberID="firstResponder"/>

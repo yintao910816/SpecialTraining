@@ -10,13 +10,16 @@ import Foundation
 import RxSwift
 import RxCocoa
 
-class ClassDetailViewModel: BaseViewModel {
+class ClassDetailViewModel: BaseViewModel, VMNavigation {
     
     private var classId: String = ""
     private var shopId: String = ""
     
     public let lessonListObser = Variable([ClassListModel]())
-    public let classInfoObser = Variable((ClassInfoModel(), ShopInfoModel()))
+    public let classInfoObser = Variable((CourseDetailClassModel(), ShopInfoModel()))
+
+    let insertShoppingCar = PublishSubject<Void>()
+    let buySubject = PublishSubject<Void>()
 
     init(classId: String, shopId: String) {
         super.init()
@@ -25,6 +28,19 @@ class ClassDetailViewModel: BaseViewModel {
         
         reloadSubject
             .subscribe(onNext: { [weak self] _ in  self?.requestData() })
+            .disposed(by: disposeBag)
+        
+        insertShoppingCar
+            .subscribe(onNext: { [unowned self] in
+                self.insertShoppingClass()
+            })
+            .disposed(by: disposeBag)
+        
+        buySubject
+            .subscribe(onNext: { [unowned self] in
+                self.insertShoppingClass()
+                ExpericeCourseDetailViewModel.sbPush("STHome", "verifyCtrlID", parameters: ["classIds": [self.classInfoObser.value.0.class_id]])
+            })
             .disposed(by: disposeBag)
     }
     
@@ -42,5 +58,11 @@ class ClassDetailViewModel: BaseViewModel {
                 self?.hud.failureHidden(self?.errorMessage(error))
         }
         .disposed(by: disposeBag)
+    }
+    
+    private func insertShoppingClass() {
+        CourseDetailClassModel.inster(classInfo: classInfoObser.value.0, shopModel: classInfoObser.value.1)
+        NotificationCenter.default.post(name: NotificationName.Order.AddOrder, object: classInfoObser.value.0)
+        hud.successHidden("添加成功")
     }
 }

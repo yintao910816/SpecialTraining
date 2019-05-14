@@ -20,16 +20,52 @@ class STExpericeCourseDetailViewController: BaseViewController {
     @IBOutlet weak var contentOutlet: UILabel!
     @IBOutlet weak var contentWidthCns: NSLayoutConstraint!
     @IBOutlet weak var backTopCns: NSLayoutConstraint!
+    @IBOutlet weak var buyOutlet: UIButton!
+    @IBOutlet weak var addShoppingCarOutlet: UIButton!
+    @IBOutlet weak var bottomCns: NSLayoutConstraint!
     
     private var viewModel: ExpericeCourseDetailViewModel!
     private var courseId: String = ""
     
     @IBAction func actions(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        if sender.tag == 100 {
+            // 返回
+            navigationController?.popViewController(animated: true)
+        }else if sender.tag == 101 {
+            // 店铺
+            viewModel.gotoShopDetailSubject.onNext(Void())
+        }else if sender.tag == 102 {
+            // 客服
+            NoticesCenter.alert(message: "功能暂未开放，客服系统正在努力完善中...")
+        }else if sender.tag == 103 {
+            // 电话
+            let mob = viewModel.courseInfoObser.value.course_info.mob
+            if mob.count > 0 {
+                STHelper.phoneCall(with: mob)
+            }
+        }else if sender.tag == 104 {
+            // 加入购物车
+            viewModel.insertShoppingCar.onNext(Void())
+        }else if sender.tag == 105 {
+            // 购买
+            viewModel.buySubject.onNext(Void())
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func setupUI() {
-backTopCns.constant += LayoutSize.fitTopArea
+        if #available(iOS 11, *) {
+            scrollView.contentInsetAdjustmentBehavior = .never
+        }else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+
+        backTopCns.constant += LayoutSize.fitTopArea
+        addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
+        buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
     }
     
     override func rxBind() {

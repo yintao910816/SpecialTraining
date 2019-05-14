@@ -11,7 +11,7 @@ import Foundation
 class ClassDataModel: HJModel {
     var shop_info: ShopInfoModel = ShopInfoModel()
     var lessonList: [ClassListModel] = []
-    var class_info: ClassInfoModel = ClassInfoModel()
+    var class_info: CourseDetailClassModel = CourseDetailClassModel()
 }
 
 class ShopInfoModel: HJModel {
@@ -47,18 +47,20 @@ class ClassListModel: HJModel {
     }()
 }
 
-class ClassInfoModel: HJModel {
-    var class_days: String = ""
+//MARK:
+//MARK: 我的班级
+class MyClassModel: HJModel {
     var class_id: String = ""
     var class_name: String = ""
-    var course_id: String = ""
-    var course_pic: String = ""
-    var createtime: String = ""
-    var describe: String = ""
     var introduce: String = ""
-    var pic: String = ""
-    var price: String = ""
-    var status: String = ""
     var suit_peoples: String = ""
-    var teacher_name: String = ""
+    var describe: String = ""
+    var class_days: String = ""
+    var price: String = ""
+    var commission: String = ""
+    var createtime: String = ""
+    var status: String = ""
+//    var lessonList: String = ""
+    
+    var levelString: String = "0"
 }

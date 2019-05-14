@@ -109,7 +109,7 @@ extension STMineViewController: MineHeaderActions, VMNavigation {
     }
 
     func gotoMineCourse() {
-        performSegue(withIdentifier: "mineCourse", sender: nil)
+        performSegue(withIdentifier: "myclassSegue", sender: nil)
     }
     
     func gotoMineAccount() {

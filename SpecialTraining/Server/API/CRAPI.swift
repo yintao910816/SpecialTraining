@@ -98,6 +98,8 @@ enum API{
     case canclePayBack(order_no: String)
     /// 获取退款信息
     case refundDetails(order_no: String)
+    /// 我的班级
+    case myClass()
     
     /// 意见反馈
     case feedback(category_id: String, content: String, contact: String, member_id: String)
@@ -203,6 +205,8 @@ extension API: TargetType{
             return "v1/order/canncel_refund"
         case .refundDetails(_):
             return "v1/order/refund_details"
+        case .myClass():
+            return "v1/member/myCourse"
             
         case .feedback(_):
             return "v1/member/feedback"
@@ -335,7 +339,9 @@ extension API {
             params["order_no"] = order_no
         case .refundDetails(let order_no):
             params["order_no"] = order_no
-            
+        case .myClass():
+            params["id"]      = userDefault.uid
+
         case .agnCourse(let agn_id):
             params["agn_id"] = agn_id
         case .agnActivity(let agn_id):
