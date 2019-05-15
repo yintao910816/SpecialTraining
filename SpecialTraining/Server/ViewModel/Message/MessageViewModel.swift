@@ -11,10 +11,22 @@ import RxSwift
 
 class MessageViewModel: BaseViewModel {
     
-    var datasource = Variable([ChatListModel]())
+    public var datasource = Variable([ChatListModel]())
+    public var deleteConversationSubject = PublishSubject<IndexPath>()
     
     override init() {
         super.init()
+
+        deleteConversationSubject
+            ._doNext(forNotice: hud)
+            .subscribe(onNext: { [unowned self] indexPath in
+                let model = self.datasource.value[indexPath.row]
+                EMClient.shared()?.chatManager.deleteConversation(model.conversation.conversationId, isDeleteMessages: true, completion: { (msg, error) in
+                    let tempData = self.datasource.value.filter{ $0.conversation.conversationId != model.conversation.conversationId }
+                    self.datasource.value = tempData
+                })
+            })
+            .disposed(by: disposeBag)
 
         NotificationCenter.default.rx.notification(NotificationName.EaseMob.ConversationListChange)
             .subscribe(onNext: { [unowned self] _ in

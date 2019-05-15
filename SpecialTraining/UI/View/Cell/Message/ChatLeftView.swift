@@ -47,7 +47,7 @@ class ChatLeftView: UIView {
         didSet {
             timeOutlet.text = model.messageTime
             textOutlet.textLayout = model.textContentLayout
-            iconOutlet.setImage(model.iconStr, .userIcon)
+//            iconOutlet.setImage(model.iconStr, .userIcon)
             paopaoWidthCns.constant = model.textContentLayout.textBoundingSize.width + 20
         }
     }

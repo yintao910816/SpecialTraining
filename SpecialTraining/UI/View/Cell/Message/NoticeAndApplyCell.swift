@@ -21,7 +21,7 @@ class NoticeAndApplyCell: UITableViewCell {
     var model: ContactsModel! {
         didSet {
             cellIconOutlet.image = model.icon
-            cellTitleOutlet.text = model.title
+            cellTitleOutlet.text = model.userName.count > 0 ? model.userName : model.title
         }
     }
 }

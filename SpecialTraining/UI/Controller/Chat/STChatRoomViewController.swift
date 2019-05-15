@@ -84,6 +84,10 @@ class STChatRoomViewController: BaseViewController {
         
         keyboardManager.move(coverView: inputOutlet, moveView: inputOutlet)
     }
+    
+    override func prepare(parameters: [String : Any]?) {
+        conversation = (parameters!["conversation"] as! EMConversation)
+    }
 }
 
 extension STChatRoomViewController: UITableViewDelegate {

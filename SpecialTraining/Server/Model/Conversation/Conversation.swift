@@ -24,9 +24,11 @@ class ChatListModel: ChatMessageProtocol {
         m.conversation = conversation
         
         m.userName = conversation.conversationId
-        m.textContent = m.chatList(content: conversation.latestMessage)
-        m.textContentLayout = configAttr(model: m)
-        m.time = ConversationUtil.latestMessageTime(conversationModel: conversation)
+        if conversation.latestMessage != nil {
+            m.textContent = m.chatList(content: conversation.latestMessage)
+            m.textContentLayout = configAttr(model: m)
+            m.time = ConversationUtil.latestMessageTime(conversationModel: conversation)
+        }
         return m
     }
 
@@ -79,6 +81,26 @@ class ChatModel {
                 chat.uid = "\(userInfo.uid)"
                 chat.nickName = userInfo.nickname
                 chat.iconStr  = userInfo.headimgurl
+            }
+        }
+        
+        return chats
+    }
+    
+    class func setUser(chats: [ChatModel]) ->[ChatModel] {
+        let myInfo = UserAccountServer.share.loginUser
+        for chat in chats {
+            // 自己
+            if chat.message.from == "\(myInfo.member.mob)" {
+                chat.isMyselfSend = true
+//                chat.uid = "\(myInfo.uid)"
+//                chat.nickName = myInfo.nickname
+//                chat.iconStr  = myInfo.headimgurl
+            }else {
+                chat.isMyselfSend = false
+//                chat.uid = "\(userInfo.uid)"
+//                chat.nickName = userInfo.nickname
+//                chat.iconStr  = userInfo.headimgurl
             }
         }
         

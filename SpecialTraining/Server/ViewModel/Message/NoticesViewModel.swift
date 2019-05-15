@@ -50,11 +50,17 @@ class NoticesViewModel: BaseViewModel {
                     }else {
                         let tempDatas = strongSelf.listDatasource.value.filter{ $0.fromUser != model.fromUser }
                         strongSelf.listDatasource.value = tempDatas
-                        strongSelf.hud.successHidden("添加成功")
+                        strongSelf.hud.noticeHidden()
                         
                         AddFriendsModel.delete(with: model.fromUser)
                     }
                 })
+            })
+            .disposed(by: disposeBag)
+        
+        NotificationCenter.default.rx.notification(NotificationName.EaseMob.addFriend, object: nil)
+            .subscribe(onNext: { [weak self] _ in
+                self?.selectedDatas()
             })
             .disposed(by: disposeBag)
     }

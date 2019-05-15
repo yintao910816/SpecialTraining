@@ -38,5 +38,7 @@ class STNoticesViewController: BaseViewController {
                     .disposed(by: strongSelf.disposeBag)
             }
             .disposed(by: disposeBag)
+        
+        viewModel.reloadSubject.onNext(Void())
     }
 }

@@ -9,8 +9,20 @@
 import Foundation
 
 class ContactsModel {
-    var icon: UIImage?
+    var icon: UIImage? = UIImage.init(named: "demandView_bg")
     var title: String = ""
+    
+    var userName: String = ""
+    
+    class func creat(with users: [String]) ->[ContactsModel] {
+        var datas = [ContactsModel]()
+        for user in users {
+            let m = ContactsModel()
+            m.userName = user
+            datas.append(m)
+        }
+        return datas
+    }
 }
 
 //MARK:
@@ -38,6 +50,8 @@ extension AddFriendsModel: DBOperation {
     static func dbBind(_ builder: TableBuilder) {
         builder.column(ExpressionEx.idEx, primaryKey: true)
         builder.column(ExpressionEx.fromUserEx)
+        builder.column(ExpressionEx.toUserEx)
+        builder.column(ExpressionEx.isAddEx)
     }
     
     static func inster(with fromUser: String, complement: (()->())? = nil) {

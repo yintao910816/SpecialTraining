@@ -32,7 +32,8 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
     init(conversation: EMConversation) {
         super.init()
         self.conversation = conversation
-        
+        navTitle.value = conversation.conversationId
+
         ChatModel.config(data: conversation) { [weak self] datas in
             self?.datasource.value = datas
         }
@@ -63,19 +64,19 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
             .disposed(by: disposeBag)
 
         // 首次加载聊天界面数据
-        Observable.combineLatest(loadChatContent(), findUser(uid: conversation.conversationId))
-            ._doNext(forNotice: hud)
-            .subscribe(onNext: { [weak self] (chatModels, userInfo) in
-                self?.hud.noticeHidden()
-                self?.userInfoModel = userInfo
-                self?.navTitle.value = userInfo.nickname
-                self?.datasource.value = ChatModel.setUser(userInfo: userInfo, chats: chatModels)
-
-                self?.scrollTab.onNext(true)
-            }, onError: { [weak self] error in
-                self?.hud.failureHidden(self?.errorMessage(error))
-            })
-            .disposed(by: disposeBag)
+//        Observable.combineLatest(loadChatContent(), findUser(uid: conversation.conversationId))
+//            ._doNext(forNotice: hud)
+//            .subscribe(onNext: { [weak self] (chatModels, userInfo) in
+//                self?.hud.noticeHidden()
+//                self?.userInfoModel = userInfo
+//                self?.navTitle.value = userInfo.nickname
+//                self?.datasource.value = ChatModel.setUser(userInfo: userInfo, chats: chatModels)
+//
+//                self?.scrollTab.onNext(true)
+//            }, onError: { [weak self] error in
+//                self?.hud.failureHidden(self?.errorMessage(error))
+//            })
+//            .disposed(by: disposeBag)
         
         NotificationCenter.default.rx.notification(NotificationName.AudioPlayState.AudioPlayStart, object: nil)
             .subscribe(onNext: { [weak self] no in
@@ -157,11 +158,12 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
     // 构造文本消息
     private func sendMessage(content: String) {
         let body = EMTextMessageBody.init(text: content)
+        let from = EMClient.shared()!.currentUsername
         PrintLog(userDefault.uid)
         PrintLog(conversation.conversationId!)
 
         let amessage = EMMessage.init(conversationID: conversation.conversationId,
-                                      from: "\(userDefault.uid)",
+                                      from: from,
                                       to: conversation.conversationId,
                                       body: body,
                                       ext: ["em_apns_ext": ["em_push_title": content]])!
@@ -175,8 +177,9 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
         PrintLog(userDefault.uid)
         PrintLog(conversation.conversationId!)
         
+        let from = EMClient.shared()!.currentUsername
         let amessage = EMMessage.init(conversationID: conversation.conversationId,
-                                      from: "\(userDefault.uid)",
+                                      from: from,
                                       to: conversation.conversationId,
                                       body: body,
                                       ext: ["em_apns_ext": ["em_push_title": "语音消息"]])!
@@ -189,9 +192,14 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
             hud.failureHidden("图片发送失败")
             return
         }
+        PrintLog(userDefault.uid)
+        PrintLog(conversation.conversationId!)
+
+        let from = EMClient.shared()!.currentUsername
+
         let body = EMImageMessageBody.init(data: data, displayName: "image")
         let amessage = EMMessage.init(conversationID: conversation.conversationId,
-                                      from: "\(userDefault.uid)",
+                                      from: from,
                                       to: conversation.conversationId,
                                       body: body,
                                       ext: ["em_apns_ext": ["em_push_title": "图片消息"]])!
@@ -215,7 +223,8 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
         var tempDatas = datasource.value
         
         var appendDatas = ChatModel.appendModel(emMes: mesgs, conversation: conversation)
-        appendDatas = ChatModel.setUser(userInfo: userInfoModel, chats: appendDatas)
+//        appendDatas = ChatModel.setUser(userInfo: userInfoModel, chats: appendDatas)
+        appendDatas = ChatModel.setUser(chats: appendDatas)
         tempDatas.append(contentsOf: appendDatas)
         
         datasource.value = tempDatas
