@@ -38,7 +38,9 @@ extension EaseMobMessageManager: EMChatManagerDelegate {
 extension EaseMobMessageManager: EMContactManagerDelegate {
     
     func friendRequestDidReceive(fromUser aUsername: String!, message aMessage: String!) {
-        NotificationCenter.default.post(name: NotificationName.EaseMob.addFriend, object: aUsername)
+        AddFriendsModel.inster(with: aUsername) {
+            NotificationCenter.default.post(name: NotificationName.EaseMob.addFriend, object: aUsername)
+        }
 //        NoticesCenter.alert(message: "收到 \(aUsername ?? "") 的好友申请", cancleTitle: "拒绝", okTitle: "同意", callBackCancle: {
 //
 //        }) {
@@ -51,11 +53,13 @@ extension EaseMobMessageManager: EMContactManagerDelegate {
     }
     
     func friendRequestDidApprove(byUser aUsername: String!) {
-        NoticesCenter.alert(message: "\(aUsername) 已接受我的好友邀请")
+//        NoticesCenter.alert(message: "\(aUsername) 已接受我的好友邀请")
+        PrintLog("\(aUsername ?? "") 已接受我的好友邀请")
     }
     
     func friendshipDidRemove(byUser aUsername: String!) {
-        NoticesCenter.alert(message: "\(aUsername) 已解除与我的好友关系")
+//        NoticesCenter.alert(message: "\(aUsername) 已解除与我的好友关系")
+        PrintLog("\(aUsername ?? "") 已解除与我的好友关系")
     }
 
 }

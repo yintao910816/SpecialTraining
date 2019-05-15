@@ -35,7 +35,7 @@ class STAuthorCodeLoginViewController: BaseViewController {
         loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
         
         #if DEBUG
-        phoneOutlet.text = "18627844751"
+        phoneOutlet.text = "18872493739"
         codeOutlet.text = "8888"
         #endif
     }

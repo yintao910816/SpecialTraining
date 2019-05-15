@@ -36,7 +36,11 @@ class DbManager {
                 CourseDetailClassModel.dbBind(t)
             })
 
-            
+            table = Table(addFriendsApplyTB)
+            try db.run(table.create { t in
+                AddFriendsModel.dbBind(t)
+            })
+
             update(db)
             PrintLog("数据库版本：\(db.userVersion)")
             

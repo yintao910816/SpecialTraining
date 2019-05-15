@@ -124,7 +124,7 @@
                     <connections>
                         <outlet property="tableView" destination="7br-ZL-Ay2" id="tdy-1U-4cQ"/>
                         <segue destination="8J4-bb-Cqs" kind="show" identifier="addFriendsSegue" id="rTE-2L-qeF"/>
-                        <segue destination="5bT-o2-rg6" kind="show" id="9wo-xB-VgN"/>
+                        <segue destination="5bT-o2-rg6" kind="show" identifier="applysSegue" id="9wo-xB-VgN"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="rCj-wW-gCg" userLabel="First Responder" sceneMemberID="firstResponder"/>

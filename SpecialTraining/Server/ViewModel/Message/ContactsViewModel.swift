@@ -20,5 +20,9 @@ class ContactsViewModel: BaseViewModel {
         let testModel = ContactsModel()
         testModel.title = "申请与通知"
         listDataSource.value = [testModel]
+        
+        EMClient.shared()?.contactManager.getContactsFromServer(completion: { (data, error) in
+            PrintLog(data)
+        })
     }
 }

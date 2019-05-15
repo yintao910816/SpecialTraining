@@ -28,9 +28,13 @@ extension DBQueue {
     public final func insterOrUpdateQueue<T: DBOperation>(_ filier: Expression<Bool>? = nil,
                                           _ setters: [Setter],
                                           _ tbName: String,
-                                          _ type: T.Type){
+                                          _ type: T.Type,
+                                          complement: (() ->())? = nil){
         queue.async {
             type.dbInsterOrUpdate(filier, setters, tbName)
+            DispatchQueue.main.async {
+                complement?()
+            }
         }
     }
     
@@ -58,9 +62,15 @@ extension DBQueue {
         }
     }
     
-    public final func deleteRowQueue<T: DBOperation>(_ filier: Expression<Bool>, _ tbName: String, _ type: T.Type) {
+    public final func deleteRowQueue<T: DBOperation>(_ filier: Expression<Bool>,
+                                                     _ tbName: String,
+                                                     _ type: T.Type,
+                                                     complement: (() ->())? = nil) {
         queue.async {
             type.db_deleteRow(filier, tbName)
+            DispatchQueue.main.async {
+                complement?()
+            }
         }
     }
 

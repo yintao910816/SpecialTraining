@@ -39,9 +39,20 @@ class STContactsViewController: BaseViewController {
         
         tableView.rx.modelSelected(ContactsModel.self)
             .asDriver()
-            .drive(onNext: { model in
-                
+            .drive(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "applysSegue", sender: nil)
             })
             .disposed(by: disposeBag)
     }
 }
+
+//extension STContactsViewController: UITableViewDelegate {
+//    
+//}
+//
+//extension STContactsViewController: UITableViewDataSource {
+//    
+//    func sectionIndexTitles(for tableView: UITableView) -> [String]? {
+//        
+//    }
+//}

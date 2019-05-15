@@ -19,9 +19,9 @@ class FriendsApplyCell: UITableViewCell {
         // Initialization code
     }
 
-    var userName: String? {
+    var model: AddFriendsModel! {
         didSet {
-            titleOutlet.text = userName
+            titleOutlet.text = model.fromUser
         }
     }
 }
