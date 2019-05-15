@@ -13,6 +13,7 @@ class MessageHeaderFilesOwner: BaseFilesOwner {
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var shadowView: UIView!
     @IBOutlet weak var cornerView: UIView!
+    @IBOutlet weak var contactsOutlet: UIButton!
     
     @IBOutlet weak var topCns: NSLayoutConstraint!
     @IBOutlet weak var bgViewHeightCns: NSLayoutConstraint!

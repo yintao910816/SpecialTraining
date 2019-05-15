@@ -8,6 +8,6 @@
 
 import Foundation
 
-let easeMobAppKey = "1100181119010094#youpeixunspecialtraining"
+let easeMobAppKey = "1100181119010094#youxuelexiu"
 
 let bmkAK = "knMl3cnrsGmAkGiV4GkvERst6tv1yhRW"

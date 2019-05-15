@@ -26,3 +26,5 @@ struct DBUtls {
 let userTB                = "STUserTable"
 // 订单
 let courseOrderTB         = "courseOrderTable"
+// 添加好友请求
+let addFriendsApplyTB     = "addFriendsApplyTB"

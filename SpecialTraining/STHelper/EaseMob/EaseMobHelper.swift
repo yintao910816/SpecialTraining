@@ -38,15 +38,16 @@ extension EaseMobMessageManager: EMChatManagerDelegate {
 extension EaseMobMessageManager: EMContactManagerDelegate {
     
     func friendRequestDidReceive(fromUser aUsername: String!, message aMessage: String!) {
-        NoticesCenter.alert(message: "收到 \(aUsername ?? "") 的好友申请", cancleTitle: "拒绝", okTitle: "同意", callBackCancle: {
-
-        }) {
-            if let error = EMClient.shared()?.contactManager.acceptInvitation(forUsername: aUsername) {
-                PrintLog("同意 \(aUsername) 的好友申请 失败！")
-            }else {
-                PrintLog("已同意 \(aUsername) 的好友申请！")
-            }
-        }
+        NotificationCenter.default.post(name: NotificationName.EaseMob.addFriend, object: aUsername)
+//        NoticesCenter.alert(message: "收到 \(aUsername ?? "") 的好友申请", cancleTitle: "拒绝", okTitle: "同意", callBackCancle: {
+//
+//        }) {
+//            if let error = EMClient.shared()?.contactManager.acceptInvitation(forUsername: aUsername) {
+//                PrintLog("同意 \(aUsername) 的好友申请 失败！")
+//            }else {
+//                PrintLog("已同意 \(aUsername) 的好友申请！")
+//            }
+//        }
     }
     
     func friendRequestDidApprove(byUser aUsername: String!) {

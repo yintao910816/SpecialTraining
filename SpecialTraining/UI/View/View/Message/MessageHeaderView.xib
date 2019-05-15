@@ -12,6 +12,7 @@
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="MessageHeaderFilesOwner" customModule="SpecialTraining" customModuleProvider="target">
             <connections>
                 <outlet property="bgViewHeightCns" destination="PY0-n0-qTt" id="vHX-7g-RtX"/>
+                <outlet property="contactsOutlet" destination="4av-C5-eks" id="S8W-4N-lsK"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Xjj-PB-QTr"/>
                 <outlet property="cornerView" destination="Rab-Lm-w6Y" id="9oB-At-0EL"/>
                 <outlet property="shadowView" destination="nhv-Dt-h68" id="wvG-wr-PED"/>

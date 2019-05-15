@@ -56,11 +56,114 @@
                     <connections>
                         <outlet property="tableView" destination="T9R-M6-hik" id="00f-t5-JoM"/>
                         <segue destination="tWw-3D-ooZ" kind="show" identifier="chatRoomSegue" id="rDh-7u-4Fb"/>
+                        <segue destination="IR3-tg-sNN" kind="show" identifier="contactsSegue" id="wYB-jj-10j"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="m0L-rx-VVj" userLabel="First Responder" sceneMemberID="firstResponder"/>
             </objects>
             <point key="canvasLocation" x="1209" y="-402"/>
+        </scene>
+        <!--申请与通知-->
+        <scene sceneID="PYg-3E-GsJ">
+            <objects>
+                <viewController title="申请与通知" id="5bT-o2-rg6" customClass="STNoticesViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="jCM-gE-8V1"/>
+                        <viewControllerLayoutGuide type="bottom" id="ny3-Nn-vkt"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="Go4-ii-sjS">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="WUf-Qj-JWN">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="WUf-Qj-JWN" firstAttribute="top" secondItem="jCM-gE-8V1" secondAttribute="bottom" id="ACo-xe-WW4"/>
+                            <constraint firstAttribute="trailing" secondItem="WUf-Qj-JWN" secondAttribute="trailing" id="Kre-6x-QGu"/>
+                            <constraint firstItem="WUf-Qj-JWN" firstAttribute="leading" secondItem="Go4-ii-sjS" secondAttribute="leading" id="PWM-l6-LZo"/>
+                            <constraint firstItem="ny3-Nn-vkt" firstAttribute="top" secondItem="WUf-Qj-JWN" secondAttribute="bottom" id="jld-Ax-ygm"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="WUf-Qj-JWN" id="23o-kP-NgX"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="Ryb-yf-0H4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="355" y="364"/>
+        </scene>
+        <!--通讯录-->
+        <scene sceneID="CgL-4C-Fjf">
+            <objects>
+                <viewController title="通讯录" id="IR3-tg-sNN" customClass="STContactsViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="RnS-sa-wyE"/>
+                        <viewControllerLayoutGuide type="bottom" id="qxa-fe-1br"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="vFc-eL-Dgi">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="7br-ZL-Ay2">
+                                <rect key="frame" x="0.0" y="64" width="375" height="603"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="7br-ZL-Ay2" firstAttribute="leading" secondItem="vFc-eL-Dgi" secondAttribute="leading" id="56f-BI-UNN"/>
+                            <constraint firstAttribute="trailing" secondItem="7br-ZL-Ay2" secondAttribute="trailing" id="M2F-Re-wAc"/>
+                            <constraint firstItem="7br-ZL-Ay2" firstAttribute="top" secondItem="RnS-sa-wyE" secondAttribute="bottom" id="ZJ7-mS-0r9"/>
+                            <constraint firstItem="qxa-fe-1br" firstAttribute="top" secondItem="7br-ZL-Ay2" secondAttribute="bottom" id="b6s-a1-eZl"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="7br-ZL-Ay2" id="tdy-1U-4cQ"/>
+                        <segue destination="8J4-bb-Cqs" kind="show" identifier="addFriendsSegue" id="rTE-2L-qeF"/>
+                        <segue destination="5bT-o2-rg6" kind="show" id="9wo-xB-VgN"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="rCj-wW-gCg" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1209" y="366"/>
+        </scene>
+        <!--添加好友-->
+        <scene sceneID="Xbe-eh-RMi">
+            <objects>
+                <viewController title="添加好友" id="8J4-bb-Cqs" customClass="STAddFriendsViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="N18-Va-Okw"/>
+                        <viewControllerLayoutGuide type="bottom" id="Xzz-Gd-VIw"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="B4e-LI-o9v">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <textField opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="center" placeholder="请输入用户名" textAlignment="natural" minimumFontSize="17" translatesAutoresizingMaskIntoConstraints="NO" id="f7E-wY-pjX">
+                                <rect key="frame" x="20" y="84" width="335" height="17"/>
+                                <nil key="textColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits"/>
+                            </textField>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstItem="f7E-wY-pjX" firstAttribute="top" secondItem="N18-Va-Okw" secondAttribute="bottom" constant="20" id="7qA-yJ-KdD"/>
+                            <constraint firstAttribute="trailing" secondItem="f7E-wY-pjX" secondAttribute="trailing" constant="20" id="8M1-Ma-LB4"/>
+                            <constraint firstItem="f7E-wY-pjX" firstAttribute="leading" secondItem="B4e-LI-o9v" secondAttribute="leading" constant="20" id="yFs-Gy-4Y0"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="searcOutlet" destination="f7E-wY-pjX" id="vsa-A7-0vd"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="8Rp-lz-bu4" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="1982" y="363"/>
         </scene>
         <!--Chat Room View Controller-->
         <scene sceneID="OXX-rA-6GB">

@@ -21,6 +21,9 @@ extension Notification.Name {
         
         /// 会话列表发生变化
         public static let ConversationListChange = Notification.Name(rawValue: "org.easeMob.notification.name.conversationListChange")
+        
+        /// 收到好友申请
+        public static let addFriend = Notification.Name(rawValue: "org.easeMob.notification.name.addFriend")
     }
     
     // 播放语音状态

@@ -41,6 +41,13 @@ class STMessageViewController: BaseViewController {
     }
     
     override func rxBind() {
+
+        headerView.contactsOutlet.rx.tap.asDriver()
+            .drive(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "contactsSegue", sender: model)
+            })
+            .disposed(by: disposeBag)
+
         viewModel = MessageViewModel()
         
         viewModel.datasource.asDriver()
