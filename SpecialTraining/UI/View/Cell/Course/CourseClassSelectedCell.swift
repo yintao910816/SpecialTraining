@@ -14,8 +14,7 @@ class CourseClassSelectedCell: UICollectionViewCell {
     
     var model: CourseDetailClassModel! {
         didSet {
-            contentOutlet.text = "   \(model.class_name)   "
-            
+            contentOutlet.text = "\(model.class_name)"
             setSelected()
         }
     }

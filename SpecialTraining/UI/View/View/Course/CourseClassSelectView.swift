@@ -8,22 +8,22 @@
 
 import Foundation
 import RxSwift
+import RxCocoa
 import RxDataSources
 
 class CourseClassSelectView: UIView {
     
     @IBOutlet var contentView: UIView!
-    @IBOutlet weak var iconOutlet: UIButton!
-    @IBOutlet weak var priceOutlet: UILabel!
-    @IBOutlet weak var teacherOutlet: UILabel!
     @IBOutlet weak var collectView: UICollectionView!
     @IBOutlet weak var okOutlet: UIButton!
-    
     @IBOutlet weak var mainContentView: UIView!
+    
+    private var header: CourseClassSelectHeaderView?
+    
     private var selectedIndexPath = IndexPath.init(row: 0, section: 0)
     private let disposeBag = DisposeBag()
     
-    let dataSource = Variable([CourseDetailClassModel]())
+    let dataSource = Variable([SectionModel<Int, CourseDetailClassModel>]())
     
     let choseSubject = PublishSubject<CourseDetailClassModel>()
     
@@ -60,64 +60,110 @@ class CourseClassSelectView: UIView {
         
         mainContentView.set(cornerRadius: 6, borderCorners: [.topLeft, .topRight])
         
-        let layout = UICollectionViewFlowLayout()
-        layout.minimumLineSpacing = 25
-        layout.minimumInteritemSpacing = 5
-        layout.sectionInset = .init(top: 0, left: 10, bottom: 0, right: 10)
-        let w =  (contentView.width - layout.minimumInteritemSpacing * 2 - layout.sectionInset.left - layout.sectionInset.right)
-        layout.itemSize = .init(width:w / 3.0, height: 28)
-        
+        collectView.register(UINib.init(nibName: "CourseClassSelectedCell",
+                                        bundle: Bundle.main),
+                             forCellWithReuseIdentifier: "CourseClassSelectedCellID")
+        collectView.register(CourseClassSelectHeaderView.self,
+                             forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                             withReuseIdentifier: "CourseClassSelectHeaderViewID")
+
+        let layout = FlowLayoutText()
+        layout.scrollDirection = .vertical
+        layout.lineSpacing     = 15
+        layout.interSpacing    = 10
+        layout.itemMinHeight   = 30
+        layout.font            = 16
+        layout.edgeInsets      = UIEdgeInsets.init(top: 10, left: 10, bottom: 0, right: 10)
+        layout.delegate        = self
+
         collectView.collectionViewLayout = layout
-        
-        collectView.register(UINib.init(nibName: "CourseClassSelectedCell", bundle: Bundle.main), forCellWithReuseIdentifier: "CourseClassSelectedCellID")
         
         animotion(animotion: false)
     }
     
     private func rxBind() {
-       
+        dataSource.asDriver()
+            .drive(onNext: { [weak self] _ in
+                self?.collectView.reloadData()
+            })
+            .disposed(by: disposeBag)
+        
         okOutlet.rx.tap.asDriver()
             .map { [unowned self] _ ->CourseDetailClassModel in
                 self.animotion(animotion: true)
-                return self.dataSource.value[self.selectedIndexPath.row]
+                return self.dataSource.value[self.selectedIndexPath.section].items[self.selectedIndexPath.row]
             }
             .drive(choseSubject)
             .disposed(by: disposeBag)
-        
-        dataSource.asObservable()
-            .do(onNext: { [weak self] in self?.configHeader(model: $0.first) })
-            .bind(to: collectView.rx.items(cellIdentifier: "CourseClassSelectedCellID", cellType: CourseClassSelectedCell.self)) { row, model, cell in
-                cell.model = model
-            }
-            .disposed(by: disposeBag)
+    }
+}
 
-        collectView.rx.itemSelected.asDriver()
-            .drive(onNext: { [unowned self] indexPath in
-                print(self.selectedIndexPath)
-                if indexPath.row != self.selectedIndexPath.row {
-                    self.configHeader(model: self.dataSource.value[indexPath.row])
-                    
-                    self.dataSource.value[indexPath.row].isSelected = true
-                    self.dataSource.value[self.selectedIndexPath.row].isSelected = false
-
-                    var cell = self.collectView.cellForItem(at: indexPath) as! CourseClassSelectedCell
-                    cell.setSelected()
-                    
-                    cell = self.collectView.cellForItem(at: self.selectedIndexPath) as! CourseClassSelectedCell
-                    cell.setSelected()
-                    
-                    self.selectedIndexPath = indexPath
-                }
-            })
-            .disposed(by: disposeBag)
+extension CourseClassSelectView: UICollectionViewDelegateFlowLayout, UICollectionViewDataSource {
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let tempHeader = CourseClassSelectHeaderView.init(frame: .init(x: 0, y: 0, width: collectionView.width, height: 1000))
+        if let model = dataSource.value[section].items.first(where: { $0.isSelected == true }) {
+            tempHeader.model = model
+            return CGSize.init(width: collectionView.width, height: tempHeader.viewHeight())
+        }
+        return .zero
     }
     
-    private func configHeader(model: CourseDetailClassModel?) {
-        guard let tempModel = model else { return }
-        
-        iconOutlet.setImage(tempModel.pic)
-        priceOutlet.text = "￥\(tempModel.price)"
-        teacherOutlet.text = "  \(tempModel.teacher_name)  "
+    func numberOfSections(in collectionView: UICollectionView) -> Int {
+        return dataSource.value.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, numberOfItemsInSection section: Int) -> Int {
+        return dataSource.value[section].items.count
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
+        let cell = (collectionView.dequeueReusableCell(withReuseIdentifier: "CourseClassSelectedCellID", for: indexPath) as! CourseClassSelectedCell)
+        cell.model = dataSource.value[indexPath.section].items[indexPath.row]
+        return cell
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, viewForSupplementaryElementOfKind kind: String, at indexPath: IndexPath) -> UICollectionReusableView {
+        if kind == UICollectionView.elementKindSectionHeader {
+            if header == nil {
+                header = (collectionView.dequeueReusableSupplementaryView(ofKind:  UICollectionView.elementKindSectionHeader,
+                                                               withReuseIdentifier: "CourseClassSelectHeaderViewID",
+                                                               for: indexPath) as! CourseClassSelectHeaderView)
+            }
+            let sectionModel = dataSource.value[indexPath.section]
+            if let model = sectionModel.items.first(where: { $0.isSelected == true }) { header?.model = model }
+            return header!
+        }
+        return UICollectionReusableView()
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+        if indexPath.row != selectedIndexPath.row {
+            let selectedModel = dataSource.value[selectedIndexPath.section].items[selectedIndexPath.row]
+            let model = dataSource.value[indexPath.section].items[indexPath.row]
+            model.isSelected = true
+            selectedModel.isSelected = false
+            
+            selectedIndexPath = indexPath
+            
+            collectionView.reloadData()
+        }
+    }
+}
+
+extension CourseClassSelectView: FlowLayoutBaseDelegate {    
+    
+    func itemContent(layout: FlowLayoutBase, indexPath: IndexPath) -> String {
+        return dataSource.value[indexPath.section].items[indexPath.row].class_name
+    }
+    
+    func size(forHeader inSection: Int) -> CGSize {
+        let tempHeader = CourseClassSelectHeaderView.init(frame: .init(x: 0, y: 0, width: collectView.width, height: 1000))
+        if let model = dataSource.value[inSection].items.first(where: { $0.isSelected == true }) {
+            tempHeader.model = model
+            return CGSize.init(width: collectView.width, height: tempHeader.viewHeight())
+        }
+        return .zero
     }
 }
 

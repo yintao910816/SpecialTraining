@@ -50,15 +50,9 @@ class MineOrderViewModel: BaseViewModel {
     }
     
     private func loadData() ->Observable<[MemberAllOrderModel]> {
-        return STProvider.request(.getMemberAllOrder(member_id: "100"))
+        return STProvider.request(.getMemberAllOrder())
             .map(models: MemberAllOrderModel.self)
             .asObservable()
-        //            .subscribe(onSuccess: { [weak self] data in
-        //                self?.dealData(orderModels: data)
-        //            }) { [weak self] error in
-        //                self?.hud.failureHidden(self?.errorMessage(error))
-        //            }
-        //            .disposed(by: disposeBag)
     }
     
     /// 退款

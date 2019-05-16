@@ -89,7 +89,7 @@ enum API{
     /// 佣金提现
     case commissionApply()
     /// 所有订单
-    case getMemberAllOrder(member_id: String)
+    case getMemberAllOrder()
     /// 取消订单
     case cancleOrder(order_no: String)
     /// 退款
@@ -195,7 +195,7 @@ extension API: TargetType{
         case .commissionApply():
             return "v1/member/commissionApply"
             
-        case .getMemberAllOrder(_):
+        case .getMemberAllOrder():
             return "v1/order/getMemberAllOrder"
         case .cancleOrder(_):
             return "v1/order/orderCancel"
@@ -329,8 +329,8 @@ extension API {
         case .commissionApply():
             params["id"]      = userDefault.uid
 
-        case .getMemberAllOrder(let member_id):
-            params["member_id"] = member_id
+        case .getMemberAllOrder():
+            params["member_id"] = userDefault.uid
         case .cancleOrder(let order_no):
             params["order_no"] = order_no
         case .refundOrder(let order_no):

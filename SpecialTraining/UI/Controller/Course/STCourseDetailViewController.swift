@@ -186,7 +186,7 @@ class STCourseDetailViewController: BaseViewController {
             .drive(courseAudioTB.datasource)
             .disposed(by: disposeBag)
 
-        viewModel.classDatasource.asDriver()
+        viewModel.classListDatasource.asDriver()
             .drive(courseClassTB.datasource)
             .disposed(by: disposeBag)
         
@@ -216,7 +216,7 @@ class STCourseDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
 
-        viewModel.classDatasource.asDriver()
+        viewModel.classSelectDatasource.asDriver()
             .drive(selectedClassView.dataSource)
             .disposed(by: disposeBag)
 

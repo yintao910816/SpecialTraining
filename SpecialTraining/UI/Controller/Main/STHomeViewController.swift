@@ -199,6 +199,8 @@ class STHomeViewController: BaseViewController {
             segue.destination.prepare(parameters: ["courseId": sender as! String])
         }else if segue.identifier == "organizationShopSegue" {
             segue.destination.prepare(parameters: ["agn_id": sender as! String])
+        }else if segue.identifier == "courseDetailSegue" {
+            segue.destination.prepare(parameters: ["course_id": sender as! String])
         }
     }
     
