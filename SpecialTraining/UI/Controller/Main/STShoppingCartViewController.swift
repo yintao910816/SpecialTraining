@@ -67,6 +67,10 @@ class STShoppingCartViewController: BaseViewController {
             .drive(priceOutlet.rx.text)
             .disposed(by: disposeBag)
         
+        viewModel.totleShopCountObser.asDriver()
+            .drive(totleShopCountOutlet.rx.text)
+            .disposed(by: disposeBag)
+        
         allChoseOutlet.rx.tap.asDriver()
             .do(onNext: { [unowned self] in self.allChoseOutlet.isSelected = !self.allChoseOutlet.isSelected })
             .map{ [unowned self] in self.allChoseOutlet.isSelected }

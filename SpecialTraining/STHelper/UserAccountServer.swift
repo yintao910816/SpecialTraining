@@ -19,7 +19,7 @@ class UserAccountServer {
     var loginUser = LoginModel()
  
     final func save(loginUser userModel: LoginModel, isInsertDB: Bool = true) {
-        if userModel.member.uid <= 0 { return }
+//        if userModel.member.uid <= 0 { return }
         
         loginUser = userModel
         

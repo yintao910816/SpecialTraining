@@ -178,6 +178,9 @@ class ShoppingCartViewModel: BaseViewModel, VMNavigation {
             tempData.insert(section, at: 0)
             datasource.value = tempData
         }
+        
+        shopCount += 1
+        totleShopCountObser.value = shopCount <= 0 ? "购物车空空如也" : "共\(shopCount)件商品"
     }
     
     private func dealAllSelected(isSelected: Bool) {

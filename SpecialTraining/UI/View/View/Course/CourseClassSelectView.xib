@@ -23,10 +23,10 @@
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="bmK-gO-fqg">
-                    <rect key="frame" x="0.0" y="190" width="375" height="475"/>
+                    <rect key="frame" x="0.0" y="111" width="375" height="554"/>
                     <subviews>
                         <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" dataMode="none" translatesAutoresizingMaskIntoConstraints="NO" id="RwR-9K-UOG">
-                            <rect key="frame" x="0.0" y="50" width="375" height="360"/>
+                            <rect key="frame" x="0.0" y="50" width="375" height="439"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="fJb-rm-vjI">
                                 <size key="itemSize" width="50" height="50"/>
@@ -47,7 +47,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" clipsSubviews="YES" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="vYb-xM-OAw">
-                            <rect key="frame" x="97.5" y="420" width="180" height="40"/>
+                            <rect key="frame" x="97.5" y="499" width="180" height="40"/>
                             <constraints>
                                 <constraint firstAttribute="height" constant="40" id="L4L-4f-GRo"/>
                                 <constraint firstAttribute="width" constant="180" id="xCZ-Gl-aAm"/>
@@ -80,7 +80,7 @@
                 <constraint firstAttribute="bottom" secondItem="bmK-gO-fqg" secondAttribute="bottom" id="8Dg-Tl-sTH"/>
                 <constraint firstAttribute="trailing" secondItem="bmK-gO-fqg" secondAttribute="trailing" id="jMm-Fq-OBi"/>
                 <constraint firstItem="bmK-gO-fqg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="kmS-de-4GP"/>
-                <constraint firstItem="bmK-gO-fqg" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1:1.4" id="wp4-GE-TLc"/>
+                <constraint firstItem="bmK-gO-fqg" firstAttribute="height" secondItem="iN0-l3-epB" secondAttribute="height" multiplier="1:1.2" id="wp4-GE-TLc"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <connections>
