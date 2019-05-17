@@ -399,7 +399,7 @@ extension API {
             params["video_id"]  = vodSVideoModel.videoId
             
         case .myVideo():
-            params["member_id"] = 96//userDefault.uid
+            params["member_id"] = userDefault.uid
 
         case .videoList(let cate_id):
             params["cate_id"] = cate_id

@@ -76,12 +76,16 @@ class STVideoViewController: BaseViewController, VMNavigation {
                                           fontSize: 14)
         
         floatView.didSelectedCallBack = { [unowned self] title in
-            if title == "拍摄" {
-                self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
-            }else if title == "上传" {
-                self.showVideoVC()
-            }else if title == "我的乐秀" {
-                STVideoViewController.sbPush("STVideo", "myVideosCtrl")
+            if UserAccountServer.share.loginUser.member.uid == 0 {
+                STHelper.presentLogin()
+            }else {
+                if title == "拍摄" {
+                    self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
+                }else if title == "上传" {
+                    self.showVideoVC()
+                }else if title == "我的乐秀" {
+                    STVideoViewController.sbPush("STVideo", "myVideosCtrl")
+                }
             }
         }
     }

@@ -31,7 +31,7 @@ class UserVideosViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] datas in
                 self?.hud.noticeHidden()
                 self?.userVidesDatasource.value = datas
-                self?.videosCountObser.value = "\(datas.count)"
+                self?.videosCountObser.value = "作品\(datas.count)"
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
             }
