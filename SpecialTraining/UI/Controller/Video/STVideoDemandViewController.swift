@@ -36,8 +36,9 @@ class STVideoDemandViewController: BaseViewController {
     override func setupUI() {
         navHeightCns.constant += LayoutSize.fitTopArea
         
-        userIconOutlet.setImage(STHelper.share.loginUser?.headimgurl)
-        nickNameOutlet.text = STHelper.share.loginUser?.nickname
+        userIconOutlet.imageView?.contentMode = .scaleAspectFill
+        userIconOutlet.setImage(UserAccountServer.share.loginUser.member.headimgurl)
+        nickNameOutlet.text = UserAccountServer.share.loginUser.member.nickname
         
         videoPlayer.prepare(with: VideoData.creat(with: videoInfoModel))
     }
@@ -46,6 +47,12 @@ class STVideoDemandViewController: BaseViewController {
 //        player.statusObser
 //            .subscribe(onNext: { [weak self] reday in
 //                if reday { self?.player.play() }
+//            })
+//            .disposed(by: disposeBag)
+        
+//        userIconOutlet.rx.tap.asDriver()
+//            .drive(onNext: { [unowned self] in
+//                self.performSegue(withIdentifier: "myVidesSegue", sender: nil)
 //            })
 //            .disposed(by: disposeBag)
     }

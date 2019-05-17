@@ -44,4 +44,14 @@ class VideoListModel: HJModel {
         let h = w * 4.0/3.0
         return .init(width: w, height: h)
     }()
+    
+    class func transform(model: MyVidesModel) ->VideoListModel {
+        let m = VideoListModel()
+        m.id = model.id
+        m.title = model.title
+        m.cover_url = model.cover_url
+        m.cate_id = model.cate_id
+        m.video_url = model.video_url
+        return m
+    }
 }

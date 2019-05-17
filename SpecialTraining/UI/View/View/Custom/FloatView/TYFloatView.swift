@@ -29,7 +29,7 @@ class TYFloatView: UIView {
         if menuDatasource.count == 0 { return }
         
         let maxString = menuDatasource.max(by: { $1.count > $0.count })!
-        let maxWidth: CGFloat = 80//maxString.getTexWidth(fontSize: fontSize, height: 20) + 20
+        let maxWidth: CGFloat = 90//maxString.getTexWidth(fontSize: fontSize, height: 20) + 20
         let floatHeight: CGFloat = CGFloat(menuDatasource.count * 44)
 //        let rect = convertView.convert(belowViewFrame, to: superView)
         let floatX = belowViewFrame.minX - maxWidth

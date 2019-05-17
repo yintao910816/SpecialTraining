@@ -12,7 +12,7 @@ import RxSwift
 import RxDataSources
 import MobileCoreServices
 
-class STVideoViewController: BaseViewController {
+class STVideoViewController: BaseViewController, VMNavigation {
 
     @IBOutlet weak var menuCollectionView: UICollectionView!
     @IBOutlet weak var contentCollectionView: UICollectionView!
@@ -72,7 +72,7 @@ class STVideoViewController: BaseViewController {
         floatView = TYFloatView.creatView(belowViewFrame: publishOutlet.frame,
                                           convertView: view,
                                           superView: view,
-                                          menuDatasource: ["拍摄", "上传"],
+                                          menuDatasource: ["拍摄", "上传", "我的乐秀"],
                                           fontSize: 14)
         
         floatView.didSelectedCallBack = { [unowned self] title in
@@ -80,6 +80,8 @@ class STVideoViewController: BaseViewController {
                 self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
             }else if title == "上传" {
                 self.showVideoVC()
+            }else if title == "我的乐秀" {
+                STVideoViewController.sbPush("STVideo", "myVideosCtrl")
             }
         }
     }

@@ -12,6 +12,7 @@ import RxSwift
 class UserVideosViewModel: BaseViewModel {
     
     var userVidesDatasource = Variable([MyVidesModel]())
+    var videosCountObser = Variable("作品0")
     
     override init() {
         super.init()
@@ -30,6 +31,7 @@ class UserVideosViewModel: BaseViewModel {
             .subscribe(onSuccess: { [weak self] datas in
                 self?.hud.noticeHidden()
                 self?.userVidesDatasource.value = datas
+                self?.videosCountObser.value = "\(datas.count)"
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))
             }
