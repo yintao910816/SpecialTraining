@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -756,9 +756,9 @@
                             <constraint firstItem="mZm-Fn-XTS" firstAttribute="centerY" secondItem="JFV-IS-Pi7" secondAttribute="centerY" id="1bH-Vb-5I1"/>
                             <constraint firstItem="KHz-gO-mhZ" firstAttribute="leading" secondItem="JFV-IS-Pi7" secondAttribute="leading" id="2dM-zN-GCZ"/>
                             <constraint firstItem="mZm-Fn-XTS" firstAttribute="top" secondItem="5lw-84-28k" secondAttribute="bottom" constant="45" id="2fX-AE-Orm"/>
+                            <constraint firstAttribute="bottom" secondItem="KHz-gO-mhZ" secondAttribute="bottom" id="KqG-Er-Qrb"/>
                             <constraint firstItem="5lw-84-28k" firstAttribute="width" secondItem="KHz-gO-mhZ" secondAttribute="width" multiplier="1:2" id="RLD-5y-m0S"/>
                             <constraint firstItem="x7t-mM-Uw9" firstAttribute="trailing" secondItem="mZm-Fn-XTS" secondAttribute="trailing" id="TTr-YI-tl9"/>
-                            <constraint firstItem="CiB-Dr-49w" firstAttribute="top" secondItem="KHz-gO-mhZ" secondAttribute="bottom" id="XBh-uQ-RQY"/>
                             <constraint firstItem="KHz-gO-mhZ" firstAttribute="top" secondItem="JFV-IS-Pi7" secondAttribute="top" id="ZoO-IG-uRz"/>
                             <constraint firstItem="mZm-Fn-XTS" firstAttribute="leading" secondItem="JFV-IS-Pi7" secondAttribute="leading" constant="20" id="cal-Mp-Lra"/>
                             <constraint firstItem="5lw-84-28k" firstAttribute="centerX" secondItem="mZm-Fn-XTS" secondAttribute="centerX" id="hUn-M7-xhY"/>
@@ -899,10 +899,10 @@
         </scene>
     </scenes>
     <resources>
-        <image name="arrow_right" width="75" height="75"/>
+        <image name="arrow_right" width="25" height="25"/>
         <image name="demandView_bg" width="640" height="960"/>
-        <image name="login_bg" width="375" height="667"/>
-        <image name="login_bg_text" width="157.66667175292969" height="99.666664123535156"/>
-        <image name="wchat_login" width="32" height="32.666667938232422"/>
+        <image name="login_bg" width="1125" height="2001"/>
+        <image name="login_bg_text" width="473" height="299"/>
+        <image name="wchat_login" width="96" height="98"/>
     </resources>
 </document>

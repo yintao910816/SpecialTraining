@@ -51,6 +51,8 @@ class STPublishVideoViewController: BaseViewController {
     }
     
     override func setupUI() {
+        meidaChoseOutlet.imageView?.contentMode = .scaleAspectFill
+        meidaChoseOutlet.clipsToBounds = true
         meidaChoseOutlet.setImage(coverImage, for: .normal)
         
         inputTextOutlet.placeholder = "写标题并使用合适的话题，能让更多人看到"
