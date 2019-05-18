@@ -13,7 +13,7 @@ class MedieView: UIView {
     weak var delegate: MediaProtocol?
     
     struct Frame {
-        static let itemWidth: CGFloat = 50
+        static let itemWidth: CGFloat = 70
         static let itemHeight: CGFloat = 70
         
         static let h_margin = (UIScreen.main.bounds.size.width - 4*itemWidth) / 5.0
@@ -83,8 +83,7 @@ class MediaCell: UICollectionViewCell {
     override init(frame: CGRect) {
         super.init(frame: frame)
         
-        imgV = UIImageView.init()
-        imgV.backgroundColor = UIColor.orange
+        imgV = UIImageView()
         addSubview(imgV)
         
         imgV.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }

@@ -29,7 +29,7 @@ class MineAccountViewModel: BaseViewModel   {
     }
     
     private func requestData() {
-        STProvider.request(.myCommission())
+        STProvider.request(.myCommission)
             .map(model: MineAccountModel.self)
             .subscribe(onSuccess: { [weak self] data in
                 self?.totleAwardsObser.value = "总奖金 ¥: \(data.total_commission)"

@@ -26,7 +26,7 @@ class UserVideosViewModel: BaseViewModel {
     }
     
     private func requestVideData() {
-        STProvider.request(.myVideo())
+        STProvider.request(.myVideo)
             .map(models: MyVidesModel.self)
             .subscribe(onSuccess: { [weak self] datas in
                 self?.hud.noticeHidden()

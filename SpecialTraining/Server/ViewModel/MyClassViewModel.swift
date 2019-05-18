@@ -24,7 +24,7 @@ class MyClassViewModel: BaseViewModel {
     }
     
     private func requestData() {
-        STProvider.request(.myClass())
+        STProvider.request(.myClass)
             .map(models: MyClassModel.self)
             .subscribe(onSuccess: { [weak self] data in
                 for idx in 0..<data.count { data[idx].levelString = "\(idx)" }

@@ -23,7 +23,7 @@ class BalanceToFundsViewModel: BaseViewModel {
     }
     
     private func requestApply() {
-        STProvider.request(.commissionApply())
+        STProvider.request(.commissionApply)
             .mapResponse()
             .subscribe(onSuccess: { [weak self] resModel in
                 if resModel.errno == 0 {

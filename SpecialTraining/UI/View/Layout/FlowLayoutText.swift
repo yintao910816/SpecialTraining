@@ -103,7 +103,10 @@ extension FlowLayoutText {
      */
     fileprivate func currentHeight(_ indexPath: IndexPath) -> CGFloat {
         let text: String? = delegate?.itemContent(layout: self, indexPath: indexPath) ?? ""
-        return (text!.getTextHeigh(fontSize: font, width: (collectionView?.width ?? 0) - edgeInsets.left - edgeInsets.right - 2*5) + 2*5)
+        let layoutW = (collectionView?.width ?? 0) - edgeInsets.left - edgeInsets.right - CGFloat(2*5)
+        var h = text!.getTextHeigh(fontSize: font, width: layoutW)
+        h += CGFloat(2*5)
+        return h
     }
 
 }

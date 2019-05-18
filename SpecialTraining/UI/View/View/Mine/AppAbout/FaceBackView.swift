@@ -18,14 +18,33 @@ class FaceBackView: UIView {
     @IBOutlet private weak var inputPhoneOutlet: UITextField!
     @IBOutlet private weak var submitOutlet: UIButton!
     
+    @IBOutlet weak var suggestTypeBgView: UIView!
     private var tapGes: UITapGestureRecognizer!
     private let disposeBag = DisposeBag()
     
     private let keyBoardManager = KeyboardManager()
     
+    private var recordType: Int = 200
+    
     public var faceBackContent: Driver<String>!
     public var phone: Driver<String>!
     public var submitAction: Driver<Void>!
+    
+    @IBAction func actions(_ sender: UIButton) {
+        if recordType != sender.tag {
+            setRecordType(selected: true, tag: sender.tag)
+            setRecordType(selected: false, tag: recordType)
+            recordType = sender.tag
+        }
+    }
+    
+    private func setRecordType(selected: Bool, tag: Int) {
+        suggestTypeBgView.viewWithTag(tag)?.layer.borderColor = selected == true ? ST_MAIN_COLOR.cgColor : RGB(220, 220, 220).cgColor
+        
+        let textColor = selected == true ? ST_MAIN_COLOR : RGB(198, 198, 198)
+        let btn = suggestTypeBgView.viewWithTag(tag) as? UIButton
+        btn?.setTitleColor(textColor, for: .normal)
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -59,6 +78,20 @@ class FaceBackView: UIView {
             .disposed(by: disposeBag)
         
         keyBoardManager.removeNotification()
+        
+        for idx in 200..<203 {
+            let view = suggestTypeBgView.viewWithTag(idx)
+            view?.layer.cornerRadius = 4
+            view?.layer.borderWidth = 1
+            view?.clipsToBounds = true
+            
+            if idx == 200 {
+                view?.layer.borderColor = ST_MAIN_COLOR.cgColor
+                (view as? UIButton)?.setTitleColor(ST_MAIN_COLOR, for: .normal)
+            }else {
+                view?.layer.borderColor = RGB(220, 220, 220).cgColor
+            }
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {

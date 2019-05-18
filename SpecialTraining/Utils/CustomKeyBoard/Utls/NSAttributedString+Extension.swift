@@ -22,7 +22,7 @@ extension NSAttributedString {
                                         let attachment = va as! EmojTextAttachment
                                         plainString.replaceCharacters(in: NSMakeRange(range.location + base, range.length),
                                                                       with: attachment.emojiTag)
-                                        base += attachment.emojiTag.characters.count - 1;
+                                        base += attachment.emojiTag.count - 1;
                                     }
         }
         

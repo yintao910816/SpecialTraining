@@ -64,10 +64,6 @@
 		B80B6C13219FF5B800C33F11 /* VideoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B80B6C12219FF5B800C33F11 /* VideoViewModel.swift */; };
 		B810F48B21B97859005918B9 /* STOpenAccountViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810F48A21B97859005918B9 /* STOpenAccountViewController.swift */; };
 		B810F48D21B97C4E005918B9 /* STUpdateFileViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B810F48C21B97C4E005918B9 /* STUpdateFileViewController.swift */; };
-		B8138363228F18160097E778 /* STChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B813835F228F18160097E778 /* STChatRoomViewController.swift */; };
-		B8138364228F18160097E778 /* STContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8138360228F18160097E778 /* STContactsViewController.swift */; };
-		B8138365228F18160097E778 /* STAddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8138361228F18160097E778 /* STAddFriendsViewController.swift */; };
-		B8138366228F18160097E778 /* STNoticesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8138362228F18160097E778 /* STNoticesViewController.swift */; };
 		B816EB5C221DBA6400F024D5 /* STEditVideoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B816EB5B221DBA6400F024D5 /* STEditVideoViewController.swift */; };
 		B81B548A228B24F50001730E /* STMyClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81B5489228B24F50001730E /* STMyClassViewController.swift */; };
 		B81B548D228B252F0001730E /* MyClassCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B81B548B228B252F0001730E /* MyClassCell.swift */; };
@@ -147,6 +143,10 @@
 		B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA1F721BC16B600496AFE /* STVideoRecordingViewController.swift */; };
 		B83BA1FC21BC182900496AFE /* PressButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA1FB21BC182900496AFE /* PressButton.swift */; };
 		B83BA21121BC2AEC00496AFE /* STVideoCoverChoseViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83BA21021BC2AEC00496AFE /* STVideoCoverChoseViewController.swift */; };
+		B83E24BC22905EA500323ADF /* STContactsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E24B822905EA500323ADF /* STContactsViewController.swift */; };
+		B83E24BD22905EA500323ADF /* STChatRoomViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E24B922905EA500323ADF /* STChatRoomViewController.swift */; };
+		B83E24BE22905EA500323ADF /* STAddFriendsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E24BA22905EA500323ADF /* STAddFriendsViewController.swift */; };
+		B83E24BF22905EA500323ADF /* STNoticesViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83E24BB22905EA500323ADF /* STNoticesViewController.swift */; };
 		B83F5A842239628C00EAC675 /* OrganizationDetailCourseCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83F5A822239628C00EAC675 /* OrganizationDetailCourseCell.swift */; };
 		B83F5A852239628C00EAC675 /* OrganizationDetailCourseCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B83F5A832239628C00EAC675 /* OrganizationDetailCourseCell.xib */; };
 		B83F5A8822396F5900EAC675 /* OrganizationDetailShopCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B83F5A8622396F5900EAC675 /* OrganizationDetailShopCell.swift */; };
@@ -628,10 +628,6 @@
 		B80B6C12219FF5B800C33F11 /* VideoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VideoViewModel.swift; sourceTree = "<group>"; };
 		B810F48A21B97859005918B9 /* STOpenAccountViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOpenAccountViewController.swift; sourceTree = "<group>"; };
 		B810F48C21B97C4E005918B9 /* STUpdateFileViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STUpdateFileViewController.swift; sourceTree = "<group>"; };
-		B813835F228F18160097E778 /* STChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STChatRoomViewController.swift; sourceTree = "<group>"; };
-		B8138360228F18160097E778 /* STContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STContactsViewController.swift; sourceTree = "<group>"; };
-		B8138361228F18160097E778 /* STAddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STAddFriendsViewController.swift; sourceTree = "<group>"; };
-		B8138362228F18160097E778 /* STNoticesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STNoticesViewController.swift; sourceTree = "<group>"; };
 		B816EB5B221DBA6400F024D5 /* STEditVideoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STEditVideoViewController.swift; sourceTree = "<group>"; };
 		B81B5489228B24F50001730E /* STMyClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyClassViewController.swift; sourceTree = "<group>"; };
 		B81B548B228B252F0001730E /* MyClassCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MyClassCell.swift; sourceTree = "<group>"; };
@@ -711,6 +707,10 @@
 		B83BA1F721BC16B600496AFE /* STVideoRecordingViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoRecordingViewController.swift; sourceTree = "<group>"; };
 		B83BA1FB21BC182900496AFE /* PressButton.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PressButton.swift; sourceTree = "<group>"; };
 		B83BA21021BC2AEC00496AFE /* STVideoCoverChoseViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STVideoCoverChoseViewController.swift; sourceTree = "<group>"; };
+		B83E24B822905EA500323ADF /* STContactsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STContactsViewController.swift; sourceTree = "<group>"; };
+		B83E24B922905EA500323ADF /* STChatRoomViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STChatRoomViewController.swift; sourceTree = "<group>"; };
+		B83E24BA22905EA500323ADF /* STAddFriendsViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STAddFriendsViewController.swift; sourceTree = "<group>"; };
+		B83E24BB22905EA500323ADF /* STNoticesViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STNoticesViewController.swift; sourceTree = "<group>"; };
 		B83F5A822239628C00EAC675 /* OrganizationDetailCourseCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailCourseCell.swift; sourceTree = "<group>"; };
 		B83F5A832239628C00EAC675 /* OrganizationDetailCourseCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = OrganizationDetailCourseCell.xib; sourceTree = "<group>"; };
 		B83F5A8622396F5900EAC675 /* OrganizationDetailShopCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OrganizationDetailShopCell.swift; sourceTree = "<group>"; };
@@ -1281,17 +1281,6 @@
 			path = Layout;
 			sourceTree = "<group>";
 		};
-		B81E909221A39682000754E3 /* Chat */ = {
-			isa = PBXGroup;
-			children = (
-				B8138361228F18160097E778 /* STAddFriendsViewController.swift */,
-				B813835F228F18160097E778 /* STChatRoomViewController.swift */,
-				B8138360228F18160097E778 /* STContactsViewController.swift */,
-				B8138362228F18160097E778 /* STNoticesViewController.swift */,
-			);
-			path = Chat;
-			sourceTree = "<group>";
-		};
 		B81E909B21A3A3F2000754E3 /* EaseMob */ = {
 			isa = PBXGroup;
 			children = (
@@ -1400,6 +1389,17 @@
 				B838C6C722284C0000917741 /* STUseTipsViewController.swift */,
 			);
 			path = Setting;
+			sourceTree = "<group>";
+		};
+		B83E24B722905EA500323ADF /* Chat */ = {
+			isa = PBXGroup;
+			children = (
+				B83E24B822905EA500323ADF /* STContactsViewController.swift */,
+				B83E24B922905EA500323ADF /* STChatRoomViewController.swift */,
+				B83E24BA22905EA500323ADF /* STAddFriendsViewController.swift */,
+				B83E24BB22905EA500323ADF /* STNoticesViewController.swift */,
+			);
+			path = Chat;
 			sourceTree = "<group>";
 		};
 		B845ADCD22625DDC00BD0AC3 /* AppAbout */ = {
@@ -1524,6 +1524,7 @@
 		B85F330F219E792D00023958 /* Controller */ = {
 			isa = PBXGroup;
 			children = (
+				B83E24B722905EA500323ADF /* Chat */,
 				B86D68B621C40333001A0B75 /* Course */,
 				C43339B021C0FBC700CAF850 /* ShoppingCar */,
 				C408422921B5591B00C491A8 /* Video */,
@@ -2035,7 +2036,6 @@
 		B87F8F6721A2413A00DE9DC1 /* Mine */ = {
 			isa = PBXGroup;
 			children = (
-				B81E909221A39682000754E3 /* Chat */,
 				B845ADCD22625DDC00BD0AC3 /* AppAbout */,
 				B8F117C42232E826008B63B8 /* MineAccount */,
 				B8914E30222AEDD900612FFE /* MineInfo */,
@@ -2937,6 +2937,7 @@
 				"${BUILT_PRODUCTS_DIR}/MJRefresh/MJRefresh.framework",
 				"${BUILT_PRODUCTS_DIR}/Moya/Moya.framework",
 				"${BUILT_PRODUCTS_DIR}/Result/Result.framework",
+				"${BUILT_PRODUCTS_DIR}/RxAtomic/RxAtomic.framework",
 				"${BUILT_PRODUCTS_DIR}/RxCocoa/RxCocoa.framework",
 				"${BUILT_PRODUCTS_DIR}/RxDataSources/RxDataSources.framework",
 				"${BUILT_PRODUCTS_DIR}/RxSwift/RxSwift.framework",
@@ -2960,6 +2961,7 @@
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/MJRefresh.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Moya.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/Result.framework",
+				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxAtomic.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxCocoa.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxDataSources.framework",
 				"${TARGET_BUILD_DIR}/${FRAMEWORKS_FOLDER_PATH}/RxSwift.framework",
@@ -3065,11 +3067,11 @@
 				B81EDF6821A52F4700F9D3B0 /* ChatAudoLeftView.swift in Sources */,
 				B8BB6A5E2230339E0001AB5D /* MineCourseTableViewCell.swift in Sources */,
 				B816EB5C221DBA6400F024D5 /* STEditVideoViewController.swift in Sources */,
-				B8138366228F18160097E778 /* STNoticesViewController.swift in Sources */,
+				B83E24BF22905EA500323ADF /* STNoticesViewController.swift in Sources */,
 				C45AAE5221B6A13500692D7D /* UserVideosView.swift in Sources */,
 				B8DB97E4228569FC00A9A0D1 /* STTeacherInfoViewController.swift in Sources */,
 				B8F117D82232F53C008B63B8 /* WithdrawViewModel.swift in Sources */,
-				B8138365228F18160097E778 /* STAddFriendsViewController.swift in Sources */,
+				B83E24BE22905EA500323ADF /* STAddFriendsViewController.swift in Sources */,
 				B85DBFF32221CEB6000D3977 /* STNeedForClassViewController.swift in Sources */,
 				B85DBFF12221CB75000D3977 /* STNeedForCourseViewController.swift in Sources */,
 				C4F9AB1121E8653C00140A93 /* ShoppingVerifyReusableView.swift in Sources */,
@@ -3274,7 +3276,6 @@
 				B844477D21B825AE00808F5A /* BaseTableViewController.swift in Sources */,
 				B8A4661921D27B9A0022146C /* ShopViewModel.swift in Sources */,
 				B85F3357219E94D600023958 /* TYHUD.swift in Sources */,
-				B8138363228F18160097E778 /* STChatRoomViewController.swift in Sources */,
 				C413E36D226C5EF9001D745F /* BindPhoneViewModel.swift in Sources */,
 				C47356E321AEBA6E000E24A5 /* ChatToolBarAudioButton.m in Sources */,
 				B8BB6A62223033C70001AB5D /* MineAccountCell.swift in Sources */,
@@ -3313,6 +3314,7 @@
 				B85F337B219EA0E700023958 /* HomeOrganizationTableView.swift in Sources */,
 				B87A94EF21A8381D003E2D21 /* TeachersCell.swift in Sources */,
 				C413E36B226C5EF9001D745F /* MineBalanceViewModel.swift in Sources */,
+				B83E24BC22905EA500323ADF /* STContactsViewController.swift in Sources */,
 				B852F13921BD6738002A5887 /* VideoCoverChoseViewModel.swift in Sources */,
 				B862DBC62234233D00C535AE /* STBalanceToFundsViewController.swift in Sources */,
 				C41D24FE222FA60F00DC3D83 /* ZQPhotoPreviewVC.m in Sources */,
@@ -3367,6 +3369,7 @@
 				B8686AF122417A540059BCB9 /* CourseDetailClassTableView.swift in Sources */,
 				6BAE0AD621CA2BCA0065BAD2 /* STAppdelegate+ShareSDK.swift in Sources */,
 				B85F3324219E902A00023958 /* BaseViewController.swift in Sources */,
+				B83E24BD22905EA500323ADF /* STChatRoomViewController.swift in Sources */,
 				B85F33E1219F1DC200023958 /* BaseTBCell.swift in Sources */,
 				B8530785224FDC6000A21564 /* VideoPublish.swift in Sources */,
 				B87F09602224041300310445 /* CancleOrderView.swift in Sources */,
@@ -3388,7 +3391,6 @@
 				B8686AE92241711E0059BCB9 /* CourseDetailVideoView.swift in Sources */,
 				B85DC0002221DE88000D3977 /* ApplyForBackAlertView.swift in Sources */,
 				B82F45BD21A97B70009DC25C /* MedieView.swift in Sources */,
-				B8138364228F18160097E778 /* STContactsViewController.swift in Sources */,
 				B81E909F21A3A474000754E3 /* EaseMobHelper.swift in Sources */,
 				B80B6BF5219FC31E00C33F11 /* Shopping.swift in Sources */,
 				B85F335A219E955400023958 /* Frame.swift in Sources */,
@@ -3588,7 +3590,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SpecialTraining/Main/SpecialTraining-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
@@ -3632,7 +3634,7 @@
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SpecialTraining/Main/SpecialTraining-Bridging-Header.h";
-				SWIFT_VERSION = 4.2;
+				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;

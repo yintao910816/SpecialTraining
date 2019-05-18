@@ -91,7 +91,7 @@ class STVideoUploadManager: NSObject {
     }
     
     private func getSTSInfo() ->Observable<VideoSTSModel> {
-        return STProvider.request(.sts())
+        return STProvider.request(.sts)
             .map(model: VideoSTSModel.self)
             .asObservable()
     }

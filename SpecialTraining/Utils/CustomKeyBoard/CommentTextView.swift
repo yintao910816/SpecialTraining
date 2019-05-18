@@ -88,13 +88,8 @@ class CommentTextView: UIView  {
         emojiButton.addTarget(self, action: #selector(showEmojiView(_:)), for: .touchUpInside)
         
         otherSendButton    = UIButton.init(type: .custom)
-        otherSendButton.setTitle("选择", for: .normal)
-        otherSendButton.titleLabel?.font   = UIFont.systemFont(ofSize: defaultFontSize)
-        otherSendButton.layer.borderWidth  = 1
-        otherSendButton.layer.cornerRadius = 3
+        otherSendButton.setImage(UIImage.init(named: "chat_add_media"), for: .normal)
         otherSendButton.clipsToBounds      = true
-        otherSendButton.setTitleColor(RGB(140, 140, 140), for: .normal)
-        otherSendButton.layer.borderColor = RGB(179, 189, 194).cgColor
         otherSendButton.addTarget(self, action: #selector(showMediaView(_:)), for: .touchUpInside)
         
         addSubview(topLine)
@@ -131,7 +126,7 @@ class CommentTextView: UIView  {
             make.right.equalTo(self).offset(-10)
             make.centerY.equalTo(self.snp.centerY)
             make.height.equalTo(self.height - 20)
-            make.width.equalTo(otherSendButton.snp.height).multipliedBy(1.8)
+            make.width.equalTo(otherSendButton.snp.height)
         }
 
         emojiButton.snp.makeConstraints { make in

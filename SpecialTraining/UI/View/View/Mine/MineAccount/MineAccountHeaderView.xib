@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -21,14 +21,14 @@
         </placeholder>
         <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
         <view contentMode="scaleToFill" id="iN0-l3-epB">
-            <rect key="frame" x="0.0" y="0.0" width="375" height="204"/>
+            <rect key="frame" x="0.0" y="0.0" width="375" height="218"/>
             <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
             <subviews>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="IWd-rQ-imU">
-                    <rect key="frame" x="0.0" y="0.0" width="375" height="153"/>
+                    <rect key="frame" x="0.0" y="0.0" width="375" height="173"/>
                     <subviews>
                         <button opaque="NO" tag="100" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="ebx-9i-DSg">
-                            <rect key="frame" x="5" y="12" width="100" height="25"/>
+                            <rect key="frame" x="5" y="37" width="100" height="25"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <constraints>
                                 <constraint firstAttribute="width" constant="100" id="NCQ-pJ-mNa"/>
@@ -41,33 +41,35 @@
                             </connections>
                         </button>
                         <button opaque="NO" clipsSubviews="YES" tag="103" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jaH-uN-7S9">
-                            <rect key="frame" x="262.5" y="69" width="45" height="45"/>
+                            <rect key="frame" x="267.5" y="94" width="35" height="35"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="45" id="M5m-qv-JBH"/>
                                 <constraint firstAttribute="width" secondItem="jaH-uN-7S9" secondAttribute="height" multiplier="1:1" id="enj-vl-gN3"/>
                             </constraints>
-                            <state key="normal" image="demandView_bg"/>
+                            <state key="normal" image="mine_refunds_account"/>
                             <connections>
                                 <action selector="actions:" destination="-1" eventType="touchUpInside" id="GRH-kt-peA"/>
                             </connections>
                         </button>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="总奖金￥: 0" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="d7f-Co-muf">
-                            <rect key="frame" x="15" y="122" width="150" height="15"/>
+                            <rect key="frame" x="15" y="137" width="150" height="15"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="提现账户: 微信" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="u6D-2m-uIB">
-                            <rect key="frame" x="210" y="122" width="150" height="15"/>
+                            <rect key="frame" x="210" y="137" width="150" height="15"/>
                             <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <fontDescription key="fontDescription" type="system" pointSize="12"/>
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
                         <button opaque="NO" tag="101" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="lbz-cW-VRg">
-                            <rect key="frame" x="67.5" y="69" width="45" height="45"/>
-                            <state key="normal" image="demandView_bg"/>
+                            <rect key="frame" x="72.5" y="94" width="35" height="35"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="35" id="gOG-kj-lI6"/>
+                            </constraints>
+                            <state key="normal" image="mine_account_totle"/>
                             <connections>
                                 <action selector="actions:" destination="-1" eventType="touchUpInside" id="MPa-OQ-fBh"/>
                             </connections>
@@ -80,9 +82,9 @@
                         <constraint firstItem="d7f-Co-muf" firstAttribute="leading" secondItem="IWd-rQ-imU" secondAttribute="leading" constant="15" id="83g-Kq-NXH"/>
                         <constraint firstItem="jaH-uN-7S9" firstAttribute="centerX" secondItem="u6D-2m-uIB" secondAttribute="centerX" id="9lA-Z2-m1i"/>
                         <constraint firstAttribute="trailing" secondItem="u6D-2m-uIB" secondAttribute="trailing" constant="15" id="HsX-9o-2qH"/>
-                        <constraint firstAttribute="height" constant="153" id="Jzj-F2-9xB"/>
+                        <constraint firstAttribute="height" constant="173" id="Jzj-F2-9xB"/>
                         <constraint firstItem="lbz-cW-VRg" firstAttribute="height" secondItem="jaH-uN-7S9" secondAttribute="height" id="NCg-E7-S11"/>
-                        <constraint firstItem="ebx-9i-DSg" firstAttribute="top" secondItem="IWd-rQ-imU" secondAttribute="top" constant="12" id="OvD-Id-JRO"/>
+                        <constraint firstItem="ebx-9i-DSg" firstAttribute="top" secondItem="IWd-rQ-imU" secondAttribute="top" constant="37" id="OvD-Id-JRO"/>
                         <constraint firstItem="ebx-9i-DSg" firstAttribute="leading" secondItem="IWd-rQ-imU" secondAttribute="leading" constant="5" id="TLO-W1-1Gy"/>
                         <constraint firstItem="lbz-cW-VRg" firstAttribute="top" secondItem="ebx-9i-DSg" secondAttribute="bottom" constant="32" id="Vhb-W1-Kif"/>
                         <constraint firstItem="d7f-Co-muf" firstAttribute="width" secondItem="IWd-rQ-imU" secondAttribute="width" multiplier="1:2.5" id="XVO-o2-Mqk"/>
@@ -93,7 +95,7 @@
                     </constraints>
                 </view>
                 <button opaque="NO" tag="104" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="G7R-OW-Uaf">
-                    <rect key="frame" x="188" y="153" width="187" height="45"/>
+                    <rect key="frame" x="188" y="173" width="187" height="45"/>
                     <fontDescription key="fontDescription" type="system" pointSize="14"/>
                     <state key="normal" title="提现规则">
                         <color key="titleColor" red="0.0078431372549019607" green="0.71764705882352942" blue="0.94117647058823528" alpha="1" colorSpace="deviceRGB"/>
@@ -103,14 +105,14 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ufi-ih-99o">
-                    <rect key="frame" x="187" y="153" width="1" height="45"/>
+                    <rect key="frame" x="187" y="173" width="1" height="45"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="width" constant="1" id="qbW-eh-FHg"/>
                     </constraints>
                 </view>
                 <button opaque="NO" tag="102" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="aHx-rM-qmz">
-                    <rect key="frame" x="0.0" y="153" width="187" height="45"/>
+                    <rect key="frame" x="0.0" y="173" width="187" height="45"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="45" id="gxv-bk-2J1"/>
                     </constraints>
@@ -123,7 +125,7 @@
                     </connections>
                 </button>
                 <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="M5w-GX-Kb9">
-                    <rect key="frame" x="0.0" y="198" width="375" height="6"/>
+                    <rect key="frame" x="0.0" y="218" width="375" height="6"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
                     <constraints>
                         <constraint firstAttribute="height" constant="6" id="MTn-wZ-xQ7"/>
@@ -150,11 +152,12 @@
                 <constraint firstAttribute="trailing" secondItem="G7R-OW-Uaf" secondAttribute="trailing" id="vHC-e4-Z1O"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
-            <point key="canvasLocation" x="138.40000000000001" y="157.42128935532236"/>
+            <point key="canvasLocation" x="138.40000000000001" y="163.71814092953525"/>
         </view>
     </objects>
     <resources>
-        <image name="demandView_bg" width="640" height="960"/>
-        <image name="navigationButtonReturn" width="40" height="40"/>
+        <image name="mine_account_totle" width="213" height="213"/>
+        <image name="mine_refunds_account" width="213" height="213"/>
+        <image name="navigationButtonReturn" width="20" height="20"/>
     </resources>
 </document>

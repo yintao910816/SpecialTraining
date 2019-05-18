@@ -50,7 +50,7 @@ class MineOrderViewModel: BaseViewModel {
     }
     
     private func loadData() ->Observable<[MemberAllOrderModel]> {
-        return STProvider.request(.getMemberAllOrder())
+        return STProvider.request(.getMemberAllOrder)
             .map(models: MemberAllOrderModel.self)
             .asObservable()
     }

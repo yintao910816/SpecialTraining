@@ -50,7 +50,7 @@ class EmojTextView: PlaceholderTextView, ToolBarEvent, EmojiOperation, EmojiInpu
                                  emjoType: .custom)
         emojiView.delegate = self
         
-        mediaView = MedieView.init(datasource: ["tupian"])
+        mediaView = MedieView.init(datasource: ["chat_add_image"])
         mediaView.delegate = self
     }
     

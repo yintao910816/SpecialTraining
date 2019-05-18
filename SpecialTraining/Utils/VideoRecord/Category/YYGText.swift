@@ -55,7 +55,7 @@ extension String {
     /// - Parameter end: 结束的位值
     /// - Returns: 截取后的字符串
     func stringCut(end: Int) ->String{
-        if !(end < characters.count) { return "截取超出范围" }
+        if !(end < count) { return "截取超出范围" }
         let sInde = index(startIndex, offsetBy: end)
         return substring(to: sInde)
     }
@@ -65,7 +65,7 @@ extension String {
     /// - Parameter end:
     /// - Returns: 截取后的字符串
     func stringCutToEnd(star: Int) -> String {
-        if !(star < characters.count) { return "截取超出范围" }
+        if !(star < count) { return "截取超出范围" }
         let sRang = index(startIndex, offsetBy: star)..<endIndex
         return substring(with: sRang)
     }
@@ -77,7 +77,7 @@ extension String {
     ///   - locat: 插入的位置
     /// - Returns: 添加后的字符串
     func stringInsert(content: String,locat: Int) -> String {
-        if !(locat < characters.count) { return "截取超出范围" }
+        if !(locat < count) { return "截取超出范围" }
         let str1 = stringCut(end: locat)
         let str2 = stringCutToEnd(star: locat)
         return str1 + content + str2

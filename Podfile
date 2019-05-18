@@ -3,11 +3,11 @@ use_frameworks!
 
 target 'SpecialTraining' do
 
-pod 'RxSwift', '~> 4.3.0'
-pod 'RxCocoa', '~> 4.3.0'
+pod 'RxSwift', '~> 4.4.0'
+pod 'RxCocoa', '~> 4.4.0'
 pod 'RxDataSources', '~> 3.1.0'
-pod 'Moya/RxSwift', '~> 11.0'
-pod 'HandyJSON', '~> 4.2.0-beta1'
+pod 'Moya/RxSwift', '~> 12.0.1'
+pod 'HandyJSON', '~> 5.0.0-beta.1'
 
 pod 'SQLite.swift', '~> 0.11.5'
 

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -56,16 +56,16 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="502" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="PL4-wS-GJA">
-                            <rect key="frame" x="30" y="92" width="65" height="65"/>
+                            <rect key="frame" x="30" y="92" width="40" height="40"/>
                             <state key="normal" image="mine_course"/>
                             <connections>
                                 <action selector="actions:" destination="-1" eventType="touchUpInside" id="LvX-6L-Ia9"/>
                             </connections>
                         </button>
                         <button opaque="NO" tag="503" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="n9G-ZK-4gL">
-                            <rect key="frame" x="179" y="92" width="65" height="65"/>
+                            <rect key="frame" x="191.5" y="92" width="40" height="40"/>
                             <constraints>
-                                <constraint firstAttribute="width" constant="65" id="488-MO-duS"/>
+                                <constraint firstAttribute="width" constant="40" id="488-MO-duS"/>
                                 <constraint firstAttribute="width" secondItem="n9G-ZK-4gL" secondAttribute="height" multiplier="1:1" id="pYj-Le-lCc"/>
                             </constraints>
                             <state key="normal" title="Button" image="mine_account"/>
@@ -74,7 +74,7 @@
                             </connections>
                         </button>
                         <button opaque="NO" tag="504" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="XHj-qX-kxc">
-                            <rect key="frame" x="328" y="92" width="65" height="65"/>
+                            <rect key="frame" x="353" y="92" width="40" height="40"/>
                             <state key="normal" title="Button" image="mine_recommend"/>
                             <connections>
                                 <action selector="actions:" destination="-1" eventType="touchUpInside" id="RPw-hd-Z8W"/>
@@ -86,19 +86,43 @@
                             <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             <nil key="highlightedColor"/>
                         </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的班级" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VMe-nn-Co0">
+                            <rect key="frame" x="21" y="137" width="58" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我的账户" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="D6y-b5-PZG">
+                            <rect key="frame" x="182.5" y="137" width="58" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="我要推荐" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="LVB-nD-SRa">
+                            <rect key="frame" x="344" y="137" width="58" height="17"/>
+                            <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                            <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <nil key="highlightedColor"/>
+                        </label>
                     </subviews>
                     <color key="backgroundColor" red="0.96078431369999995" green="0.74117647060000003" blue="0.59999999999999998" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
                     <constraints>
+                        <constraint firstItem="VMe-nn-Co0" firstAttribute="centerX" secondItem="PL4-wS-GJA" secondAttribute="centerX" id="0K4-kK-lMi"/>
                         <constraint firstAttribute="height" constant="180" id="0wB-D7-vg2"/>
                         <constraint firstItem="n9G-ZK-4gL" firstAttribute="centerX" secondItem="bIZ-fC-HuT" secondAttribute="centerX" id="4Kp-qY-VWg"/>
                         <constraint firstItem="Fcd-0U-sKT" firstAttribute="top" secondItem="TI4-rH-cTh" secondAttribute="top" id="AAD-Hw-Kpg"/>
+                        <constraint firstItem="VMe-nn-Co0" firstAttribute="top" secondItem="PL4-wS-GJA" secondAttribute="bottom" constant="5" id="De8-b0-4K2"/>
                         <constraint firstItem="PL4-wS-GJA" firstAttribute="height" secondItem="n9G-ZK-4gL" secondAttribute="height" id="Ht3-Xz-Eks"/>
                         <constraint firstItem="PL4-wS-GJA" firstAttribute="width" secondItem="n9G-ZK-4gL" secondAttribute="width" id="NBl-Ao-i7s"/>
                         <constraint firstItem="11g-bj-qkT" firstAttribute="leading" secondItem="TI4-rH-cTh" secondAttribute="trailing" constant="8" id="TuG-yR-7hA"/>
                         <constraint firstAttribute="trailing" secondItem="XHj-qX-kxc" secondAttribute="trailing" constant="30" id="Y9v-H5-zCX"/>
                         <constraint firstItem="XHj-qX-kxc" firstAttribute="centerY" secondItem="n9G-ZK-4gL" secondAttribute="centerY" id="YdW-Ct-v6b"/>
+                        <constraint firstItem="D6y-b5-PZG" firstAttribute="centerX" secondItem="n9G-ZK-4gL" secondAttribute="centerX" id="cI9-5p-moa"/>
                         <constraint firstItem="11g-bj-qkT" firstAttribute="top" secondItem="TI4-rH-cTh" secondAttribute="top" constant="5" id="cjv-eG-M2a"/>
+                        <constraint firstItem="D6y-b5-PZG" firstAttribute="centerY" secondItem="VMe-nn-Co0" secondAttribute="centerY" id="ddb-QI-LiE"/>
+                        <constraint firstItem="LVB-nD-SRa" firstAttribute="centerY" secondItem="VMe-nn-Co0" secondAttribute="centerY" id="gdC-ZV-NLq"/>
                         <constraint firstItem="n9G-ZK-4gL" firstAttribute="top" secondItem="TI4-rH-cTh" secondAttribute="bottom" constant="30" id="n6j-GZ-Hd7"/>
+                        <constraint firstItem="LVB-nD-SRa" firstAttribute="centerX" secondItem="XHj-qX-kxc" secondAttribute="centerX" id="ndl-KJ-OEz"/>
                         <constraint firstItem="XHj-qX-kxc" firstAttribute="height" secondItem="n9G-ZK-4gL" secondAttribute="height" id="r5t-E0-cDb"/>
                         <constraint firstItem="PL4-wS-GJA" firstAttribute="leading" secondItem="TI4-rH-cTh" secondAttribute="leading" id="rFm-yx-s8I"/>
                         <constraint firstItem="TI4-rH-cTh" firstAttribute="top" secondItem="bIZ-fC-HuT" secondAttribute="top" constant="12" id="rdN-qG-AfF"/>
@@ -126,10 +150,10 @@
         </collectionReusableView>
     </objects>
     <resources>
-        <image name="default_user_icon" width="300" height="300"/>
-        <image name="mine_account" width="240" height="240"/>
-        <image name="mine_course" width="240" height="240"/>
-        <image name="mine_recommend" width="240" height="240"/>
+        <image name="default_user_icon" width="381" height="381"/>
+        <image name="mine_account" width="171" height="171"/>
+        <image name="mine_course" width="171" height="171"/>
+        <image name="mine_recommend" width="171" height="171"/>
         <image name="setting" width="90" height="90"/>
     </resources>
 </document>

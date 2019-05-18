@@ -83,13 +83,13 @@ enum API{
     //MARK:
     //MARK: 个人中心
     /// 我的奖励
-    case myCommission()
+    case myCommission
     /// 佣金详情
     case commissonDetails(item_id: String, level: String)
     /// 佣金提现
-    case commissionApply()
+    case commissionApply
     /// 所有订单
-    case getMemberAllOrder()
+    case getMemberAllOrder
     /// 取消订单
     case cancleOrder(order_no: String)
     /// 退款
@@ -99,7 +99,7 @@ enum API{
     /// 获取退款信息
     case refundDetails(order_no: String)
     /// 我的班级
-    case myClass()
+    case myClass
     
     /// 意见反馈
     case feedback(category_id: String, content: String, contact: String, member_id: String)
@@ -107,11 +107,11 @@ enum API{
     //MARK:
     //MARK: 文件上传
     case aliyunUpLoadAuth(title: String, filename: String, cate_id: String, member_id: String)
-    case sts()
+    case sts
     // 视屏上传阿里云成功后上传app服务器
     case insert_video_info(vodSVideoModel: VodSVideoUploadResult, cateID: String, title: String)
     // 完的乐秀视频
-    case myVideo()
+    case myVideo
     
     // 乐秀视屏列表
     case videoList(cate_id: String)
@@ -188,14 +188,14 @@ extension API: TargetType{
         case .alipay(_):
             return "v1/pay/aliPay"
             
-        case .myCommission():
+        case .myCommission:
             return "v1/member/myCommission"
         case .commissonDetails(_):
             return "v1/member/commissonDetails"
-        case .commissionApply():
+        case .commissionApply:
             return "v1/member/commissionApply"
             
-        case .getMemberAllOrder():
+        case .getMemberAllOrder:
             return "v1/order/getMemberAllOrder"
         case .cancleOrder(_):
             return "v1/order/orderCancel"
@@ -205,13 +205,13 @@ extension API: TargetType{
             return "v1/order/canncel_refund"
         case .refundDetails(_):
             return "v1/order/refund_details"
-        case .myClass():
+        case .myClass:
             return "v1/member/myCourse"
             
         case .feedback(_):
             return "v1/member/feedback"
             
-        case .sts():
+        case .sts:
             return "v1/video/get_video_sts"
         case .aliyunUpLoadAuth(_):
             return "v1/video/upload_video"
@@ -221,7 +221,7 @@ extension API: TargetType{
         case .videoList(_):
             return "v1/video/video_list"
             
-        case .myVideo():
+        case .myVideo:
             return "v1/video/my_video"
         
         case .downLoad(_, _):
@@ -320,16 +320,16 @@ extension API {
             params["lng"] = userDefault.lng
             params["offset"] = offset
             
-        case .myCommission():
+        case .myCommission:
             params["id"] = userDefault.uid
         case .commissonDetails(let item_id, let level):
             params["id"]      = userDefault.uid
             params["item_id"] = item_id
             params["level"]   = level
-        case .commissionApply():
+        case .commissionApply:
             params["id"]      = userDefault.uid
 
-        case .getMemberAllOrder():
+        case .getMemberAllOrder:
             params["member_id"] = userDefault.uid
         case .cancleOrder(let order_no):
             params["order_no"] = order_no
@@ -339,7 +339,7 @@ extension API {
             params["order_no"] = order_no
         case .refundDetails(let order_no):
             params["order_no"] = order_no
-        case .myClass():
+        case .myClass:
             params["id"]      = userDefault.uid
 
         case .agnCourse(let agn_id):
@@ -398,7 +398,7 @@ extension API {
             params["title"]     = title
             params["video_id"]  = vodSVideoModel.videoId
             
-        case .myVideo():
+        case .myVideo:
             params["member_id"] = userDefault.uid
 
         case .videoList(let cate_id):
