@@ -35,7 +35,7 @@ class ChatRoomViewModel: RefreshVM<ChatModel> {
         navTitle.value = conversation.conversationId
 
         ChatModel.config(data: conversation) { [weak self] datas in
-            self?.datasource.value = datas
+            self?.datasource.value = ChatModel.setUser(chats: datas)
         }
         
         NotificationCenter.default.rx.notification(NotificationName.EaseMob.ReceivedNewMessage)

@@ -43,7 +43,7 @@ class STMineAccountViewController: BaseViewController {
 
         tableView.rowHeight = 65
         
-        headerView = MineAccountHeaderView.init(frame: .init(x: 0, y: 0, width: view.width, height: 204 + LayoutSize.fitTopArea))
+        headerView = MineAccountHeaderView.init(frame: .init(x: 0, y: 0, width: view.width, height: 218 + LayoutSize.fitTopArea))
         tableView.tableHeaderView = headerView
         
         tableView.register(UINib.init(nibName: "MineAccountCell", bundle: Bundle.main), forCellReuseIdentifier: "MineAccountCellID")

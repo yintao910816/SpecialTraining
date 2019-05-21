@@ -65,14 +65,6 @@ class STMapViewController: BaseViewController {
         userLocation = BMKUserLocation()
         
         creatMapView()
-        
-        // 添加一个标注
-        if let _coor = coor {
-            let annotation = BMKPointAnnotation()
-            annotation.coordinate = _coor
-            mapView.addAnnotation(annotation)
-            mapView.selectAnnotation(annotation, animated: true)
-        }
     }
     
     override func rxBind() {
@@ -109,9 +101,18 @@ class STMapViewController: BaseViewController {
             lockedScreenAnnotation = BMKPointAnnotation()
             lockedScreenAnnotation?.isLockedToScreen = true
             lockedScreenAnnotation?.screenPointToLock = mapView.center
-            lockedScreenAnnotation?.title = "我是固定屏幕的标注"
+//            lockedScreenAnnotation?.title = "我是固定屏幕的标注"
         }
         mapView.addAnnotation(lockedScreenAnnotation)
+        
+        // 添加一个标注
+        if let _coor = coor {
+            let annotation = BMKPointAnnotation()
+//            annotation.isLockedToScreen = false
+            annotation.coordinate = _coor
+            mapView.addAnnotation(annotation)
+            mapView.selectAnnotation(annotation, animated: true)
+        }
     }
     
     override func prepare(parameters: [String : Any]?) {
