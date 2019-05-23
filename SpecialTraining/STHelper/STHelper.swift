@@ -14,7 +14,8 @@ class STHelper {
     static let share = STHelper()
     
     var loginUser: UserInfoModel?
-    
+    /// 视频分类信息
+    var videoCates: [VideoCateListModel] = []
     /**
      * 用户信息保存
      */

@@ -46,6 +46,8 @@ class VideoViewModel: BaseViewModel {
         STProvider.request(.videoList(cate_id: cateModel.id))
             .map(model: OndemandModel.self)
             .subscribe(onSuccess: { [unowned self] data in
+                STHelper.share.videoCates = data.cate_list
+                
                 var cateList = [VideoCateListModel]()
                 cateList = data.cate_list
                 cateList.insert(VideoCateListModel.creatAllCateModel(), at: 0)

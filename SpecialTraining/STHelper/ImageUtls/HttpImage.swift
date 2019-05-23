@@ -22,14 +22,14 @@ extension UIImageView {
             image = type.placeholder
             return
         }
-        let dealURL = ImageCacheCenter.shared.imageURL(turl, type: type)
+//        let dealURL = ImageCacheCenter.shared.imageURL(turl, type: type)
 
-        if let memoryCache = ImageCacheCenter.shared.image(forKey: dealURL) {
+        if let memoryCache = ImageCacheCenter.shared.image(forKey: turl) {
             image = memoryCache
             return
         }
 
-        if ValidateNum.URL(dealURL).isRight == false { return }
+        if ValidateNum.URL(turl).isRight == false { return }
         
         if type != .userIcon {
             var _options = [KingfisherOptionsInfoItem]()
@@ -45,9 +45,9 @@ extension UIImageView {
             
             _options.append(contentsOf: [.backgroundDecode])
             
-            kf_setImage(dealURL, type, _options)
+            kf_setImage(turl, type, _options)
         }else {
-            kf_setImage(dealURL, type, nil)
+            kf_setImage(turl, type, nil)
         }
     }
     
@@ -62,11 +62,31 @@ extension UIImageView {
                         if type != .userIcon {
                             if let _image = image, let _url = url {
                                 KingfisherManager.shared.cache.store(_image, forKey: _url.absoluteString, toDisk: false)
+                            }else {
+                                PrintLog("图片加载出错：\(error)")
                             }
                         }
                     }
     }
     
+    final func downImage(url: String?) {
+        guard let imageURL = url, let aURL = URL.init(string: imageURL) else {
+            return
+        }
+        if let memoryCache = ImageCacheCenter.shared.image(forKey: imageURL) {
+            image = memoryCache
+            return
+        }
+
+        ImageDownloader.default.downloadImage(with: aURL, retrieveImageTask: nil, options: [.cacheMemoryOnly], progressBlock: { (receivedData, totalData) in
+            
+        }) { [weak self] (image, error, url, data) in
+            if let _image = image, let _url = url {
+                self?.image = image
+                KingfisherManager.shared.cache.store(_image, forKey: _url.absoluteString, toDisk: false)
+            }
+        }
+    }
 }
 
 extension UIButton {

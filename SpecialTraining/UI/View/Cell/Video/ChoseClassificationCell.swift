@@ -20,9 +20,9 @@ class ChoseClassificationCell: UITableViewCell {
     
     var model: ChoseClassificationModel! {
         didSet {
-            contentOutlet.setTitle(model.name, for: .normal)
+            contentOutlet.setTitle(model.item.cate_name, for: .normal)
             contentOutlet.isSelected = model.isSelected
-            markOutlet.isSelected = model.isSelected
+            markOutlet.isHidden = !model.isSelected
         }
     }
     
@@ -30,6 +30,6 @@ class ChoseClassificationCell: UITableViewCell {
         model.isSelected = !model.isSelected
         
         contentOutlet.isSelected = model.isSelected
-        markOutlet.isSelected = model.isSelected
+        markOutlet.isHidden = !model.isSelected
     }
 }

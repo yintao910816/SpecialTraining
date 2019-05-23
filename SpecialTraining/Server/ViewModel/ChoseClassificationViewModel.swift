@@ -16,19 +16,20 @@ class ChoseClassificationViewModel: BaseViewModel {
     override init() {
         super.init()
         
-        datasource.value = ChoseClassificationModel.testCreatModels()
+        datasource.value = ChoseClassificationModel.creatModels()
     }
     
-    func appendClassifications() ->String {
+    func appendClassifications() ->VideoCateListModel {
         var classifications = ""
         let selected = datasource.value.filter{ $0.isSelected == true }
-        for item in selected {
-            if classifications.count == 0 {
-                classifications = item.name
-            }else {
-                classifications = classifications.appending(",\(item.name)")
-            }
-        }
-        return classifications
+//        for item in selected {
+//            if classifications.count == 0 {
+//                classifications = item.name
+//            }else {
+//                classifications = classifications.appending(",\(item.name)")
+//            }
+//        }
+//        return classifications
+        return selected.first!.item
     }
 }

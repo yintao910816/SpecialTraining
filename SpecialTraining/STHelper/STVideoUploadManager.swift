@@ -101,6 +101,7 @@ extension STVideoUploadManager: VODUploadSVideoClientDelegate {
     
     func uploadSuccess(with result: VodSVideoUploadResult!) {
         PrintLog("上传成功：imageUrl -- \(String(describing: result.imageUrl)) videoId -- \(String(describing: result.videoId))")
+        FileService.share.removeTempFile(fileName: uploadInfo.fileName)
         STProvider.request(.insert_video_info(vodSVideoModel: result, cateID: uploadInfo.cateId, title: uploadInfo.title))
             .mapResponse()
             .subscribe(onSuccess: { [weak self] res in

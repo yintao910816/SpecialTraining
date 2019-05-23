@@ -91,15 +91,14 @@ class ChoseOrganizationModel: HJModel {
 // 发布视屏，分类选择
 class ChoseClassificationModel: HJModel {
     
-    var name: String = ""
+    var item: VideoCateListModel = VideoCateListModel()
     var isSelected: Bool = false
     
-    class func testCreatModels() ->[ChoseClassificationModel] {
+    class func creatModels() ->[ChoseClassificationModel] {
         var models = [ChoseClassificationModel]()
-        let names = ["音乐", "舞蹈", "创意", "手工", "戏曲", "语言", "考级", "会计", "英语", "武术", "播音", "教师"]
-        for name in names {
+        for item in STHelper.share.videoCates {
             let m = ChoseClassificationModel()
-            m.name = name
+            m.item = item
             models.append(m)
         }
         return models

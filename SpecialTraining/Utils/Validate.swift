@@ -55,6 +55,7 @@ extension ValidateNum{
         }
         
         let predicate =  NSPredicate(format: "SELF MATCHES %@" ,predicateStr)
+        PrintLog("正则匹配结果：\(predicate.evaluate(with: currObject))")
         return predicate.evaluate(with: currObject)
     }
 }

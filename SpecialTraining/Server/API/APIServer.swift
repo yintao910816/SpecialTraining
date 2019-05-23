@@ -55,26 +55,17 @@ public final class RequestLoadingPlugin: PluginType {
             guard let api = target as? API else {
                 return
             }
-//            switch api {
-//            case .wchatLogin(_):
-//                do {
-//                    let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments)
-//
-//                    guard let rdic = json as? [String : Any] else {
-//                        return
-//                    }
-//
-//                    if let token = rdic["Token"] as? String {
-//                        userDefault.token = token
-//                    }
-//                } catch  {
-//                    PrintLog(error)
-//                }
-//            case .addComicCase(_, _), .delComicCase(_):
-//                NotificationCenter.default.post(name: NotificationName.Reader.BookSelfCaseReload, object: nil)
-//            default:
-//                break
-//            }
+            switch api {
+            case .insert_video_info(_):
+                do {
+                    let json = try JSONSerialization.jsonObject(with: response.data, options: .allowFragments)
+                    PrintLog(json)
+                } catch  {
+                    PrintLog(error)
+                }
+            default:
+                break
+            }
             
             break
         case .failure(let error):

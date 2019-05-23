@@ -90,7 +90,10 @@ class CarouselView: UIView {
         lastImageView.setImage(dataControl.itemModel(.last)?.url)
         currentImageView.setImage(dataControl.itemModel(.current)?.url)
         nextImageView.setImage(dataControl.itemModel(.next)?.url)
-    
+//        lastImageView.downImage(url: dataControl.itemModel(.last)?.url)
+//        currentImageView.downImage(url: dataControl.itemModel(.current)?.url)
+//        nextImageView.downImage(url: dataControl.itemModel(.next)?.url)
+
         scroll.setContentOffset(CGPoint.init(x: width, y: 0), animated: false)
     }
     

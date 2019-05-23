@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <scenes>
@@ -2006,17 +2006,17 @@
         <image name="back_blue" width="27" height="45"/>
         <image name="big_nav_back" width="200" height="200"/>
         <image name="demandView_bg" width="640" height="960"/>
-        <image name="dianpu" width="40" height="40"/>
+        <image name="dianpu" width="20" height="20"/>
         <image name="home_nav_left" width="315" height="180"/>
-        <image name="home_nav_right" width="14.666666984558105" height="18.666666030883789"/>
-        <image name="home_nav_search" width="18.666666030883789" height="18.666666030883789"/>
-        <image name="navigationButtonReturn" width="40" height="40"/>
+        <image name="home_nav_right" width="44" height="56"/>
+        <image name="home_nav_search" width="56" height="56"/>
+        <image name="navigationButtonReturn" width="20" height="20"/>
         <image name="paytype_choose" width="108" height="108"/>
         <image name="search_gray" width="42" height="42"/>
-        <image name="shop_dianhua" width="40" height="40"/>
+        <image name="shop_dianhua" width="20" height="20"/>
         <image name="shop_fenxiang" width="141" height="141"/>
         <image name="shop_jigou" width="141" height="141"/>
-        <image name="shop_kefu" width="40" height="40"/>
+        <image name="shop_kefu" width="20" height="20"/>
         <image name="show_my_location" width="200" height="200"/>
         <image name="wchat_pay" width="144" height="144"/>
     </resources>
