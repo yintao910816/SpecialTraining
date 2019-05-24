@@ -33,6 +33,7 @@ class STVideoUploadManager: NSObject {
         client.maxRetryCount = 2
         client.timeoutIntervalForRequest = 15.0 * 1000.0
         client.transcode = true
+        client.region = "cn-shanghai"
         client.uploadPartSize = 1024 * 1024
         
         client.delegate = self
