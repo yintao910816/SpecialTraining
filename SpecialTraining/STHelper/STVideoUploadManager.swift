@@ -32,7 +32,7 @@ class STVideoUploadManager: NSObject {
         client = VODUploadSVideoClient()
         client.maxRetryCount = 2
         client.timeoutIntervalForRequest = 15.0 * 1000.0
-        client.transcode = true
+        client.transcode = false
         client.region = "cn-shanghai"
         client.uploadPartSize = 1024 * 1024
         
@@ -73,7 +73,7 @@ class STVideoUploadManager: NSObject {
         let coverPath = FileService.share.writeToTempFile(data: imageData, fileName: uploadInfo.fileName)
         
         let info = VodSVideoInfo()
-        info.templateGroupId = "5ca91602d1f35b7598999244d090ead1"
+//        info.templateGroupId = "5ca91602d1f35b7598999244d090ead1"
         info.title = uploadInfo.title
         info.desc = ""
         info.cateId = NSNumber.init(value: 1)
