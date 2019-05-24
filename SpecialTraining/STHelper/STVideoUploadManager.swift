@@ -30,6 +30,11 @@ class STVideoUploadManager: NSObject {
         super.init()
         
         client = VODUploadSVideoClient()
+        client.maxRetryCount = 2
+        client.timeoutIntervalForRequest = 15.0 * 1000.0
+        client.transcode = true
+        client.uploadPartSize = 1024 * 1024
+        
         client.delegate = self
         
         startUploadSubject
