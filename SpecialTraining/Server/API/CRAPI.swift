@@ -216,7 +216,7 @@ extension API: TargetType{
         case .aliyunUpLoadAuth(_):
             return "v1/video/upload_video"
         case .insert_video_info(_):
-            return "v1/video/insert_video_info"
+            return "v1/video/insert_video_info_ios"
             
         case .videoList(_):
             return "v1/video/video_list"

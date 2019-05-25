@@ -22,7 +22,7 @@ class UserVideosView: UICollectionView {
             layout.minimumLineSpacing = 5
             layout.minimumInteritemSpacing = 5
             
-            let w = (PPScreenW - layout.sectionInset.left - layout.sectionInset.right - 2 * layout.minimumInteritemSpacing) / 3.0
+            let w = (PPScreenW - layout.sectionInset.left - layout.sectionInset.right - 2 * layout.minimumInteritemSpacing - 1) / 3.0
             let h = w * 4.0 / 3.0
             layout.itemSize = .init(width: w, height: h)
             return layout
