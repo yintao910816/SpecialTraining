@@ -51,7 +51,7 @@ class HomeExpericeCollectionView: UICollectionView {
             return cell
         }, configureSupplementaryView: { [unowned self] (_, col, kind, indexPath) -> UICollectionReusableView in
             let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: "HomeHeaderExperienceViewID", for: indexPath) as! HomeHeaderExperienceView
-//            colHeader.setData(source: self.carouseDatas)
+            colHeader.setData(source: self.carouseDatas)
             return colHeader
             }, moveItem: { _,_,_  in
                 

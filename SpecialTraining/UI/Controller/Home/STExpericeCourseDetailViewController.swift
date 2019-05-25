@@ -74,7 +74,7 @@ class STExpericeCourseDetailViewController: BaseViewController {
         viewModel.courseInfoObser.asDriver()
             .drive(onNext: { [weak self] data in
                 guard let strongSelf = self else { return }
-//                strongSelf.carouselView.setData(source: PhotoModel.creatPhotoModels(photoList: data.course_info.pic_list))
+                strongSelf.carouselView.setData(source: PhotoModel.creatPhotoModels(photoList: data.course_info.pic_list))
                 strongSelf.titleOutlet.text = data.course_info.title
                 strongSelf.priceOutlet.text = "¥: \(data.course_info.about_price)"
                 strongSelf.contentOutlet.text = data.course_info.introduce

@@ -273,10 +273,7 @@ class ShopDetailAdvModel: HJModel {
 
 extension ShopDetailAdvModel: CarouselSource {
     
-    var url: String? {
-        
-        return (adv_image ?? "")
-    }
+    var url: String? { return adv_image }
 }
 
 /// 店铺详情 - 师资

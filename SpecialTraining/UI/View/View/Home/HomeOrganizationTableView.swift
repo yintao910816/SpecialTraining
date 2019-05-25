@@ -55,8 +55,8 @@ class HomeOrganizationTableView: BaseTB {
         
         datasource.asDriver()
             .map(({ [weak self] data -> [NearByOrganizationItemModel] in
-//                self?.carouseDatas = data.1
-//                self?.tableHeader.setData(source: data.1)
+                self?.carouseDatas = data.1
+                self?.tableHeader.setData(source: data.1)
                 return data.0
             }))
             .drive(rx.items(cellIdentifier: "OrganizationCellID", cellType: OrganizationCell.self)) { row, model, cell in

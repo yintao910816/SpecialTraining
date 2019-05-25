@@ -87,16 +87,9 @@ class CarouselView: UIView {
     }
     
     private func setCarouselImage() {
-        PrintLog(dataControl.itemModel(.last)?.url)
-        PrintLog(dataControl.itemModel(.current)?.url)
-        PrintLog(dataControl.itemModel(.next)?.url)
-
-        lastImageView.setImage(dataControl.itemModel(.last)?.url)
-        currentImageView.setImage(dataControl.itemModel(.current)?.url)
-        nextImageView.setImage(dataControl.itemModel(.next)?.url)
-//        lastImageView.downImage(url: dataControl.itemModel(.last)?.url)
-//        currentImageView.downImage(url: dataControl.itemModel(.current)?.url)
-//        nextImageView.downImage(url: dataControl.itemModel(.next)?.url)
+        lastImageView.setImage(dataControl.itemModel(.last)?.url ?? "")
+        currentImageView.setImage(dataControl.itemModel(.current)?.url ?? "")
+        nextImageView.setImage(dataControl.itemModel(.next)?.url ?? "")
 
         scroll.setContentOffset(CGPoint.init(x: width, y: 0), animated: false)
     }
@@ -112,7 +105,7 @@ class CarouselView: UIView {
         lastImageView = UIImageView.init()
         lastImageView.contentMode = .scaleAspectFill
         lastImageView.clipsToBounds = true
-        
+
         currentImageView = UIImageView.init()
         currentImageView.contentMode = .scaleAspectFill
         currentImageView.clipsToBounds = true

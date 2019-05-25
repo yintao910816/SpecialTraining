@@ -58,7 +58,7 @@ class HomeRecommendCollectionView: UICollectionView {
         }, configureSupplementaryView: { [unowned self] (_, col, kind, indexPath) -> UICollectionReusableView in
             if indexPath.section == 0 {
                 let colHeader = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader, withReuseIdentifier: headerCarouselID, for: indexPath) as! HomeHeaderCarouselView
-//                colHeader.setData(source: self.carouseDatas)
+                colHeader.setData(source: self.carouseDatas)
                 return colHeader
             }
             return UICollectionReusableView()

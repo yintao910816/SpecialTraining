@@ -91,7 +91,7 @@ class STOrganazitonCourseDetailViewController: BaseViewController {
         scrollOutlet.contentSize = .init(width: PPScreenW * 3, height: scrollOutlet.height)
 
         homeView = AgnDetailHomeView.init()
-        recommendCourseView = RecommendCourseView()
+        recommendCourseView = RecommendCourseView.init(frame: .init(x: scrollOutlet.width, y: 0, width: scrollOutlet.width, height: scrollOutlet.height))
         teacherCol = TeachersCollectionVIew()
 
         scrollOutlet.addSubview(homeView)
