@@ -54,7 +54,7 @@ class STOrganizationShopViewController: BaseViewController {
         
         viewModel.advDatasource.asDriver()
             .drive(onNext: { [weak self] data in
-                self?.carouseView.setData(source: data)
+//                self?.carouseView.setData(source: data)
             })
             .disposed(by: disposeBag)
         

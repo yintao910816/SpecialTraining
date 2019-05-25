@@ -55,11 +55,11 @@ class HomeOrganizationTableView: BaseTB {
         
         datasource.asDriver()
             .map(({ [weak self] data -> [NearByOrganizationItemModel] in
-                self?.carouseDatas = data.1
-                self?.tableHeader.setData(source: data.1)
+//                self?.carouseDatas = data.1
+//                self?.tableHeader.setData(source: data.1)
                 return data.0
             }))
-            .drive(rx.items(cellIdentifier: "OrganizationCellID", cellType: OrganizationCell.self)) { [unowned self] row, model, cell in
+            .drive(rx.items(cellIdentifier: "OrganizationCellID", cellType: OrganizationCell.self)) { row, model, cell in
                 cell.model = model
             }
             .disposed(by: disposeBag)

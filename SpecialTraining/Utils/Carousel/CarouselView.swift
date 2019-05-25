@@ -87,6 +87,10 @@ class CarouselView: UIView {
     }
     
     private func setCarouselImage() {
+        PrintLog(dataControl.itemModel(.last)?.url)
+        PrintLog(dataControl.itemModel(.current)?.url)
+        PrintLog(dataControl.itemModel(.next)?.url)
+
         lastImageView.setImage(dataControl.itemModel(.last)?.url)
         currentImageView.setImage(dataControl.itemModel(.current)?.url)
         nextImageView.setImage(dataControl.itemModel(.next)?.url)
