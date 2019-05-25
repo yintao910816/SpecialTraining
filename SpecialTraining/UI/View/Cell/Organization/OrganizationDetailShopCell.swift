@@ -44,7 +44,7 @@ class OrganizationDetailShopCell: UITableViewCell {
                 let imgV = (contentView.viewWithTag(100 + idx) as! UIImageView)
                 if idx < model.picList.count {
                     imgV.isHidden = false
-                    imgV.setImage(model.picList[idx].shop_pic)
+                    imgV.setImage(model.picList[idx])
                 }else {
                     imgV.isHidden = true
                 }

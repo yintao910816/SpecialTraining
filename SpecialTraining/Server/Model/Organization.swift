@@ -221,21 +221,12 @@ class OrganazitonShopModel: HJModel {
     var status: String = ""
     var dis: String = ""
     
-    var picList: [OrganazitonPicModel] = [OrganazitonPicModel]()
+    var picList: [String] = []
     
     override func mapping(mapper: HelpingMapper) {
         mapper.specify(property: &agnShopDescription, name: "description")
     }
 }
-
-class OrganazitonPicModel: HJModel {
-    var id: String = ""
-    var shop_id: String = ""
-    var category_id: String = ""
-    var category_name: String = ""
-    var shop_pic: String = ""
-}
-
 
 //MARK:
 //MARK: 店铺详情数据

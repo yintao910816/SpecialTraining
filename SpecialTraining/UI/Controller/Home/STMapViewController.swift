@@ -119,6 +119,7 @@ class STMapViewController: BaseViewController {
         if let lat = parameters?["lat"] as? Double,
             let lng = parameters?["lng"] as? Double{
             coor = CLLocationCoordinate2D.init(latitude: lat, longitude: lng)
+            PrintLog("店铺坐标：lat -- \(lat) -- lng -- \(lng)")
         }
     }
 }
