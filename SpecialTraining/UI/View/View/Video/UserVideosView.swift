@@ -18,7 +18,7 @@ class UserVideosView: UICollectionView {
     private class var flowLayout: UICollectionViewFlowLayout {
         get {
             let layout = UICollectionViewFlowLayout()
-            layout.sectionInset = .init(top: 10, left: 0, bottom: 0, right: 0)
+            layout.sectionInset = .init(top: 10, left: 10, bottom: 0, right: 10)
             layout.minimumLineSpacing = 5
             layout.minimumInteritemSpacing = 5
             
