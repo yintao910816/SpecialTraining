@@ -9,7 +9,7 @@ pod 'RxDataSources', '~> 3.1.0'
 pod 'Moya/RxSwift', '~> 12.0.1'
 pod 'HandyJSON', '~> 5.0.0-beta.1'
 
-pod 'SQLite.swift', '~> 0.11.5'
+pod 'SQLite.swift', '~> 0.11.6'
 
 pod 'SnapKit', '~> 4.0.0'
 pod 'MJRefresh', '~> 3.1.15.3'

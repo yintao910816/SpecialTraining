@@ -42,6 +42,7 @@ class CourseDetailViewModel: BaseViewModel {
     }
     
     public func insertOrder(classModel: CourseDetailClassModel, isGotopay: Bool) ->Observable<String> {
+        classModel.pic = courseInfoDataSource.value.pic
         CourseDetailClassModel.inster(classInfo: [classModel], courseDetail: courseInfoDataSource.value)
         if isGotopay == false {
             hud.successHidden("添加成功")

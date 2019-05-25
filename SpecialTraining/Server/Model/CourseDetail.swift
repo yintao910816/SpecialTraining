@@ -183,6 +183,9 @@ class CourseDetailClassModel: HJModel {
     
     var isSelected: Bool = false
     var isLasstRow: Bool = false
+    
+    /// 购买班级所属用户
+    var uid: String = ""
 }
 
 extension CourseDetailClassModel: DBOperation {
@@ -206,6 +209,8 @@ extension CourseDetailClassModel: DBOperation {
         static let shop_idEx = Expression<String>("shop_id")
         static let shop_nameEx = Expression<String>("shop_name")
         static let titleEx = Expression<String>("title")
+        
+        static let uidEx = Expression<String>("uid")
     }
     
     static func dbBind(_ builder: TableBuilder) {
@@ -228,11 +233,14 @@ extension CourseDetailClassModel: DBOperation {
         builder.column(ExpressionEx.shop_idEx)
         builder.column(ExpressionEx.shop_nameEx)
         builder.column(ExpressionEx.titleEx)
+        
+        builder.column(ExpressionEx.uidEx)
     }
     
     class func inster(classInfo datas: [CourseDetailClassModel], courseDetail: CourseDetailInfoModel) {
         for item in datas {
-            DBQueue.share.insterOrUpdateQueue(ExpressionEx.class_idEx == item.class_id,
+            let filter = ExpressionEx.class_idEx == item.class_id && ExpressionEx.uidEx == "\(userDefault.uid)"
+            DBQueue.share.insterOrUpdateQueue(filter,
                                               config(setters: item, courseDetail: courseDetail),
                                               courseOrderTB,
                                               CourseDetailClassModel.self)
@@ -240,19 +248,21 @@ extension CourseDetailClassModel: DBOperation {
     }
     
     class func inster(classInfo data: CourseDetailClassModel, shopModel: ShopInfoModel) {
-        DBQueue.share.insterOrUpdateQueue(ExpressionEx.class_idEx == data.class_id,
+        let filter = ExpressionEx.class_idEx == data.class_id && ExpressionEx.uidEx == "\(userDefault.uid)"
+        DBQueue.share.insterOrUpdateQueue(filter,
                                           config(setters: data, shopModel: shopModel),
                                           courseOrderTB,
                                           CourseDetailClassModel.self)
     }
 
     class func remove(classInfo classId: String) {
-        DBQueue.share.deleteRowQueue(ExpressionEx.class_idEx == classId, courseOrderTB, CourseDetailClassModel.self)
+        let filter = ExpressionEx.class_idEx == classId && ExpressionEx.uidEx == "\(userDefault.uid)"
+        DBQueue.share.deleteRowQueue(filter, courseOrderTB, CourseDetailClassModel.self)
     }
     
     class func selectedAllOrderClass() -> Observable<[CourseDetailClassModel]>{
         return Observable<[CourseDetailClassModel]>.create({ obser -> Disposable in
-            DBQueue.share.selectQueue(ExpressionEx.class_idEx != "",
+            DBQueue.share.selectQueue(ExpressionEx.uidEx == "\(userDefault.uid)",
                                       courseOrderTB,
                                       CourseDetailClassModel.self,
                                       complement: { table in
@@ -310,7 +320,9 @@ extension CourseDetailClassModel: DBOperation {
         return Observable<[CourseDetailClassModel]>.create({ obser -> Disposable in
             var retDatas = [CourseDetailClassModel]()
             for idx in 0..<classIds.count {
-                DBQueue.share.selectQueue(ExpressionEx.class_idEx == classIds[idx],
+                let filter = ExpressionEx.class_idEx == classIds[idx] && ExpressionEx.uidEx == "\(userDefault.uid)"
+
+                DBQueue.share.selectQueue(filter,
                                           courseOrderTB,
                                           CourseDetailClassModel.self,
                                           complement: { table in
@@ -385,6 +397,8 @@ extension CourseDetailClassModel: DBOperation {
         tempSetters.append(ExpressionEx.shop_nameEx <- courseDetail.shop_name)
         tempSetters.append(ExpressionEx.titleEx <- courseDetail.title)
 
+        tempSetters.append(ExpressionEx.uidEx <- "\(userDefault.uid)")
+
         return tempSetters
     }
     
@@ -408,6 +422,8 @@ extension CourseDetailClassModel: DBOperation {
         tempSetters.append(ExpressionEx.shop_nameEx <- shopModel.shop_name)
         tempSetters.append(ExpressionEx.titleEx <- shopModel.shop_name)
         
+        tempSetters.append(ExpressionEx.uidEx <- "\(userDefault.uid)")
+
         return tempSetters
     }
 
