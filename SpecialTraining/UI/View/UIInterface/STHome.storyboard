@@ -1940,6 +1940,7 @@
                     <connections>
                         <outlet property="bgHeightCns" destination="QHq-aS-6h5" id="sib-oB-OE9"/>
                         <outlet property="headerBgView" destination="IYs-Y0-SYQ" id="Pxv-5T-4uH"/>
+                        <outlet property="payCountOutlet" destination="zea-63-0ZF" id="JNy-nK-eY0"/>
                         <outlet property="topCns" destination="ND6-aI-AKy" id="FrD-bW-bd0"/>
                     </connections>
                 </viewController>

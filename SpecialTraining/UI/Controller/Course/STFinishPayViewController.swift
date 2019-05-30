@@ -13,10 +13,12 @@ class STFinishPayViewController: BaseViewController {
     @IBOutlet weak var headerBgView: UIView!
     @IBOutlet weak var bgHeightCns: NSLayoutConstraint!
     @IBOutlet weak var topCns: NSLayoutConstraint!
+    @IBOutlet weak var payCountOutlet: UILabel!
     
+    private var priceText: String = "0"
     
     @IBAction func backAction(_ sender: UIButton) {
-        navigationController?.popViewController(animated: true)
+        navigationController?.popToRootViewController(animated: true)
     }
     
     override func viewWillAppear(_ animated: Bool) {
@@ -33,9 +35,15 @@ class STFinishPayViewController: BaseViewController {
         
         let frame = CGRect.init(x: 0, y: 0, width: headerBgView.width, height: bgHeightCns.constant)
         headerBgView.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
+        
+        payCountOutlet.text = "实付：\(priceText)"
     }
     
     override func rxBind() {
         
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        priceText = (parameters!["price"] as! String)
     }
 }

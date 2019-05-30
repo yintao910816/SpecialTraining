@@ -13,10 +13,12 @@ import RxCocoa
 class PayOrderViewModel: BaseViewModel, VMNavigation {
     private var orderModels: [CourseDetailClassModel] = []
     private var classIds: [String] = []
+    private var totlePrice: String = "0"
     
     private let payManager = AppPayManager()
     
-    let priceTextObser = Variable(NSAttributedString.init(string: ""))
+    public let priceTextObser = Variable(NSAttributedString.init(string: ""))
+    public let gotoPayFinishPaySubject = PublishSubject<String>()
     
     init(classIds: [String], tap: Driver<PayType>) {
         super.init()
@@ -51,6 +53,7 @@ class PayOrderViewModel: BaseViewModel, VMNavigation {
             totlePrice += (Double(course.price) ?? 0)
         }
         
+        self.totlePrice = "\(totlePrice)"
         let priceText = "￥\(totlePrice)"
 
         priceTextObser.value = priceText.attributed([NSRange.init(location: 0, length: 1)],
@@ -61,7 +64,7 @@ class PayOrderViewModel: BaseViewModel, VMNavigation {
         if let ret = result as? (Bool, String) {
             if ret.0 == true {
                 hud.noticeHidden()
-                pushNextSubject.onNext(Void())
+                gotoPayFinishPaySubject.onNext(totlePrice)
             }else {
                 hud.failureHidden(ret.1)
             }

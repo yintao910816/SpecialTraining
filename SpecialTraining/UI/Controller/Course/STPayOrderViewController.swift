@@ -45,9 +45,9 @@ class STPayOrderViewController: BaseViewController {
         let tapDriver = okOutlet.rx.tap.asDriver().map{ [unowned self] _ in self.payType }
         viewModel = PayOrderViewModel.init(classIds: classIds, tap: tapDriver)
         
-        viewModel.pushNextSubject
-            .subscribe(onNext: { [weak self] _ in
-                self?.performSegue(withIdentifier: "payResultSegue", sender: nil)
+        viewModel.gotoPayFinishPaySubject
+            .subscribe(onNext: { [weak self] totlePrice in
+                self?.performSegue(withIdentifier: "payResultSegue", sender: totlePrice)
             })
             .disposed(by: disposeBag)
 
@@ -60,4 +60,9 @@ class STPayOrderViewController: BaseViewController {
         classIds = (parameters!["classIds"] as! [String])
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "payResultSegue" {
+            segue.destination.prepare(parameters: ["price": sender as! String])
+        }
+    }
 }
