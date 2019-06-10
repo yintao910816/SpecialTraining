@@ -540,6 +540,9 @@
 		C41D2511222FA60F00DC3D83 /* PA.bundle in Resources */ = {isa = PBXBuildFile; fileRef = C41D24FC222FA60F00DC3D83 /* PA.bundle */; };
 		C43339B221C0FBD900CAF850 /* STMyScoreViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43339B121C0FBD900CAF850 /* STMyScoreViewController.swift */; };
 		C43339B421C0FC1B00CAF850 /* STCreditViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43339B321C0FC1B00CAF850 /* STCreditViewController.swift */; };
+		C43D56EA22AE73EE0085AA90 /* CourseDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D56E922AE73EE0085AA90 /* CourseDetailHeaderView.swift */; };
+		C43D56EC22AE73FA0085AA90 /* CourseDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43D56EB22AE73FA0085AA90 /* CourseDetailHeaderView.xib */; };
+		C43D56EE22AE78430085AA90 /* CourseDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D56ED22AE78430085AA90 /* CourseDetailInfoView.swift */; };
 		C45AAE5221B6A13500692D7D /* UserVideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AAE5121B6A13500692D7D /* UserVideosView.swift */; };
 		C45AAE5521B6A15200692D7D /* UserVideosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AAE5321B6A15200692D7D /* UserVideosCell.swift */; };
 		C45AAE5621B6A15200692D7D /* UserVideosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45AAE5421B6A15200692D7D /* UserVideosCell.xib */; };
@@ -1135,6 +1138,9 @@
 		C41D24FC222FA60F00DC3D83 /* PA.bundle */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.plug-in"; path = PA.bundle; sourceTree = "<group>"; };
 		C43339B121C0FBD900CAF850 /* STMyScoreViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STMyScoreViewController.swift; sourceTree = "<group>"; };
 		C43339B321C0FC1B00CAF850 /* STCreditViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCreditViewController.swift; sourceTree = "<group>"; };
+		C43D56E922AE73EE0085AA90 /* CourseDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailHeaderView.swift; sourceTree = "<group>"; };
+		C43D56EB22AE73FA0085AA90 /* CourseDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailHeaderView.xib; sourceTree = "<group>"; };
+		C43D56ED22AE78430085AA90 /* CourseDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailInfoView.swift; sourceTree = "<group>"; };
 		C45AAE5121B6A13500692D7D /* UserVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideosView.swift; sourceTree = "<group>"; };
 		C45AAE5321B6A15200692D7D /* UserVideosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideosCell.swift; sourceTree = "<group>"; };
 		C45AAE5421B6A15200692D7D /* UserVideosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserVideosCell.xib; sourceTree = "<group>"; };
@@ -1985,6 +1991,9 @@
 				B82BD1A5228DCA1F009AF698 /* CourseClassSelectHeaderView.xib */,
 				B8686AE82241711E0059BCB9 /* CourseDetailVideoView.swift */,
 				B8686AF022417A540059BCB9 /* CourseDetailClassTableView.swift */,
+				C43D56E922AE73EE0085AA90 /* CourseDetailHeaderView.swift */,
+				C43D56EB22AE73FA0085AA90 /* CourseDetailHeaderView.xib */,
+				C43D56ED22AE78430085AA90 /* CourseDetailInfoView.swift */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -2804,6 +2813,7 @@
 				B8FBFA3921A3DD9600AECB75 /* money_thumb.png in Resources */,
 				B8FBFA3821A3DD9600AECB75 /* k_thumb.png in Resources */,
 				B8FBFA2521A3DD9600AECB75 /* ok_thumb.png in Resources */,
+				C43D56EC22AE73FA0085AA90 /* CourseDetailHeaderView.xib in Resources */,
 				B87F096D222416CB00310445 /* SearchTypeCell.xib in Resources */,
 				C460193A21B0D883004498DB /* STMine.storyboard in Resources */,
 				6BEA00D921B4BDA100343EE8 /* MineCustomCollectionReusableFooterView.xib in Resources */,
@@ -3375,6 +3385,7 @@
 				B87F09602224041300310445 /* CancleOrderView.swift in Sources */,
 				B8F117DA2232F6EC008B63B8 /* STMineEditPayAccountViewController.swift in Sources */,
 				C408422821B54C0B00C491A8 /* STMainTabBarController.swift in Sources */,
+				C43D56EE22AE78430085AA90 /* CourseDetailInfoView.swift in Sources */,
 				B80B6C0B219FF1CD00C33F11 /* VideoFlowLayout.swift in Sources */,
 				B85DBFFE2221DAE6000D3977 /* STPayBackInfoViewController.swift in Sources */,
 				B8547E1C21A640CC00281554 /* SelectedCityViewModel.swift in Sources */,
@@ -3405,6 +3416,7 @@
 				B87A9401228B952700576AE7 /* NoticeAndApplyCell.swift in Sources */,
 				B8547E1A21A63F4300281554 /* STSelectedCityViewController.swift in Sources */,
 				B82BD1AB228DDC14009AF698 /* FlowLayoutText.swift in Sources */,
+				C43D56EA22AE73EE0085AA90 /* CourseDetailHeaderView.swift in Sources */,
 				B8FBFA1921A3DD9600AECB75 /* EmjoToolBar.swift in Sources */,
 				C41D2501222FA60F00DC3D83 /* ZQAlbumVC.m in Sources */,
 				B8350ABA21A112150020A6A6 /* Mine.swift in Sources */,
@@ -3557,8 +3569,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VF5FF4J6Z3;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KZ83WEMA2D;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3586,9 +3598,9 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youpeixun.SpecialTraining;
+				PRODUCT_BUNDLE_IDENTIFIER = potatochat.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = potatochat_beta_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SpecialTraining/Main/SpecialTraining-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
@@ -3601,8 +3613,8 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "iPhone Developer";
-				CODE_SIGN_STYLE = Automatic;
-				DEVELOPMENT_TEAM = VF5FF4J6Z3;
+				CODE_SIGN_STYLE = Manual;
+				DEVELOPMENT_TEAM = KZ83WEMA2D;
 				ENABLE_BITCODE = NO;
 				FRAMEWORK_SEARCH_PATHS = (
 					"$(inherited)",
@@ -3630,9 +3642,9 @@
 					"$(PROJECT_DIR)/SpecialTraining/Utils/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 					"$(PROJECT_DIR)/SpecialTraining/Utils/Lib/ShareSDK/ShareSDK/Support/PlatformSDK/WeChatSDK",
 				);
-				PRODUCT_BUNDLE_IDENTIFIER = com.youpeixun.SpecialTraining;
+				PRODUCT_BUNDLE_IDENTIFIER = potatochat.beta;
 				PRODUCT_NAME = "$(TARGET_NAME)";
-				PROVISIONING_PROFILE_SPECIFIER = "";
+				PROVISIONING_PROFILE_SPECIFIER = potatochat_beta_dev;
 				SWIFT_OBJC_BRIDGING_HEADER = "$(SRCROOT)/SpecialTraining/Main/SpecialTraining-Bridging-Header.h";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;

@@ -14,7 +14,9 @@ class CourseDetailClassTableView: UITableView {
     
     private let disposeBag = DisposeBag()
     
-    let datasource = Variable([CourseDetailClassModel]())
+    public let datasource = Variable([CourseDetailClassModel]())
+    /// 参数为是否想上滚动
+    public let animotionHeaderSubject = PublishSubject<Bool>()
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -44,6 +46,19 @@ class CourseDetailClassTableView: UITableView {
             }
             .disposed(by: disposeBag)
         
+        rx.didScroll.asDriver()
+            .drive(onNext: { [unowned self] in
+                let point = self.panGestureRecognizer.translation(in: self)
+                if point.y > 0
+                {
+                    // 向下滚动
+                    if self.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
+                }else {
+                    // 向上滚动
+                    if self.contentOffset.y >= 44 { self.animotionHeaderSubject.onNext(true) }
+                }
+            })
+            .disposed(by: disposeBag)
     }
     
 }

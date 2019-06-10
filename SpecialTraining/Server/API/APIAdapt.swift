@@ -45,7 +45,7 @@ import Moya
 
 struct APIAssistance {
     
-    private static let base   = "http://api.youpeixunjiaoyu.com/"
+    private static let base = "http://api.youpeixunjiaoyu.com/"
 
     static public func baseURL(API: API) ->URL{
         switch API {
@@ -69,4 +69,9 @@ struct APIAssistance {
         }
     }
     
+    /// 拼接h5链接
+    static func courseDetailH5URL(courseId: String) ->URL? {
+        let urlStr = base + "v1/course/course_content?id=\(courseId)"
+        return URL.init(string: urlStr)
+    }
 }

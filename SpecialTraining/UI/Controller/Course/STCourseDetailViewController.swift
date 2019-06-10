@@ -14,6 +14,10 @@ class STCourseDetailViewController: BaseViewController {
 
     private var viewModel: CourseDetailViewModel!
     
+    @IBOutlet weak var headerView: CourseDetailHeaderView!
+    
+    @IBOutlet weak var headerTopCns: NSLayoutConstraint!
+    private var courseInfoView: CourseDetailInfoView!
     private var videoView: CourseDetailVideoView!
     private var courseAudioTB: CourseAudioTableView!
     private var courseClassTB: CourseDetailClassTableView!
@@ -26,13 +30,11 @@ class STCourseDetailViewController: BaseViewController {
     
     @IBOutlet weak var scrollOutlet: UIScrollView!
     
+    @IBOutlet weak var detailOutlet: UIButton!
     @IBOutlet weak var videoOutlet: UIButton!
     @IBOutlet weak var audioOutlet: UIButton!
     @IBOutlet weak var classOutlet: UIButton!
     
-    @IBOutlet weak var classNameOutlet: UILabel!
-    @IBOutlet weak var desOutlet: UILabel!
-    @IBOutlet weak var priceOutlet: UILabel!
     @IBOutlet weak var bottomRemindOutlet: UILabel!
     @IBOutlet weak var buyOutlet: UIButton!
     @IBOutlet weak var addShoppingCarOutlet: UIButton!
@@ -41,12 +43,14 @@ class STCourseDetailViewController: BaseViewController {
     
     @IBAction func actions(_ sender: UIButton) {
 
-        if sender == videoOutlet {
-            set(button: videoOutlet, offsetX: 0)
+        if sender == detailOutlet {
+            set(button: detailOutlet, offsetX: 0)
+        }else if sender == videoOutlet {
+            set(button: videoOutlet, offsetX: scrollOutlet.width)
         }else if sender == audioOutlet {
-            set(button: audioOutlet, offsetX: scrollOutlet.width)
+            set(button: audioOutlet, offsetX: scrollOutlet.width * 2)
         }else if sender == classOutlet {
-            set(button: classOutlet, offsetX: scrollOutlet.width * 2)
+            set(button: classOutlet, offsetX: scrollOutlet.width * 3)
         }
     }
     
@@ -78,7 +82,7 @@ class STCourseDetailViewController: BaseViewController {
     }
     
     private func set(button: UIButton, offsetX: CGFloat) {
-        let btns = [videoOutlet, audioOutlet, classOutlet]
+        let btns = [detailOutlet, videoOutlet, audioOutlet, classOutlet]
         
         if let selectedBtn = btns.first(where: { $0?.isSelected == true }), selectedBtn != nil {
             if selectedBtn != button {
@@ -94,7 +98,7 @@ class STCourseDetailViewController: BaseViewController {
     
     private func set(scroll offsetX: CGFloat) {
         let idx = Int(offsetX / scrollOutlet.width)
-        let btns = [videoOutlet, audioOutlet, classOutlet]
+        let btns = [detailOutlet, videoOutlet, audioOutlet, classOutlet]
         let curBtn = btns[idx]!
         
         if let selectedBtn = btns.first(where: { $0?.isSelected == true }),
@@ -108,46 +112,57 @@ class STCourseDetailViewController: BaseViewController {
         }
     }
 
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
+    }
+    
     override func viewDidDisappear(_ animated: Bool) {
         audioPlay.stop()
     }
     
     override func setupUI() {
-        navigationItem.title = "课程详情"
-        
         addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
         buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
 
         selectedClassView = CourseClassSelectView.init(frame: .zero)
         
-        scrollOutlet.contentSize = .init(width: 3*PPScreenW, height: scrollOutlet.height)
+        scrollOutlet.contentSize = .init(width: 4*PPScreenW, height: scrollOutlet.height)
         
+        courseInfoView = CourseDetailInfoView()
         videoView = CourseDetailVideoView()
         courseAudioTB = CourseAudioTableView()
         courseClassTB = CourseDetailClassTableView()
 
+        scrollOutlet.addSubview(courseInfoView)
         scrollOutlet.addSubview(videoView)
         scrollOutlet.addSubview(courseAudioTB)
         scrollOutlet.addSubview(courseClassTB)
 
         view.addSubview(selectedClassView)
 
-        videoView.snp.makeConstraints{
+        courseInfoView.snp.makeConstraints{
             $0.left.equalTo(scrollOutlet.snp.left)
+            $0.top.equalTo(scrollOutlet.snp.top)
+            $0.height.equalTo(scrollOutlet.snp.height)
+            $0.width.equalTo(scrollOutlet.snp.width)
+        }
+
+        videoView.snp.makeConstraints{
+            $0.left.equalTo(scrollOutlet.snp.left).offset(PPScreenW)
             $0.top.equalTo(scrollOutlet.snp.top)
             $0.height.equalTo(scrollOutlet.snp.height)
             $0.width.equalTo(scrollOutlet.snp.width)
         }
         
         courseAudioTB.snp.makeConstraints{
-            $0.left.equalTo(scrollOutlet.snp.left).offset(PPScreenW)
+            $0.left.equalTo(scrollOutlet.snp.left).offset(2*PPScreenW)
             $0.top.equalTo(scrollOutlet.snp.top)
             $0.height.equalTo(scrollOutlet.snp.height)
             $0.width.equalTo(scrollOutlet.snp.width)
         }
 
         courseClassTB.snp.makeConstraints{
-            $0.left.equalTo(scrollOutlet.snp.left).offset(2*PPScreenW)
+            $0.left.equalTo(scrollOutlet.snp.left).offset(3*PPScreenW)
             $0.top.equalTo(scrollOutlet.snp.top)
             $0.height.equalTo(scrollOutlet.snp.height)
             $0.width.equalTo(scrollOutlet.snp.width)
@@ -170,9 +185,11 @@ class STCourseDetailViewController: BaseViewController {
         
         viewModel.courseInfoDataSource.asDriver()
             .drive(onNext: { [weak self] data in
-                self?.classNameOutlet.text = data.title
-                self?.desOutlet.text = data.content
-                self?.priceOutlet.text = "¥:\(data.about_price)"
+//                self?.classNameOutlet.text = data.title
+//                self?.desOutlet.text = data.content
+//                self?.priceOutlet.text = "¥:\(data.about_price)"
+                self?.headerView.datas = CourseDetailHeaderCarouselModel.creatData(sources: data.pic_list)
+                self?.courseInfoView.model = data
                 self?.bottomRemindOutlet.text = data.shop_name
             })
             .disposed(by: disposeBag)
@@ -188,6 +205,30 @@ class STCourseDetailViewController: BaseViewController {
 
         viewModel.classListDatasource.asDriver()
             .drive(courseClassTB.datasource)
+            .disposed(by: disposeBag)
+        
+        courseClassTB.animotionHeaderSubject
+            .subscribe(onNext: { [unowned self] isUp in
+                if isUp
+                {
+                    if self.headerTopCns.constant == 0
+                    {
+                        self.headerTopCns.constant = -self.headerView.height
+                        UIView.animate(withDuration: 0.2, animations: {
+                            self.view.layoutIfNeeded()
+                        })
+                    }
+                }else
+                {
+                    if self.headerTopCns.constant != 0
+                    {
+                        self.headerTopCns.constant = 0
+                        UIView.animate(withDuration: 0.2, animations: {
+                            self.view.layoutIfNeeded()
+                        })
+                    }
+                }
+            })
             .disposed(by: disposeBag)
         
         videoView.itemDidSelected

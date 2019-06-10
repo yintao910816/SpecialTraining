@@ -126,6 +126,23 @@ class CourseDetailInfoModel: HJModel {
     var status: String = ""    
 }
 
+class CourseDetailHeaderCarouselModel: CarouselSource {
+    var pic_url: String = ""
+    
+    class func creatData(sources: [String]) ->[CourseDetailHeaderCarouselModel] {
+        var datas = [CourseDetailHeaderCarouselModel]()
+        for item in sources
+        {
+            let m = CourseDetailHeaderCarouselModel()
+            m.pic_url = item
+            datas.append(m)
+        }
+        return datas
+    }
+    
+    var url: String? { return pic_url }
+}
+
 class CourseDetailVideoModel: HJModel {
     var res_id: String = ""
     var course_id: String = ""
