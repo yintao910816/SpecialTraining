@@ -55,7 +55,7 @@ class CourseDetailClassTableView: UITableView {
                     if self.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
                 }else {
                     // 向上滚动
-                    if self.contentOffset.y >= 44 { self.animotionHeaderSubject.onNext(true) }
+                    if self.contentOffset.y > 0 { self.animotionHeaderSubject.onNext(true) }
                 }
             })
             .disposed(by: disposeBag)

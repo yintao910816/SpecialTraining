@@ -1,16 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
         <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner" customClass="CourseClassSelectView" customModule="SpecialTraining" customModuleProvider="target">
             <connections>
+                <outlet property="addShoppingCarOutlet" destination="JeA-2c-PU5" id="YuO-fu-d9n"/>
+                <outlet property="bottomView" destination="Ghp-dr-Bmy" id="FCh-eu-YR8"/>
+                <outlet property="buyOutlet" destination="0d7-MT-WzS" id="nf1-sf-YIR"/>
                 <outlet property="collectView" destination="RwR-9K-UOG" id="fm7-Dw-Ke0"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="hYJ-ik-jJv"/>
                 <outlet property="mainContentView" destination="bmK-gO-fqg" id="hES-8s-TmE"/>
@@ -60,17 +63,54 @@
                                 <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="6"/>
                             </userDefinedRuntimeAttributes>
                         </button>
+                        <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="Ghp-dr-Bmy">
+                            <rect key="frame" x="20" y="489" width="335" height="65"/>
+                            <subviews>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="JeA-2c-PU5">
+                                    <rect key="frame" x="0.0" y="12.5" width="167.5" height="40"/>
+                                    <color key="backgroundColor" red="0.15686274509803921" green="0.38823529411764707" blue="0.51372549019607838" alpha="1" colorSpace="deviceRGB"/>
+                                    <constraints>
+                                        <constraint firstAttribute="height" constant="40" id="fLM-jh-agb"/>
+                                    </constraints>
+                                    <state key="normal" title="加入购物车">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0d7-MT-WzS">
+                                    <rect key="frame" x="167.5" y="12.5" width="167.5" height="40"/>
+                                    <color key="backgroundColor" red="0.13725490196078433" green="0.42745098039215684" blue="0.62745098039215685" alpha="1" colorSpace="deviceRGB"/>
+                                    <state key="normal" title="立即购买">
+                                        <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                    </state>
+                                </button>
+                            </subviews>
+                            <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            <constraints>
+                                <constraint firstItem="0d7-MT-WzS" firstAttribute="height" secondItem="JeA-2c-PU5" secondAttribute="height" id="0ZP-nJ-tcA"/>
+                                <constraint firstItem="0d7-MT-WzS" firstAttribute="centerY" secondItem="JeA-2c-PU5" secondAttribute="centerY" id="Xmx-TQ-4ZV"/>
+                                <constraint firstItem="JeA-2c-PU5" firstAttribute="centerY" secondItem="Ghp-dr-Bmy" secondAttribute="centerY" id="ZLf-Qt-XEc"/>
+                                <constraint firstItem="JeA-2c-PU5" firstAttribute="leading" secondItem="Ghp-dr-Bmy" secondAttribute="leading" id="fzq-pp-oS6"/>
+                                <constraint firstItem="0d7-MT-WzS" firstAttribute="width" secondItem="JeA-2c-PU5" secondAttribute="width" id="nHZ-Uf-hsg"/>
+                                <constraint firstAttribute="trailing" secondItem="0d7-MT-WzS" secondAttribute="trailing" id="pdh-Jg-dL9"/>
+                                <constraint firstItem="0d7-MT-WzS" firstAttribute="leading" secondItem="JeA-2c-PU5" secondAttribute="trailing" id="vfI-lK-gCa"/>
+                            </constraints>
+                        </view>
                     </subviews>
                     <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                     <constraints>
                         <constraint firstAttribute="trailing" secondItem="vo5-sw-MqZ" secondAttribute="trailing" constant="15" id="4Or-eD-h5f"/>
+                        <constraint firstItem="Ghp-dr-Bmy" firstAttribute="leading" secondItem="bmK-gO-fqg" secondAttribute="leading" constant="20" id="8w3-nx-Rsa"/>
                         <constraint firstItem="vo5-sw-MqZ" firstAttribute="top" secondItem="bmK-gO-fqg" secondAttribute="top" constant="10" id="EYQ-vV-dkV"/>
                         <constraint firstItem="RwR-9K-UOG" firstAttribute="top" secondItem="vo5-sw-MqZ" secondAttribute="bottom" constant="10" id="FiF-e6-Jc3"/>
+                        <constraint firstItem="Ghp-dr-Bmy" firstAttribute="top" secondItem="RwR-9K-UOG" secondAttribute="bottom" id="If3-ea-EUV"/>
                         <constraint firstAttribute="bottom" secondItem="vYb-xM-OAw" secondAttribute="bottom" constant="15" id="OYE-98-WiS"/>
                         <constraint firstItem="vYb-xM-OAw" firstAttribute="centerX" secondItem="bmK-gO-fqg" secondAttribute="centerX" id="UHv-q9-EfG"/>
+                        <constraint firstItem="Ghp-dr-Bmy" firstAttribute="centerX" secondItem="bmK-gO-fqg" secondAttribute="centerX" id="UgR-Ob-u8R"/>
+                        <constraint firstAttribute="bottom" secondItem="Ghp-dr-Bmy" secondAttribute="bottom" id="UvV-nI-e6Z"/>
                         <constraint firstAttribute="trailing" secondItem="RwR-9K-UOG" secondAttribute="trailing" id="XT6-fq-dOh"/>
                         <constraint firstItem="vYb-xM-OAw" firstAttribute="top" secondItem="RwR-9K-UOG" secondAttribute="bottom" constant="10" id="bHM-5i-Y3r"/>
                         <constraint firstItem="RwR-9K-UOG" firstAttribute="leading" secondItem="bmK-gO-fqg" secondAttribute="leading" id="dSg-4M-EzF"/>
+                        <constraint firstAttribute="trailing" secondItem="Ghp-dr-Bmy" secondAttribute="trailing" constant="20" id="kBY-L9-oUk"/>
                     </constraints>
                 </view>
             </subviews>
@@ -86,7 +126,7 @@
             <connections>
                 <outletCollection property="gestureRecognizers" destination="eRS-7W-LMH" appends="YES" id="nNd-NQ-nae"/>
             </connections>
-            <point key="canvasLocation" x="101.59999999999999" y="131.78410794602701"/>
+            <point key="canvasLocation" x="74" y="135"/>
         </view>
         <tapGestureRecognizer id="eRS-7W-LMH">
             <connections>

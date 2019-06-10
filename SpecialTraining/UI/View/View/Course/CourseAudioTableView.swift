@@ -13,6 +13,8 @@ class CourseAudioTableView: BaseTB {
     
     private let disposeBag = DisposeBag()
     
+    public let animotionHeaderSubject = PublishSubject<Bool>()
+
     let datasource = Variable([CourseDetailAudioModel]())
     let itemDidSelected = PublishSubject<CourseDetailAudioModel>()
     
@@ -46,6 +48,20 @@ class CourseAudioTableView: BaseTB {
         
         rx.modelSelected(CourseDetailAudioModel.self)
             .bind(to: itemDidSelected)
+            .disposed(by: disposeBag)
+        
+        rx.didScroll.asDriver()
+            .drive(onNext: { [unowned self] in
+                let point = self.panGestureRecognizer.translation(in: self)
+                if point.y > 0
+                {
+                    // 向下滚动
+                    if self.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
+                }else {
+                    // 向上滚动
+                    if self.contentOffset.y > 0 { self.animotionHeaderSubject.onNext(true) }
+                }
+            })
             .disposed(by: disposeBag)
     }
     

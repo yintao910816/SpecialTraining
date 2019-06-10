@@ -70,12 +70,20 @@ class STCourseDetailViewController: BaseViewController {
             }
         case 5003:
             // 加入购物车
-            selectedClassView.animotion(animotion: true)
-            isGotopay = false
+            if UserAccountServer.share.loginUser.member.uid == 0 {
+                STHelper.presentLogin()
+            }else {
+                selectedClassView.animotion(animotion: true)
+                isGotopay = false
+            }
         case 5004:
             // 立即购买
-            selectedClassView.animotion(animotion: true)
-            isGotopay = true
+            if UserAccountServer.share.loginUser.member.uid == 0 {
+                STHelper.presentLogin()
+            }else {
+                selectedClassView.animotion(animotion: true)
+                isGotopay = true
+            }
         default:
             break
         }
@@ -188,7 +196,7 @@ class STCourseDetailViewController: BaseViewController {
 //                self?.classNameOutlet.text = data.title
 //                self?.desOutlet.text = data.content
 //                self?.priceOutlet.text = "¥:\(data.about_price)"
-                self?.headerView.datas = CourseDetailHeaderCarouselModel.creatData(sources: data.pic_list)
+                self?.headerView.model = data
                 self?.courseInfoView.model = data
                 self?.bottomRemindOutlet.text = data.shop_name
             })
@@ -209,37 +217,8 @@ class STCourseDetailViewController: BaseViewController {
         
         courseClassTB.animotionHeaderSubject
             .subscribe(onNext: { [unowned self] isUp in
-                if isUp
-                {
-                    if self.headerTopCns.constant == 0
-                    {
-                        self.headerTopCns.constant = -self.headerView.height
-                        UIView.animate(withDuration: 0.2, animations: {
-                            self.view.layoutIfNeeded()
-                        })
-                    }
-                }else
-                {
-                    if self.headerTopCns.constant != 0
-                    {
-                        self.headerTopCns.constant = 0
-                        UIView.animate(withDuration: 0.2, animations: {
-                            self.view.layoutIfNeeded()
-                        })
-                    }
-                }
+                self.headerAnimotion(isUp: isUp)
             })
-            .disposed(by: disposeBag)
-        
-        videoView.itemDidSelected
-            .subscribe(onNext: { [unowned self] model in
-                self.performSegue(withIdentifier: "videoPlaySegue", sender: model)
-            })
-            .disposed(by: disposeBag)
-        
-        courseAudioTB.itemDidSelected
-            .do(onNext: { [weak self] _ in self?.audioPlay.stop() })
-            .bind(to: viewModel.requestAudioSource)
             .disposed(by: disposeBag)
         
         courseClassTB.rx.modelSelected(CourseDetailClassModel.self)
@@ -249,7 +228,29 @@ class STCourseDetailViewController: BaseViewController {
                                    sender: ["classId":model.class_id, "shopId": self?.viewModel.getShopID() ?? "1"])
             })
             .disposed(by: disposeBag)
+
+        videoView.itemDidSelected
+            .subscribe(onNext: { [unowned self] model in
+                self.performSegue(withIdentifier: "videoPlaySegue", sender: model)
+            })
+            .disposed(by: disposeBag)
         
+        videoView.animotionHeaderSubject
+            .subscribe(onNext: { [unowned self] isUp in
+                self.headerAnimotion(isUp: isUp)
+            })
+            .disposed(by: disposeBag)
+
+        courseAudioTB.itemDidSelected
+            .do(onNext: { [weak self] _ in self?.audioPlay.stop() })
+            .bind(to: viewModel.requestAudioSource)
+            .disposed(by: disposeBag)
+        
+        courseAudioTB.animotionHeaderSubject
+            .subscribe(onNext: { [unowned self] isUp in
+                self.headerAnimotion(isUp: isUp)
+            })
+            .disposed(by: disposeBag)
         
         viewModel.audioSourceChange
             .subscribe(onNext: { [weak self] path in
@@ -272,6 +273,48 @@ class STCourseDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        selectedClassView.addShoppingCarSubject
+            .filter({ _ -> Bool in
+                if UserAccountServer.share.loginUser.member.uid == 0 {
+                    STHelper.presentLogin()
+                    return false
+                }
+                return true
+            })
+            .subscribe(onNext: { [unowned self] classModel in
+                _ = self.viewModel.insertOrder(classModel: classModel, isGotopay: false)
+            })
+            .disposed(by: disposeBag)
+        
+        selectedClassView.buySubject
+            .filter({ _ -> Bool in
+                if UserAccountServer.share.loginUser.member.uid == 0 {
+                    STHelper.presentLogin()
+                    return false
+                }
+                return true
+            })
+            .flatMap{ [unowned self] classModel in
+                return self.viewModel.insertOrder(classModel: classModel, isGotopay: true)
+            }
+            .subscribe(onNext: { [unowned self] shopId in
+                self.performSegue(withIdentifier: "verifyOrderOutlet", sender: shopId)
+            })
+            .disposed(by: disposeBag)
+
+        // header
+        headerView.moreChoseOutlet.rx.tap.asDriver()
+            .drive(onNext: { [unowned self] in
+                self.selectedClassView.animotion(animotion: true, isOkType: false)
+            })
+            .disposed(by: disposeBag)
+        
+        headerView.backOutlet.rx.tap.asDriver()
+            .drive(onNext: { [unowned self] in
+                self.navigationController?.popViewController(animated: true)
+            })
+            .disposed(by: disposeBag)
+        
         viewModel.reloadSubject.onNext(Void())
     }
     
@@ -289,6 +332,28 @@ class STCourseDetailViewController: BaseViewController {
         }else if segue.identifier == "classInfoSegue" {
             // 班级详情
             segue.destination.prepare(parameters: sender as? [String: Any])
+        }
+    }
+    
+    private func headerAnimotion(isUp: Bool) {
+        if isUp
+        {
+            if headerTopCns.constant == 0
+            {
+                headerTopCns.constant = -headerView.height
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            }
+        }else
+        {
+            if headerTopCns.constant != 0
+            {
+                headerTopCns.constant = 0
+                UIView.animate(withDuration: 0.2, animations: {
+                    self.view.layoutIfNeeded()
+                })
+            }
         }
     }
 }

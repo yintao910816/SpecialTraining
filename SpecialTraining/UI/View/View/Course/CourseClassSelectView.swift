@@ -17,6 +17,10 @@ class CourseClassSelectView: UIView {
     @IBOutlet weak var collectView: UICollectionView!
     @IBOutlet weak var okOutlet: UIButton!
     @IBOutlet weak var mainContentView: UIView!
+   
+    @IBOutlet weak var bottomView: UIView!
+    @IBOutlet weak var addShoppingCarOutlet: UIButton!
+    @IBOutlet weak var buyOutlet: UIButton!
     
     private var header: CourseClassSelectHeaderView?
     
@@ -26,7 +30,9 @@ class CourseClassSelectView: UIView {
     let dataSource = Variable([SectionModel<Int, CourseDetailClassModel>]())
     
     let choseSubject = PublishSubject<CourseDetailClassModel>()
-    
+    let addShoppingCarSubject = PublishSubject<CourseDetailClassModel>()
+    let buySubject = PublishSubject<CourseDetailClassModel>()
+
     @IBAction func closeAction(_ sender: Any) {
         animotion(animotion: true)
     }
@@ -46,6 +52,9 @@ class CourseClassSelectView: UIView {
             $0.height.equalTo(550)
         }
         
+        addShoppingCarOutlet.set(cornerRadius: 20, borderCorners: [.topLeft, .bottomLeft])
+        buyOutlet.set(cornerRadius: 20, borderCorners: [.topRight, .bottomRight])
+
         setupUI()
         rxBind()
     }
@@ -94,6 +103,22 @@ class CourseClassSelectView: UIView {
                 return self.dataSource.value[self.selectedIndexPath.section].items[self.selectedIndexPath.row]
             }
             .drive(choseSubject)
+            .disposed(by: disposeBag)
+        
+        addShoppingCarOutlet.rx.tap.asDriver()
+            .map { [unowned self] _ ->CourseDetailClassModel in
+                self.animotion(animotion: true)
+                return self.dataSource.value[self.selectedIndexPath.section].items[self.selectedIndexPath.row]
+            }
+            .drive(addShoppingCarSubject)
+            .disposed(by: disposeBag)
+        
+        buyOutlet.rx.tap.asDriver()
+            .map { [unowned self] _ ->CourseDetailClassModel in
+                self.animotion(animotion: true)
+                return self.dataSource.value[self.selectedIndexPath.section].items[self.selectedIndexPath.row]
+            }
+            .drive(buySubject)
             .disposed(by: disposeBag)
     }
 }
@@ -169,7 +194,10 @@ extension CourseClassSelectView: FlowLayoutBaseDelegate {
 
 extension CourseClassSelectView {
     
-    func animotion(animotion: Bool) {
+    func animotion(animotion: Bool, isOkType: Bool = true) {
+        okOutlet.isHidden = !isOkType
+        bottomView.isHidden = isOkType
+
         if mainContentView.transform.ty == 0 {
             if animotion == false {
                 isHidden = true

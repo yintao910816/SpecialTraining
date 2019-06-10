@@ -17,7 +17,8 @@ class CourseDetailVideoView: UIView {
     
     public let datasource = Variable([CourseDetailVideoModel]())
     public let itemDidSelected = PublishSubject<CourseDetailVideoModel>()
-    
+    public let animotionHeaderSubject = PublishSubject<Bool>()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -57,6 +58,20 @@ class CourseDetailVideoView: UIView {
         collectionView.rx.modelSelected(CourseDetailVideoModel.self)
             .asDriver()
             .drive(itemDidSelected)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.didScroll.asDriver()
+            .drive(onNext: { [unowned self] in
+                let point = self.collectionView.panGestureRecognizer.translation(in: self)
+                if point.y > 0
+                {
+                    // 向下滚动
+                    if self.collectionView.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
+                }else {
+                    // 向上滚动
+                    if self.collectionView.contentOffset.y >= 0 { self.animotionHeaderSubject.onNext(true) }
+                }
+            })
             .disposed(by: disposeBag)
     }
     
