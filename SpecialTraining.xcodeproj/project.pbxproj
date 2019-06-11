@@ -232,8 +232,6 @@
 		B85F337B219EA0E700023958 /* HomeOrganizationTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F337A219EA0E700023958 /* HomeOrganizationTableView.swift */; };
 		B85F337F219EA17100023958 /* CarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F337D219EA17100023958 /* CarouselView.swift */; };
 		B85F3380219EA17100023958 /* CarouselDatasource.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F337E219EA17100023958 /* CarouselDatasource.swift */; };
-		B85F339D219EA37100023958 /* CourseDisplayCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F339B219EA37100023958 /* CourseDisplayCell.swift */; };
-		B85F339E219EA37100023958 /* CourseDisplayCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F339C219EA37100023958 /* CourseDisplayCell.xib */; };
 		B85F33A1219EA3AD00023958 /* CourseListCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F339F219EA3AD00023958 /* CourseListCell.swift */; };
 		B85F33A2219EA3AD00023958 /* CourseListCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85F33A0219EA3AD00023958 /* CourseListCell.xib */; };
 		B85F33A9219EAB8900023958 /* HomeHeaderCarouselView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85F33A7219EAB8900023958 /* HomeHeaderCarouselView.swift */; };
@@ -275,22 +273,13 @@
 		B86CB19421FCC6B500564C80 /* libopencore-amrnb.a in Frameworks */ = {isa = PBXBuildFile; fileRef = B86CB19321FCC6B500564C80 /* libopencore-amrnb.a */; };
 		B86D68B521C3F5D3001A0B75 /* HomeExpericeCollectionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */; };
 		B86D68B821C40347001A0B75 /* STCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */; };
-		B86D68BB21C40630001A0B75 /* SplendidnessContentTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68BA21C40630001A0B75 /* SplendidnessContentTableView.swift */; };
-		B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */; };
-		B86D68BF21C406BC001A0B75 /* SplendidnessContentCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */; };
 		B873B3EC223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */; };
 		B873B3F0223CCEB700D3C6B1 /* OrganizationShopViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */; };
 		B873B3F22240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3F12240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift */; };
 		B873B3F4224008A400D3C6B1 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = B873B3F3224008A400D3C6B1 /* Shop.swift */; };
-		B87800AE21C7E1EB00EDCE72 /* CourseTimeTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800AD21C7E1EB00EDCE72 /* CourseTimeTableView.swift */; };
-		B87800B121C7E23100EDCE72 /* CourseTimeCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800AF21C7E23100EDCE72 /* CourseTimeCell.swift */; };
-		B87800B221C7E23100EDCE72 /* CourseTimeCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87800B021C7E23100EDCE72 /* CourseTimeCell.xib */; };
-		B87800B521C7E40100EDCE72 /* CourseSchoolCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800B321C7E40100EDCE72 /* CourseSchoolCell.swift */; };
-		B87800B621C7E40100EDCE72 /* CourseSchoolCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87800B421C7E40100EDCE72 /* CourseSchoolCell.xib */; };
 		B87800B921C7E51500EDCE72 /* CourseAudioCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800B721C7E51500EDCE72 /* CourseAudioCell.swift */; };
 		B87800BA21C7E51500EDCE72 /* CourseAudioCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87800B821C7E51500EDCE72 /* CourseAudioCell.xib */; };
 		B87800BC21C7E7EA00EDCE72 /* CourseAudioTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800BB21C7E7EA00EDCE72 /* CourseAudioTableView.swift */; };
-		B87800BE21C7E7F800EDCE72 /* CourseSchoolTableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */; };
 		B879A064221B1D6200E573C9 /* Int+Extention.swift in Sources */ = {isa = PBXBuildFile; fileRef = B879A063221B1D6200E573C9 /* Int+Extention.swift */; };
 		B87A9401228B952700576AE7 /* NoticeAndApplyCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B87A93FF228B952700576AE7 /* NoticeAndApplyCell.swift */; };
 		B87A9402228B952700576AE7 /* NoticeAndApplyCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B87A9400228B952700576AE7 /* NoticeAndApplyCell.xib */; };
@@ -801,8 +790,6 @@
 		B85F337A219EA0E700023958 /* HomeOrganizationTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeOrganizationTableView.swift; sourceTree = "<group>"; };
 		B85F337D219EA17100023958 /* CarouselView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselView.swift; sourceTree = "<group>"; };
 		B85F337E219EA17100023958 /* CarouselDatasource.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CarouselDatasource.swift; sourceTree = "<group>"; };
-		B85F339B219EA37100023958 /* CourseDisplayCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDisplayCell.swift; sourceTree = "<group>"; };
-		B85F339C219EA37100023958 /* CourseDisplayCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDisplayCell.xib; sourceTree = "<group>"; };
 		B85F339F219EA3AD00023958 /* CourseListCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseListCell.swift; sourceTree = "<group>"; };
 		B85F33A0219EA3AD00023958 /* CourseListCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseListCell.xib; sourceTree = "<group>"; };
 		B85F33A7219EAB8900023958 /* HomeHeaderCarouselView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeHeaderCarouselView.swift; sourceTree = "<group>"; };
@@ -844,22 +831,13 @@
 		B86CB19321FCC6B500564C80 /* libopencore-amrnb.a */ = {isa = PBXFileReference; lastKnownFileType = archive.ar; path = "libopencore-amrnb.a"; sourceTree = "<group>"; };
 		B86D68B421C3F5D3001A0B75 /* HomeExpericeCollectionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeExpericeCollectionView.swift; sourceTree = "<group>"; };
 		B86D68B721C40347001A0B75 /* STCourseDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STCourseDetailViewController.swift; sourceTree = "<group>"; };
-		B86D68BA21C40630001A0B75 /* SplendidnessContentTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplendidnessContentTableView.swift; sourceTree = "<group>"; };
-		B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SplendidnessContentCell.swift; sourceTree = "<group>"; };
-		B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = SplendidnessContentCell.xib; sourceTree = "<group>"; };
 		B873B3EB223CCD3B00D3C6B1 /* STOrganizationShopViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STOrganizationShopViewController.swift; sourceTree = "<group>"; };
 		B873B3EF223CCEB600D3C6B1 /* OrganizationShopViewModel.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OrganizationShopViewModel.swift; sourceTree = "<group>"; };
 		B873B3F12240074F00D3C6B1 /* STOrganazitonCourseDetailViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STOrganazitonCourseDetailViewController.swift; sourceTree = "<group>"; };
 		B873B3F3224008A400D3C6B1 /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
-		B87800AD21C7E1EB00EDCE72 /* CourseTimeTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTimeTableView.swift; sourceTree = "<group>"; };
-		B87800AF21C7E23100EDCE72 /* CourseTimeCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseTimeCell.swift; sourceTree = "<group>"; };
-		B87800B021C7E23100EDCE72 /* CourseTimeCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseTimeCell.xib; sourceTree = "<group>"; };
-		B87800B321C7E40100EDCE72 /* CourseSchoolCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSchoolCell.swift; sourceTree = "<group>"; };
-		B87800B421C7E40100EDCE72 /* CourseSchoolCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseSchoolCell.xib; sourceTree = "<group>"; };
 		B87800B721C7E51500EDCE72 /* CourseAudioCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAudioCell.swift; sourceTree = "<group>"; };
 		B87800B821C7E51500EDCE72 /* CourseAudioCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseAudioCell.xib; sourceTree = "<group>"; };
 		B87800BB21C7E7EA00EDCE72 /* CourseAudioTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseAudioTableView.swift; sourceTree = "<group>"; };
-		B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseSchoolTableView.swift; sourceTree = "<group>"; };
 		B879A063221B1D6200E573C9 /* Int+Extention.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Int+Extention.swift"; sourceTree = "<group>"; };
 		B87A93FF228B952700576AE7 /* NoticeAndApplyCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NoticeAndApplyCell.swift; sourceTree = "<group>"; };
 		B87A9400228B952700576AE7 /* NoticeAndApplyCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = NoticeAndApplyCell.xib; sourceTree = "<group>"; };
@@ -1881,16 +1859,8 @@
 			isa = PBXGroup;
 			children = (
 				B8F264A32270B6880058D5F6 /* Home */,
-				B85F339B219EA37100023958 /* CourseDisplayCell.swift */,
-				B85F339C219EA37100023958 /* CourseDisplayCell.xib */,
 				B85F339F219EA3AD00023958 /* CourseListCell.swift */,
 				B85F33A0219EA3AD00023958 /* CourseListCell.xib */,
-				B86D68BC21C406BC001A0B75 /* SplendidnessContentCell.swift */,
-				B86D68BD21C406BC001A0B75 /* SplendidnessContentCell.xib */,
-				B87800AF21C7E23100EDCE72 /* CourseTimeCell.swift */,
-				B87800B021C7E23100EDCE72 /* CourseTimeCell.xib */,
-				B87800B321C7E40100EDCE72 /* CourseSchoolCell.swift */,
-				B87800B421C7E40100EDCE72 /* CourseSchoolCell.xib */,
 				B87800B721C7E51500EDCE72 /* CourseAudioCell.swift */,
 				B87800B821C7E51500EDCE72 /* CourseAudioCell.xib */,
 				B82722FA21E6016500147397 /* CourseClassSelectedCell.swift */,
@@ -1981,10 +1951,7 @@
 		B86D68B921C405FE001A0B75 /* Course */ = {
 			isa = PBXGroup;
 			children = (
-				B86D68BA21C40630001A0B75 /* SplendidnessContentTableView.swift */,
-				B87800AD21C7E1EB00EDCE72 /* CourseTimeTableView.swift */,
 				B87800BB21C7E7EA00EDCE72 /* CourseAudioTableView.swift */,
-				B87800BD21C7E7F800EDCE72 /* CourseSchoolTableView.swift */,
 				B82722F621E5FBDB00147397 /* CourseClassSelectView.swift */,
 				B82722F821E5FC0000147397 /* CourseClassSelectView.xib */,
 				B82BD1A4228DCA1F009AF698 /* CourseClassSelectHeaderView.swift */,
@@ -2776,7 +2743,6 @@
 				B8FBFA3E21A3DD9600AECB75 /* sleepya_thumb.png in Resources */,
 				B8FBFA6521A3E4D800AECB75 /* STLogin.storyboard in Resources */,
 				B82722E821E5C10F00147397 /* ShoppingCarCell.xib in Resources */,
-				B87800B621C7E40100EDCE72 /* CourseSchoolCell.xib in Resources */,
 				C41D2510222FA60F00DC3D83 /* ZQAlbumCell.xib in Resources */,
 				B8547E2221A6433C00281554 /* MineCell.xib in Resources */,
 				B8FBFA4221A3DD9600AECB75 /* gza_thumb.png in Resources */,
@@ -2847,7 +2813,6 @@
 				6B593CA121B12E9700D764E6 /* MineCustomCell.xib in Resources */,
 				B85DC0062221E5DC000D3977 /* EditForBackAlertView.xib in Resources */,
 				B82722F921E5FC0000147397 /* CourseClassSelectView.xib in Resources */,
-				B85F339E219EA37100023958 /* CourseDisplayCell.xib in Resources */,
 				B8F117DE2232F7B1008B63B8 /* MineEditPayAccountCell.xib in Resources */,
 				B8F117CE2232EE53008B63B8 /* MineBalanceHeaderView.xib in Resources */,
 				C41D2511222FA60F00DC3D83 /* PA.bundle in Resources */,
@@ -2865,9 +2830,7 @@
 				6B859EFF21B67731009FB70A /* MineBankFooterView.xib in Resources */,
 				B8BB6A5F2230339E0001AB5D /* MineCourseTableViewCell.xib in Resources */,
 				B8547E2821A6772300281554 /* OrganizationHeaderView.xib in Resources */,
-				B87800B221C7E23100EDCE72 /* CourseTimeCell.xib in Resources */,
 				B8FBF9CF21A3CB6100AECB75 /* ChatRightView.xib in Resources */,
-				B86D68BF21C406BC001A0B75 /* SplendidnessContentCell.xib in Resources */,
 				B87800BA21C7E51500EDCE72 /* CourseAudioCell.xib in Resources */,
 				B8FBFA3321A3DD9600AECB75 /* zhh_thumb.png in Resources */,
 				B8FBFA4821A3DD9600AECB75 /* tootha_thumb.png in Resources */,
@@ -3065,7 +3028,6 @@
 				6B0754B621B0E9F700B36740 /* STMineCustomViewController.swift in Sources */,
 				B85F333E219E943000023958 /* Bundle+Extension.swift in Sources */,
 				B81EDF6521A522B100F9D3B0 /* ImageRx.swift in Sources */,
-				B87800AE21C7E1EB00EDCE72 /* CourseTimeTableView.swift in Sources */,
 				B8914E37222AEDDA00612FFE /* STMineCourseViewController.swift in Sources */,
 				B838C6CA22284CBF00917741 /* UseTipsViewModel.swift in Sources */,
 				6BF7B94621BA633600BE1E4A /* STMineCollectionViewController.swift in Sources */,
@@ -3098,7 +3060,6 @@
 				B8BB6A652230352C0001AB5D /* MineAccount.swift in Sources */,
 				B85F3354219E94D600023958 /* TYIndicatorBaseView.swift in Sources */,
 				B85F33D0219EBAB100023958 /* HandyJSON+MapModel.swift in Sources */,
-				B87800BE21C7E7F800EDCE72 /* CourseSchoolTableView.swift in Sources */,
 				B80B6BF9219FE71800C33F11 /* STHelper.swift in Sources */,
 				B873B3F4224008A400D3C6B1 /* Shop.swift in Sources */,
 				B8FC3AA8221706F300889483 /* TYFloatView.swift in Sources */,
@@ -3334,7 +3295,6 @@
 				C41D24FF222FA60F00DC3D83 /* ZQAlbumListVC.m in Sources */,
 				B88F8CA621C169F20064C1CF /* STAuthorCodeLoginViewController.swift in Sources */,
 				C41D2508222FA60F00DC3D83 /* ZQPreviewCell.m in Sources */,
-				B86D68BE21C406BC001A0B75 /* SplendidnessContentCell.swift in Sources */,
 				B85F33CF219EBAB100023958 /* APIServer.swift in Sources */,
 				B81B548D228B252F0001730E /* MyClassCell.swift in Sources */,
 				B87F09662224121100310445 /* SearchViewModel.swift in Sources */,
@@ -3365,7 +3325,6 @@
 				B88F8CA421C1647D0064C1CF /* STResetPassTwoViewController.swift in Sources */,
 				C413E370226C60EC001D745F /* MineOrderViewModel.swift in Sources */,
 				B80B6BDF219FA5FA00C33F11 /* BaseFilesOwner.swift in Sources */,
-				B85F339D219EA37100023958 /* CourseDisplayCell.swift in Sources */,
 				C41BFEB02286F4620005DA1C /* STPhotoShowViewController.swift in Sources */,
 				C4CFE7CC21C3CD3400DFA3F7 /* HomeHeaderExperienceView.swift in Sources */,
 				B81EDF7321A53C1300F9D3B0 /* BMKMapHelper.swift in Sources */,
@@ -3374,7 +3333,6 @@
 				B86B8F0C22428AC00017D580 /* STVideoPlayViewController.swift in Sources */,
 				B8BB6A1A2230301F0001AB5D /* MineInfoAddStudentView.swift in Sources */,
 				B80B6BEA219FBD5200C33F11 /* UIView+Layer.swift in Sources */,
-				B87800B121C7E23100EDCE72 /* CourseTimeCell.swift in Sources */,
 				B83F5A842239628C00EAC675 /* OrganizationDetailCourseCell.swift in Sources */,
 				B8686AF122417A540059BCB9 /* CourseDetailClassTableView.swift in Sources */,
 				6BAE0AD621CA2BCA0065BAD2 /* STAppdelegate+ShareSDK.swift in Sources */,
@@ -3394,7 +3352,6 @@
 				B81EDF6D21A5324700F9D3B0 /* ChatAudoRightView.swift in Sources */,
 				B85F3326219E902A00023958 /* STTabBarController.swift in Sources */,
 				6BAE0AE921CB906B0065BAD2 /* Validate.swift in Sources */,
-				B87800B521C7E40100EDCE72 /* CourseSchoolCell.swift in Sources */,
 				B8FBFA2121A3DD9600AECB75 /* EmojTextAttachment.swift in Sources */,
 				B8FBFA7421A422B300AECB75 /* UIControl+_Rx.swift in Sources */,
 				B80B6BFD219FEE1100C33F11 /* VideoCell.swift in Sources */,
@@ -3439,7 +3396,6 @@
 				B85F33CE219EBAB100023958 /* Response+ModelMapper.swift in Sources */,
 				B8F117C82232E846008B63B8 /* STMineAccountDetailViewController.swift in Sources */,
 				B83BA1F821BC16B600496AFE /* STVideoRecordingViewController.swift in Sources */,
-				B86D68BB21C40630001A0B75 /* SplendidnessContentTableView.swift in Sources */,
 				B8BFC53C2238203700E153AB /* AgnDetailHomeView.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
