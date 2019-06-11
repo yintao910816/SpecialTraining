@@ -70,17 +70,13 @@ class STCourseDetailViewController: BaseViewController {
             }
         case 5003:
             // 加入购物车
-            if UserAccountServer.share.loginUser.member.uid == 0 {
-                STHelper.presentLogin()
-            }else {
+            if STHelper.userIsLogin() {
                 selectedClassView.animotion(animotion: true)
                 isGotopay = false
             }
         case 5004:
             // 立即购买
-            if UserAccountServer.share.loginUser.member.uid == 0 {
-                STHelper.presentLogin()
-            }else {
+            if STHelper.userIsLogin() {
                 selectedClassView.animotion(animotion: true)
                 isGotopay = true
             }
@@ -280,26 +276,14 @@ class STCourseDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         selectedClassView.addShoppingCarSubject
-            .filter({ _ -> Bool in
-                if UserAccountServer.share.loginUser.member.uid == 0 {
-                    STHelper.presentLogin()
-                    return false
-                }
-                return true
-            })
+            .filter{ _ in STHelper.userIsLogin() }
             .subscribe(onNext: { [unowned self] classModel in
                 _ = self.viewModel.insertOrder(classModel: classModel, isGotopay: false)
             })
             .disposed(by: disposeBag)
         
         selectedClassView.buySubject
-            .filter({ _ -> Bool in
-                if UserAccountServer.share.loginUser.member.uid == 0 {
-                    STHelper.presentLogin()
-                    return false
-                }
-                return true
-            })
+            .filter{ _ in STHelper.userIsLogin() }
             .flatMap{ [unowned self] classModel in
                 return self.viewModel.insertOrder(classModel: classModel, isGotopay: true)
             }

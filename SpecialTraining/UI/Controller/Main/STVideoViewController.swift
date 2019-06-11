@@ -76,9 +76,7 @@ class STVideoViewController: BaseViewController, VMNavigation {
                                           fontSize: 14)
         
         floatView.didSelectedCallBack = { [unowned self] title in
-            if UserAccountServer.share.loginUser.member.uid == 0 {
-                STHelper.presentLogin()
-            }else {
+            if STHelper.userIsLogin() {
                 if title == "拍摄" {
                     self.performSegue(withIdentifier: "publishVideoSegue", sender: nil)
                 }else if title == "上传" {

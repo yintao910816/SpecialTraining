@@ -46,7 +46,16 @@ class STHelper {
             .map(model: UserInfoModel.self)
     }
     
-    // 弹出登录界面
+    /// 判断登录状态并跳转登录界面
+    @discardableResult
+    class func userIsLogin(presentLogin: Bool = true) ->Bool {
+        if UserAccountServer.share.loginUser.member.uid == 0 {
+            if presentLogin { STHelper.presentLogin() }
+            return false
+        }
+        return true
+    }
+    /// 弹出登录界面
     class func presentLogin() {
         let sb = UIStoryboard.init(name: "STLogin", bundle: Bundle.main)
         let loginCtr = sb.instantiateViewController(withIdentifier: "loginNavID") as! MainNavigationController
