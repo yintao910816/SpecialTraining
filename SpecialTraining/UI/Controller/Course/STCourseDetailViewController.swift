@@ -202,6 +202,12 @@ class STCourseDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        viewModel.headerPicDataSource.asDriver()
+            .drive(onNext: { [weak self] data in
+                self?.headerView.picList = data
+            })
+            .disposed(by: disposeBag)
+
         viewModel.videoDatasource
             .asDriver()
             .drive(videoView.datasource)

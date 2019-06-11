@@ -18,6 +18,8 @@ class CourseDetailViewModel: BaseViewModel {
     let videoDatasource = Variable([CourseDetailVideoModel]())
     let audioDatasource = Variable([CourseDetailAudioModel]())
     let classListDatasource = Variable([CourseDetailClassModel]())
+    /// header上的三张图片
+    let headerPicDataSource = Variable([CourseDetailClassModel]())
     /// 购买选择
     let classSelectDatasource = Variable([SectionModel<Int, CourseDetailClassModel>]())
     
@@ -61,11 +63,19 @@ class CourseDetailViewModel: BaseViewModel {
                 self?.courseInfoDataSource.value = data.course_info
                 self?.videoDatasource.value = data.videoList
                 self?.audioDatasource.value = data.audioList
+                
                 let listClassData = data.classList.filter{ $0.class_category == "Y" }
+                self?.classListDatasource.value = listClassData
+                if listClassData.count > 3 {
+                    self?.headerPicDataSource.value = Array(listClassData[0...2])
+                }else {
+                    self?.headerPicDataSource.value = listClassData
+                }
+
                 let selectClassData = data.classList.filter{ $0.class_category == "N" }
                 selectClassData.first?.isSelected = true
-                self?.classListDatasource.value = listClassData
                 self?.classSelectDatasource.value = [SectionModel.init(model: 0, items: selectClassData)]
+                
                 self?.hud.noticeHidden()
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))

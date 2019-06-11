@@ -39,4 +39,25 @@ class CourseDetailHeaderView: UIView {
                                                               .systemFont(ofSize: 12))
         }
     }
+    
+    var picList: [CourseDetailClassModel] = [] {
+        didSet {
+            var maxIdx: Int = 0
+            for idx in 0..<picList.count {
+                let imgV = (viewWithTag(100 + idx) as? UIImageView)
+                imgV?.setImage(picList[idx].pic)
+                imgV?.isHidden = false
+                
+                maxIdx = idx
+            }
+
+            maxIdx += 1
+            if maxIdx < 3 {
+                for idx in maxIdx..<3 {
+                    let imgV = (viewWithTag(100 + idx) as? UIImageView)
+                    imgV?.isHidden = true
+                }
+            }
+        }
+    }
 }
