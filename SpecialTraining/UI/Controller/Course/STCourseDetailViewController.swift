@@ -86,10 +86,16 @@ class STCourseDetailViewController: BaseViewController {
     }
     
     private func set(button: UIButton, offsetX: CGFloat) {
-        let btns = [detailOutlet, videoOutlet, audioOutlet, classOutlet]
         
+        let btns = [detailOutlet, videoOutlet, audioOutlet, classOutlet]
+        let views = [courseInfoView, videoView, courseAudioTB, courseClassTB]
+
         if let selectedBtn = btns.first(where: { $0?.isSelected == true }), selectedBtn != nil {
             if selectedBtn != button {
+                if let idx = btns.firstIndex(where: { $0 == button })
+                {
+                    if (views[idx] as? AdaptScrollAnimotion)?.canAnimotion == false { headerAnimotion(isUp: false) }
+                }
                 selectedBtn!.isSelected = false
                 button.isSelected = true
                 scrollOutlet.setContentOffset(.init(x: offsetX, y: 0), animated: true)
@@ -103,11 +109,18 @@ class STCourseDetailViewController: BaseViewController {
     private func set(scroll offsetX: CGFloat) {
         let idx = Int(offsetX / scrollOutlet.width)
         let btns = [detailOutlet, videoOutlet, audioOutlet, classOutlet]
+        let views = [courseInfoView, videoView, courseAudioTB, courseClassTB]
+
         let curBtn = btns[idx]!
         
         if let selectedBtn = btns.first(where: { $0?.isSelected == true }),
             selectedBtn != nil {
             if selectedBtn != curBtn {
+                if let idx = btns.firstIndex(where: { $0 == curBtn })
+                {
+                    if (views[idx] as? AdaptScrollAnimotion)?.canAnimotion == false { headerAnimotion(isUp: false) }
+                }
+
                 selectedBtn!.isSelected = false
                 curBtn.isSelected = true
             }
@@ -346,6 +359,16 @@ class STCourseDetailViewController: BaseViewController {
             }
         }
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+
+        if courseInfoView != nil { courseInfoView.scrollMinContentHeight = view.height - 115 }
+        if videoView != nil      { videoView.scrollMinContentHeight = view.height - 115 }
+        if courseAudioTB != nil  { courseAudioTB.scrollMinContentHeight = view.height - 115 }
+        if courseClassTB != nil  { courseClassTB.scrollMinContentHeight = view.height - 115 }
+
+    }
 }
 
 extension STCourseDetailViewController: UIScrollViewDelegate {
@@ -363,3 +386,6 @@ extension STCourseDetailViewController: UIScrollViewDelegate {
     
 }
 
+protocol AdaptScrollAnimotion {
+    var canAnimotion: Bool { get }
+}

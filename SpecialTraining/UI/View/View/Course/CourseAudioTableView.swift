@@ -14,6 +14,8 @@ class CourseAudioTableView: BaseTB {
     private let disposeBag = DisposeBag()
     
     public let animotionHeaderSubject = PublishSubject<Bool>()
+    /// 可以滚动header的最小contentSize高度
+    public var scrollMinContentHeight: CGFloat = 0
 
     let datasource = Variable([CourseDetailAudioModel]())
     let itemDidSelected = PublishSubject<CourseDetailAudioModel>()
@@ -59,10 +61,17 @@ class CourseAudioTableView: BaseTB {
                     if self.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
                 }else {
                     // 向上滚动
-                    if self.contentOffset.y > 0 { self.animotionHeaderSubject.onNext(true) }
+                    if self.contentOffset.y > 0 && self.contentSize.height > self.scrollMinContentHeight { self.animotionHeaderSubject.onNext(true) }
                 }
             })
             .disposed(by: disposeBag)
     }
     
 }
+
+extension CourseAudioTableView: AdaptScrollAnimotion {
+    
+    var canAnimotion: Bool { return contentSize.height > height }
+    
+}
+

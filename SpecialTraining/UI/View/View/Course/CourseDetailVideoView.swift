@@ -17,7 +17,10 @@ class CourseDetailVideoView: UIView {
     
     public let datasource = Variable([CourseDetailVideoModel]())
     public let itemDidSelected = PublishSubject<CourseDetailVideoModel>()
+   
     public let animotionHeaderSubject = PublishSubject<Bool>()
+    /// 可以滚动header的最小contentSize高度
+    public var scrollMinContentHeight: CGFloat = 0
 
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -69,7 +72,10 @@ class CourseDetailVideoView: UIView {
                     if self.collectionView.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
                 }else {
                     // 向上滚动
-                    if self.collectionView.contentOffset.y >= 0 { self.animotionHeaderSubject.onNext(true) }
+                    if self.collectionView.contentOffset.y >= 0 && self.collectionView.contentSize.height > self.scrollMinContentHeight
+                    {
+                        self.animotionHeaderSubject.onNext(true)
+                    }
                 }
             })
             .disposed(by: disposeBag)
@@ -80,5 +86,11 @@ class CourseDetailVideoView: UIView {
         
         collectionView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
     }
+    
+}
+
+extension CourseDetailVideoView: AdaptScrollAnimotion {
+    
+    var canAnimotion: Bool { return collectionView.contentSize.height > height }
     
 }

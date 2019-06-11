@@ -17,6 +17,8 @@ class CourseDetailClassTableView: UITableView {
     public let datasource = Variable([CourseDetailClassModel]())
     /// 参数为是否想上滚动
     public let animotionHeaderSubject = PublishSubject<Bool>()
+    /// 可以滚动header的最小contentSize高度
+    public var scrollMinContentHeight: CGFloat = 0
     
     override init(frame: CGRect, style: UITableView.Style) {
         super.init(frame: frame, style: style)
@@ -48,6 +50,8 @@ class CourseDetailClassTableView: UITableView {
         
         rx.didScroll.asDriver()
             .drive(onNext: { [unowned self] in
+                PrintLog("最小contentSize高度 1111：\(self.scrollMinContentHeight)")
+
                 let point = self.panGestureRecognizer.translation(in: self)
                 if point.y > 0
                 {
@@ -55,10 +59,16 @@ class CourseDetailClassTableView: UITableView {
                     if self.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
                 }else {
                     // 向上滚动
-                    if self.contentOffset.y > 0 { self.animotionHeaderSubject.onNext(true) }
+                    if self.contentOffset.y > 0 && self.contentSize.height > self.scrollMinContentHeight { self.animotionHeaderSubject.onNext(true) }
                 }
             })
             .disposed(by: disposeBag)
     }
     
+}
+
+extension CourseDetailClassTableView: AdaptScrollAnimotion {
+    
+    var canAnimotion: Bool { return contentSize.height > height }
+
 }

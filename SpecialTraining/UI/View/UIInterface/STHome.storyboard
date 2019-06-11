@@ -1096,8 +1096,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixp-zL-35R">
-                                <rect key="frame" x="0.0" y="390" width="375" height="277"/>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" directionalLockEnabled="YES" pagingEnabled="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Ixp-zL-35R">
+                                <rect key="frame" x="0.0" y="390" width="375" height="217"/>
                                 <connections>
                                     <outlet property="delegate" destination="wkR-I3-daz" id="PhN-ph-H6s"/>
                                 </connections>
@@ -1276,6 +1276,7 @@
                             <constraint firstItem="gSs-ha-T8a" firstAttribute="leading" secondItem="hbG-Ia-rVd" secondAttribute="trailing" constant="25" id="36Z-Np-XRK"/>
                             <constraint firstItem="REH-Rh-6dx" firstAttribute="leading" secondItem="enx-gc-XZG" secondAttribute="trailing" constant="25" id="3MC-q8-fea"/>
                             <constraint firstAttribute="trailing" secondItem="zmJ-Kx-iEv" secondAttribute="trailing" id="3y6-s3-IYd"/>
+                            <constraint firstItem="FCo-3x-X3h" firstAttribute="top" secondItem="Ixp-zL-35R" secondAttribute="bottom" id="4Rs-ko-ctc"/>
                             <constraint firstItem="rst-L1-Mby" firstAttribute="leading" secondItem="AFb-p0-YYj" secondAttribute="leading" id="BXz-OT-AxV"/>
                             <constraint firstItem="hbG-Ia-rVd" firstAttribute="height" secondItem="REH-Rh-6dx" secondAttribute="height" id="BqI-ZR-wu2"/>
                             <constraint firstItem="Ixp-zL-35R" firstAttribute="leading" secondItem="AFb-p0-YYj" secondAttribute="leading" id="GYE-o6-UXr"/>
@@ -1298,7 +1299,6 @@
                             <constraint firstAttribute="trailing" secondItem="FCo-3x-X3h" secondAttribute="trailing" id="k0T-We-lmH"/>
                             <constraint firstItem="zmJ-Kx-iEv" firstAttribute="top" secondItem="AFb-p0-YYj" secondAttribute="top" id="n35-N6-S3x"/>
                             <constraint firstItem="gSs-ha-T8a" firstAttribute="width" secondItem="hbG-Ia-rVd" secondAttribute="width" id="wCK-sS-aeL"/>
-                            <constraint firstItem="vCL-jW-4Kg" firstAttribute="top" secondItem="Ixp-zL-35R" secondAttribute="bottom" id="xcK-PR-ZPT"/>
                         </constraints>
                     </view>
                     <connections>
