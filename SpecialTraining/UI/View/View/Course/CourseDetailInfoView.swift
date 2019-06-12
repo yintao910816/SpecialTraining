@@ -18,6 +18,8 @@ class CourseDetailInfoView: UIView {
     /// 可以滚动header的最小contentSize高度
     public var scrollMinContentHeight: CGFloat = 0
 
+    public let contentSizeObser = PublishSubject<CGSize>()
+
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -26,6 +28,7 @@ class CourseDetailInfoView: UIView {
         webView.scrollView.isDirectionalLockEnabled = true
         webView.scrollView.showsVerticalScrollIndicator = false
         webView.scrollView.showsHorizontalScrollIndicator = false
+        webView.delegate = self
         addSubview(webView)
         
         webView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
@@ -46,6 +49,11 @@ class CourseDetailInfoView: UIView {
                 }
             })
             .disposed(by: disposeBag)
+
+//        webView.scrollView.rx
+//            .observeWeakly(CGSize.self, "contentSize")
+//            .bind(to: contentSizeObser)
+//            .disposed(by: disposeBag)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -65,4 +73,11 @@ class CourseDetailInfoView: UIView {
 
 extension CourseDetailInfoView: AdaptScrollAnimotion {
     var canAnimotion: Bool { return webView.scrollView.contentSize.height > height }
+}
+
+extension CourseDetailInfoView: UIWebViewDelegate {
+    
+    func webViewDidFinishLoad(_ webView: UIWebView) {
+        contentSizeObser.onNext(webView.scrollView.contentSize)
+    }
 }

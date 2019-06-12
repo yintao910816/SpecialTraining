@@ -21,7 +21,7 @@ class ClassDetailViewModel: BaseViewModel, VMNavigation {
     private var randVideoIndex: Int = 0
 
     public let videoListObser = Variable([SectionModel<CourseDetailClassModel,CourseDetailVideoModel>]())
-    public let contentSizeObser = PublishSubject<CGSize?>()
+    public let contentSizeObser = PublishSubject<CGSize>()
     public let changeVideoSubject = PublishSubject<Void>()
 
     public var shopInfo = ShopInfoModel()
@@ -69,10 +69,8 @@ class ClassDetailViewModel: BaseViewModel, VMNavigation {
         contentSizeObser
             .subscribe(onNext: { [weak self] size in
                 guard let strongSelf = self else { return }
-                if let _zize = size {
-                    let tempDatas = strongSelf.videoListObser.value
-                    strongSelf.videoListObser.value = tempDatas
-                }
+                let tempDatas = strongSelf.videoListObser.value
+                strongSelf.videoListObser.value = tempDatas
             })
             .disposed(by: disposeBag)
     }

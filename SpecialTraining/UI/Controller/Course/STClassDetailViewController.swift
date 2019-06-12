@@ -24,7 +24,7 @@ class STClassDetailViewController: BaseViewController {
     private var classId: String = ""
     private var shopId: String  = ""
     
-    private var webContentSize: CGSize?
+    private var webContentSize: CGSize = .init(width: PPScreenW, height: 200)
     
     @IBAction func actions(_ sender: UIButton) {
         if sender.tag == 200 {
@@ -155,6 +155,6 @@ extension STClassDetailViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return .init(width: collectionView.width, height: webContentSize?.height ?? 0)
+        return .init(width: collectionView.width, height: webContentSize.height)
     }
 }

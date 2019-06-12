@@ -18,7 +18,7 @@ class ClassDetailFooterReusableView: UICollectionReusableView {
     
     private let disposeBag = DisposeBag()
     
-    public let contentSizeObser = PublishSubject<CGSize?>()
+    public let contentSizeObser = PublishSubject<CGSize>()
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -32,9 +32,9 @@ class ClassDetailFooterReusableView: UICollectionReusableView {
         
         contentView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
         
-        webView.scrollView.rx.observeWeakly(CGSize.self, "contentSize")
-            .bind(to: contentSizeObser)
-            .disposed(by: disposeBag)
+//        webView.scrollView.rx.observeWeakly(CGSize.self, "contentSize")
+//            .bind(to: contentSizeObser)
+//            .disposed(by: disposeBag)
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -54,6 +54,6 @@ class ClassDetailFooterReusableView: UICollectionReusableView {
 extension ClassDetailFooterReusableView: UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        
+        contentSizeObser.onNext(webView.scrollView.contentSize)
     }
 }

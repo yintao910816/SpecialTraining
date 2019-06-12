@@ -216,6 +216,16 @@ class STCourseDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
+        courseInfoView.contentSizeObser
+            .bind(to: viewModel.contentSizeObser)
+            .disposed(by: disposeBag)
+        
+        courseInfoView.animotionHeaderSubject
+            .subscribe(onNext: { [unowned self] isUp in
+                self.headerAnimotion(isUp: isUp)
+            })
+            .disposed(by: disposeBag)
+
         viewModel.headerPicDataSource.asDriver()
             .drive(onNext: { [weak self] data in
                 self?.headerView.picList = data

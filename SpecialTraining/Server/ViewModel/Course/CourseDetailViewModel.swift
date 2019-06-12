@@ -23,6 +23,8 @@ class CourseDetailViewModel: BaseViewModel {
     /// 购买选择
     let classSelectDatasource = Variable([SectionModel<Int, CourseDetailClassModel>]())
     
+    public let contentSizeObser = PublishSubject<CGSize>()
+
     let requestAudioSource = PublishSubject<CourseDetailAudioModel>()
     let audioSourceChange = PublishSubject<String>()
     
@@ -41,6 +43,16 @@ class CourseDetailViewModel: BaseViewModel {
             })
             .disposed(by: disposeBag)
         
+        contentSizeObser
+            .subscribe(onNext: { [weak self] size in
+                guard let strongSelf = self else { return }
+                print("web 高度变化：\(size)")
+//                if let _zize = size {
+//                    let tempDatas = strongSelf.videoListObser.value
+//                    strongSelf.videoListObser.value = tempDatas
+//                }
+            })
+            .disposed(by: disposeBag)
     }
     
     public func insertOrder(classModel: CourseDetailClassModel, isGotopay: Bool) ->Observable<String> {
