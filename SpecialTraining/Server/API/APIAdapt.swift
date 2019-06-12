@@ -74,4 +74,9 @@ struct APIAssistance {
         let urlStr = base + "v1/course/course_content?id=\(courseId)"
         return URL.init(string: urlStr)
     }
+    
+    static func classDetailH5URL(classId: String) ->URL? {
+        let urlStr = base + "v1/courseClass/class_content?id=\(classId)"
+        return URL.init(string: urlStr)
+    }
 }

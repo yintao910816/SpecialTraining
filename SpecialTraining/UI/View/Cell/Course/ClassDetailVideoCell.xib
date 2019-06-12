@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait">
+        <adaptation id="fullscreen"/>
+    </device>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="ClassDetailVideoCell" customModule="SpecialTraining" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="166" height="198"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="166" height="198"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gR1-wY-xfl">
+                        <rect key="frame" x="0.0" y="0.0" width="166" height="166"/>
+                        <constraints>
+                            <constraint firstAttribute="width" secondItem="gR1-wY-xfl" secondAttribute="height" multiplier="1:1" id="xt8-ZT-yKk"/>
+                        </constraints>
+                        <userDefinedRuntimeAttributes>
+                            <userDefinedRuntimeAttribute type="number" keyPath="layer.cornerRadius">
+                                <integer key="value" value="5"/>
+                            </userDefinedRuntimeAttribute>
+                        </userDefinedRuntimeAttributes>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" textAlignment="center" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="YS7-Xm-alp">
+                        <rect key="frame" x="3" y="171" width="160" height="16"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="16" id="7WM-85-XBX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                        <nil key="textColor"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                </subviews>
+            </view>
+            <constraints>
+                <constraint firstItem="gR1-wY-xfl" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="A4F-2S-VKN"/>
+                <constraint firstAttribute="trailing" secondItem="gR1-wY-xfl" secondAttribute="trailing" id="Jlw-JX-ahe"/>
+                <constraint firstAttribute="trailing" secondItem="YS7-Xm-alp" secondAttribute="trailing" constant="3" id="aDF-7t-DXn"/>
+                <constraint firstItem="gR1-wY-xfl" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="hGt-ov-fDG"/>
+                <constraint firstItem="YS7-Xm-alp" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="3" id="hwI-RW-xmG"/>
+                <constraint firstItem="YS7-Xm-alp" firstAttribute="top" secondItem="gR1-wY-xfl" secondAttribute="bottom" constant="5" id="xlU-mB-A7d"/>
+            </constraints>
+            <size key="customSize" width="166" height="198"/>
+            <connections>
+                <outlet property="coverOutlet" destination="gR1-wY-xfl" id="FYs-GD-syF"/>
+                <outlet property="titleOutlet" destination="YS7-Xm-alp" id="qdM-ru-h66"/>
+            </connections>
+            <point key="canvasLocation" x="-23.188405797101453" y="158.70535714285714"/>
+        </collectionViewCell>
+    </objects>
+</document>

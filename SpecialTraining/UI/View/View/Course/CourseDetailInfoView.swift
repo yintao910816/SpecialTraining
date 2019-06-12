@@ -32,7 +32,6 @@ class CourseDetailInfoView: UIView {
         
         webView.scrollView.rx.didScroll.asDriver()
             .drive(onNext: { [unowned self] in
-                PrintLog("最小contentSize高度：\(self.scrollMinContentHeight)")
                 let point = self.webView.scrollView.panGestureRecognizer.translation(in: self)
                 if point.y > 0
                 {

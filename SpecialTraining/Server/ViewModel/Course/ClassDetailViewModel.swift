@@ -9,14 +9,21 @@
 import Foundation
 import RxSwift
 import RxCocoa
+import RxDataSources
 
 class ClassDetailViewModel: BaseViewModel, VMNavigation {
     
     private var classId: String = ""
     private var shopId: String = ""
     
-    public let lessonListObser = Variable([ClassListModel]())
-    public let classInfoObser = Variable((CourseDetailClassModel(), ShopInfoModel()))
+    private var classInfo = CourseDetailClassModel()
+
+    public let videoListObser = Variable([SectionModel<CourseDetailClassModel,CourseDetailVideoModel>]())
+    public let contentSizeObser = PublishSubject<CGSize?>()
+
+    public var shopInfo = ShopInfoModel()
+    
+    public let playVideoSubject = PublishSubject<CourseDetailVideoModel>()
 
     let insertShoppingCar = PublishSubject<Void>()
     let buySubject = PublishSubject<Void>()
@@ -39,7 +46,23 @@ class ClassDetailViewModel: BaseViewModel, VMNavigation {
         buySubject
             .subscribe(onNext: { [unowned self] in
                 self.insertShoppingClass()
-                ExpericeCourseDetailViewModel.sbPush("STHome", "verifyCtrlID", parameters: ["classIds": [self.classInfoObser.value.0.class_id]])
+                ClassDetailViewModel.sbPush("STHome", "verifyCtrlID", parameters: ["classIds": [self.classInfo.class_id]])
+            })
+            .disposed(by: disposeBag)
+        
+        playVideoSubject
+            .subscribe(onNext: { model in
+                ClassDetailViewModel.sbPush("STHome", "videoPlayCtrl", parameters: ["model": model])
+            })
+            .disposed(by: disposeBag)
+        
+        contentSizeObser
+            .subscribe(onNext: { [weak self] size in
+                guard let strongSelf = self else { return }
+                if let _zize = size {
+                    let tempDatas = strongSelf.videoListObser.value
+                    strongSelf.videoListObser.value = tempDatas
+                }
             })
             .disposed(by: disposeBag)
     }
@@ -50,8 +73,9 @@ class ClassDetailViewModel: BaseViewModel, VMNavigation {
         STProvider.request(.courseClassInfo(classId: classId, shop_id: shopId))
         .map(model: ClassDataModel.self)
             .subscribe(onSuccess: { [weak self] data in
-                self?.lessonListObser.value = data.lessonList
-                self?.classInfoObser.value = (data.class_info, data.shop_info)
+                self?.videoListObser.value = [SectionModel.init(model: data.class_info, items: data.video_list)]
+                self?.classInfo = data.class_info
+                self?.shopInfo = data.shop_info
                 
                 self?.hud.noticeHidden()
             }) { [weak self] error in
@@ -61,8 +85,8 @@ class ClassDetailViewModel: BaseViewModel, VMNavigation {
     }
     
     private func insertShoppingClass() {
-        CourseDetailClassModel.inster(classInfo: classInfoObser.value.0, shopModel: classInfoObser.value.1)
-        NotificationCenter.default.post(name: NotificationName.Order.AddOrder, object: classInfoObser.value.0)
+        CourseDetailClassModel.inster(classInfo: classInfo, shopModel: shopInfo)
+        NotificationCenter.default.post(name: NotificationName.Order.AddOrder, object: classInfo)
         hud.successHidden("添加成功")
     }
 }

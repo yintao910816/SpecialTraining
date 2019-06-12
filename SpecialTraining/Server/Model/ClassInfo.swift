@@ -11,7 +11,8 @@ import Foundation
 class ClassDataModel: HJModel {
     var shop_info: ShopInfoModel = ShopInfoModel()
     var lessonList: [ClassListModel] = []
-    var class_info: CourseDetailClassModel = CourseDetailClassModel()
+    var class_info = CourseDetailClassModel()
+    var video_list: [CourseDetailVideoModel] = []
 }
 
 class ShopInfoModel: HJModel {
@@ -47,6 +48,20 @@ class ClassListModel: HJModel {
     }()
 }
 
+//class ClassDetailVideoModel: HJModel {
+//    var res_id: String = ""
+//    var course_id: String = ""
+//    var shop_id: String = ""
+//    var class_id: String = ""
+//    var res_type: String = ""
+//    var res_title: String = ""
+//    var res_image: String = ""
+//    var video_id: String = ""
+//    var res_url: String = ""
+//    var createtime: String = ""
+//    var status: Int = 1
+//}
+
 //MARK:
 //MARK: 我的班级
 class MyClassModel: HJModel {
@@ -63,4 +78,21 @@ class MyClassModel: HJModel {
 //    var lessonList: String = ""
     
     var levelString: String = "0"
+}
+
+// 班级详情轮播图
+class ClassDetailCarouselModel: CarouselSource {
+    var coverURL: String = ""
+    
+    var url: String? { return coverURL }
+    
+    class func createData(source: [String]) ->[ClassDetailCarouselModel] {
+        var datas = [ClassDetailCarouselModel]()
+        for item in source {
+            let m = ClassDetailCarouselModel()
+            m.coverURL = item
+            datas.append(m)
+        }
+        return datas
+    }
 }

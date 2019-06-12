@@ -203,6 +203,11 @@ class CourseDetailClassModel: HJModel {
     
     /// 购买班级所属用户
     var uid: String = ""
+    
+    override func mapping(mapper: HelpingMapper) {
+        mapper.specify(property: &pic, name: "class_pic")
+        mapper.specify(property: &pic, name: "pic")
+    }
 }
 
 extension CourseDetailClassModel: DBOperation {

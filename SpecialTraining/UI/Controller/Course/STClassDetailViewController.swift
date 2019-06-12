@@ -10,22 +10,20 @@ import UIKit
 import RxDataSources
 
 class STClassDetailViewController: BaseViewController {
-
-    @IBOutlet weak var tableView: UITableView!
-    @IBOutlet weak var iconOutlet: UIButton!
-    @IBOutlet weak var classNameOutlet: UILabel!
-    @IBOutlet weak var classTimeOutlet: UILabel!
-    @IBOutlet weak var priceOutlet: UILabel!
-    @IBOutlet weak var addressOutlet: UILabel!
-    @IBOutlet weak var shopNameOutlet: UILabel!
     
     @IBOutlet weak var buyOutlet: UIButton!
     @IBOutlet weak var addShoppingCarOutlet: UIButton!
-
+    @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var header: ClassDetailHeaderReusableView!
+    private var footer: ClassDetailFooterReusableView!
+    
     private var viewModel: ClassDetailViewModel!
     
     private var classId: String = ""
     private var shopId: String  = ""
+    
+    private var webContentSize: CGSize?
     
     @IBAction func actions(_ sender: UIButton) {
         if sender.tag == 200 {
@@ -33,7 +31,7 @@ class STClassDetailViewController: BaseViewController {
             NoticesCenter.alert(message: "功能暂未开放，客服系统正在努力完善中...")
         }else if sender.tag == 201 {
             // 电话
-            let mob = viewModel.classInfoObser.value.1.mob
+            let mob = viewModel.shopInfo.mob
             if mob.count > 0 {
                 STHelper.phoneCall(with: mob)
             }
@@ -43,6 +41,8 @@ class STClassDetailViewController: BaseViewController {
         }else if sender.tag == 203 {
             // 购买
             viewModel.buySubject.onNext(Void())
+        }else if sender.tag == 204 {
+            navigationController?.popViewController(animated: true)
         }
     }
     
@@ -50,45 +50,77 @@ class STClassDetailViewController: BaseViewController {
         addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
         buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
 
-        iconOutlet.imageView?.contentMode = .scaleAspectFill
+        let layout = UICollectionViewFlowLayout()
+        layout.sectionInset = .init(top: 10, left: 5, bottom: 0, right: 5)
+        layout.minimumInteritemSpacing = 8
+        let w = (PPScreenW - 1 - 5 * 2 - 10 * 2) / 3.0
+        let h = w + 5 + 16
+        layout.itemSize = .init(width: w, height: h)
         
-        tableView.estimatedRowHeight = 80
-        tableView.rowHeight = UITableView.automaticDimension
+        collectionView.collectionViewLayout = layout
         
-        tableView.register(UINib.init(nibName: "TeacherLessionsCell", bundle: Bundle.main),
-                           forCellReuseIdentifier: "TeacherLessionsCellID")
+        collectionView.register(UINib.init(nibName: "ClassDetailVideoCell", bundle: Bundle.main),
+                                forCellWithReuseIdentifier: "ClassDetailVideoCellID")
+        collectionView.register(ClassDetailHeaderReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: "header")
+        collectionView.register(ClassDetailFooterReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
+                                withReuseIdentifier: "footer")
     }
     
     override func rxBind() {
         viewModel = ClassDetailViewModel.init(classId: classId, shopId: shopId)
         
-        viewModel.lessonListObser.asDriver()
-            .drive(tableView.rx.items(cellIdentifier: "TeacherLessionsCellID",
-                                      cellType: TeacherLessionsCell.self))
-            { _, model, cell in
-                cell.model = model
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<CourseDetailClassModel,CourseDetailVideoModel>>.init(configureCell: { (section, col, indexPath, model) -> UICollectionViewCell in
+            let cell = col.dequeueReusableCell(withReuseIdentifier: "ClassDetailVideoCellID", for: indexPath) as! ClassDetailVideoCell
+            cell.model = model
+            return cell
+        }, configureSupplementaryView: { [weak self] (section, col, kind, indexpath) -> UICollectionReusableView in
+            if kind == UICollectionView.elementKindSectionHeader {
+                let header = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                  withReuseIdentifier: "header",
+                                                                  for: indexpath) as! ClassDetailHeaderReusableView
+                header.model = section.sectionModels[indexpath.section].model
+                return header
             }
+            if kind == UICollectionView.elementKindSectionFooter {
+                let footer = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
+                                                                  withReuseIdentifier: "footer",
+                                                                  for: indexpath) as! ClassDetailFooterReusableView
+                footer.classId = self?.classId ?? "1"
+                if let strongSelf = self {
+                    footer.contentSizeObser
+                        .do(onNext: { [weak self] in self?.webContentSize = $0 })
+                        .bind(to: strongSelf.viewModel.contentSizeObser)
+                        .disposed(by: strongSelf.disposeBag)
+                }
+                return footer
+            }
+            return UICollectionReusableView()
+        }, moveItem: { _,_,_  in
+            
+        }) { _,_  -> Bool in
+            return false
+        }
+
+        collectionView.rx.modelSelected(CourseDetailVideoModel.self)
+            .asDriver()
+            .drive(viewModel.playVideoSubject)
             .disposed(by: disposeBag)
         
-        viewModel.classInfoObser.asDriver()
-            .drive(onNext: { [weak self] data in
-                self?.setClassInfoView(data: data)
-            })
+        viewModel.videoListObser.asDriver()
+            .drive(collectionView.rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
         
-        tableView.rx.setDelegate(self)
+        collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(Void())
     }
-
-    private func setClassInfoView(data: (CourseDetailClassModel, ShopInfoModel)) {
-        iconOutlet.setImage(data.0.pic)
-        classNameOutlet.text = data.0.class_name
-        classTimeOutlet.text = "上课时间:\n\(data.0.describe)"
-        priceOutlet.text = "¥:\(data.0.price)"
-        addressOutlet.text = data.1.address
-        shopNameOutlet.text = data.1.shop_name
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
     
     override func prepare(parameters: [String : Any]?) {
@@ -98,9 +130,13 @@ class STClassDetailViewController: BaseViewController {
     
 }
 
-extension STClassDetailViewController: UITableViewDelegate {
+extension STClassDetailViewController: UICollectionViewDelegateFlowLayout {
     
-    func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
-        return viewModel.lessonListObser.value[indexPath.row].cellHeight
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        return .init(width: collectionView.width, height: 404)
+    }
+    
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
+        return .init(width: collectionView.width, height: webContentSize?.height ?? 0)
     }
 }

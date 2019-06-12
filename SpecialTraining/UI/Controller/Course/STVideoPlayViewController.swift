@@ -19,7 +19,7 @@ class STVideoPlayViewController: BaseViewController {
     @IBOutlet weak var videoTitleOutlet: UILabel!
     
     private var player: TYVideoPlayer!
-    private var videoModel: CourseDetailVideoModel!
+    private var videoModel = CourseDetailVideoModel()
     
     public func preparePlay(videoInfo: CourseDetailVideoModel){
         videoModel = videoInfo
@@ -54,5 +54,15 @@ class STVideoPlayViewController: BaseViewController {
 //                }
 //            })
 //            .disposed(by: disposeBag)
+    }
+    
+    override func prepare(parameters: [String : Any]?) {
+        if let model = parameters?["model"] as? CourseDetailVideoModel {
+            videoModel = model
+        }
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        navigationController?.setNavigationBarHidden(true, animated: animated)
     }
 }
