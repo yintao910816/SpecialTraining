@@ -92,13 +92,18 @@ class STCourseDetailViewController: BaseViewController {
 
         if let selectedBtn = btns.first(where: { $0?.isSelected == true }), selectedBtn != nil {
             if selectedBtn != button {
+                var scrollAnimated = true
                 if let idx = btns.firstIndex(where: { $0 == button })
                 {
-                    if (views[idx] as? AdaptScrollAnimotion)?.canAnimotion == false { headerAnimotion(isUp: false) }
+                    if (views[idx] as? AdaptScrollAnimotion)?.canAnimotion == false
+                    {
+                        scrollAnimated = headerTopCns.constant >= 0
+                        headerAnimotion(isUp: false)
+                    }
                 }
                 selectedBtn!.isSelected = false
                 button.isSelected = true
-                scrollOutlet.setContentOffset(.init(x: offsetX, y: 0), animated: true)
+                scrollOutlet.setContentOffset(.init(x: offsetX, y: 0), animated: scrollAnimated)
             }
         }else {
             button.isSelected = true
