@@ -1321,6 +1321,39 @@
             </objects>
             <point key="canvasLocation" x="1165.5999999999999" y="-1038.5307346326838"/>
         </scene>
+        <!--课程列表-->
+        <scene sceneID="Ne9-TP-5mv">
+            <objects>
+                <viewController title="课程列表" id="IqS-jI-zjZ" customClass="STClassLessionListViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="bLs-b2-Dh0"/>
+                        <viewControllerLayoutGuide type="bottom" id="UpM-2n-Pke"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="9aR-vE-LrZ">
+                        <rect key="frame" x="0.0" y="0.0" width="375" height="667"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" showsHorizontalScrollIndicator="NO" showsVerticalScrollIndicator="NO" dataMode="prototypes" style="plain" separatorStyle="none" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="igq-fu-zfN">
+                                <rect key="frame" x="0.0" y="20" width="375" height="647"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <constraints>
+                            <constraint firstAttribute="trailing" secondItem="igq-fu-zfN" secondAttribute="trailing" id="Jte-bd-yp2"/>
+                            <constraint firstItem="igq-fu-zfN" firstAttribute="top" secondItem="bLs-b2-Dh0" secondAttribute="bottom" id="a8c-ux-W57"/>
+                            <constraint firstItem="igq-fu-zfN" firstAttribute="leading" secondItem="9aR-vE-LrZ" secondAttribute="leading" id="qsf-pC-iLG"/>
+                            <constraint firstItem="UpM-2n-Pke" firstAttribute="top" secondItem="igq-fu-zfN" secondAttribute="bottom" id="vFR-4W-3po"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="igq-fu-zfN" id="p84-Nu-15h"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="XpN-ce-33v" userLabel="First Responder" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="-1334" y="-311"/>
+        </scene>
         <!--班级详情-->
         <scene sceneID="cKt-MM-gDc">
             <objects>
@@ -1471,6 +1504,7 @@
                         <outlet property="addShoppingCarOutlet" destination="Eks-C4-MRp" id="VvB-o3-7dH"/>
                         <outlet property="buyOutlet" destination="Y6a-ar-Q3u" id="Oht-ua-Xdk"/>
                         <outlet property="collectionView" destination="azv-tb-qKY" id="9x6-f1-Pzu"/>
+                        <segue destination="IqS-jI-zjZ" kind="show" identifier="lessionListSegue" id="qpm-5n-Vnq"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="X8W-NX-RIZ" userLabel="First Responder" sceneMemberID="firstResponder"/>

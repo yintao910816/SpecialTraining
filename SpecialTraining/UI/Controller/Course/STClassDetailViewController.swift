@@ -8,6 +8,7 @@
 
 import UIKit
 import RxDataSources
+import RxCocoa
 
 class STClassDetailViewController: BaseViewController {
     
@@ -82,6 +83,18 @@ class STClassDetailViewController: BaseViewController {
                                                                   withReuseIdentifier: "header",
                                                                   for: indexpath) as! ClassDetailHeaderReusableView
                 header.model = section.sectionModels[indexpath.section].model
+                if let strongSelf = self {
+                    header.lessionListOutlet.rx.tap.asDriver()
+                        .drive(onNext: {
+                            strongSelf.performSegue(withIdentifier: "lessionListSegue", sender: nil)
+                        })
+                        .disposed(by: strongSelf.disposeBag)
+                    
+                    header.changeVideoOutlet.rx.tap.asDriver()
+                        .drive(strongSelf.viewModel.changeVideoSubject)
+                        .disposed(by: strongSelf.disposeBag)
+                }
+
                 return header
             }
             if kind == UICollectionView.elementKindSectionFooter {
@@ -128,6 +141,11 @@ class STClassDetailViewController: BaseViewController {
         shopId  = (parameters!["shopId"] as! String)
     }
     
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        if segue.identifier == "lessionListSegue" {
+            segue.destination.prepare(parameters: ["data": viewModel.lessionList])
+        }
+    }
 }
 
 extension STClassDetailViewController: UICollectionViewDelegateFlowLayout {

@@ -18,6 +18,9 @@ class ClassDetailHeaderReusableView: UICollectionReusableView {
     @IBOutlet weak var createTimeOutlet: UILabel!
     @IBOutlet weak var bottomView: UILabel!
     
+    @IBOutlet weak var lessionListOutlet: UIButton!
+    @IBOutlet weak var changeVideoOutlet: TYClickedButton!
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -41,6 +44,9 @@ class ClassDetailHeaderReusableView: UICollectionReusableView {
             classInfoOutlet.text = model.class_days
             suteOutlet.text = model.suit_peoples
             createTimeOutlet.text = model.createtime
+            
+            changeVideoOutlet.isHidden = model.showChange
+            bottomView.isHidden = !model.hasVideo
             
             carouselView.setData(source: ClassDetailCarouselModel.createData(source: [model.pic]), autoScroll: false)
         }

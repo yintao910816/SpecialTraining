@@ -13,9 +13,11 @@
             <connections>
                 <outlet property="bottomView" destination="24r-5c-AqM" id="Iau-c1-Nl2"/>
                 <outlet property="carouselView" destination="uXa-en-3GL" id="x2e-7T-E3I"/>
+                <outlet property="changeVideoOutlet" destination="j8t-ku-bsP" id="b4j-tg-Gy6"/>
                 <outlet property="classInfoOutlet" destination="hrW-MA-i8n" id="ysR-HG-jx0"/>
                 <outlet property="contentView" destination="U6b-Vx-4bR" id="7yR-f3-4cM"/>
                 <outlet property="createTimeOutlet" destination="ddp-8V-Pqe" id="Zoa-gY-Ndk"/>
+                <outlet property="lessionListOutlet" destination="A31-HT-2AW" id="OyF-ha-mcN"/>
                 <outlet property="priceOutlet" destination="x3p-t4-sV1" id="M5c-XW-wVd"/>
                 <outlet property="suteOutlet" destination="khZ-vI-VLW" id="3je-zS-tED"/>
                 <outlet property="titleOutlet" destination="41h-ui-c0R" id="1l0-NU-gzd"/>
@@ -147,6 +149,19 @@
                     </constraints>
                     <state key="normal" image="arrow_right"/>
                 </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="A31-HT-2AW">
+                    <rect key="frame" x="0.0" y="298" width="320" height="69"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="j8t-ku-bsP" customClass="TYClickedButton" customModule="SpecialTraining" customModuleProvider="target">
+                    <rect key="frame" x="265" y="386" width="40" height="18"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="18" id="prk-Bi-GmL"/>
+                    </constraints>
+                    <fontDescription key="fontDescription" type="system" pointSize="13"/>
+                    <state key="normal" title="换一批">
+                        <color key="titleColor" red="0.23529411764705882" green="0.23529411764705882" blue="0.23529411764705882" alpha="1" colorSpace="deviceRGB"/>
+                    </state>
+                </button>
             </subviews>
             <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
             <constraints>
@@ -165,6 +180,8 @@
                 <constraint firstItem="9C8-92-7jF" firstAttribute="leading" secondItem="41h-ui-c0R" secondAttribute="leading" id="AzI-bB-C2f"/>
                 <constraint firstItem="bGy-L2-XtO" firstAttribute="top" secondItem="9C8-92-7jF" secondAttribute="bottom" constant="10" id="CLo-jx-1oE"/>
                 <constraint firstItem="24r-5c-AqM" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" constant="10" id="EqE-DV-6tC"/>
+                <constraint firstAttribute="bottom" secondItem="j8t-ku-bsP" secondAttribute="bottom" id="Fv5-Js-Xed"/>
+                <constraint firstAttribute="trailing" secondItem="A31-HT-2AW" secondAttribute="trailing" id="G8A-kO-QhF"/>
                 <constraint firstItem="9gn-lh-RMe" firstAttribute="leading" secondItem="zTK-nV-fHm" secondAttribute="leading" id="HA8-mV-XSt"/>
                 <constraint firstAttribute="trailing" secondItem="uXa-en-3GL" secondAttribute="trailing" id="L1Q-Cf-ng1"/>
                 <constraint firstItem="uXa-en-3GL" firstAttribute="top" secondItem="U6b-Vx-4bR" secondAttribute="top" id="OAZ-jM-qan"/>
@@ -181,14 +198,18 @@
                 <constraint firstItem="Vy3-33-HQ4" firstAttribute="leading" secondItem="ddp-8V-Pqe" secondAttribute="trailing" constant="10" id="f63-oe-ypn"/>
                 <constraint firstItem="zTK-nV-fHm" firstAttribute="trailing" secondItem="ddp-8V-Pqe" secondAttribute="trailing" id="i0H-GD-Vyo"/>
                 <constraint firstItem="9gn-lh-RMe" firstAttribute="trailing" secondItem="zTK-nV-fHm" secondAttribute="trailing" id="iur-Xj-wgV"/>
+                <constraint firstItem="BYp-lE-trf" firstAttribute="top" secondItem="A31-HT-2AW" secondAttribute="bottom" id="jiN-vJ-owS"/>
+                <constraint firstItem="A31-HT-2AW" firstAttribute="top" secondItem="GVh-Kf-0oR" secondAttribute="bottom" id="js9-X0-7YG"/>
                 <constraint firstItem="x3p-t4-sV1" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="41h-ui-c0R" secondAttribute="trailing" constant="10" id="lQX-Q7-GIa"/>
                 <constraint firstItem="pSX-AP-2Qo" firstAttribute="trailing" secondItem="x3p-t4-sV1" secondAttribute="trailing" id="o0U-8y-rdJ"/>
                 <constraint firstAttribute="trailing" secondItem="khZ-vI-VLW" secondAttribute="trailing" constant="15" id="pzf-4p-Tl9"/>
                 <constraint firstItem="x3p-t4-sV1" firstAttribute="top" secondItem="41h-ui-c0R" secondAttribute="top" id="qFV-H1-CPq"/>
                 <constraint firstAttribute="trailing" secondItem="GVh-Kf-0oR" secondAttribute="trailing" id="qVZ-hw-Wd6"/>
+                <constraint firstItem="A31-HT-2AW" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="t46-CU-KGr"/>
                 <constraint firstItem="ddp-8V-Pqe" firstAttribute="leading" secondItem="YVY-4l-lkh" secondAttribute="trailing" constant="5" id="tYR-iY-a7a"/>
                 <constraint firstItem="41h-ui-c0R" firstAttribute="top" secondItem="uXa-en-3GL" secondAttribute="bottom" constant="12" id="vO8-Xl-TNA"/>
                 <constraint firstItem="khZ-vI-VLW" firstAttribute="leading" secondItem="bGy-L2-XtO" secondAttribute="trailing" constant="5" id="wDg-XK-fbW"/>
+                <constraint firstAttribute="trailing" secondItem="j8t-ku-bsP" secondAttribute="trailing" constant="15" id="wML-JN-rIQ"/>
                 <constraint firstItem="GVh-Kf-0oR" firstAttribute="leading" secondItem="U6b-Vx-4bR" secondAttribute="leading" id="wvf-f6-0mQ"/>
                 <constraint firstItem="zTK-nV-fHm" firstAttribute="leading" secondItem="ddp-8V-Pqe" secondAttribute="leading" id="xcM-32-VXO"/>
             </constraints>
