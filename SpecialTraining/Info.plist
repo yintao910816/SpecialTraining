@@ -146,23 +146,19 @@
 		</dict>
 	</dict>
 	<key>NSAppleMusicUsageDescription</key>
-	<string>媒体</string>
+	<string>我们需要获取权限以便您播放乐秀视频和音乐</string>
 	<key>NSCameraUsageDescription</key>
-	<string>APP需要需要您授权摄像头权限</string>
-	<key>NSLocationAlwaysUsageDescription</key>
-	<string>APP需要需要您授权定位权限</string>
+	<string>我们需要获取相机权限以便您录制乐秀视频</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
-	<string>APP需要需要您授权定位权限</string>
+	<string>我们需要定位您的位置信息获取附近的机构和店铺</string>
 	<key>NSMicrophoneUsageDescription</key>
-	<string>APP需要需要您授权麦克风权限</string>
+	<string>我们需要获取麦克风权限以便您录制和播放乐秀视频</string>
 	<key>NSPhotoLibraryAddUsageDescription</key>
-	<string>允许访问</string>
+	<string>我们需要获取您的相册权限以便将您录制的乐秀视频存入相册</string>
 	<key>NSPhotoLibraryUsageDescription</key>
-	<string>APP需要需要您授权相册权限</string>
+	<string>我们需要获取您的相册权限以便您选择视频和照片</string>
 	<key>UIBackgroundModes</key>
-	<array>
-		<string>location</string>
-	</array>
+	<array/>
 	<key>UILaunchStoryboardName</key>
 	<string>AppLoadView</string>
 	<key>UIRequiredDeviceCapabilities</key>
