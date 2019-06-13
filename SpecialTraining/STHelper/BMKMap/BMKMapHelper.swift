@@ -23,7 +23,7 @@ class BMKLocationHelper: NSObject, BMKLocationManagerDelegate {
         locationManager.desiredAccuracy = kCLLocationAccuracyBest
         locationManager.activityType = CLActivityType.automotiveNavigation
         locationManager.locationTimeout = 10
-        locationManager.allowsBackgroundLocationUpdates = true
+        locationManager.allowsBackgroundLocationUpdates = false
     }
     
     func userLocation() {

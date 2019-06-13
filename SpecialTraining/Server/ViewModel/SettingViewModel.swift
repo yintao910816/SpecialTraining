@@ -36,9 +36,11 @@ class SettingViewModel: BaseViewModel, VMNavigation {
         if title == "退出登录" {
             STHelper.presentLogin()
         }else if title == "新消息通知" {
-            pushNoticeSettingSubject.onNext(Void())
+            NoticesCenter.alert(message: "敬请期待...")
+//            pushNoticeSettingSubject.onNext(Void())
         }else if title == "使用技巧" {
-            pushUseTipsSubject.onNext(Void())
+//            pushUseTipsSubject.onNext(Void())
+            NoticesCenter.alert(message: "敬请期待...")
         }
     }
 }
