@@ -25,6 +25,7 @@ class ClassDetailFooterReusableView: UICollectionReusableView {
         contentView = (Bundle.main.loadNibNamed("ClassDetailFooterReusableView", owner: self, options: nil)?.first as! UICollectionReusableView)
         addSubview(contentView)
         
+        webView.scrollView.isScrollEnabled = false
         webView.scrollView.bounces = false
         webView.scrollView.isDirectionalLockEnabled = true
         webView.scrollView.showsVerticalScrollIndicator = false
