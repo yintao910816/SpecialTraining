@@ -55,5 +55,6 @@ extension ClassDetailFooterReusableView: UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         contentSizeObser.onNext(webView.scrollView.contentSize)
+        webView.delegate = nil
     }
 }

@@ -42,7 +42,7 @@ class CourseDetailInfoView: UIView {
                     if self.webView.scrollView.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
                 }else {
                     // 向上滚动
-                    if self.webView.scrollView.contentOffset.y > 0 && self.webView.scrollView.contentSize.height > self.scrollMinContentHeight
+                    if self.webView.scrollView.contentOffset.y >= 0 && self.webView.scrollView.contentSize.height > self.scrollMinContentHeight
                     {
                         self.animotionHeaderSubject.onNext(true)
                     }

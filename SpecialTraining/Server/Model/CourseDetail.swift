@@ -113,7 +113,7 @@ class CourseDetailInfoModel: HJModel {
     var course_id: String = ""
     var shop_id: String = ""
     var title: String = ""
-    var pic: String = ""
+    var class_pic: String = ""
     var about_price: String = ""
     var label: String = ""
     var introduce: String = ""
@@ -209,8 +209,9 @@ class CourseDetailClassModel: HJModel {
     var uid: String = ""
     
     override func mapping(mapper: HelpingMapper) {
-        mapper.specify(property: &pic, name: "class_pic")
-        mapper.specify(property: &pic, name: "pic")
+//        mapper.specify(property: &pic, name: "class_pic")
+//        mapper.specify(property: &pic, name: "pic")
+        mapper <<< pic <-- ["class_pic", "pic"]
     }
 }
 
