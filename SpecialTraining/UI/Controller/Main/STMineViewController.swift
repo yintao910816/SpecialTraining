@@ -99,7 +99,7 @@ extension STMineViewController: UICollectionViewDelegateFlowLayout {
 extension STMineViewController: MineHeaderActions, VMNavigation {
     
     func gotoMineInfo() {
-        performSegue(withIdentifier: "mineInfoSegue", sender: nil)
+//        performSegue(withIdentifier: "mineInfoSegue", sender: nil)
     }
     
     func gotoSetting() {
