@@ -236,11 +236,11 @@
                                     </imageView>
                                     <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="O0r-Je-6vt">
                                         <rect key="frame" x="10" y="47" width="90" height="90"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="Qby-2u-gR1"/>
                                             <constraint firstAttribute="width" secondItem="O0r-Je-6vt" secondAttribute="height" multiplier="1:1" id="Tl8-RL-aSg"/>
                                         </constraints>
-                                        <state key="normal" image="demandView_bg"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                                         </userDefinedRuntimeAttributes>
@@ -2349,11 +2349,11 @@
                                     </imageView>
                                     <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="k5M-sM-Jyj">
                                         <rect key="frame" x="10" y="47" width="90" height="90"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="3uq-i7-qZV"/>
                                             <constraint firstAttribute="width" secondItem="k5M-sM-Jyj" secondAttribute="height" multiplier="1:1" id="ZVd-Mk-ZfF"/>
                                         </constraints>
-                                        <state key="normal" image="demandView_bg"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                                         </userDefinedRuntimeAttributes>
@@ -2528,11 +2528,12 @@
                                     </imageView>
                                     <button opaque="NO" clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="noB-l4-GWt">
                                         <rect key="frame" x="10" y="47" width="90" height="90"/>
+                                        <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
                                         <constraints>
                                             <constraint firstAttribute="width" constant="90" id="aho-xI-Fi1"/>
                                             <constraint firstAttribute="width" secondItem="noB-l4-GWt" secondAttribute="height" multiplier="1:1" id="bqa-6v-4IU"/>
                                         </constraints>
-                                        <state key="normal" image="demandView_bg"/>
+                                        <state key="normal" image="0"/>
                                         <userDefinedRuntimeAttributes>
                                             <userDefinedRuntimeAttribute type="string" keyPath="layer.cornerRadius" value="5"/>
                                         </userDefinedRuntimeAttributes>
@@ -2754,6 +2755,7 @@
         </scene>
     </scenes>
     <resources>
+        <image name="0" width="16" height="16"/>
         <image name="arrow_right" width="25" height="25"/>
         <image name="demandView_bg" width="640" height="960"/>
         <image name="my_recommend_bg" width="750" height="1334"/>
