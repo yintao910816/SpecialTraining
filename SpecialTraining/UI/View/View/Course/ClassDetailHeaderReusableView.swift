@@ -51,4 +51,13 @@ class ClassDetailHeaderReusableView: UICollectionReusableView {
             carouselView.setData(source: ClassDetailCarouselModel.createData(source: [model.pic]), autoScroll: false)
         }
     }
+    
+    var realHeight: CGFloat {
+        get {
+            setNeedsLayout()
+            layoutIfNeeded()
+            
+            return bottomView.frame.maxY
+        }
+    }
 }

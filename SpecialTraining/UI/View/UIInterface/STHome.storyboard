@@ -1308,6 +1308,7 @@
                         <outlet property="buyOutlet" destination="1lG-9h-f2R" id="R48-Aw-aka"/>
                         <outlet property="classOutlet" destination="gSs-ha-T8a" id="Cyg-17-F3R"/>
                         <outlet property="detailOutlet" destination="enx-gc-XZG" id="gpu-3o-DSH"/>
+                        <outlet property="headerHeightCns" destination="KY1-rj-L6d" id="Z1b-V1-j4i"/>
                         <outlet property="headerTopCns" destination="n35-N6-S3x" id="SyM-Yy-Uje"/>
                         <outlet property="headerView" destination="zmJ-Kx-iEv" id="Jbu-tu-f1t"/>
                         <outlet property="scrollOutlet" destination="Ixp-zL-35R" id="3G4-2d-fcj"/>

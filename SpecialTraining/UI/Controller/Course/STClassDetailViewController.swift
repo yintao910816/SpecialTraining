@@ -48,6 +48,12 @@ class STClassDetailViewController: BaseViewController {
     }
     
     override func setupUI() {
+        if #available(iOS 11, *) {
+            collectionView.contentInsetAdjustmentBehavior = .never
+        }else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
+
         addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
         buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
 
@@ -84,11 +90,10 @@ class STClassDetailViewController: BaseViewController {
                                                                   for: indexpath) as! ClassDetailHeaderReusableView
                 header.model = section.sectionModels[indexpath.section].model
                 if let strongSelf = self {
-                    header.lessionListOutlet.rx.tap.asDriver()
+                    _ = header.lessionListOutlet.rx.tap.asDriver()
                         .drive(onNext: {
                             strongSelf.performSegue(withIdentifier: "lessionListSegue", sender: nil)
                         })
-                        .disposed(by: strongSelf.disposeBag)
                     
                     header.changeVideoOutlet.rx.tap.asDriver()
                         .drive(strongSelf.viewModel.changeVideoSubject)
@@ -151,7 +156,12 @@ class STClassDetailViewController: BaseViewController {
 extension STClassDetailViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: collectionView.width, height: 404)
+        
+        let header = ClassDetailHeaderReusableView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: 400))
+        let realHeight = header.realHeight
+//        return .init(width: collectionView.width, height: 404)
+        PrintLog("真实高度：\(realHeight)")
+        return .init(width: collectionView.width, height: realHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {

@@ -16,6 +16,7 @@ class STCourseDetailViewController: BaseViewController {
     
     @IBOutlet weak var headerView: CourseDetailHeaderView!
     
+    @IBOutlet weak var headerHeightCns: NSLayoutConstraint!
     @IBOutlet weak var headerTopCns: NSLayoutConstraint!
     private var courseInfoView: CourseDetailInfoView!
     private var videoView: CourseDetailVideoView!
@@ -383,6 +384,8 @@ class STCourseDetailViewController: BaseViewController {
         if courseAudioTB != nil  { courseAudioTB.scrollMinContentHeight = view.height - 115 }
         if courseClassTB != nil  { courseClassTB.scrollMinContentHeight = view.height - 115 }
 
+        print("header 高度：\(headerView.realHeight)")
+        headerHeightCns.constant = headerView.realHeight
     }
 }
 

@@ -18,6 +18,7 @@ class CourseDetailHeaderView: UIView {
     @IBOutlet weak var backOutlet: TYClickedButton!
     
     @IBOutlet weak var backTopCns: NSLayoutConstraint!
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -59,5 +60,9 @@ class CourseDetailHeaderView: UIView {
                 }
             }
         }
+    }
+    
+    var realHeight: CGFloat {
+        return viewWithTag(100)!.frame.maxY + 10
     }
 }
