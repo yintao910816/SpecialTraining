@@ -15,7 +15,7 @@ class CourseDetailViewModel: BaseViewModel {
     var courseId: String = ""
     
     let courseInfoDataSource = Variable(CourseDetailInfoModel())
-    let videoDatasource = Variable([CourseDetailVideoModel]())
+    let videoDatasource = Variable([SectionModel<Int, CourseDetailVideoModel>]())
     let audioDatasource = Variable([CourseDetailAudioModel]())
     let classListDatasource = Variable([CourseDetailClassModel]())
     /// header上的三张图片
@@ -73,7 +73,7 @@ class CourseDetailViewModel: BaseViewModel {
             .map(model: CourseDetailModel.self)
             .subscribe(onSuccess: { [weak self] data in
                 self?.courseInfoDataSource.value = data.course_info
-                self?.videoDatasource.value = data.videoList
+                self?.videoDatasource.value = [SectionModel.init(model: 0, items: data.videoList)]
                 self?.audioDatasource.value = data.audioList
                 
                 let listClassData = data.classList.filter{ $0.class_category == "Y" }

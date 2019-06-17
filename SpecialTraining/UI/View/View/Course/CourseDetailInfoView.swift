@@ -12,9 +12,9 @@ import RxSwift
 class CourseDetailInfoView: UIView {
     
     private let disposeBag = DisposeBag()
-    private var webView: UIWebView!
+    var webView: UIWebView!
     
-    public let animotionHeaderSubject = PublishSubject<Bool>()
+    public let animotionHeaderSubject = PublishSubject<CGFloat>()
     /// 可以滚动header的最小contentSize高度
     public var scrollMinContentHeight: CGFloat = 0
 
@@ -33,21 +33,25 @@ class CourseDetailInfoView: UIView {
         
         webView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
         
-        webView.scrollView.rx.didScroll.asDriver()
-            .drive(onNext: { [unowned self] in
-                let point = self.webView.scrollView.panGestureRecognizer.translation(in: self)
-                if point.y > 0
-                {
-                    // 向下滚动
-                    if self.webView.scrollView.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
-                }else {
-                    // 向上滚动
-                    if self.webView.scrollView.contentOffset.y >= 0 && self.webView.scrollView.contentSize.height > self.scrollMinContentHeight
-                    {
-                        self.animotionHeaderSubject.onNext(true)
-                    }
-                }
-            })
+//        webView.scrollView.rx.didScroll.asDriver()
+//            .drive(onNext: { [unowned self] in
+//                let point = self.webView.scrollView.panGestureRecognizer.translation(in: self)
+//                if point.y > 0
+//                {
+//                    // 向下滚动
+//                    if self.webView.scrollView.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
+//                }else {
+//                    // 向上滚动
+//                    if self.webView.scrollView.contentOffset.y >= 0 && self.webView.scrollView.contentSize.height > self.scrollMinContentHeight
+//                    {
+//                        self.animotionHeaderSubject.onNext(true)
+//                    }
+//                }
+//            })
+//            .disposed(by: disposeBag)
+
+        webView.scrollView.rx.didScroll.asDriver().map{ [unowned self] in self.webView.scrollView.contentOffset.y }
+            .drive(animotionHeaderSubject)
             .disposed(by: disposeBag)
 
 //        webView.scrollView.rx
@@ -72,7 +76,20 @@ class CourseDetailInfoView: UIView {
 }
 
 extension CourseDetailInfoView: AdaptScrollAnimotion {
-    var canAnimotion: Bool { return webView.scrollView.contentSize.height > height }
+    var scrollContentOffsetY: CGFloat { return webView.scrollView.contentOffset.y }
+    
+    func canAnimotion(offset y: CGFloat) -> Bool {
+        return webView.scrollView.contentSize.height >= y
+    }
+    
+    func scrollMax(contentOffset y: CGFloat) {
+        if webView.scrollView.contentSize.height >= y {
+            webView.scrollView.setContentOffset(.init(x: 0, y: y), animated: false)
+        }else {
+            webView.scrollView.setContentOffset(.init(x: 0, y: webView.scrollView.contentOffset.y), animated: true)
+            animotionHeaderSubject.onNext(webView.scrollView.contentOffset.y)
+        }
+    }
 }
 
 extension CourseDetailInfoView: UIWebViewDelegate {

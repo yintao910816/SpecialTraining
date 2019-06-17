@@ -62,7 +62,7 @@ class CourseDetailHeaderView: UIView {
         }
     }
     
-    var realHeight: CGFloat {
-        return viewWithTag(100)!.frame.maxY + 10
-    }
+//    var realHeight: CGFloat {
+//        return viewWithTag(100)!.frame.maxY + 10
+//    }
 }

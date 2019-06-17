@@ -12,6 +12,9 @@ import RxSwift
 
 class STCourseDetailViewController: BaseViewController {
 
+    private let headerHeight: CGFloat = PPScreenW + 145
+    private let headerScrollHeight: CGFloat = PPScreenW + 145 + 7 + 7 + 29 + 10
+
     private var viewModel: CourseDetailViewModel!
     
     @IBOutlet weak var headerView: CourseDetailHeaderView!
@@ -96,11 +99,11 @@ class STCourseDetailViewController: BaseViewController {
                 var scrollAnimated = true
                 if let idx = btns.firstIndex(where: { $0 == button })
                 {
-                    if (views[idx] as? AdaptScrollAnimotion)?.canAnimotion == false
-                    {
-                        scrollAnimated = headerTopCns.constant >= 0
-                        headerAnimotion(isUp: false)
-                    }
+//                    if (views[idx] as? AdaptScrollAnimotion)?.canAnimotion == false
+//                    {
+//                        scrollAnimated = headerTopCns.constant >= 0
+//                        headerAnimotion(isUp: false)
+//                    }
                 }
                 selectedBtn!.isSelected = false
                 button.isSelected = true
@@ -122,10 +125,26 @@ class STCourseDetailViewController: BaseViewController {
         if let selectedBtn = btns.first(where: { $0?.isSelected == true }),
             selectedBtn != nil {
             if selectedBtn != curBtn {
-                if let idx = btns.firstIndex(where: { $0 == curBtn })
+                if let idx = btns.firstIndex(where: { $0 == curBtn }),
+                    let selectedIdx = btns.firstIndex(where: { $0 == selectedBtn })
                 {
-                    if (views[idx] as? AdaptScrollAnimotion)?.canAnimotion == false { headerAnimotion(isUp: false) }
+                    if let y = (views[selectedIdx] as? AdaptScrollAnimotion)?.scrollContentOffsetY,
+                        let scrollView = (views[idx] as? AdaptScrollAnimotion),
+                        scrollView.canAnimotion(offset: y) == false
+                    {
+                        scrollView.scrollMax(contentOffset: y)
+                    }
                 }
+//                if scrollView == videoView {
+//                    if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
+//                    if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
+//                }else if scrollView == courseAudioTB {
+//                    if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
+//                    if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
+//                }else if scrollView == courseClassTB {
+//                    if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
+//                    if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
+//                }
 
                 selectedBtn!.isSelected = false
                 curBtn.isSelected = true
@@ -144,6 +163,8 @@ class STCourseDetailViewController: BaseViewController {
     }
     
     override func setupUI() {
+        headerHeightCns.constant = headerHeight
+
         addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
         buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
 
@@ -193,13 +214,12 @@ class STCourseDetailViewController: BaseViewController {
         
         selectedClassView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
         
-//        if #available(iOS 11, *) {
-//            scrollOutlet.contentInsetAdjustmentBehavior = .never
-//            organizationColView.contentInsetAdjustmentBehavior = .never
-//            recomendColView.contentInsetAdjustmentBehavior = .never
-//        }else {
-//            automaticallyAdjustsScrollViewInsets = false
-//        }
+        if #available(iOS 11, *) {
+            scrollOutlet.contentInsetAdjustmentBehavior = .never
+            courseInfoView.webView.scrollView.contentInsetAdjustmentBehavior = .never
+        }else {
+            automaticallyAdjustsScrollViewInsets = false
+        }
 
     }
     
@@ -222,9 +242,7 @@ class STCourseDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         courseInfoView.animotionHeaderSubject
-            .subscribe(onNext: { [unowned self] isUp in
-                self.headerAnimotion(isUp: isUp)
-            })
+            .subscribe(onNext: { [unowned self] in self.setHeaderScroll(distance: $0, scrollView: self.courseInfoView) })
             .disposed(by: disposeBag)
 
         viewModel.headerPicDataSource.asDriver()
@@ -247,9 +265,7 @@ class STCourseDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         courseClassTB.animotionHeaderSubject
-            .subscribe(onNext: { [unowned self] isUp in
-                self.headerAnimotion(isUp: isUp)
-            })
+            .subscribe(onNext: { [unowned self] in self.setHeaderScroll(distance: $0, scrollView: self.courseClassTB) })
             .disposed(by: disposeBag)
         
         courseClassTB.rx.modelSelected(CourseDetailClassModel.self)
@@ -267,9 +283,7 @@ class STCourseDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         videoView.animotionHeaderSubject
-            .subscribe(onNext: { [unowned self] isUp in
-                self.headerAnimotion(isUp: isUp)
-            })
+            .subscribe(onNext: { [unowned self] in self.setHeaderScroll(distance: $0, scrollView: self.videoView) })
             .disposed(by: disposeBag)
 
         courseAudioTB.itemDidSelected
@@ -278,9 +292,7 @@ class STCourseDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
         
         courseAudioTB.animotionHeaderSubject
-            .subscribe(onNext: { [unowned self] isUp in
-                self.headerAnimotion(isUp: isUp)
-            })
+            .subscribe(onNext: { [unowned self] in self.setHeaderScroll(distance: $0, scrollView: self.courseAudioTB) })
             .disposed(by: disposeBag)
         
         viewModel.audioSourceChange
@@ -379,13 +391,38 @@ class STCourseDetailViewController: BaseViewController {
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
 
-        if courseInfoView != nil { courseInfoView.scrollMinContentHeight = view.height - 115 }
-        if videoView != nil      { videoView.scrollMinContentHeight = view.height - 115 }
-        if courseAudioTB != nil  { courseAudioTB.scrollMinContentHeight = view.height - 115 }
-        if courseClassTB != nil  { courseClassTB.scrollMinContentHeight = view.height - 115 }
+//        if courseInfoView != nil { courseInfoView.scrollMinContentHeight = view.height - 115 }
+//        if videoView != nil      { videoView.scrollMinContentHeight = view.height - 115 }
+//        if courseAudioTB != nil  { courseAudioTB.scrollMinContentHeight = view.height - 115 }
+//        if courseClassTB != nil  { courseClassTB.scrollMinContentHeight = view.height - 115 }
+    }
+}
 
-        print("header 高度：\(headerView.realHeight)")
-        headerHeightCns.constant = headerView.realHeight
+extension STCourseDetailViewController {
+    
+    private func setHeaderScroll(distance: CGFloat, scrollView: UIView) {
+        if (0 <= distance && distance <= headerScrollHeight) {
+            // 向上滑
+            headerTopCns.constant = -distance
+        }else if (distance < 0){
+            // 向下滑
+            if headerTopCns.constant != 0 {
+                headerTopCns.constant = 0
+            }
+        }else if (distance > headerScrollHeight){
+            headerTopCns.constant = -headerScrollHeight
+        }
+        
+        if scrollView == videoView {
+            if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
+            if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
+        }else if scrollView == courseAudioTB {
+            if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
+            if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
+        }else if scrollView == courseClassTB {
+            if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
+            if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
+        }
     }
 }
 
@@ -405,5 +442,9 @@ extension STCourseDetailViewController: UIScrollViewDelegate {
 }
 
 protocol AdaptScrollAnimotion {
-    var canAnimotion: Bool { get }
+    func canAnimotion(offset y: CGFloat) ->Bool
+    
+    func scrollMax(contentOffset y: CGFloat)
+    
+    var scrollContentOffsetY: CGFloat { get }
 }

@@ -15,10 +15,10 @@ class CourseDetailVideoView: UIView {
     private var collectionView: UICollectionView!
     private let disposeBag = DisposeBag()
     
-    public let datasource = Variable([CourseDetailVideoModel]())
+    public let datasource = Variable([SectionModel<Int, CourseDetailVideoModel>]())
     public let itemDidSelected = PublishSubject<CourseDetailVideoModel>()
    
-    public let animotionHeaderSubject = PublishSubject<Bool>()
+    public let animotionHeaderSubject = PublishSubject<CGFloat>()
     /// 可以滚动header的最小contentSize高度
     public var scrollMinContentHeight: CGFloat = 0
 
@@ -34,6 +34,8 @@ class CourseDetailVideoView: UIView {
     }
     
     private func setupView() {
+        backgroundColor = .clear
+
         let layout = UICollectionViewFlowLayout()
         layout.sectionInset = .init(top: 0, left: 7, bottom: 0, right: 7)
         layout.minimumLineSpacing = 5
@@ -45,17 +47,39 @@ class CourseDetailVideoView: UIView {
         collectionView = UICollectionView.init(frame: .zero, collectionViewLayout: layout)
         collectionView.backgroundColor = .clear
         collectionView.showsVerticalScrollIndicator = false
+        collectionView.bounces = false
         addSubview(collectionView)
         
         collectionView.register(UINib.init(nibName: "CourseDetailVideoCell", bundle: Bundle.main),
                                 forCellWithReuseIdentifier: "CourseDetailVideoCellID")
+        
+        collectionView.register(UICollectionReusableView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: "header")
     }
     
     private func rxBind() {
-        datasource.asDriver()
-            .drive(collectionView.rx.items(cellIdentifier: "CourseDetailVideoCellID", cellType: CourseDetailVideoCell.self)) { _, model, cell in
-                cell.model = model
+        let datasourceSignal = RxCollectionViewSectionedReloadDataSource<SectionModel<Int, CourseDetailVideoModel>>.init(configureCell: { (section, col, indexPath, model) -> UICollectionViewCell in
+            let cell = col.dequeueReusableCell(withReuseIdentifier: "CourseDetailVideoCellID", for: indexPath) as! CourseDetailVideoCell
+            cell.model = model
+            return cell
+        }, configureSupplementaryView: { (section, col, kind, indexpath) -> UICollectionReusableView in
+            if kind == UICollectionView.elementKindSectionHeader {
+                let header = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
+                                                                  withReuseIdentifier: "header",
+                                                                  for: indexpath)
+                header.backgroundColor = .clear
+                return header
             }
+            return UICollectionReusableView()
+            }, moveItem: { _,_,_  in
+                
+        }) { _,_  -> Bool in
+            return false
+        }
+
+        datasource.asDriver()
+            .drive(collectionView.rx.items(dataSource: datasourceSignal))
             .disposed(by: disposeBag)
         
         collectionView.rx.modelSelected(CourseDetailVideoModel.self)
@@ -63,21 +87,28 @@ class CourseDetailVideoView: UIView {
             .drive(itemDidSelected)
             .disposed(by: disposeBag)
         
-        collectionView.rx.didScroll.asDriver()
-            .drive(onNext: { [unowned self] in
-                let point = self.collectionView.panGestureRecognizer.translation(in: self)
-                if point.y > 0
-                {
-                    // 向下滚动
-                    if self.collectionView.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
-                }else {
-                    // 向上滚动
-                    if self.collectionView.contentOffset.y >= 0 && self.collectionView.contentSize.height > self.scrollMinContentHeight
-                    {
-                        self.animotionHeaderSubject.onNext(true)
-                    }
-                }
-            })
+//        collectionView.rx.didScroll.asDriver()
+//            .drive(onNext: { [unowned self] in
+//                let point = self.collectionView.panGestureRecognizer.translation(in: self)
+//                if point.y > 0
+//                {
+//                    // 向下滚动
+//                    if self.collectionView.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
+//                }else {
+//                    // 向上滚动
+//                    if self.collectionView.contentOffset.y >= 0 && self.collectionView.contentSize.height > self.scrollMinContentHeight
+//                    {
+//                        self.animotionHeaderSubject.onNext(true)
+//                    }
+//                }
+//            })
+//            .disposed(by: disposeBag)
+        
+        collectionView.rx.didScroll.asDriver().map{ [unowned self] in self.collectionView.contentOffset.y }
+            .drive(animotionHeaderSubject)
+            .disposed(by: disposeBag)
+        
+        collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
     
@@ -91,6 +122,26 @@ class CourseDetailVideoView: UIView {
 
 extension CourseDetailVideoView: AdaptScrollAnimotion {
     
-    var canAnimotion: Bool { return collectionView.contentSize.height > height }
+    var scrollContentOffsetY: CGFloat { return collectionView.contentOffset.y }
+
+    func canAnimotion(offset y: CGFloat) -> Bool {
+        return collectionView.contentSize.height >= y
+    }
+
+    func scrollMax(contentOffset y: CGFloat) {
+        if collectionView.contentSize.height >= y {
+            collectionView.setContentOffset(.init(x: 0, y: y), animated: false)
+        }else {
+            collectionView.setContentOffset(.init(x: 0, y: collectionView.contentOffset.y), animated: true)
+            animotionHeaderSubject.onNext(collectionView.contentOffset.y)
+        }
+    }
+}
+
+extension CourseDetailVideoView: UICollectionViewDelegateFlowLayout {
     
+    func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
+        let height = PPScreenW + 145 + 7 + 29 + 7 + 10
+        return .init(width: PPScreenW, height: height)
+    }
 }

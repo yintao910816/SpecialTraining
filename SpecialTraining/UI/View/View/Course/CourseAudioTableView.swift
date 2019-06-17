@@ -13,7 +13,7 @@ class CourseAudioTableView: BaseTB {
     
     private let disposeBag = DisposeBag()
     
-    public let animotionHeaderSubject = PublishSubject<Bool>()
+    public let animotionHeaderSubject = PublishSubject<CGFloat>()
     /// 可以滚动header的最小contentSize高度
     public var scrollMinContentHeight: CGFloat = 0
 
@@ -31,11 +31,17 @@ class CourseAudioTableView: BaseTB {
     }
     
     private func setupUI() {
-        backgroundColor = .white
-        
+        backgroundColor = .clear
         showsVerticalScrollIndicator = false
-        
+        separatorStyle = .none
+        bounces = false
+
         rowHeight = 60
+        
+        let header = UIView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: PPScreenW + 145 + 7 + 29 + 7 + 10))
+        header.backgroundColor = .clear
+        header.isUserInteractionEnabled = false
+        tableHeaderView = header
         
         register(UINib.init(nibName: "CourseAudioCell", bundle: Bundle.main), forCellReuseIdentifier: "CourseAudioCellID")
     }
@@ -52,18 +58,22 @@ class CourseAudioTableView: BaseTB {
             .bind(to: itemDidSelected)
             .disposed(by: disposeBag)
         
-        rx.didScroll.asDriver()
-            .drive(onNext: { [unowned self] in
-                let point = self.panGestureRecognizer.translation(in: self)
-                if point.y > 0
-                {
-                    // 向下滚动
-                    if self.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
-                }else {
-                    // 向上滚动
-                    if self.contentOffset.y > 0 && self.contentSize.height > self.scrollMinContentHeight { self.animotionHeaderSubject.onNext(true) }
-                }
-            })
+//        rx.didScroll.asDriver()
+//            .drive(onNext: { [unowned self] in
+//                let point = self.panGestureRecognizer.translation(in: self)
+//                if point.y > 0
+//                {
+//                    // 向下滚动
+//                    if self.contentOffset.y < 44 { self.animotionHeaderSubject.onNext(false) }
+//                }else {
+//                    // 向上滚动
+//                    if self.contentOffset.y > 0 && self.contentSize.height > self.scrollMinContentHeight { self.animotionHeaderSubject.onNext(true) }
+//                }
+//            })
+//            .disposed(by: disposeBag)
+        
+        rx.didScroll.asDriver().map{ [unowned self] in self.contentOffset.y }
+            .drive(animotionHeaderSubject)
             .disposed(by: disposeBag)
     }
     
@@ -71,7 +81,20 @@ class CourseAudioTableView: BaseTB {
 
 extension CourseAudioTableView: AdaptScrollAnimotion {
     
-    var canAnimotion: Bool { return contentSize.height > height }
+    var scrollContentOffsetY: CGFloat { return contentOffset.y }
     
+    func canAnimotion(offset y: CGFloat) -> Bool {
+        return (contentSize.height - height) >= y
+    }
+
+    func scrollMax(contentOffset y: CGFloat) {
+        if (contentSize.height - height) >= y {
+            setContentOffset(.init(x: 0, y: y), animated: false)
+        }else {
+            setContentOffset(.init(x: 0, y: contentOffset.y), animated: true)
+            animotionHeaderSubject.onNext(contentOffset.y)
+        }
+    }
+
 }
 
