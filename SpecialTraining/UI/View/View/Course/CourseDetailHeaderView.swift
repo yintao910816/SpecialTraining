@@ -7,6 +7,7 @@
 //
 
 import UIKit
+import RxSwift
 
 class CourseDetailHeaderView: UIView {
 
@@ -19,6 +20,10 @@ class CourseDetailHeaderView: UIView {
     
     @IBOutlet weak var backTopCns: NSLayoutConstraint!
     
+    private let disposeBag = DisposeBag()
+    
+    public let moreChoseSubject = PublishSubject<Void>()
+    
     override func awakeFromNib() {
         super.awakeFromNib()
         
@@ -28,6 +33,10 @@ class CourseDetailHeaderView: UIView {
         backTopCns.constant += LayoutSize.fitTopArea
         
         contentView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
+        
+        moreChoseOutlet.rx.tap
+            .bind(to: moreChoseSubject)
+            .disposed(by: disposeBag)
     }
     
     var model: CourseDetailInfoModel! {
@@ -65,4 +74,22 @@ class CourseDetailHeaderView: UIView {
 //    var realHeight: CGFloat {
 //        return viewWithTag(100)!.frame.maxY + 10
 //    }
+}
+
+extension CourseDetailHeaderView {
+    
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let moreChosePoint = convert(point, to: moreChoseOutlet)
+        if moreChoseOutlet.point(inside: moreChosePoint, with: event) == true {
+//            moreChoseSubject.onNext(Void())
+            return moreChoseOutlet
+        }
+        
+//        let backBtnPoint = convert(point, to: backOutlet)
+//        if backOutlet.point(inside: backBtnPoint, with: event) == true {
+//            return backOutlet
+//        }
+
+        return nil
+    }
 }

@@ -45,6 +45,10 @@ class STCourseDetailViewController: BaseViewController {
 
     private var isGotopay: Bool = false
     
+    @IBAction func backAction(_ sender: Any) {
+        navigationController?.popViewController(animated: true)
+    }
+    
     @IBAction func actions(_ sender: UIButton) {
 
         if sender == detailOutlet {
@@ -94,20 +98,23 @@ class STCourseDetailViewController: BaseViewController {
         let btns = [detailOutlet, videoOutlet, audioOutlet, classOutlet]
         let views = [courseInfoView, videoView, courseAudioTB, courseClassTB]
 
-        if let selectedBtn = btns.first(where: { $0?.isSelected == true }), selectedBtn != nil {
+        if let selectedBtn = btns.first(where: { $0?.isSelected == true }),
+            selectedBtn != nil {
             if selectedBtn != button {
-                var scrollAnimated = true
-                if let idx = btns.firstIndex(where: { $0 == button })
+                if let idx = btns.firstIndex(where: { $0 == button }),
+                    let selectedIdx = btns.firstIndex(where: { $0 == selectedBtn })
                 {
-//                    if (views[idx] as? AdaptScrollAnimotion)?.canAnimotion == false
-//                    {
-//                        scrollAnimated = headerTopCns.constant >= 0
-//                        headerAnimotion(isUp: false)
-//                    }
+                    if let y = (views[selectedIdx] as? AdaptScrollAnimotion)?.scrollContentOffsetY,
+                        let scrollView = (views[idx] as? AdaptScrollAnimotion),
+                        scrollView.canAnimotion(offset: y) == false
+                    {
+                        scrollView.scrollMax(contentOffset: y)
+                    }
                 }
+                
                 selectedBtn!.isSelected = false
                 button.isSelected = true
-                scrollOutlet.setContentOffset(.init(x: offsetX, y: 0), animated: scrollAnimated)
+                scrollOutlet.setContentOffset(.init(x: offsetX, y: 0), animated: true)
             }
         }else {
             button.isSelected = true
@@ -135,16 +142,6 @@ class STCourseDetailViewController: BaseViewController {
                         scrollView.scrollMax(contentOffset: y)
                     }
                 }
-//                if scrollView == videoView {
-//                    if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
-//                    if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
-//                }else if scrollView == courseAudioTB {
-//                    if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
-//                    if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
-//                }else if scrollView == courseClassTB {
-//                    if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
-//                    if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
-//                }
 
                 selectedBtn!.isSelected = false
                 curBtn.isSelected = true
@@ -172,7 +169,7 @@ class STCourseDetailViewController: BaseViewController {
         
         scrollOutlet.contentSize = .init(width: 4*PPScreenW, height: scrollOutlet.height)
         
-        courseInfoView = CourseDetailInfoView()
+        courseInfoView = CourseDetailInfoView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: PPScreenH - 60))
         videoView = CourseDetailVideoView()
         courseAudioTB = CourseAudioTableView()
         courseClassTB = CourseDetailClassTableView()
@@ -237,9 +234,9 @@ class STCourseDetailViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-        courseInfoView.contentSizeObser
-            .bind(to: viewModel.contentSizeObser)
-            .disposed(by: disposeBag)
+//        courseInfoView.contentSizeObser
+//            .bind(to: viewModel.contentSizeObser)
+//            .disposed(by: disposeBag)
         
         courseInfoView.animotionHeaderSubject
             .subscribe(onNext: { [unowned self] in self.setHeaderScroll(distance: $0, scrollView: self.courseInfoView) })
@@ -334,8 +331,8 @@ class STCourseDetailViewController: BaseViewController {
             .disposed(by: disposeBag)
 
         // header
-        headerView.moreChoseOutlet.rx.tap.asDriver()
-            .drive(onNext: { [unowned self] in
+        headerView.moreChoseSubject
+            .subscribe(onNext: { [unowned self] in
                 self.selectedClassView.animotion(animotion: true, isOkType: false)
             })
             .disposed(by: disposeBag)
@@ -413,13 +410,20 @@ extension STCourseDetailViewController {
             headerTopCns.constant = -headerScrollHeight
         }
         
-        if scrollView == videoView {
+        if scrollView == courseInfoView {
+            if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
+            if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
+            if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
+        }else if scrollView == videoView {
+            if courseInfoView.canAnimotion(offset: distance) { courseInfoView.scrollMax(contentOffset: distance) }
             if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
             if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
         }else if scrollView == courseAudioTB {
+            if courseInfoView.canAnimotion(offset: distance) { courseInfoView.scrollMax(contentOffset: distance) }
             if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
             if courseClassTB.canAnimotion(offset: distance) { courseClassTB.scrollMax(contentOffset: distance) }
         }else if scrollView == courseClassTB {
+            if courseInfoView.canAnimotion(offset: distance) { courseInfoView.scrollMax(contentOffset: distance) }
             if courseAudioTB.canAnimotion(offset: distance) { courseAudioTB.scrollMax(contentOffset: distance) }
             if videoView.canAnimotion(offset: distance) { videoView.scrollMax(contentOffset: distance) }
         }

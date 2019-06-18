@@ -15,7 +15,7 @@
                 <outlet property="backTopCns" destination="2Rm-MG-ZE2" id="MZb-db-TnP"/>
                 <outlet property="carouselView" destination="YcL-ca-ETs" id="ubX-hv-Fyb"/>
                 <outlet property="contentView" destination="iN0-l3-epB" id="Drs-KK-ihd"/>
-                <outlet property="moreChoseOutlet" destination="PbB-8A-bpn" id="3jM-Ym-AZz"/>
+                <outlet property="moreChoseOutlet" destination="YFN-8W-HwR" id="2n4-NY-jU0"/>
                 <outlet property="priceOutlet" destination="tkO-SJ-S5d" id="G2T-od-IzE"/>
                 <outlet property="titleOutlet" destination="Dhz-B0-bPg" id="i08-pu-9MC"/>
             </connections>
@@ -98,7 +98,7 @@
                         </userDefinedRuntimeAttribute>
                     </userDefinedRuntimeAttributes>
                 </button>
-                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-Ka-fUb" customClass="TYClickedButton" customModule="SpecialTraining" customModuleProvider="target">
+                <button hidden="YES" opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LmV-Ka-fUb" customClass="TYClickedButton" customModule="SpecialTraining" customModuleProvider="target">
                     <rect key="frame" x="20" y="30" width="15" height="25"/>
                     <constraints>
                         <constraint firstAttribute="width" secondItem="LmV-Ka-fUb" secondAttribute="height" multiplier="3:5" id="FAp-CK-2yc"/>
@@ -122,13 +122,19 @@
                     <rect key="frame" x="110" y="504" width="35" height="35"/>
                     <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
                 </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="roundedRect" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="YFN-8W-HwR">
+                    <rect key="frame" x="0.0" y="466" width="414" height="93"/>
+                    <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                </button>
             </subviews>
             <color key="backgroundColor" red="1" green="1" blue="1" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
             <constraints>
                 <constraint firstItem="UWe-h9-3AM" firstAttribute="top" secondItem="ybM-Ve-xAM" secondAttribute="bottom" constant="10" id="1zN-jB-jYw"/>
                 <constraint firstItem="LmV-Ka-fUb" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" constant="30" id="2Rm-MG-ZE2"/>
                 <constraint firstItem="g1L-Qs-Ird" firstAttribute="centerY" secondItem="ybM-Ve-xAM" secondAttribute="centerY" id="2eH-03-2zU"/>
+                <constraint firstItem="YFN-8W-HwR" firstAttribute="top" secondItem="2Ar-Re-Rcu" secondAttribute="bottom" id="2uE-da-tci"/>
                 <constraint firstItem="PbB-8A-bpn" firstAttribute="top" secondItem="g1L-Qs-Ird" secondAttribute="bottom" constant="15" id="5ib-z1-xbv"/>
+                <constraint firstAttribute="trailing" secondItem="YFN-8W-HwR" secondAttribute="trailing" id="7u9-8A-AeC"/>
                 <constraint firstItem="yeu-QU-NpJ" firstAttribute="leading" secondItem="88m-JD-kaO" secondAttribute="trailing" constant="20" id="7zv-tX-27i"/>
                 <constraint firstAttribute="trailing" secondItem="YcL-ca-ETs" secondAttribute="trailing" id="9jg-gw-8xj"/>
                 <constraint firstItem="yeu-QU-NpJ" firstAttribute="width" secondItem="88m-JD-kaO" secondAttribute="width" id="CZc-C1-SJM"/>
@@ -148,6 +154,7 @@
                 <constraint firstItem="kmA-te-nHx" firstAttribute="leading" secondItem="Dhz-B0-bPg" secondAttribute="trailing" constant="5" id="VGv-md-fBo"/>
                 <constraint firstItem="kmA-te-nHx" firstAttribute="centerY" secondItem="Dhz-B0-bPg" secondAttribute="centerY" id="W8B-Y5-YHi"/>
                 <constraint firstItem="88m-JD-kaO" firstAttribute="leading" secondItem="UWe-h9-3AM" secondAttribute="trailing" constant="20" id="by5-5o-VTw"/>
+                <constraint firstItem="YFN-8W-HwR" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="dRg-5f-GlB"/>
                 <constraint firstItem="tkO-SJ-S5d" firstAttribute="centerY" secondItem="kmA-te-nHx" secondAttribute="centerY" id="fMp-1X-EGz"/>
                 <constraint firstItem="Dhz-B0-bPg" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" constant="15" id="j0y-R2-z4Z"/>
                 <constraint firstAttribute="trailing" secondItem="2Ar-Re-Rcu" secondAttribute="trailing" id="kXc-9C-IwI"/>
@@ -155,6 +162,7 @@
                 <constraint firstItem="YcL-ca-ETs" firstAttribute="leading" secondItem="iN0-l3-epB" secondAttribute="leading" id="npA-9u-GFX"/>
                 <constraint firstItem="Dhz-B0-bPg" firstAttribute="top" secondItem="YcL-ca-ETs" secondAttribute="bottom" constant="12" id="vCZ-44-wNm"/>
                 <constraint firstItem="88m-JD-kaO" firstAttribute="width" secondItem="UWe-h9-3AM" secondAttribute="width" id="wFC-h4-hVz"/>
+                <constraint firstAttribute="bottom" secondItem="YFN-8W-HwR" secondAttribute="bottom" id="xwD-Xt-9bu"/>
             </constraints>
             <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
             <point key="canvasLocation" x="-326.08695652173918" y="-29.129464285714285"/>

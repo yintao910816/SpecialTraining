@@ -125,11 +125,11 @@ extension CourseDetailVideoView: AdaptScrollAnimotion {
     var scrollContentOffsetY: CGFloat { return collectionView.contentOffset.y }
 
     func canAnimotion(offset y: CGFloat) -> Bool {
-        return collectionView.contentSize.height >= y
+        return (collectionView.contentSize.height - height) >= y
     }
 
     func scrollMax(contentOffset y: CGFloat) {
-        if collectionView.contentSize.height >= y {
+        if collectionView.contentSize.height - height >= y {
             collectionView.setContentOffset(.init(x: 0, y: y), animated: false)
         }else {
             collectionView.setContentOffset(.init(x: 0, y: collectionView.contentOffset.y), animated: true)

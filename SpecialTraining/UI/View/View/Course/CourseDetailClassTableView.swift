@@ -81,11 +81,11 @@ extension CourseDetailClassTableView: AdaptScrollAnimotion {
     var scrollContentOffsetY: CGFloat { return contentOffset.y }
 
     func canAnimotion(offset y: CGFloat) -> Bool {
-        return contentSize.height >= y
+        return (contentSize.height - height) >= y
     }
 
     func scrollMax(contentOffset y: CGFloat) {
-        if contentSize.height >= y {
+        if (contentSize.height - height) >= y {
             setContentOffset(.init(x: 0, y: y), animated: false)
         }else {
             setContentOffset(.init(x: 0, y: contentOffset.y), animated: true)

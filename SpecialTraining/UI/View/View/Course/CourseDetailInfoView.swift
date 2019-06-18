@@ -9,9 +9,11 @@
 import UIKit
 import RxSwift
 
-class CourseDetailInfoView: UIView {
+class CourseDetailInfoView: UIScrollView {
     
     private let disposeBag = DisposeBag()
+    private let emptyHeaderHeight: CGFloat = (PPScreenW + 145 + 7 + 29 + 7 + 10)
+    
     var webView: UIWebView!
     
     public let animotionHeaderSubject = PublishSubject<CGFloat>()
@@ -22,6 +24,9 @@ class CourseDetailInfoView: UIView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        let header = UIView.init()
+        header.isUserInteractionEnabled = false
+        addSubview(header)
         
         webView = UIWebView()
         webView.scrollView.bounces = false
@@ -31,7 +36,17 @@ class CourseDetailInfoView: UIView {
         webView.delegate = self
         addSubview(webView)
         
-        webView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
+        header.snp.makeConstraints{
+            $0.top.left.equalTo(0)
+            $0.width.equalTo(frame.width)
+            $0.height.equalTo(emptyHeaderHeight)
+        }
+        webView.snp.makeConstraints{
+            $0.top.equalTo(header.snp.bottom)
+            $0.left.equalTo(0)
+            $0.width.equalTo(frame.width)
+            $0.height.equalTo(frame.height - emptyHeaderHeight)
+        }
         
 //        webView.scrollView.rx.didScroll.asDriver()
 //            .drive(onNext: { [unowned self] in
@@ -50,7 +65,7 @@ class CourseDetailInfoView: UIView {
 //            })
 //            .disposed(by: disposeBag)
 
-        webView.scrollView.rx.didScroll.asDriver().map{ [unowned self] in self.webView.scrollView.contentOffset.y }
+        rx.didScroll.asDriver().map{ [unowned self] in self.contentOffset.y }
             .drive(animotionHeaderSubject)
             .disposed(by: disposeBag)
 
@@ -58,6 +73,9 @@ class CourseDetailInfoView: UIView {
 //            .observeWeakly(CGSize.self, "contentSize")
 //            .bind(to: contentSizeObser)
 //            .disposed(by: disposeBag)
+        
+        contentSize = .init(width: PPScreenW, height: PPScreenH)
+
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -76,18 +94,18 @@ class CourseDetailInfoView: UIView {
 }
 
 extension CourseDetailInfoView: AdaptScrollAnimotion {
-    var scrollContentOffsetY: CGFloat { return webView.scrollView.contentOffset.y }
+    var scrollContentOffsetY: CGFloat { return contentOffset.y }
     
     func canAnimotion(offset y: CGFloat) -> Bool {
-        return webView.scrollView.contentSize.height >= y
+        return (contentSize.height - height) >= y
     }
     
     func scrollMax(contentOffset y: CGFloat) {
-        if webView.scrollView.contentSize.height >= y {
-            webView.scrollView.setContentOffset(.init(x: 0, y: y), animated: false)
+        if (contentSize.height - height) >= y {
+            setContentOffset(.init(x: 0, y: y), animated: false)
         }else {
-            webView.scrollView.setContentOffset(.init(x: 0, y: webView.scrollView.contentOffset.y), animated: true)
-            animotionHeaderSubject.onNext(webView.scrollView.contentOffset.y)
+            setContentOffset(.init(x: 0, y: contentOffset.y), animated: true)
+            animotionHeaderSubject.onNext(contentOffset.y)
         }
     }
 }
@@ -96,5 +114,8 @@ extension CourseDetailInfoView: UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         contentSizeObser.onNext(webView.scrollView.contentSize)
+        print("webView 的内容大小：\(webView.scrollView.contentSize)")
+        self.webView.snp.updateConstraints{ $0.height.equalTo(webView.scrollView.contentSize.height) }
+        contentSize = .init(width: PPScreenW, height: webView.scrollView.contentSize.height + emptyHeaderHeight)
     }
 }
