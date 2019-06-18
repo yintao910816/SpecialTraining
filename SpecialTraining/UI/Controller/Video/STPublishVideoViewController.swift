@@ -31,7 +31,8 @@ class STPublishVideoViewController: BaseViewController {
         switch sender.tag {
         case 100:
             // 保存
-            navigationController?.dismiss(animated: true, completion: nil)
+            NoticesCenter.alert(message: "保存成功")
+//            navigationController?.dismiss(animated: true, completion: nil)
 //        case 101:
             // 发布
 //            performSegue(withIdentifier: "publishUserVidesSegue", sender: nil)
