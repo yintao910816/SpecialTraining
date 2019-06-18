@@ -30,7 +30,7 @@ extension ExperienceCourseItemModel {
     var size: CGSize {
         get {
             let width: CGFloat = (PPScreenW - sectionInset.left - sectionInset.right - minimumInteritemSpacing) / 2.0
-            let height: CGFloat = (width * 3 / 4) + 37
+            let height: CGFloat = width + courseDisplayMinuteCellBottomHeight
             return .init(width:  width, height: height)
         }
     }

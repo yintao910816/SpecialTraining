@@ -10,7 +10,7 @@ import UIKit
 
 let courseDisplayMinuteCellID = "CourseDisplayMinuteCellID"
 // 除开图片之外的高度
-let courseDisplayMinuteCellBottomHeight: CGFloat = 52.0
+let courseDisplayMinuteCellBottomHeight: CGFloat = 37.0
 
 class CourseDisplayMinuteCell: UICollectionViewCell {
     

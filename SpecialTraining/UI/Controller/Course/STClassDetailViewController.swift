@@ -9,6 +9,7 @@
 import UIKit
 import RxDataSources
 import RxCocoa
+import RxSwift
 
 class STClassDetailViewController: BaseViewController {
     
@@ -20,6 +21,8 @@ class STClassDetailViewController: BaseViewController {
     private var footer: ClassDetailFooterReusableView!
     
     private var viewModel: ClassDetailViewModel!
+    
+    private var gotoLessionDetailDispose: Disposable?
     
     private var classId: String = ""
     private var shopId: String  = ""
@@ -90,7 +93,8 @@ class STClassDetailViewController: BaseViewController {
                                                                   for: indexpath) as! ClassDetailHeaderReusableView
                 header.model = section.sectionModels[indexpath.section].model
                 if let strongSelf = self {
-                    _ = header.lessionListOutlet.rx.tap.asDriver()
+                    strongSelf.gotoLessionDetailDispose?.dispose()
+                    strongSelf.gotoLessionDetailDispose = header.lessionListOutlet.rx.tap.asDriver()
                         .drive(onNext: {
                             strongSelf.performSegue(withIdentifier: "lessionListSegue", sender: nil)
                         })

@@ -145,19 +145,21 @@ class HomeExperienceCourseViewModel: RefreshVM<ExperienceCourseItemModel> {
         
     }
     
-    override func requestData(_ refresh: Bool) {
-        setOffset(refresh: refresh)
-        
-        activityCourse(offset: pageModel.offset)
-            .subscribe(onNext: { [unowned self] data in
-                self.updateRefresh(refresh, data.courseList, data.total)
-                
-                let tempData = ([SectionModel.init(model: 0, items: self.datasource.value as [HomeCellSize])], data.advertList)
-                
-                self.experienceCourseSourse.value = tempData
-            })
-            .disposed(by: disposeBag)
-    }
+//    override func requestData(_ refresh: Bool) {
+//        setOffset(refresh: refresh)
+//
+//        activityCourse(offset: pageModel.offset)
+//            .subscribe(onNext: { [unowned self] data in
+//                self.updateRefresh(refresh, data.courseList, data.total)
+//                var dd = self.datasource.value
+//                dd.append(contentsOf: self.datasource.value)
+//
+//                let tempData = ([SectionModel.init(model: 0, items: dd as [HomeCellSize])], data.advertList)
+//
+//                self.experienceCourseSourse.value = tempData
+//            })
+//            .disposed(by: disposeBag)
+//    }
     
     func activityCourse(offset: Int = 0) ->Observable<ExperienceCourseModel> {
         return STProvider.request(.activityCourse(offset: offset))
