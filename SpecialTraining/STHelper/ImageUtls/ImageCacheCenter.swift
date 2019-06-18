@@ -111,7 +111,7 @@ extension ImageStrategy {
         switch self {
         case .original,
              .scale:
-            return UIImage.init(named: "default_cover")
+            return UIImage.init(named: "default_bg")
         case .userIcon:
             return UIImage.init(named: "default_user_icon")
         }
