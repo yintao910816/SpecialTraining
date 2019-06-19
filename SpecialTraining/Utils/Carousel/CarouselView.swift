@@ -128,6 +128,10 @@ class CarouselView: UIView {
         
         scroll.setContentOffset(CGPoint.init(x: width, y: 0), animated: false)
         
+        if #available(iOS 11.0, *) {
+            scroll.contentInsetAdjustmentBehavior = .never
+        }
+
         tapGesture = UITapGestureRecognizer.init(target: self, action: #selector(tapCarousel(_:)))
         tapGesture.isEnabled = false
         addGestureRecognizer(tapGesture)

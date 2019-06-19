@@ -162,10 +162,7 @@ class STCourseDetailViewController: BaseViewController {
     override func setupUI() {
         headerHeightCns.constant = headerHeight
 
-        addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
-        buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
-
-        selectedClassView = CourseClassSelectView.init(frame: .zero)
+        selectedClassView = CourseClassSelectView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: PPScreenH - 60))
         
         scrollOutlet.contentSize = .init(width: 4*PPScreenW, height: scrollOutlet.height)
         
@@ -213,7 +210,9 @@ class STCourseDetailViewController: BaseViewController {
         
         if #available(iOS 11, *) {
             scrollOutlet.contentInsetAdjustmentBehavior = .never
-            courseInfoView.webView.scrollView.contentInsetAdjustmentBehavior = .never
+////            courseInfoView.webView.scrollView.contentInsetAdjustmentBehavior = .never
+            courseInfoView.contentInsetAdjustmentBehavior = .never
+//            courseClassTB.contentInsetAdjustmentBehavior = .never
         }else {
             automaticallyAdjustsScrollViewInsets = false
         }
@@ -387,6 +386,9 @@ class STCourseDetailViewController: BaseViewController {
     
     override func viewDidLayoutSubviews() {
         super.viewDidLayoutSubviews()
+
+        addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
+        buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
 
 //        if courseInfoView != nil { courseInfoView.scrollMinContentHeight = view.height - 115 }
 //        if videoView != nil      { videoView.scrollMinContentHeight = view.height - 115 }

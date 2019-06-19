@@ -15,6 +15,10 @@ extension UIView {
              borderColor corlor: UIColor = .clear,
              borderCorners corners: UIRectCorner) {
 
+        PrintLog("设置圆角试图frame 111：\(bounds)")
+        setNeedsDisplay()
+        layoutIfNeeded()
+
         // 得到view的遮罩路径
         let maskPath = UIBezierPath.init(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: .init(width: radius, height: radius))
         // 创建layer
@@ -31,7 +35,11 @@ extension UIView {
              borderWidth width: CGFloat = 0,
              borderColor corlor: UIColor = .clear,
              borderCorners corners: UIRectCorner) ->CAShapeLayer {
+        PrintLog("设置圆角试图frame 222：\(bounds)")
         
+        setNeedsDisplay()
+        layoutIfNeeded()
+
         // 得到view的遮罩路径
         let maskPath = UIBezierPath.init(roundedRect: bounds, byRoundingCorners: corners, cornerRadii: .init(width: radius, height: radius))
         // 创建layer
@@ -51,6 +59,10 @@ extension UIView {
                       lineLength: Int = 4,
                       lineSpacing: Int = 4,
                       corners: UIRectSide) {
+        
+        setNeedsDisplay()
+        layoutIfNeeded()
+
         let shapeLayer = CAShapeLayer()
         shapeLayer.bounds = bounds
         shapeLayer.anchorPoint = CGPoint(x: 0, y: 0)
@@ -127,6 +139,9 @@ extension UIView {
      * 这里只设置阴影
      */
     func set(cornerAndShaow cornerView: UIView) {
+        cornerView.setNeedsDisplay()
+        cornerView.layoutIfNeeded()
+
         backgroundColor = .clear
         layer.shadowColor = UIColor.black.cgColor
         layer.shadowOpacity = 0.2

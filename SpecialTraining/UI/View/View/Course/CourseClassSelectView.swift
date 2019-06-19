@@ -51,10 +51,7 @@ class CourseClassSelectView: UIView {
             $0.right.equalTo(self)
             $0.height.equalTo(550)
         }
-        
-        addShoppingCarOutlet.set(cornerRadius: 20, borderCorners: [.topLeft, .bottomLeft])
-        buyOutlet.set(cornerRadius: 20, borderCorners: [.topRight, .bottomRight])
-
+    
         setupUI()
         rxBind()
     }
@@ -62,13 +59,20 @@ class CourseClassSelectView: UIView {
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
-
-    private func setupUI() {
+    
+    override func layoutSubviews() {
+        super.layoutSubviews()
+        
+        addShoppingCarOutlet.set(cornerRadius: 20, borderCorners: [.topLeft, .bottomLeft])
+        buyOutlet.set(cornerRadius: 20, borderCorners: [.topRight, .bottomRight])
+        
         let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
         okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
-        
+                
         mainContentView.set(cornerRadius: 6, borderCorners: [.topLeft, .topRight])
-        
+    }
+
+    private func setupUI() {
         collectView.register(UINib.init(nibName: "CourseClassSelectedCell",
                                         bundle: Bundle.main),
                              forCellWithReuseIdentifier: "CourseClassSelectedCellID")

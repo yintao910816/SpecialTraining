@@ -29,7 +29,6 @@ extension String {
     private func textSize(fontSize: Float, width: CGFloat, height: CGFloat, fontName: String) ->CGSize {
     
         let font = UIFont.init(name: fontName, size: CGFloat(fontSize))
-        PrintLog("字符串size font为 --- \(font)")
         let size = CGSize(width: width, height: height)
         
         let attributes: [NSAttributedString.Key: Any] = [NSAttributedString.Key.font: font]

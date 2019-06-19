@@ -44,6 +44,10 @@ class CourseAudioTableView: BaseTB {
         tableHeaderView = header
         
         register(UINib.init(nibName: "CourseAudioCell", bundle: Bundle.main), forCellReuseIdentifier: "CourseAudioCellID")
+        
+        if #available(iOS 11.0, *) {
+            contentInsetAdjustmentBehavior = .never
+        }
     }
     
     private func rxBind() {

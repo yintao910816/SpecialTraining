@@ -24,6 +24,7 @@ class CourseDetailInfoView: UIScrollView {
 
     override init(frame: CGRect) {
         super.init(frame: frame)
+        
         let header = UIView.init()
         header.isUserInteractionEnabled = false
         addSubview(header)
@@ -76,6 +77,10 @@ class CourseDetailInfoView: UIScrollView {
         
         contentSize = .init(width: PPScreenW, height: PPScreenH)
 
+        if #available(iOS 11.0, *) {
+            contentInsetAdjustmentBehavior = .never
+            webView.scrollView.contentInsetAdjustmentBehavior = .never
+        }
     }
     
     required init?(coder aDecoder: NSCoder) {
@@ -113,9 +118,12 @@ extension CourseDetailInfoView: AdaptScrollAnimotion {
 extension CourseDetailInfoView: UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        contentSizeObser.onNext(webView.scrollView.contentSize)
-        print("webView 的内容大小：\(webView.scrollView.contentSize)")
-        self.webView.snp.updateConstraints{ $0.height.equalTo(webView.scrollView.contentSize.height) }
-        contentSize = .init(width: PPScreenW, height: webView.scrollView.contentSize.height + emptyHeaderHeight)
+        let webHeightString = webView.stringByEvaluatingJavaScript(from: "document.body.scrollHeight") ?? "\(height)"
+        let webHeight: CGFloat = CGFloat(NumberFormatter().number(from: webHeightString)?.floatValue ?? Float(height))
+        
+        contentSizeObser.onNext(.init(width: width, height: webHeight))
+
+        self.webView.snp.updateConstraints{ $0.height.equalTo(webHeight) }
+        contentSize = .init(width: PPScreenW, height: webHeight + emptyHeaderHeight)
     }
 }

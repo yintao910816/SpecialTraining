@@ -43,6 +43,10 @@ class CourseDetailClassTableView: UITableView {
         tableHeaderView = header
         
         register(UINib.init(nibName: "CourseDetailClassCell", bundle: Bundle.main), forCellReuseIdentifier: "CourseDetailClassCellID")
+        
+        if #available(iOS 11.0, *) {
+            contentInsetAdjustmentBehavior = .never
+        }
     }
     
     private func rxBind() {
