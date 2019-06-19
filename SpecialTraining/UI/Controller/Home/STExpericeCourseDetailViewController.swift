@@ -17,15 +17,20 @@ class STExpericeCourseDetailViewController: BaseViewController {
     @IBOutlet weak var carouselView: CarouselView!
     @IBOutlet weak var titleOutlet: UILabel!
     @IBOutlet weak var priceOutlet: UILabel!
-    @IBOutlet weak var contentOutlet: UILabel!
+    @IBOutlet weak var classInfoOutlet: UILabel!
+    @IBOutlet weak var sutePeoOutlet: UILabel!
+    @IBOutlet weak var sepLine: UIView!
     @IBOutlet weak var contentWidthCns: NSLayoutConstraint!
     @IBOutlet weak var backTopCns: NSLayoutConstraint!
     @IBOutlet weak var buyOutlet: UIButton!
     @IBOutlet weak var addShoppingCarOutlet: UIButton!
     @IBOutlet weak var bottomCns: NSLayoutConstraint!
+    @IBOutlet weak var scrollContentWidthCns: NSLayoutConstraint!
     
     private var viewModel: ExpericeCourseDetailViewModel!
     private var courseId: String = ""
+    
+    private var detailView: CourseDetailInfoView!
     
     @IBAction func actions(_ sender: UIButton) {
         if sender.tag == 100 {
@@ -63,9 +68,25 @@ class STExpericeCourseDetailViewController: BaseViewController {
             automaticallyAdjustsScrollViewInsets = false
         }
 
+        scrollContentWidthCns.constant = PPScreenW
+        
         backTopCns.constant += LayoutSize.fitTopArea
         addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
         buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
+        
+        detailView = CourseDetailInfoView.init(frame: view.bounds, showHeader: false)
+        scrollView.addSubview(detailView)
+        
+        detailView.snp.makeConstraints{
+            $0.top.equalTo(sepLine.snp.bottom).offset(10)
+            $0.width.equalTo(view.snp.width)
+//            $0.centerX.equalTo(view.snp.centerX)
+            $0.height.equalTo(500)
+            $0.left.equalTo(0)
+        }
+        
+        scrollView.contentSize = .init(width: view.width,
+                                       height: view.height)
     }
     
     override func rxBind() {
@@ -77,14 +98,24 @@ class STExpericeCourseDetailViewController: BaseViewController {
                 strongSelf.carouselView.setData(source: PhotoModel.creatPhotoModels(photoList: data.course_info.pic_list))
                 strongSelf.titleOutlet.text = data.course_info.title
                 strongSelf.priceOutlet.text = "¥: \(data.course_info.about_price)"
-                strongSelf.contentOutlet.text = data.course_info.introduce
-                strongSelf.contentOutlet.sizeToFit()
                 
+                strongSelf.classInfoOutlet.text = "上课信息：\(data.classList.first?.class_days ?? "0")节"
+                strongSelf.sutePeoOutlet.text = "适合人群：\(data.classList.first?.suit_peoples ?? "")"
+
 //                strongSelf.contentWidthCns.constant = strongSelf.scrollView.width - 30
-                strongSelf.scrollView.contentSize = .init(width: strongSelf.view.width,
-                                                          height: 330.0 + strongSelf.contentOutlet.height)
+//                strongSelf.scrollView.contentSize = .init(width: strongSelf.view.width,
+//                                                          height: 330.0 + strongSelf.contentOutlet.height)
+                strongSelf.detailView.model = data.course_info
             })
             .disposed(by: disposeBag)
+        
+//        detailView.contentSizeObser
+//            .subscribe(onNext: { [weak self] size in
+//                guard let strongSelf = self else { return }
+//                strongSelf.scrollView.contentSize = .init(width: strongSelf.view.width,
+//                                                          height: 401 + 6 + 10 + size.height)
+//            })
+//            .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(Void())
     }
