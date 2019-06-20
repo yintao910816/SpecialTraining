@@ -64,8 +64,6 @@ class HomeViewModel: BaseViewModel, VMNavigation {
     
     // 加载所有数据
     private func loadDatas() {
-        hud.noticeLoading()
-        
         Observable.zip(nearByCourseViewModel.nearByCourse(),
                        expericeCourseViewModel.activityCourse(),
                        nearByOrgnazitionViewModel.nearByOrganization(), resultSelector:  { ($0, $1, $2) })
@@ -78,6 +76,8 @@ class HomeViewModel: BaseViewModel, VMNavigation {
                 self.nearByOrgnazitionViewModel.dealData(data: nearByOrganizationModel)
                 
                 self.hud.noticeHidden()
+                }, onError: { [weak self] error in
+                    self?.hud.failureHidden(self?.errorMessage(error))
             })
             .disposed(by: disposeBag)
     }
@@ -98,7 +98,11 @@ class HomeNearByCourseViewModel: RefreshVM<NearCourseListModel> {
         setOffset(refresh: refresh)
 
         nearByCourse(offset: pageModel.offset)
-            .subscribe(onNext: { [weak self] data in self?.dealData(data: data) })
+            .subscribe(onNext: { [weak self] data in
+                self?.dealData(data: data)
+            }, onError: { [weak self] error in
+                self?.hud.failureHidden("nearCourse：\(self?.errorMessage(error) ?? "")")
+            })
             .disposed(by: disposeBag)
     }
     
@@ -106,7 +110,7 @@ class HomeNearByCourseViewModel: RefreshVM<NearCourseListModel> {
         return STProvider.request(.nearCourse(lat: userDefault.lat, lng: userDefault.lng, offset: offset))
             .map(result: HomeNearbyCourseModel.self)
             .asObservable()
-            .catchErrorJustReturn(DataModel<HomeNearbyCourseModel>())
+//            .catchErrorJustReturn(DataModel<HomeNearbyCourseModel>())
     }
     
     func dealData(data: DataModel<HomeNearbyCourseModel>) {
@@ -145,27 +149,23 @@ class HomeExperienceCourseViewModel: RefreshVM<ExperienceCourseItemModel> {
         
     }
     
-//    override func requestData(_ refresh: Bool) {
-//        setOffset(refresh: refresh)
-//
-//        activityCourse(offset: pageModel.offset)
-//            .subscribe(onNext: { [unowned self] data in
-//                self.updateRefresh(refresh, data.courseList, data.total)
-//                var dd = self.datasource.value
-//                dd.append(contentsOf: self.datasource.value)
-//
-//                let tempData = ([SectionModel.init(model: 0, items: dd as [HomeCellSize])], data.advertList)
-//
-//                self.experienceCourseSourse.value = tempData
-//            })
-//            .disposed(by: disposeBag)
-//    }
+    override func requestData(_ refresh: Bool) {
+        setOffset(refresh: refresh)
+
+        activityCourse(offset: pageModel.offset)
+            .subscribe(onNext: { [unowned self] data in
+                self.dealData(data: data)
+                }, onError: { [weak self] error in
+                    self?.hud.failureHidden("activityCourse：\(self?.errorMessage(error) ?? "")")
+            })
+            .disposed(by: disposeBag)
+    }
     
     func activityCourse(offset: Int = 0) ->Observable<ExperienceCourseModel> {
         return STProvider.request(.activityCourse(offset: offset))
             .map(model: ExperienceCourseModel.self)
             .asObservable()
-            .catchErrorJustReturn(ExperienceCourseModel())
+//            .catchErrorJustReturn(ExperienceCourseModel())
     }
 
     func dealData(data: ExperienceCourseModel) {
@@ -193,21 +193,18 @@ class HomenNearByOrgnazitionViewModel: RefreshVM<NearByOrganizationItemModel> {
         
         nearByOrganization(offset: pageModel.offset)
             .subscribe(onNext: { [unowned self] data in
-                self.updateRefresh(refresh, data.agnList, data.total)
-                
-                let tempData = (self.datasource.value, data.advertList)
-                
-                self.nearByOrgnazitionSourse.value = tempData
+                self.dealData(data: data)
+                }, onError: { [weak self] error in
+                    self?.hud.failureHidden("agency：\(self?.errorMessage(error) ?? "")")
             })
             .disposed(by: disposeBag)
     }
     
     func nearByOrganization(offset: Int = 0) ->Observable<NearByOrganizationModel> {
-//        return Observable.just(NearByOrganizationModel.testData())
         return STProvider.request(.agency(lat: userDefault.lat, lng: userDefault.lng, offset: offset))
             .map(model: NearByOrganizationModel.self)
             .asObservable()
-            .catchErrorJustReturn(NearByOrganizationModel())
+//            .catchErrorJustReturn(NearByOrganizationModel())
     }
 
     func dealData(data: NearByOrganizationModel) {

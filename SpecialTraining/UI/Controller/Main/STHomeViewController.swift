@@ -152,7 +152,6 @@ class STHomeViewController: BaseViewController {
 //            .disposed(by: disposeBag)
 
         recomendColView.prepare(viewModel.nearByCourseViewModel, NearCourseListModel.self, showFooter: false)
-        
         viewModel.nearByCourseViewModel.nearByCourseSourse.asDriver()
             .drive(recomendColView.datasource)
             .disposed(by: disposeBag)
