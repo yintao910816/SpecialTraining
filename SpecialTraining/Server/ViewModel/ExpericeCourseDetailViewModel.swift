@@ -31,7 +31,7 @@ class ExpericeCourseDetailViewModel: BaseViewModel, VMNavigation {
         
         insertShoppingCar
             .subscribe(onNext: { [unowned self] in
-                self.insertShoppingClass()
+                self.insertShoppingClass(showMsg: true)
             })
             .disposed(by: disposeBag)
         
@@ -64,9 +64,9 @@ class ExpericeCourseDetailViewModel: BaseViewModel, VMNavigation {
             .disposed(by: disposeBag)
     }
     
-    private func insertShoppingClass() {
+    private func insertShoppingClass(showMsg: Bool = false) {
         CourseDetailClassModel.inster(classInfo: courseInfoObser.value.classList, courseDetail: courseInfoObser.value.course_info)
         NotificationCenter.default.post(name: NotificationName.Order.AddOrder, object: courseInfoObser.value.classList.first)
-        hud.successHidden("添加成功")
+        if showMsg { hud.successHidden("添加成功") }
     }
 }

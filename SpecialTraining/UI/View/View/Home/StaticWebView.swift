@@ -1,25 +1,23 @@
 //
-//  CourseDetailInfoView.swift
+//  StaticWebView.swift
 //  SpecialTraining
 //
-//  Created by sw on 10/06/2019.
+//  Created by sw on 20/06/2019.
 //  Copyright © 2019 youpeixun. All rights reserved.
 //
 
 import UIKit
+
 import RxSwift
 
-class CourseDetailInfoView: UIScrollView {
+class StaticWebView: UIView {
     
     private let disposeBag = DisposeBag()
-    private let emptyHeaderHeight: CGFloat = (PPScreenW + 145 + 7 + 29 + 7 + 10)
     
     var webView: UIWebView!
     
-    public let animotionHeaderSubject = PublishSubject<CGFloat>()
-
     public let contentSizeObser = PublishSubject<CGSize>()
-
+    
     override init(frame: CGRect) {
         super.init(frame: frame)
         
@@ -31,9 +29,6 @@ class CourseDetailInfoView: UIScrollView {
     }
     
     private func setupUI() {
-        showsVerticalScrollIndicator = false
-        showsHorizontalScrollIndicator = false
-        
         webView = UIWebView()
         webView.scrollView.bounces = false
         webView.scrollView.isDirectionalLockEnabled = true
@@ -41,32 +36,15 @@ class CourseDetailInfoView: UIScrollView {
         webView.scrollView.showsHorizontalScrollIndicator = false
         webView.delegate = self
         addSubview(webView)
-
-        let header = UIView.init()
-        header.isUserInteractionEnabled = false
-        addSubview(header)
-        
-        header.snp.makeConstraints{
-            $0.top.left.equalTo(0)
-            $0.width.equalTo(frame.width)
-            $0.height.equalTo(emptyHeaderHeight)
-        }
         
         webView.snp.makeConstraints{
-            $0.top.equalTo(header.snp.bottom)
+            $0.top.equalTo(0)
             $0.left.equalTo(0)
             $0.width.equalTo(frame.width)
-            $0.height.equalTo(frame.height - emptyHeaderHeight)
+            $0.height.equalTo(frame.height)
         }
-
-        rx.didScroll.asDriver().map{ [unowned self] in self.contentOffset.y }
-            .drive(animotionHeaderSubject)
-            .disposed(by: disposeBag)
-        
-        contentSize = .init(width: PPScreenW, height: PPScreenH)
         
         if #available(iOS 11.0, *) {
-            contentInsetAdjustmentBehavior = .never
             webView.scrollView.contentInsetAdjustmentBehavior = .never
         }
     }
@@ -82,33 +60,23 @@ class CourseDetailInfoView: UIScrollView {
     }
 }
 
-extension CourseDetailInfoView: AdaptScrollAnimotion {
-    var scrollContentOffsetY: CGFloat { return contentOffset.y }
-    
-    func canAnimotion(offset y: CGFloat) -> Bool {
-        return (contentSize.height - height) >= y
-    }
-    
-    func scrollMax(contentOffset y: CGFloat) {
-        if (contentSize.height - height) >= y {
-            setContentOffset(.init(x: 0, y: y), animated: false)
-        }else {
-            setContentOffset(.init(x: 0, y: contentOffset.y), animated: true)
-            animotionHeaderSubject.onNext(contentOffset.y)
-        }
-    }
-}
-
-extension CourseDetailInfoView: UIWebViewDelegate {
+extension StaticWebView: UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
         let webHeightString = webView.stringByEvaluatingJavaScript(from: "document.body.scrollHeight") ?? "\(height)"
         let webHeight: CGFloat = CGFloat(NumberFormatter().number(from: webHeightString)?.floatValue ?? Float(height))
         
         contentSizeObser.onNext(.init(width: width, height: webHeight))
-
+        
         self.webView.snp.updateConstraints{ $0.height.equalTo(webHeight) }
         
-        contentSize = .init(width: PPScreenW, height: webHeight + emptyHeaderHeight)
+        var rect = frame
+        rect.size.height = webHeight
+        frame = rect
+        
+        setNeedsLayout()
+        layoutIfNeeded()
+        
+        print("新高度：\(frame)")
     }
 }

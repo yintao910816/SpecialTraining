@@ -30,7 +30,7 @@ class STExpericeCourseDetailViewController: BaseViewController {
     private var viewModel: ExpericeCourseDetailViewModel!
     private var courseId: String = ""
     
-    private var detailView: CourseDetailInfoView!
+    private var detailView: StaticWebView!
     
     @IBAction func actions(_ sender: UIButton) {
         if sender.tag == 100 {
@@ -50,10 +50,14 @@ class STExpericeCourseDetailViewController: BaseViewController {
             }
         }else if sender.tag == 104 {
             // 加入购物车
-            viewModel.insertShoppingCar.onNext(Void())
+            if STHelper.userIsLogin() {
+                viewModel.insertShoppingCar.onNext(Void())
+            }
         }else if sender.tag == 105 {
             // 购买
-            viewModel.buySubject.onNext(Void())
+            if STHelper.userIsLogin() {
+                viewModel.buySubject.onNext(Void())
+            }
         }
     }
     
@@ -74,15 +78,12 @@ class STExpericeCourseDetailViewController: BaseViewController {
         addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
         buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
         
-        detailView = CourseDetailInfoView.init(frame: view.bounds, showHeader: false)
+        detailView = StaticWebView.init(frame: view.bounds)
         scrollView.addSubview(detailView)
         
         detailView.snp.makeConstraints{
             $0.top.equalTo(sepLine.snp.bottom).offset(10)
-            $0.width.equalTo(view.snp.width)
-//            $0.centerX.equalTo(view.snp.centerX)
-            $0.height.equalTo(500)
-            $0.left.equalTo(0)
+            $0.left.right.bottom.equalTo(0)
         }
         
         scrollView.contentSize = .init(width: view.width,
@@ -102,20 +103,17 @@ class STExpericeCourseDetailViewController: BaseViewController {
                 strongSelf.classInfoOutlet.text = "上课信息：\(data.classList.first?.class_days ?? "0")节"
                 strongSelf.sutePeoOutlet.text = "适合人群：\(data.classList.first?.suit_peoples ?? "")"
 
-//                strongSelf.contentWidthCns.constant = strongSelf.scrollView.width - 30
-//                strongSelf.scrollView.contentSize = .init(width: strongSelf.view.width,
-//                                                          height: 330.0 + strongSelf.contentOutlet.height)
                 strongSelf.detailView.model = data.course_info
             })
             .disposed(by: disposeBag)
         
-//        detailView.contentSizeObser
-//            .subscribe(onNext: { [weak self] size in
-//                guard let strongSelf = self else { return }
-//                strongSelf.scrollView.contentSize = .init(width: strongSelf.view.width,
-//                                                          height: 401 + 6 + 10 + size.height)
-//            })
-//            .disposed(by: disposeBag)
+        detailView.contentSizeObser
+            .subscribe(onNext: { [weak self] size in
+                guard let strongSelf = self else { return }
+                strongSelf.scrollView.contentSize = .init(width: strongSelf.view.width,
+                                                          height: 401 + 6 + 10 + size.height)
+            })
+            .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(Void())
     }
