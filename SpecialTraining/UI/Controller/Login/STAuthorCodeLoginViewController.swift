@@ -30,9 +30,6 @@ class STAuthorCodeLoginViewController: BaseViewController {
     
     override func setupUI() {
         wchatLoginBg.isHidden = !WXApi.isWXAppInstalled()
-
-        let frame = CGRect.init(x: 0, y: 0, width: loginOutlet.width, height: loginOutlet.height)
-        loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
         
         #if DEBUG
         phoneOutlet.text = "18627844751"
@@ -77,5 +74,12 @@ class STAuthorCodeLoginViewController: BaseViewController {
                 self?.performSegue(withIdentifier: "bindPhoneSegue", sender: op_openid)
             })
             .disposed(by: disposeBag)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let frame = CGRect.init(x: 0, y: 0, width: loginOutlet.width, height: loginOutlet.height)
+        loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
 }

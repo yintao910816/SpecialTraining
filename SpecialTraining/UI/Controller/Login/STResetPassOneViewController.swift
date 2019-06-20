@@ -17,15 +17,19 @@ class STResetPassOneViewController: BaseViewController {
     
     override func setupUI() {
         
-        let frame = CGRect.init(x: 0, y: 0, width: nextOutlet.width, height: nextOutlet.height)
-        nextOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
-        
     }
     
     override func rxBind() {
         
         viewModel = ResetPasOneViewModel(phone: phoneTF.rx.text.orEmpty.asDriver(), next: nextOutlet.rx.tap.asDriver())
 
+    }
+
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let frame = CGRect.init(x: 0, y: 0, width: nextOutlet.width, height: nextOutlet.height)
+        nextOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
 
 }

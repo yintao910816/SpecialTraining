@@ -29,11 +29,6 @@ class STLoginViewController: BaseViewController {
     
     override func setupUI() {
         topBgHeightCns.constant += UIDevice.current.isX ? 44 : 0
-        
-        let frame = CGRect.init(x: 0, y: 0, width: loginOutlet.width, height: loginOutlet.height)
-        loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
-
-        cornerView.set(cornerAndShaow: contentBgView)
     }
     
     override func rxBind() {
@@ -61,4 +56,13 @@ class STLoginViewController: BaseViewController {
             .disposed(by: disposeBag)        
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let frame = CGRect.init(x: 0, y: 0, width: loginOutlet.width, height: loginOutlet.height)
+        loginOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
+        
+        cornerView.set(cornerAndShaow: contentBgView)
+    }
+
 }

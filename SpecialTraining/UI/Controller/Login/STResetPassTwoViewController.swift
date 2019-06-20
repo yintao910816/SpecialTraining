@@ -26,9 +26,6 @@ class STResetPassTwoViewController: BaseViewController {
         authorOutlet.layer.borderColor = RGB(180, 180, 180).cgColor
         authorOutlet.layer.borderWidth = 1
         
-        let frame = CGRect.init(x: 0, y: 0, width: verifyOutlet.width, height: verifyOutlet.height)
-        verifyOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
-        
     }
     
     override func rxBind() {
@@ -54,6 +51,13 @@ class STResetPassTwoViewController: BaseViewController {
     
     override func prepare(parameters: [String : Any]?) {
         phone = parameters!["phone"] as? String
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let frame = CGRect.init(x: 0, y: 0, width: verifyOutlet.width, height: verifyOutlet.height)
+        verifyOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
     
 }

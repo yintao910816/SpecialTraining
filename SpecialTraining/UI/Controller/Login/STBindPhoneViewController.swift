@@ -22,8 +22,6 @@ class STBindPhoneViewController: BaseViewController {
     override func setupUI() {
         navigationItem.title = "绑定手机号"
         
-        let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
-        okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
     
     override func rxBind() {
@@ -60,4 +58,12 @@ class STBindPhoneViewController: BaseViewController {
         })
             .disposed(by: disposeBag)
     }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
+        okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
+    }
+
 }

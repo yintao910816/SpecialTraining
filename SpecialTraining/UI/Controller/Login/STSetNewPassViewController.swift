@@ -19,8 +19,6 @@ class STSetNewPassViewController: BaseViewController {
     private var viewModel: SetNewPwdViewModel!
     
     override func setupUI() {
-        let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
-        okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
     
     override func rxBind() {
@@ -44,4 +42,10 @@ class STSetNewPassViewController: BaseViewController {
         code = parameters!["code"] as? String
     }
     
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let frame = CGRect.init(x: 0, y: 0, width: okOutlet.width, height: okOutlet.height)
+        okOutlet.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
+    }
 }
