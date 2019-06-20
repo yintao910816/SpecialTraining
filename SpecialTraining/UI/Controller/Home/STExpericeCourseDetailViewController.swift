@@ -20,7 +20,6 @@ class STExpericeCourseDetailViewController: BaseViewController {
     @IBOutlet weak var classInfoOutlet: UILabel!
     @IBOutlet weak var sutePeoOutlet: UILabel!
     @IBOutlet weak var sepLine: UIView!
-    @IBOutlet weak var contentWidthCns: NSLayoutConstraint!
     @IBOutlet weak var backTopCns: NSLayoutConstraint!
     @IBOutlet weak var buyOutlet: UIButton!
     @IBOutlet weak var addShoppingCarOutlet: UIButton!
@@ -73,7 +72,7 @@ class STExpericeCourseDetailViewController: BaseViewController {
         }
 
         scrollContentWidthCns.constant = PPScreenW
-        
+
         backTopCns.constant += LayoutSize.fitTopArea
         addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
         buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])

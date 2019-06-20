@@ -1150,17 +1150,6 @@
                                     <constraint firstAttribute="height" constant="335" id="KY1-rj-L6d"/>
                                 </constraints>
                             </view>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOb-lA-kyD" customClass="TYClickedButton" customModule="SpecialTraining" customModuleProvider="target">
-                                <rect key="frame" x="17" y="35" width="16" height="26.5"/>
-                                <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="Qu0-gK-h1S"/>
-                                    <constraint firstAttribute="width" secondItem="nOb-lA-kyD" secondAttribute="height" multiplier="3:5" id="UiZ-ua-UVo"/>
-                                </constraints>
-                                <state key="normal" image="back_blue"/>
-                                <connections>
-                                    <action selector="backAction:" destination="wkR-I3-daz" eventType="touchUpInside" id="zFG-i8-MzJ"/>
-                                </connections>
-                            </button>
                             <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="rst-L1-Mby">
                                 <rect key="frame" x="0.0" y="335" width="375" height="7"/>
                                 <color key="backgroundColor" red="0.96078431372549022" green="0.96078431372549022" blue="0.96078431372549022" alpha="1" colorSpace="deviceRGB"/>
@@ -1319,6 +1308,17 @@
                                 </state>
                                 <connections>
                                     <action selector="actions:" destination="wkR-I3-daz" eventType="touchUpInside" id="RgX-Td-djh"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOb-lA-kyD" customClass="TYClickedButton" customModule="SpecialTraining" customModuleProvider="target">
+                                <rect key="frame" x="17" y="35" width="16" height="26.5"/>
+                                <constraints>
+                                    <constraint firstAttribute="width" constant="16" id="Qu0-gK-h1S"/>
+                                    <constraint firstAttribute="width" secondItem="nOb-lA-kyD" secondAttribute="height" multiplier="3:5" id="UiZ-ua-UVo"/>
+                                </constraints>
+                                <state key="normal" image="back_blue"/>
+                                <connections>
+                                    <action selector="backAction:" destination="wkR-I3-daz" eventType="touchUpInside" id="zFG-i8-MzJ"/>
                                 </connections>
                             </button>
                         </subviews>
