@@ -33,6 +33,7 @@ class CourseDetailInfoView: UIScrollView {
     private func setupUI() {
         showsVerticalScrollIndicator = false
         showsHorizontalScrollIndicator = false
+        bounces = false
         
         webView = UIWebView()
         webView.scrollView.bounces = false
@@ -108,6 +109,7 @@ extension CourseDetailInfoView: UIWebViewDelegate {
         contentSizeObser.onNext(.init(width: width, height: webHeight))
 
         self.webView.snp.updateConstraints{ $0.height.equalTo(webHeight) }
+        self.webView.scrollView.contentSize = .init(width: width, height: webHeight)
         
         contentSize = .init(width: PPScreenW, height: webHeight + emptyHeaderHeight)
     }

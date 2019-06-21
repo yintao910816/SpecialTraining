@@ -1311,9 +1311,9 @@
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nOb-lA-kyD" customClass="TYClickedButton" customModule="SpecialTraining" customModuleProvider="target">
-                                <rect key="frame" x="17" y="35" width="16" height="26.5"/>
+                                <rect key="frame" x="17" y="35" width="12" height="20"/>
                                 <constraints>
-                                    <constraint firstAttribute="width" constant="16" id="Qu0-gK-h1S"/>
+                                    <constraint firstAttribute="width" constant="12" id="Qu0-gK-h1S"/>
                                     <constraint firstAttribute="width" secondItem="nOb-lA-kyD" secondAttribute="height" multiplier="3:5" id="UiZ-ua-UVo"/>
                                 </constraints>
                                 <state key="normal" image="back_blue"/>
