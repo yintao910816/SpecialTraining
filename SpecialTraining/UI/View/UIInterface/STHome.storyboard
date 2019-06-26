@@ -1734,7 +1734,7 @@
         <!--支付订单-->
         <scene sceneID="Kpc-Ax-pvE">
             <objects>
-                <viewController title="支付订单" id="W2T-Vt-lyA" customClass="STPayOrderViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="PayOrderCtr" title="支付订单" id="W2T-Vt-lyA" customClass="STPayOrderViewController" customModule="SpecialTraining" customModuleProvider="target" sceneMemberID="viewController">
                     <layoutGuides>
                         <viewControllerLayoutGuide type="top" id="eNk-uh-FUG"/>
                         <viewControllerLayoutGuide type="bottom" id="nZe-3B-NtV"/>

@@ -10,11 +10,23 @@ import UIKit
 
 class NeedPayDetailFooterView: UICollectionReusableView {
 
-    static let cellHight: CGFloat = 120.0
+    static let cellHight: CGFloat = 130.0
     
     @IBOutlet var contentView: UIView!
     @IBOutlet weak var payOutlet: UIButton!
     @IBOutlet weak var canclePayOutlet: UIButton!
+    @IBOutlet weak var orderNumOutlet: UILabel!
+    @IBOutlet weak var timeOutlet: UILabel!
+    
+    public weak var delegate: NeedPayActions?
+    
+    @IBAction func actions(_ sender: UIButton) {
+        if sender.tag == 200 {
+            delegate?.cancleOrder(model: model)
+        }else if sender.tag == 201 {
+            delegate?.gotoPay(model: model)
+        }
+    }
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -36,8 +48,20 @@ class NeedPayDetailFooterView: UICollectionReusableView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    var model: MemberAllOrderModel! {
+        didSet {
+            orderNumOutlet.text = model.order_number
+            timeOutlet.text = model.createtime
+        }
+    }
+    
     override func layoutSubviews() {
         super.layoutSubviews()
         
     }
+}
+
+protocol NeedPayActions: class {
+    func cancleOrder(model: MemberAllOrderModel)
+    func gotoPay(model: MemberAllOrderModel)
 }

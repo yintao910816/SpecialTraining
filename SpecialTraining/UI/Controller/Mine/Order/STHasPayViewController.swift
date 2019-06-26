@@ -1,40 +1,38 @@
 //
-//  STNeedPayDetailViewController.swift
+//  STNeedForClassViewController.swift
 //  SpecialTraining
 //
 //  Created by yintao on 2019/2/24.
 //  Copyright © 2019 youpeixun. All rights reserved.
-//
+//  已付款详情
 
 import UIKit
 import RxDataSources
 
-class STNeedPayDetailViewController: BaseViewController {
+class STHasPayViewController: BaseViewController {
     
     @IBOutlet weak var collectionView: UICollectionView!
     
     private var memberOrder: MemberAllOrderModel!
-    private var viewModel: NeedPayDetailViewModel!
-
+    private var viewModel: HasPayViewModel!
+    
     override func setupUI() {
-        
         view.backgroundColor = RGB(245, 245, 245)
         
         collectionView.register(MineOrderHeaderReusableView.self,
-                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
-                 withReuseIdentifier: "header")
-
-        collectionView.register(NeedPayDetailFooterView.self,
+                                forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
+                                withReuseIdentifier: "header")
+        
+        collectionView.register(HasPayDetailFooterView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionFooter,
                                 withReuseIdentifier: "footer")
-
+        
         collectionView.register(UINib.init(nibName: "MineOrderRecordCell", bundle: Bundle.main),
                                 forCellWithReuseIdentifier: "MineOrderRecordCellID")
-
     }
     
     override func rxBind() {
-        viewModel = NeedPayDetailViewModel.init(memberOrder: memberOrder)
+        viewModel = HasPayViewModel.init(memberOrder: memberOrder)
         
         let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<MemberAllOrderModel, OrderItemModel>>.init(configureCell: { (section, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "MineOrderRecordCellID", for: indexPath) as! MineOrderRecordCell
@@ -51,7 +49,7 @@ class STNeedPayDetailViewController: BaseViewController {
             if kind == UICollectionView.elementKindSectionFooter {
                 let footer = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
                                                                   withReuseIdentifier: "footer",
-                                                                  for: indexpath) as! NeedPayDetailFooterView
+                                                                  for: indexpath) as! HasPayDetailFooterView
                 footer.delegate = nil
                 footer.delegate = self
                 footer.model = section.sectionModels[indexpath.section].model
@@ -67,7 +65,7 @@ class STNeedPayDetailViewController: BaseViewController {
         viewModel.dataSource.asDriver()
             .drive(collectionView.rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
-
+        
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
         
@@ -76,16 +74,17 @@ class STNeedPayDetailViewController: BaseViewController {
                 self?.navigationController?.popViewController(animated: true)
             })
             .disposed(by: disposeBag)
-        
+
         viewModel.reloadSubject.onNext(Void())
     }
     
     override func prepare(parameters: [String : Any]?) {
         memberOrder = (parameters!["model"] as! MemberAllOrderModel)
     }
+    
 }
 
-extension STNeedPayDetailViewController: UICollectionViewDelegateFlowLayout {
+extension STHasPayViewController: UICollectionViewDelegateFlowLayout {
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, insetForSectionAt section: Int) -> UIEdgeInsets {
         return .init(top: 10, left: 10, bottom: 10, right: 10)
@@ -108,13 +107,8 @@ extension STNeedPayDetailViewController: UICollectionViewDelegateFlowLayout {
     }
 }
 
-extension STNeedPayDetailViewController: NeedPayActions {
-    
-    func cancleOrder(model: MemberAllOrderModel) {
-        viewModel.cancleOrderSubject.onNext(Void())
-    }
-    
-    func gotoPay(model: MemberAllOrderModel) {
-        viewModel.gotoPaySubject.onNext(Void())
+extension STHasPayViewController: HasPayDetailActions {
+    func payBack(model: MemberAllOrderModel) {
+        viewModel.payBackSubject.onNext(Void())
     }
 }

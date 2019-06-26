@@ -1,8 +1,8 @@
 //
-//  NeedPayDetailViewModel.swift
+//  HasPayViewModel.swift
 //  SpecialTraining
 //
-//  Created by sw on 26/06/2019.
+//  Created by yintao on 2019/6/27.
 //  Copyright © 2019 youpeixun. All rights reserved.
 //
 
@@ -11,13 +11,12 @@ import RxCocoa
 import RxSwift
 import RxDataSources
 
-class NeedPayDetailViewModel: BaseViewModel, VMNavigation {
+class HasPayViewModel: BaseViewModel {
     
     private var memberOrder: MemberAllOrderModel!
     
-    public let dataSource = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
-    public let cancleOrderSubject = PublishSubject<Void>()
-    public let gotoPaySubject = PublishSubject<Void>()
+    let dataSource = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
+    public let payBackSubject = PublishSubject<Void>()
 
     init(memberOrder: MemberAllOrderModel) {
         super.init()
@@ -29,35 +28,27 @@ class NeedPayDetailViewModel: BaseViewModel, VMNavigation {
             })
             .disposed(by: disposeBag)
         
-        cancleOrderSubject
+        payBackSubject
             .subscribe(onNext: { [unowned self] in
                 NoticesCenter.alert(title: "取消订单",
                                     message: "请确认是否要取消订单",
                                     cancleTitle: "取消",
                                     okTitle: "确定")
                 {
-                    self.requestCancleOrder(orderNo: self.memberOrder.order_number)
+                    self.requestPayBack(orderNo: self.memberOrder.order_number)
                 }
             })
             .disposed(by: disposeBag)
-        
-        gotoPaySubject
-            .subscribe(onNext: { [unowned self] in
-                let classIds: [String] = self.memberOrder.orderItem.map{ $0.class_id }
-                NeedPayDetailViewModel.sbPush("STHome", "PayOrderCtr", parameters: ["classIds": classIds])
-            })
-            .disposed(by: disposeBag)
-
     }
     
-    /// 取消订单
-    private func requestCancleOrder(orderNo: String) {
+    /// 退款
+    private func requestPayBack(orderNo: String) {
         hud.noticeLoading()
-        STProvider.request(.cancleOrder(order_no: orderNo))
+        STProvider.request(.refundOrder(order_no: orderNo))
             .mapResponse()
             .asObservable()
             .subscribe(onNext: { [weak self] data in
-                self?.hud.successHidden("订单已取消", {
+                self?.hud.successHidden("退款成功", {
                     self?.popSubject.onNext(Void())
                 })
                 }, onError: { [weak self] error in

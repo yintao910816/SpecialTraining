@@ -89,7 +89,7 @@ class RefundDetailsModel: HJModel {
        if returns_status == 1 {
             return 149.0
         }else {
-            return 124.0
+            return 120.0
         }
     }
 }

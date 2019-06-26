@@ -30,6 +30,7 @@ class STMineOrderViewController: BaseViewController {
     private var cancleAlertView: CancleOrderView!
     
     private var selectedIdx: Int = 0
+    private var isFirstLoad: Bool = true
     
     var viewModel: MineOrderViewModel!
     
@@ -121,11 +122,6 @@ class STMineOrderViewController: BaseViewController {
 
     
     override func setupUI() {
-        title = "我的订单"
-//        addBarItem(normal: "", title:"按钮", right: true).drive(onNext: { [unowned self] (_) in
-//            PrintLog("点击右上角加号按钮")
-//        }).disposed(by: disposeBag)
-        
         if #available(iOS 11, *) {
             scrollOutlet.contentInsetAdjustmentBehavior = .never
         }else {
@@ -164,16 +160,6 @@ class STMineOrderViewController: BaseViewController {
 
         alertView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
         cancleAlertView.snp.makeConstraints{ $0.edges.equalTo(UIEdgeInsets.zero) }
-        
-        if selectedIdx == 0 {
-            set(button: needPayOutlet, offsetX: 0)
-        }else if selectedIdx == 1 {
-            set(button: needCourseOutlet, offsetX: scrollOutlet.width)
-        }else if selectedIdx == 2 {
-            set(button: needClassOutlet, offsetX: scrollOutlet.width * 2)
-        }else if selectedIdx == 3 {
-            set(button: needPayBackOutlet, offsetX: scrollOutlet.width * 3)
-        }
     }
     
     override func rxBind() {
@@ -207,28 +193,26 @@ class STMineOrderViewController: BaseViewController {
         viewModel.payBackOrderDatasource.asDriver()
             .drive(payBackOrderView.orderDatasource)
             .disposed(by: disposeBag)
-
-//        noPayOrderView.rx.itemSelected.asDriver()
-//            .drive(onNext: { [unowned self] _ in
-//                self.performSegue(withIdentifier: "needPayDetailSegue", sender: nil)
-//            })
-//            .disposed(by: disposeBag)
         
+        totleOrderView.gotoDetailSubject
+            .subscribe(onNext: { [unowned self] model in
+                if model.statue == .haspay {
+                    self.performSegue(withIdentifier: "hasPayDetailSegue", sender: model)
+                }else if model.statue == .noPay {
+                    self.performSegue(withIdentifier: "needPayDetailSegue", sender: model)
+                }else if model.statue == .packBack {
+                    self.performSegue(withIdentifier: "payBackInfoSegue", sender: model)
+                }
+            })
+            .disposed(by: disposeBag)
+
         noPayOrderView.gotoDetailSubject
             .subscribe(onNext: { [unowned self] in self.performSegue(withIdentifier: "needPayDetailSegue", sender: $0) })
             .disposed(by: disposeBag)
         
-//        needCourseView.rx.itemSelected.asDriver()
-//            .drive(onNext: { [unowned self] _ in
-//                self.performSegue(withIdentifier: "needForCourseSegue", sender: nil)
-//            })
-//            .disposed(by: disposeBag)
-//
-//        needClassView.rx.itemSelected.asDriver()
-//            .drive(onNext: { [unowned self] _ in
-//                self.performSegue(withIdentifier: "needForClassSegue", sender: nil)
-//            })
-//            .disposed(by: disposeBag)
+        hasPayOrderView.gotoDetailSubject
+            .subscribe(onNext: { [unowned self] in self.performSegue(withIdentifier: "hasPayDetailSegue", sender: $0) })
+            .disposed(by: disposeBag)
         
         viewModel.gotoPayBackDetail
             .subscribe(onNext: { [unowned self] memberOrder in
@@ -241,6 +225,23 @@ class STMineOrderViewController: BaseViewController {
             .disposed(by: disposeBag)
 
         viewModel.reloadSubject.onNext(Void())
+    }
+    
+    override func viewDidAppear(_ animated: Bool) {
+        super.viewDidAppear(animated)
+        
+        if isFirstLoad {
+            if selectedIdx == 0 {
+                set(button: needPayOutlet, offsetX: 0)
+            }else if selectedIdx == 1 {
+                set(button: needCourseOutlet, offsetX: PPScreenW)
+            }else if selectedIdx == 2 {
+                set(button: needClassOutlet, offsetX: PPScreenW * 2)
+            }else if selectedIdx == 3 {
+                set(button: needPayBackOutlet, offsetX: PPScreenW * 3)
+            }
+            isFirstLoad = false
+        }
     }
     
     override func viewDidLayoutSubviews() {
@@ -280,7 +281,9 @@ class STMineOrderViewController: BaseViewController {
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "payBackInfoSegue" {
             segue.destination.prepare(parameters: ["model": sender as! MemberAllOrderModel])
-        } else if segue.identifier == "needPayDetailSegue" {
+        }else if segue.identifier == "needPayDetailSegue" {
+            segue.destination.prepare(parameters: ["model": sender as! MemberAllOrderModel])
+        }else if segue.identifier == "hasPayDetailSegue" {
             segue.destination.prepare(parameters: ["model": sender as! MemberAllOrderModel])
         }
     }
