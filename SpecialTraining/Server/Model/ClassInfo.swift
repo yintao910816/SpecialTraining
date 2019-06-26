@@ -27,6 +27,7 @@ class ClassListModel: HJModel {
     var lesson_type: String = ""
     var lesson_title: String = ""
     var lesson_time: String = ""
+    var name: String = ""
     
     var typeText: String {
         get {

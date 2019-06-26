@@ -86,6 +86,7 @@ class ClassDetailViewModel: BaseViewModel, VMNavigation {
                 self?.classInfo.showChange = !(data.video_list.count > 3)
                 self?.classInfo.hasVideo = data.video_list.count > 0
                 self?.shopInfo = data.shop_info
+                self?.classInfo.lessonName = data.lessonList.first?.name ?? ""
                 self?.lessionList = data.lessonList
                 
                 self?.randVideoList()
@@ -112,7 +113,7 @@ class ClassDetailViewModel: BaseViewModel, VMNavigation {
             if endIdx < videoList.count {
                 tempVides = Array(videoList[randVideoIndex...endIdx])
             }else {
-                var count = endIdx - (videoList.count - 1)
+                let count = endIdx - (videoList.count - 1)
                 tempVides = Array(videoList[randVideoIndex..<videoList.count])
                 for idx in 0..<count {
                     tempVides.append(videoList[idx])

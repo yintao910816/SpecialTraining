@@ -1,7 +1,3 @@
-
-
-
-
 //
 //  TeacherLessionsCell.swift
 //  SpecialTraining
@@ -18,6 +14,7 @@ class TeacherLessionsCell: UITableViewCell {
     @IBOutlet weak var sep1Outlet: UIView!
     @IBOutlet weak var timeOutlet: UILabel!
     @IBOutlet weak var contentOutlet: UILabel!
+    @IBOutlet weak var lessionNameOutlet: UILabel!
     
     override func awakeFromNib() {
         super.awakeFromNib()
@@ -31,6 +28,7 @@ class TeacherLessionsCell: UITableViewCell {
             sep1Outlet.backgroundColor = model.mainColor
             contentOutlet.text = model.lesson_title
             timeOutlet.text = model.lesson_time
+            lessionNameOutlet.text = model.name
         }
     }
 }

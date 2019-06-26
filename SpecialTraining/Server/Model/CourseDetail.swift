@@ -204,6 +204,7 @@ class CourseDetailClassModel: HJModel {
     /// 班级详情界面使用
     var showChange: Bool = false
     var hasVideo: Bool = false
+    var lessonName: String = ""
     
     /// 购买班级所属用户
     var uid: String = ""

@@ -17,6 +17,7 @@ class ClassDetailHeaderReusableView: UICollectionReusableView {
     @IBOutlet weak var suteOutlet: UILabel!
     @IBOutlet weak var createTimeOutlet: UILabel!
     @IBOutlet weak var bottomView: UILabel!
+    @IBOutlet weak var lessonNameOutlet: UILabel!
     
     @IBOutlet weak var lessionListOutlet: UIButton!
     @IBOutlet weak var changeVideoOutlet: TYClickedButton!
@@ -44,6 +45,7 @@ class ClassDetailHeaderReusableView: UICollectionReusableView {
             classInfoOutlet.text = model.class_days
             suteOutlet.text = model.suit_peoples
             createTimeOutlet.text = model.createtime
+            lessonNameOutlet.text = model.lessonName
             
             changeVideoOutlet.isHidden = model.showChange
             bottomView.isHidden = !model.hasVideo
