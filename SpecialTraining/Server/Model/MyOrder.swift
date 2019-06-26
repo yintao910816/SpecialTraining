@@ -64,4 +64,32 @@ class RefundDetailsModel: HJModel {
     var handling_time: String = ""
     var returns_reason: String = ""
     var returns_status: Int = 0
+    
+    var returnsStatusText: String {
+        if returns_status == 0 {
+            return "退款成功"
+        }else if returns_status == 1 {
+            return "退款中"
+        }else {
+            return "退款失败"
+        }
+    }
+    
+    var returnsRemindText: String {
+        if returns_status == 0 {
+            return handling_time
+        }else if returns_status == 1 {
+            return handling_time
+        }else {
+            return returns_reason
+        }
+    }
+    
+    var footerHeight: CGFloat {
+       if returns_status == 1 {
+            return 149.0
+        }else {
+            return 124.0
+        }
+    }
 }

@@ -44,13 +44,7 @@ class STPayBackInfoViewController: BaseViewController {
     override func rxBind() {
         viewModel = PayBackInfoViewModel.init(memberOrder: memberOrder)
         
-        viewModel.detailInfoObser.asDriver()
-            .drive(onNext: { [weak self] model in
-                
-            })
-            .disposed(by: disposeBag)
-        
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<Int, OrderItemModel>>.init(configureCell: { (section, col, indexPath, model) -> UICollectionViewCell in
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<RefundDetailsModel, OrderItemModel>>.init(configureCell: { (section, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "MineOrderRecordCellID", for: indexPath) as! MineOrderRecordCell
             cell.orderModel = model
             return cell
@@ -59,14 +53,14 @@ class STPayBackInfoViewController: BaseViewController {
                     let header = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionHeader,
                                                                       withReuseIdentifier: "header",
                                                                       for: indexpath) as! PayBackDetailHeaderView
-//                    header.model = section.sectionModels[indexpath.section].model
+                    header.model = section.sectionModels[indexpath.section].model
                     return header
                 }
                 if kind == UICollectionView.elementKindSectionFooter {
                     let footer = col.dequeueReusableSupplementaryView(ofKind: UICollectionView.elementKindSectionFooter,
                                                                       withReuseIdentifier: "footer",
                                                                       for: indexpath) as! PayBackDetailFooterView
-//                    footer.shopModel = section.sectionModels[indexpath.section].model
+                    footer.model = section.sectionModels[indexpath.section].model
                     footer.delegate = nil
                     footer.delegate = self
                     return footer
@@ -125,7 +119,8 @@ extension STPayBackInfoViewController: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {
-        return .init(width: view.width, height: PayBackDetailFooterView.contentHeight)
+        let model = viewModel.dataSource.value[section].model
+        return .init(width: view.width, height: model.footerHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, sizeForItemAt indexPath: IndexPath) -> CGSize {

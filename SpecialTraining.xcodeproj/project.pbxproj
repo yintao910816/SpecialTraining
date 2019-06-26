@@ -176,10 +176,6 @@
 		B85BEA82226E364D00C2719A /* STRecommendAwardViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85BEA81226E364D00C2719A /* STRecommendAwardViewController.swift */; };
 		B85D9C7E226F6446007624ED /* MineOrderFooterReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D9C7C226F6446007624ED /* MineOrderFooterReusableView.swift */; };
 		B85D9C7F226F6446007624ED /* MineOrderFooterReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85D9C7D226F6446007624ED /* MineOrderFooterReusableView.xib */; };
-		B85D9C86226F7A10007624ED /* PayBackDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D9C84226F7A10007624ED /* PayBackDetailHeaderView.swift */; };
-		B85D9C87226F7A10007624ED /* PayBackDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85D9C85226F7A10007624ED /* PayBackDetailHeaderView.xib */; };
-		B85D9C89226F7A34007624ED /* PayBackDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D9C88226F7A34007624ED /* PayBackDetailFooterView.swift */; };
-		B85D9C8B226F7A3E007624ED /* PayBackDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B85D9C8A226F7A3E007624ED /* PayBackDetailFooterView.xib */; };
 		B85D9C8D226F7C96007624ED /* PayBackInfoViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85D9C8C226F7C96007624ED /* PayBackInfoViewModel.swift */; };
 		B85DBFEB2221C4E7000D3977 /* STNeedPayDetailViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFEA2221C4E7000D3977 /* STNeedPayDetailViewController.swift */; };
 		B85DBFED2221CB19000D3977 /* STMineOrderViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B85DBFEC2221CB18000D3977 /* STMineOrderViewController.swift */; };
@@ -541,6 +537,13 @@
 		C43D56EA22AE73EE0085AA90 /* CourseDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D56E922AE73EE0085AA90 /* CourseDetailHeaderView.swift */; };
 		C43D56EC22AE73FA0085AA90 /* CourseDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C43D56EB22AE73FA0085AA90 /* CourseDetailHeaderView.xib */; };
 		C43D56EE22AE78430085AA90 /* CourseDetailInfoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C43D56ED22AE78430085AA90 /* CourseDetailInfoView.swift */; };
+		C454636922C368150004E0FD /* NeedPayDetailViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454636822C368150004E0FD /* NeedPayDetailViewModel.swift */; };
+		C454638222C39A8D0004E0FD /* NeedPayDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454637B22C39A8D0004E0FD /* NeedPayDetailFooterView.swift */; };
+		C454638322C39A8D0004E0FD /* NeedPayDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C454637C22C39A8D0004E0FD /* NeedPayDetailFooterView.xib */; };
+		C454638422C39A8D0004E0FD /* PayBackDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C454637E22C39A8D0004E0FD /* PayBackDetailHeaderView.xib */; };
+		C454638522C39A8D0004E0FD /* PayBackDetailFooterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454637F22C39A8D0004E0FD /* PayBackDetailFooterView.swift */; };
+		C454638622C39A8D0004E0FD /* PayBackDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C454638022C39A8D0004E0FD /* PayBackDetailHeaderView.swift */; };
+		C454638722C39A8D0004E0FD /* PayBackDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = C454638122C39A8D0004E0FD /* PayBackDetailFooterView.xib */; };
 		C45AAE5221B6A13500692D7D /* UserVideosView.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AAE5121B6A13500692D7D /* UserVideosView.swift */; };
 		C45AAE5521B6A15200692D7D /* UserVideosCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = C45AAE5321B6A15200692D7D /* UserVideosCell.swift */; };
 		C45AAE5621B6A15200692D7D /* UserVideosCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = C45AAE5421B6A15200692D7D /* UserVideosCell.xib */; };
@@ -742,10 +745,6 @@
 		B85BEA81226E364D00C2719A /* STRecommendAwardViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STRecommendAwardViewController.swift; sourceTree = "<group>"; };
 		B85D9C7C226F6446007624ED /* MineOrderFooterReusableView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MineOrderFooterReusableView.swift; sourceTree = "<group>"; };
 		B85D9C7D226F6446007624ED /* MineOrderFooterReusableView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = MineOrderFooterReusableView.xib; sourceTree = "<group>"; };
-		B85D9C84226F7A10007624ED /* PayBackDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayBackDetailHeaderView.swift; sourceTree = "<group>"; };
-		B85D9C85226F7A10007624ED /* PayBackDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayBackDetailHeaderView.xib; sourceTree = "<group>"; };
-		B85D9C88226F7A34007624ED /* PayBackDetailFooterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBackDetailFooterView.swift; sourceTree = "<group>"; };
-		B85D9C8A226F7A3E007624ED /* PayBackDetailFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = PayBackDetailFooterView.xib; sourceTree = "<group>"; };
 		B85D9C8C226F7C96007624ED /* PayBackInfoViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PayBackInfoViewModel.swift; sourceTree = "<group>"; };
 		B85DBFEA2221C4E7000D3977 /* STNeedPayDetailViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STNeedPayDetailViewController.swift; sourceTree = "<group>"; };
 		B85DBFEC2221CB18000D3977 /* STMineOrderViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STMineOrderViewController.swift; sourceTree = "<group>"; };
@@ -1138,6 +1137,13 @@
 		C43D56E922AE73EE0085AA90 /* CourseDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailHeaderView.swift; sourceTree = "<group>"; };
 		C43D56EB22AE73FA0085AA90 /* CourseDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = CourseDetailHeaderView.xib; sourceTree = "<group>"; };
 		C43D56ED22AE78430085AA90 /* CourseDetailInfoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailInfoView.swift; sourceTree = "<group>"; };
+		C454636822C368150004E0FD /* NeedPayDetailViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NeedPayDetailViewModel.swift; sourceTree = "<group>"; };
+		C454637B22C39A8D0004E0FD /* NeedPayDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NeedPayDetailFooterView.swift; sourceTree = "<group>"; };
+		C454637C22C39A8D0004E0FD /* NeedPayDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = NeedPayDetailFooterView.xib; sourceTree = "<group>"; };
+		C454637E22C39A8D0004E0FD /* PayBackDetailHeaderView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayBackDetailHeaderView.xib; sourceTree = "<group>"; };
+		C454637F22C39A8D0004E0FD /* PayBackDetailFooterView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayBackDetailFooterView.swift; sourceTree = "<group>"; };
+		C454638022C39A8D0004E0FD /* PayBackDetailHeaderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PayBackDetailHeaderView.swift; sourceTree = "<group>"; };
+		C454638122C39A8D0004E0FD /* PayBackDetailFooterView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = PayBackDetailFooterView.xib; sourceTree = "<group>"; };
 		C45AAE5121B6A13500692D7D /* UserVideosView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideosView.swift; sourceTree = "<group>"; };
 		C45AAE5321B6A15200692D7D /* UserVideosCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = UserVideosCell.swift; sourceTree = "<group>"; };
 		C45AAE5421B6A15200692D7D /* UserVideosCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = UserVideosCell.xib; sourceTree = "<group>"; };
@@ -1441,10 +1447,9 @@
 		B85DBFF42221D186000D3977 /* Order */ = {
 			isa = PBXGroup;
 			children = (
-				B85D9C84226F7A10007624ED /* PayBackDetailHeaderView.swift */,
-				B85D9C85226F7A10007624ED /* PayBackDetailHeaderView.xib */,
-				B85D9C88226F7A34007624ED /* PayBackDetailFooterView.swift */,
-				B85D9C8A226F7A3E007624ED /* PayBackDetailFooterView.xib */,
+				C454637922C39A8D0004E0FD /* HasPayDetail */,
+				C454637A22C39A8D0004E0FD /* NeedPayDetail */,
+				C454637D22C39A8D0004E0FD /* PayBackDetail */,
 				B85DBFF92221D5E2000D3977 /* WaitForDealView.swift */,
 				B85DBFFB2221D5FA000D3977 /* WaitForDealView.xib */,
 				B85DBFFF2221DE88000D3977 /* ApplyForBackAlertView.swift */,
@@ -2496,6 +2501,7 @@
 			children = (
 				C413E36F226C60EC001D745F /* MineOrderViewModel.swift */,
 				B85D9C8C226F7C96007624ED /* PayBackInfoViewModel.swift */,
+				C454636822C368150004E0FD /* NeedPayDetailViewModel.swift */,
 			);
 			path = MineOrder;
 			sourceTree = "<group>";
@@ -2628,6 +2634,33 @@
 				C43339B321C0FC1B00CAF850 /* STCreditViewController.swift */,
 			);
 			path = ShoppingCar;
+			sourceTree = "<group>";
+		};
+		C454637922C39A8D0004E0FD /* HasPayDetail */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = HasPayDetail;
+			sourceTree = "<group>";
+		};
+		C454637A22C39A8D0004E0FD /* NeedPayDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C454637B22C39A8D0004E0FD /* NeedPayDetailFooterView.swift */,
+				C454637C22C39A8D0004E0FD /* NeedPayDetailFooterView.xib */,
+			);
+			path = NeedPayDetail;
+			sourceTree = "<group>";
+		};
+		C454637D22C39A8D0004E0FD /* PayBackDetail */ = {
+			isa = PBXGroup;
+			children = (
+				C454637E22C39A8D0004E0FD /* PayBackDetailHeaderView.xib */,
+				C454637F22C39A8D0004E0FD /* PayBackDetailFooterView.swift */,
+				C454638022C39A8D0004E0FD /* PayBackDetailHeaderView.swift */,
+				C454638122C39A8D0004E0FD /* PayBackDetailFooterView.xib */,
+			);
+			path = PayBackDetail;
 			sourceTree = "<group>";
 		};
 		C45AAE5021B6A12300692D7D /* Video */ = {
@@ -2790,6 +2823,7 @@
 				B82722FD21E6016500147397 /* CourseClassSelectedCell.xib in Resources */,
 				B85F3375219EA01B00023958 /* LaunchScreen.storyboard in Resources */,
 				B82722EC21E5CBE500147397 /* ShopingCarTitleReusableView.xib in Resources */,
+				C454638422C39A8D0004E0FD /* PayBackDetailHeaderView.xib in Resources */,
 				B8FBFA2A21A3DD9600AECB75 /* cza_thumb.png in Resources */,
 				B8FBFA2321A3DD9600AECB75 /* shamea_thumb.png in Resources */,
 				B8FBFA5021A3DD9600AECB75 /* cj_thumb.png in Resources */,
@@ -2798,6 +2832,7 @@
 				B87A94E821A82D9B003E2D21 /* ActivityBrefCell.xib in Resources */,
 				C413E37A226C6D8E001D745F /* MineOrderRecordCell.xib in Resources */,
 				B8FBFA4B21A3DD9600AECB75 /* smilea_thumb.png in Resources */,
+				C454638322C39A8D0004E0FD /* NeedPayDetailFooterView.xib in Resources */,
 				B8350AB621A1112D0020A6A6 /* MineSectionCollectionReusableView.xib in Resources */,
 				B8FBFA4C21A3DD9600AECB75 /* unheart_thumb.png in Resources */,
 				B8BB6A1C2230301F0001AB5D /* MineInfoAddStudentView.xib in Resources */,
@@ -2856,7 +2891,6 @@
 				B87A9417228B9EB900576AE7 /* FriendsApplyCell.xib in Resources */,
 				B8FBFA4D21A3DD9600AECB75 /* sweata_thumb.png in Resources */,
 				B85DC0022221DE91000D3977 /* ApplyForBackAlertView.xib in Resources */,
-				B85D9C87226F7A10007624ED /* PayBackDetailHeaderView.xib in Resources */,
 				B83F5A8922396F5900EAC675 /* OrganizationDetailShopCell.xib in Resources */,
 				B8FBFA2921A3DD9600AECB75 /* bs_thumb.png in Resources */,
 				B8FBFA3F21A3DD9600AECB75 /* kbsa_thumb.png in Resources */,
@@ -2881,7 +2915,6 @@
 				B8FBFA2B21A3DD9600AECB75 /* heia_thumb.png in Resources */,
 				B8547E2621A6437300281554 /* CityCell.xib in Resources */,
 				B8FBFA2F21A3DD9600AECB75 /* h_thumb.png in Resources */,
-				B85D9C8B226F7A3E007624ED /* PayBackDetailFooterView.xib in Resources */,
 				B87A9406228B953800576AE7 /* ContactsCell.xib in Resources */,
 				B826AF8A221C7934000428C1 /* ChoseClassificationCell.xib in Resources */,
 				B8FBFA3621A3DD9600AECB75 /* hsa_thumb.png in Resources */,
@@ -2893,6 +2926,7 @@
 				B81EDF6E21A5324700F9D3B0 /* ChatAudoRightView.xib in Resources */,
 				C47356E121AEBA6E000E24A5 /* chatBar_recordSelectedBg@2x.png in Resources */,
 				B85DBFFC2221D5FA000D3977 /* WaitForDealView.xib in Resources */,
+				C454638722C39A8D0004E0FD /* PayBackDetailFooterView.xib in Resources */,
 				C4F9AB0E21E864B500140A93 /* ShoppingVerifyCell.xib in Resources */,
 				B82BD1A7228DCA1F009AF698 /* CourseClassSelectHeaderView.xib in Resources */,
 				B81B548E228B252F0001730E /* MyClassCell.xib in Resources */,
@@ -3064,6 +3098,7 @@
 				B81E90BA21A3C540000754E3 /* ChatLeftView.swift in Sources */,
 				B8547E1E21A640E000281554 /* City.swift in Sources */,
 				B8FC3AB72217163600889483 /* CaptureSessionCoordinator.swift in Sources */,
+				C454638522C39A8D0004E0FD /* PayBackDetailFooterView.swift in Sources */,
 				B82BD1AA228DDC14009AF698 /* FlowLayoutBase .swift in Sources */,
 				B87A941D228C74B700576AE7 /* ChatRoomViewModel.swift in Sources */,
 				B85F335E219E95E000023958 /* UIDevice+Extension.swift in Sources */,
@@ -3233,7 +3268,6 @@
 				B88CE1672280A5F70079FE63 /* PublishVideoViewModel.swift in Sources */,
 				B81E90B821A3B2CE000754E3 /* CacheKey.swift in Sources */,
 				C41D2500222FA60F00DC3D83 /* ZQAlbumNavVC.m in Sources */,
-				B85D9C89226F7A34007624ED /* PayBackDetailFooterView.swift in Sources */,
 				B803C3D721BD7CA0004C97DB /* ChoseClassificationViewModel.swift in Sources */,
 				B87F8F8D21A29CCC00DE9DC1 /* AppInfo.swift in Sources */,
 				B8BB6A462230339E0001AB5D /* MyAddressCell.swift in Sources */,
@@ -3305,6 +3339,7 @@
 				B826AF90221C820A000428C1 /* STVideoChoseViewController.swift in Sources */,
 				B8FC3AB92217163600889483 /* fileOutputCoordinator.swift in Sources */,
 				B8350AAA21A0FDE70020A6A6 /* UIImage+Extension.swift in Sources */,
+				C454638222C39A8D0004E0FD /* NeedPayDetailFooterView.swift in Sources */,
 				B8BB6A1B2230301F0001AB5D /* MineInfoFilesOwner.swift in Sources */,
 				B844477F21B829D200808F5A /* STTeacherPrepareViewController.swift in Sources */,
 				B85DBFEB2221C4E7000D3977 /* STNeedPayDetailViewController.swift in Sources */,
@@ -3384,6 +3419,7 @@
 				B85F33A1219EA3AD00023958 /* CourseListCell.swift in Sources */,
 				B86B8F0C22428AC00017D580 /* STVideoPlayViewController.swift in Sources */,
 				B8BB6A1A2230301F0001AB5D /* MineInfoAddStudentView.swift in Sources */,
+				C454638622C39A8D0004E0FD /* PayBackDetailHeaderView.swift in Sources */,
 				B80B6BEA219FBD5200C33F11 /* UIView+Layer.swift in Sources */,
 				B83F5A842239628C00EAC675 /* OrganizationDetailCourseCell.swift in Sources */,
 				B8686AF122417A540059BCB9 /* CourseDetailClassTableView.swift in Sources */,
@@ -3410,6 +3446,7 @@
 				C45AAE5521B6A15200692D7D /* UserVideosCell.swift in Sources */,
 				B8686AE92241711E0059BCB9 /* CourseDetailVideoView.swift in Sources */,
 				B85DC0002221DE88000D3977 /* ApplyForBackAlertView.swift in Sources */,
+				C454636922C368150004E0FD /* NeedPayDetailViewModel.swift in Sources */,
 				B82F45BD21A97B70009DC25C /* MedieView.swift in Sources */,
 				B81E909F21A3A474000754E3 /* EaseMobHelper.swift in Sources */,
 				B80B6BF5219FC31E00C33F11 /* Shopping.swift in Sources */,
@@ -3430,7 +3467,6 @@
 				C41D2501222FA60F00DC3D83 /* ZQAlbumVC.m in Sources */,
 				B8350ABA21A112150020A6A6 /* Mine.swift in Sources */,
 				B82722FF21E6315500147397 /* STVerifyOrderViewController.swift in Sources */,
-				B85D9C86226F7A10007624ED /* PayBackDetailHeaderView.swift in Sources */,
 				B87800BC21C7E7EA00EDCE72 /* CourseAudioTableView.swift in Sources */,
 				B8350AB121A108E60020A6A6 /* MineHeaderCollectionReusableView.swift in Sources */,
 				6BEA00DC21B4C5B400343EE8 /* MineCustomCollectionReusableHeaderView.swift in Sources */,

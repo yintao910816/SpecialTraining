@@ -33,9 +33,6 @@ class STFinishPayViewController: BaseViewController {
             bgHeightCns.constant = bgHeightCns.constant + 44
         }
         
-        let frame = CGRect.init(x: 0, y: 0, width: headerBgView.width, height: bgHeightCns.constant)
-        headerBgView.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
-        
         payCountOutlet.text = "实付：\(priceText)"
     }
     
@@ -45,5 +42,12 @@ class STFinishPayViewController: BaseViewController {
     
     override func prepare(parameters: [String : Any]?) {
         priceText = (parameters!["price"] as! String)
+    }
+    
+    override func viewDidLayoutSubviews() {
+        super.viewDidLayoutSubviews()
+        
+        let frame = CGRect.init(x: 0, y: 0, width: headerBgView.width, height: bgHeightCns.constant)
+        headerBgView.layer.insertSublayer(STHelper.themeColorLayer(frame: frame), at: 0)
     }
 }

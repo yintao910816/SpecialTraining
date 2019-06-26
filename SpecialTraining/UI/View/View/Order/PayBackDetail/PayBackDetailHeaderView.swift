@@ -13,6 +13,10 @@ class PayBackDetailHeaderView: UICollectionReusableView {
     static let contentHeight: CGFloat = 257
 
     @IBOutlet var contentView: UICollectionReusableView!
+    @IBOutlet weak var returnStatuOutlet: UILabel!
+    @IBOutlet weak var returnRemindOutlet: UILabel!
+    @IBOutlet weak var returnAmountOutlet: UILabel!
+    @IBOutlet weak var returnTypeAmountOutlet: UILabel!
     
     override init(frame: CGRect) {
         super.init(frame: frame)
@@ -25,5 +29,14 @@ class PayBackDetailHeaderView: UICollectionReusableView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    var model: RefundDetailsModel! {
+        didSet {
+            returnStatuOutlet.text = model.returnsStatusText
+            returnRemindOutlet.text = model.returnsRemindText
+            returnAmountOutlet.text = "¥: \(model.returns_amount)"
+            returnTypeAmountOutlet.text = "¥: \(model.returns_amount)"
+        }
     }
 }

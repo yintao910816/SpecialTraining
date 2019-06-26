@@ -9,12 +9,12 @@
 import UIKit
 
 class PayBackDetailFooterView: UICollectionReusableView {
-    static let contentHeight: CGFloat = 107
-
     @IBOutlet var contentView: UICollectionReusableView!
     @IBOutlet weak var canclePayBackOutlet: UIButton!
     @IBOutlet weak var orderNumOutlet: UILabel!
     @IBOutlet weak var applyTimeOutlet: UILabel!
+    @IBOutlet weak var returnNumOutlet: UILabel!
+    @IBOutlet weak var returnAmountOutlet: UILabel!
     
     weak var delegate: PayBackDetailFooterOperation?
 
@@ -38,6 +38,15 @@ class PayBackDetailFooterView: UICollectionReusableView {
     
     required init?(coder aDecoder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
+    }
+    
+    var model: RefundDetailsModel! {
+        didSet {
+            orderNumOutlet.text = "订单编号: \(model.order_number)"
+            applyTimeOutlet.text = "申请时间: \(model.return_submit_time)"
+            returnNumOutlet.text = "退款编号: \(model.returns_no)"
+            returnAmountOutlet.text = "已退金额: ¥: \(model.returns_amount)"
+        }
     }
 }
 

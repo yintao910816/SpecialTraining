@@ -13,8 +13,7 @@ import RxDataSources
 
 class PayBackInfoViewModel: BaseViewModel {
     
-    let dataSource = Variable([SectionModel<Int, OrderItemModel>]())
-    let detailInfoObser = Variable(RefundDetailsModel())
+    let dataSource = Variable([SectionModel<RefundDetailsModel, OrderItemModel>]())
     let canclePayBack = PublishSubject<Void>()
     
     private var memberOrder: MemberAllOrderModel!
@@ -22,7 +21,6 @@ class PayBackInfoViewModel: BaseViewModel {
     init(memberOrder: MemberAllOrderModel) {
         super.init()
         
-        dataSource.value = [SectionModel.init(model: 0, items: memberOrder.orderItem)]
         self.memberOrder = memberOrder
         
         canclePayBack
@@ -62,7 +60,8 @@ class PayBackInfoViewModel: BaseViewModel {
         STProvider.request(.refundDetails(order_no: memberOrder.order_number))
             .map(model: RefundDetailsModel.self)
             .subscribe(onSuccess: { [weak self] model in
-                self?.detailInfoObser.value = model
+                guard let strongSelf = self else { return }
+                strongSelf.dataSource.value = [SectionModel.init(model: model, items: strongSelf.memberOrder.orderItem)]
                 self?.hud.noticeHidden()
             }) { [weak self] error in
                 self?.hud.failureHidden(self?.errorMessage(error))

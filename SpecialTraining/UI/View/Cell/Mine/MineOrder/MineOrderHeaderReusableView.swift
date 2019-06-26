@@ -10,6 +10,8 @@ import UIKit
 
 class MineOrderHeaderReusableView: UICollectionReusableView {
     
+    static let contentHeight: CGFloat = 45.0
+    
     @IBOutlet var contentView: UICollectionReusableView!
     @IBOutlet weak var bgView: UIView!
     @IBOutlet weak var shopNameOutlet: UILabel!

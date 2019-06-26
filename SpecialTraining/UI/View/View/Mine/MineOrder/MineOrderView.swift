@@ -12,10 +12,13 @@ import RxDataSources
 
 class MineOrderView: UICollectionView {
 
+    private let disposeBag = DisposeBag()
+
     weak var aDelegate: UserOperation?
     
     let orderDatasource = Variable([SectionModel<MemberAllOrderModel, OrderItemModel>]())
-    let disposeBag = DisposeBag()
+    // 跳转订单详情
+    let gotoDetailSubject = PublishSubject<MemberAllOrderModel>()
     
     override init(frame: CGRect, collectionViewLayout layout: UICollectionViewLayout) {
         let myLayout = UICollectionViewFlowLayout()
@@ -46,7 +49,7 @@ class MineOrderView: UICollectionView {
     }
     
     private func rxBind() {
-        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<MemberAllOrderModel, OrderItemModel>>.init(configureCell: { [weak self] (section, col, indexPath, model) -> UICollectionViewCell in
+        let datasource = RxCollectionViewSectionedReloadDataSource<SectionModel<MemberAllOrderModel, OrderItemModel>>.init(configureCell: { (section, col, indexPath, model) -> UICollectionViewCell in
             let cell = col.dequeueReusableCell(withReuseIdentifier: "MineOrderRecordCellID", for: indexPath) as! MineOrderRecordCell
             cell.orderModel = model
             return cell
@@ -78,6 +81,11 @@ class MineOrderView: UICollectionView {
             .drive(rx.items(dataSource: datasource))
             .disposed(by: disposeBag)
         
+        rx.itemSelected.asDriver()
+            .map { [unowned self] in self.orderDatasource.value[$0.section].model }
+            .drive(gotoDetailSubject)
+            .disposed(by: disposeBag)
+        
         rx.setDelegate(self)
             .disposed(by: disposeBag)
     }
@@ -94,7 +102,7 @@ extension MineOrderView: UICollectionViewDelegateFlowLayout {
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForHeaderInSection section: Int) -> CGSize {
-        return .init(width: width, height: 45)
+        return .init(width: width, height: MineOrderHeaderReusableView.contentHeight)
     }
     
     func collectionView(_ collectionView: UICollectionView, layout collectionViewLayout: UICollectionViewLayout, referenceSizeForFooterInSection section: Int) -> CGSize {

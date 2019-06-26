@@ -208,10 +208,14 @@ class STMineOrderViewController: BaseViewController {
             .drive(payBackOrderView.orderDatasource)
             .disposed(by: disposeBag)
 
-        noPayOrderView.rx.itemSelected.asDriver()
-            .drive(onNext: { [unowned self] _ in
-                self.performSegue(withIdentifier: "needPayDetailSegue", sender: nil)
-            })
+//        noPayOrderView.rx.itemSelected.asDriver()
+//            .drive(onNext: { [unowned self] _ in
+//                self.performSegue(withIdentifier: "needPayDetailSegue", sender: nil)
+//            })
+//            .disposed(by: disposeBag)
+        
+        noPayOrderView.gotoDetailSubject
+            .subscribe(onNext: { [unowned self] in self.performSegue(withIdentifier: "needPayDetailSegue", sender: $0) })
             .disposed(by: disposeBag)
         
 //        needCourseView.rx.itemSelected.asDriver()
@@ -232,11 +236,9 @@ class STMineOrderViewController: BaseViewController {
             })
             .disposed(by: disposeBag)
         
-//        payBackOrderView.rx.itemSelected.asDriver()
-//            .drive(onNext: { [unowned self] _ in
-//                self.performSegue(withIdentifier: "payBackInfoSegue", sender: nil)
-//            })
-//            .disposed(by: disposeBag)
+        payBackOrderView.gotoDetailSubject
+            .subscribe(onNext: { [unowned self] in self.performSegue(withIdentifier: "payBackInfoSegue", sender: $0) })
+            .disposed(by: disposeBag)
 
         viewModel.reloadSubject.onNext(Void())
     }
@@ -277,6 +279,8 @@ class STMineOrderViewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "payBackInfoSegue" {
+            segue.destination.prepare(parameters: ["model": sender as! MemberAllOrderModel])
+        } else if segue.identifier == "needPayDetailSegue" {
             segue.destination.prepare(parameters: ["model": sender as! MemberAllOrderModel])
         }
     }
