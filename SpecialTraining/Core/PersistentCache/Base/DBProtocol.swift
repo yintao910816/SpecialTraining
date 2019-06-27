@@ -118,6 +118,39 @@ extension DBOperation {
         return table.filter(filier)
     }
     
+    /**
+     * SELECT * FROM "users" WHERE ("id" IN (1, 2, 3, 4, 5))
+     */
+    static func dbSelect<Q: Value>(filiers: [Q],
+                            order aorder: [Expressible]? = nil,
+                            _ tbName: String,
+                            limit alimit: Int? = nil,
+                            expression: Expression<Q>) -> Table? {
+        guard let _ = db else {
+            return nil
+        }
+        
+        let table = Table(tbName)
+
+        if aorder != nil && alimit != nil {
+            return table.filter(filiers.contains(expression))
+                .order(aorder!)
+                .limit(alimit!)
+        }
+        
+        if aorder != nil && alimit == nil {
+            return table.filter(filiers.contains(expression))
+                .order(aorder!)
+        }
+
+        if aorder == nil && alimit != nil {
+            return table.filter(filiers.contains(expression))
+                .limit(alimit!)
+        }
+
+        return table.filter(filiers.contains(expression))
+    }
+    
     // 查询是否存在
     static func dbExist(_ filier: Expression<Bool>, _ tbName: String) ->Bool {
         guard let DB = db else {

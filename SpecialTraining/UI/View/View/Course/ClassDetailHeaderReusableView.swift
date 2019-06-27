@@ -50,7 +50,7 @@ class ClassDetailHeaderReusableView: UICollectionReusableView {
             changeVideoOutlet.isHidden = model.showChange
             bottomView.isHidden = !model.hasVideo
             
-            carouselView.setData(source: ClassDetailCarouselModel.createData(source: [model.pic]), autoScroll: false)
+            carouselView.setData(source: ClassDetailCarouselModel.createData(source: [model.class_pic]), autoScroll: false)
         }
     }
     

@@ -22,7 +22,7 @@ class CourseDetailClassCell: UITableViewCell {
 
     var model: CourseDetailClassModel! {
         didSet {
-            coverOutlet.setImage(model.pic)
+            coverOutlet.setImage(model.course_pic)
             classNameOutlet.text = model.class_name
             timeOutlet.text = model.describe
         }

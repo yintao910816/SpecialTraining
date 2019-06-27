@@ -15,7 +15,6 @@ extension UIView {
              borderColor corlor: UIColor = .clear,
              borderCorners corners: UIRectCorner) {
 
-        PrintLog("设置圆角试图frame 111：\(bounds)")
         setNeedsDisplay()
         layoutIfNeeded()
 
@@ -35,7 +34,6 @@ extension UIView {
              borderWidth width: CGFloat = 0,
              borderColor corlor: UIColor = .clear,
              borderCorners corners: UIRectCorner) ->CAShapeLayer {
-        PrintLog("设置圆角试图frame 222：\(bounds)")
         
         setNeedsDisplay()
         layoutIfNeeded()

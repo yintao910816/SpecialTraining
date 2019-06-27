@@ -77,13 +77,14 @@ class CourseDetailViewModel: BaseViewModel {
                 
                 let listClassData = data.classList.filter{ $0.class_category == "Y" }
                 self?.classListDatasource.value = listClassData
-                if listClassData.count > 3 {
-                    self?.headerPicDataSource.value = Array(listClassData[0...2])
-                }else {
-                    self?.headerPicDataSource.value = listClassData
-                }
 
                 let selectClassData = data.classList.filter{ $0.class_category == "N" }
+                if selectClassData.count > 3 {
+                    self?.headerPicDataSource.value = Array(selectClassData[0...2])
+                }else {
+                    self?.headerPicDataSource.value = selectClassData
+                }
+
                 selectClassData.first?.isSelected = true
                 self?.classSelectDatasource.value = [SectionModel.init(model: 0, items: selectClassData)]
                 

@@ -23,7 +23,7 @@ class ShoppingVerifyCell: UICollectionViewCell {
 
     var model: CourseDetailClassModel! {
         didSet {
-            coverOutlet.setImage(model.pic)
+            coverOutlet.setImage(model.class_pic)
             titleOutlet.text = model.title
             calssOutlet.text = " \(model.class_name)  "
             priceOutlet.text = "￥\(model.price)"

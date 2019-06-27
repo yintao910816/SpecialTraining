@@ -71,7 +71,7 @@ class ShoppingCarCell: UICollectionViewCell {
 
     var model: CourseDetailClassModel! {
         didSet {
-            coverOutlet.setImage(model.pic)
+            coverOutlet.setImage(model.class_pic)
             titleOutlet.text = model.class_name
             desOutlet.text = model.describe
             priceOutlet.text = model.price

@@ -1,11 +1,11 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14460.31" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="14490.70" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" colorMatched="YES">
     <device id="retina4_7" orientation="portrait">
         <adaptation id="fullscreen"/>
     </device>
     <dependencies>
         <deployment identifier="iOS"/>
-        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14460.20"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="14490.49"/>
         <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
     </dependencies>
     <objects>
@@ -115,6 +115,7 @@
                 <constraint firstItem="ii6-zQ-z9e" firstAttribute="top" secondItem="kCU-Ht-cg0" secondAttribute="top" id="DEd-qy-yUN"/>
                 <constraint firstItem="anj-x4-MRq" firstAttribute="top" secondItem="3y9-Vq-F1E" secondAttribute="bottom" constant="10" id="DJi-ki-OXd"/>
                 <constraint firstItem="LmZ-Pm-Itr" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="g51-eW-E4l" secondAttribute="trailing" constant="10" id="FaF-qM-5ZA"/>
+                <constraint firstItem="ii6-zQ-z9e" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="Cqf-Pr-WMI" secondAttribute="trailing" constant="10" id="M4K-mS-eIg"/>
                 <constraint firstItem="XVx-ZO-gfh" firstAttribute="leading" secondItem="anj-x4-MRq" secondAttribute="trailing" constant="8" id="NC5-Mb-2Xq"/>
                 <constraint firstItem="3y9-Vq-F1E" firstAttribute="bottom" secondItem="ii6-zQ-z9e" secondAttribute="bottom" id="QBE-lB-yfY"/>
                 <constraint firstItem="ii6-zQ-z9e" firstAttribute="centerX" secondItem="U6b-Vx-4bR" secondAttribute="centerX" id="VIT-Sz-te5"/>

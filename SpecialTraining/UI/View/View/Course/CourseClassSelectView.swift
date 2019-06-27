@@ -223,15 +223,26 @@ extension CourseClassSelectView {
             })
         }
     }
-}
-
-extension CourseClassSelectView: UIGestureRecognizerDelegate {
     
-    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
-        let point = gestureRecognizer.location(in: contentView)
-        if contentView.convert(point, toViewOrWindow: mainContentView).y > 0 {
-            return false
+    override func hitTest(_ point: CGPoint, with event: UIEvent?) -> UIView? {
+        let point = convert(point, to: collectView)
+        if collectView.point(inside: point, with: event) == true {
+            //            moreChoseSubject.onNext(Void())
+            print("集合试图")
+            return collectView
         }
-        return true
+        print("自己")
+        return self
     }
 }
+
+//extension CourseClassSelectView: UIGestureRecognizerDelegate {
+//
+//    override func gestureRecognizerShouldBegin(_ gestureRecognizer: UIGestureRecognizer) -> Bool {
+//        let point = gestureRecognizer.location(in: contentView)
+//        if contentView.convert(point, toViewOrWindow: mainContentView).y > 0 {
+//            return false
+//        }
+//        return true
+//    }
+//}

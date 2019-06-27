@@ -52,6 +52,25 @@ extension DBQueue {
         }
     }
     
+    public final func selectQueues<T: DBOperation, Q: Value>(_ filiers: [Q],
+                                                  order aorder: [Expressible]? = nil,
+                                                  _ tbName: String,
+                                                  limit alimit: Int? = nil,
+                                                  expression: Expression<Q>,
+                                                  _ type: T.Type,
+                                                  complement: @escaping ((Table?) ->())){
+        queue.async {
+            let table = type.dbSelect(filiers: filiers,
+                                      order: aorder,
+                                      tbName,
+                                      limit: alimit,
+                                      expression: expression)
+            DispatchQueue.main.async {
+                complement(table)
+            }
+        }
+    }
+    
     public final func updateQueue<T: DBOperation>(_ filier: Expression<Bool>,
                              _ setters: [Setter],
                              _ tbName: String,

@@ -55,7 +55,7 @@ class CourseDetailHeaderView: UIView {
             var maxIdx: Int = 0
             for idx in 0..<picList.count {
                 let imgV = (viewWithTag(100 + idx) as? UIImageView)
-                imgV?.setImage(picList[idx].pic)
+                imgV?.setImage(picList[idx].class_pic)
                 imgV?.isHidden = false
                 
                 maxIdx = idx
