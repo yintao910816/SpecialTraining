@@ -67,9 +67,9 @@ class RefundDetailsModel: HJModel {
     
     var returnsStatusText: String {
         if returns_status == 0 {
-            return "退款成功"
+            return "退款中..."
         }else if returns_status == 1 {
-            return "退款中"
+            return "退款成功"
         }else {
             return "退款失败"
         }
