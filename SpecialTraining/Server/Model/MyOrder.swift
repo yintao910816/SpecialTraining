@@ -36,12 +36,11 @@ class MemberAllOrderModel: HJModel {
 }
 
 class OrderItemModel: HJModel {
-    
-    var shop_id: String = ""
+    var item_id: String = ""
     var order_number: String = ""
     var course_id: String = ""
     var course_name: String = ""
-    var course_pic: String = ""
+    var class_pic: String = ""
     var class_id: String = ""
     var class_name: String = ""
     var class_price: String = ""
@@ -49,6 +48,7 @@ class OrderItemModel: HJModel {
     var total_fee: String = ""
     var class_category: String = ""
     var createtime: String = ""
+    var class_set_id: String = ""
 }
 
 /// 退款详情

@@ -28,7 +28,7 @@ class MineOrderRecordCell: UICollectionViewCell {
         
     var orderModel: OrderItemModel! {
         didSet {
-            coverOutlet.setImage(orderModel.course_pic)
+            coverOutlet.setImage(orderModel.class_pic)
             
             titleOutlet.text = orderModel.course_name
             priceOutlet.text = "¥\(orderModel.class_price)"
