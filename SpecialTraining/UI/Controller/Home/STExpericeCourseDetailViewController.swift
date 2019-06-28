@@ -77,24 +77,29 @@ class STExpericeCourseDetailViewController: BaseViewController {
         addShoppingCarOutlet.set(cornerRadius: 15, borderCorners: [.topLeft, .bottomLeft])
         buyOutlet.set(cornerRadius: 15, borderCorners: [.topRight, .bottomRight])
         
-        detailView = StaticWebView.init(frame: view.bounds)
+        detailView = StaticWebView.init(frame: .init(x: 0, y: 0, width: PPScreenW, height: 400))
         scrollView.addSubview(detailView)
         
         detailView.snp.makeConstraints{
-            $0.top.equalTo(sepLine.snp.bottom).offset(10)
+            $0.top.equalTo(sepLine.snp.bottom).offset(90 + 16)
             $0.left.right.bottom.equalTo(0)
         }
         
         scrollView.contentSize = .init(width: view.width,
                                        height: view.height)
+        
+        scrollView.isHidden = true
     }
     
     override func rxBind() {
         viewModel = ExpericeCourseDetailViewModel.init(courseId: courseId)
         
         viewModel.courseInfoObser.asDriver()
+            .skip(1)
             .drive(onNext: { [weak self] data in
                 guard let strongSelf = self else { return }
+                strongSelf.setVideoView(model: data)
+
                 strongSelf.carouselView.setData(source: PhotoModel.creatPhotoModels(photoList: data.course_info.pic_list))
                 strongSelf.titleOutlet.text = data.course_info.title
                 strongSelf.priceOutlet.text = "¥: \(data.course_info.about_price)"
@@ -103,20 +108,44 @@ class STExpericeCourseDetailViewController: BaseViewController {
                 strongSelf.sutePeoOutlet.text = "适合人群：\(data.classList.first?.suit_peoples ?? "")"
 
                 strongSelf.detailView.model = data.course_info
+                
+                strongSelf.scrollView.isHidden = false
             })
             .disposed(by: disposeBag)
         
         detailView.contentSizeObser
             .subscribe(onNext: { [weak self] size in
                 guard let strongSelf = self else { return }
+                strongSelf.view.setNeedsLayout()
+                strongSelf.view.layoutIfNeeded()
+                PrintLog("高度；\(strongSelf.detailView.frame.minY)")
                 strongSelf.scrollView.contentSize = .init(width: strongSelf.view.width,
-                                                          height: 401 + 6 + 10 + size.height)
+                                                          height: strongSelf.detailView.frame.minY + size.height)
             })
             .disposed(by: disposeBag)
         
         viewModel.reloadSubject.onNext(Void())
     }
- 
+    
+    private func setVideoView(model: CourseDetailModel) {
+        if model.videoList.count > 0 {
+            let dataArr = model.videoList.count > 3 ? Array(model.videoList[0...2]) : model.videoList
+            for idx in 0..<dataArr.count {
+                let videoCover = (scrollView.viewWithTag(300 + idx) as! UIButton)
+                videoCover.imageView?.contentMode = .scaleAspectFill
+                videoCover.isHidden = false
+                let videoLable = (scrollView.viewWithTag(400 + idx) as! UILabel)
+                videoLable.isHidden = false
+                videoCover.setImage(dataArr[idx].res_image)
+                videoLable.text = dataArr[idx].res_title
+            }
+        }else {
+            detailView.snp.updateConstraints{
+                $0.top.equalTo(sepLine.snp.bottom).offset(10)
+            }
+        }
+    }
+    
     override func prepare(parameters: [String : Any]?) {
         courseId = (parameters!["courseId"] as! String)
     }
