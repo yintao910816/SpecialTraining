@@ -63,20 +63,21 @@ class StaticWebView: UIView {
 extension StaticWebView: UIWebViewDelegate {
     
     func webViewDidFinishLoad(_ webView: UIWebView) {
-        let webHeightString = webView.stringByEvaluatingJavaScript(from: "document.body.scrollHeight") ?? "\(height)"
-        let webHeight: CGFloat = CGFloat(NumberFormatter().number(from: webHeightString)?.floatValue ?? Float(height))
-        
-        contentSizeObser.onNext(.init(width: width, height: webHeight))
-        
-        self.webView.snp.updateConstraints{ $0.height.equalTo(webHeight) }
-        
-        var rect = frame
-        rect.size.height = webHeight
-        frame = rect
+//        let webHeightString = webView.stringByEvaluatingJavaScript(from: "document.body.scrollHeight") ?? "\(height)"
+//        let webHeight: CGFloat = CGFloat(NumberFormatter().number(from: webHeightString)?.floatValue ?? Float(height))
         
         setNeedsLayout()
         layoutIfNeeded()
+
+        let contentSize = webView.scrollView.contentSize
+        contentSizeObser.onNext(contentSize)
         
-        print("新高度：\(frame)")
+        self.webView.snp.updateConstraints{ $0.height.equalTo(contentSize.height) }
+        
+        var rect = frame
+        rect.size.height = contentSize.height
+        frame = rect
+
+        print("新高度：\(frame.height)")
     }
 }

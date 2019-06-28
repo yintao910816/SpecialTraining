@@ -32,6 +32,15 @@ class STClassLessionListViewController: BaseViewController {
             }
             .disposed(by: disposeBag)
         
+        tableView.rx.modelSelected(ClassListModel.self)
+        .asDriver()
+            .drive(onNext: { [weak self] model in
+                let webVC = BaseWebViewController()
+                webVC.url = APIAssistance.lessionDetailH5URL(id: model.lesson_id)
+                self?.navigationController?.pushViewController(webVC, animated: true)
+            })
+        .disposed(by: disposeBag)
+        
         viewModel.reloadSubject.onNext(Void())
     }
     

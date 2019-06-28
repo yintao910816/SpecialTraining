@@ -375,6 +375,9 @@
 		B8C2066A22C3DBAF00B08508 /* HasPayDetailFooterView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C2066822C3DBAF00B08508 /* HasPayDetailFooterView.xib */; };
 		B8C2066C22C3DDAA00B08508 /* STHasPayViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2066B22C3DDAA00B08508 /* STHasPayViewController.swift */; };
 		B8C2066E22C3DE2B00B08508 /* HasPayViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2066D22C3DE2B00B08508 /* HasPayViewModel.swift */; };
+		B8C2067022C6739000B08508 /* ExpericeCourseDetailHeaderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2066F22C6739000B08508 /* ExpericeCourseDetailHeaderView.swift */; };
+		B8C2067222C6739B00B08508 /* ExpericeCourseDetailHeaderView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8C2067122C6739B00B08508 /* ExpericeCourseDetailHeaderView.xib */; };
+		B8C2067422C6824D00B08508 /* BaseWebViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8C2067322C6824D00B08508 /* BaseWebViewController.swift */; };
 		B8CA103622B05D4F008C1567 /* ClassDetailHeaderReusableView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8CA103422B05D4E008C1567 /* ClassDetailHeaderReusableView.swift */; };
 		B8CA103722B05D4F008C1567 /* ClassDetailHeaderReusableView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8CA103522B05D4E008C1567 /* ClassDetailHeaderReusableView.xib */; };
 		B8DB97E4228569FC00A9A0D1 /* STTeacherInfoViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8DB97E3228569FC00A9A0D1 /* STTeacherInfoViewController.swift */; };
@@ -952,6 +955,9 @@
 		B8C2066822C3DBAF00B08508 /* HasPayDetailFooterView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = HasPayDetailFooterView.xib; sourceTree = "<group>"; };
 		B8C2066B22C3DDAA00B08508 /* STHasPayViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = STHasPayViewController.swift; sourceTree = "<group>"; };
 		B8C2066D22C3DE2B00B08508 /* HasPayViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HasPayViewModel.swift; sourceTree = "<group>"; };
+		B8C2066F22C6739000B08508 /* ExpericeCourseDetailHeaderView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ExpericeCourseDetailHeaderView.swift; sourceTree = "<group>"; };
+		B8C2067122C6739B00B08508 /* ExpericeCourseDetailHeaderView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = ExpericeCourseDetailHeaderView.xib; sourceTree = "<group>"; };
+		B8C2067322C6824D00B08508 /* BaseWebViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = BaseWebViewController.swift; sourceTree = "<group>"; };
 		B8CA103422B05D4E008C1567 /* ClassDetailHeaderReusableView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ClassDetailHeaderReusableView.swift; sourceTree = "<group>"; };
 		B8CA103522B05D4E008C1567 /* ClassDetailHeaderReusableView.xib */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = file.xib; path = ClassDetailHeaderReusableView.xib; sourceTree = "<group>"; };
 		B8DB97E3228569FC00A9A0D1 /* STTeacherInfoViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTeacherInfoViewController.swift; sourceTree = "<group>"; };
@@ -1620,6 +1626,7 @@
 		B85F3315219E798000023958 /* Base */ = {
 			isa = PBXGroup;
 			children = (
+				B8C2067322C6824D00B08508 /* BaseWebViewController.swift */,
 				6BF7B93721BA1BF400BE1E4A /* BaseTableViewController.swift */,
 				B85F335B219E95A800023958 /* ViewControllerServer.swift */,
 				B85F3323219E902A00023958 /* BaseNavigationController.swift */,
@@ -2005,6 +2012,8 @@
 				C43D56E922AE73EE0085AA90 /* CourseDetailHeaderView.swift */,
 				C43D56EB22AE73FA0085AA90 /* CourseDetailHeaderView.xib */,
 				C43D56ED22AE78430085AA90 /* CourseDetailInfoView.swift */,
+				B8C2066F22C6739000B08508 /* ExpericeCourseDetailHeaderView.swift */,
+				B8C2067122C6739B00B08508 /* ExpericeCourseDetailHeaderView.xib */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -2921,6 +2930,7 @@
 				B803C3CB21BD6876004C97DB /* VideoCoverChoseCell.xib in Resources */,
 				B87A9417228B9EB900576AE7 /* FriendsApplyCell.xib in Resources */,
 				B8FBFA4D21A3DD9600AECB75 /* sweata_thumb.png in Resources */,
+				B8C2067222C6739B00B08508 /* ExpericeCourseDetailHeaderView.xib in Resources */,
 				B85DC0022221DE91000D3977 /* ApplyForBackAlertView.xib in Resources */,
 				B83F5A8922396F5900EAC675 /* OrganizationDetailShopCell.xib in Resources */,
 				B8FBFA2921A3DD9600AECB75 /* bs_thumb.png in Resources */,
@@ -3269,6 +3279,7 @@
 				B81E90BC21A3C559000754E3 /* ChatRightView.swift in Sources */,
 				B8914E3A222AEDEE00612FFE /* STEditStudentInfoViewController.swift in Sources */,
 				B8BB6A1222302B430001AB5D /* MineAccountHeaderView.swift in Sources */,
+				B8C2067022C6739000B08508 /* ExpericeCourseDetailHeaderView.swift in Sources */,
 				B85F3344219E94B200023958 /* HttpLoadingUI.swift in Sources */,
 				B8FC3AB32217163600889483 /* fileOutputViewController.swift in Sources */,
 				B85F3352219E94D600023958 /* TYHUDAnimating.swift in Sources */,
@@ -3334,6 +3345,7 @@
 				B8F7375D226CE23C002C1B66 /* MineOrderHeaderReusableView.swift in Sources */,
 				B81EDF7621A54D8500F9D3B0 /* STMapViewController.swift in Sources */,
 				B88F8CA221C164100064C1CF /* STResetPassOneViewController.swift in Sources */,
+				B8C2067422C6824D00B08508 /* BaseWebViewController.swift in Sources */,
 				B87A941B228BA07400576AE7 /* NoticesViewModel.swift in Sources */,
 				6BF7B93821BA1BF500BE1E4A /* BaseTableViewController.swift in Sources */,
 				B86B8F1422429D8F0017D580 /* FileManager.swift in Sources */,

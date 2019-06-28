@@ -36,7 +36,11 @@ class STVideoPlayViewController: BaseViewController {
     }
     
     @IBAction func actions(_ sender: UIButton) {
-        dismiss(animated: true, completion: nil)
+        if navigationController != nil {
+            navigationController?.popViewController(animated: true)
+        }else {
+            dismiss(animated: true, completion: nil)
+        }
     }
     
     override func setupUI() {

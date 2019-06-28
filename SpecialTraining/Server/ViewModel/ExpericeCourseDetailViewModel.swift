@@ -12,11 +12,12 @@ import RxSwift
 class ExpericeCourseDetailViewModel: BaseViewModel, VMNavigation {
     private var courseId: String = ""
     
-    let courseInfoObser = Variable(CourseDetailModel())
-    let insertShoppingCar = PublishSubject<Void>()
-    let buySubject = PublishSubject<Void>()
-    let gotoShopDetailSubject = PublishSubject<Void>()
-    
+    public let courseInfoObser = Variable(CourseDetailModel())
+    public let insertShoppingCar = PublishSubject<Void>()
+    public let buySubject = PublishSubject<Void>()
+    public let gotoShopDetailSubject = PublishSubject<Void>()
+    public let videoPlaySubject = PublishSubject<Int>()
+
     init(courseId: String) {
         super.init()
         
@@ -48,6 +49,14 @@ class ExpericeCourseDetailViewModel: BaseViewModel, VMNavigation {
         gotoShopDetailSubject
             .subscribe(onNext: { [unowned self] in
                 ExpericeCourseDetailViewModel.sbPush("STHome", "ShopInfoSegue", parameters: ["shop_id": self.courseInfoObser.value.course_info.shop_id])
+            })
+            .disposed(by: disposeBag)
+        
+        videoPlaySubject
+            .subscribe(onNext: { idx in
+                ExpericeCourseDetailViewModel.sbPush("STHome",
+                                                     "videoPlayCtrl",
+                                                     parameters: ["model": self.courseInfoObser.value.videoList[idx]])
             })
             .disposed(by: disposeBag)
     }

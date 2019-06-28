@@ -79,4 +79,10 @@ struct APIAssistance {
         let urlStr = base + "v1/courseClass/class_content?id=\(classId)"
         return URL.init(string: urlStr)
     }
+    
+    /// 备课详情 http://api.youpeixunjiaoyu.com/v1/member/lesson_detail?id=25
+    static func lessionDetailH5URL(id: String) ->String {
+        let urlStr = base + "v1/member/lesson_detail?id=\(id)"
+        return urlStr
+    }
 }
