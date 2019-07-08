@@ -252,6 +252,8 @@
 		B862DBC322341F9400C535AE /* BindPayAccountCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862DBC122341F9400C535AE /* BindPayAccountCell.swift */; };
 		B862DBC422341F9400C535AE /* BindPayAccountCell.xib in Resources */ = {isa = PBXBuildFile; fileRef = B862DBC222341F9400C535AE /* BindPayAccountCell.xib */; };
 		B862DBC62234233D00C535AE /* STBalanceToFundsViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B862DBC52234233D00C535AE /* STBalanceToFundsViewController.swift */; };
+		B8671FCA22D3B2730092515C /* VerifyOrderCOuponCodeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8671FC922D3B2730092515C /* VerifyOrderCOuponCodeView.swift */; };
+		B8671FCC22D3B27D0092515C /* VerifyOrderCOuponCodeView.xib in Resources */ = {isa = PBXBuildFile; fileRef = B8671FCB22D3B27D0092515C /* VerifyOrderCOuponCodeView.xib */; };
 		B8686AE3224160A20059BCB9 /* STTeacherClassViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AE2224160A20059BCB9 /* STTeacherClassViewController.swift */; };
 		B8686AE5224161FF0059BCB9 /* TeacherClassViewModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AE4224161FF0059BCB9 /* TeacherClassViewModel.swift */; };
 		B8686AE92241711E0059BCB9 /* CourseDetailVideoView.swift in Sources */ = {isa = PBXBuildFile; fileRef = B8686AE82241711E0059BCB9 /* CourseDetailVideoView.swift */; };
@@ -831,6 +833,8 @@
 		B862DBC122341F9400C535AE /* BindPayAccountCell.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = BindPayAccountCell.swift; sourceTree = "<group>"; };
 		B862DBC222341F9400C535AE /* BindPayAccountCell.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = BindPayAccountCell.xib; sourceTree = "<group>"; };
 		B862DBC52234233D00C535AE /* STBalanceToFundsViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STBalanceToFundsViewController.swift; sourceTree = "<group>"; };
+		B8671FC922D3B2730092515C /* VerifyOrderCOuponCodeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = VerifyOrderCOuponCodeView.swift; sourceTree = "<group>"; };
+		B8671FCB22D3B27D0092515C /* VerifyOrderCOuponCodeView.xib */ = {isa = PBXFileReference; lastKnownFileType = file.xib; path = VerifyOrderCOuponCodeView.xib; sourceTree = "<group>"; };
 		B8686AE2224160A20059BCB9 /* STTeacherClassViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = STTeacherClassViewController.swift; sourceTree = "<group>"; };
 		B8686AE4224161FF0059BCB9 /* TeacherClassViewModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = TeacherClassViewModel.swift; sourceTree = "<group>"; };
 		B8686AE82241711E0059BCB9 /* CourseDetailVideoView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CourseDetailVideoView.swift; sourceTree = "<group>"; };
@@ -2014,6 +2018,8 @@
 				C43D56ED22AE78430085AA90 /* CourseDetailInfoView.swift */,
 				B8C2066F22C6739000B08508 /* ExpericeCourseDetailHeaderView.swift */,
 				B8C2067122C6739B00B08508 /* ExpericeCourseDetailHeaderView.xib */,
+				B8671FC922D3B2730092515C /* VerifyOrderCOuponCodeView.swift */,
+				B8671FCB22D3B27D0092515C /* VerifyOrderCOuponCodeView.xib */,
 			);
 			path = Course;
 			sourceTree = "<group>";
@@ -2912,6 +2918,7 @@
 				B873B52222B0D26400BC1523 /* TeacherLessionsCell.xib in Resources */,
 				B8FBFA5521A3DD9600AECB75 /* hatea_thumb.png in Resources */,
 				B8BB6A1422302B4B0001AB5D /* MineAccountHeaderView.xib in Resources */,
+				B8671FCC22D3B27D0092515C /* VerifyOrderCOuponCodeView.xib in Resources */,
 				B8BB6A5C2230339E0001AB5D /* NoticeSettingCell.xib in Resources */,
 				B8FBFA4F21A3DD9600AECB75 /* sb_thumb.png in Resources */,
 				B8FBFA4A21A3DD9600AECB75 /* crazya_thumb.png in Resources */,
@@ -3230,6 +3237,7 @@
 				B81EDF5C21A51A8900F9D3B0 /* ChatImageRightView.swift in Sources */,
 				B85F3379219EA0B600023958 /* HomeRecommendCollectionView.swift in Sources */,
 				B8FBFA2021A3DD9600AECB75 /* EmojUtls.swift in Sources */,
+				B8671FCA22D3B2730092515C /* VerifyOrderCOuponCodeView.swift in Sources */,
 				B85F3338219E92A600023958 /* VCServer.swift in Sources */,
 				B87A9416228B9EB900576AE7 /* FriendsApplyCell.swift in Sources */,
 				C41D2502222FA60F00DC3D83 /* PhotoAlbums.m in Sources */,

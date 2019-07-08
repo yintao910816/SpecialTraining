@@ -16,13 +16,16 @@ class STVerifyOrderViewController: BaseViewController {
     @IBOutlet weak var totlePriceOutlet: UILabel!
     
     @IBOutlet weak var collectionView: UICollectionView!
+    
+    private var couponCodeView: VerifyOrderCOuponCodeView!
+    
     // 需要购买的商品
     private var classIds: [String] = []
     
     private var viewModel: VerifyOrderViewModel!
     
     @IBAction func actions(_ sender: UIButton) {
-        performSegue(withIdentifier: "gotoPaySegue", sender: nil)
+        couponCodeView.viewAnimotion()
     }
     
     override func setupUI() {
@@ -34,6 +37,11 @@ class STVerifyOrderViewController: BaseViewController {
         collectionView.register(ShoppingVerifyReusableView.self,
                                 forSupplementaryViewOfKind: UICollectionView.elementKindSectionHeader,
                                 withReuseIdentifier: "ShoppingVerifyReusableViewID")
+        
+        couponCodeView = VerifyOrderCOuponCodeView.init(frame: view.bounds)
+        view.addSubview(couponCodeView)
+        
+        couponCodeView.snp.makeConstraints { $0.edges.equalTo(UIEdgeInsets.zero) }
     }
     
     override func rxBind() {
@@ -71,6 +79,9 @@ class STVerifyOrderViewController: BaseViewController {
         collectionView.rx.setDelegate(self)
             .disposed(by: disposeBag)
 
+        couponCodeView.buySubject
+            .subscribe(onNext: { [unowned self] in self.performSegue(withIdentifier: "gotoPaySegue", sender: $0) })
+            .disposed(by: disposeBag)
     }
     
     override func prepare(parameters: [String : Any]?) {
@@ -81,7 +92,8 @@ class STVerifyOrderViewController: BaseViewController {
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "gotoPaySegue" {
-            segue.destination.prepare(parameters: ["classIds": classIds])
+            let code: String = (sender as? String) ?? ""
+            segue.destination.prepare(parameters: ["classIds": classIds, "code": code])
         }
     }
     

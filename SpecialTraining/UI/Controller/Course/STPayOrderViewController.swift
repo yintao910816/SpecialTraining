@@ -19,7 +19,8 @@ class STPayOrderViewController: BaseViewController {
     @IBOutlet weak var okOutlet: UIButton!
     
     private var classIds: [String] = []
-    
+    private var code: String = ""
+
     private var payType: PayType = .wchatPay
     
     private var viewModel: PayOrderViewModel!
@@ -43,7 +44,7 @@ class STPayOrderViewController: BaseViewController {
     
     override func rxBind() {
         let tapDriver = okOutlet.rx.tap.asDriver().map{ [unowned self] _ in self.payType }
-        viewModel = PayOrderViewModel.init(classIds: classIds, tap: tapDriver)
+        viewModel = PayOrderViewModel.init(classIds: classIds, tap: tapDriver, code: code)
         
         viewModel.gotoPayFinishPaySubject
             .subscribe(onNext: { [weak self] totlePrice in
@@ -58,6 +59,7 @@ class STPayOrderViewController: BaseViewController {
     
     override func prepare(parameters: [String : Any]?) {
         classIds = (parameters!["classIds"] as! [String])
+        code = parameters!["code"] as! String
     }
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {

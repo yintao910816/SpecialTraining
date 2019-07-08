@@ -13,6 +13,7 @@ import RxCocoa
 class PayOrderViewModel: BaseViewModel, VMNavigation {
     private var orderModels: [CourseDetailClassModel] = []
     private var classIds: [String] = []
+    private var code:      String  = ""
     private var totlePrice: String = "0"
     
     private let payManager = AppPayManager()
@@ -20,18 +21,19 @@ class PayOrderViewModel: BaseViewModel, VMNavigation {
     public let priceTextObser = Variable(NSAttributedString.init(string: ""))
     public let gotoPayFinishPaySubject = PublishSubject<String>()
     
-    init(classIds: [String], tap: Driver<PayType>) {
+    init(classIds: [String], tap: Driver<PayType>, code: String) {
         super.init()
 
         self.classIds = classIds
+        self.code     = code
         
         tap.asDriver()._doNext(forNotice: hud)
             .drive(onNext: { [unowned self] type in
                 switch type {
                 case .wchatPay:
-                    self.payManager.startWchatPay(models: self.orderModels)
+                    self.payManager.startWchatPay(models: self.orderModels, code: self.code)
                 case .alipay:
-                    self.payManager.startAliPay(models: self.orderModels)
+                    self.payManager.startAliPay(models: self.orderModels, code: self.code)
                 }
             })
             .disposed(by: disposeBag)

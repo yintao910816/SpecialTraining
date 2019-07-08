@@ -18,11 +18,16 @@ class AppPayManager {
     
     private let disposeBag = DisposeBag()
     
-    func startWchatPay(models: [CourseDetailClassModel]) {
-        STProvider.request(.submitOrder(params: configParams(models: models)))
-            .map(model: OrderModel.self)
-            .asObservable().concatMap{ model ->Observable<WchatPayModel> in
-                return STProvider.request(.wxPay(order_number: model.order_number, real_amount: model.real_amount))
+    func startWchatPay(models: [CourseDetailClassModel], code: String) {
+        let params = configParams(models: models, code: code)
+        STProvider.request(.submitOrder(params: params))
+//            .map(model: OrderModel.self)
+            .mapJSON()
+            .asObservable().concatMap{ result ->Observable<WchatPayModel> in
+                let dic = result as? [String: Any]
+                let orderNum: String = dic?["data"] as? String ?? ""
+//                return STProvider.request(.wxPay(order_number: model.order_number, real_amount: model.real_amount))
+                return STProvider.request(.wxPay(order_number: orderNum, real_amount: params["order_total_money"] as? String ?? ""))
                     .map(model: WchatPayModel.self)
                     .asObservable()
             }
@@ -36,8 +41,8 @@ class AppPayManager {
             .disposed(by: disposeBag)
     }
     
-    func startAliPay(models: [CourseDetailClassModel]) {
-        STProvider.request(.submitOrder(params: configParams(models: models)))
+    func startAliPay(models: [CourseDetailClassModel], code: String) {
+        STProvider.request(.submitOrder(params: configParams(models: models, code: code)))
             .map(model: OrderModel.self)
             .asObservable().concatMap{ model ->Observable<String> in
                 return STProvider.request(.alipay(order_number: model.order_number))
@@ -94,14 +99,15 @@ extension AppPayManager {
         return req
     }
     
-    private func configParams(models: [CourseDetailClassModel]) ->[String: Any] {
+    private func configParams(models: [CourseDetailClassModel], code: String) ->[String: Any] {
         var classInfos = [[String: Any]]()
         var totleMoney: Double = 0.0
         for course in models {
             let classInfo: [String: Any] = ["shop_id": course.shop_id,
                                             "class_id": "\(course.class_id)",
-                "class_num": "1",
-                "total_money": course.price]
+                                            "class_num": "1",
+                                            "total_money": course.price,
+                                            "coupon_code": code]
             classInfos.append(classInfo)
             
             totleMoney += (Double(course.price) ?? 0.0)
