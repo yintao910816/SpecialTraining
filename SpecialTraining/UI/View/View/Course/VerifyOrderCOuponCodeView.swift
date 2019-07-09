@@ -67,6 +67,7 @@ class VerifyOrderCOuponCodeView: UIView {
                 self.transform = CGAffineTransform.identity
             })
         }else {
+            endEditing(true)
             UIView.animate(withDuration: 0.25, animations: {
                 self.transform = CGAffineTransform.init(scaleX: 0.01, y: 0.01)
             }) { flag in

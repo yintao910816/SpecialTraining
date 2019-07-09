@@ -2,7 +2,7 @@ PODS:
   - Alamofire (4.8.2)
   - AlipaySDK-iOS (15.5.9)
   - AliyunOSSiOS (2.10.7)
-  - AliyunPlayer_iOS/AliyunPlayerSDK (3.4.9)
+  - AliyunPlayer_iOS/AliyunPlayerSDK (3.4.10)
   - BaiduMapKit (4.3.2)
   - BMKLocationKit (1.6.0)
   - Differentiator (3.1.0)
@@ -114,7 +114,7 @@ SPEC CHECKSUMS:
   Alamofire: ae5c501addb7afdbb13687d7f2f722c78734c2d3
   AlipaySDK-iOS: 1c5283b30977a24acecc0114662697f7dc78f618
   AliyunOSSiOS: 602b6a4e70e62a5f0a6431c20496343141d7e66f
-  AliyunPlayer_iOS: 5704f564e0c041668138a604ebff31ecb13fe7d3
+  AliyunPlayer_iOS: 759820a9348ac0d1aff853034216a89ff4f843b2
   BaiduMapKit: a5d9580553355d39a91b24c5eb91ebf298c64038
   BMKLocationKit: c8bd4f213b231f743c12c3095ad6a8311db259d8
   Differentiator: be49ca3408f0ecfc761e4c7763d20c62be01b9ad
@@ -140,4 +140,4 @@ SPEC CHECKSUMS:
 
 PODFILE CHECKSUM: 92cc4bf580ea5f411423083dbb2c1c7644e128fa
 
-COCOAPODS: 1.7.1
+COCOAPODS: 1.6.0

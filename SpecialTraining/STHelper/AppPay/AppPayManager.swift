@@ -21,22 +21,19 @@ class AppPayManager {
     func startWchatPay(models: [CourseDetailClassModel], code: String) {
         let params = configParams(models: models, code: code)
         STProvider.request(.submitOrder(params: params))
-//            .map(model: OrderModel.self)
-            .mapJSON()
-            .asObservable().concatMap{ result ->Observable<WchatPayModel> in
-                let dic = result as? [String: Any]
-                let orderNum: String = dic?["data"] as? String ?? ""
-//                return STProvider.request(.wxPay(order_number: model.order_number, real_amount: model.real_amount))
-                return STProvider.request(.wxPay(order_number: orderNum, real_amount: params["order_total_money"] as? String ?? ""))
+            .map(model: OrderModel.self)
+            .asObservable().concatMap{ model ->Observable<WchatPayModel> in
+                return STProvider.request(.wxPay(order_number: model.order_number, real_amount: model.real_amount))
                     .map(model: WchatPayModel.self)
                     .asObservable()
             }
             .subscribe(onNext: { [weak self] model in
                 if WXApi.send(self?.creatPayModel(model: model)) == false {
-                    NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (false, "调起微信支付失败！"))
+                    NotificationCenter.default.post(name: NotificationName.WX.WXPay,
+                                                    object: (false, MapperError.operation(message: "调起微信支付失败！")))
                 }
             }, onError: { error in
-                NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (false, error.localizedDescription))
+                NotificationCenter.default.post(name: NotificationName.WX.WXPay, object: (false, error))
             })
             .disposed(by: disposeBag)
     }
@@ -64,20 +61,24 @@ class AppPayManager {
                 if orderString.count > 0 {
                     AlipaySDK.defaultService()?.payOrder(orderString, fromScheme: "specialTraining.youpeixun.com", callback: { resultDic in
                         guard let jsonDic = resultDic as? [String : Any] else {
-                            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "未知结果，请联系商家"))
+                            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack,
+                                                            object: (false, MapperError.operation(message: "未知结果，请联系商家!")))
                             return
                         }
                         if let code = jsonDic["resultStatus"] as? String, code == "9000" {
                             NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (true, "支付成功"))
                         }else {
-                            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "未知结果，请联系商家"))
+                            NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack,
+                                                            object: (false, MapperError.operation(message: "未知结果，请联系商家!")))
                         }
                     })
                 }else {
-                    NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, "支付信息后获取失败"))
+                    NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack,
+                                                    object: (false, MapperError.operation(message: "支付信息后获取失败!")))
                 }
             }, onError: { error in
-                NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack, object: (false, error.localizedDescription))
+                NotificationCenter.default.post(name: NotificationName.AliPay.aliPayBack,
+                                                object: (false, error))
             })
             .disposed(by: disposeBag)
     }

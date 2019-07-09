@@ -35,7 +35,12 @@ public extension Response {
         
         if serverModel.errno == 0, let model = serverModel.data {
             return model
-        }else {
+        }else if serverModel.errno == 1000 {
+          // 提交订单获取订单信息的报错
+            var msg: String = "操作失败"
+            if let m = jsonDictionary["data"] as? String { msg = m }
+            throw MapperError.server(message: msg)
+        } else {
             throw MapperError.server(message: serverModel.errmsg)
         }
     }
@@ -94,6 +99,7 @@ enum MapperError: Swift.Error {
     case ok(message: String?)
     case json(message: String?)
     case server(message: String?)
+    case operation(message: String?)
 }
 
 extension MapperError {
@@ -106,6 +112,8 @@ extension MapperError {
             return (text ?? "解析失败！")
         case .server(let text):
             return text ?? "错误：52000"
+        case .operation(let text):
+            return text ?? "操作失败"
         }
     }
 }

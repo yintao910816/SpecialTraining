@@ -63,12 +63,12 @@ class PayOrderViewModel: BaseViewModel, VMNavigation {
     }
  
     private func finishPay(result: Any?) {
-        if let ret = result as? (Bool, String) {
+        if let ret = result as? (Bool, Error) {
             if ret.0 == true {
                 hud.noticeHidden()
                 gotoPayFinishPaySubject.onNext(totlePrice)
             }else {
-                hud.failureHidden(ret.1)
+                hud.failureHidden(errorMessage(ret.1))
             }
         }else {
             hud.noticeHidden()
