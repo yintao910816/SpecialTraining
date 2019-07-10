@@ -16,7 +16,7 @@ class ExpericeCourseDetailViewModel: BaseViewModel, VMNavigation {
     public let insertShoppingCar = PublishSubject<Void>()
     public let buySubject = PublishSubject<Void>()
     public let gotoShopDetailSubject = PublishSubject<Void>()
-    public let videoPlaySubject = PublishSubject<Int>()
+    public let videoPlaySubject = PublishSubject<CourseDetailVideoModel>()
 
     init(courseId: String) {
         super.init()
@@ -53,10 +53,10 @@ class ExpericeCourseDetailViewModel: BaseViewModel, VMNavigation {
             .disposed(by: disposeBag)
         
         videoPlaySubject
-            .subscribe(onNext: { idx in
+            .subscribe(onNext: { model in
                 ExpericeCourseDetailViewModel.sbPush("STHome",
                                                      "videoPlayCtrl",
-                                                     parameters: ["model": self.courseInfoObser.value.videoList[idx]])
+                                                     parameters: ["model": model])
             })
             .disposed(by: disposeBag)
     }
